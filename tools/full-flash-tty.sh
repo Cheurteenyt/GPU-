@@ -32,12 +32,12 @@ if [ -f "$DEST" ]; then
 fi
 
 echo "[1/5] data-drive mount check"
-if ! findmnt "$LAB" > /dev/null; then
+if ! findmnt -T "$LAB" > /dev/null; then
   echo "  not mounted — attempting udisks mount"
   DEV=$(lsblk -rno NAME,LABEL | awk '$2=="Jeux SSD"{print "/dev/"$1; exit}')
   [ -n "$DEV" ] && udisksctl mount -b "$DEV" || { echo "  ERROR: cannot mount the drive"; exit 1; }
 fi
-echo "  mounted: $(findmnt -no SOURCE "$LAB")"
+echo "  mounted: $(findmnt -T -no SOURCE "$LAB")"
 
 echo "[2/5] stopping $DM (screen goes dark now)"
 systemctl stop "$DM"
