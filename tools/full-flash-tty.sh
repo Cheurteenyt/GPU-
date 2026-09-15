@@ -37,7 +37,7 @@ if ! findmnt -T "$LAB" > /dev/null; then
   DEV=$(lsblk -rno NAME,LABEL | awk '$2=="Jeux SSD"{print "/dev/"$1; exit}')
   [ -n "$DEV" ] && udisksctl mount -b "$DEV" || { echo "  ERROR: cannot mount the drive"; exit 1; }
 fi
-echo "  mounted: $(findmnt -T -no SOURCE "$LAB")"
+echo "  mounted: $(findmnt -n -o SOURCE --target "$LAB")"
 
 echo "[2/5] stopping $DM (screen goes dark now)"
 systemctl stop "$DM"
@@ -58,11 +58,20 @@ restore() {
   fi
 }
 
-echo "[3/5] unloading the NVIDIA driver"
-modprobe -r i2c_nvidia_gpu nvidia_drm nvidia_uvm nvidia_modeset nvidia 2>/dev/null \
-  || rmmod i2c_nvidia_gpu nvidia_drm nvidia_uvm nvidia_modeset nvidia 2>/dev/null || true
-if lsmod | grep -q "^nvidia "; then
-  echo "ERROR: the driver refused to unload — restoring and aborting"
+echo "[3/5] unloading the NVIDIA driver (waiting for session processes to die)"
+sleep 3
+unloaded=0
+for i in 1 2 3 4 5 6; do
+  modprobe -r i2c_nvidia_gpu nvidia_drm nvidia_uvm nvidia_modeset nvidia 2>/dev/null \
+    || rmmod i2c_nvidia_gpu nvidia_drm nvidia_uvm nvidia_modeset nvidia 2>/dev/null || true
+  if ! lsmod | grep -q "^nvidia "; then unloaded=1; break; fi
+  echo "  still busy (attempt $i) — waiting 2s"
+  sleep 2
+done
+if [ "$unloaded" != "1" ]; then
+  echo "ERROR: the driver refused to unload — holders:"
+  lsof /dev/nvidia* 2>/dev/null | head -8
+  echo "restoring and aborting"
   restore
   exit 1
 fi
