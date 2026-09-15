@@ -18,14 +18,14 @@
 set -u
 LAB="/run/media/cheurteen/Jeux SSD/Reverse Engenering/gpu-lab"
 DEST="$LAB/day0/vbios-full-flash.rom"
-LOG=/tmp/full-flash.log
+LOG="$LAB/day0/full-flash-log.txt"
 DM=sddm
 
-exec > >(tee -a "$LOG") 2>&1
 echo "=== full-flash attempt $(date -Is) ==="
 
 if [ "$(id -u)" != "0" ]; then echo "ERROR: run with sudo"; exit 1; fi
 if [ ! -d "$LAB" ]; then echo "ERROR: the gpu-lab drive is not mounted"; exit 1; fi
+exec > >(tee -a "$LOG") 2>&1
 if [ -f "$DEST" ]; then
   echo "WARNING: $DEST already exists — moving it aside"
   mv "$DEST" "$DEST.bak.$(date +%s)"
@@ -93,12 +93,13 @@ if [ "$unloaded" != "1" ]; then
 fi
 echo "  driver unloaded"
 
-echo "[4/5] nvflash --save (read-only, the card is never written)"
+echo "[4/5] nvflash --save (read-only, the card is never written, 2-minute hard timeout)"
 cd "$LAB"
-if ./tools/x64/nvflash --save "$DEST"; then
+if timeout -k 5 120 ./tools/x64/nvflash --save "$DEST" < /dev/null; then
   echo "READ OK"
 else
-  echo "NVFLASH FAILED (see the exact error above — it is in this log)"
+  RC=$?
+  echo "NVFLASH FAILED or TIMED OUT (exit code $RC — see the exact error above)"
 fi
 
 echo "[5/5] restore"
