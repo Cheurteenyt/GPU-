@@ -1,0 +1,624 @@
+{
+  "instrument": "gx14-fanpolicy",
+  "ring": 14,
+  "specimens": [
+    {
+      "file": "MSI.RTX3070.8192.210519_1.rom",
+      "sha256_16": "41a0860f8abfcfa7",
+      "fan_coolers": {
+        "offset": 591405,
+        "version": "0x10",
+        "count": 2,
+        "coolers": [
+          {
+            "index": 0,
+            "type_code": 2,
+            "min_duty_pct": 17,
+            "max_duty_pct": 100,
+            "pwm_freq": 27000,
+            "rpm_candidate_min": 1000,
+            "rpm_candidate_max": 3250
+          },
+          {
+            "index": 1,
+            "type_code": 2,
+            "min_duty_pct": 17,
+            "max_duty_pct": 100,
+            "pwm_freq": 27000,
+            "rpm_candidate_min": 1000,
+            "rpm_candidate_max": 3250
+          }
+        ]
+      },
+      "fan_policy": {
+        "offset": 591463,
+        "version": "0x20",
+        "record_size": 51,
+        "record_count": 8,
+        "plausible_records": 8,
+        "records": [
+          {
+            "index": 0,
+            "duty_percent": [
+              17,
+              45,
+              100
+            ],
+            "temperature_c": [
+              55.0,
+              75.0,
+              80.0
+            ],
+            "target_rpm": [
+              1000,
+              2100,
+              3250
+            ],
+            "plausible": true,
+            "raw": "01004200beff232b0a0100028000112d6400e006e80360093408000ab20ca005e0067082030080a90300b80088130000000017"
+          },
+          {
+            "index": 1,
+            "duty_percent": [
+              17,
+              45,
+              100
+            ],
+            "temperature_c": [
+              55.0,
+              75.0,
+              80.0
+            ],
+            "target_rpm": [
+              1000,
+              2100,
+              3250
+            ],
+            "plausible": true,
+            "raw": "01004200beff232b0a0100028000112d6400e006e80360093408000ab20ca005e0067082030080a90300b80088130000000017"
+          },
+          {
+            "index": 2,
+            "duty_percent": [
+              17,
+              45,
+              100
+            ],
+            "temperature_c": [
+              95.0,
+              100.0,
+              103.0
+            ],
+            "target_rpm": [
+              1000,
+              2100,
+              3250
+            ],
+            "plausible": true,
+            "raw": "01014200beff232b0a018002a000112d6400e00be803800c3408e00cb20ce006c0087082030080a90300b80088130000000007"
+          },
+          {
+            "index": 3,
+            "duty_percent": [
+              20,
+              20,
+              76
+            ],
+            "temperature_c": [
+              133.0,
+              136.0,
+              139.0
+            ],
+            "target_rpm": [
+              1000,
+              1000,
+              3750
+            ],
+            "plausible": true,
+            "raw": "00094200beff232b0a010002800014144c00a010e8030011e8036011a60e8007c008204e0000a0860100b80088130000000007"
+          },
+          {
+            "index": 4,
+            "duty_percent": [
+              30,
+              42,
+              85
+            ],
+            "temperature_c": [
+              42.0,
+              75.69,
+              95.0
+            ],
+            "target_rpm": [
+              1100,
+              1627,
+              4200
+            ],
+            "plausible": true,
+            "raw": "00004200beff232b0a01000280001e2a550040054c0476095b06e00b681000000000000000000000000000000000ff00000001"
+          },
+          {
+            "index": 5,
+            "duty_percent": [
+              30,
+              42,
+              85
+            ],
+            "temperature_c": [
+              42.0,
+              75.69,
+              95.0
+            ],
+            "target_rpm": [
+              1100,
+              1627,
+              4200
+            ],
+            "plausible": true,
+            "raw": "00004200beff232b0a01000280001e2a550040054c0476095b06e00b681000000000000000000000000000000000ff00000001"
+          },
+          {
+            "index": 6,
+            "duty_percent": [
+              30,
+              42,
+              85
+            ],
+            "temperature_c": [
+              42.0,
+              75.69,
+              95.0
+            ],
+            "target_rpm": [
+              1100,
+              1627,
+              4200
+            ],
+            "plausible": true,
+            "raw": "00004200beff232b0a01000280001e2a550040054c0476095b06e00b681000000000000000000000000000000000ff00000001"
+          },
+          {
+            "index": 7,
+            "duty_percent": [
+              30,
+              42,
+              85
+            ],
+            "temperature_c": [
+              42.0,
+              75.69,
+              95.0
+            ],
+            "target_rpm": [
+              1100,
+              1627,
+              4200
+            ],
+            "plausible": true,
+            "raw": "00004200beff232b0a01000280001e2a550040054c0476095b06e00b681000000000000000000000000000000000ff00000001"
+          }
+        ]
+      },
+      "power_budget_cap": {
+        "offset": 588616,
+        "version": "0x30",
+        "cap_entry": 2,
+        "min_mw": 100000,
+        "avg_mw": 240000,
+        "peak_mw": 250000
+      }
+    },
+    {
+      "file": "MSI.RTX3070.8192.210519_2.rom",
+      "sha256_16": "4de4e5f13448fbb9",
+      "fan_coolers": {
+        "offset": 591405,
+        "version": "0x10",
+        "count": 2,
+        "coolers": [
+          {
+            "index": 0,
+            "type_code": 2,
+            "min_duty_pct": 20,
+            "max_duty_pct": 100,
+            "pwm_freq": 27000,
+            "rpm_candidate_min": 1000,
+            "rpm_candidate_max": 3450
+          },
+          {
+            "index": 1,
+            "type_code": 2,
+            "min_duty_pct": 20,
+            "max_duty_pct": 100,
+            "pwm_freq": 27000,
+            "rpm_candidate_min": 1000,
+            "rpm_candidate_max": 3450
+          }
+        ]
+      },
+      "fan_policy": {
+        "offset": 591463,
+        "version": "0x20",
+        "record_size": 51,
+        "record_count": 8,
+        "plausible_records": 8,
+        "records": [
+          {
+            "index": 0,
+            "duty_percent": [
+              20,
+              60,
+              100
+            ],
+            "temperature_c": [
+              60.0,
+              75.0,
+              84.0
+            ],
+            "target_rpm": [
+              1000,
+              2300,
+              3450
+            ],
+            "plausible": true,
+            "raw": "01004200beff232b0a0100028000143c64008007e8036009fc08800a7a0de006400750340300605b0300b80088130000000017"
+          },
+          {
+            "index": 1,
+            "duty_percent": [
+              20,
+              55,
+              100
+            ],
+            "temperature_c": [
+              60.0,
+              75.0,
+              84.0
+            ],
+            "target_rpm": [
+              1000,
+              2200,
+              3450
+            ],
+            "plausible": true,
+            "raw": "01004200beff232b0a0100028000143764008007e80360099808800a7a0de006400750340300605b0300b80088130000000017"
+          },
+          {
+            "index": 2,
+            "duty_percent": [
+              20,
+              60,
+              100
+            ],
+            "temperature_c": [
+              95.0,
+              100.0,
+              103.0
+            ],
+            "target_rpm": [
+              1000,
+              2300,
+              3450
+            ],
+            "plausible": true,
+            "raw": "01014200beff232b0a018002a000143c6400e00be803800cfc08e00c7a0d2008200950340300605b0300b80088130000000007"
+          },
+          {
+            "index": 3,
+            "duty_percent": [
+              20,
+              20,
+              76
+            ],
+            "temperature_c": [
+              133.0,
+              136.0,
+              139.0
+            ],
+            "target_rpm": [
+              1000,
+              1000,
+              3750
+            ],
+            "plausible": true,
+            "raw": "00094200beff232b0a010002800014144c00a010e8030011e8036011a60e8007c008204e0000a0860100b80088130000000007"
+          },
+          {
+            "index": 4,
+            "duty_percent": [
+              30,
+              42,
+              85
+            ],
+            "temperature_c": [
+              42.0,
+              75.69,
+              95.0
+            ],
+            "target_rpm": [
+              1100,
+              1627,
+              4200
+            ],
+            "plausible": true,
+            "raw": "00004200beff232b0a01000280001e2a550040054c0476095b06e00b681000000000000000000000000000000000ff00000001"
+          },
+          {
+            "index": 5,
+            "duty_percent": [
+              30,
+              42,
+              85
+            ],
+            "temperature_c": [
+              42.0,
+              75.69,
+              95.0
+            ],
+            "target_rpm": [
+              1100,
+              1627,
+              4200
+            ],
+            "plausible": true,
+            "raw": "00004200beff232b0a01000280001e2a550040054c0476095b06e00b681000000000000000000000000000000000ff00000001"
+          },
+          {
+            "index": 6,
+            "duty_percent": [
+              30,
+              42,
+              85
+            ],
+            "temperature_c": [
+              42.0,
+              75.69,
+              95.0
+            ],
+            "target_rpm": [
+              1100,
+              1627,
+              4200
+            ],
+            "plausible": true,
+            "raw": "00004200beff232b0a01000280001e2a550040054c0476095b06e00b681000000000000000000000000000000000ff00000001"
+          },
+          {
+            "index": 7,
+            "duty_percent": [
+              30,
+              42,
+              85
+            ],
+            "temperature_c": [
+              42.0,
+              75.69,
+              95.0
+            ],
+            "target_rpm": [
+              1100,
+              1627,
+              4200
+            ],
+            "plausible": true,
+            "raw": "00004200beff232b0a01000280001e2a550040054c0476095b06e00b681000000000000000000000000000000000ff00000001"
+          }
+        ]
+      },
+      "power_budget_cap": {
+        "offset": 588616,
+        "version": "0x30",
+        "cap_entry": 2,
+        "min_mw": 100000,
+        "avg_mw": 220000,
+        "peak_mw": 220000
+      }
+    },
+    {
+      "file": "MSI.RTX3070.8192.200923.rom",
+      "sha256_16": "eee06a47a9de56f9",
+      "fan_coolers": {
+        "offset": 575491,
+        "version": "0x10",
+        "count": 2,
+        "coolers": [
+          {
+            "index": 0,
+            "type_code": 2,
+            "min_duty_pct": 17,
+            "max_duty_pct": 100,
+            "pwm_freq": 27000,
+            "rpm_candidate_min": 1000,
+            "rpm_candidate_max": 3250
+          },
+          {
+            "index": 1,
+            "type_code": 2,
+            "min_duty_pct": 17,
+            "max_duty_pct": 100,
+            "pwm_freq": 27000,
+            "rpm_candidate_min": 1000,
+            "rpm_candidate_max": 3250
+          }
+        ]
+      },
+      "fan_policy": {
+        "offset": 575549,
+        "version": "0x20",
+        "record_size": 51,
+        "record_count": 8,
+        "plausible_records": 8,
+        "records": [
+          {
+            "index": 0,
+            "duty_percent": [
+              17,
+              45,
+              100
+            ],
+            "temperature_c": [
+              55.0,
+              75.0,
+              80.0
+            ],
+            "target_rpm": [
+              1000,
+              2100,
+              3250
+            ],
+            "plausible": true,
+            "raw": "01004200beff232b0a0100028000112d6400e006e80360093408000ab20ca005e0067082030080a90300b80088130000000017"
+          },
+          {
+            "index": 1,
+            "duty_percent": [
+              17,
+              45,
+              100
+            ],
+            "temperature_c": [
+              55.0,
+              75.0,
+              80.0
+            ],
+            "target_rpm": [
+              1000,
+              2100,
+              3250
+            ],
+            "plausible": true,
+            "raw": "01004200beff232b0a0100028000112d6400e006e80360093408000ab20ca005e0067082030080a90300b80088130000000017"
+          },
+          {
+            "index": 2,
+            "duty_percent": [
+              17,
+              45,
+              100
+            ],
+            "temperature_c": [
+              95.0,
+              100.0,
+              103.0
+            ],
+            "target_rpm": [
+              1000,
+              2100,
+              3250
+            ],
+            "plausible": true,
+            "raw": "01014200beff232b0a018002a000112d6400e00be803800c3408e00cb20ce006c0087082030080a90300b80088130000000007"
+          },
+          {
+            "index": 3,
+            "duty_percent": [
+              20,
+              20,
+              76
+            ],
+            "temperature_c": [
+              133.0,
+              136.0,
+              139.0
+            ],
+            "target_rpm": [
+              1000,
+              1000,
+              3750
+            ],
+            "plausible": true,
+            "raw": "00094200beff232b0a010002800014144c00a010e8030011e8036011a60e8007c008204e0000a0860100b80088130000000007"
+          },
+          {
+            "index": 4,
+            "duty_percent": [
+              30,
+              42,
+              85
+            ],
+            "temperature_c": [
+              42.0,
+              75.69,
+              95.0
+            ],
+            "target_rpm": [
+              1100,
+              1627,
+              4200
+            ],
+            "plausible": true,
+            "raw": "00004200beff232b0a01000280001e2a550040054c0476095b06e00b681000000000000000000000000000000000ff00000001"
+          },
+          {
+            "index": 5,
+            "duty_percent": [
+              30,
+              42,
+              85
+            ],
+            "temperature_c": [
+              42.0,
+              75.69,
+              95.0
+            ],
+            "target_rpm": [
+              1100,
+              1627,
+              4200
+            ],
+            "plausible": true,
+            "raw": "00004200beff232b0a01000280001e2a550040054c0476095b06e00b681000000000000000000000000000000000ff00000001"
+          },
+          {
+            "index": 6,
+            "duty_percent": [
+              30,
+              42,
+              85
+            ],
+            "temperature_c": [
+              42.0,
+              75.69,
+              95.0
+            ],
+            "target_rpm": [
+              1100,
+              1627,
+              4200
+            ],
+            "plausible": true,
+            "raw": "00004200beff232b0a01000280001e2a550040054c0476095b06e00b681000000000000000000000000000000000ff00000001"
+          },
+          {
+            "index": 7,
+            "duty_percent": [
+              30,
+              42,
+              85
+            ],
+            "temperature_c": [
+              42.0,
+              75.69,
+              95.0
+            ],
+            "target_rpm": [
+              1100,
+              1627,
+              4200
+            ],
+            "plausible": true,
+            "raw": "00004200beff232b0a01000280001e2a550040054c0476095b06e00b681000000000000000000000000000000000ff00000001"
+          }
+        ]
+      },
+      "power_budget_cap": {
+        "offset": 572782,
+        "version": "0x30",
+        "cap_entry": 2,
+        "min_mw": 100000,
+        "avg_mw": 240000,
+        "peak_mw": 250000
+      }
+    }
+  ]
+}

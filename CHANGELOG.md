@@ -85,3 +85,14 @@ findings files carry the honesty ledgers.
   a hardware clip). The script suite (v2→v2.6, watchdog-armed) is
   committed as the attempt's durable output. See
   `lab/findings-gx13.md`.
+
+## Unreleased — rings 14 (2026-09-16)
+
+- **ring 14** — the fan curves decoded end to end (grammar imported from
+  the community parser NVIDIA-VBIOS-Info-Reader): three-point curves
+  (duty/°C/RPM) for all 8 records × 3 specimens; the founder's board
+  runs 17%→55°C→1000 RPM / 45%→75°C→2100 / 100%→80°C→3250, with an
+  emergency curve (95–103°C) and a hardware-panic curve (133–139°C);
+  the Ventus curve differs everywhere (20/60/100% @ 60/75/84°C) — the
+  fan behavior is a board-family marker at named offsets. See
+  `lab/findings-gx14.md`.
