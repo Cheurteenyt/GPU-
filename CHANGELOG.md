@@ -32,3 +32,14 @@ findings files carry the honesty ledgers.
 - **day-0** — the live dump: sibling-not-twin verdict, byte-stable second
   read, the BAR investigation closed by measurement (the full-SPI path is
   the live USB + `iomem=relaxed`).
+
+## Unreleased — ring 9 (2026-09-15, post-publication)
+
+- **ring 9** — recon of the last territory: `gsp_ga10x.bin` (84 MB,
+  ELF64 RISC-V container) wraps 14 per-family firmware images
+  (`kernel_ga10x.elf`…); the libos 3.1.0 microkernel layer is plaintext
+  (source paths, assertions, task machinery); the RM payload — where the
+  VBIOS table parsers live — is packed (zero plaintext table names);
+  no public extractor exists. The unpacking project is registered with
+  its groundwork: container layout, embedded-ELF map, libos layer
+  identified. See `lab/findings-gx9.md`.
