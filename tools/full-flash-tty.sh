@@ -41,19 +41,19 @@ echo "  mounted: $(findmnt -n -o SOURCE --target "$LAB")"
 
 echo "[2/5] stopping $DM (screen goes dark now)"
 systemctl stop "$DM"
-if systemctl is-active --quiet coolercontrold; then
-  echo "  stopping coolercontrold (it holds /dev/nvidia0 open)"
-  systemctl stop coolercontrold
-  CC_STOPPED=1
-else
-  CC_STOPPED=0
-fi
+for SVC in coolercontrold lactd; do
+  if systemctl is-active --quiet "$SVC"; then
+    echo "  stopping $SVC (it holds the GPU open)"
+    systemctl stop "$SVC"
+    STOPPED_SERVICES="$STOPPED_SERVICES $SVC"
+  fi
+done
 
 restore() {
-  if [ "${CC_STOPPED:-0}" = "1" ]; then
-  echo "[restore] restarting coolercontrold"
-  systemctl start coolercontrold
-fi
+  for SVC in $STOPPED_SERVICES; do
+  echo "[restore] restarting $SVC"
+  systemctl start "$SVC"
+done
 echo "[restore] reloading the NVIDIA driver"
   modprobe nvidia 2>/dev/null || true
   modprobe nvidia_modeset 2>/dev/null || true
@@ -76,6 +76,11 @@ for i in 1 2 3 4 5 6; do
   modprobe -r i2c_nvidia_gpu nvidia_drm nvidia_uvm nvidia_modeset nvidia 2>/dev/null \
     || rmmod i2c_nvidia_gpu nvidia_drm nvidia_uvm nvidia_modeset nvidia 2>/dev/null || true
   if ! lsmod | grep -q "^nvidia "; then unloaded=1; break; fi
+  if [ "$i" = "3" ]; then
+    echo "  terminating remaining GPU holders"
+    for pid in $(lsof -t /dev/nvidia* /dev/nvidiactl 2>/dev/null); do kill "$pid" 2>/dev/null; done
+    sleep 3
+  fi
   echo "  still busy (attempt $i) — waiting 2s"
   sleep 2
 done
