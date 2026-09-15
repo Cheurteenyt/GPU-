@@ -1,0 +1,15 @@
+# firmware images are never committed — the registers carry sha256 + provenance
+*.rom
+*.rom.bin
+*.bin.tmp
+day0/rom-bar-window.bin
+
+# third-party binaries are hash-documented, not redistributed
+tools/nvflash-5.867.zip
+tools/x64/
+tools/x86/
+tools/aarch64/
+tools/ppc64/
+
+__pycache__/
+*.pyc

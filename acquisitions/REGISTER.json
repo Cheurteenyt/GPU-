@@ -1,0 +1,94 @@
+{
+  "register": "gpu-lab acquisitions",
+  "captured": "2026-09-15",
+  "method": "TechPowerUp VGA BIOS Collection, fetched inside the in-app browser session (page-context fetch after the JS bot check passed), assembled on disk, hashes verified against the TPU-published MD5/SHA1 before admission (the ring-12/14 vendor-verified protocol)",
+  "target": {
+    "role": "the founder's live card (day-0 object of study)",
+    "card": "MSI RTX 3070 8 GB Gaming Trio Plus LHR",
+    "pci_id": "10de:2488",
+    "subsystem_id": "1462:3904",
+    "live_vbios_version": "94.04.46.00.EB",
+    "live_dump": "PENDING \u2014 the human sudo gesture (see day0/ACQUISITION.md); the H3 identity check runs against the acquired primary"
+  },
+  "specimens": [
+    {
+      "file": "MSI.RTX3070.8192.210519_1.rom",
+      "role": "SIBLING (reclassified at day-0) \u2014 same version string, same board string MSINV390MH.670, byte-equal BIT+memory grammar layers and code core, but NOT the byte twin of the founder's card (head, 23 bytes, and region 0x7e00-0xf400 differ; acquisition's legacy PCIR declares 0xfe00 vs the card's own 0xf400)",
+      "board_model": "MSI RTX 3070 8 GB Gaming Trio Plus",
+      "tpu_page": "https://www.techpowerup.com/vgabios/265302/msi-rtx3070-8192-210519-1",
+      "tpu_rom_url": "https://www.techpowerup.com/vgabios/265302/MSI.RTX3070.8192.210519_1.rom",
+      "tpu_listed_version": "94.04.46.00.EB",
+      "measured_version": "94.04.46.00.EB",
+      "size": 999424,
+      "md5_published": "0c0e1053e122e9761aec8d0ea0fe86c3",
+      "md5_measured": "0c0e1053e122e9761aec8d0ea0fe86c3",
+      "sha1_published": "0da3f024d54f33317312ac3a11b9315799793ed3",
+      "sha1_measured": "0da3f024d54f33317312ac3a11b9315799793ed3",
+      "sha256": "41a0860f8abfcfa7e00e9ea63f0567fa88ea72b98b4a5d40c9b2bdaf27a99d08",
+      "sha256_16": "41a0860f8abfcfa7",
+      "admission": "VERIFIED (both hashes match the published values)",
+      "board_id_strings": [
+        "MSINV390MH.670",
+        "G001.0000.03.03",
+        "SAMSUNG-SNTBVV-11_x-2_y6",
+        "0V39020_LC1B052419"
+      ]
+    },
+    {
+      "file": "MSI.RTX3070.8192.210519_2.rom",
+      "role": "quorum sibling \u2014 LHR-era, same build date, different board",
+      "board_model": "MSI RTX 3070 8 GB Ventus 3X OC",
+      "tpu_page": "https://www.techpowerup.com/vgabios/263083/msi-rtx3070-8192-210519-2",
+      "tpu_rom_url": "https://www.techpowerup.com/vgabios/263083/MSI.RTX3070.8192.210519_2.rom",
+      "tpu_listed_version": "94.04.46.00.F",
+      "measured_version": "94.04.46.00.F0",
+      "size": 999424,
+      "md5_published": "ba405802e8c10cd7137053d1684d1e45",
+      "md5_measured": "ba405802e8c10cd7137053d1684d1e45",
+      "sha1_published": "05f4e7bee045d7694ebb389fd6ba181898b89758",
+      "sha1_measured": "05f4e7bee045d7694ebb389fd6ba181898b89758",
+      "sha256": "4de4e5f13448fbb9f7f9e2d6541a3dd589e91bb399a83f96bbd04ddfd2c05c1f",
+      "sha256_16": "4de4e5f13448fbb9",
+      "admission": "VERIFIED (both hashes match the published values)",
+      "board_id_strings": [
+        "MSINV390MH.680",
+        "G001.0000.03.03",
+        "SAMSUNG-SA24CN-08_x2_y8",
+        "0V39010_M61B289982"
+      ]
+    },
+    {
+      "file": "MSI.RTX3070.8192.200923.rom",
+      "role": "quorum sibling \u2014 launch-era (2020-09-23), pre-LHR",
+      "board_model": "MSI RTX 3070 8 GB Gaming X Trio",
+      "tpu_page": "https://www.techpowerup.com/vgabios/226063/msi-rtx3070-8192-200923",
+      "tpu_rom_url": "https://www.techpowerup.com/vgabios/226063/MSI.RTX3070.8192.200923.rom",
+      "tpu_listed_version": "94.04.25.40.C",
+      "measured_version": "94.04.25.40.C5",
+      "size": 999424,
+      "md5_published": "880c6d172e03d5d8c2fbf2ca4f60e29b",
+      "md5_measured": "880c6d172e03d5d8c2fbf2ca4f60e29b",
+      "sha1_published": "4540f2bb1dfc3b0f0cad5d8101bbf6e16f473a83",
+      "sha1_measured": "4540f2bb1dfc3b0f0cad5d8101bbf6e16f473a83",
+      "sha256": "eee06a47a9de56f9711cbcbcba765f4d0b1f31a9dfcc7b4658c0ff3edf4cf83c",
+      "sha256_16": "eee06a47a9de56f9",
+      "admission": "VERIFIED (both hashes match the published values)",
+      "board_id_strings": [
+        "MSINV390MH.142",
+        "G001.0000.03.03",
+        "SAMSUNG-SNNCZR-08_x-2_y7"
+      ]
+    }
+  ],
+  "honesty": [
+    "the TPU-listed versions are TRUNCATED \u2014 the ROMs carry 94.04.46.00.F0 and 94.04.25.40.C5 where TPU lists .F and .C (the version-string trap, GPU edition)",
+    "sha256 conventions here are FULL sha256 + sha256_16 (first 16 hex); the BIOS- lab's BODY0x40000 convention has no GPU equivalent yet",
+    "subsystem 1462:3904 does NOT name the retail model by itself \u2014 the board models above come from the TPU entries, to be confirmed against the live dump"
+  ],
+  "day0_live_dump": {
+    "file": "../day0/vbios-94.04.46.00.EB.rom",
+    "sha256": "e1b4e03ae6a0ab3bf3cefab475ff2f6361badb5be75b5caea4e73470b8788c65",
+    "size": 62464,
+    "verdict_vs_this_specimen": "sibling-not-twin \u2014 see day0/REGISTER.json and day0/findings-day0.md"
+  }
+}

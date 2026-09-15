@@ -1,0 +1,81 @@
+{
+  "register": "gpu-lab day-0 live dump",
+  "captured": "2026-09-15 ~21:43",
+  "method": "sysfs rom read (the human sudo gesture): echo 1 > rom, cat rom, echo 0 > rom \u2014 read-only, the card never written",
+  "file": "vbios-94.04.46.00.EB.rom",
+  "size": 62464,
+  "sha256": "e1b4e03ae6a0ab3bf3cefab475ff2f6361badb5be75b5caea4e73470b8788c65",
+  "md5": "a2640109a0e49f61f0de3935750f264f",
+  "identity": {
+    "version_string": "94.04.46.00.EB @ 0xc1 (image-relative \u2014 same offset as the acquisition's)",
+    "board_string": "MSINV390MH.670 @ 0x80 (same board config string as the acquisition, same image-relative offset)",
+    "pcir": {
+      "vendor": "10de",
+      "device": "2488",
+      "code_type": 0,
+      "image_length": "0xf400",
+      "declared_by_the_dump_itself": true
+    },
+    "nvgi_container": "ABSENT \u2014 the driver window starts at 55AA directly; the HW-consumption preamble is not exposed"
+  },
+  "admission_gates": {
+    "version_string_found": true,
+    "size_multiple_of_512": true,
+    "sha_stable_across_second_read": true,
+    "second_read": {
+      "file": "vbios-second-read.rom",
+      "sha256": "e1b4e03ae6a0ab3bf3cefab475ff2f6361badb5be75b5caea4e73470b8788c65",
+      "byte_identical": true,
+      "method": "cmp + sha256sum, captured 21:57"
+    }
+  },
+  "identity_verdict_vs_primary_acquisition": {
+    "acquisition_sha256_16": "41a0860f8abfcfa7",
+    "verdict": "SIBLING, NOT TWIN",
+    "byte_equal_layers": [
+      "BIT table: same image-rel offset 0x1b0, same 17-token sequence, checksum zero",
+      "M memory grammar: info table at the same image-rel 0x4126, rlen 22, count 16, translation and all 16 descriptors byte-identical",
+      "code core: 0x300-0x2300 and 0x2a00-0x7e00 byte-identical at the same offsets (~30 KiB)"
+    ],
+    "differs": [
+      "head 0x0-0x300 (header/pointer region)",
+      "23 bytes in 0x2300-0x2a00 (the live side carries non-zero data where the acquisition has zeros)",
+      "the region 0x7e00-0xf400: dense init/code/pattern data on the card (entropy 6.87) vs sparse code islands in a zero sea in the acquisition (entropy 0.74); the live tail's content appears NOWHERE in the acquisition file",
+      "the acquisition's legacy PCIR declares 0xfe00 \u2014 2,560 bytes more than the card's own 0xf400"
+    ],
+    "reading": "same version number, same board string, same grammar layers, different bytes \u2014 the version-string trap measured to its final form; no GPU oracle was pre-registered so no prediction is scored, but the ring-44 'acquisition certifies the dump' pattern does NOT transfer to the GPU lane"
+  },
+  "window_property": {
+    "what_the_sysfs_rom_exposes": "the legacy x86 image only (0xf400, PCIR-declared) \u2014 no NVGI head, no EFI image, no table farm",
+    "consequence": "the ring-3/ring-4 tables (power budget, memory clock ladder, timings, fan) are NOT visible in this window; they were decoded from the acquisition and live in the SPI beyond it \u2014 a full-flash read (nvflash, root) is the gesture that would cover them"
+  },
+  "next_gestures": [
+    "re-dump (same three commands) to close the stability gate",
+    "optional: nvflash --save under root for the full SPI image (EFI image + the table farm the rings 3-4 decoded from the acquisition)"
+  ],
+  "full_flash_read_tool": {
+    "binary": "tools/x64/nvflash (v5.867, ELF x86-64)",
+    "zip_sha256": "73ab51e121129059f1377b3bf21a8001f6649d64af2471455499c803a9c80301",
+    "verified_against": "AUR nvflash PKGBUILD published sha256 (matched)",
+    "status": "READY \u2014 the sudo gesture belongs to the human",
+    "attempt": {
+      "date": "2026-09-15 ~22:05",
+      "device_found": true,
+      "device_string": "Device 00:07:00:00=10DE:2488:1462:3904 GPU",
+      "error": "mmap(): /dev/mem Base address = 0xfd000000, size = 0x01000000 \u2014 Attempt to map physical memory failed",
+      "root_cause": "CONFIG_STRICT_DEVMEM=y + CONFIG_IO_STRICT_DEVMEM=y \u2014 the kernel refuses MMIO physical maps even to root",
+      "measured_fact": "the ROM BAR (0xfd000000, 16 MiB window) is kernel-protected; the sysfs rom file (128 KiB declared) serves only the VGA legacy shadow (resource flags 0x212 @ 0xc0000-0xdffff)",
+      "paths": [
+        "A (zero persistence): live USB with iomem=relaxed added at the boot prompt, nvflash from there",
+        "B (persistent): append iomem=relaxed to /etc/kernel/cmdline + regenerate UKI + reboot \u2014 a boot-policy change, the human's decision"
+      ]
+    },
+    "bar_investigation": {
+      "v1": "guessed address 0xfd000000 read another device's live RAM (two 60 KiB non-FF regions whose needles do not exist in any known object; content changed between runs) \u2014 the never-assign-from-a-guess lesson, structural",
+      "v2": "hole-finder defeated by /proc/iomem 'PCI Bus n' hierarchy lines covering everything",
+      "v3": "conflict-checked candidates {0xfd000000, 0xfe000000, 0xe8000000} all probe erased \u2014 the expansion-ROM BAR does NOT serve the SPI to the host on this Ampere card (driver loaded)",
+      "conclusion": "full-SPI path = live USB with iomem=relaxed (nvflash without the driver); the in-session route is closed BY MEASUREMENT, not abandoned",
+      "kernel_param_note": "iomem=relaxed lives in /etc/default/limine (KERNEL_CMDLINE[default]) \u2014 /etc/kernel/cmdline is IGNORED by the Limine stack (measured); a future Omarchy update that rewrites limine.conf may drop it"
+    }
+  }
+}
