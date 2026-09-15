@@ -74,3 +74,14 @@ findings files carry the honesty ledgers.
   property; the memory-clock script lists are a third lost instance
   (dense live, zeroed in the acquisitions; pointer domain unresolved).
   See `lab/findings-gx12.md`.
+
+## Unreleased — ring 13 (2026-09-16, the wall)
+
+- **ring 13** — five in-session attempts, five layers peeled
+  (coolercontrold, lactd, the signal pass, the watchdog), and the final
+  wall measured: `lsof` empty against 371/54/13/8 kernel refcounts —
+  the console pins the display driver. The in-session full-SPI route is
+  exhausted with the wall named; the remaining path is the live USB (or
+  a hardware clip). The script suite (v2→v2.6, watchdog-armed) is
+  committed as the attempt's durable output. See
+  `lab/findings-gx13.md`.
