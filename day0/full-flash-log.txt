@@ -1,0 +1,5 @@
+[1/5] data-drive mount check
+  mounted: /dev/sda1
+[2/5] stopping sddm (screen goes dark now)
+  stopping coolercontrold (it holds the GPU open)
+/run/media/cheurteen/Jeux SSD/Reverse Engenering/gpu-lab/tools/full-flash-tty.sh: line 48: STOPPED_SERVICES: unbound variable

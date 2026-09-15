@@ -40,6 +40,15 @@ fi
 echo "  mounted: $(findmnt -n -o SOURCE --target "$LAB")"
 
 echo "[2/5] stopping $DM (screen goes dark now)"
+STOPPED_SERVICES=""
+(setsid bash -c 'sleep 240; if ! systemctl is-active --quiet sddm; then
+  modprobe nvidia_modeset nvidia_drm nvidia_uvm nvidia 2>/dev/null; modprobe nvidia 2>/dev/null
+  systemctl start coolercontrold lactd 2>/dev/null
+  systemctl start sddm
+  echo "WATCHDOG: forced restore at $(date -Is)" >> "/run/media/cheurteen/Jeux SSD/Reverse Engenering/gpu-lab/day0/full-flash-log.txt"
+fi' </dev/null >/dev/null 2>&1) &
+WATCHDOG_PID=$!
+echo "watchdog armed (pid $WATCHDOG_PID): forced restore after 240s no matter what"
 systemctl stop "$DM"
 for SVC in coolercontrold lactd; do
   if systemctl is-active --quiet "$SVC"; then
@@ -114,4 +123,5 @@ else
 fi
 echo "the full log stays at $LOG (copied below if the drive is mounted)"
 cp "$LOG" "$LAB/day0/full-flash-log.txt" 2>/dev/null || true
+kill "$WATCHDOG_PID" 2>/dev/null || true
 echo "done."
