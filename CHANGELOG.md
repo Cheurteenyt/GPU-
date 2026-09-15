@@ -43,3 +43,14 @@ findings files carry the honesty ledgers.
   no public extractor exists. The unpacking project is registered with
   its groundwork: container layout, embedded-ELF map, libos layer
   identified. See `lab/findings-gx9.md`.
+
+## Unreleased — ring 10 (2026-09-15, late)
+
+- **ring 10** — the devinit scripts decoded with nouveau's INIT grammar
+  (self-validating walk to `init_done`): **317 scripts live** (the memory
+  -training program: NV_REG ×294, SUB_DIRECT ×402, writes concentrated in
+  the 0x4061c*/0x6061c* training registers); **the day-0 differ resolved
+  at last** — the acquisition lost 59+ devinit scripts (66 live-only, all
+  in the zeroed region): the TechPowerUp file is an incomplete capture,
+  the card's ROM is whole. The ring-1 "3s2bwb vocabulary" resolved: INIT
+  opcode streams matched mid-instruction. See `lab/findings-gx10.md`.
