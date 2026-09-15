@@ -63,3 +63,14 @@ findings files carry the honesty ledgers.
   display flags production-clean; VBE PCLK NULL (the legacy list is
   gone); the UEFI token a vestige. The identity chain is closed
   end-to-end inside the file. See `lab/findings-gx11.md`.
+
+## Unreleased — ring 12 (2026-09-15, night II)
+
+- **ring 12** — the devinit program has a shape: 259 roots calling 58
+  subroutines by 216 direct calls, depth 2, hot routines 0x6951 (48×) /
+  0x675f (47×); index-calls zero (the raw count was an overlap artifact);
+  **both TPU acquisitions share the same amputation** (259 scripts, same
+  subroutine offsets, same hot callees) — the capture loss is a pipeline
+  property; the memory-clock script lists are a third lost instance
+  (dense live, zeroed in the acquisitions; pointer domain unresolved).
+  See `lab/findings-gx12.md`.
