@@ -54,3 +54,12 @@ findings files carry the honesty ledgers.
   in the zeroed region): the TechPowerUp file is an incomplete capture,
   the card's ROM is whole. The ring-1 "3s2bwb vocabulary" resolved: INIT
   opcode streams matched mid-instruction. See `lab/findings-gx10.md`.
+
+## Unreleased — ring 11 (2026-09-15, night)
+
+- **ring 11** — every BIT token owned (17/17 with a named grammar): the
+  Sign-On message signs the board design (`PG142 SKU 12` vs `SKU 10` —
+  a finer board marker than the subsystem ID) and the copyright year;
+  display flags production-clean; VBE PCLK NULL (the legacy list is
+  gone); the UEFI token a vestige. The identity chain is closed
+  end-to-end inside the file. See `lab/findings-gx11.md`.
