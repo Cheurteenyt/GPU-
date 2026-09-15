@@ -41,9 +41,20 @@ echo "  mounted: $(findmnt -n -o SOURCE --target "$LAB")"
 
 echo "[2/5] stopping $DM (screen goes dark now)"
 systemctl stop "$DM"
+if systemctl is-active --quiet coolercontrold; then
+  echo "  stopping coolercontrold (it holds /dev/nvidia0 open)"
+  systemctl stop coolercontrold
+  CC_STOPPED=1
+else
+  CC_STOPPED=0
+fi
 
 restore() {
-  echo "[restore] reloading the NVIDIA driver"
+  if [ "${CC_STOPPED:-0}" = "1" ]; then
+  echo "[restore] restarting coolercontrold"
+  systemctl start coolercontrold
+fi
+echo "[restore] reloading the NVIDIA driver"
   modprobe nvidia 2>/dev/null || true
   modprobe nvidia_modeset 2>/dev/null || true
   modprobe nvidia_drm 2>/dev/null || true
