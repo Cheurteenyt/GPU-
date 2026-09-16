@@ -118,3 +118,16 @@ findings files carry the honesty ledgers.
   /2^15 fixed-point as the vP-state (420/600/405 — the deep-idle
   profile's values — plus 842/810/900/1050/1200 MHz windows); the field
   layout remains the last open question. See `lab/findings-gx16.md`.
+
+## Unreleased — ring 17 (2026-09-17)
+
+- **ring 17** — the PERF table (P+0x00, v0x60, 7×5B) is a GENERATION
+  CONSTANT: all 35 record bytes identical on all three boards (launch
+  2020 at its own address 0x85CD5, LHR 2021 at 0x8984D); records carry
+  the vP-state values (420/600/405) — the RTX 3070-class clock envelope
+  is shared in-file across the generation. The public grammar hunt is
+  exhausted: zero GitHub implementations of the modern perf tables, no
+  doc, the gsp plaintext layer names the runtime vocabulary
+  (PERF_CF_CONTROLLER_*, JPAC_PSTATE, DEEP_IDLE) behind which the
+  parser stays packed. The founder's fresh vendor CAP (3644, re-packaged
+  vs ring 44) stored as the day-0 reference. See `lab/findings-gx17.md`.
