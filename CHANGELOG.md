@@ -108,3 +108,13 @@ findings files carry the honesty ledgers.
   header (the LHR header growth touched no profile value); the primary
   carries two identical VP tables. The last big unknown falls; only the
   PERF v0x60 records remain unnamed. See `lab/findings-gx15.md`.
+
+## Unreleased — ring 16 (2026-09-16)
+
+- **ring 16** — the triple cross: the community tweaker's signature
+  search independently finds the power budget at the ring-3 offsets
+  (240000/250000 mW, slider enabled) — three grammars, same bytes. The
+  PERF v0x60 encoding identified: its records carry clocks in the same
+  /2^15 fixed-point as the vP-state (420/600/405 — the deep-idle
+  profile's values — plus 842/810/900/1050/1200 MHz windows); the field
+  layout remains the last open question. See `lab/findings-gx16.md`.
