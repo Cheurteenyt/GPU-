@@ -96,3 +96,15 @@ findings files carry the honesty ledgers.
   the Ventus curve differs everywhere (20/60/100% @ 60/75/84°C) — the
   fan behavior is a board-family marker at named offsets. See
   `lab/findings-gx14.md`.
+
+## Unreleased — ring 15 (2026-09-16)
+
+- **ring 15** — the vP-state v0x20 decoded (grammar imported from the
+  community tool JadeRover/Nvidia-vBIOS-Clock-Power-Tweaker): 65-byte
+  profiles with fixed-point clocks, IDs 0xF/0xD/0xC/0xA/0x7 carrying
+  **7001 / 6801 / 5001 / 810 / 405 MHz** memory and a 2100 MHz graphics
+  cap — **the founder's live 6801 MHz is itself a named profile**; the
+  launch-era build keeps identical profiles under the Turing-length
+  header (the LHR header growth touched no profile value); the primary
+  carries two identical VP tables. The last big unknown falls; only the
+  PERF v0x60 records remain unnamed. See `lab/findings-gx15.md`.
