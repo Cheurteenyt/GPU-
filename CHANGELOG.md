@@ -146,3 +146,18 @@ findings files carry the honesty ledgers.
   Slimbook-Team/fwupd archive — the SMM flash service route, which the
   SMU lock cannot stop by construction. The dump gesture is the
   founder's: boot the key, run `AfuEfix64.efi NW3644.ROM /O`.
+
+## Unreleased — the B550 software ladder, fully measured (2026-09-17)
+
+- the generic AMI AFU (2017 v3.09 AND 2023 v5.16 from the official
+  package) runs in the UEFI shell but hangs on the ASUS OFBD layer —
+  the board demands Aptio 5 and still blocks;
+- ASUS ships no DOS package for this board (the support API lists CAP
+  files only);
+- the founder's flash-a-CAP suggestion was refused: it writes factory
+  state over the chip (destroying the written ReBAR evidence) with
+  brick risk and zero information gain;
+- verdict: the B550 chip dump requires the CH341A + SOIC8 clip route
+  (~10-15 EUR, flashrom ch341a_spi, read offline). Eight software
+  methods measured and closed; the machine-half day-0 finding (ReBAR
+  not engaged) stands.
