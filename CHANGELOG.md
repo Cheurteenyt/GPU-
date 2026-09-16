@@ -131,3 +131,18 @@ findings files carry the honesty ledgers.
   (PERF_CF_CONTROLLER_*, JPAC_PSTATE, DEEP_IDLE) behind which the
   parser stays packed. The founder's fresh vendor CAP (3644, re-packaged
   vs ring 44) stored as the day-0 reference. See `lab/findings-gx17.md`.
+
+## Unreleased — the B550 SPI campaign (2026-09-17, night)
+
+- **the in-system SPI bypass, exhausted to the last layer**: flashprog
+  probes the chip (W25Q256JW, RDID allowed) but data reads are globally
+  gated (opcode 0x13 → the sticky IllegalAccess bit); the CNTRL0 and
+  RESTRICTED_CMD1/2 writes are SMU-ignored; the protect ranges read
+  zero; EzFlash on this board has no save function; spi_amd does not
+  bind the desktop FCH.
+- **the UEFI-shell kit is prepared on the founder's key**: shellx64.efi
+  (pbatard/edk2 build) as EFI/BOOT/BOOTX64.EFI + AMI AfuEfix64.efi
+  (Aptio 4) and AfuEfiV.efi (Aptio V), mirrored from the
+  Slimbook-Team/fwupd archive — the SMM flash service route, which the
+  SMU lock cannot stop by construction. The dump gesture is the
+  founder's: boot the key, run `AfuEfix64.efi NW3644.ROM /O`.
