@@ -11,6 +11,7 @@ SPI_CNTRL0 register (bits 22 SpiAccessMacRomEn / 23 SpiHostAccessRomEn
 import mmap
 import os
 import subprocess
+import struct
 import sys
 
 bar_raw = int(subprocess.check_output(["setpci", "-s", "00:14.3", "0xA0.L"]).strip(), 16)

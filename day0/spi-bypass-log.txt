@@ -1,0 +1,6 @@
+=== AMD SPI bypass attempt 2026-09-16T02:23:06.616651 ===
+SPI base: 0xfec10000
+SPI_CNTRL0 original: 0x4f0c1005 (bits22/23 = 0/0)
+SPI_CNTRL0 after write: 0x4f0c1005
+VERDICT: the write did NOT stick — the register is SMU/EC-locked.
+The software bypass is impossible on this board; the hardware programmer is the path.
