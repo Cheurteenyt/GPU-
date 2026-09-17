@@ -1,0 +1,5 @@
+=== gpu rom read 2026-09-17T19:43:20+02:00 ===
+[1/5] boot parameters
+  nomodeset confirmed: cryptdevice=PARTUUID=44b16aaa-d589-4130-aaed-ae34b4d56b0d:root root=/dev/mapper/root zswap.enabled=0 rootflags=subvol=@ rw rootfstype=btrfs iomem=relaxed initramfs_async=0 nomodeset loglevel=7
+[2/5] NVIDIA driver must be absent
+ERROR: nvidia driver is loaded — you are not on the maintenance entry

@@ -13,3 +13,7 @@ tools/ppc64/
 
 __pycache__/
 *.pyc
+tools/nvflash-5.867/aarch64/
+tools/nvflash-5.867/ppc64/
+tools/nvflash-5.867/x86/
+lab/__pycache__/
