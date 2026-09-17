@@ -161,3 +161,13 @@ findings files carry the honesty ledgers.
   (~10-15 EUR, flashrom ch341a_spi, read offline). Eight software
   methods measured and closed; the machine-half day-0 finding (ReBAR
   not engaged) stands.
+
+## Unreleased — the founding complaint, SOLVED (2026-09-17, night)
+
+- **ring 18** — the founder's founding question is closed: ReBAR was
+  silently dead because CSM disabled Above-4G at boot (the board's own
+  help note names it; the sibling lab's rings 49-50 predicted it from
+  the IFR grammar). Fix = one BIOS toggle. Measured before/after:
+  BAR1 256 MiB → **8192 MiB**, Region 1 relocated above 4 GB at the
+  full 8 GB window. The GPU's VBIOS supported ReBAR all along — no
+  firmware update ever needed. See `lab/findings-gx18.md`.
