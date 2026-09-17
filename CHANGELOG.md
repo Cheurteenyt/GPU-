@@ -256,3 +256,10 @@ findings files carry the honesty ledgers.
   at 0x12d1000 behind a 3.5 KiB uncompressed table; llvm-objdump (RISC-V)
   is the tool for the bootloader LZ in ring 27. See
   `lab/findings-gx26.md`.
+
+- **ring 27** — the GSP bootloader is readable: minimal-ELF wrapper recipe
+  (e_flags must carry the RVC bit or llvm-objdump renders every compressed
+  instruction unknown), 5,370 instructions decoded, the directory parser
+  entry confirmed (a4 = 0x16d000), the width-dispatch table located, and
+  the bindata framing confirmed coded-only (no plaintext header). The LZ
+  format walk is ring 28. See `lab/findings-gx27.md`.
