@@ -17,3 +17,5 @@ tools/nvflash-5.867/aarch64/
 tools/nvflash-5.867/ppc64/
 tools/nvflash-5.867/x86/
 lab/__pycache__/
+tools/gsp-extract/fwimage.bin
+tools/gsp-extract/*.bin

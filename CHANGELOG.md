@@ -228,3 +228,11 @@ findings files carry the honesty ledgers.
   memory bins and PERF constants. The firmware confirms the measurements:
   **no hidden headroom — the performance campaign is closed honestly.**
   ReBAR +8 GiB stands as the one real gain. See `lab/findings-gx23.md`.
+
+- **ring 24** — gsp.bin peeled: the 84 MB firmware is an ELF wrapping a
+  .fwimage whose anatomy is now mapped — RISC-V bootloader + signed section
+  directory (13 entries: seven per-chip GSP kernels, debug/init/vgpu/mnoc,
+  rm.elf at 17.2 MB, and a 64.5 MB rm.bindata.bin at entropy 8.00 compressed
+  by the bootloader's proprietary LZ). The SES/SPI engine code the nvflash
+  hint pointed to lives inside that bindata — reaching it is ring 25's
+  bounded target. See `lab/findings-gx24.md`.
