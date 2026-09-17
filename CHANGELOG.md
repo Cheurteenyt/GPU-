@@ -263,3 +263,10 @@ findings files carry the honesty ledgers.
   entry confirmed (a4 = 0x16d000), the width-dispatch table located, and
   the bindata framing confirmed coded-only (no plaintext header). The LZ
   format walk is ring 28. See `lab/findings-gx27.md`.
+
+- **ring 28** — the fwimage memory map is complete: ~20 KB of bootloader
+  code + 408 KB of zeros + directory + 12 ELFs + the 64 MB bindata stream
+  (page-aligned at 0x12d1000). Negatives proven: not raw LZ4-block, not
+  deflate, no plaintext. Prime suspect isolated: the 4 KiB code blob at VA
+  0x120000 — ~1,024 instructions, reversible in one focused session. See
+  `lab/findings-gx28.md`.
