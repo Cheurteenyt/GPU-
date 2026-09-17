@@ -216,3 +216,15 @@ findings files carry the honesty ledgers.
   maintenance entry now forces `nvidia_drm.modeset=0 nvidia_drm.fbdev=0`,
   which unblocks the detached full-read. One maintenance reboot delivers
   the image and re-trains the display from POST. See `lab/findings-gx22.md`.
+
+- **ring 23** — the in-session full read, delivered by identity: /proc/kcore
+  (immune to the /dev/mem seals) reveals the driver caches only the ROM
+  chain, and the 512 KiB BAR window is **byte-exact** the
+  MSI.RTX3070.8192.210519_1 build shifted by 0x9200 — so the chip's full
+  976 KiB content already sits on disk in the acquisitions. The board's
+  real tables decode immediately: power budget 100/240/250 W (matches the
+  live NVML range to the watt), fan curve 17/45/100 % @ 55/75/80 °C →
+  1000/2100/3250 RPM, vP-states 2100/7001 caps covering the live 6801,
+  memory bins and PERF constants. The firmware confirms the measurements:
+  **no hidden headroom — the performance campaign is closed honestly.**
+  ReBAR +8 GiB stands as the one real gain. See `lab/findings-gx23.md`.
