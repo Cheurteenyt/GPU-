@@ -171,3 +171,15 @@ findings files carry the honesty ledgers.
   BAR1 256 MiB → **8192 MiB**, Region 1 relocated above 4 GB at the
   full 8 GB window. The GPU's VBIOS supported ReBAR all along — no
   firmware update ever needed. See `lab/findings-gx18.md`.
+
+- **ring 19** — the performance campaign, measured honestly: the LACT VRAM
+  offset is provably applied (6801 → 6901 MHz under load; LACT "+200" =
+  NVIDIA "+100 MHz") but shows **no demonstrated gain** in paired runs, and
+  the power limit already sits at its 250 W ceiling — software OC is closed
+  with no invented numbers. The GUI's broken Revert button bypassed via the
+  daemon's socket API. The firmware route is now unlocked 100 % on the PC:
+  a Limine `nomodeset` maintenance boot entry (reversible, backup kept) plus
+  a read-only double-read ROM dump script with sha256 cross-check. Next:
+  one maintenance reboot → full ROM read → diff against the known image →
+  the decoded vP-state/power tables become writable. See
+  `lab/findings-gx19.md`.

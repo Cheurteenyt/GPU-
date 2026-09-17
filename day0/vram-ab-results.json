@@ -1,0 +1,92 @@
+[
+  {
+    "pair": 1,
+    "label": "A",
+    "offset": 0,
+    "fps": 1163.0,
+    "pstates": [
+      "P2"
+    ],
+    "core_median": 1875.0,
+    "mem_median": 6801.0,
+    "temp_min": 47.0,
+    "temp_max": 50.0,
+    "util_median": 93.5,
+    "watts_mean": 152.0211111111111
+  },
+  {
+    "pair": 1,
+    "label": "B",
+    "offset": 200,
+    "fps": 1162.0,
+    "pstates": [
+      "P2"
+    ],
+    "core_median": 1905.0,
+    "mem_median": 6901.0,
+    "temp_min": 51.0,
+    "temp_max": 52.0,
+    "util_median": 91.0,
+    "watts_mean": 156.82999999999998
+  },
+  {
+    "pair": 2,
+    "label": "A",
+    "offset": 0,
+    "fps": 1130.0,
+    "pstates": [
+      "P2"
+    ],
+    "core_median": 1905.0,
+    "mem_median": 6801.0,
+    "temp_min": 52.0,
+    "temp_max": 54.0,
+    "util_median": 94.0,
+    "watts_mean": 157.22944444444445
+  },
+  {
+    "pair": 2,
+    "label": "B",
+    "offset": 200,
+    "fps": 1103.0,
+    "pstates": [
+      "P2"
+    ],
+    "core_median": 1905.0,
+    "mem_median": 6901.0,
+    "temp_min": 54.0,
+    "temp_max": 55.0,
+    "util_median": 93.0,
+    "watts_mean": 156.32444444444445
+  },
+  {
+    "pair": 3,
+    "label": "A",
+    "offset": 0,
+    "fps": 1104.0,
+    "pstates": [
+      "P2"
+    ],
+    "core_median": 1905.0,
+    "mem_median": 6801.0,
+    "temp_min": 55.0,
+    "temp_max": 55.0,
+    "util_median": 92.5,
+    "watts_mean": 156.11
+  },
+  {
+    "pair": 3,
+    "label": "B",
+    "offset": 200,
+    "fps": 1041.0,
+    "pstates": [
+      "P2"
+    ],
+    "core_median": 1890.0,
+    "mem_median": 6901.0,
+    "temp_min": 53.0,
+    "temp_max": 56.0,
+    "util_median": 93.5,
+    "watts_mean": 149.76277777777779
+  }
+]
