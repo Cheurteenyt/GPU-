@@ -194,3 +194,14 @@ findings files carry the honesty ledgers.
   and the downloaded reference image was partial **and not the board's
   build** — all decodes move to the chip dump. Write phase stays behind
   nvflash + the maintenance boot. See `lab/findings-gx20.md`.
+
+- **ring 21** — the chip's geometry, measured. The legacy half matches the
+  reference build (BIT/PERF/identity identical; only header-level deltas),
+  but the performance tables provably live at ~551-563 KiB of a ~976 KiB
+  image, while the host-visible ROM window is 512 KiB — the BAR read (now
+  conflict-guarded, probe-classified, BAR restored) confirms the sysfs dump
+  byte-for-byte and ring-13's all-FF artifact is explained (v1 guessed an
+  address outside the bridges' decode ranges). Scratch-hole assignment
+  master-aborts; only the firmware-assigned window decodes. Next: nvflash
+  beyond the window on the nomodeset boot, detached (v4 script built).
+  See `lab/findings-gx21.md`.

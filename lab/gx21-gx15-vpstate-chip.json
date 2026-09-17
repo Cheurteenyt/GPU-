@@ -1,0 +1,14 @@
+{
+  "instrument": "gx15-vpstate",
+  "ring": 15,
+  "specimens": [
+    {
+      "file": "vbios-sysfs.rom",
+      "sha256_16": "135b215313fa4d1e",
+      "generation": null,
+      "note": "no VP table inside this container (sysfs window = legacy image only)",
+      "table_count": 0,
+      "tables": []
+    }
+  ]
+}

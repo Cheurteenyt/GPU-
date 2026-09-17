@@ -17,7 +17,7 @@ from pathlib import Path
 
 DEV = "/sys/bus/pci/devices/0000:07:00.0"
 OUT = Path(__file__).resolve().parent.parent / "day0" / "rom-bar-window.bin"
-READ_SIZE = 0x100000  # the SPI chip fits in 1 MiB (TPU image = 0xF4000)
+READ_SIZE = 0x80000  # the kernel-sized ROM resource of 0000:07:00.0 (512 KiB)
 ALIGN = 0x1000000     # the ROM BAR decodes up to 16 MiB → 16 MiB alignment
 
 
@@ -65,80 +65,55 @@ def classify(probe: bytes) -> str:
 
 
 def main() -> int:
-    addr, enabled = read_rom_bar()
-    print(f"ROM BAR as found: {addr:#x} enabled={enabled}")
-    if addr != 0:
-        candidates = [addr]
-    else:
-        occupied = occupied_real()
-        candidates = [
-            c
-            for c in (0xFC000000, 0xFDF00000, 0xFE000000, 0xFB000000, 0xF4000000, 0xE8000000)
-            if not any(s < c + READ_SIZE and e > c for s, e, _ in occupied)
-        ]
-        print("candidates (conflict-checked):", [hex(c) for c in candidates])
+    """v3.1: the address is not guessed — it is the card's own
+    firmware-assigned ROM window, 0xfc000000, whose decode was proven by
+    the v2 probe (55 aa 7f eb 4b 37 34 30 30 = this board's header).
+    Scratch holes outside the upstream bridges' decode ranges
+    master-abort to all-FF: that is the v1/v2 lesson."""
+    addr = 0xFC000000
+    occ = [(s2, e2, n2) for s2, e2, n2 in occupied_real()
+           if s2 < addr + READ_SIZE and e2 > addr]
+    print("reservations overlapping the window:", occ or "none")
+    bad = [o for o in occ if "0000:07:00.0" not in o[2]]  # own resource is fine
+    if bad:
+        print("VERDICT: window overlaps another device — refusing"); return 1
 
+    write_rom_bar(addr | 1)
+    back = read_rom_bar()
+    print(f"BAR written, readback: {back[0]:#x} enabled={back[1]}")
+    if not back[1]:
+        print("VERDICT: BAR refused the assignment"); return 1
+
+    data = b""
     fd = os.open("/dev/mem", os.O_RDWR | os.O_SYNC)
-    chosen, verdict = None, None
-    for cand in candidates:
-        write_rom_bar(cand | 1)
-        back = read_rom_bar()
-        if not back[1]:
-            print(f"  {cand:#x}: BAR refused the assignment")
-            continue
-        try:
-            probe = probe_window(fd, cand)
-        except (PermissionError, OSError) as e:
-            print(f"  {cand:#x}: probe failed: {e}")
-            write_rom_bar(0)
-            continue
+    try:
+        probe = probe_window(fd, addr)
         v = classify(probe)
-        print(f"  {cand:#x}: probe -> {v} (head: {probe[:16].hex(' ')})")
-        if v.startswith("ROM"):
-            chosen, verdict = cand, v
-            break
+        print(f"probe -> {v} (head: {probe[:16].hex(' ')})")
+        if not v.startswith("ROM"):
+            print("VERDICT: window does not decode the ROM"); return 1
+        print(f"reading {READ_SIZE:#x} bytes at {addr:#x}")
+        mm = mmap.mmap(fd, READ_SIZE, offset=addr)
+        data = mm[:]
+        mm.close()
+    finally:
+        os.close(fd)
         write_rom_bar(0)
-
-    if chosen is None:
-        print("VERDICT: no candidate decodes a ROM — the expansion-ROM BAR on this "
-              "card does not serve the SPI to the host this way. The full-flash "
-              "path is the live USB (nvflash without the loaded driver).")
-        return 1
-
-    print(f"ROM decodes at {chosen:#x} — reading {READ_SIZE:#x} bytes")
-    mm = mmap.mmap(fd, READ_SIZE, offset=chosen)
-    data = mm[:]
-    mm.close()
-    fd.close()
-    write_rom_bar(0)
-    print("BAR restored to 0 — no trace left.")
+        cfg = open(DEV + "/config", "rb").read(0x34)
+        print(f"ROM BAR after restore: {hex(int.from_bytes(cfg[0x30:0x34], 'little'))}")
 
     OUT.write_bytes(data)
     print(f"saved: {OUT} ({len(data)} bytes)")
     ff = data.count(0xFF) / len(data)
     print(f"ff_share: {ff:.4f}")
     print("head 0x40:", data[:0x40].hex(" "))
-    for pat, name in [(b"\x55\xaa", "55AA"), (b"NVGI", "NVGI")]:
-        offs = [m.start() for m in re.finditer(re.escape(pat), data)][:12]
-        print(f"{name} hits:", [hex(o) for o in offs])
-    runs, cur = [], None
-    for i in range(0, len(data), 0x1000):
-        w = data[i : i + 0x1000]
-        if w.count(0xFF) / len(w) < 0.99:
-            if cur is None:
-                cur = [i, i]
-            else:
-                cur[1] = i
-        else:
-            if cur:
-                runs.append(cur)
-                cur = None
-    if cur:
-        runs.append(cur)
-    print("non-erased 4K runs:", [(hex(a), hex(b)) for a, b in runs][:10])
-    m = re.search(rb"\d{2}\.\d{2}\.\d{2}\.\d{2}\.[0-9A-Z]{2}", data)
-    print("version string:", m.group().decode() if m else "NOT FOUND",
-          "@", hex(m.start()) if m else "-")
+    chip = Path(OUT).parent / "rom-read-20260917" / "vbios-sysfs.rom"
+    if chip.exists():
+        ref = chip.read_bytes()
+        n = min(len(ref), len(data))
+        print(f"prefix match vs sysfs chain dump ({n} B): {data[:n] == ref[:n]}")
+    for name, off in [("power_budget", 551240), ("fan_cooler", 554029), ("fan_policy", 554087)]:
+        print(f"{name} @ {off}: {data[off:off+8].hex(' ')}")
     return 0
 
 
