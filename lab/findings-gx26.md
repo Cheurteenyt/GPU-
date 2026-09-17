@@ -50,3 +50,24 @@ engineering becomes modification. Plus reconnaissance of the deep target.
 Every flash in step C will be preceded by a byte-exact comparison between
 the chip content and the build the mod was made from (the 210519_1
 identity), and the stock image is retained for instant rollback.
+
+## Addendum (same session): the blockers inventory — every lock, mapped
+
+1. **Internal ROM signatures: NONE.** Full-image scan: zero ASN.1/RSA
+   structures, zero NVSIGN/SIGNATURE markers, zero embedded ELFs. The
+   power table region is not signature-covered — the mod is structurally
+   legitimate. (This was the one blocker that could have killed the whole
+   pipeline; it does not exist.)
+2. **The cap entry, byte-mapped** (entry 2 @ 0x8fc02): min @+2, avg @+6,
+   peak @+0xA (u32 LE, mW). Six bytes are the entire 280 W mod. Remaining
+   fields (+0x10, +0x24, +0x28) have unknown semantics and stay untouched
+   in v1 — conservative by design.
+3. **nvflash board-matching and signature checks at flash time**: solved
+   by flashing on the same board the build came from (our case) with
+   `--protectoff`; the community fork nvflashk is the fallback.
+4. **LACT/NVML caps**: they mirror the ROM tables — after the flash the
+   power range will read up to 280 W by itself. No extra tooling needed.
+5. **The flash procedure** is scripted: `tools/vbios-flash-kit.sh`
+   (preflight → verify → protectoff → flash → re-verify), gated on the
+   dual-BIOS switch at the SECONDARY position and on step B (the real
+   chip read) matching build 210519_1 byte-for-byte.
