@@ -245,3 +245,14 @@ findings files carry the honesty ledgers.
   measurement is a real game with MangoHud (founder-side). Also: the
   3644→3645 BIOS diff verdict — one replaced module + cert rollover, stay
   on 3644. See `lab/findings-gx25.md`.
+
+- **ring 26** — the pivot: RE becomes modification. `vbios-power-mod.py`
+  builds a verified 280 W power-budget VBIOS offline (six bytes, cap entry
+  re-derived from scratch, sanity ceilings, independent re-decode as
+  verification) — the GPU untouched; flash stays behind the live-USB +
+  real-chip-read + dual-BIOS procedure. The full power table anatomy is
+  mapped (20 entries: the cap, the board-total sense point, per-rail
+  budgets). GSP bindata recon: the compressed stream starts page-aligned
+  at 0x12d1000 behind a 3.5 KiB uncompressed table; llvm-objdump (RISC-V)
+  is the tool for the bootloader LZ in ring 27. See
+  `lab/findings-gx26.md`.
