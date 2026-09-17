@@ -55,3 +55,21 @@ No decompressed output yet. The negatives above are real evidence — they
 narrow the search to exactly one code blob — but the format is still
 unknown. Multi-session RE continues; nothing in the mod pipeline depends
 on it.
+
+## Ring 29 progress (same session)
+
+- `0x101e0a` (the jump target from the entry) is the **framework init/validation
+  routine**: reads a version field, checks `(v>>24)&0x3f ∈ {23,24,27,28}`,
+  installs a handler table, allocates 0x620 B of stack. Not the LZ.
+- `0x101b00-0x101ca0` is the **bootloader's memory allocator**: lowest-set-
+  bit isolation (`neg+and`), 32-byte record strides (`slli x,x,5`), 2 KiB
+  block math (`slli x,x,11`), bitmap clearing (`sh` back), and error-string
+  calls into the directory's message region. Identified, not the LZ.
+- The LZ hunt therefore narrows to the remaining unattributed code: the
+  byte-op clusters at 0x102300-0x1024fa and 0x101000-0x1010e8, plus the
+  main loop body. The allocator's existence also explains the runtime
+  workspace regions: the bootloader heap-allocates its decompression
+  buffers there.
+- Method note: the disassembly region walk is now mechanical — the next
+  session continues with the unattributed clusters (a bounded list), using
+  the same extract-and-classify loop.
