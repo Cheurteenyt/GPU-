@@ -183,3 +183,14 @@ findings files carry the honesty ledgers.
   one maintenance reboot → full ROM read → diff against the known image →
   the decoded vP-state/power tables become writable. See
   `lab/findings-gx19.md`.
+
+- **ring 20** — the chip speaks. The full ROM read that ring 13 called
+  in-session-exhausted is done **with the driver loaded and the desktop
+  live**: the kernel PCI core serves the sysfs ROM attribute on its own.
+  Double read byte-identical (157,696 B, sha256 `135b2153…`), PCI chain
+  self-certified complete (x86 65,024 B + EFI 92,672 B, end bit set),
+  version `94.04.46.00.EB`, device 2488. Two lessons kept: `nomodeset`
+  doesn't stop initramfs module load (it moves the console to simpledrm),
+  and the downloaded reference image was partial **and not the board's
+  build** — all decodes move to the chip dump. Write phase stays behind
+  nvflash + the maintenance boot. See `lab/findings-gx20.md`.

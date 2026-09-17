@@ -1,28 +1,36 @@
 #!/bin/bash
-# gpu-rom-dump-tty.sh (v1) — full GPU ROM READ, 100% PC, via the nomodeset boot entry.
+# gpu-rom-dump-tty.sh (v2) — full GPU ROM READ, 100% PC, via the nomodeset boot entry.
 #
-# HOW TO USE (when you are ready, from the maintenance boot):
+# HOW TO USE (from the maintenance boot):
 #   1. Reboot, pick "Omarchy nomodeset (maintenance GPU)" in the Limine menu.
 #   2. Log in on the TTY it lands on.
 #   3. Run:  sudo bash "/run/media/cheurteen/Jeux SSD/Reverse Engenering/gpu-lab/tools/gpu-rom-dump-tty.sh"
 #   4. Reboot normally afterwards (the entry is non-destructive).
+#
+# v2: nothing on the data drive is needed — nvflash now lives at
+# /usr/local/bin/nvflash (on the always-mounted root fs) and all artifacts
+# are written under /root/gpu-rom-read-<date>/. The data drive is NOT
+# auto-mounted in maintenance mode (no desktop session), which is exactly
+# why v1 failed with "No such file or directory".
 #
 # READ-ONLY: this script never writes to the GPU. Doctrine: never flash to read.
 # Two independent reads (kernel sysfs expansion-ROM path + nvflash) are compared
 # byte-for-byte over their common prefix; a mismatch means STOP and report.
 
 set -u
-LAB="/run/media/cheurteen/Jeux SSD/Reverse Engenering/gpu-lab"
-NVFLASH="$LAB/tools/nvflash-5.867/x64/nvflash"
-OUT="$LAB/day0/rom-read-$(date +%Y%m%d-%H%M%S)"
-LOG="$LAB/day0/gpu-rom-read-log.txt"
+NVFLASH=""
+for c in /usr/local/bin/nvflash \
+         "/run/media/cheurteen/Jeux SSD/Reverse Engenering/gpu-lab/tools/nvflash-5.867/x64/nvflash"; do
+  [ -x "$c" ] && NVFLASH="$c" && break
+done
+OUT="/root/gpu-rom-read-$(date +%Y%m%d-%H%M%S)"
 
 mkdir -p "$OUT"
-exec > >(tee -a "$LOG") 2>&1
+exec > >(tee -a "$OUT/log.txt") 2>&1
 echo "=== gpu rom read $(date -Is) ==="
 
 [ "$(id -u)" = 0 ] || { echo "ERROR: run with sudo"; exit 1; }
-[ -x "$NVFLASH" ] || { echo "ERROR: nvflash missing at $NVFLASH"; exit 1; }
+[ -n "$NVFLASH" ] || { echo "ERROR: nvflash not found"; exit 1; }
 
 echo "[1/5] boot parameters"
 grep -o nomodeset /proc/cmdline > /dev/null || { echo "ERROR: not booted with nomodeset — pick the maintenance entry"; exit 1; }
@@ -71,7 +79,7 @@ if [ "$SYS_OK" = yes ]; then
   SA=$(stat -c%s "$A"); SB=$(stat -c%s "$B")
   N=$(( SA < SB ? SA : SB ))
   if cmp -s -n "$N" "$A" "$B"; then
-    echo "  MATCH over common prefix of $N bytes ($SA vs $B sizes: $SA/$SB)"
+    echo "  MATCH over common prefix of $N bytes (sizes: sysfs $SA / nvflash $SB)"
   else
     echo "  MISMATCH over the first $N bytes — STOP, do not proceed to any write, report back"
     exit 1
@@ -79,5 +87,5 @@ if [ "$SYS_OK" = yes ]; then
 else
   echo "  single-source read (nvflash) — sysfs unavailable, keep the file as-is"
 fi
-echo "done. artifacts in $OUT"
-echo "you can reboot normally now (no changes were made to the GPU)"
+echo "done. artifacts in $OUT (nothing was written to the GPU)"
+echo "you can reboot normally now"
