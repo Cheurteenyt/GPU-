@@ -51,3 +51,26 @@ the GSP firmware package the driver loads into the card's RISC-V processor.
 - Payoff: the SES/SPI engine code, the RM's power-policy tables, and the
   GSP-side logging strings — the last firmware layer between us and the
   metal.
+
+## Addendum (same session): the directory record format, read
+
+The directory is a chain of variable records anchored around 0x6d020
+(`kernel_ga10x.elf` first). Each record: leading u64 offsets (0xb8, 0xd0,
+0xe8, 0x158 — links within the directory region), then the inline name,
+then N section descriptors:
+
+    u64 VA (0xffffffff92fff000 — GSP carveout 1)
+    u64 0
+    u64 align (0x1000)
+    u64 size (e.g. 0xd000 for kernel_ga10x code)
+    u64 base/offset (0xd000)
+    u64 type (5 = code, 6 = data)
+    u64 sig/hash record offset
+    … second descriptor with VA 0xffffffffa3000000 (carveout 2) …
+
+So each kernel ships as TWO signed sections (code + data) with their own
+carveout VAs and signature records — the firmware is per-section
+authenticated. Remaining for ring 25: the absolute-base question (the
+descriptor offsets are relative to a base the bootloader holds), then the
+bindata LZ. `tools/gsp-extract/parse-gfw-directory.py` holds the first
+attempt; the hexdump-anchored record walk above supersedes it.
