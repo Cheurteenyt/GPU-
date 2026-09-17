@@ -236,3 +236,12 @@ findings files carry the honesty ledgers.
   by the bootloader's proprietary LZ). The SES/SPI engine code the nvflash
   hint pointed to lives inside that bindata — reaching it is ring 25's
   bounded target. See `lab/findings-gx24.md`.
+
+- **ring 25** — the fan-curve/boost experiment, closed honestly: the new
+  mid-range curve measured +30 MHz (1440p) and −15 MHz (4K) — both inside
+  noise, because glmark2 tops out at 109 W of the 250 W ceiling and the GPU
+  never reaches the temperature region where fan behavior matters. The
+  automated keep/restore rule put the stock curve back. The decisive
+  measurement is a real game with MangoHud (founder-side). Also: the
+  3644→3645 BIOS diff verdict — one replaced module + cert rollover, stay
+  on 3644. See `lab/findings-gx25.md`.
