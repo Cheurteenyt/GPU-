@@ -275,3 +275,10 @@ findings files carry the honesty ledgers.
   closed; the anti-tamper boundary is documented and deliberately not
   crossed. Pivot: rm.elf (17.2 MB plaintext RISC-V) is the new deep target
   — the RM's power heuristics are readable. See `lab/findings-gx28.md`.
+
+- **ring 30** — the founder's intuition proven: the RM exposes 881
+  registry dials (census in `tools/gsp-extract/rm-strings.txt`), and the
+  perf-limit family (`RmPerfLimitsOverride`, `RMDisablePerfIntersect`,
+  `RmBootGspRmWithBoostClocks`, …) is settable through
+  `NVreg_RegistryDwords` — no flash, one dial per reboot, reversible. The
+  test matrix is the next deliverable. See `lab/findings-gx30.md`.
