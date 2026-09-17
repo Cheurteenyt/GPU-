@@ -73,3 +73,25 @@ on it.
 - Method note: the disassembly region walk is now mechanical — the next
   session continues with the unattributed clusters (a bounded list), using
   the same extract-and-classify loop.
+
+## Ring 29 conclusion: the bindata is ENCRYPTED (proven), pivot to rm.elf
+
+The forensic battery settles it:
+- Entropy exactly **8.0000** over an 8 MB sample; byte histogram perfectly
+  uniform (top bytes ≈ 1/256 each).
+- Autocorrelation ≈ 0.39 % at every lag tested (3, 4, 8, 16, 64, 256, 1024,
+  4096) — the random baseline. Real compressed data always shows match
+  structure.
+- No AES S-box in the bootloader (software decryption unlikely; NVIDIA's
+  Security Engine with fused keys is the credible design).
+
+Conclusion: the 64 MB bindata is ciphertext, not compressed data. The LZ
+hypothesis is closed. Reaching it means fuse-level keys — an
+anti-tampering league this project deliberately does not enter.
+
+**The pivot**: `rm.elf` (17.2 MB) is PLAINTEXT RISC-V — the Resource
+Manager's actual code: power heuristics, clock policy, the SES/SPI
+references (6 hits found earlier). That is the accessible deep knowledge.
+Target for the next deep session: symbol-less RISC-V RE of rm.elf's power
+management, anchored on the table structures we already decoded from the
+VBIOS.

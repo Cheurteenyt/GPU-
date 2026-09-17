@@ -270,3 +270,8 @@ findings files carry the honesty ledgers.
   deflate, no plaintext. Prime suspect isolated: the 4 KiB code blob at VA
   0x120000 — ~1,024 instructions, reversible in one focused session. See
   `lab/findings-gx28.md`.
+- **ring 29 conclusion** — the bindata is encrypted, proven by statistics
+  (perfect entropy/uniformity/zero autocorrelation) — the LZ hypothesis is
+  closed; the anti-tamper boundary is documented and deliberately not
+  crossed. Pivot: rm.elf (17.2 MB plaintext RISC-V) is the new deep target
+  — the RM's power heuristics are readable. See `lab/findings-gx28.md`.
