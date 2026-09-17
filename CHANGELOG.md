@@ -282,3 +282,11 @@ findings files carry the honesty ledgers.
   `RmBootGspRmWithBoostClocks`, …) is settable through
   `NVreg_RegistryDwords` — no flash, one dial per reboot, reversible. The
   test matrix is the next deliverable. See `lab/findings-gx30.md`.
+
+- **ring 31 completion** — benchmarks stopped per the founder's call, the
+  concrete advance delivered: the Arch live USB is flashed and
+  sha256-verified onto the backed-up key, and
+  `tools/usb-flash-session.sh` chains the entire mod session with hard
+  gates (chip read → identity check against build 210519_1 over 512 KiB →
+  verify → protectoff → flash the 280 W image → re-verify → rollback
+  instructions). One USB boot runs the whole thing.

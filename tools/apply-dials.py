@@ -19,8 +19,14 @@ ALLOWED_PREFIXES = ("Rm", "RM")  # only RM registry keys, no NVreg overrides
 def main():
     dials = sys.argv[1:]
     if not dials:
-        print("usage: apply-dials.py RmSomeDial=1 [RmOtherDial=2 ...]")
+        print("usage: apply-dials.py RmSomeDial=1 [RmOtherDial=2 ...] | --clear")
         return 1
+    if dials == ["--clear"]:
+        CONF.write_text("# hwtruth dial tests — cleared\n")
+        print("dials cleared:", CONF.read_text())
+        r = subprocess.run(["mkinitcpio", "-P"], capture_output=True, text=True)
+        print("initramfs regenerated" if r.returncode == 0 else "mkinitcpio error")
+        return 0
     for dial in dials:
         name, _, value = dial.partition("=")
         if not name.startswith(ALLOWED_PREFIXES) or not value:
