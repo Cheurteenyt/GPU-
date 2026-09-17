@@ -79,3 +79,24 @@ real game.
 3. `RmPerfLimitsOverride=1` — third: the named "punishing" limits.
 Each: verify with nvidia-smi (limits/clocks) + a real MangoHud session;
 keep what measurably wins, remove what does nothing or destabilizes.
+
+## Ring 31 result: the first real-game telemetry (Genshin, uncapped 180 fps, dial 2 active)
+
+Source: `day0/genshin-session-dial2.csv` (3,193 samples, ~5.3 min of
+MangoHud auto-logging, 100 ms interval — the founder played normally).
+
+- **GPU load: 98 % median** — the card was genuinely working.
+- **Power: 214 W median, 235 W max, ≥200 W for 72.5 % of the session** —
+  Genshin uncapped is NOT a light load; the card rides the upper power
+  region. (The 180 fps unlock changed the workload class completely.)
+- **Core clock: 1890 MHz median/max, with 1st-percentile dips to
+  1770 MHz** — occasional one-power-state droops under the heaviest
+  moments. This is exactly the behaviour the 280 W power-budget mod would
+  remove (more headroom → fewer state drops).
+- Temps 61/64 °C median/max — the founder's LACT fan curve holds it well.
+- **Dial 2 verdict: UNMEASURABLE this session** — max power 235 W never
+  touched the 250 W cap, and `RMDisablePerfIntersect` only matters when
+  limits intersect. The A/B (same session without the dial) decides it;
+  the expected effect size is small (the p1 clock dip, 1770→1890).
+- MangoHud auto-logging (autostart_log) works: the measurement pipeline
+  is now repeatable without any user input beyond playing.
