@@ -205,3 +205,14 @@ findings files carry the honesty ledgers.
   master-aborts; only the firmware-assigned window decodes. Next: nvflash
   beyond the window on the nomodeset boot, detached (v4 script built).
   See `lab/findings-gx21.md`.
+
+- **ring 22** — the no-reboot hunt, closed with receipts: sysfs is
+  chain-capped by design, the ROM window is 512 KiB of hardware, the chip's
+  upper half is unique (no SPI aliasing), BAR1 and System RAM are sealed
+  while the driver is bound (EIO/EPERM, STRICT_DEVMEM beats iomem=relaxed
+  for RAM), nvflash refuses and nvflashk is Windows/certificates only, and
+  the RM SDK exposes no image-read control. The proprietary driver ignores
+  `nomodeset` (fbdev held the console — the ring-13 wall reproduced); the
+  maintenance entry now forces `nvidia_drm.modeset=0 nvidia_drm.fbdev=0`,
+  which unblocks the detached full-read. One maintenance reboot delivers
+  the image and re-trains the display from POST. See `lab/findings-gx22.md`.
