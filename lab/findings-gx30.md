@@ -55,3 +55,27 @@ This is the accessible "deep" layer: the dials live in the driver+RM path
 we can actually reach, unlike the encrypted bindata. Ring 31: build the
 test matrix and run the first reboots with one dial each, measured in a
 real game.
+
+## Addendum: where the dial strings live in rm.elf (consumer analysis)
+
+- The dial-name strings sit at file 0xe27b80-0xe8e4f8 (VA 0x1e27b80+).
+- auipc+addi scan found direct code references for three dials:
+  RmPerfLimitsOverride @ 0xbad5c0, RMClkVfOverride @ 0xecee0,
+  RMPriorityBoost @ 0xd66c. Window disassembly of the first shows a
+  **debug/log-name registration table** (repeated `li a1, <line-id>` +
+  call, ids 0x99-0xb7): the RM registers these names in its trace system.
+- Interpretation: the RM knows the keys (its trace table names them), the
+  VALUES arrive from the host driver through the registry channel
+  (NVreg_RegistryDwords → host registry → GSP RPC). Mechanism confirmed
+  functional by NVIDIA forum usage; value semantics remain host-side.
+- Pointer-table search (8-byte VAs of the strings): zero hits — the
+  registry lookup is by name at runtime.
+
+## The safe test matrix (ring 31, one dial per reboot)
+
+1. `RmBootGspRmWithBoostClocks=1` — first: documented working usage on
+   NVIDIA's own forum (DGX Spark clock-pinning workaround).
+2. `RMDisablePerfIntersect=1` — second: may relax the limit intersection.
+3. `RmPerfLimitsOverride=1` — third: the named "punishing" limits.
+Each: verify with nvidia-smi (limits/clocks) + a real MangoHud session;
+keep what measurably wins, remove what does nothing or destabilizes.
