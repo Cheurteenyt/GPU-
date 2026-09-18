@@ -95,3 +95,20 @@ function**: dense `sd` stores of auipc-computed handler pointers into the
 object (+0x4e8..+0x618) — the object whose +0x53a u16 the VMIN check
 reads. The threshold value flows from this init chain (from constants or
 the VBIOS parse — the next hop). The full writer trace is ring 41.
+
+## Ring 41 partial: the writers are strap-driven — the mapper RE is the convergence point
+
+- The strap register constants (0x68A00C/0x68A01C) are **not literals**
+  anywhere in rm.elf — computed at runtime (base + offset), so the
+  strap→threshold chain runs through the **0x1b3c mapper cluster** (the
+  vague 4.9 decoded two 5-bit packed-field decoders there; vague 4.10
+  continues cloud-side).
+- Writer-1 (VA 0x1161114) sits in a bit-flag dispatch function (lui 0x10
+  masks, srli/andi tests on s9) — consistent with strap-driven
+  initialization.
+- Ring 41 conclusion: the VMIN thresholds are **strap-derived values**,
+  not constants — the ignore dial (RmSramVminCheckIgnore) is the correct
+  and only sanctioned lever, and its effect must be measured empirically
+  (Phase D-volt), not predicted from constants. The machine-side assets
+  (the pinned sites, the live pairing 987 mV@1770, the flash kit) stand
+  ready; the mapper decode belongs to the cloud vague 4.10.
