@@ -82,3 +82,16 @@ are loaded from the capability objects (the lhu/ld patterns) — so the
 extraction needs the object-layout trace (ring 40), not window scanning.
 The dial path (RmSramVminCheckIgnore=1) remains the empirical shortcut:
 the crash-test IS the threshold measurement.
+
+## Ring 40 partial: the field's writer found — the capability object initializer
+
+The scan for +0x53a accesses (corrected RISC-V immediate mask, imm[11:5]=0x29):
+- **3 lhu readers**: 0x6b381c, 0x6b9848, 0x6b9948 (the last = the dispatch
+  handler of the VMIN check site);
+- **2 sd writers**: 0x161114 and 0x9f4874 — the initializers.
+
+The 0x9f4874 writer disassembles to a **capability-object initialization
+function**: dense `sd` stores of auipc-computed handler pointers into the
+object (+0x4e8..+0x618) — the object whose +0x53a u16 the VMIN check
+reads. The threshold value flows from this init chain (from constants or
+the VBIOS parse — the next hop). The full writer trace is ring 41.
