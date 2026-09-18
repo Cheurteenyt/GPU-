@@ -581,3 +581,10 @@ semantics).
   performance path — the power policy lives in plaintext rm.elf where the
   cloud campaign mines it. The lane closes on VALUE, not difficulty. See
   `lab/findings-gx28.md` resolution.
+
+- **ring 42** — THE UNLOCK ROM: the clock caps (vP-state 2100 → **2200 MHz**,
+  first+second+third limits, u16×4 encoding cracked) AND the power budget
+  (250 → **280 W** peak) in one image — every patch gate-checked against
+  the decoded values, re-verified by the CPR parser and the power decode.
+  The flash kit re-targeted. The combined unlock: caps + power + the RM
+  dials if they ever bind. See `tools/vbios-unlock-mod.py`.

@@ -19,7 +19,7 @@ M=/mnt
 LAB="$M/Reverse Engenering/gpu-lab"
 NV=$LAB/tools/nvflash-5.867/x64/nvflash
 ROM_BUILD=$LAB/acquisitions/MSI.RTX3070.8192.210519_1.rom
-ROM_MOD=$LAB/acquisitions/MSI.RTX3070.8192.210519_1-mod-280W.rom
+ROM_MOD=$LAB/acquisitions/MSI.RTX3070.8192.210519_1-unlock-2200MHz-280W.rom
 STAMP=$(date +%Y%m%d-%H%M%S)
 OUT=$LAB/day0/flash-session-$STAMP
 
