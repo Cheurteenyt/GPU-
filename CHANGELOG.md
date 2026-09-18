@@ -451,3 +451,11 @@ audit trail of the same chantier).
   cycle-count fields vs constants; the FBPA bit-layout decode (envytools
   grammar import) is the next session. rm.elf patching formally closed
   (bootloader signature chain). See `lab/findings-gx34.md`.
+
+- **ring 38** — THE MONSTROUS LEVER: the VMIN checks (VMIN_NVVDD/SRAM/LOGIC
+  — the power-efficiency governors) are dial-ignore-able
+  (`RmSramVminCheckIgnore`), read by OUR firmware (2 consumer sites pinned
+  in our rm.elf 610.57.04). Ignoring them lowers the VF curve floor = at
+  the 250 W cap, more MHz — the undervolt-by-firmware. Test protocol
+  defined (paired dials + Genshin + voltage/clock metrics, volatile,
+  crash-recoverable). See `lab/findings-gx38.md`.

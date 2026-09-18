@@ -12,8 +12,8 @@ from pathlib import Path
 
 import capstone
 
-RM = Path("/home/z/my-project/scratch-gsp/rm.elf")
-OUT = Path("/home/z/my-project/scratch-gsp/xrefs")
+RM = Path("gsp-rm-17MB.bin")
+OUT = Path("xrefs")
 OUT.mkdir(exist_ok=True)
 
 TEXT_OFF, TEXT_VA, TEXT_SZ = 0x0, 0x1000000, 0xE85000
@@ -21,6 +21,8 @@ DATA_OFF, DATA_VA, DATA_SZ = 0xE85000, 0x4000000, 0x19C000
 
 KEY_DIALS = [
     "RmPerfLimitsOverride",
+    "RmSramVminCheckIgnore",
+    "RmVoltThresholdCtrlCtrl",
     "RMDisablePerfIntersect",
     "RMClkVfOverride",
     "RmPerfCfOverride",
