@@ -436,6 +436,54 @@ instruments + `win.elf` and are deliberately not committed.
   lui-0x88, vtable-slot loads), bulk-init hypothesis. Machine levers
   unchanged; the whitelist is new defensive knowledge (0x56 in an RM log
   = "sequence not on the list").
+- **vague 4.9 (Task 73, cloud GLM 5.3 Flash)** — the constructor proven
+  ABSENT, the lists named by their roots, the packed word traced to
+  hardware. The +0x288 writer question (open since 4.7) closed by PROVEN
+  ABSENCE: all 261 sd/sw stores to +0x288 in X-R classified by value
+  origin — ZERO carry an auipc-resolved code address; every pointer
+  transits memory/registers (third structural negative: +0x88130 (4.8),
+  +0x1100, +0x288 — the RM's BOARDOBJ wiring is installed transitively,
+  never by nominative stores). The 4.7 "dominant families" REVERSED:
+  0x1915574/0x193cc44 are not vtable-construction regions but TINY NO-OP
+  STUBS (six-instruction functions, confirmed at file; no static template
+  holds their pointers — 0 matching qwords in both LOAD segments) — 18/17
+  object families receive no-op default callbacks at +0x288, giving
+  PerfPmaControlReg=1 "observation only" its mechanical explanation. The
+  destructor's carrier function anatomized (0x164b388-0x164c7c8, 1585
+  insns, pointer-dispatched — zero direct callers, zero address-taken
+  refs): it searches type 0xf (the PMA fallback type) AND type 0x16 via
+  the finder 0x1457440 with root [state+0x3CD0] — DOUBLE PROOF with the
+  4.7 fallback path: +0x3CD0 is the PMA-fallback list holder; it also
+  calls 0x1630b60(root) (unnamed, setter region) and the destroy utility
+  0x18e8ae0 repeatedly. The grand parser's TRUE entry is 0x1631010 (4.6
+  anchored mid-function at 0x1631300); signature (a0→dispatch, a1→rm
+  state) matches the PMA callback convention, and the mode==0 entry path
+  calls the capability setter 0x1630c48 immediately (0x1631310). The
+  key-finder pinned instruction-exact with two 4.8 corrections: miss
+  return is 0x10000 (not 0xFFFF; empty list returns 0, out-index
+  unwritten on miss), the key is a 32-BIT read at [item+0x28], and the
+  list is RELOADED from [root+0x1100] EVERY iteration (mutation
+  tolerant). The 52 callers' roots classified: the grand parser searches
+  key 0x10 with a frame handle (s0-0x90, fed by a prior call result);
+  the 0x17677xx block is a KEY→INDEX TABLE BUILDER (root [s4+0x1ED0],
+  ≤0xa guard, writes [s3+0x64+idx*2]); zero stores to +0x1100 — the list
+  catalogue is runtime-dynamic and NOT statically enumerable (the honest
+  verdict). THE STRAP→CODE CHAIN CLOSED BOTH ENDS: the two mappers live
+  in the 0x1b3c cluster (0x1b3c5ec bound-27, 0x1b3c708 bound-8 — 4.8's
+  module attribution corrected; 0x1bd9xxx holds the CONSUMERS); JT1 read
+  from file case by case (adds 24..26→0x1c store-only, exact bltu bounds,
+  EBREAK-guarded error path), JT2 k→k+1 confirmed; the consumer
+  0x1bd979c sources the packed word from a VTABLE CALL that receives
+  HARDWARE REGISTER OFFSETS — 0x68A00C + (index<<10) then 0x68A01C +
+  (index<<10) (page 0x68Axxx, 0x400 domain stride); bit 31 split out to
+  [out+0xc], fields [1:0]/[8:4]/[11:10]/[20:16]/[23:22] mapped to
+  [out+0x24]/JT1→[out+0x2c]/[out+0x28]/JT1→[out+0x38]/[out+0x34]; the
+  single caller wrapper 0x12b5c88 gates a3!=0 and shifts args. JUNCTION
+  with the founder's rings 38-39 (VMIN hunt, pushed during the mining):
+  the 0x68Axxx page is the machine-side reading target; the JT1 case
+  bodies (0x1b3c684-0x1b3c6c6) are the field grammar — 28 identities,
+  two logged unknowns, three extension values 0x1e/0x1f. Machine levers
+  unchanged, rank 3 consolidated with a mechanism.
 
 Instruments: `tools/gsp-extract/` gains `wave2_dial_names.txt` (the 881
 names), `wave2_strings_taxonomy.py`, `xref_dials.py`, `v42_*` (4),
@@ -443,7 +491,9 @@ names), `wave2_strings_taxonomy.py`, `xref_dials.py`, `v42_*` (4),
 check, enum, enum2), `v47_*` (5: explore, explore2, resolve, hunt,
 registr), `v48_*` (10: bitmap, policy, pass, find, clone, ctor, ctor2,
 ctor3, ctor4, vtbl288 — the ctor/ctor2/ctor3 iterations kept for the
-audit trail of the same chantier).
+audit trail of the same chantier), `v49_*` (11: ctor, ctor2-ctor6 (the
+five scan families of the +0x288 hunt, kept for the audit trail),
+lists, lists2, straps, straps2, straps3).
 
 - **ring 34** — the timing record grammar, first decode: the 76-byte
   records are 19 packed 32-bit FBPA timing registers (one bank per
