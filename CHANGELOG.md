@@ -485,6 +485,45 @@ instruments + `win.elf` and are deliberately not committed.
   two logged unknowns, three extension values 0x1e/0x1f. Machine levers
   unchanged, rank 3 consolidated with a mechanism.
 
+- **vague 4.10 (Task 74, cloud GLM 5.3 Flash)** — the domain-classes built
+  at runtime, the SIX sibling registers, the domain namespace. The wrapper
+  0x12b5c88 fully disassembled (74 insns — never done before): it is NOT a
+  plain arg translator; after the consumer call it chains FOUR more vtable
+  reads on the same [holder+0x50] object with UNSEEN sibling registers:
+  +0x008 (bit 3 → [out+0x44]), +0x030 (bit 16 → [out+0xb5]), +0x368
+  (16-bit halfword SWAP → [out+0xe8]), +0x36C (raw 16 bits → [out+0xec]);
+  the pre-wrapper adds a fifth extraction (+0x030 bits 17+ → [out+0xb0]).
+  The 0x68Axxx page holds SIX exploited registers per domain, not two.
+  The pre-wrapper's true entry is a TRAMPOLINE at 0x12c7a1c (c.beqz a3,
+  +0x58 short-circuit; guarded by ld 0(zero)+c.ebreak anti-exec barrier;
+  4.9 address corrected). SIX reference mechanisms proved NEGATIVE across
+  (pre-wrapper, wrapper, consumer): 0 static pointers, 0 auipc+addi
+  formations, 0 lui+addi, 0 rodata base+off jump-table hits (full scans),
+  no ELF relocations (EXEC, 3 phdrs) — the SEVENTH mechanism is POSITIVE
+  and exact: the mega-constructor (0x192xxxx, >8000 insns, site
+  0x1922358/0x191f2a4) stores 0x12c7a1c into a FLAT RUNTIME VTABLE at
+  [obj+0x928] (row -0x6e0..-0x6a8: methods 0x12c79bc — same trampoline
+  motif, 0x1914594, 0x127d2f4, 0x19145ac, 0x128e5a8); v50_window maps 351
+  address formations to 30+ module functions posed by SEVEN
+  mega-constructors (0x1928b44/0x1949cb4/0x1964a90/0x1973924/0x19751c0/
+  0x197a2ac/0x1980e94) — the 0x12b5xxx-0x12c7xxx module is an LTO class
+  family, instantiated at runtime. THE DOMAIN NAMESPACE found in-file:
+  0x1e05fc0-0x1e05ff0 = DRAMCLK, LTCCLK, XBARCLK, HUBCLK, SYSCLK, AWP,
+  RRRB (SEVEN domains, indexed 0..6 by the timing engine 0x136ecb4 — the
+  only function citing them; builds the runtime name table, calls slot
+  +0x400, computes picosecond conversions via const 999448120832 ≈ 1e12,
+  ring-39-style integrity canary). The VMIN/rail lexicon mapped in the
+  0x1e78xxx zone: VMIN_LOGIC/SRAM/NVVDD_0-1/MSVDD_0-1, OVERVOLTAGE_*,
+  RELIABILITY_*, THERM_POLICY_*, PMU_DOM_GRP_*, UNLOAD_DRIVER_VOLTAGE_
+  RAIL_0-3, PWR_RAIL_MISMATCH, PERF_CF_CONTROLLER_{DRAM,GPC,NVD}_{MIN,
+  MAX}+XBAR_MAX — the junction vocabulary for the founder's rings 38-39.
+  The 28 JT1 identities stay the closed per-domain state grammar;
+  individual naming goes to the live-reading protocol (deliverable §4).
+  Reader implementation (+0x28) honestly still unnamed (generic BOARDOBJ
+  slot, 3090 call sites); the holder writer [+0x3AF0] unfound (0 stores
+  in 0x19xxxxx). Deliverable §4 poses jalon 4.11: the holder constructor,
+  the +0x400 timing consumer, JT1 identities vs PERF_CF controllers.
+
 Instruments: `tools/gsp-extract/` gains `wave2_dial_names.txt` (the 881
 names), `wave2_strings_taxonomy.py`, `xref_dials.py`, `v42_*` (4),
 `v43_*` (3), `v44_*` (3), `v45_*` (8), `v46_*` (6: dials, window, ctor,
@@ -493,7 +532,9 @@ registr), `v48_*` (10: bitmap, policy, pass, find, clone, ctor, ctor2,
 ctor3, ctor4, vtbl288 — the ctor/ctor2/ctor3 iterations kept for the
 audit trail of the same chantier), `v49_*` (11: ctor, ctor2-ctor6 (the
 five scan families of the +0x288 hunt, kept for the audit trail),
-lists, lists2, straps, straps2, straps3).
+lists, lists2, straps, straps2, straps3), `v50_*` (12: wrapper, domain,
+reader, ptr, ptr2, window, slot28, holder, holder2, jtscan, micro,
+semantics).
 
 - **ring 34** — the timing record grammar, first decode: the 76-byte
   records are 19 packed 32-bit FBPA timing registers (one bank per
