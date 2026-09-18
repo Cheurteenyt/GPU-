@@ -6,6 +6,12 @@
 > applied to a live **MSI RTX 3070 Gaming Trio Plus LHR (GA104,
 > VBIOS 94.04.46.00.EB)** and to the vendor-verified corpus around it.
 
+## The data catalog
+
+**[lab/DATA-INDEX.md](lab/DATA-INDEX.md)** — the master index: every
+decoded rm.elf address, every VBIOS structure, every artifact and every
+instrument, with source and reproduction path. Find the data here first.
+
 ## The founding rule (+0 octet, GPU edition)
 
 The card is **never written**. Every acquisition is a read: a sysfs dump
