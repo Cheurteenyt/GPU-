@@ -573,3 +573,11 @@ semantics).
   simultaneously). Offset +225 applied live; MangoHud auto-log armed;
   the crash-test is the game itself; rollback = one line. The curves are
   saved in `tools/gsp-extract/vf-curve-offsets.json`.
+
+- **ring 41 resolution** — the bindata mystery SOLVED from the open
+  source: it is NVIDIA's documented bin-archive system (g_bindata*.c, MIT)
+  containing the boot-stage components (RM boot ucode, SEC2 ucode,
+  certificates), compressed with the proprietary LZ (~20 % ratio). NOT the
+  performance path — the power policy lives in plaintext rm.elf where the
+  cloud campaign mines it. The lane closes on VALUE, not difficulty. See
+  `lab/findings-gx28.md` resolution.

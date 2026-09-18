@@ -95,3 +95,30 @@ references (6 hits found earlier). That is the accessible deep knowledge.
 Target for the next deep session: symbol-less RISC-V RE of rm.elf's power
 management, anchored on the table structures we already decoded from the
 VBIOS.
+
+## RESOLUTION (ring 41): the bindata mystery is SOLVED — and it's not the performance path
+
+The bindata is NVIDIA's **documented bin-archive system** — found in the
+OPEN source: `src/nvidia/generated/g_bindata*.c` (MIT license) — the
+generated accessors name the archives: `kgspGetBinArchiveGspRmBoot_TU102/GA100`,
+`ksec2GetBinArchiveBlUcode`, `spdmGetBinArchiveL1Certificate`,
+`kgspGetBinArchiveConcatenatedFMCDesc`...
+
+The generated file states per component: **COMPRESSION: YES** (a 4,096 B
+UCODE_IMAGE → 811 B compressed — ~20 % ratio, the proprietary LZ the GSP
+bootloader decompresses), per-chip variants (TU102/GA100/...), and the
+content classes: **the boot-stage components** (RM boot ucode image+desc,
+SEC2 bootloader ucode, L1 certificates, FMC descriptors).
+
+Consequences:
+1. The 64 MB bindata region in our fwimage = these boot-stage archives
+   (compressed) — NOT the power/performance policy. **The performance
+   data lives in rm.elf (plaintext) — exactly what the cloud campaign
+   (vagues 4.4-4.10) is mining.**
+2. The bindata decode would yield boot ucodes and certificates —
+   interesting for the boot-chain study, irrelevant to the performance
+   levers. The lane is CLOSED as not-a-performance-path (not because of
+   difficulty — because of VALUE).
+3. The power heuristics the founder wants = **rm.elf + the VBIOS tables
+   (both in hand, both unsigned/plaintext)** — the campaign continues
+   there (vague 4.10: the mappers; the machine: the live VF pairing).
