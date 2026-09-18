@@ -375,11 +375,36 @@ instruments + `win.elf` and are deliberately not committed.
   tables, 17 type values resolved over 28 sites — v42's "normal" types
   0x10/0x13/0x1d land exactly where predicted, 0xf is alive, and the two
   type levels (prep format vs engine dispatch) set the vague-4.7 jalon.
+- **vague 4.7 (Task 71, cloud GLM 5.3 Flash)** — the reconciliation, closed
+  as a PROOF OF SEPARATION. The finder 0x1457440 finally called: four
+  auipc+jalr sites from the engine dispatcher 0x1634a38 (0x1634b5c/0x1634ba4/
+  0x1634bd6/0x1634bfc, a1 = 0x10/0x13/0xc/0x1d, a0 = [s2+0x3CD0]) — the
+  constructor's 17 N values are TABLE FORMATS, not request types. The 0xc
+  request is gated by capability bit 0 (lw 0x324; andi 1 at 0x1634bc2).
+  Bit 8 gains its engine arm: idempotent sync at 0x16355be-0x1635662 —
+  read (sraiw 8; andi 1), compare to request field +0x18, setter only on
+  delta (SET 0x1635662 / CLEAR 0x16355d6) — a poke of the bit itself would
+  be corrected back. The PerfPmaControlReg callback mechanics closed: two
+  exits to the fallback path (dial absent OR value != 1), callback
+  [s1+0x288](dispatch, rm, 1) with NO null guard (field guaranteed
+  initialized), fallback type 0xf via 0x14571b8 (address corrected from
+  0x14561b8 by script). The "P-state pass" 0x1b3c4f0 (address corrected
+  from 0x1b3c4f4) is GENERIC REVALIDATION: 52 auipc+jalr callers census;
+  the bit-9 loop is an internal block of the grand parser, entered by the
+  mode-7 path (ctor N=7 → pass a1=16 ×2 → pass 0x40 → pass 8 → SET bit 9).
+  The capability object self-registers: [state+0x88130] is a full BOARDOBJ
+  carrying mode byte (+0), the capability word (+0x324) and callbacks
+  (+0x460 = 0x169455c written by the small parser itself at 0x16312b0);
+  the PMA callback (+0x288) travels by field-by-field clone — nominative
+  attribution honestly unresolved, reported to vague 4.8. Bit 11 from the
+  dispatcher demoted (context-window artifact). Zero machine-side changes:
+  levers 1-3 unchanged, all consolidated.
 
 Instruments: `tools/gsp-extract/` gains `wave2_dial_names.txt` (the 881
 names), `wave2_strings_taxonomy.py`, `xref_dials.py`, `v42_*` (4),
 `v43_*` (3), `v44_*` (3), `v45_*` (8), `v46_*` (6: dials, window, ctor,
-check, enum, enum2) — 26 files.
+check, enum, enum2), `v47_*` (5: explore, explore2, resolve, hunt,
+registr) — 32 files.
 
 - **ring 34** — the timing record grammar, first decode: the 76-byte
   records are 19 packed 32-bit FBPA timing registers (one bank per
