@@ -588,3 +588,10 @@ semantics).
   the decoded values, re-verified by the CPR parser and the power decode.
   The flash kit re-targeted. The combined unlock: caps + power + the RM
   dials if they ever bind. See `tools/vbios-unlock-mod.py`.
+
+- **ring 41 architecture** — PROVEN BY ABSENCE: "BIT\0" appears zero times
+  in rm.elf — the host driver parses the VBIOS and passes the parsed data
+  to the GSP via the init RPC. The timing table's consumption semantics
+  live host-side (closed); the VBIOS EDITS still propagate (the host
+  parses the edited table). The mods remain valid without the consumer
+  decode. See `lab/findings-gx41.md`.
