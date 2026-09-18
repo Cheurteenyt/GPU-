@@ -399,12 +399,51 @@ instruments + `win.elf` and are deliberately not committed.
   attribution honestly unresolved, reported to vague 4.8. Bit 11 from the
   dispatcher demoted (context-window artifact). Zero machine-side changes:
   levers 1-3 unchanged, all consolidated.
+- **vague 4.8 (Task 72, cloud GLM 5.3 Flash)** — the plaintext haul. The
+  0x20-0x4F whitelist bitmap READ FROM THE FILE: auipc a4, 0x84e; ld a4,
+  0x72e(a4) resolves to VA 0x1e83d38 (file offset 0xe83d38, first LOAD,
+  unencrypted) = 0x0001000100210001 → exactly FOUR allowed sequence IDs
+  0x20/0x30/0x35/0x40 (a fifth bit, 0x50, is set but unreachable through
+  the bltu 0x30 gate); bit clear → log (format 0x202c74f0, volatile rodata)
+  + return 0x56, bit set → sequence handler [s7+0x348](s6, s2, s7,
+  &req+0x314) with the ≤9 count guard and [req+0x31c] = -1. SAFETY ANSWER:
+  the whitelist does NOT bound the RmPerfChangeSeqOverride dial — the dial
+  path carries no request, beqz skips the whole policy. Bit 8 REVERSED: the
+  dispatcher FORCES it at sequence-request entry (0x1635516/0x1635522: cap
+  object absent OR bit clear → 0x1635656, hardcoded a3=1 → setter, then
+  main path) — bit 8 is the "sequence change in progress" state; the 4.7
+  sync is ONE site (0x16355d6, a3 = request value +0x18, both directions);
+  the 0x1635662 site is the entry force, not a sync arm (correction
+  recorded). 0x1b3c4f0 renamed AGAIN — a GENERIC KEY-FINDER: list at
+  [root+0x1100], count [list+0x170] (byte), accessor [list+0x38], item key
+  [item+0x28], out-index, return 0/0xFFFF; the 52 callers' keys census
+  (0x10 ×11, 0x8 ×5, 0x1 ×4, 0x40 ×3, 0x2, 0xff, 13 register-derived);
+  the "P-state passes" are key-0x40 then key-8 SEARCHES: found item's
+  [item+0x60] callback invoked (s2, s6, item), s4 |= 1<<found_index — the
+  4.6 accumulation decoded. The 0x1b3c4f0-0x1b3ca10 cluster mapped (five
+  utilities) and TWO CODE MAPPERS DECODED from file-backed rodata jump
+  tables — 0x1DEB210 (27 entries: 0→0x11, 1→0, 2..16→i−1, 20→0x1e, 21→0x1f,
+  invalid→0x1c logged) and 0x1DEB280 (i→i+1, 9 entries) — 5-bit
+  packed-field decoders (bits [8:4], [20:16]) in the memory-timing module
+  0x1bd9xxx. The "+0x288 cloners" are SELF-POINTER CONSTRUCTORS
+  ([obj+0x288] = obj+0x3b8 — the 4.7 clone hypothesis corrected; those
+  sites cannot feed a jalr); the perf-state destructor found (0x164b7be:
+  destroy + null of [s2+0x88130] and [s2+0x8F188], crossing the 4.6
+  +0x8F180 config — the capability object dies with its carrier); the
+  grand parser bulk-inits ~160 0x14-byte records at state+0x881A0 with
+  +0x88000 back-pointers. The +0x288 code-pointer writer honestly still
+  open: four scan families exhausted (constants, self-pointers, fused
+  lui-0x88, vtable-slot loads), bulk-init hypothesis. Machine levers
+  unchanged; the whitelist is new defensive knowledge (0x56 in an RM log
+  = "sequence not on the list").
 
 Instruments: `tools/gsp-extract/` gains `wave2_dial_names.txt` (the 881
 names), `wave2_strings_taxonomy.py`, `xref_dials.py`, `v42_*` (4),
 `v43_*` (3), `v44_*` (3), `v45_*` (8), `v46_*` (6: dials, window, ctor,
 check, enum, enum2), `v47_*` (5: explore, explore2, resolve, hunt,
-registr) — 32 files.
+registr), `v48_*` (10: bitmap, policy, pass, find, clone, ctor, ctor2,
+ctor3, ctor4, vtbl288 — the ctor/ctor2/ctor3 iterations kept for the
+audit trail of the same chantier).
 
 - **ring 34** — the timing record grammar, first decode: the 76-byte
   records are 19 packed 32-bit FBPA timing registers (one bank per
