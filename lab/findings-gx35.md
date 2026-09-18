@@ -63,3 +63,31 @@ selection); the SEMANTICS of the 10 slots and the 76-byte field layout
 are the open decode. This is the multi-session deep front — the data is
 saved (`tools/gsp-extract/mem-timings-65records.json`,
 `timing-scaling.json`).
+
+## Ring 42 partial: the byte-level ns analysis fails — the fields are PACKED
+
+The per-byte ns test (value/frequency across the 6 grade records):
+ZERO constant-ns positions. The timing values are **packed sub-fields**
+(multiple parameters per byte) — the byte-level analysis cannot resolve
+them. The 32-bit register view + the sub-field bit layout is required.
+
+## The three remaining decode paths (ranked)
+
+1. **The empirical flash-test science**: modify a timing byte → flash →
+   measure stability/performance → infer the semantics by experiment.
+   The dual-BIOS switch makes this recoverable. The MODS-rule names in
+   the RM (MODS_RULES_LOGIC etc.) suggest NVIDIA's own test framework
+   does exactly this.
+2. **The host-driver RE**: the VBIOS parsing lives in the closed
+   nvidia.ko (the BIT magic absent from rm.elf proves the separation) —
+   the parser RE = the x86 closed binary.
+3. **The MODS documentation hunt**: the MODS_RULES_* names suggest
+   NVIDIA's internal test framework — its docs/scripts, if public
+   anywhere, would name the timing fields directly.
+
+## The state
+
+The timing table anatomy is fully mapped (65×76 B, the 19-register bank,
+the bin selection, the scaling law value∝freq at the product level); the
+FIELD SEMANTICS are the remaining wall — behind it: the GDDR6 bandwidth
+optimization, the last unexplored performance lever on this card.
