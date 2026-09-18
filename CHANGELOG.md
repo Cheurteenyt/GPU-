@@ -290,3 +290,15 @@ findings files carry the honesty ledgers.
   gates (chip read → identity check against build 210519_1 over 512 KiB →
   verify → protectoff → flash the 280 W image → re-verify → rollback
   instructions). One USB boot runs the whole thing.
+
+- **ring 32** — the in-session flash attempt (detached, auto-restore) hit
+  two new seals and is documented: `resource_resize` is EPERM on this
+  kernel (BAR shrink unavailable at runtime) and the driver pin survives
+  the runtime console release. The live-USB route stays the flash path —
+  now with the ReBAR/BAR1 shrink step and `iomem=relaxed` baked into the
+  USB boot entries (the Arch ISO kernel lacked it — the real root cause
+  of nvflash's "system restart" error, warm or cold). The founder's
+  3DMark-on-Linux tooling (official UL-validated Time Spy under Proton)
+  is archived in `tools/3dmark-linux/` with its run ledger — the
+  validation instrument for every future change. BIOS- lane: the
+  founder's write-layout map committed (protected-head vs readable-body).

@@ -1,0 +1,54 @@
+[03:59:52] === in-session flash — grace period 60 s (close your apps if you want) ===
+[04:00:52] console released: None
+[04:00:52] $ systemctl stop sddm
+
+[04:00:52] $ systemctl stop lactd
+
+[04:00:53] $ systemctl stop coolercontrold
+
+[04:00:56] $ fuser -k -9 /dev/nvidia0 /dev/nvidiactl /dev/nvidia-modeset /dev/nvidia-uvm /dev/nvidia-uvm-tools 2>/dev/null
+
+[04:00:59] $ modprobe -r nvidia_drm nvidia_uvm nvidia_modeset nvidia
+modprobe: FATAL: Module nvidia_drm is in use.
+[04:01:01] $ modprobe -r nvidia_drm nvidia_uvm nvidia_modeset nvidia
+modprobe: FATAL: Module nvidia_drm is in use.
+[04:01:03] $ modprobe -r nvidia_drm nvidia_uvm nvidia_modeset nvidia
+modprobe: FATAL: Module nvidia_drm is in use.
+[04:01:05] $ modprobe -r nvidia_drm nvidia_uvm nvidia_modeset nvidia
+modprobe: FATAL: Module nvidia_drm is in use.
+[04:01:07] $ modprobe -r nvidia_drm nvidia_uvm nvidia_modeset nvidia
+modprobe: FATAL: Module nvidia_drm is in use.
+[04:01:09] $ modprobe -r nvidia_drm nvidia_uvm nvidia_modeset nvidia
+modprobe: FATAL: Module nvidia_drm is in use.
+[04:01:11] $ modprobe -r nvidia_drm nvidia_uvm nvidia_modeset nvidia
+modprobe: FATAL: Module nvidia_drm is in use.
+[04:01:13] $ modprobe -r nvidia_drm nvidia_uvm nvidia_modeset nvidia
+modprobe: FATAL: Module nvidia_drm is in use.
+[04:01:15] $ modprobe -r nvidia_drm nvidia_uvm nvidia_modeset nvidia
+modprobe: FATAL: Module nvidia_drm is in use.
+[04:01:17] $ modprobe -r nvidia_drm nvidia_uvm nvidia_modeset nvidia
+modprobe: FATAL: Module nvidia_drm is in use.
+[04:01:19] $ modprobe -r nvidia_drm nvidia_uvm nvidia_modeset nvidia
+modprobe: FATAL: Module nvidia_drm is in use.
+[04:01:21] $ modprobe -r nvidia_drm nvidia_uvm nvidia_modeset nvidia
+modprobe: FATAL: Module nvidia_drm is in use.
+[04:01:23] $ modprobe -r nvidia_drm nvidia_uvm nvidia_modeset nvidia
+modprobe: FATAL: Module nvidia_drm is in use.
+[04:01:25] $ modprobe -r nvidia_drm nvidia_uvm nvidia_modeset nvidia
+modprobe: FATAL: Module nvidia_drm is in use.
+[04:01:27] $ modprobe -r nvidia_drm nvidia_uvm nvidia_modeset nvidia
+modprobe: FATAL: Module nvidia_drm is in use.
+[04:01:29] ERROR: driver still pinned — restoring, no flash attempted
+[04:01:29] RESTORE: reloading the driver and the desktop
+[04:01:29] $ echo '1 8G' > /sys/bus/pci/devices/0000:07:00.0/resource_resize
+/bin/sh: line 1: /sys/bus/pci/devices/0000:07:00.0/resource_resize: Permission denied
+[04:01:29] $ modprobe nvidia_drm
+
+[04:01:32] $ echo 1 > /sys/class/vtconsole/vtcon0/bind
+
+[04:01:32] $ systemctl start lactd
+
+[04:01:35] $ systemctl start coolercontrold
+
+[04:01:35] $ systemctl start sddm
+

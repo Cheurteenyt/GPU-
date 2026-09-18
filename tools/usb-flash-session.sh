@@ -16,7 +16,7 @@
 
 set -u
 M=/mnt
-LAB=$M/gpu-lab
+LAB="$M/Reverse Engenering/gpu-lab"
 NV=$LAB/tools/nvflash-5.867/x64/nvflash
 ROM_BUILD=$LAB/acquisitions/MSI.RTX3070.8192.210519_1.rom
 ROM_MOD=$LAB/acquisitions/MSI.RTX3070.8192.210519_1-mod-280W.rom
@@ -31,6 +31,17 @@ if lsmod | grep -q '^nvidia'; then echo "ERROR: nvidia driver loaded?!"; exit 1;
 mkdir -p "$OUT"
 
 echo "=== flash session $(date -Is) ==="
+echo "[0/6] shrinking the ReBAR aperture (nvflash 5.867 conflicts with 8GiB BAR1)"
+GPUPCI=$(lspci -Dnn | grep -i 'nvidia' | grep -iE 'VGA|3D' | head -1 | cut -d' ' -f1)
+[ -z "$GPUPCI" ] && { echo "ERROR: GPU not found on PCI"; exit 1; }
+DEV=/sys/bus/pci/devices/$GPUPCI
+echo "  GPU at $GPUPCI; BAR1 before: $(sed -n 2p $DEV/resource)"
+if [ -f $DEV/resource_resize ]; then
+  echo "1 256M" > $DEV/resource_resize 2>/dev/null || echo "1 268435456" > $DEV/resource_resize
+  echo "  BAR1 after:  $(sed -n 2p $DEV/resource)"
+else
+  echo "  resource_resize unavailable — continuing (iommu=pt may suffice)"
+fi
 echo "[B/1] reading the REAL chip content (~999424 B expected)"
 "$NV" --version 2>&1 | head -3 || true
 "$NV" --save "$OUT/chip-full.rom" || { echo "ERROR: chip read failed"; exit 1; }
