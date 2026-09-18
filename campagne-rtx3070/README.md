@@ -21,6 +21,7 @@ deliberately not committed.
 | `campagne-rtx3070-vague42-calculs-rm-2026-09-18.md` | 4.2 (Task 65) | The RM's arithmetic: internal limit tables, encoding formats, the power tree — read directly in the RISC-V bytes. |
 | `campagne-rtx3070-vague43-branches-decoulees-2026-09-18.md` | 4.3 (Task 66) | The branches unrolled: every mode of the limit dispatcher followed instruction-exact to its machine effect (P-state flags, voltage rails, conversion tables). |
 | `campagne-rtx3070-vague44-capacite-vfpoint-2026-09-18.md` | 4.4 (Task 67) | The RmVFPointCheckIgnore milestone, sold: dial → parser 0x1631010 → instanciation → 5 text vtables → setter 0x1630c48 (`requestCapabilityChange`) → commit bit 0 → engine 0x1634a38 → request type 0xc. |
+| `campagne-rtx3070-vague45-carte-bits-capacite-2026-09-18.md` | 4.5 (Task 69) | The capability-bit map: full-linear disassembly (5 342 005 instructions), 42 direct setter callers, bits 0-11 by module; bit 8 = `RmPerfChangeSeqOverride`; the six other CheckIgnore dials consume by NAME, not by bit. |
 
 Read order for the machine chat: vague 1 (what to test first) → vague 3
 (how to stay safe) → vague 2 (how to inject) → vague 4.x (why it works,

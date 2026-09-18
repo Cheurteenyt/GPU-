@@ -346,7 +346,20 @@ instruments + `win.elf` and are deliberately not committed.
   pending, +0x350 recal callback) → commit bit 0 → engine 0x1634a38 →
   request type 0xc. The first partial breach of the encrypted-rodata
   wall: the vtables sit IN the text.
+- **vague 4.5 (Task 69, cloud GLM 5.3 Flash)** — the capability-bit map:
+  the whole X-R segment linearly disassembled (5 342 005 instructions,
+  capstone, 7 s) and the setter's callers counted PROPERLY — the wave-4.4
+  "zero references" was a jal-only artifact: 42 direct auipc+jalr callers
+  cover bits 0-11. Bit 8 is NAMED: `RmPerfChangeSeqOverride` (branch
+  0x1631394 → 0x1631824, value & 1), armed symmetrically by the ClkAdc
+  module (SET-if-absent / CLEAR-on-teardown), read by the engine as the
+  second-check skip. The other six CheckIgnore dials consume by NAME
+  (generic lookup 0x10432d4 at the check site), never through the
+  capability word — the wave-4.4 "same state object?" hypothesis is
+  refuted with proof of absence. The VFPoint handler is a full
+  re-sequencer: mode 4, callback 0x169455c, request 0x1456c7c, SET bit 1,
+  8 VF entries invalidated, SET bit 0.
 
 Instruments: `tools/gsp-extract/` gains `wave2_dial_names.txt` (the 881
 names), `wave2_strings_taxonomy.py`, `xref_dials.py`, `v42_*` (4),
-`v43_*` (3), `v44_*` (3) — 12 files.
+`v43_*` (3), `v44_*` (3), `v45_*` (8) — 20 files.
