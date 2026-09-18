@@ -595,3 +595,11 @@ semantics).
   live host-side (closed); the VBIOS EDITS still propagate (the host
   parses the edited table). The mods remain valid without the consumer
   decode. See `lab/findings-gx41.md`.
+
+- **the VFIO flash session** (`tools/vfio-flash-session.sh`) — the VM-based
+  flash: the live session installs qemu, builds a minimal busybox+nvflash
+  VM initramfs, binds the GPU to vfio-pci, and boots the VM with the GPU
+  passed through — the VM's own kernel RESETS the card (no GOP handoff
+  state, no firmware-init condition — the exact cause of nvflash's
+  "system restart might be required" on cold boots) and runs the flash
+  inside. The result files land on the data drive.
