@@ -64,3 +64,21 @@ immediate constants ARE the SRAM VMIN thresholds the ignore dial
 bypasses. Ring 39: full window disassembly of both sites, the threshold
 constants extracted, compared against the live voltage (987 mV @ 1770 MHz)
 → the real headroom quantified before the dial test.
+
+## Ring 39 partial: site 1 structure mapped, threshold extraction continues
+
+The site-1 window (0x16b97c4-0x16b9ac4, our rm.elf) shows:
+- a **capability-bitmask dispatch**: `lui 0x401`/`0x3000`/`0x4010` masks
+  AND-ed against a shifted flags register (s4<<a5), each bit branching to
+  its handler (0x16b9948, 0x16b9da2, 0x16b99fe);
+- a **7-entry jump table** (bltu a4=7 → table at auipc 0x723);
+- an **integrity check** (xor of two pointers before return — the
+  anti-tamper canary pattern);
+- at 0x16b99fe: the lhu read (+0x53a) that compares against s4 — the
+  value the dial controls flows here.
+
+The mV threshold constants are not bare immediates in this window — they
+are loaded from the capability objects (the lhu/ld patterns) — so the
+extraction needs the object-layout trace (ring 40), not window scanning.
+The dial path (RmSramVminCheckIgnore=1) remains the empirical shortcut:
+the crash-test IS the threshold measurement.
