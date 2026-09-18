@@ -51,3 +51,16 @@ clear; the exact bit-to-rail mapping inside the dispatch continues).
 VMIN exists for silicon safety — the ignore dial trades the conservative
 margin for headroom, and the crash test IS the stability test. The dials
 are volatile: a crash costs a reboot, never the card.
+
+## Addendum: the VMIN names are MODS debug-rule names — the thresholds live in the check code
+
+The VMIN_* strings (VMIN_NVVDD/MSVDD/LOGIC/SRAM/IODVDD) sit in a **string
+pool of MODS debug rule names** ("MODS_RULES_LOGIC", "SLI_GPU_BOOST_DOMAIN_GRP_1",
+"AUX_POWER" neighbours) — they name the rules for the debug/trace system,
+not the enforcement values. The numeric thresholds live in the check code
+itself or a parallel table: the two pinned consumer sites (0x6b98c4,
+0x6ba30c in our rm.elf) are the next disassembly targets — their
+immediate constants ARE the SRAM VMIN thresholds the ignore dial
+bypasses. Ring 39: full window disassembly of both sites, the threshold
+constants extracted, compared against the live voltage (987 mV @ 1770 MHz)
+→ the real headroom quantified before the dial test.
