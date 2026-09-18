@@ -380,3 +380,10 @@ Instruments: `tools/gsp-extract/` gains `wave2_dial_names.txt` (the 881
 names), `wave2_strings_taxonomy.py`, `xref_dials.py`, `v42_*` (4),
 `v43_*` (3), `v44_*` (3), `v45_*` (8), `v46_*` (6: dials, window, ctor,
 check, enum, enum2) — 26 files.
+
+- **ring 34** — the timing record grammar, first decode: the 76-byte
+  records are 19 packed 32-bit FBPA timing registers (one bank per
+  frequency bin); scaling classification across the 7 bins maps the
+  cycle-count fields vs constants; the FBPA bit-layout decode (envytools
+  grammar import) is the next session. rm.elf patching formally closed
+  (bootloader signature chain). See `lab/findings-gx34.md`.
