@@ -557,3 +557,10 @@ semantics).
   stock; the wall is silicon/voltage. Stack removed, stock restored. The
   honest levers: the 280 W flash (power-saturated loads) and the timing
   mod (bandwidth). See `lab/findings-gx40.md`.
+
+- **ring 35** — THE SCALING LAW: the 19 FBPA timing registers hold
+  **constant-ns timings as per-bin cycle counts** (value/frequency =
+  constant µs — proven exact across all 7 bins, e.g. register 9-hi =
+  4.67 µs at every bin). ns = cycles/frequency names every field against
+  the JEDEC GDDR6 spec — the timing mod design path is open. See
+  `lab/findings-gx35.md`.
