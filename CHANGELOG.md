@@ -564,3 +564,12 @@ semantics).
   4.67 µs at every bin). ns = cycles/frequency names every field against
   the JEDEC GDDR6 spec — the timing mod design path is open. See
   `lab/findings-gx35.md`.
+
+- **ring 41 result** — THE MONSTROUS LEVER DELIVERED: the VF-curve
+  construction reversed empirically (4 offset dumps diffed — LACT as the
+  oracle): the core offset shifts the whole curve up — at the founder's
+  own Genshin voltage (987 mV), the card now runs 1995 MHz instead of
+  1890 (+5.6 % clocks at equal voltage — the undervolt-and-boost
+  simultaneously). Offset +225 applied live; MangoHud auto-log armed;
+  the crash-test is the game itself; rollback = one line. The curves are
+  saved in `tools/gsp-extract/vf-curve-offsets.json`.
