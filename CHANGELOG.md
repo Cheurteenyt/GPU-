@@ -302,3 +302,51 @@ findings files carry the honesty ledgers.
   is archived in `tools/3dmark-linux/` with its run ledger — the
   validation instrument for every future change. BIOS- lane: the
   founder's write-layout map committed (protected-head vs readable-body).
+
+## Unreleased — the cloud RM campaign (2026-09-18): five vagues from the strings to the VF-point bit
+
+Cloud-side (no GPU access), mining the full `rm.elf` — the 16,912,384-byte
+RISC-V plaintext behind `win.elf`, extracted from the official NVIDIA
+package — plus the 881-dial census of ring 30. The ring-30 promise ("the
+dials are settable") becomes readable code. Deliverables in
+`campagne-rtx3070/` (French, one doc per vague), instruments in
+`tools/gsp-extract/`; the v42/v44 JSON caches are reproducible from the
+instruments + `win.elf` and are deliberately not committed.
+
+- **vague 1 (Task 61)** — the real-game verdict re-derived: Genshin
+  (3 193 samples) is VOLTAGE-limited, not power-limited — 1890 MHz pinned
+  with ~15 W of margin under the cap, 19 °C at throttle onset; the 280 W
+  flash buys Genshin nothing, the core offset is lever #1. The full lever
+  map re-qualified from the 31 rings, with machine-side directives.
+- **vague 2 (Task 62)** — the punitions mapped + the omarchy bridge: the
+  881 dials are settable host-side via `NVreg_RegistryDwords` under
+  nvidia-open-dkms (GSP mandatory, the mkinitcpio early-load trap), and
+  the LHR verdict lands by proof of absence — zero ethash strings in the
+  whole RM, the limiter lives in the closed host driver.
+- **vague 3 (Task 63)** — the safety doctrine: a broken dial is volatile
+  host RAM (zero NVRAM/flash/SPI), classes A/B/C/D, the rescue ladder
+  verified against omarchy's own files, the kill-switch
+  (`module_blacklist=nvidia,nvidia_drm`), the Xid radar (79, 119/120).
+  `campagne-dial-gate.sh` is the gate (`--status`/`--rollback`, ledger at
+  `/root/DIAL-ROLLBACK.txt`).
+- **vague 4 (Task 64)** — the wall crossed: the rm.elf extracted, indexed
+  and disassembled cloud-side (v42 build_index/query/tables/extract;
+  clusters, xrefs, tables JSON); the first calculations decoded; the
+  encrypted-rodata boundary mapped.
+- **vague 4.2 (Task 65)** — the RM's arithmetic: internal limit tables,
+  encoding formats and the power tree, read directly in the RISC-V bytes.
+- **vague 4.3 (Task 66)** — the branches unrolled: every mode of the
+  limit dispatcher followed instruction-exact to its machine effect
+  (P-state flags, voltage rails, conversion tables), the 16
+  `RmPerfLimitsOverride` combinations, the generic 0x400 P-state
+  invalidation poke.
+- **vague 4.4 (Task 67)** — the `RmVFPointCheckIgnore` milestone, sold:
+  dial → generic parser (0x1631010) → instanciation → 5 text vtables →
+  setter 0x1630c48 (`requestCapabilityChange`: +0x324 effective, +0x328
+  pending, +0x350 recal callback) → commit bit 0 → engine 0x1634a38 →
+  request type 0xc. The first partial breach of the encrypted-rodata
+  wall: the vtables sit IN the text.
+
+Instruments: `tools/gsp-extract/` gains `wave2_dial_names.txt` (the 881
+names), `wave2_strings_taxonomy.py`, `xref_dials.py`, `v42_*` (4),
+`v43_*` (3), `v44_*` (3) — 12 files.
