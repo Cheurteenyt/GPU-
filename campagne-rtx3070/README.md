@@ -1,4 +1,4 @@
-# The cloud RM campaign (2026-09-18) — five vagues, from the strings to the VF-point bit
+# The cloud RM campaign (2026-09-18) — from the strings to the request enum
 
 The cloud-side half of the campaign: **no GPU access, pure firmware mining**.
 Matter: the full `rm.elf` (16,912,384 B plaintext RISC-V, extracted from the
@@ -6,8 +6,8 @@ official NVIDIA package — the successor of the `tools/gsp-extract/` rings 28-3
 work) plus the 881-dial census of ring 30 and the omarchy integration files.
 
 Deliverables are French (the founder's language); each doc is one vague, one
-session, Tasks 61-67 of the shared worklog. Instruments live in
-`tools/gsp-extract/` (`wave2_*`, `xref_dials.py`, `v42_*`, `v43_*`, `v44_*`);
+session, Tasks 61-70 of the shared worklog. Instruments live in
+`tools/gsp-extract/` (`wave2_*`, `xref_dials.py`, `v42_*`-`v46_*`);
 their JSON caches are reproducible from the instruments + `win.elf` and are
 deliberately not committed.
 
@@ -22,6 +22,7 @@ deliberately not committed.
 | `campagne-rtx3070-vague43-branches-decoulees-2026-09-18.md` | 4.3 (Task 66) | The branches unrolled: every mode of the limit dispatcher followed instruction-exact to its machine effect (P-state flags, voltage rails, conversion tables). |
 | `campagne-rtx3070-vague44-capacite-vfpoint-2026-09-18.md` | 4.4 (Task 67) | The RmVFPointCheckIgnore milestone, sold: dial → parser 0x1631010 → instanciation → 5 text vtables → setter 0x1630c48 (`requestCapabilityChange`) → commit bit 0 → engine 0x1634a38 → request type 0xc. |
 | `campagne-rtx3070-vague45-carte-bits-capacite-2026-09-18.md` | 4.5 (Task 69) | The capability-bit map: full-linear disassembly (5 342 005 instructions), 42 direct setter callers, bits 0-11 by module; bit 8 = `RmPerfChangeSeqOverride`; the six other CheckIgnore dials consume by NAME, not by bit. |
+| `campagne-rtx3070-vague46-grand-parseur-enum-requetes-2026-09-18.md` | 4.6 (Task 70) | The grand perf parser is ONE function (0x1631300-0x1632790): its four dials pinned instruction-exact, bit 9 corrected (exit state of the P-state revalidation loop, no dial), and the request enum closed on the constructor — 52 direct callers, 52 distinct encrypted format tables, 17 type values. |
 
 Read order for the machine chat: vague 1 (what to test first) → vague 3
 (how to stay safe) → vague 2 (how to inject) → vague 4.x (why it works,

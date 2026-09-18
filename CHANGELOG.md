@@ -359,7 +359,24 @@ instruments + `win.elf` and are deliberately not committed.
   refuted with proof of absence. The VFPoint handler is a full
   re-sequencer: mode 4, callback 0x169455c, request 0x1456c7c, SET bit 1,
   8 VF entries invalidated, SET bit 0.
+- **vague 4.6 (Task 70, cloud GLM 5.3 Flash)** — the grand perf parser and
+  the request enum. The parser proven to be ONE function
+  (0x1631300-0x1632790, epilogue-anchored); its four dials pinned
+  instruction-exact — RMDisablePStates 0x1631e02 / AllowMaxPerf 0x1631e28
+  (shared block: the 0x13 type written in-state at [s1+0x8A9A0], a
+  0x3000-byte stride-0x18 table wipe, the VF parser 0x1631010 re-called),
+  RMDisablePerfIntersect 0x16322c6 (object search BY dial value, the
+  '3b1w1d4b' DRAM timing under the ==0xd carveout test), PerfPmaControlReg
+  0x1632714 (value==1 → in-state callback [s1+0x288]; otherwise request
+  type 0xf via the ctor's sibling 0x14561b8). Bit 9 CORRECTED: not a dial
+  — the exit state of the P-state revalidation loop (mask s4 |= 1<<idx,
+  the 0x400 poke, then SET bit 9). The request enum closed on the
+  constructor 0x1456c7c: 52 direct callers, 52 distinct ENCRYPTED format
+  tables, 17 type values resolved over 28 sites — v42's "normal" types
+  0x10/0x13/0x1d land exactly where predicted, 0xf is alive, and the two
+  type levels (prep format vs engine dispatch) set the vague-4.7 jalon.
 
 Instruments: `tools/gsp-extract/` gains `wave2_dial_names.txt` (the 881
 names), `wave2_strings_taxonomy.py`, `xref_dials.py`, `v42_*` (4),
-`v43_*` (3), `v44_*` (3), `v45_*` (8) — 20 files.
+`v43_*` (3), `v44_*` (3), `v45_*` (8), `v46_*` (6: dials, window, ctor,
+check, enum, enum2) — 26 files.
