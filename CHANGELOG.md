@@ -550,3 +550,10 @@ semantics).
   the 250 W cap, more MHz — the undervolt-by-firmware. Test protocol
   defined (paired dials + Genshin + voltage/clock metrics, volatile,
   crash-recoverable). See `lab/findings-gx38.md`.
+
+- **ring 40 verdict** — the 5-dial stack tested by official Time Spy:
+  graphics 11,874 vs 11,957 comparable stock = noise. **The dial-lever
+  hypothesis is refuted** — the checks the dials bypass don't bind at
+  stock; the wall is silicon/voltage. Stack removed, stock restored. The
+  honest levers: the 280 W flash (power-saturated loads) and the timing
+  mod (bandwidth). See `lab/findings-gx40.md`.
