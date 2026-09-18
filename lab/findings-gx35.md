@@ -45,3 +45,21 @@ the full ns table per register → the JEDEC matching).
 `tools/gsp-extract/timing-scaling.json` (the classification dataset) +
 the analysis scripts in this session's commits. Reproducible from the
 210519_1 build + the bin map (gx5).
+
+## Ring 36 addendum: the map architecture — 65 value-records, 10-slot selection
+
+The timing map (ver 0x11) gives each bin **10 timing IDs** indexing the 65
+records. The records are **value sets** (76 B each), not per-parameter
+entries — the 10-slot selection means the RM reads TEN 76-byte value sets
+per bin (ten memory parameters/chips/ranks — the semantics need the RM's
+consumer code decoded, the ring-37+ task).
+
+The constant-µs fields found (register 9-hi: 4.67 µs, register 9-lo:
+0.90 µs — exact across the five distinct records of slot 1) are inside
+the value sets. The JEDEC naming awaits the consumption semantics.
+
+Honest state: the table's STRUCTURE is mapped (65×76 B, the map, the
+selection); the SEMANTICS of the 10 slots and the 76-byte field layout
+are the open decode. This is the multi-session deep front — the data is
+saved (`tools/gsp-extract/mem-timings-65records.json`,
+`timing-scaling.json`).
