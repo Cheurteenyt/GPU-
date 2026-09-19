@@ -1,0 +1,80 @@
+[   53.123218] snd_hda_codec_alc882 hdaudioC1D0:      Line=0x1a
+[   53.128905] snd_hda_intel 0000:07:00.1: bound 0000:07:00.0 (ops nv50_audio_component_bind_ops [nouveau])
+[   53.133444] input: HDA NVidia HDMI/DP,pcm=3 as /devices/pci0000:00/0000:00:03.1/0000:07:00.1/sound/card0/input23
+[   53.133521] input: HDA NVidia HDMI/DP,pcm=7 as /devices/pci0000:00/0000:00:03.1/0000:07:00.1/sound/card0/input24
+[   53.133575] input: HDA NVidia HDMI/DP,pcm=8 as /devices/pci0000:00/0000:00:03.1/0000:07:00.1/sound/card0/input25
+[   53.133643] input: HDA NVidia HDMI/DP,pcm=9 as /devices/pci0000:00/0000:00:03.1/0000:07:00.1/sound/card0/input26
+[   53.135737] input: HD-Audio Generic Rear Mic as /devices/pci0000:00/0000:00:08.1/0000:09:00.4/sound/card1/input27
+[   53.135868] input: HD-Audio Generic Front Mic as /devices/pci0000:00/0000:00:08.1/0000:09:00.4/sound/card1/input28
+[   53.135959] input: HD-Audio Generic Line as /devices/pci0000:00/0000:00:08.1/0000:09:00.4/sound/card1/input29
+[   53.136039] input: HD-Audio Generic Line Out Front as /devices/pci0000:00/0000:00:08.1/0000:09:00.4/sound/card1/input30
+[   53.136127] input: HD-Audio Generic Line Out Surround as /devices/pci0000:00/0000:00:08.1/0000:09:00.4/sound/card1/input31
+[   53.136205] input: HD-Audio Generic Line Out CLFE as /devices/pci0000:00/0000:00:08.1/0000:09:00.4/sound/card1/input32
+[   53.136297] input: HD-Audio Generic Front Headphone as /devices/pci0000:00/0000:00:08.1/0000:09:00.4/sound/card1/input33
+[   53.136773] Bluetooth: hci0: Device setup in 201577 usecs
+[   53.136776] Bluetooth: hci0: HCI Enhanced Setup Synchronous Connection command is advertised, but not supported.
+[   53.140669] intel_rapl_common: Found RAPL domain package
+[   53.140672] intel_rapl_common: Found RAPL domain core
+[   53.145627] mt7921e 0000:05:00.0: enabling device (0000 -> 0002)
+[   53.156240] Realtek Internal NBASE-T PHY r8169-0-600:00: attached PHY driver (mii_bus:phy_addr=r8169-0-600:00, irq=MAC)
+[   53.169262] mt7921e 0000:05:00.0: ASIC revision: 79610010
+[   53.203453] amd_atl: AMD Address Translation Library initialized
+[   53.263664] mt7921e 0000:05:00.0: HW/SW Version: 0x8a108a10, Build Time: 20260224110909a
+[   53.275157] mt7921e 0000:05:00.0: WM Firmware Version: ____010000, Build Time: 20260224110949
+[   53.313412] r8169 0000:06:00.0 enp6s0: Link is Down
+[   53.413391] Bluetooth: hci0: AOSP extensions version v1.00
+[   53.413395] Bluetooth: hci0: AOSP quality report is supported
+[   53.435853] usbcore: registered new interface driver snd-usb-audio
+[   56.070755] NET: Registered PF_ALG protocol family
+[   56.252507] kauditd_printk_skb: 137 callbacks suppressed
+[   56.252509] audit: type=1130 audit(1789840508.166:89): pid=1 uid=0 auid=4294967295 ses=4294967295 msg='unit=iwd comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+[   56.275473] r8169 0000:06:00.0 enp6s0: Link is Up - 1Gbps/Full - flow control rx/tx
+[   56.292077] audit: type=1130 audit(1789840508.205:90): pid=1 uid=0 auid=4294967295 ses=4294967295 msg='unit=systemd-user-sessions comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+[   56.293720] audit: type=1130 audit(1789840508.207:91): pid=1 uid=0 auid=4294967295 ses=4294967295 msg='unit=getty@tty1 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+[   56.316779] NET: Registered PF_QIPCRTR protocol family
+[   56.317742] audit: type=1130 audit(1789840508.231:92): pid=1 uid=0 auid=4294967295 ses=4294967295 msg='unit=ModemManager comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+[   56.488511] audit: type=1130 audit(1789840508.402:93): pid=1 uid=0 auid=4294967295 ses=4294967295 msg='unit=sshdgenkeys comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+[   56.488518] audit: type=1131 audit(1789840508.402:94): pid=1 uid=0 auid=4294967295 ses=4294967295 msg='unit=sshdgenkeys comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+[   56.553544] audit: type=1130 audit(1789840508.467:95): pid=1 uid=0 auid=4294967295 ses=4294967295 msg='unit=sshd comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+[   59.105424] audit: type=1131 audit(1789840511.019:96): pid=1 uid=0 auid=4294967295 ses=4294967295 msg='unit=systemd-rfkill comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+[   61.452585] audit: type=1101 audit(1789840513.366:97): pid=1050 uid=0 auid=4294967295 ses=4294967295 msg='op=PAM:accounting grantors=pam_access,pam_unix,pam_permit,pam_time acct="root" exe="/usr/bin/login" hostname=archiso addr=? terminal=/dev/tty1 res=success'
+[   61.467669] audit: type=1103 audit(1789840513.381:98): pid=1050 uid=0 auid=4294967295 ses=4294967295 msg='op=PAM:setcred grantors=pam_shells,pam_faillock,pam_permit,pam_env,pam_faillock acct="root" exe="/usr/bin/login" hostname=archiso addr=? terminal=/dev/tty1 res=success'
+[   61.467699] audit: type=1006 audit(1789840513.381:99): pid=1050 uid=0 old-auid=4294967295 auid=0 tty=tty1 old-ses=4294967295 ses=1 res=1
+[   61.467703] audit: type=1300 audit(1789840513.381:99): arch=c000003e syscall=1 success=yes exit=1 a0=3 a1=7fff35075fb0 a2=1 a3=0 items=0 ppid=1 pid=1050 auid=0 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=tty1 ses=1 comm="login" exe="/usr/bin/login" key=(null)
+[   61.467706] audit: type=1327 audit(1789840513.381:99): proctitle=2F62696E2F6C6F67696E002D66002D2D
+[   61.538159] audit: type=1130 audit(1789840513.451:100): pid=1 uid=0 auid=4294967295 ses=4294967295 msg='unit=user-runtime-dir@0 comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+[   61.566864] audit: type=1101 audit(1789840513.480:101): pid=1080 uid=0 auid=4294967295 ses=4294967295 msg='op=PAM:accounting grantors=pam_access,pam_unix,pam_permit,pam_time acct="root" exe="/usr/lib/systemd/systemd-executor" hostname=? addr=? terminal=? res=success'
+[   61.566879] audit: type=1103 audit(1789840513.480:102): pid=1080 uid=0 auid=4294967295 ses=4294967295 msg='op=PAM:setcred grantors=? acct="root" exe="/usr/lib/systemd/systemd-executor" hostname=? addr=? terminal=? res=failed'
+[   61.566923] audit: type=1006 audit(1789840513.480:103): pid=1080 uid=0 old-auid=4294967295 auid=0 tty=(none) old-ses=4294967295 ses=2 res=1
+[   61.566925] audit: type=1300 audit(1789840513.480:103): arch=c000003e syscall=1 success=yes exit=1 a0=8 a1=7ffc11839760 a2=1 a3=0 items=0 ppid=1 pid=1080 auid=0 uid=0 gid=0 euid=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=(none) ses=2 comm="(systemd)" exe="/usr/lib/systemd/systemd-executor" key=(null)
+[   70.784121] kauditd_printk_skb: 95 callbacks suppressed
+[   70.784124] audit: type=1130 audit(1789840523.184:138): pid=1 uid=0 auid=4294967295 ses=4294967295 msg='unit=systemd-time-wait-sync comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+[   74.817547] audit: type=1130 audit(1789840527.218:139): pid=1 uid=0 auid=4294967295 ses=4294967295 msg='unit=pacman-init comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+[   81.232033] EXT4-fs (sda1): mounted filesystem c755cd27-d559-4e06-99d8-177e1a6b14b3 r/w with ordered data mode. Quota mode: none.
+[   83.395392] audit: type=1334 audit(1789840535.796:140): prog-id=76 op=LOAD
+[   83.395530] audit: type=1334 audit(1789840535.796:141): prog-id=77 op=LOAD
+[   83.395598] audit: type=1334 audit(1789840535.796:142): prog-id=78 op=LOAD
+[   83.452163] audit: type=1130 audit(1789840535.852:143): pid=1 uid=0 auid=4294967295 ses=4294967295 msg='unit=systemd-hostnamed comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+[  113.504247] audit: type=1131 audit(1789840565.904:144): pid=1 uid=0 auid=4294967295 ses=4294967295 msg='unit=systemd-hostnamed comm="systemd" exe="/usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+[  113.529369] audit: type=1334 audit(1789840565.930:145): prog-id=76 op=UNLOAD
+[  238.076995] kvm_intel: VMX not supported by CPU 1
+[  239.882780] audit: type=1116 audit(1789840692.280:146): pid=1549 uid=0 auid=0 ses=1 msg='op=adding-group acct="rdma" exe="systemd-sysusers" hostname=? addr=? terminal=? res=success'
+[  239.882787] audit: type=1116 audit(1789840692.280:147): pid=1549 uid=0 auid=0 ses=1 msg='op=adding-group acct="qemu" exe="systemd-sysusers" hostname=? addr=? terminal=? res=success'
+[  239.882799] audit: type=1114 audit(1789840692.280:148): pid=1549 uid=0 auid=0 ses=1 msg='op=adding-user acct="qemu" exe="systemd-sysusers" hostname=? addr=? terminal=? res=success'
+[  240.134111] audit: type=1334 audit(1789840692.531:149): prog-id=79 op=LOAD
+[  240.134121] audit: type=1334 audit(1789840692.531:150): prog-id=43 op=UNLOAD
+[  240.135286] audit: type=1334 audit(1789840692.533:151): prog-id=80 op=LOAD
+[  240.135291] audit: type=1334 audit(1789840692.533:152): prog-id=42 op=UNLOAD
+[  240.137051] audit: type=1334 audit(1789840692.534:153): prog-id=81 op=LOAD
+[  240.137057] audit: type=1334 audit(1789840692.534:154): prog-id=46 op=UNLOAD
+[  240.138335] audit: type=1334 audit(1789840692.536:155): prog-id=82 op=LOAD
+[  243.078822] VFIO - User Level meta-driver version: 0.3
+[  243.170286] Console: switching to colour dummy device 80x25
+[  243.503879] vfio-pci 0000:07:00.0: vgaarb: deactivate vga console
+[  243.503883] vfio-pci 0000:07:00.0: vgaarb: VGA decodes changed: olddecodes=io+mem,decodes=io+mem:owns=none
+[  243.637666] snd_hda_intel 0000:07:00.1: GPU sound probed, but not operational: please add a quirk to driver_denylist
+[  243.964830] vfio-pci 0000:07:00.0: resetting
+[  244.068281] vfio-pci 0000:07:00.0: reset done
+[  244.076836] vfio-pci 0000:07:00.0: resetting
+[  244.180600] vfio-pci 0000:07:00.0: reset done
+[  244.579955] kvm: kvm [1820]: vcpu0, guest rIP: 0xffffffff9633d3bf Unhandled WRMSR(0xc0010007) = 0xffff

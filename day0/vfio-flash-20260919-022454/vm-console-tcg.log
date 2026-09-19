@@ -1,0 +1,52 @@
+qemu-system-x86_64: warning: vfio_container_dma_map(0x564a928b0de0, 0xfc00000000, 0x200000000, 0x7fc6c0000000) = -22 (Invalid argument)
+0000:07:00.0: PCI peer-to-peer transactions on BARs are not supported.
+c[?7l[2J[0mSeaBIOS (version Arch Linux 1.17.0-2-2)
+Booting from ROM...
+Probing EDD (edd=off to disable)... ok
+c[?7l[2J[    0.993256] virt/tdx: TDX not supported by the host platform
+=== VM flash session ===
+[V0] staging unlock.rom from the virtio disk
+  staged: 999424 bytes (expect 999424)
+[V1] nvflash version
+/init: line 12: /nvflash: not found
+[V2] chip read (gate: the dump must succeed before any write)
+/init: line 14: /nvflash: not found
+  chip read FAILED — aborting before any write
+VM FLASH FAILED (chip read failed)
+/init: line 21: /poweroff: not found
+[V3] verify + protectoff + flash + re-verify
+/init: line 23: /nvflash: not found
+VM FLASH FAILED
+/init: line 27: /poweroff: not found
+[    2.577702] Kernel panic - not syncing: Attempted to kill init! exitcode=0x00007f00
+[    2.581458] CPU: 0 UID: 0 PID: 1 Comm: init Not tainted 7.2.2-arch1-1 #1 PREEMPT(full)  70cafcc72f1a85ebc84b5fa5ee0162a0ffe33cb4
+[    2.585929] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS Arch Linux 1.17.0-2-2 04/01/2014
+[    2.589867] Call Trace:
+[    2.591425]  <TASK>
+[    2.592180]  dump_stack_lvl+0x5d/0x80
+[    2.593939]  vpanic+0x20a/0x410
+[    2.595105]  panic+0x6b/0x70
+[    2.596308]  do_exit.cold+0x5d/0x5d
+[    2.597559]  do_group_exit+0x2d/0xc0
+[    2.598731]  __x64_sys_exit_group+0x18/0x20
+[    2.600094]  x64_sys_call+0x102c/0x1530
+[    2.601578]  do_syscall_64+0xaa/0x660
+[    2.603203]  ? do_syscall_64+0xaa/0x660
+[    2.604627]  ? count_memcg_events+0xc5/0x180
+[    2.606113]  ? handle_mm_fault+0x1e5/0x2c0
+[    2.607813]  ? do_user_addr_fault+0x23b/0x730
+[    2.610018]  ? do_syscall_64+0x5f/0x660
+[    2.611280]  ? exc_page_fault+0x90/0x1e0
+[    2.612458]  entry_SYSCALL_64_after_hwframe+0x76/0x7e
+[    2.614732] RIP: 0033:0x4d6441
+[    2.615957] Code: 03 00 00 00 0f 05 48 89 c7 e8 17 fe ff ff 48 89 c7 e8 a9 fd ff ff 85 c0 79 01 f4 5b 5d 41 5c c3 48 63 ff b8 e7 00 00 00 0f 05 <ba> 3c 00 00 00 48 89 d0 0f 05 eb f9 89 fa 0f b7 cf c1 fa 10 83 ff
+[    2.623212] RSP: 002b:00007ffd5e42a6e8 EFLAGS: 00000246 ORIG_RAX: 00000000000000e7
+[    2.625708] RAX: ffffffffffffffda RBX: 00007f12e447a030 RCX: 00000000004d6441
+[    2.628431] RDX: 00007f12e447a030 RSI: 0000000000000000 RDI: 000000000000007f
+[    2.631597] RBP: 00007ffd5e42aa30 R08: 0000000000000000 R09: 0000000000000000
+[    2.634084] R10: 0000000000000000 R11: 0000000000000246 R12: 00007ffd5e42aa28
+[    2.636643] R13: 00007ffd5e42aa20 R14: 0000000000000000 R15: 0000000000000000
+[    2.638918]  </TASK>
+[    2.640170] Kernel Offset: 0x18a00000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+[    2.643872] ---[ end Kernel panic - not syncing: Attempted to kill init! exitcode=0x00007f00 ]---
+qemu-system-x86_64: terminating on signal 15 from pid 1814 (timeout)

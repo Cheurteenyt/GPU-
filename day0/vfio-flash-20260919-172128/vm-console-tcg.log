@@ -1,0 +1,169 @@
+qemu-system-x86_64: warning: vfio_container_dma_map(0x5562799dbde0, 0xfc00000000, 0x200000000, 0x7f5dc0000000) = -22 (Invalid argument)
+0000:07:00.0: PCI peer-to-peer transactions on BARs are not supported.
+c[?7l[2J[0mSeaBIOS (version Arch Linux 1.17.0-2-2)
+Booting from ROM...
+Probing EDD (edd=off to disable)... oc[?7l[2J[    0.977269] virt/tdx: TDX not supported by the host platform
+[   35.498684] watchdog: BUG: soft lockup - CPU#0 stuck for 24s! [ksoftirqd/0:15]
+[   35.498956] CPU#0 Utilization every 4000ms during lockup:
+[   35.498984] 	#1:   0% system,	  1% softirq,	100% hardirq,	  0% idle
+[   35.499032] 	#2:   0% system,	  3% softirq,	 79% hardirq,	  0% idle
+[   35.499040] 	#3:   0% system,	  0% softirq,	100% hardirq,	  0% idle
+[   35.499047] 	#4:   0% system,	  0% softirq,	100% hardirq,	  0% idle
+[   35.499053] 	#5:   0% system,	  1% softirq,	100% hardirq,	  0% idle
+[   35.499672] CPU#0 Detect HardIRQ Time exceeds 50%. Most frequent HardIRQs:
+[   35.499694] 	#1: 204       	irq#4
+[   65.652704] watchdog: BUG: soft lockup - CPU#0 stuck for 52s! [ksoftirqd/0:15]
+[   65.653908] CPU#0 Utilization every 4000ms during lockup:
+[   65.654508] 	#1:   0% system,	  1% softirq,	 74% hardirq,	  0% idle
+[   65.656273] 	#2:   0% system,	  1% softirq,	100% hardirq,	  0% idle
+[   65.656280] 	#3:   0% system,	  1% softirq,	100% hardirq,	  0% idle
+[   65.656287] 	#4:   0% system,	  0% softirq,	100% hardirq,	  0% idle
+[   65.656293] 	#5:   0% system,	  0% softirq,	100% hardirq,	  0% idle
+[   65.656320] CPU#0 Detect HardIRQ Time exceeds 50%. Most frequent HardIRQs:
+[   65.656325] 	#1: 344       	irq#4
+[   93.834536] watchdog: BUG: soft lockup - CPU#0 stuck for 78s! [ksoftirqd/0:15]
+[   93.836748] CPU#0 Utilization every 4000ms during lockup:
+[   93.837434] 	#1:   0% system,	  0% softirq,	 80% hardirq,	  0% idle
+[   93.840536] 	#2:   0% system,	  1% softirq,	100% hardirq,	  0% idle
+[   93.840937] 	#3:   0% system,	  1% softirq,	 66% hardirq,	  0% idle
+[   93.840945] 	#4:   0% system,	  1% softirq,	100% hardirq,	  0% idle
+[   93.840952] 	#5:   0% system,	  0% softirq,	 59% hardirq,	  0% idle
+[   93.840981] CPU#0 Detect HardIRQ Time exceeds 50%. Most frequent HardIRQs:
+[   93.840986] 	#1: 511       	irq#4
+[  126.341835] watchdog: BUG: soft lockup - CPU#0 stuck for 21s! [kworker/0:0H:10]
+[  126.343951] CPU#0 Utilization every 4000ms during lockup:
+[  126.344560] 	#1:   0% system,	  1% softirq,	100% hardirq,	  0% idle
+[  126.347413] 	#2:   0% system,	  0% softirq,	 80% hardirq,	  0% idle
+[  126.348002] 	#3:   0% system,	  1% softirq,	100% hardirq,	  0% idle
+[  126.348009] 	#4:   0% system,	  1% softirq,	100% hardirq,	  0% idle
+[  126.348016] 	#5:   0% system,	  2% softirq,	 74% hardirq,	  0% idle
+[  126.348042] CPU#0 Detect HardIRQ Time exceeds 50%. Most frequent HardIRQs:
+[  126.348049] 	#1: 78        	irq#4
+[  180.944452] watchdog: BUG: soft lockup - CPU#0 stuck for 22s! [kworker/0:0:9]
+[  180.946646] CPU#0 Utilization every 4000ms during lockup:
+[  180.947263] 	#1:   0% system,	  0% softirq,	 97% hardirq,	  0% idle
+[  180.950068] 	#2:   0% system,	  0% softirq,	 48% hardirq,	  0% idle
+[  180.950800] 	#3:   0% system,	  2% softirq,	100% hardirq,	  0% idle
+[  180.950807] 	#4:   0% system,	  1% softirq,	  7% hardirq,	  0% idle
+[  180.950813] 	#5:   1% system,	  3% softirq,	 97% hardirq,	  0% idle
+[  180.950841] CPU#0 Detect HardIRQ Time exceeds 50%. Most frequent HardIRQs:
+[  180.950845] 	#1: 148       	irq#4
+[  214.144440] watchdog: BUG: soft lockup - CPU#0 stuck for 53s! [kworker/0:0:9]
+[  214.146269] CPU#0 Utilization every 4000ms during lockup:
+[  214.146823] 	#1:   0% system,	  0% softirq,	 98% hardirq,	  0% idle
+[  214.149371] 	#2:   0% system,	  1% softirq,	100% hardirq,	  0% idle
+[  214.150030] 	#3:   0% system,	  0% softirq,	100% hardirq,	  0% idle
+[  214.150037] 	#4:   0% system,	  0% softirq,	100% hardirq,	  0% idle
+[  214.150043] 	#5:   0% system,	  1% softirq,	 94% hardirq,	  0% idle
+[  214.150077] CPU#0 Detect HardIRQ Time exceeds 50%. Most frequent HardIRQs:
+[  214.150084] 	#1: 236       	irq#4
+[  240.864082] watchdog: BUG: soft lockup - CPU#0 stuck for 78s! [kworker/0:0:9]
+[  240.865389] CPU#0 Utilization every 4000ms during lockup:
+[  240.866031] 	#1:   0% system,	  1% softirq,	 72% hardirq,	  0% idle
+[  240.866957] 	#2:   0% system,	  0% softirq,	100% hardirq,	  0% idle
+[  240.866965] 	#3:   0% system,	  4% softirq,	100% hardirq,	  0% idle
+[  240.866971] 	#4:   0% system,	  0% softirq,	100% hardirq,	  0% idle
+[  240.866978] 	#5:   0% system,	  2% softirq,	 86% hardirq,	  0% idle
+[  240.867005] CPU#0 Detect HardIRQ Time exceeds 50%. Most frequent HardIRQs:
+[  240.867010] 	#1: 381       	irq#4
+[  273.475283] watchdog: BUG: soft lockup - CPU#0 stuck for 108s! [kworker/0:0:9]
+[  273.477090] CPU#0 Utilization every 4000ms during lockup:
+[  273.477647] 	#1:   0% system,	  0% softirq,	 79% hardirq,	  0% idle
+[  273.480198] 	#2:   0% system,	  2% softirq,	100% hardirq,	  0% idle
+[  273.480579] 	#3:   0% system,	  1% softirq,	 84% hardirq,	  0% idle
+[  273.480586] 	#4:   0% system,	  2% softirq,	100% hardirq,	  0% idle
+[  273.480593] 	#5:   0% system,	  0% softirq,	100% hardirq,	  0% idle
+[  273.480621] CPU#0 Detect HardIRQ Time exceeds 50%. Most frequent HardIRQs:
+[  273.480625] 	#1: 574       	irq#4
+[  305.866440] watchdog: BUG: soft lockup - CPU#0 stuck for 138s! [kworker/0:0:9]
+[  305.868269] CPU#0 Utilization every 4000ms during lockup:
+[  305.868825] 	#1:   0% system,	  1% softirq,	 52% hardirq,	  0% idle
+[  305.871381] 	#2:   0% system,	  1% softirq,	100% hardirq,	  0% idle
+[  305.871900] 	#3:   0% system,	  0% softirq,	 34% hardirq,	  0% idle
+[  305.871907] 	#4:   0% system,	  1% softirq,	100% hardirq,	  0% idle
+[  305.871914] 	#5:   0% system,	  1% softirq,	100% hardirq,	  0% idle
+[  305.871941] CPU#0 Detect HardIRQ Time exceeds 50%. Most frequent HardIRQs:
+[  305.871946] 	#1: 686       	irq#4
+[  332.934862] watchdog: BUG: soft lockup - CPU#0 stuck for 164s! [kworker/0:0:9]
+[  332.936820] CPU#0 Utilization every 4000ms during lockup:
+[  332.937436] 	#1:   0% system,	  1% softirq,	 94% hardirq,	  0% idle
+[  332.940589] 	#2:   0% system,	  1% softirq,	100% hardirq,	  0% idle
+[  332.941056] 	#3:   1% system,	  1% softirq,	 16% hardirq,	  0% idle
+[  332.941063] 	#4:   0% system,	  1% softirq,	100% hardirq,	  0% idle
+[  332.941070] 	#5:   0% system,	  1% softirq,	 63% hardirq,	  0% idle
+[  332.941097] CPU#0 Detect HardIRQ Time exceeds 50%. Most frequent HardIRQs:
+[  332.941102] 	#1: 807       	irq#4
+[  360.032600] watchdog: BUG: soft lockup - CPU#0 stuck for 189s! [kworker/0:0:9]
+[  360.034607] CPU#0 Utilization every 4000ms during lockup:
+[  360.035209] 	#1:   0% system,	  0% softirq,	 99% hardirq,	  0% idle
+[  360.037948] 	#2:   0% system,	  1% softirq,	100% hardirq,	  0% idle
+[  360.038357] 	#3:   0% system,	  1% softirq,	100% hardirq,	  0% idle
+[  360.038366] 	#4:   0% system,	  1% softirq,	100% hardirq,	  0% idle
+[  360.038374] 	#5:   0% system,	  0% softirq,	100% hardirq,	  0% idle
+[  360.038405] CPU#0 Detect HardIRQ Time exceeds 50%. Most frequent HardIRQs:
+[  360.038411] 	#1: 890       	irq#4
+[  385.263657] watchdog: BUG: soft lockup - CPU#0 stuck for 212s! [kworker/0:0:9]
+[  385.265730] CPU#0 Utilization every 4000ms during lockup:
+[  385.266345] 	#1:   1% system,	  2% softirq,	100% hardirq,	  0% idle
+[  385.269161] 	#2:   0% system,	  1% softirq,	100% hardirq,	  0% idle
+[  385.269733] 	#3:   0% system,	  0% softirq,	100% hardirq,	  0% idle
+[  385.269740] 	#4:   0% system,	  2% softirq,	 44% hardirq,	  0% idle
+[  385.269746] 	#5:   0% system,	  3% softirq,	100% hardirq,	  0% idle
+[  385.269776] CPU#0 Detect HardIRQ Time exceeds 50%. Most frequent HardIRQs:
+[  385.269781] 	#1: 1148      	irq#4
+[  413.023435] watchdog: BUG: soft lockup - CPU#0 stuck for 238s! [kworker/0:0:9]
+[  413.025334] CPU#0 Utilization every 4000ms during lockup:
+[  413.025881] 	#1:   0% system,	  1% softirq,	100% hardirq,	  0% idle
+[  413.028409] 	#2:   0% system,	  0% softirq,	100% hardirq,	  0% idle
+[  413.029098] 	#3:   0% system,	  1% softirq,	100% hardirq,	  0% idle
+[  413.029104] 	#4:   0% system,	  0% softirq,	100% hardirq,	  0% idle
+[  413.029110] 	#5:   1% system,	  3% softirq,	 60% hardirq,	  0% idle
+[  413.029135] CPU#0 Detect HardIRQ Time exceeds 50%. Most frequent HardIRQs:
+[  413.029139] 	#1: 1411      	irq#4
+[  450.548667] watchdog: BUG: soft lockup - CPU#0 stuck for 273s! [kworker/0:0:9]
+[  450.550779] CPU#0 Utilization every 4000ms during lockup:
+[  450.551390] 	#1:   0% system,	  1% softirq,	100% hardirq,	  0% idle
+[  450.554111] 	#2:   0% system,	  1% softirq,	100% hardirq,	  0% idle
+[  450.554513] 	#3:   0% system,	  1% softirq,	 64% hardirq,	  0% idle
+[  450.554519] 	#4:   0% system,	  1% softirq,	 94% hardirq,	  0% idle
+[  450.554526] 	#5:   0% system,	  1% softirq,	100% hardirq,	  0% idle
+[  450.554552] CPU#0 Detect HardIRQ Time exceeds 50%. Most frequent HardIRQs:
+[  450.554557] 	#1: 1511      	irq#4
+[  482.539345] watchdog: BUG: soft lockup - CPU#0 stuck for 303s! [kworker/0:0:9]
+[  482.541527] CPU#0 Utilization every 4000ms during lockup:
+[  482.542152] 	#1:   0% system,	  1% softirq,	 87% hardirq,	  0% idle
+[  482.544899] 	#2:   0% system,	  1% softirq,	 76% hardirq,	  0% idle
+[  482.545462] 	#3:   0% system,	  0% softirq,	100% hardirq,	  0% idle
+[  482.545469] 	#4:   0% system,	  1% softirq,	100% hardirq,	  0% idle
+[  482.545475] 	#5:   0% system,	  0% softirq,	 39% hardirq,	  0% idle
+[  482.545503] CPU#0 Detect HardIRQ Time exceeds 50%. Most frequent HardIRQs:
+[  482.545508] 	#1: 1574      	irq#4
+[  506.106717] watchdog: BUG: soft lockup - CPU#0 stuck for 22s! [kworker/u4:0:11]
+[  506.108688] CPU#0 Utilization every 4000ms during lockup:
+[  506.109291] 	#1:   0% system,	  0% softirq,	 39% hardirq,	  0% idle
+[  506.112073] 	#2:   0% system,	  1% softirq,	100% hardirq,	  0% idle
+[  506.112658] 	#3:   1% system,	  1% softirq,	100% hardirq,	  0% idle
+[  506.112665] 	#4:   0% system,	  2% softirq,	100% hardirq,	  0% idle
+[  506.112672] 	#5:   0% system,	  1% softirq,	100% hardirq,	  0% idle
+[  506.112698] CPU#0 Detect HardIRQ Time exceeds 50%. Most frequent HardIRQs:
+[  506.112703] 	#1: 83        	irq#4
+
+[  546.929101] watchdog: BUG: soft lockup - CPU#0 stuck for 21s! [kworker/u4:0:11]
+[  546.931188] CPU#0 Utilization every 4000ms during lockup:
+[  546.931793] 	#1:   0% system,	  1% softirq,	 67% hardirq,	  0% idle
+[  546.934515] 	#2:   1% system,	  4% softirq,	100% hardirq,	  0% idle
+[  546.934928] 	#3:   0% system,	  0% softirq,	  2% hardirq,	  0% idle
+[  546.934935] 	#4:   0% system,	  0% softirq,	100% hardirq,	  0% idle
+[  546.934941] 	#5:   0% system,	  5% softirq,	100% hardirq,	  0% idle
+[  546.934968] CPU#0 Detect HardIRQ Time exceeds 50%. Most frequent HardIRQs:
+[  546.934973] 	#1: 159       	irq#4
+[  577.195135] watchdog: BUG: soft lockup - CPU#0 stuck for 49s! [kworker/u4:0:11]
+[  577.197077] CPU#0 Utilization every 4000ms during lockup:
+[  577.197669] 	#1:   0% system,	  0% softirq,	 64% hardirq,	  0% idle
+[  577.200397] 	#2:   0% system,	  1% softirq,	100% hardirq,	  0% idle
+[  577.200961] 	#3:   1% system,	  3% softirq,	 33% hardirq,	  0% idle
+[  577.200967] 	#4:   0% system,	  2% softirq,	 94% hardirq,	  0% idle
+[  577.200974] 	#5:   0% system,	  1% softirq,	100% hardirq,	  0% idle
+[  577.201000] CPU#0 Detect HardIRQ Time exceeds 50%. Most frequent HardIRQs:
+[  577.201005] 	#1: 352       	irq#4
+qemu-system-x86_64: terminating on signal 15 from pid 1846 (timeout)

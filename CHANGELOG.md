@@ -3,6 +3,39 @@
 All measured work, ring by ring. Registers are frozen once scored; the
 findings files carry the honesty ledgers.
 
+## The CERT20 campaign (2026-09-19) — the write-path mapped, the wall proven, the research opened
+
+- **15 VM flash runs** (day0/vfio-flash-20260919-*) — the full write-path
+  walked and instrumented: reads, protectoff, confirm-automation (the
+  serial drip + setsid console — nvflash reads /dev/tty, not stdin), the
+  -L internal logs retrieved via the return disk. Every failure named:
+  KVM absent, cpio missing (the 20-byte initramfs mystery solved), the
+  vfio group non-viable (driver_override takes the DASHED driver name),
+  the SIGTTOU freeze (timeout's child + a real tty on stdin), qemu-full
+  blowing the cowspace.
+- **THE WALL, two independent layers**: (1) Falcon VV —
+  `NV_UCODE_ERR_CODE_CERT20_VDPA_SIG_INVALID`: the CERT20/VDPA manifest
+  (signed entries binding per-block hashes) fails the moment any covered
+  byte changes; (2) PMU EWR — `EWR_OK_TO_FLASH_CHECK_FAILED`: skipping
+  the VV verdict changes nothing, the PMU refuses the programming and
+  stops answering. TPU 312631 confirms the scope: signature-modded
+  images = Turing only; Ampere = crossflash of genuine signed ROMs only.
+- **Tools forged on the way** (all in tools/): the v14 flash session
+  (kvm gate, cowspace, group-wide vfio bind, setsid -c, the drip, -L log
+  return); `nvflash-5.792-k4/` — the y0usaf audited mismatch patch
+  (sha 082f84b1…) + our VV-verdict patch (0x4c0c96 xor, then the VV call
+  elided at 0x4c0c7d); `nvflash-5.867/x64/nvflash-patched`; busybox
+  staged (sha-verified 1.1 MB); setup-usb-boot fixed to prefer the
+  firmware's own full-path USB entry (AMI ignores bare HD paths).
+- **unlock-v2-REALCHIP** — the unlock rebuilt on the REAL chip dump
+  (acquisitions sha c0-relative day0/…032449/chip-before.rom): per-card
+  InfoROM preserved, caps 2200 MHz + 265/280 W, gate-checked. sha256
+  60db5fd28ee21d2f95b5f069c9f96ef4… (the registers convention: the .rom
+  stays out of git, the hash is the provenance).
+- **setup-usb-boot** — the AMI-firmware workaround (prefer the firmware's
+  own full-path USB entry over the bare-path efibootmgr creation) + the
+  BootOrder discipline (one-shot semantics, no boot loops).
+
 ## Unreleased — the eight rings of the first session (2026-09-15)
 
 - **ring 0** — the lab founded: `day0/` protocol, the runtime snapshot

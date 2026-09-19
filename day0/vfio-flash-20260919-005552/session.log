@@ -1,0 +1,18 @@
+=== VFIO flash session 2026-09-19T00:55:52+00:00 ===
+[1/6] kvm + qemu + cpio
+  ok
+[2/6] building the minimal VM initramfs (busybox + nvflash)
+  ok (kernel: /run/archiso/airootfs/usr/lib/modules/7.2.2-arch1-1/vmlinuz)
+[3/6] binding the GPU group to vfio-pci
+  IOMMU group 16 members: 0000:07:00.0 0000:07:00.1 
+  >>> the screen goes BLACK from here (the live console runs on this card) —
+  >>> everything continues in /mnt/Reverse Engenering/gpu-lab/day0/vfio-flash-20260919-005552/session.log and the machine reboots itself at the end
+  WARNING: no vfio node appeared — QEMU will report the precise reason in its log
+[4/6] launching the VM with the GPU passed through (8 min max, then the verdict prints and the machine reboots)
+VM exit: 124
+[5/6] verdict + console tail
+
+VERDICT: the VM did not reach the flash step — full console in /mnt/Reverse Engenering/gpu-lab/day0/vfio-flash-20260919-005552/vm-console.log
+[6/6] done — logs + chip-before.rom saved on the data drive in /mnt/Reverse Engenering/gpu-lab/day0/vfio-flash-20260919-005552
+      verdict lines are in /mnt/Reverse Engenering/gpu-lab/day0/vfio-flash-20260919-005552/session.log and /mnt/Reverse Engenering/gpu-lab/day0/vfio-flash-20260919-005552/vm-console.log
+rebooting now — read the verdict on the data drive after Omarchy is back

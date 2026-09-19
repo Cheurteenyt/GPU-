@@ -1,0 +1,5 @@
+=== VFIO flash session 2026-09-19T03:16:29+00:00 ===
+[1/6] kvm + qemu + cpio
+  ok
+[2/6] building the minimal VM initramfs (busybox + nvflash)
+ERROR: nvflash cannot execute even in a chroot — aborting, GPU untouched

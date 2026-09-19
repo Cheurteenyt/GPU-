@@ -1,0 +1,44 @@
+=== VFIO flash session 2026-09-19T17:21:28+00:00 ===
+[1/6] kvm + qemu + cpio
+  ok
+[2/6] building the minimal VM initramfs (busybox + nvflash)
+  nvflash executable check: OK (NVIDIA Firmware Update Utility (Version 5.867.0))
+  ok (kernel: /run/archiso/airootfs/usr/lib/modules/7.2.2-arch1-1/vmlinuz)
+[3/6] binding the GPU group to vfio-pci
+  IOMMU group 16 members: 0000:07:00.0 0000:07:00.1 
+  >>> the screen goes BLACK from here (the live console runs on this card) —
+  >>> everything continues in /mnt/Reverse Engenering/gpu-lab/day0/vfio-flash-20260919-172128/session.log and the machine reboots itself at the end
+  0000:07:00.0 -> vfio-pci
+  0000:07:00.1 -> vfio-pci
+  vfio node ready: /dev/vfio/16
+[4/6] launching the VM with the GPU passed through (6 min max per attempt)
+  attempt 1: KVM
+  KVM: no exit in 6 min — retry with TCG (no KVM) under strace (fallback + diagnostic)
+VM exit: 124
+[5/6] verdict + console tail
+
+[  546.929101] watchdog: BUG: soft lockup - CPU#0 stuck for 21s! [kworker/u4:0:11]
+[  546.931188] CPU#0 Utilization every 4000ms during lockup:
+[  546.931793] 	#1:   0% system,	  1% softirq,	 67% hardirq,	  0% idle
+[  546.934515] 	#2:   1% system,	  4% softirq,	100% hardirq,	  0% idle
+[  546.934928] 	#3:   0% system,	  0% softirq,	  2% hardirq,	  0% idle
+[  546.934935] 	#4:   0% system,	  0% softirq,	100% hardirq,	  0% idle
+[  546.934941] 	#5:   0% system,	  5% softirq,	100% hardirq,	  0% idle
+[  546.934968] CPU#0 Detect HardIRQ Time exceeds 50%. Most frequent HardIRQs:
+[  546.934973] 	#1: 159       	irq#4
+[  577.195135] watchdog: BUG: soft lockup - CPU#0 stuck for 49s! [kworker/u4:0:11]
+[  577.197077] CPU#0 Utilization every 4000ms during lockup:
+[  577.197669] 	#1:   0% system,	  0% softirq,	 64% hardirq,	  0% idle
+[  577.200397] 	#2:   0% system,	  1% softirq,	100% hardirq,	  0% idle
+[  577.200961] 	#3:   1% system,	  3% softirq,	 33% hardirq,	  0% idle
+[  577.200967] 	#4:   0% system,	  2% softirq,	 94% hardirq,	  0% idle
+[  577.200974] 	#5:   0% system,	  1% softirq,	100% hardirq,	  0% idle
+[  577.201000] CPU#0 Detect HardIRQ Time exceeds 50%. Most frequent HardIRQs:
+[  577.201005] 	#1: 352       	irq#4
+qemu-system-x86_64: terminating on signal 15 from pid 1846 (timeout)
+  (chip-before.rom is still all zeros — the guest never reached its flash stage)
+
+VERDICT: the VM did not reach the flash step — full console in /mnt/Reverse Engenering/gpu-lab/day0/vfio-flash-20260919-172128/vm-console-tcg.log
+[6/6] done — logs + chip-before.rom saved on the data drive in /mnt/Reverse Engenering/gpu-lab/day0/vfio-flash-20260919-172128
+      verdict lines are in /mnt/Reverse Engenering/gpu-lab/day0/vfio-flash-20260919-172128/session.log and /mnt/Reverse Engenering/gpu-lab/day0/vfio-flash-20260919-172128/vm-console.log
+rebooting now — read the verdict on the data drive after Omarchy is back

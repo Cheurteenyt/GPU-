@@ -1,0 +1,44 @@
+=== VFIO flash session 2026-09-19T03:24:49+00:00 ===
+[1/6] kvm + qemu + cpio
+  ok
+[2/6] building the minimal VM initramfs (busybox + nvflash)
+  nvflash executable check: OK (NVIDIA Firmware Update Utility (Version 5.867.0))
+  ok (kernel: /run/archiso/airootfs/usr/lib/modules/7.2.2-arch1-1/vmlinuz)
+[3/6] binding the GPU group to vfio-pci
+  IOMMU group 16 members: 0000:07:00.0 0000:07:00.1 
+  >>> the screen goes BLACK from here (the live console runs on this card) —
+  >>> everything continues in /mnt/Reverse Engenering/gpu-lab/day0/vfio-flash-20260919-032449/session.log and the machine reboots itself at the end
+  0000:07:00.0 -> vfio-pci
+  0000:07:00.1 -> vfio-pci
+  vfio node ready: /dev/vfio/16
+[4/6] launching the VM with the GPU passed through (6 min max per attempt)
+  attempt 1: KVM
+  KVM: no exit in 6 min — retry with TCG (no KVM) under strace (fallback + diagnostic)
+VM exit: 124
+[5/6] verdict + console tail
+[   12.840909]  ? __handle_mm_fault+0xa5b/0xf80
+[   12.842010]  ? preempt_schedule_irq+0x38/0x60
+[   12.843126]  ? hrtimer_update_next_event+0xb5/0x180
+[   12.844416]  ? lapic_next_event+0x15/0x20
+[   12.845403]  ? clockevents_program_event+0xfe/0x230
+[   12.846707]  ? __hrtimer_rearm_deferred+0x62/0x140
+[   12.847936]  ? do_syscall_64+0x5f/0x660
+[   12.848930]  entry_SYSCALL_64_after_hwframe+0x76/0x7e
+[   12.850315] RIP: 0033:0x4d6441
+[   12.851321] Code: 03 00 00 00 0f 05 48 89 c7 e8 17 fe ff ff 48 89 c7 e8 a9 fd ff ff 85 c0 79 01 f4 5b 5d 41 5c c3 48 63 ff b8 e7 00 00 00 0f 05 <ba> 3c 00 00 00 48 89 d0 0f 05 eb f9 89 fa 0f b7 cf c1 fa 10 83 ff
+[   12.856172] RSP: 002b:00007ffe21a91548 EFLAGS: 00000246 ORIG_RAX: 00000000000000e7
+[   12.858069] RAX: ffffffffffffffda RBX: 00007fd5b356e030 RCX: 00000000004d6441
+[   12.859967] RDX: 00007fd5b356e030 RSI: 0000000000000000 RDI: 000000000000007f
+[   12.861791] RBP: 00007ffe21a91890 R08: 0000000000000000 R09: 0000000000000000
+[   12.863604] R10: 0000000000000000 R11: 0000000000000246 R12: 00007ffe21a91888
+[   12.865436] R13: 00007ffe21a91880 R14: 0000000000000000 R15: 0000000000000000
+[   12.867296]  </TASK>
+[   12.868473] Kernel Offset: 0x38600000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+[   12.871462] ---[ end Kernel panic - not syncing: Attempted to kill init! exitcode=0x00007f00 ]---
+qemu-system-x86_64: terminating on signal 15 from pid 1855 (timeout)
+  (chip-before.rom holds a REAL chip dump — the guest ran its session)
+
+VERDICT: FLASH FAILED — the exact nvflash error is in the tail above and in /mnt/Reverse Engenering/gpu-lab/day0/vfio-flash-20260919-032449/vm-console-tcg.log
+[6/6] done — logs + chip-before.rom saved on the data drive in /mnt/Reverse Engenering/gpu-lab/day0/vfio-flash-20260919-032449
+      verdict lines are in /mnt/Reverse Engenering/gpu-lab/day0/vfio-flash-20260919-032449/session.log and /mnt/Reverse Engenering/gpu-lab/day0/vfio-flash-20260919-032449/vm-console.log
+rebooting now — read the verdict on the data drive after Omarchy is back

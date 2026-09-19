@@ -32,6 +32,7 @@ def main():
     ap.add_argument("--peak-w", type=int, default=280)
     ap.add_argument("--avg-w", type=int, default=265)
     ap.add_argument("--min-w", type=int, default=100)
+    ap.add_argument("--source", help="base image (default: the TPU stock; pass the REAL chip dump so per-card InfoROM data is preserved)")
     ap.add_argument("--out")
     args = ap.parse_args()
 
@@ -40,7 +41,8 @@ def main():
     if not 250 <= args.peak_w <= 320:
         raise SystemExit(f"refusing peak-w {args.peak_w} — outside the 250-320 W band")
 
-    rom = bytearray(BUILD.read_bytes())
+    src = Path(args.source) if args.source else BUILD
+    rom = bytearray(src.read_bytes())
 
     def patch_u16(off, old_decoded, new_decoded, mult=MULT, label=""):
         old_stored = struct.unpack_from("<H", rom, off)[0]
@@ -58,7 +60,7 @@ def main():
         struct.pack_into("<I", rom, off, new)
         print(f"  {label} @ {off:#x}: {old/1000:.0f} W → {new/1000:.0f} W")
 
-    print(f"source: {BUILD.name} ({len(rom):,} B)")
+    print(f"source: {src.name} ({len(rom):,} B)")
     # the vP-state caps (profile 0xF)
     patch_u16(VP_FIRST, 2100, args.core_max, label="vP first_limit")
     patch_u16(VP_SECOND, 2100, args.core_max, label="vP second_limit")

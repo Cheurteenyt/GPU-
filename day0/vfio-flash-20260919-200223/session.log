@@ -1,0 +1,44 @@
+=== VFIO flash session 2026-09-19T20:02:23+00:00 ===
+[1/6] kvm + qemu + cpio
+  ok
+[2/6] building the minimal VM initramfs (busybox + nvflash)
+  nvflash executable check: OK (NVIDIA Firmware Update Utility (Version 5.867.0))
+  k4 nvflash executable check: OK
+  ok (kernel: /run/archiso/airootfs/usr/lib/modules/7.2.2-arch1-1/vmlinuz)
+[3/6] binding the GPU group to vfio-pci
+  IOMMU group 16 members: 0000:07:00.0 0000:07:00.1 
+  >>> the screen goes BLACK from here (the live console runs on this card) —
+  >>> everything continues in /mnt/Reverse Engenering/gpu-lab/day0/vfio-flash-20260919-200223/session.log and the machine reboots itself at the end
+  0000:07:00.0 -> vfio-pci
+  0000:07:00.1 -> vfio-pci
+  vfio node ready: /dev/vfio/16
+[4/6] launching the VM with the GPU passed through (6 min max per attempt)
+  attempt 1: KVM
+VM exit: 0
+[5/6] verdict + console tail + guest nvflash log
+WBond      W25Q20EW 2048Kx1S   1.65-1.95V, 256B page,  4k blk, ID=(EF,6012)
+WBond      W25Q40EW 4096Kx1S   1.65-1.95V, 256B page,  4k blk, ID=(EF,6013)
+WBond      W25Q80EW 8192Kx1S   1.65-1.95V, 256B page,  4k blk, ID=(EF,6014)
+WBond   W25Q16FW/JW 16384Kx1S   1.65-1.95V, 256B page,  4k blk, ID=(EF,6015)
+WBond      W25Q32JW 32768Kx1S   1.65-1.95V, 256B page,  4k blk, ID=(EF,6016)
+WBond  W25Q16JWXHIM 16384Kx1S   1.65-1.95V, 256B page,  4k blk, ID=(EF,8015)
+WBond     W25Q32JW  32768Kx1S   1.65-1.95V, 256B page,  4k blk, ID=(EF,8016)
+-- Sample Usage --
+
+  Create unlock license request file.
+  > nvflash --licreq=LicenseRequest.bin USER_FW_MOD
+
+  Install unlock license objects.
+  > nvflash --wrhlk=License.hulk
+
+  Flash tweaked firmware.
+  > nvflash --license=License.hulk vbios.rom
+
+VM FLASH FAILED
+[   33.346834] reboot: Power down
+  (chip-before.rom holds a REAL chip dump — the guest ran its session)
+
+VERDICT: FLASH FAILED — the exact nvflash error is in the tail above and in /mnt/Reverse Engenering/gpu-lab/day0/vfio-flash-20260919-200223/vm-console.log
+[6/6] done — logs + chip-before.rom saved on the data drive in /mnt/Reverse Engenering/gpu-lab/day0/vfio-flash-20260919-200223
+      verdict lines are in /mnt/Reverse Engenering/gpu-lab/day0/vfio-flash-20260919-200223/session.log and /mnt/Reverse Engenering/gpu-lab/day0/vfio-flash-20260919-200223/vm-console.log
+rebooting now — read the verdict on the data drive after Omarchy is back

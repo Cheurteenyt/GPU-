@@ -1,0 +1,96 @@
+qemu-system-x86_64: warning: vfio_container_dma_map(0x558eeb889e30, 0xfc00000000, 0x200000000, 0x7f2a80000000) = -22 (Invalid argument)
+0000:07:00.0: PCI peer-to-peer transactions on BARs are not supported.
+c[?7l[2J[0mSeaBIOS (version Arch Linux 1.17.0-2-2)
+Booting from ROM...
+Probing EDD (edd=off to disable)... oc[?7l[2J[0mk[    0.181376] virt/tdx: TDX not supported by the host platform
+=== VM flash session ===
+[V0] staging unlock.rom from the virtio disk
+  staged: 999424 bytes (expect 999424)
+[V1] nvflash version
+NVIDIA Firmware Update Utility (Version 5.867.0)
+Copyright (C) 1993-2024, NVIDIA Corporation. All rights reserved.
+
+Reading EEPROM (this operation may take up to 30 seconds)
+[V2] chip read (gate: the dump must succeed before any write)
+NVIDIA Firmware Update Utility (Version 5.867.0)
+Copyright (C) 1993-2024, NVIDIA Corporation. All rights reserved.
+
+Reading EEPROM (this operation may take up to 30 seconds)
+
+                                                          Build GUID            : 36F888276260481DB0D14E83FB9607CC
+Build Number          : 29532052
+IFR Subsystem ID      : 1462-3904
+Subsystem Vendor ID   : 0x1462
+Subsystem ID          : 0x3904
+Version               : 94.04.46.00.EB
+Image Hash            : N/A
+Hierarchy ID          : Normal Board
+Build Date            : 01/22/21
+Modification Date     : 05/19/21
+UEFI Version          : 0x6000A ( x64 )
+UEFI Variant ID       : 0x000000000000000A ( GA1xx )
+UEFI Signer(s)        : Microsoft Corporation UEFI CA 2011
+XUSB-FW Version ID    : N/A
+XUSB-FW Build Time    : N/A
+InfoROM Version       : G001.0000.03.03
+InfoROM Backup        : Present
+License Placeholder   : Present
+GPU Mode              : N/A
+CEC OTA-signed Blob   : Not Present
+
+  chip-before.rom: 999424 bytes -> returned to host
+[V3] verify + protectoff + flash + re-verify
+NVIDIA Firmware Update Utility (Version 5.867.0)
+Copyright (C) 1993-2024, NVIDIA Corporation. All rights reserved.
+
+
+NOTE: NO ROM INDEX HAS BEEN SPECIFIED. PERFORMING CHECKS FOR ALL ROM IMAGES AVAILABLE
+
+========================== Image Index 0 ====================================
+Reading EEPROM (this operation may take up to 30 seconds)
+
+                                                          Error : Invalid firmware image detected. 
+
+
+==================================================================================
+
+ERROR: The image from the rom pack did not match the device rom image
+
+VM FLASH FAILED
+/init: line 28: /poweroff: not found
+[    8.909245] Kernel panic - not syncing: Attempted to kill init! exitcode=0x00007f00
+[    8.910263] CPU: 0 UID: 0 PID: 1 Comm: init Not tainted 7.2.2-arch1-1 #1 PREEMPT(full)  70cafcc72f1a85ebc84b5fa5ee0162a0ffe33cb4
+[    8.911764] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS Arch Linux 1.17.0-2-2 04/01/2014
+[    8.912963] Call Trace:
+[    8.913291]  <TASK>
+[    8.913559]  dump_stack_lvl+0x5d/0x80
+[    8.914024]  vpanic+0x20a/0x410
+[    8.914406]  panic+0x6b/0x70
+[    8.914750]  do_exit.cold+0x5d/0x5d
+[    8.915175]  do_group_exit+0x2d/0xc0
+[    8.915591]  __x64_sys_exit_group+0x18/0x20
+[    8.916078]  x64_sys_call+0x102c/0x1530
+[    8.916520]  do_syscall_64+0xaa/0x660
+[    8.916952]  ? ptep_set_access_flags+0x32/0x40
+[    8.917463]  ? wp_page_reuse+0x8d/0xa0
+[    8.917897]  ? do_wp_page+0x20f/0xfb0
+[    8.918336]  ? pte_offset_map_rw_nolock+0x1f/0x90
+[    8.918873]  ? __handle_mm_fault+0xa5b/0xf80
+[    8.919373]  ? count_memcg_events+0xc5/0x180
+[    8.919866]  ? handle_mm_fault+0x1e5/0x2c0
+[    8.920347]  ? do_user_addr_fault+0x23b/0x730
+[    8.920848]  ? do_syscall_64+0x5f/0x660
+[    8.921300]  ? exc_page_fault+0x90/0x1e0
+[    8.921751]  entry_SYSCALL_64_after_hwframe+0x76/0x7e
+[    8.922333] RIP: 0033:0x4d6441
+[    8.922693] Code: 03 00 00 00 0f 05 48 89 c7 e8 17 fe ff ff 48 89 c7 e8 a9 fd ff ff 85 c0 79 01 f4 5b 5d 41 5c c3 48 63 ff b8 e7 00 00 00 0f 05 <ba> 3c 00 00 00 48 89 d0 0f 05 eb f9 89 fa 0f b7 cf c1 fa 10 83 ff
+[    8.924775] RSP: 002b:00007ffe2b9c0f08 EFLAGS: 00000246 ORIG_RAX: 00000000000000e7
+[    8.925643] RAX: ffffffffffffffda RBX: 00007f996fb76030 RCX: 00000000004d6441
+[    8.926458] RDX: 00007f996fb76030 RSI: 0000000000000000 RDI: 000000000000007f
+[    8.927272] RBP: 00007ffe2b9c1250 R08: 0000000000000000 R09: 0000000000000000
+[    8.928087] R10: 0000000000000000 R11: 0000000000000246 R12: 00007ffe2b9c1248
+[    8.928886] R13: 00007ffe2b9c1240 R14: 0000000000000000 R15: 0000000000000000
+[    8.929702]  </TASK>
+[    8.930228] Kernel Offset: 0x27800000 from 0xffffffff81000000 (relocation range: 0xffffffff80000000-0xffffffffbfffffff)
+[    8.931433] ---[ end Kernel panic - not syncing: Attempted to kill init! exitcode=0x00007f00 ]---
+qemu-system-x86_64: terminating on signal 15 from pid 1821 (timeout)

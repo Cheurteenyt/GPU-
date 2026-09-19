@@ -1,0 +1,43 @@
+=== VFIO flash session 2026-09-19T16:17:26+00:00 ===
+[1/6] kvm + qemu + cpio
+  ok
+[2/6] building the minimal VM initramfs (busybox + nvflash)
+  nvflash executable check: OK (NVIDIA Firmware Update Utility (Version 5.867.0))
+  ok (kernel: /run/archiso/airootfs/usr/lib/modules/7.2.2-arch1-1/vmlinuz)
+[3/6] binding the GPU group to vfio-pci
+  IOMMU group 16 members: 0000:07:00.0 0000:07:00.1 
+  >>> the screen goes BLACK from here (the live console runs on this card) —
+  >>> everything continues in /mnt/Reverse Engenering/gpu-lab/day0/vfio-flash-20260919-161726/session.log and the machine reboots itself at the end
+  0000:07:00.0 -> vfio-pci
+  0000:07:00.1 -> vfio-pci
+  vfio node ready: /dev/vfio/16
+[4/6] launching the VM with the GPU passed through (6 min max per attempt)
+  attempt 1: KVM
+VM exit: 0
+[5/6] verdict + console tail
+
+Checking for matches between display adapter(s) and image(s)...
+
+Reading EEPROM (this operation may take up to 30 seconds)
+
+                                                          Current      - Version:94.04.46.00.EB ID:10DE:2488:1462:3904
+               GPU Board (Normal Board)
+Replace with - Version:94.04.46.00.EB ID:10DE:2488:1462:3904
+               GPU Board (Normal Board)
+
+Reading EEPROM (this operation may take up to 30 seconds)
+
+                                                          Nothing changed!
+
+
+
+ERROR: Invalid firmware image detected.
+
+VM FLASH FAILED
+[   10.964360] reboot: Power down
+  (chip-before.rom holds a REAL chip dump — the guest ran its session)
+
+VERDICT: FLASH FAILED — the exact nvflash error is in the tail above and in /mnt/Reverse Engenering/gpu-lab/day0/vfio-flash-20260919-161726/vm-console.log
+[6/6] done — logs + chip-before.rom saved on the data drive in /mnt/Reverse Engenering/gpu-lab/day0/vfio-flash-20260919-161726
+      verdict lines are in /mnt/Reverse Engenering/gpu-lab/day0/vfio-flash-20260919-161726/session.log and /mnt/Reverse Engenering/gpu-lab/day0/vfio-flash-20260919-161726/vm-console.log
+rebooting now — read the verdict on the data drive after Omarchy is back

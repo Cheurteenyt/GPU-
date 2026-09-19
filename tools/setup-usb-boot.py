@@ -7,6 +7,7 @@ No F11, no timing, no BIOS navigation.
 
 Usage: sudo -n python3 /home/cheurteen/hwlab-tools/setup-usb-boot.py
 """
+import re
 import subprocess
 import sys
 
@@ -46,10 +47,23 @@ if code != 0:
 
 # 4. find the new entry number and set it as BootNext
 code, out = run(["efibootmgr"])
+lines = out.splitlines()
 bootnum = None
-for line in out.splitlines():
+for line in lines:
     if "HWTruthUSB" in line and "*" in line:
         bootnum = line.split("*")[0].replace("Boot", "").strip()
+        # AMI firmwares fail silently on a bare HD(2,MBR,...) path (no USB
+        # prefix). If ours is bare, prefer the firmware's own full-path
+        # entry for the SAME partition (same HD(...) signature).
+        m = re.search(r"HD\(([^)]*)\)", line)
+        if m and "PciRoot" not in line:
+            for alt in lines:
+                if ("USB(" in alt and f"HD({m.group(1)})" in alt
+                        and "HWTruthUSB" not in alt and "*" in alt):
+                    bootnum = alt.split("*")[0].replace("Boot", "").strip()
+                    print(f"created entry is a bare path — using firmware "
+                          f"full-path entry Boot{bootnum} instead")
+                    break
         break
 if not bootnum:
     print("ERROR: new entry not found")

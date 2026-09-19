@@ -1,0 +1,68 @@
+qemu-system-x86_64: warning: vfio_container_dma_map(0x559b40581e30, 0xfc00000000, 0x200000000, 0x7ff580000000) = -22 (Invalid argument)
+0000:07:00.0: PCI peer-to-peer transactions on BARs are not supported.
+c[?7l[2J[0mSeaBIOS (version Arch Linux 1.17.0-2-2)
+Booting from ROM...
+Probing EDD (edd=off to disable)... oc[?7l[2J[0mk[    0.180450] virt/tdx: TDX not supported by the host platform
+=== VM flash session ===
+[V0] staging unlock.rom from the virtio disk
+  staged: 999424 bytes (expect 999424)
+[V1] nvflash version
+NVIDIA Firmware Update Utility (Version 5.867.0)
+Copyright (C) 1993-2024, NVIDIA Corporation. All rights reserved.
+
+Reading EEPROM (this operation may take up to 30 seconds)
+[V2] chip read (gate: the dump must succeed before any write)
+NVIDIA Firmware Update Utility (Version 5.867.0)
+Copyright (C) 1993-2024, NVIDIA Corporation. All rights reserved.
+
+Reading EEPROM (this operation may take up to 30 seconds)
+
+                                                          Build GUID            : 36F888276260481DB0D14E83FB9607CC
+Build Number          : 29532052
+IFR Subsystem ID      : 1462-3904
+Subsystem Vendor ID   : 0x1462
+Subsystem ID          : 0x3904
+Version               : 94.04.46.00.EB
+Image Hash            : N/A
+Hierarchy ID          : Normal Board
+Build Date            : 01/22/21
+Modification Date     : 05/19/21
+UEFI Version          : 0x6000A ( x64 )
+UEFI Variant ID       : 0x000000000000000A ( GA1xx )
+UEFI Signer(s)        : Microsoft Corporation UEFI CA 2011
+XUSB-FW Version ID    : N/A
+XUSB-FW Build Time    : N/A
+InfoROM Version       : G001.0000.03.03
+InfoROM Backup        : Present
+License Placeholder   : Present
+GPU Mode              : N/A
+CEC OTA-signed Blob   : Not Present
+
+  chip-before.rom: 999424 bytes -> returned to host
+[V3] protectoff + flash (-6 + --noconfirm: no interactive prompt) + re-verify
+NVIDIA Firmware Update Utility (Version 5.867.0)
+Copyright (C) 1993-2024, NVIDIA Corporation. All rights reserved.
+
+Setting EEPROM protection complete.
+NVIDIA Firmware Update Utility (Version 5.867.0)
+Copyright (C) 1993-2024, NVIDIA Corporation. All rights reserved.
+
+Checking for matches between display adapter(s) and image(s)...
+
+Reading EEPROM (this operation may take up to 30 seconds)
+
+                                                          Current      - Version:94.04.46.00.EB ID:10DE:2488:1462:3904
+               GPU Board (Normal Board)
+Replace with - Version:94.04.46.00.EB ID:10DE:2488:1462:3904
+               GPU Board (Normal Board)
+
+Reading EEPROM (this operation may take up to 30 seconds)
+
+                                                          Nothing changed!
+
+
+
+ERROR: Invalid firmware image detected.
+
+VM FLASH FAILED
+[   10.940308] reboot: Power down

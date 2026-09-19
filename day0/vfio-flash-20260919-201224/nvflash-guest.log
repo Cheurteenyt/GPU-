@@ -1,0 +1,166 @@
+*** NVFLASH LOG FILE ***
+Command-line : -6 --nopowerchk -L /nvflash.log /unlock.rom 
+NVIDIA Firmware Update Utility (Version 5.792.0)
+Copyright (C) 1993-2022, NVIDIA Corporation. All rights reserved.
+
+Command: flash
+FindDevices:
+Device:00:00:00:00=8086:1237:1AF4:1100
+Device:00:00:01:00=8086:7000:1AF4:1100
+Device:00:00:01:01=8086:7010:1AF4:1100
+Device:00:00:01:03=8086:7113:1AF4:1100
+Device:00:00:02:00=1234:1111:1AF4:1100 GPU
+Device:00:00:03:00=10DE:2488:1462:3904 GPU
+Device:00:00:04:00=1AF4:1001:1AF4:0002
+Device:00:00:05:00=1AF4:1001:1AF4:0002
+Filter-out on-motherboard PLX bridge device.
+No PLX/PEX switch was detected, skip to filter-out non-NVIDIA PLX/PEX switch.
+One to one mode
+Testing adapter: Graphics Device      (10DE,2488,1462,3904) S:00,B:00,D:03,F:00
+
+Disable NV driver before start if NV driver loaded.
+
+NV driver may not be loaded or already be in disabled state.
+Failed to raise ROM and uC perf clocks.
+Flashing on blank EEPROMs will be slow.
+Adapter: Graphics Device      (10DE,2488,1462,3904) S:00,B:00,D:03,F:00
+
+Actual SPI clock frequency (Hz): 73636364
+uproc 05.00 ready to be used.
+Preparing secure operation after kicked start.
+Actual SPI clock frequency (Hz): 73636364
+Serial EEPROM identified.
+EEPROM ID (C2,2534) : MX MX25U8033E-MX25U8035F 1.65-2.0V 8192Kx1S, page
+
+Action: Identify EEPROM.
+EEPROM has been identified, skipping.
+Action: Read EEPROM image.
+Reading EEPROM (this operation may take up to 30 seconds)
+
+Reading EEPROM bytes.
+Start: 0x00000000
+Count: 1048576(0x00100000)
+Read complete.
+
+Testing Image: unlock.rom
+IFR image mode
+Invalid OTA signed VBIOS firmware image.
+Current      - Parsed Production VBIOS version: 94.04.46.00.EB
+Replace with - Parsed Production VBIOS version: 94.04.46.00.EB
+
+Mismatch Type: Computed: 0x00000300
+Mismatch Type: Adjusted: 0x00000000
+
+Current      - Version:94.04.46.00.EB ID:10DE:2488:1462:3904
+               GPU Board (Normal Board)
+Replace with - Version:94.04.46.00.EB ID:10DE:2488:1462:3904
+               GPU Board (Normal Board)
+Action: Flash image.
+Action: Identify EEPROM.
+EEPROM has been identified, skipping.
+Action: Read EEPROM image.
+Reading EEPROM (this operation may take up to 30 seconds)
+
+Reading EEPROM bytes.
+Start: 0x00000000
+Count: 1048576(0x00100000)
+Read complete.
+G001.0000.03.03
+G001.0000.03.03
+InfoROM Release Level: 0x00(Current) v.s.0x00(File)
+   NOTES: GENERIC_DEFAULT = 0, GENERIC_POPULATED = 1 
+          PRODUCT_DEFAULT = 2 ,PRODUCT_POPULATED = 3 
+InfoROM Release Version: G001.0000.03.03(Current) v.s. G001.0000.03.03(File)
+INFOROM_FLASH_TYPE: 0x05
+INFOROM_FLASH_TYPE_GENERIC_DEFAULT_TO_GENERIC_DEFAULT
+Refresh InfoROM Backup (IB) block from the source vbios in EEPROM.
+Preserve License image...
+Preserve InfoROM OBD object...
+Succeed to preserve InfoROM OBD.
+Preserve InfoROM OEM object...
+Succeed to preserve InfoROM OEM object.
+Preserve InfoROM BRD object...
+Succeed to preserve InfoROM BRD.
+Preserve InfoROM RPR object...
+RPR preservation completes.
+Preserve InfoROM RRL object...
+Skip to preserve InfoROM RRL data for EEPROM does not have RRL data.
+Preserve InfoROM BBO object...
+Succeed to preserve InfoROM BBO object.
+Compress the backup InfoROM on composing InfoROM image...
+Leverage current InfoROM offset and remove the existed InfoROM before composing new InfoROM
+InfoROM PCI base offset: Current offset = 0xC0E00
+                         New offset = 0xC0E00
+Final PCI expansion ROM size is 209408(0x33200) bytes
+Final InfoROM Offset = 0x000B7E00 ( Absolute Offset 0x000C1000)
+RFRD Settings    | ROMImage   | Final      |
+InfoRomOffset    | 0x000C1000 | 0x000C1000 |
+InfoRomSize      | 0x00031000 | 0x00031000 |
+
+InfoROM Offsets    | ROMImage | InputAlt | Final    |
+NBSI OpRom Offset  | 0x0C0E00 | 0x000000 | 0x0C0E00 |
+NPDS Struct Offset | 0x0C0E20 | 0x000020 | 0x0C0E20 |
+NPDE Offset        | 0x0C0E40 | 0x000040 | 0x0C0E40 |
+NBSI DIR Offset    | 0x0C0FE0 | 0x000FE0 | 0x0C0FE0 |
+JFFS Offset        | 0x0C1000 | 0x001000 | 0x0C1000 |
+Delete the current InfoROM block from the target vbios image.
+Num of Objects = 7
+Num of RW Objects = 1
+Size of image with dummy RO blocks  = 2304
+Compress the backup InfoROM on merging InfoROM to ROM image...
+Proceeding with data compression...
+
+Compress the backup InfoROM on composing InfoROM image...
+Leverage current InfoROM offset and remove the existed InfoROM before composing new InfoROM
+InfoROM PCI base offset: Current offset = 0xC0E00
+                         New offset = 0xC0E00
+Final PCI expansion ROM size is 209408(0x33200) bytes
+Final InfoROM Offset = 0x000B7E00 ( Absolute Offset 0x000C1000)
+RFRD Settings    | ROMImage   | Final      |
+InfoRomOffset    | 0x000C1000 | 0x000C1000 |
+InfoRomSize      | 0x00031000 | 0x00031000 |
+
+InfoROM Offsets    | ROMImage | InputAlt | Final    |
+NBSI OpRom Offset  | 0x0C0E00 | 0x000000 | 0x0C0E00 |
+NPDS Struct Offset | 0x0C0E20 | 0x000020 | 0x0C0E20 |
+NPDE Offset        | 0x0C0E40 | 0x000040 | 0x0C0E40 |
+NBSI DIR Offset    | 0x0C0FE0 | 0x000FE0 | 0x0C0FE0 |
+JFFS Offset        | 0x0C1000 | 0x001000 | 0x0C1000 |
+Num of Objects = 7
+Num of RW Objects = 1
+Size of image with dummy RO blocks  = 2304
+Num of Objects = 7
+Num of RW Objects = 1
+Size of image with dummy RO blocks  = 2304
+Num of Objects = 7
+Num of RW Objects = 1
+Size of image with dummy RO blocks  = 2304
+Skip proceeding with preservation table for Pascal or newer chip.
+EEPROM    size: 00100000
+Image     size: 000F4000
+Unused    size: 0000C000
+Filled    size: 0000C000
+
+Start VBIOS verification
+Program page  Start: 0x00000000 Count: 0x2000(8192)
+Command id: 0x30000005 Command: NV_UCODE_CMD_COMMAND_EWR failed
+Command Status: NV_UCODE_CMD_STS_COMPLETE
+Error Code = 0x0000006C(108): NV_UCODE_ERR_CODE_CMD_EWR_OK_TO_FLASH_CHECK_FAILED
+
+Command failed to complete mailbox0 = 0x1000000B
+, mailbox1 = 0x0000006C
+Command id: 0x1000000B Command: NV_UCODE_CMD_COMMAND_CLOSE failed
+Command Status: NV_UCODE_CMD_STS_NEW
+Error Code = 0x00000001(1): NV_UCODE_ERR_CODE_CMD_TIMEOUT
+  uCode fails to return before max waiting time expires.
+ERROR: A timeout occurred waiting for the PMU. Please restart and try again.
+
+EEPROM programming failed.
+
+NOTE: Exception caught.
+Nothing changed!
+
+
+
+PROGRAMMING ERROR: EEPROM Program failed
+Exit Code: 12

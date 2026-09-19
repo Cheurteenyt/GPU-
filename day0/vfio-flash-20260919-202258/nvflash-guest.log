@@ -1,0 +1,68 @@
+*** NVFLASH LOG FILE ***
+Command-line : -6 --nopowerchk --offset 0x88000 -L /nvflash.log /pageA.rom 
+NVIDIA Firmware Update Utility (Version 5.792.0)
+Copyright (C) 1993-2022, NVIDIA Corporation. All rights reserved.
+
+Command: flash
+FindDevices:
+Device:00:00:00:00=8086:1237:1AF4:1100
+Device:00:00:01:00=8086:7000:1AF4:1100
+Device:00:00:01:01=8086:7010:1AF4:1100
+Device:00:00:01:03=8086:7113:1AF4:1100
+Device:00:00:02:00=1234:1111:1AF4:1100 GPU
+Device:00:00:03:00=10DE:2488:1462:3904 GPU
+Device:00:00:04:00=1AF4:1001:1AF4:0002
+Device:00:00:05:00=1AF4:1001:1AF4:0002
+Filter-out on-motherboard PLX bridge device.
+No PLX/PEX switch was detected, skip to filter-out non-NVIDIA PLX/PEX switch.
+One to one mode
+Testing adapter: Graphics Device      (10DE,2488,1462,3904) S:00,B:00,D:03,F:00
+
+Disable NV driver before start if NV driver loaded.
+
+NV driver may not be loaded or already be in disabled state.
+Failed to raise ROM and uC perf clocks.
+Flashing on blank EEPROMs will be slow.
+Adapter: Graphics Device      (10DE,2488,1462,3904) S:00,B:00,D:03,F:00
+
+Actual SPI clock frequency (Hz): 73636364
+uproc 05.00 ready to be used.
+Preparing secure operation after kicked start.
+Actual SPI clock frequency (Hz): 73636364
+Serial EEPROM identified.
+EEPROM ID (C2,2534) : MX MX25U8033E-MX25U8035F 1.65-2.0V 8192Kx1S, page
+
+Action: Identify EEPROM.
+EEPROM has been identified, skipping.
+Action: Read EEPROM image.
+Reading EEPROM (this operation may take up to 30 seconds)
+
+Reading EEPROM bytes.
+Start: 0x00000000
+Count: 1048576(0x00100000)
+Read complete.
+
+Testing Image: pageA.rom
+IFR image mode
+Invalid OTA signed VBIOS firmware image.
+Mismatch Type: Computed: 0x00030047
+WARNING: Firmware image PCI Vendor ID (0000)
+  does not match adapter PCI Vendor ID (10DE).
+WARNING: None of the firmware image compatible PCI Device ID's 
+match the PCI Device ID of the adapter.
+  Adapter PCI Device ID:        2488
+  Firmware image PCI Device ID: 0000
+WARNING: Firmware image PCI Subsystem ID (0000.0000)
+  does not match adapter PCI Subsystem ID (1462.3904).
+WARNING: None of the firmware image compatible Board ID's 
+match the Board ID of the adapter.
+  Adapter Board ID:        02DA
+  Firmware image Board ID: 0000
+
+NOTE: Exception caught.
+Nothing changed!
+
+
+
+ERROR: GPU PCI Device ID mismatch.
+Exit Code: 2
