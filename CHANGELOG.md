@@ -3,7 +3,7 @@
 All measured work, ring by ring. Registers are frozen once scored; the
 findings files carry the honesty ledgers.
 
-## The CERT20 campaign (2026-09-19) — the write-path mapped, the wall proven, the research opened
+## The CERT20 campaign (2026-09-19 → 09-20) — the write-path mapped, the wall proven, the published break adopted, the GA104 discovery campaign opened
 
 - **15 VM flash runs** (day0/vfio-flash-20260919-*) — the full write-path
   walked and instrumented: reads, protectoff, confirm-automation (the
