@@ -20,3 +20,5 @@ lab/__pycache__/
 tools/gsp-extract/fwimage.bin
 tools/gsp-extract/*.bin
 acquisitions/*-mod-*.rom
+day0/strace-archive/
+day0/*/qemu-strace.log
