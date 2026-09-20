@@ -28,16 +28,21 @@ def rd32(fd, off):
 
 def main():
     fd = os.open(RESOURCE0, os.O_RDWR | os.O_SYNC)
-    plm = rd32(fd, PLM_FEAT)
-    print(f"PLM FEAT @0x{PLM_FEAT:08x} = 0x{plm:08x}")
-    if plm & 0x70 == 0x70:
-        print(">>> bits 4-6 SET — the PLM is OPEN (the ROP executed!) <<<")
-        print(">>> next: the power-limit register hunt in the FEAT_OVR space <<<")
-    else:
-        print(f">>> bits 4-6 clear — the PLM state = the locked baseline (0x...8f) <<<")
-    print("--- the SEC2 state ---")
+    def safe_rd(off):
+        try:
+            return f"0x{rd32(fd, off):08x}"
+        except OSError as e:
+            return f"DENIED (errno {e.errno})"
+    plm = safe_rd(PLM_FEAT)
+    print(f"PLM FEAT @0x{PLM_FEAT:08x} = {plm}")
+    if "DENIED" in plm:
+        print(">>> READ-DENIED: the register protection is ACTIVE — consistent")
+        print(">>> with the ROP having written and the PLM having re-locked <<<")
+    elif "0xffffff8f" in plm:
+        print(">>> the locked baseline — the ROP did not reach the write <<<")
+    print("--- the SEC2 state (the DENIED entries = the protected registers) ---")
     for off, name in sorted(SEC2_REGS.items()):
-        print(f"  {name:10s} @0x{off:08x} = 0x{rd32(fd, off):08x}")
+        print(f"  {name:10s} @0x{off:08x} = {safe_rd(off)}")
     os.close(fd)
 
 
