@@ -1,0 +1,56 @@
+=== CERT20 staged test 2026-09-20T17:29:47.393204 ===
+=== CERT20 staged test: FEAT PLM open @0x00823804 ===
+GPU: 0000:07:00.0 (GA104), firmware: /lib/firmware/nvidia/610.57.04/gsp_tu10x.bin
+[baseline] PLM @0x00823804 = 0xffffff8f
+[backup] /lib/firmware/nvidia/610.57.04/gsp_tu10x.bin.cert20.bak
+[1/4] building the single-write ROP payload (FEAT PLM = 0xFFFFFFFF)
+=== CERT20 staged test 2026-09-20T18:33:36.392811 ===
+=== CERT20 staged test: FEAT PLM open @0x00823804 ===
+GPU: 0000:07:00.0 (GA104), firmware: /lib/firmware/nvidia/610.57.04/gsp_tu10x.bin
+[baseline] PLM @0x00823804 = 0xffffff8f
+[1/4] building the single-write ROP payload (FEAT PLM = 0xFFFFFFFF)
+EXCEPTION:
+EXCEPTION:
+Traceback (most recent call last):
+  File "/run/media/cheurteen/Jeux SSD/Reverse Engenering/gpu-lab/tools/cert20-plm-feat-test.py", line 154, in main
+    return _main()
+  File "/run/media/cheurteen/Jeux SSD/Reverse Engenering/gpu-lab/tools/cert20-plm-feat-test.py", line 187, in _main
+    patch_signature_section(gsp, payload)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "/run/media/cheurteen/Jeux SSD/Reverse Engenering/gpu-lab/tools/cert20-plm-feat-test.py", line 128, in patch_signature_section
+    struct.pack_into("<Q", shdrs, strtab_hdr_off + 0x18, new_strtab_off)
+                                  ^^^^^^^^^^^^^^
+NameError: name 'strtab_hdr_off' is not defined. Did you mean: 'strtab_hdr'?
+
+=== CERT20 staged test 2026-09-20T19:07:34.836012 ===
+=== CERT20 staged test: FEAT PLM open @0x00823804 ===
+GPU: 0000:07:00.0 (GA104), firmware: /lib/firmware/nvidia/610.57.04/gsp_tu10x.bin
+[baseline] PLM @0x00823804 = 0xffffff8f
+[1/4] building the single-write ROP payload (FEAT PLM = 0xFFFFFFFF)
+  .fwsignature_ga100 patched: 63488 bytes @file 0x1c01e36 (section grew from 4096)
+  firmware patched (the stock copy stays in the .bak)
+[2/4] driver cycle (the BROM processes the patched signature)
+  modprobe nvidia: rc=0
+[3/4] PLM read-back (the verdict)
+  PLM @0x00823804 = 0xffffff8f
+  >>> PLM unchanged — the gadgets/addresses differ on GA104 <<<
+[4/4] restoring the stock firmware + reload
+  stock firmware restored, modprobe rc=0
+=== VERDICT: UNCHANGED — everything restored (the PLM state is volatile) ===
+Report this verdict back to the session.
+=== CERT20 staged test 2026-09-20T19:28:28.523385 ===
+=== CERT20 staged test: FEAT PLM open @0x00823804 ===
+GPU: 0000:07:00.0 (GA104), firmware: /lib/firmware/nvidia/610.57.04/gsp_tu10x.bin
+[baseline] PLM @0x00823804 = 0xffffff8f
+[1/4] building the single-write ROP payload (FEAT PLM = 0xFFFFFFFF)
+  section .fwsignature_tu10x [6] patchée @0x0x1c03e36 (4096 -> 63488 octets)
+  firmware patched (the stock copy stays in the .bak)
+[2/4] driver cycle (the BROM processes the patched signature)
+  modprobe nvidia: rc=0
+[3/4] PLM read-back (the verdict)
+  PLM @0x00823804 = 0xffffff8f
+  >>> PLM unchanged — the gadgets/addresses differ on GA104 <<<
+[4/4] restoring the stock firmware + reload
+  stock firmware restored, modprobe rc=0
+=== VERDICT: UNCHANGED — everything restored (the PLM state is volatile) ===
+Report this verdict back to the session.
