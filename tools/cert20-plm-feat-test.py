@@ -125,7 +125,7 @@ def patch_signature_section(gsp: bytearray, payload: bytes) -> None:
     # les section headers + strtab re-appendes en fin de fichier (l ELF reste valide)
     new_strtab_off = len(gsp)
     gsp.extend(strtab)
-    struct.pack_into("<Q", shdrs, strtab_hdr_off + 0x18, new_strtab_off)
+    struct.pack_into("<Q", shdrs, strtab_hdr + 0x18, new_strtab_off)
     new_shoff = len(gsp)
     gsp.extend(shdrs)
     struct.pack_into("<Q", gsp, 0x28, new_shoff)
