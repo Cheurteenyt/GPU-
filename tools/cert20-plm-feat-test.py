@@ -146,6 +146,33 @@ def bar0_read32(offset: int):
         os.close(fd)
 
 
+SEC2_REGS = {
+    0x00840000: "IRQSTAT",
+    0x00840108: "CPUCTL",
+    0x00840100: "FALCON CTL?",
+    0x008403c0: "ENGINE",
+    0x00840804: "MAILBOX0",
+    0x00840808: "MAILBOX1",
+    0x0084080c: "MAILBOX2",
+    0x00840810: "MAILBOX3",
+    0x00840814: "MAILBOX4",
+}
+
+
+def sec2_dump(label: str) -> dict:
+    """Dump the SEC2 falcon registers (the booter_load's visible state)."""
+    out = {}
+    try:
+        for off, name in SEC2_REGS.items():
+            out[name] = bar0_read32(off)
+        print(f"  [SEC2 {label}]")
+        for name, val in out.items():
+            print(f"    {name:10s} = 0x{val:08x}")
+    except Exception as e:
+        print(f"  [SEC2 {label}] dump failed: {e}")
+    return out
+
+
 def run(cmd, **kw):
     import subprocess
     return subprocess.run(cmd, capture_output=True, text=True, **kw)
@@ -177,6 +204,7 @@ def _main():
     except Exception as e:
         print(f"WARN: baseline read failed ({e}) — continuing (the read works after load)")
 
+    sec2_before = sec2_dump("baseline")
     gsp_backup = GSP_PATH + ".cert20.bak"
     if not os.path.exists(gsp_backup):
         import shutil
@@ -202,6 +230,10 @@ def _main():
     run(["bash", "-c", f"echo 1 > /sys/bus/pci/devices/{PCI_FULL}/reset"])
     time.sleep(3)
 
+    sec2_after = sec2_dump("after-fire")
+    changed = {k: (sec2_before.get(k), v) for k, v in sec2_after.items() if sec2_before.get(k) != v}
+    if changed:
+        print(f"  [SEC2 diff] {changed}")
     print("[3/4] PLM read-back (the verdict)")
     try:
         after = bar0_read32(PLM_FEAT_ADDR)
