@@ -23,8 +23,7 @@ SEC2_REGS = {
 
 
 def rd32(fd, off):
-    fd.seek(off)
-    return struct.unpack("<I", fd.read(4))[0]
+    return struct.unpack("<I", os.pread(fd, 4, off))[0]
 
 
 def main():
