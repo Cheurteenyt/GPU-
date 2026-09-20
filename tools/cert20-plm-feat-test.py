@@ -18,6 +18,14 @@ import os
 import struct
 import sys
 import time
+from datetime import datetime
+
+_LOG = "/run/media/cheurteen/Jeux SSD/Reverse Engenering/gpu-lab/day0/cert20-plm-feat-test.log"
+_real_print = print
+def print(*a, **k):
+    _real_print(*a, **k)
+    with open(_LOG, "a") as f:
+        f.write(" ".join(str(x) for x in a) + "\n")
 
 PCI_FULL = "0000:07:00.0"
 GSP_PATH = "/lib/firmware/nvidia/610.57.04/gsp_tu10x.bin"
@@ -128,6 +136,7 @@ def main():
     if os.geteuid() != 0:
         print("ERROR: run with sudo (root required)")
         return 1
+    print(f"=== CERT20 staged test {datetime.now().isoformat()} ===")
     print(f"=== CERT20 staged test: FEAT PLM open @0x{PLM_FEAT_ADDR:08x} ===")
     print(f"GPU: {PCI_FULL} (GA104), firmware: {GSP_PATH}")
 
