@@ -28,6 +28,11 @@ def print(*a, **k):
         f.write(" ".join(str(x) for x in a) + "\n")
 
 PCI_FULL = "0000:07:00.0"
+# le fill V = à la fois le canary ET l'adresse de retour (le gadget d'entrée)
+# 0x4a7 = le gadget GA100 (notre booter = un autre build — le sweep le trouve)
+# 0x7dd9 = le __stack_chk_fail GA100 (le test de similarité du booter)
+# 0x7de9 = la variante debug (le print $r15 sur MAILBOX0!)
+FILL_V = int(os.environ.get("CERT20_FILL_V", "0x4a7"), 0)
 GSP_PATH = "/lib/firmware/nvidia/610.57.04/gsp_tu10x.bin"
 SIG_SECTION = b".fwsignature_tu10x"   # le die GA104 = la famille tu10x (le cmpunlocker GA100 = ga100)
 PLM_FEAT_ADDR = 0x00823804     # GA100 FEAT PLM — hypothesis #1 for GA104
@@ -57,9 +62,9 @@ ROP_GADGETS = {
 }
 
 
-def fill_payload(write_addr: int, write_value: int) -> bytes:
+def fill_payload(write_addr: int, write_value: int, fill_v: int = ROP_FILL_DWORD) -> bytes:
     payload_size = 0xF800
-    payload = bytearray([ROP_FILL_DWORD & 0xFF] * payload_size)
+    payload = bytearray([fill_v & 0xFF] * payload_size)
     def w32(o, v):
         if 0 <= o <= len(payload) - 4:
             struct.pack_into("<I", payload, o, v & 0xFFFFFFFF)
@@ -195,6 +200,7 @@ def _main():
         return 1
     print(f"=== CERT20 staged test {datetime.now().isoformat()} ===")
     print(f"=== CERT20 staged test: FEAT PLM open @0x{PLM_FEAT_ADDR:08x} ===")
+    print(f"=== fill V = 0x{FILL_V:x} (l'adresse gadget d'entrée) ===")
     print(f"GPU: {PCI_FULL} (GA104), firmware: {GSP_PATH}")
 
     # baseline BEFORE any driver churn
@@ -213,7 +219,7 @@ def _main():
     gsp = bytearray(open(gsp_backup, "rb").read())
 
     print("[1/4] building the single-write ROP payload (FEAT PLM = 0xFFFFFFFF)")
-    payload = fill_payload(PLM_FEAT_ADDR, PLM_FEAT_VALUE)
+    payload = fill_payload(PLM_FEAT_ADDR, PLM_FEAT_VALUE, fill_v=FILL_V)
     patch_signature_section(gsp, payload)
     open(GSP_PATH, "wb").write(bytes(gsp))
     print("  firmware patched (the stock copy stays in the .bak)")
