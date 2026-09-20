@@ -29,7 +29,7 @@ def print(*a, **k):
 
 PCI_FULL = "0000:07:00.0"
 GSP_PATH = "/lib/firmware/nvidia/610.57.04/gsp_tu10x.bin"
-SIG_SECTION = b".fwsignature_ga100"
+SIG_SECTION = b".fwsignature_tu10x"   # le die GA104 = la famille tu10x (le cmpunlocker GA100 = ga100)
 PLM_FEAT_ADDR = 0x00823804     # GA100 FEAT PLM — hypothesis #1 for GA104
 PLM_FEAT_VALUE = 0xFFFFFFFF
 RESOURCE0 = f"/sys/bus/pci/devices/{PCI_FULL}/resource0"
@@ -91,8 +91,9 @@ def fill_payload(write_addr: int, write_value: int) -> bytes:
 
 
 def patch_signature_section(gsp: bytearray, payload: bytes) -> None:
-    """Port of the cmpunlocker patch_gsp: grow the file + the section when
-    the payload exceeds the 4 KB on-disk section, keep the ELF valid."""
+    """Patch EVERY .fwsignature section matching SIG_SECTION (grow the file
+    + the section header when the payload exceeds 4 KB, keep the ELF valid).
+    Port of the cmpunlocker patch_gsp with the multi-section handling."""
     e_shoff = struct.unpack_from("<Q", gsp, 0x28)[0]
     e_shentsize = struct.unpack_from("<H", gsp, 0x3A)[0]
     e_shnum = struct.unpack_from("<H", gsp, 0x3C)[0]
@@ -102,34 +103,35 @@ def patch_signature_section(gsp: bytearray, payload: bytes) -> None:
     strtab_off = struct.unpack_from("<Q", shdrs, strtab_hdr + 0x18)[0]
     strtab_sz = struct.unpack_from("<Q", shdrs, strtab_hdr + 0x20)[0]
     strtab = bytes(gsp[strtab_off:strtab_off + strtab_sz])
-    sig_idx = None
+    patched = []
     for i in range(e_shnum):
         base = i * e_shentsize
         name_idx = struct.unpack_from("<I", shdrs, base)[0]
         end = strtab.find(b"\x00", name_idx)
-        if strtab[name_idx:end] == SIG_SECTION:
-            sig_idx = i
-            sig_file_off = struct.unpack_from("<Q", shdrs, base + 0x18)[0]
-            break
-    if sig_idx is None:
-        raise RuntimeError("section not found")
-    orig_size = struct.unpack_from("<Q", shdrs, sig_idx * e_shentsize + 0x20)[0]
-    if len(payload) > orig_size:
-        if len(gsp) < sig_file_off + len(payload):
-            gsp.extend(b"\x00" * (sig_file_off + len(payload) - len(gsp)))
-        struct.pack_into("<Q", shdrs, sig_idx * e_shentsize + 0x20, len(payload))
-    else:
-        if len(payload) < orig_size:
-            payload = payload + b"\x00" * (orig_size - len(payload))
-    gsp[sig_file_off:sig_file_off + len(payload)] = payload[:len(payload)]
-    # les section headers + strtab re-appendes en fin de fichier (l ELF reste valide)
+        if strtab[name_idx:end] != SIG_SECTION:
+            continue
+        sig_file_off = struct.unpack_from("<Q", shdrs, base + 0x18)[0]
+        orig_size = struct.unpack_from("<Q", shdrs, base + 0x20)[0]
+        use_payload = payload
+        if len(use_payload) > orig_size:
+            if len(gsp) < sig_file_off + len(use_payload):
+                gsp.extend(b"\x00" * (sig_file_off + len(use_payload) - len(gsp)))
+            struct.pack_into("<Q", shdrs, base + 0x20, len(use_payload))
+        else:
+            use_payload = use_payload + b"\x00" * (orig_size - len(use_payload))
+        gsp[sig_file_off:sig_file_off + len(use_payload)] = use_payload
+        patched.append((i, hex(sig_file_off), orig_size, len(use_payload)))
+    if not patched:
+        raise RuntimeError(f"section {SIG_SECTION.decode()} not found")
+    for i, off, was, now in patched:
+        print(f"  section {SIG_SECTION.decode()} [{i}] patchée @0x{off} ({was} -> {now} octets)")
+    # les section headers + strtab re-appendés en fin de fichier (l'ELF reste valide)
     new_strtab_off = len(gsp)
     gsp.extend(strtab)
     struct.pack_into("<Q", shdrs, strtab_hdr + 0x18, new_strtab_off)
     new_shoff = len(gsp)
     gsp.extend(shdrs)
     struct.pack_into("<Q", gsp, 0x28, new_shoff)
-    print(f"  .fwsignature_ga100 patched: {len(payload)} bytes @file 0x{sig_file_off:x} (section grew from {orig_size})")
 
 
 def bar0_read32(offset: int):
@@ -225,7 +227,9 @@ def _main():
     time.sleep(2)
     r = run(["modprobe", "nvidia"])
     print(f"  stock firmware restored, modprobe rc={r.returncode}")
+    time.sleep(10)
     run(["systemctl", "start", "display-manager"])
+    time.sleep(5)
 
     print(f"=== VERDICT: {verdict} — everything restored (the PLM state is volatile) ===")
     print("Report this verdict back to the session.")
