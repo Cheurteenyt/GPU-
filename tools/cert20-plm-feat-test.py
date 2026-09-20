@@ -91,28 +91,45 @@ def fill_payload(write_addr: int, write_value: int) -> bytes:
 
 
 def patch_signature_section(gsp: bytearray, payload: bytes) -> None:
+    """Port of the cmpunlocker patch_gsp: grow the file + the section when
+    the payload exceeds the 4 KB on-disk section, keep the ELF valid."""
     e_shoff = struct.unpack_from("<Q", gsp, 0x28)[0]
     e_shentsize = struct.unpack_from("<H", gsp, 0x3A)[0]
     e_shnum = struct.unpack_from("<H", gsp, 0x3C)[0]
     e_shstrndx = struct.unpack_from("<H", gsp, 0x3E)[0]
-    shdrs = gsp[e_shoff:e_shoff + e_shnum * e_shentsize]
+    shdrs = bytearray(gsp[e_shoff:e_shoff + e_shnum * e_shentsize])
     strtab_hdr = e_shstrndx * e_shentsize
     strtab_off = struct.unpack_from("<Q", shdrs, strtab_hdr + 0x18)[0]
     strtab_sz = struct.unpack_from("<Q", shdrs, strtab_hdr + 0x20)[0]
     strtab = bytes(gsp[strtab_off:strtab_off + strtab_sz])
+    sig_idx = None
     for i in range(e_shnum):
         base = i * e_shentsize
         name_idx = struct.unpack_from("<I", shdrs, base)[0]
         end = strtab.find(b"\x00", name_idx)
         if strtab[name_idx:end] == SIG_SECTION:
-            off = struct.unpack_from("<Q", shdrs, base + 0x18)[0]
-            size = struct.unpack_from("<Q", shdrs, base + 0x20)[0]
-            if size < len(payload):
-                raise RuntimeError(f"section too small: {size}")
-            gsp[off:off + len(payload)] = payload
-            print(f"  .fwsignature_ga100 patched: {len(payload)} bytes @file 0x{off:x}")
-            return
-    raise RuntimeError("section not found")
+            sig_idx = i
+            sig_file_off = struct.unpack_from("<Q", shdrs, base + 0x18)[0]
+            break
+    if sig_idx is None:
+        raise RuntimeError("section not found")
+    orig_size = struct.unpack_from("<Q", shdrs, sig_idx * e_shentsize + 0x20)[0]
+    if len(payload) > orig_size:
+        if len(gsp) < sig_file_off + len(payload):
+            gsp.extend(b"\x00" * (sig_file_off + len(payload) - len(gsp)))
+        struct.pack_into("<Q", shdrs, sig_idx * e_shentsize + 0x20, len(payload))
+    else:
+        if len(payload) < orig_size:
+            payload = payload + b"\x00" * (orig_size - len(payload))
+    gsp[sig_file_off:sig_file_off + len(payload)] = payload[:len(payload)]
+    # les section headers + strtab re-appendes en fin de fichier (l ELF reste valide)
+    new_strtab_off = len(gsp)
+    gsp.extend(strtab)
+    struct.pack_into("<Q", shdrs, strtab_hdr_off + 0x18, new_strtab_off)
+    new_shoff = len(gsp)
+    gsp.extend(shdrs)
+    struct.pack_into("<Q", gsp, 0x28, new_shoff)
+    print(f"  .fwsignature_ga100 patched: {len(payload)} bytes @file 0x{sig_file_off:x} (section grew from {orig_size})")
 
 
 def bar0_read32(offset: int):
@@ -133,6 +150,17 @@ def run(cmd, **kw):
 
 
 def main():
+    try:
+        return _main()
+    except Exception:
+        import traceback
+        print("EXCEPTION:")
+        traceback.print_exc()
+        with open(_LOG, "a") as f:
+            f.write("EXCEPTION:\n" + traceback.format_exc() + "\n")
+        return 2
+
+def _main():
     if os.geteuid() != 0:
         print("ERROR: run with sudo (root required)")
         return 1
