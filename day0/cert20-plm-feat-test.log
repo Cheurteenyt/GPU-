@@ -54,3 +54,116 @@ GPU: 0000:07:00.0 (GA104), firmware: /lib/firmware/nvidia/610.57.04/gsp_tu10x.bi
   stock firmware restored, modprobe rc=0
 === VERDICT: UNCHANGED — everything restored (the PLM state is volatile) ===
 Report this verdict back to the session.
+=== CERT20 staged test 2026-09-20T21:58:01.411836 ===
+=== CERT20 staged test: FEAT PLM open @0x00823804 ===
+GPU: 0000:07:00.0 (GA104), firmware: /lib/firmware/nvidia/610.57.04/gsp_tu10x.bin
+[baseline] PLM @0x00823804 = 0xffffff8f
+  [SEC2 baseline]
+    IRQSTAT    = 0x00000000
+    CPUCTL     = 0x80420100
+    FALCON CTL? = 0x00000020
+    ENGINE     = 0x00000000
+    MAILBOX0   = 0x00000000
+    MAILBOX1   = 0x00000000
+    MAILBOX2   = 0x00000000
+    MAILBOX3   = 0x00000000
+    MAILBOX4   = 0x00000055
+[1/4] building the single-write ROP payload (FEAT PLM = 0xFFFFFFFF)
+  section .fwsignature_tu10x [6] patchée @0x0x1c03e36 (4096 -> 63488 octets)
+  firmware patched (the stock copy stays in the .bak)
+[2/4] driver cycle (the BROM processes the patched signature)
+  modprobe nvidia: rc=0
+  [SEC2 after-fire]
+    IRQSTAT    = 0xbadf5620
+    CPUCTL     = 0x80420100
+    FALCON CTL? = 0xbadf5620
+    ENGINE     = 0x00000000
+    MAILBOX0   = 0xbadf5620
+    MAILBOX1   = 0xbadf5620
+    MAILBOX2   = 0xbadf5620
+    MAILBOX3   = 0xbadf5620
+    MAILBOX4   = 0xbadf5620
+  [SEC2 diff] {'IRQSTAT': (0, 3135198752), 'FALCON CTL?': (32, 3135198752), 'MAILBOX0': (0, 3135198752), 'MAILBOX1': (0, 3135198752), 'MAILBOX2': (0, 3135198752), 'MAILBOX3': (0, 3135198752), 'MAILBOX4': (85, 3135198752)}
+[3/4] PLM read-back (the verdict)
+  PLM @0x00823804 = 0xffffff8f
+  >>> PLM unchanged — the gadgets/addresses differ on GA104 <<<
+[4/4] restoring the stock firmware + reload
+  stock firmware restored, modprobe rc=0
+=== VERDICT: UNCHANGED — everything restored (the PLM state is volatile) ===
+Report this verdict back to the session.
+=== CERT20 staged test 2026-09-20T22:16:32.430911 ===
+=== CERT20 staged test: FEAT PLM open @0x00823804 ===
+=== fill V = 0x4a7 (l'adresse gadget d'entrée) ===
+GPU: 0000:07:00.0 (GA104), firmware: /lib/firmware/nvidia/610.57.04/gsp_tu10x.bin
+[baseline] PLM @0x00823804 = 0xffffff8f
+  [SEC2 baseline]
+    IRQSTAT    = 0x00000000
+    CPUCTL     = 0x80420100
+    FALCON CTL? = 0x00000020
+    ENGINE     = 0x00000000
+    MAILBOX0   = 0x00000000
+    MAILBOX1   = 0x00000000
+    MAILBOX2   = 0x00000000
+    MAILBOX3   = 0x00000000
+    MAILBOX4   = 0x00000055
+[1/4] building the single-write ROP payload (FEAT PLM = 0xFFFFFFFF)
+  section .fwsignature_tu10x [6] patchée @0x0x1c03e36 (4096 -> 63488 octets)
+  firmware patched (the stock copy stays in the .bak)
+[2/4] driver cycle (the BROM processes the patched signature)
+  modprobe nvidia: rc=0
+  [SEC2 after-fire]
+    IRQSTAT    = 0xbadf5620
+    CPUCTL     = 0x80420100
+    FALCON CTL? = 0xbadf5620
+    ENGINE     = 0x00000000
+    MAILBOX0   = 0xbadf5620
+    MAILBOX1   = 0xbadf5620
+    MAILBOX2   = 0xbadf5620
+    MAILBOX3   = 0xbadf5620
+    MAILBOX4   = 0xbadf5620
+  [SEC2 diff] {'IRQSTAT': (0, 3135198752), 'FALCON CTL?': (32, 3135198752), 'MAILBOX0': (0, 3135198752), 'MAILBOX1': (0, 3135198752), 'MAILBOX2': (0, 3135198752), 'MAILBOX3': (0, 3135198752), 'MAILBOX4': (85, 3135198752)}
+[3/4] PLM read-back (the verdict)
+  PLM @0x00823804 = 0xffffff8f
+  >>> PLM unchanged — the gadgets/addresses differ on GA104 <<<
+[4/4] restoring the stock firmware + reload
+  stock firmware restored, modprobe rc=0
+=== VERDICT: UNCHANGED — everything restored (the PLM state is volatile) ===
+Report this verdict back to the session.
+=== CERT20 staged test 2026-09-20T22:45:14.541027 ===
+=== CERT20 staged test: FEAT PLM open @0x00823804 ===
+=== fill V = 0x7dd9 (l'adresse gadget d'entrée) ===
+GPU: 0000:07:00.0 (GA104), firmware: /lib/firmware/nvidia/610.57.04/gsp_tu10x.bin
+[baseline] PLM @0x00823804 = 0xffffff8f
+  [SEC2 baseline]
+    IRQSTAT    = 0x00000000
+    CPUCTL     = 0x80420100
+    FALCON CTL? = 0x00000020
+    ENGINE     = 0x00000000
+    MAILBOX0   = 0x00000000
+    MAILBOX1   = 0x00000000
+    MAILBOX2   = 0x00000000
+    MAILBOX3   = 0x00000000
+    MAILBOX4   = 0x00000055
+[1/4] building the single-write ROP payload (FEAT PLM = 0xFFFFFFFF)
+  section .fwsignature_tu10x [6] patchée @0x0x1c03e36 (4096 -> 63488 octets)
+  firmware patched (the stock copy stays in the .bak)
+[2/4] driver cycle (the BROM processes the patched signature)
+  modprobe nvidia: rc=0
+  [SEC2 after-fire]
+    IRQSTAT    = 0xbadf5620
+    CPUCTL     = 0x80420100
+    FALCON CTL? = 0xbadf5620
+    ENGINE     = 0x00000000
+    MAILBOX0   = 0xbadf5620
+    MAILBOX1   = 0xbadf5620
+    MAILBOX2   = 0xbadf5620
+    MAILBOX3   = 0xbadf5620
+    MAILBOX4   = 0xbadf5620
+  [SEC2 diff] {'IRQSTAT': (0, 3135198752), 'FALCON CTL?': (32, 3135198752), 'MAILBOX0': (0, 3135198752), 'MAILBOX1': (0, 3135198752), 'MAILBOX2': (0, 3135198752), 'MAILBOX3': (0, 3135198752), 'MAILBOX4': (85, 3135198752)}
+[3/4] PLM read-back (the verdict)
+  PLM @0x00823804 = 0xffffff8f
+  >>> PLM unchanged — the gadgets/addresses differ on GA104 <<<
+[4/4] restoring the stock firmware + reload
+  stock firmware restored, modprobe rc=0
+=== VERDICT: UNCHANGED — everything restored (the PLM state is volatile) ===
+Report this verdict back to the session.
