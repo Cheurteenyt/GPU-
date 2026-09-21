@@ -1,0 +1,262 @@
+{
+ "object": {
+  "size": 1744,
+  "pointer_slot": "state + 0x4E98 (0x5000 - 0x168)",
+  "allocator_caller": "0x1458cf8 (window), allocator ~0x18C373C",
+  "reset_by": "GET_EDPP_LIMIT_INFO handler 0x1458bec"
+ },
+ "census_scope": "verified regions only (4.16 map, 66%) \u2014 a lower bound",
+ "sites": [
+  {
+   "va": "0x143fde2",
+   "insn": "ld s1, -0x168(a5)",
+   "verified": true,
+   "region": [
+    "0x143f4f8",
+    "0x1446e60"
+   ],
+   "formed": {
+    "lui": 21233108,
+    "add": 21233110,
+    "form": "B"
+   }
+  },
+  {
+   "va": "0x14400c6",
+   "insn": "ld s6, -0x168(a5)",
+   "verified": true,
+   "region": [
+    "0x143f4f8",
+    "0x1446e60"
+   ],
+   "formed": {
+    "lui": 21233844,
+    "add": 21233848,
+    "form": "B"
+   }
+  },
+  {
+   "va": "0x14405f0",
+   "insn": "ld s3, -0x168(a5)",
+   "verified": true,
+   "region": [
+    "0x143f4f8",
+    "0x1446e60"
+   ],
+   "formed": {
+    "lui": 21235180,
+    "add": 21235182,
+    "form": "B"
+   }
+  },
+  {
+   "va": "0x1440a22",
+   "insn": "ld s3, -0x168(a5)",
+   "verified": true,
+   "region": [
+    "0x143f4f8",
+    "0x1446e60"
+   ],
+   "formed": {
+    "lui": 21236254,
+    "add": 21236256,
+    "form": "B"
+   }
+  },
+  {
+   "va": "0x1440dbc",
+   "insn": "ld s3, -0x168(a5)",
+   "verified": true,
+   "region": [
+    "0x143f4f8",
+    "0x1446e60"
+   ],
+   "formed": {
+    "lui": 21237176,
+    "add": 21237178,
+    "form": "B"
+   }
+  },
+  {
+   "va": "0x1446dba",
+   "insn": "ld s5, -0x168(a5)",
+   "verified": true,
+   "region": [
+    "0x143f4f8",
+    "0x1446e60"
+   ],
+   "formed": {
+    "lui": 21261750,
+    "add": 21261752,
+    "form": "B"
+   }
+  },
+  {
+   "va": "0x145841c",
+   "insn": "ld a4, -0x168(a5)",
+   "verified": true,
+   "region": [
+    "0x145419c",
+    "0x145ec6a"
+   ],
+   "formed": {
+    "lui": 21333016,
+    "add": 21333018,
+    "form": "B"
+   }
+  },
+  {
+   "va": "0x145848e",
+   "insn": "ld a0, -0x168(s1)",
+   "verified": true,
+   "region": [
+    "0x145419c",
+    "0x145ec6a"
+   ],
+   "formed": {
+    "lui": 21333130,
+    "add": 21333132,
+    "form": "A"
+   }
+  },
+  {
+   "va": "0x14584a0",
+   "insn": "ld a5, -0x168(s1)",
+   "verified": true,
+   "region": [
+    "0x145419c",
+    "0x145ec6a"
+   ],
+   "formed": {
+    "lui": 21333130,
+    "add": 21333132,
+    "form": "A"
+   }
+  },
+  {
+   "va": "0x14584d8",
+   "insn": "ld s2, -0x168(a5)",
+   "verified": true,
+   "region": [
+    "0x145419c",
+    "0x145ec6a"
+   ],
+   "formed": {
+    "lui": 21333204,
+    "add": 21333206,
+    "form": "B"
+   }
+  },
+  {
+   "va": "0x145884e",
+   "insn": "ld s2, -0x168(a4)",
+   "verified": true,
+   "region": [
+    "0x145419c",
+    "0x145ec6a"
+   ],
+   "formed": {
+    "lui": 21334090,
+    "add": 21334092,
+    "form": "B"
+   }
+  },
+  {
+   "va": "0x1458892",
+   "insn": "ld s2, -0x168(a5)",
+   "verified": true,
+   "region": [
+    "0x145419c",
+    "0x145ec6a"
+   ],
+   "formed": {
+    "lui": 21334158,
+    "add": 21334160,
+    "form": "B"
+   }
+  },
+  {
+   "va": "0x1458bfc",
+   "insn": "ld a0, -0x168(s1)",
+   "verified": true,
+   "region": [
+    "0x145419c",
+    "0x145ec6a"
+   ],
+   "formed": {
+    "lui": 21335032,
+    "add": 21335034,
+    "form": "A"
+   }
+  },
+  {
+   "va": "0x1458c0e",
+   "insn": "ld a5, -0x168(s1)",
+   "verified": true,
+   "region": [
+    "0x145419c",
+    "0x145ec6a"
+   ],
+   "formed": {
+    "lui": 21335032,
+    "add": 21335034,
+    "form": "A"
+   }
+  },
+  {
+   "va": "0x1458cdc",
+   "insn": "ld a5, -0x168(s1)",
+   "verified": true,
+   "region": [
+    "0x145419c",
+    "0x145ec6a"
+   ],
+   "formed": {
+    "lui": 21335252,
+    "add": 21335258,
+    "form": "B"
+   }
+  },
+  {
+   "va": "0x145901a",
+   "insn": "ld a1, -0x168(s1)",
+   "verified": true,
+   "region": [
+    "0x145419c",
+    "0x145ec6a"
+   ],
+   "formed": {
+    "lui": 21336086,
+    "add": 21336088,
+    "form": "B"
+   }
+  },
+  {
+   "va": "0x15fbad6",
+   "insn": "lw a5, -0x168(s10)",
+   "verified": true,
+   "region": [
+    "0x15fab38",
+    "0x15fc42e"
+   ],
+   "formed": {
+    "lui": 23050960,
+    "add": 23050964,
+    "form": "B"
+   }
+  }
+ ],
+ "stats": {
+  "total": 17,
+  "by_op": {
+   "ld": 16,
+   "lw": 1
+  },
+  "by_64k_page": {
+   "0x1450000": 10,
+   "0x1440000": 5,
+   "0x1430000": 1,
+   "0x15f0000": 1
+  }
+ }
+}
