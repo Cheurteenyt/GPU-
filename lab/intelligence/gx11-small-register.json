@@ -1,0 +1,294 @@
+{
+  "instrument": "gx11-small",
+  "ring": 11,
+  "specimens": [
+    {
+      "file": "MSI.RTX3070.8192.210519_1.rom",
+      "sha256_16": "41a0860f8abfcfa7",
+      "token_count": 17,
+      "strings": {
+        "version": {
+          "pointer": 185,
+          "size": 25,
+          "value": "Version 94.04.46.00.EB \r\n"
+        },
+        "table_offset": 38344,
+        "sign_on": {
+          "pointer": 104,
+          "size": 80,
+          "value": "PG142 SKU 12 VGA BIOS \r\nMSINV390MH.670"
+        },
+        "copyright": {
+          "pointer": 211,
+          "size": 40,
+          "value": "Copyright (C) 1996-2021 NVIDIA Corp.\r\n"
+        },
+        "oem_string": {
+          "pointer": 20298,
+          "size": 20,
+          "value": "NVIDIA"
+        },
+        "vendor_name": {
+          "pointer": 20318,
+          "size": 35,
+          "value": "NVIDIA Corporation"
+        },
+        "product_name": {
+          "pointer": 260,
+          "size": 35,
+          "value": "GPU Board"
+        },
+        "product_revision": {
+          "pointer": 295,
+          "size": 20,
+          "value": "Chip Rev   "
+        }
+      },
+      "i2c": {
+        "version": 1,
+        "i2c_scripts_ptr": 0,
+        "ext_hwmon_init_ptr": 0
+      },
+      "tmds": {
+        "version": 1,
+        "tmds_info_ptr": 21153
+      },
+      "display": {
+        "version": 1,
+        "display_scripting_ptr": 20393,
+        "flags": 0,
+        "flags_bits": {
+          "diagnostic_overscan": false,
+          "no_display_coproc": false,
+          "display_fpga": false
+        }
+      },
+      "clock": {
+        "version": 2,
+        "pll_info_ptr": 20426,
+        "vbe_pclk_ptr": 0,
+        "raw": "ca4f0000000000006a180700a2ff0000de140700fb220700991507004d0201001619070054190700691a0700"
+      },
+      "dfp": {
+        "version": 1,
+        "raw": "e8500000",
+        "dfp_ptr0": 20712
+      },
+      "dp": {
+        "version": 1,
+        "raw": "e579",
+        "dp_ptr0": 31205
+      },
+      "virtual": {
+        "version": 1,
+        "raw": "1e46af440000",
+        "virtual_ptr0": 17950
+      },
+      "mxm": {
+        "version": 1,
+        "raw": "0000010100000000",
+        "mxm_ptr0": 0
+      },
+      "uefi": {
+        "version": 1,
+        "raw": "00000000000000000000000000",
+        "major_version": 0,
+        "minor_version": 0,
+        "virtual_mem_addr": 0,
+        "virtual_mem_size": 0
+      }
+    },
+    {
+      "file": "MSI.RTX3070.8192.210519_2.rom",
+      "sha256_16": "4de4e5f13448fbb9",
+      "token_count": 17,
+      "strings": {
+        "version": {
+          "pointer": 185,
+          "size": 25,
+          "value": "Version 94.04.46.00.F0 \r\n"
+        },
+        "table_offset": 38344,
+        "sign_on": {
+          "pointer": 104,
+          "size": 80,
+          "value": "PG142 SKU 12 VGA BIOS \r\nMSINV390MH.680"
+        },
+        "copyright": {
+          "pointer": 211,
+          "size": 40,
+          "value": "Copyright (C) 1996-2021 NVIDIA Corp.\r\n"
+        },
+        "oem_string": {
+          "pointer": 20298,
+          "size": 20,
+          "value": "NVIDIA"
+        },
+        "vendor_name": {
+          "pointer": 20318,
+          "size": 35,
+          "value": "NVIDIA Corporation"
+        },
+        "product_name": {
+          "pointer": 260,
+          "size": 35,
+          "value": "GPU Board"
+        },
+        "product_revision": {
+          "pointer": 295,
+          "size": 20,
+          "value": "Chip Rev   "
+        }
+      },
+      "i2c": {
+        "version": 1,
+        "i2c_scripts_ptr": 0,
+        "ext_hwmon_init_ptr": 0
+      },
+      "tmds": {
+        "version": 1,
+        "tmds_info_ptr": 21153
+      },
+      "display": {
+        "version": 1,
+        "display_scripting_ptr": 20393,
+        "flags": 0,
+        "flags_bits": {
+          "diagnostic_overscan": false,
+          "no_display_coproc": false,
+          "display_fpga": false
+        }
+      },
+      "clock": {
+        "version": 2,
+        "pll_info_ptr": 20426,
+        "vbe_pclk_ptr": 0,
+        "raw": "ca4f0000000000006a180700a2ff0000de140700fb220700991507004d0201001619070054190700691a0700"
+      },
+      "dfp": {
+        "version": 1,
+        "raw": "e8500000",
+        "dfp_ptr0": 20712
+      },
+      "dp": {
+        "version": 1,
+        "raw": "e579",
+        "dp_ptr0": 31205
+      },
+      "virtual": {
+        "version": 1,
+        "raw": "1e46af440000",
+        "virtual_ptr0": 17950
+      },
+      "mxm": {
+        "version": 1,
+        "raw": "0000010100000000",
+        "mxm_ptr0": 0
+      },
+      "uefi": {
+        "version": 1,
+        "raw": "00000000000000000000000000",
+        "major_version": 0,
+        "minor_version": 0,
+        "virtual_mem_addr": 0,
+        "virtual_mem_size": 0
+      }
+    },
+    {
+      "file": "MSI.RTX3070.8192.200923.rom",
+      "sha256_16": "eee06a47a9de56f9",
+      "token_count": 17,
+      "strings": {
+        "version": {
+          "pointer": 185,
+          "size": 25,
+          "value": "Version 94.04.25.40.C5 \r\n"
+        },
+        "table_offset": 38344,
+        "sign_on": {
+          "pointer": 104,
+          "size": 80,
+          "value": "PG142 SKU 10 VGA BIOS \r\nMSINV390MH.142"
+        },
+        "copyright": {
+          "pointer": 211,
+          "size": 40,
+          "value": "Copyright (C) 1996-2020 NVIDIA Corp.\r\n"
+        },
+        "oem_string": {
+          "pointer": 20218,
+          "size": 20,
+          "value": "NVIDIA"
+        },
+        "vendor_name": {
+          "pointer": 20238,
+          "size": 35,
+          "value": "NVIDIA Corporation"
+        },
+        "product_name": {
+          "pointer": 260,
+          "size": 35,
+          "value": "GPU Board"
+        },
+        "product_revision": {
+          "pointer": 295,
+          "size": 20,
+          "value": "Chip Rev   "
+        }
+      },
+      "i2c": {
+        "version": 1,
+        "i2c_scripts_ptr": 0,
+        "ext_hwmon_init_ptr": 0
+      },
+      "tmds": {
+        "version": 1,
+        "tmds_info_ptr": 21073
+      },
+      "display": {
+        "version": 1,
+        "display_scripting_ptr": 20313,
+        "flags": 0,
+        "flags_bits": {
+          "diagnostic_overscan": false,
+          "no_display_coproc": false,
+          "display_fpga": false
+        }
+      },
+      "clock": {
+        "version": 2,
+        "pll_info_ptr": 20346,
+        "vbe_pclk_ptr": 0,
+        "raw": "7a4f00000000000040de0600a2ff0000b4da060010e806006fdb06004d020100ebde060029df06003ee00600"
+      },
+      "dfp": {
+        "version": 1,
+        "raw": "98500000",
+        "dfp_ptr0": 20632
+      },
+      "dp": {
+        "version": 1,
+        "raw": "9579",
+        "dp_ptr0": 31125
+      },
+      "virtual": {
+        "version": 1,
+        "raw": "ce455f440000",
+        "virtual_ptr0": 17870
+      },
+      "mxm": {
+        "version": 1,
+        "raw": "0000010100000000",
+        "mxm_ptr0": 0
+      },
+      "uefi": {
+        "version": 1,
+        "raw": "00000000000000000000000000",
+        "major_version": 0,
+        "minor_version": 0,
+        "virtual_mem_addr": 0,
+        "virtual_mem_size": 0
+      }
+    }
+  ]
+}

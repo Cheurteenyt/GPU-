@@ -1,0 +1,350 @@
+{
+  "instrument": "gx15-vpstate",
+  "ring": 15,
+  "specimens": [
+    {
+      "file": "vbios-94.04.46.00.EB.rom",
+      "sha256_16": "e1b4e03ae6a0ab3b",
+      "generation": null,
+      "note": "no VP table inside this container (sysfs window = legacy image only)",
+      "table_count": 0,
+      "tables": []
+    },
+    {
+      "file": "MSI.RTX3070.8192.210519_1.rom",
+      "sha256_16": "41a0860f8abfcfa7",
+      "generation": "Ampere",
+      "header_length": 22,
+      "table_count": 1,
+      "tables": [
+        {
+          "offset": "0x89a34",
+          "profiles": [
+            {
+              "id": "0xf",
+              "first_limit_mhz": 2100,
+              "second_limit_mhz": 2100,
+              "mem_clock_short_mhz": 7001.0,
+              "mem_clock_long_mhz": 3500.0,
+              "third_limit_mhz": 1948
+            },
+            {
+              "id": "0xd",
+              "first_limit_mhz": 2100,
+              "second_limit_mhz": 2100,
+              "mem_clock_short_mhz": 6801.0,
+              "mem_clock_long_mhz": 3400.0,
+              "third_limit_mhz": 1948
+            },
+            {
+              "id": "0xc",
+              "first_limit_mhz": 2100,
+              "second_limit_mhz": 2100,
+              "mem_clock_short_mhz": 5001.0,
+              "mem_clock_long_mhz": 2500.0,
+              "third_limit_mhz": 1948
+            },
+            {
+              "id": "0xa",
+              "first_limit_mhz": 2100,
+              "second_limit_mhz": 2100,
+              "mem_clock_short_mhz": 810.0,
+              "mem_clock_long_mhz": 404.0,
+              "third_limit_mhz": 1948
+            },
+            {
+              "id": "0x7",
+              "first_limit_mhz": 420,
+              "second_limit_mhz": 600,
+              "mem_clock_short_mhz": 405.0,
+              "mem_clock_long_mhz": 202.0,
+              "third_limit_mhz": 552
+            }
+          ]
+        },
+        {
+          "offset": null,
+          "profiles": [
+            {
+              "id": "0xf",
+              "first_limit_mhz": 2100,
+              "second_limit_mhz": 2100,
+              "mem_clock_short_mhz": 7001.0,
+              "mem_clock_long_mhz": 3500.0,
+              "third_limit_mhz": 1948
+            },
+            {
+              "id": "0xd",
+              "first_limit_mhz": 2100,
+              "second_limit_mhz": 2100,
+              "mem_clock_short_mhz": 6801.0,
+              "mem_clock_long_mhz": 3400.0,
+              "third_limit_mhz": 1948
+            },
+            {
+              "id": "0xc",
+              "first_limit_mhz": 2100,
+              "second_limit_mhz": 2100,
+              "mem_clock_short_mhz": 5001.0,
+              "mem_clock_long_mhz": 2500.0,
+              "third_limit_mhz": 1948
+            },
+            {
+              "id": "0xa",
+              "first_limit_mhz": 2100,
+              "second_limit_mhz": 2100,
+              "mem_clock_short_mhz": 810.0,
+              "mem_clock_long_mhz": 404.0,
+              "third_limit_mhz": 1948
+            },
+            {
+              "id": "0x7",
+              "first_limit_mhz": 420,
+              "second_limit_mhz": 600,
+              "mem_clock_short_mhz": 405.0,
+              "mem_clock_long_mhz": 202.0,
+              "third_limit_mhz": 552
+            }
+          ]
+        }
+      ],
+      "live_cross": {
+        "covers_live_memory_clock": true,
+        "live_memory_clock_in_profiles": true,
+        "live_graphics_under_max_limit": true,
+        "max_graphics_limit": 2100,
+        "mem_clocks_seen": [
+          405.0,
+          810.0,
+          5001.0,
+          6801.0,
+          7001.0
+        ]
+      }
+    },
+    {
+      "file": "MSI.RTX3070.8192.210519_2.rom",
+      "sha256_16": "4de4e5f13448fbb9",
+      "generation": "Ampere",
+      "header_length": 22,
+      "table_count": 1,
+      "tables": [
+        {
+          "offset": "0x89a34",
+          "profiles": [
+            {
+              "id": "0xf",
+              "first_limit_mhz": 2100,
+              "second_limit_mhz": 2100,
+              "mem_clock_short_mhz": 7001.0,
+              "mem_clock_long_mhz": 3500.0,
+              "third_limit_mhz": 1948
+            },
+            {
+              "id": "0xd",
+              "first_limit_mhz": 2100,
+              "second_limit_mhz": 2100,
+              "mem_clock_short_mhz": 6801.0,
+              "mem_clock_long_mhz": 3400.0,
+              "third_limit_mhz": 1948
+            },
+            {
+              "id": "0xc",
+              "first_limit_mhz": 2100,
+              "second_limit_mhz": 2100,
+              "mem_clock_short_mhz": 5001.0,
+              "mem_clock_long_mhz": 2500.0,
+              "third_limit_mhz": 1948
+            },
+            {
+              "id": "0xa",
+              "first_limit_mhz": 2100,
+              "second_limit_mhz": 2100,
+              "mem_clock_short_mhz": 810.0,
+              "mem_clock_long_mhz": 404.0,
+              "third_limit_mhz": 1948
+            },
+            {
+              "id": "0x7",
+              "first_limit_mhz": 420,
+              "second_limit_mhz": 600,
+              "mem_clock_short_mhz": 405.0,
+              "mem_clock_long_mhz": 202.0,
+              "third_limit_mhz": 552
+            }
+          ]
+        },
+        {
+          "offset": null,
+          "profiles": [
+            {
+              "id": "0xf",
+              "first_limit_mhz": 2100,
+              "second_limit_mhz": 2100,
+              "mem_clock_short_mhz": 7001.0,
+              "mem_clock_long_mhz": 3500.0,
+              "third_limit_mhz": 1948
+            },
+            {
+              "id": "0xd",
+              "first_limit_mhz": 2100,
+              "second_limit_mhz": 2100,
+              "mem_clock_short_mhz": 6801.0,
+              "mem_clock_long_mhz": 3400.0,
+              "third_limit_mhz": 1948
+            },
+            {
+              "id": "0xc",
+              "first_limit_mhz": 2100,
+              "second_limit_mhz": 2100,
+              "mem_clock_short_mhz": 5001.0,
+              "mem_clock_long_mhz": 2500.0,
+              "third_limit_mhz": 1948
+            },
+            {
+              "id": "0xa",
+              "first_limit_mhz": 2100,
+              "second_limit_mhz": 2100,
+              "mem_clock_short_mhz": 810.0,
+              "mem_clock_long_mhz": 404.0,
+              "third_limit_mhz": 1948
+            },
+            {
+              "id": "0x7",
+              "first_limit_mhz": 420,
+              "second_limit_mhz": 600,
+              "mem_clock_short_mhz": 405.0,
+              "mem_clock_long_mhz": 202.0,
+              "third_limit_mhz": 552
+            }
+          ]
+        }
+      ],
+      "live_cross": {
+        "covers_live_memory_clock": true,
+        "live_memory_clock_in_profiles": true,
+        "live_graphics_under_max_limit": true,
+        "max_graphics_limit": 2100,
+        "mem_clocks_seen": [
+          405.0,
+          810.0,
+          5001.0,
+          6801.0,
+          7001.0
+        ]
+      }
+    },
+    {
+      "file": "MSI.RTX3070.8192.200923.rom",
+      "sha256_16": "eee06a47a9de56f9",
+      "generation": "Turing",
+      "header_length": 20,
+      "table_count": 1,
+      "tables": [
+        {
+          "offset": "0x85eba",
+          "profiles": [
+            {
+              "id": "0xf",
+              "first_limit_mhz": 2100,
+              "second_limit_mhz": 2100,
+              "mem_clock_short_mhz": 7001.0,
+              "mem_clock_long_mhz": 3500.0,
+              "third_limit_mhz": 1948
+            },
+            {
+              "id": "0xd",
+              "first_limit_mhz": 2100,
+              "second_limit_mhz": 2100,
+              "mem_clock_short_mhz": 6801.0,
+              "mem_clock_long_mhz": 3400.0,
+              "third_limit_mhz": 1948
+            },
+            {
+              "id": "0xc",
+              "first_limit_mhz": 2100,
+              "second_limit_mhz": 2100,
+              "mem_clock_short_mhz": 5001.0,
+              "mem_clock_long_mhz": 2500.0,
+              "third_limit_mhz": 1948
+            },
+            {
+              "id": "0xa",
+              "first_limit_mhz": 2100,
+              "second_limit_mhz": 2100,
+              "mem_clock_short_mhz": 810.0,
+              "mem_clock_long_mhz": 404.0,
+              "third_limit_mhz": 1948
+            },
+            {
+              "id": "0x7",
+              "first_limit_mhz": 420,
+              "second_limit_mhz": 600,
+              "mem_clock_short_mhz": 405.0,
+              "mem_clock_long_mhz": 202.0,
+              "third_limit_mhz": 552
+            }
+          ]
+        },
+        {
+          "offset": null,
+          "profiles": [
+            {
+              "id": "0xf",
+              "first_limit_mhz": 2100,
+              "second_limit_mhz": 2100,
+              "mem_clock_short_mhz": 7001.0,
+              "mem_clock_long_mhz": 3500.0,
+              "third_limit_mhz": 1948
+            },
+            {
+              "id": "0xd",
+              "first_limit_mhz": 2100,
+              "second_limit_mhz": 2100,
+              "mem_clock_short_mhz": 6801.0,
+              "mem_clock_long_mhz": 3400.0,
+              "third_limit_mhz": 1948
+            },
+            {
+              "id": "0xc",
+              "first_limit_mhz": 2100,
+              "second_limit_mhz": 2100,
+              "mem_clock_short_mhz": 5001.0,
+              "mem_clock_long_mhz": 2500.0,
+              "third_limit_mhz": 1948
+            },
+            {
+              "id": "0xa",
+              "first_limit_mhz": 2100,
+              "second_limit_mhz": 2100,
+              "mem_clock_short_mhz": 810.0,
+              "mem_clock_long_mhz": 404.0,
+              "third_limit_mhz": 1948
+            },
+            {
+              "id": "0x7",
+              "first_limit_mhz": 420,
+              "second_limit_mhz": 600,
+              "mem_clock_short_mhz": 405.0,
+              "mem_clock_long_mhz": 202.0,
+              "third_limit_mhz": 552
+            }
+          ]
+        }
+      ],
+      "live_cross": {
+        "covers_live_memory_clock": true,
+        "live_memory_clock_in_profiles": true,
+        "live_graphics_under_max_limit": true,
+        "max_graphics_limit": 2100,
+        "mem_clocks_seen": [
+          405.0,
+          810.0,
+          5001.0,
+          6801.0,
+          7001.0
+        ]
+      }
+    }
+  ]
+}

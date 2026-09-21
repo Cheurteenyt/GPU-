@@ -1,0 +1,142 @@
+#!/usr/bin/env bash
+# fm-doctor — vérifie et répare tout ce qu'une mise à jour 3DMark peut casser.
+# À lancer après toute mise à jour de l'app (ou en cas de doute).
+set -u
+PFX="$HOME/proton-3dmark/pfx"
+APP="$PFX/drive_c/Program Files/UL/3DMark"
+SI="$PFX/drive_c/Program Files (x86)/Futuremark/SystemInfo"
+PD="$PFX/drive_c/ProgramData/UL/3DMark"
+TMP="$PD/tmp"
+SHARE="$HOME/.local/share/3dmark"
+TPL="$SHARE/SystemInfo_template.xml"
+MINGW_EXE=/tmp/fmshim
+OK=0; FIX=0; BAD=0
+
+say()  { printf '%s\n' "$*"; }
+pass() { say "  [OK]     $*"; OK=$((OK+1)); }
+fixe() { say "  [FIXÉ]   $*"; FIX=$((FIX+1)); }
+ko()   { say "  [ÉCHEC]  $*"; BAD=$((BAD+1)); }
+
+check_file_present() { # $1 chemin, $2 description
+  if [ -f "$1" ]; then pass "$2"; else ko "$2 (absent: $1)"; fi
+}
+
+say "=== fm-doctor — santé de l'installation 3DMark ==="
+
+# 1. Patches choros.js (bannières de mise à jour / scan SI)
+JS="$APP/webroot/choros.js"
+if [ -f "$JS" ]; then
+  N=$(grep -c 'allowSystemUpdateNotification = false' "$JS" 2>/dev/null || true)
+  if [ "${N:-0}" -ge 3 ]; then pass "choros.js : bannières de mise à jour désactivées ($N)"; else
+    sed -i 's/allowSystemUpdateNotification = true/allowSystemUpdateNotification = false/g' "$JS"
+    if [ "$(grep -c 'allowSystemUpdateNotification = false' "$JS")" -ge 3 ]; then fixe "choros.js : bannières re-désactivées"; else ko "choros.js : patch bannières (recommencer à la main)"; fi
+  fi
+  if grep -q 'setting.value === false && false' "$JS"; then pass "choros.js : bannière SystemInfo neutralisée"; else
+    if grep -q "this.getSettingSettingValue(FM.constants.settings.SCAN_SYSTEM_INFO)" "$JS" || grep -q 'SCAN_SYSTEM_INFO' "$JS"; then
+      cp "$JS" "$JS.bak-doctor"
+      python3 - "$JS" <<'EOF'
+import sys
+p = sys.argv[1]
+x = open(p, encoding="utf-8", errors="replace").read()
+x = x.replace("setting.value === false", "setting.value === false && false", 1)
+open(p, "w", encoding="utf-8").write(x)
+EOF
+      grep -q 'setting.value === false && false' "$JS" && fixe "choros.js : bannière SystemInfo re-neutralisée" || ko "choros.js : bannière SystemInfo"
+    else ko "choros.js : cible de patch introuvable (version UI changée ?)"; fi
+  fi
+else ko "choros.js introuvable"; fi
+
+# 2. Shims SystemInfo (EasyFMSI + SystemInfoHelper) — comparaison à la référence /tmp/fmshim
+for pair in "$SI/EasyFMSI.exe:$SI/EasyFMSI.exe.original" "$APP/SystemInfoHelper.exe:$APP/SystemInfoHelper.exe.original"; do
+  exe="${pair%%:*}"; orig="${pair##*:}"
+  name=$(basename "$exe")
+  ref="$MINGW_EXE/$name"
+  if [ ! -f "$exe" ]; then ko "$name absent"; continue; fi
+  if [ -f "$ref" ] && cmp -s "$exe" "$ref"; then pass "shim $name en place (original conservé)"; else
+    if [ -f "$ref" ]; then
+      [ -f "$orig" ] || cp "$exe" "$orig"
+      cp "$ref" "$exe" && fixe "shim $name réinstallé" || ko "shim $name"
+    else ko "shim $name non vérifiable (référence $ref absente)"; fi
+  fi
+done
+
+# 3. Template SystemInfo déployé pour les shims + watcher
+if [ -f "$TPL" ]; then
+  if [ -f "$TMP/si_template.xml" ] && cmp -s "$TPL" "$TMP/si_template.xml"; then pass "si_template.xml synchronisé"; else
+    cp "$TPL" "$TMP/si_template.xml" && fixe "si_template.xml synchronisé" || ko "si_template.xml"
+  fi
+else ko "template $TPL introuvable"; fi
+
+# 4. d3dcompiler_47 natif
+check_file_present "$PFX/drive_c/windows/system32/d3dcompiler_47.dll" "d3dcompiler_47 natif (system32)"
+TSBIN="$PD/chops/dlc/time-spy-test/bin/x64"
+if [ -f "$TSBIN/3DMarkTimeSpy.exe" ]; then
+  if [ -f "$TSBIN/d3dcompiler_47.dll" ]; then pass "d3dcompiler_47 à côté du workload Time Spy"; else
+    cp "$PFX/drive_c/windows/system32/d3dcompiler_47.dll" "$TSBIN/" && fixe "d3dcompiler_47 recopié (workload)" || ko "d3dcompiler_47 (workload)"
+  fi
+else say "  [INFO]   workload Time Spy absent du chemin chops (contenu mis à jour ? vérifier bin/)"; fi
+
+# 5. dxvk.conf (spoof GPU ID réel)
+if grep -q 'dxgi.customVendorId = 10de' "$APP/dxvk.conf" 2>/dev/null && grep -q 'dxgi.customDeviceId = 2488' "$APP/dxvk.conf"; then
+  pass "dxvk.conf : IDs GPU réels (10de:2488)"
+else
+  printf 'dxgi.customVendorId = 10de\ndxgi.customDeviceId = 2488\nd3d9.customVendorId = 10de\nd3d9.customDeviceId = 2488\n' >> "$APP/dxvk.conf" && fixe "dxvk.conf : IDs GPU ajoutés" || ko "dxvk.conf"
+fi
+
+# 6. app-settings.json (catalogue de réglages : liste d'objets)
+AS="$PFX/drive_c/users/steamuser/AppData/Local/UL/3DMark/app-settings.json"
+if [ -f "$AS" ]; then
+  python3 - "$AS" <<'EOF'
+import json, sys
+p = sys.argv[1]
+d = json.load(open(p))
+items = d if isinstance(d, list) else [d]
+changed, ok = [], []
+for it in items:
+    if not isinstance(it, dict):
+        continue
+    for key in ("SCAN_SYSTEM_INFO", "HARDWARE_MONITORING"):
+        if key in it:
+            if it[key] is True:
+                ok.append(key)
+            else:
+                it[key] = True
+                changed.append(key)
+if changed:
+    json.dump(d, open(p, "w"))
+    print(f"  [FIXÉ]   app-settings.json : {', '.join(changed)} réactivés")
+elif ok:
+    print("  [OK]     app-settings.json : scan SI + monitoring actifs")
+else:
+    print("  [INFO]   app-settings.json : clés SCAN_SYSTEM_INFO/HARDWARE_MONITORING absentes (créées au premier scan)")
+EOF
+else ko "app-settings.json introuvable"; fi
+
+# 7. Contenu chops : manifeste vs état (packs courant ?)
+if [ -f "$PD/chops/dlc/time-spy-test.manifest" ] && [ -f "$PD/chops/time-spy-test.json" ]; then
+  MK=$(python3 -c "import json;print(json.load(open('$PD/chops/dlc/time-spy-test.manifest'))['key'])" 2>/dev/null)
+  SK=$(python3 -c "import json;print(json.load(open('$PD/chops/time-spy-test.json')).get('key',''))" 2>/dev/null)
+  ST=$(python3 -c "import json;print(json.load(open('$PD/chops/time-spy-test.json')).get('state',''))" 2>/dev/null)
+  if [ "$MK" = "$SK" ] && [ "$ST" = "COMPLETED" ]; then pass "time-spy-test : contenu $MK à jour"
+  else
+    printf '{"downloadedChunks":[],"state":"COMPLETED","key":"%s"}' "$MK" > "$PD/chops/time-spy-test.json"
+    fixe "time-spy-test : état reconstruit ($MK)"
+  fi
+else ko "manifeste/état time-spy-test introuvables (lancer l'app → contenu → mise à jour)"; fi
+
+# 8. Watcher SystemInfo actif
+if pgrep -f 'si_watcher.s[h]' >/dev/null 2>&1; then pass "watcher SystemInfo actif"; else
+  setsid nohup "$SHARE/si_watcher.sh" >/dev/null 2>&1 < /dev/null &
+  sleep 1
+  pgrep -f 'si_watcher.s[h]' >/dev/null 2>&1 && fixe "watcher SystemInfo relancé" || ko "watcher SystemInfo"
+fi
+
+# 9. Lanceur + outils
+check_file_present "$HOME/.local/bin/3dmark" "lanceur ~/.local/bin/3dmark"
+check_file_present "$SHARE/fmctl.py" "outil de contrôle fmctl.py"
+check_file_present "$SHARE/fm_run_timespy.py" "script de run fm_run_timespy.py"
+
+say ""
+say "Bilan : $OK OK, $FIX réparé(s), $BAD échec(s)"
+[ "$BAD" -eq 0 ] && say "✓ Installation saine." || say "→ des éléments demandent une attention manuelle."
+exit 0

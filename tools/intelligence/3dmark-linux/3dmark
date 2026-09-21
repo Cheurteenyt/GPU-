@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# 3DMark officiel (UL) — Proton-CachyOS
+# + shim getrusage (/usr/lib/ru_cache.so) : le workload sonde ses stats 4,3M fois/s,
+#   le shim met en cache (2x/s) → ~1,5 cœur libéré, score neutre
+export STEAM_COMPAT_CLIENT_INSTALL_PATH="$HOME/.config/heroic"
+export STEAM_COMPAT_DATA_PATH="$HOME/proton-3dmark"
+export LD_PRELOAD=/usr/lib/ru_cache.so
+export WINEDEBUG=-all
+# watcher SystemInfo : remplit les fm-si-*.xml vides que le scan Wine ne produit pas
+pgrep -f 'si_watcher.s[h]' >/dev/null 2>&1 || setsid nohup "$HOME/.local/share/3dmark/si_watcher.sh" >/dev/null 2>&1 < /dev/null &
+sleep 0.2
+exec "$HOME/.config/heroic/tools/proton/Proton-CachyOS-latest/proton" run "C:\\Program Files\\UL\\3DMark\\3DMark.exe" "$@"

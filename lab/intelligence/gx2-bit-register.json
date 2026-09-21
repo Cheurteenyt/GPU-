@@ -1,0 +1,1440 @@
+{
+  "instrument": "gx2-bit",
+  "ring": 2,
+  "specimens": [
+    {
+      "file": "MSI.RTX3070.8192.210519_1.rom",
+      "size": 999424,
+      "sha256_16": "41a0860f8abfcfa7",
+      "legacy_image": {
+        "base": 37376,
+        "length": 65024
+      },
+      "bit": {
+        "signature_offset": 37808,
+        "image_rel": 432,
+        "version": "1.0",
+        "hlen": 12,
+        "rlen": 6,
+        "entry_count": 17,
+        "checksum_zero": true,
+        "tokens": [
+          {
+            "type": "2",
+            "name": "i2c",
+            "version": 1,
+            "table_length": 4,
+            "table_offset_rel": 562,
+            "table_offset_abs": 37938,
+            "record_offset": 37820
+          },
+          {
+            "type": "B",
+            "name": "biosdata",
+            "version": 2,
+            "table_length": 37,
+            "table_offset_rel": 574,
+            "table_offset_abs": 37950,
+            "record_offset": 37826
+          },
+          {
+            "type": "C",
+            "name": "clock",
+            "version": 2,
+            "table_length": 44,
+            "table_offset_rel": 611,
+            "table_offset_abs": 37987,
+            "record_offset": 37832
+          },
+          {
+            "type": "D",
+            "name": "dfp-panel",
+            "version": 1,
+            "table_length": 4,
+            "table_offset_rel": 655,
+            "table_offset_abs": 38031,
+            "record_offset": 37838
+          },
+          {
+            "type": "I",
+            "name": "nvinit",
+            "version": 1,
+            "table_length": 36,
+            "table_offset_rel": 659,
+            "table_offset_abs": 38035,
+            "record_offset": 37844
+          },
+          {
+            "type": "M",
+            "name": "memory",
+            "version": 2,
+            "table_length": 41,
+            "table_offset_rel": 695,
+            "table_offset_abs": 38071,
+            "record_offset": 37850
+          },
+          {
+            "type": "N",
+            "name": "nop",
+            "version": 0,
+            "table_length": 0,
+            "table_offset_rel": 0,
+            "table_offset_abs": 37376,
+            "record_offset": 37856
+          },
+          {
+            "type": "P",
+            "name": "power",
+            "version": 2,
+            "table_length": 232,
+            "table_offset_rel": 736,
+            "table_offset_abs": 38112,
+            "record_offset": 37862
+          },
+          {
+            "type": "S",
+            "name": "string",
+            "version": 2,
+            "table_length": 24,
+            "table_offset_rel": 968,
+            "table_offset_abs": 38344,
+            "record_offset": 37868
+          },
+          {
+            "type": "T",
+            "name": "tmds",
+            "version": 1,
+            "table_length": 2,
+            "table_offset_rel": 992,
+            "table_offset_abs": 38368,
+            "record_offset": 37874
+          },
+          {
+            "type": "U",
+            "name": "display",
+            "version": 1,
+            "table_length": 5,
+            "table_offset_rel": 994,
+            "table_offset_abs": 38370,
+            "record_offset": 37880
+          },
+          {
+            "type": "V",
+            "name": "virtual-strap",
+            "version": 1,
+            "table_length": 6,
+            "table_offset_rel": 999,
+            "table_offset_abs": 38375,
+            "record_offset": 37886
+          },
+          {
+            "type": "x",
+            "name": "mxm",
+            "version": 1,
+            "table_length": 8,
+            "table_offset_rel": 1005,
+            "table_offset_abs": 38381,
+            "record_offset": 37892
+          },
+          {
+            "type": "d",
+            "name": "dp",
+            "version": 1,
+            "table_length": 2,
+            "table_offset_rel": 1013,
+            "table_offset_abs": 38389,
+            "record_offset": 37898
+          },
+          {
+            "type": "p",
+            "name": "pmu-falcon",
+            "version": 2,
+            "table_length": 4,
+            "table_offset_rel": 1015,
+            "table_offset_abs": 38391,
+            "record_offset": 37904
+          },
+          {
+            "type": "u",
+            "name": "uefi",
+            "version": 1,
+            "table_length": 13,
+            "table_offset_rel": 1019,
+            "table_offset_abs": 38395,
+            "record_offset": 37910
+          },
+          {
+            "type": "i",
+            "name": "info",
+            "version": 2,
+            "table_length": 110,
+            "table_offset_rel": 1032,
+            "table_offset_abs": 38408,
+            "record_offset": 37916
+          }
+        ]
+      },
+      "memory": {
+        "token_offset": 38071,
+        "group_count": 14,
+        "translation": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "info_table_offset": 54054,
+        "info_table_version": 16,
+        "info_header_length": 7,
+        "info_record_length": 22,
+        "info_record_count": 16,
+        "entries": [
+          {
+            "index": 0,
+            "offset": 54061,
+            "descriptor": "02501009",
+            "memory_type_code": 9,
+            "memory_type": "GDDR6",
+            "strap_code": 0,
+            "variant_index": 0,
+            "vendor_code": 1,
+            "vendor": "Samsung",
+            "revision_code": 0,
+            "density_code": 5,
+            "organization_code": 2,
+            "feature_code": 0,
+            "physical_straps": [
+              0,
+              8
+            ]
+          },
+          {
+            "index": 1,
+            "offset": 54083,
+            "descriptor": "0250f119",
+            "memory_type_code": 9,
+            "memory_type": "GDDR6",
+            "strap_code": 1,
+            "variant_index": 1,
+            "vendor_code": 15,
+            "vendor": "Micron",
+            "revision_code": 0,
+            "density_code": 5,
+            "organization_code": 2,
+            "feature_code": 0,
+            "physical_straps": [
+              1,
+              9
+            ]
+          },
+          {
+            "index": 2,
+            "offset": 54105,
+            "descriptor": "02506229",
+            "memory_type_code": 9,
+            "memory_type": "GDDR6",
+            "strap_code": 2,
+            "variant_index": 2,
+            "vendor_code": 6,
+            "vendor": "Hynix",
+            "revision_code": 0,
+            "density_code": 5,
+            "organization_code": 2,
+            "feature_code": 0,
+            "physical_straps": [
+              2,
+              10
+            ]
+          },
+          {
+            "index": 3,
+            "offset": 54127,
+            "descriptor": "02501339",
+            "memory_type_code": 9,
+            "memory_type": "GDDR6",
+            "strap_code": 3,
+            "variant_index": 3,
+            "vendor_code": 1,
+            "vendor": "Samsung",
+            "revision_code": 0,
+            "density_code": 5,
+            "organization_code": 2,
+            "feature_code": 0,
+            "physical_straps": [
+              3,
+              11
+            ]
+          },
+          {
+            "index": 4,
+            "offset": 54149,
+            "descriptor": "0250f449",
+            "memory_type_code": 9,
+            "memory_type": "GDDR6",
+            "strap_code": 4,
+            "variant_index": 4,
+            "vendor_code": 15,
+            "vendor": "Micron",
+            "revision_code": 0,
+            "density_code": 5,
+            "organization_code": 2,
+            "feature_code": 0,
+            "physical_straps": [
+              4,
+              12
+            ]
+          },
+          {
+            "index": 5,
+            "offset": 54171,
+            "descriptor": "02506559",
+            "memory_type_code": 9,
+            "memory_type": "GDDR6",
+            "strap_code": 5,
+            "variant_index": 5,
+            "vendor_code": 6,
+            "vendor": "Hynix",
+            "revision_code": 0,
+            "density_code": 5,
+            "organization_code": 2,
+            "feature_code": 0,
+            "physical_straps": [
+              5,
+              13
+            ]
+          },
+          {
+            "index": 6,
+            "offset": 54193,
+            "descriptor": "02601669",
+            "memory_type_code": 9,
+            "memory_type": "GDDR6",
+            "strap_code": 6,
+            "variant_index": 6,
+            "vendor_code": 1,
+            "vendor": "Samsung",
+            "revision_code": 0,
+            "density_code": 6,
+            "organization_code": 2,
+            "feature_code": 0,
+            "physical_straps": [
+              6
+            ]
+          },
+          {
+            "index": 7,
+            "offset": 54215,
+            "descriptor": "0260f779",
+            "memory_type_code": 9,
+            "memory_type": "GDDR6",
+            "strap_code": 7,
+            "variant_index": 7,
+            "vendor_code": 15,
+            "vendor": "Micron",
+            "revision_code": 0,
+            "density_code": 6,
+            "organization_code": 2,
+            "feature_code": 0,
+            "physical_straps": [
+              7
+            ]
+          },
+          {
+            "index": 8,
+            "offset": 54237,
+            "descriptor": "02606889",
+            "memory_type_code": 9,
+            "memory_type": "GDDR6",
+            "strap_code": 8,
+            "variant_index": 8,
+            "vendor_code": 6,
+            "vendor": "Hynix",
+            "revision_code": 0,
+            "density_code": 6,
+            "organization_code": 2,
+            "feature_code": 0,
+            "physical_straps": []
+          },
+          {
+            "index": 9,
+            "offset": 54259,
+            "descriptor": "02601999",
+            "memory_type_code": 9,
+            "memory_type": "GDDR6",
+            "strap_code": 9,
+            "variant_index": 9,
+            "vendor_code": 1,
+            "vendor": "Samsung",
+            "revision_code": 0,
+            "density_code": 6,
+            "organization_code": 2,
+            "feature_code": 0,
+            "physical_straps": []
+          },
+          {
+            "index": 10,
+            "offset": 54281,
+            "descriptor": "0260faa9",
+            "memory_type_code": 9,
+            "memory_type": "GDDR6",
+            "strap_code": 10,
+            "variant_index": 10,
+            "vendor_code": 15,
+            "vendor": "Micron",
+            "revision_code": 0,
+            "density_code": 6,
+            "organization_code": 2,
+            "feature_code": 0,
+            "physical_straps": []
+          },
+          {
+            "index": 11,
+            "offset": 54303,
+            "descriptor": "02606bb9",
+            "memory_type_code": 9,
+            "memory_type": "GDDR6",
+            "strap_code": 11,
+            "variant_index": 11,
+            "vendor_code": 6,
+            "vendor": "Hynix",
+            "revision_code": 0,
+            "density_code": 6,
+            "organization_code": 2,
+            "feature_code": 0,
+            "physical_straps": []
+          },
+          {
+            "index": 12,
+            "offset": 54325,
+            "descriptor": "00600cc9",
+            "memory_type_code": 9,
+            "memory_type": "GDDR6",
+            "strap_code": 12,
+            "variant_index": 12,
+            "vendor_code": 0,
+            "vendor": "code-0",
+            "revision_code": 0,
+            "density_code": 6,
+            "organization_code": 0,
+            "feature_code": 0,
+            "physical_straps": []
+          },
+          {
+            "index": 13,
+            "offset": 54347,
+            "descriptor": "00000dd9",
+            "memory_type_code": 9,
+            "memory_type": "GDDR6",
+            "strap_code": 13,
+            "variant_index": 13,
+            "vendor_code": 0,
+            "vendor": "code-0",
+            "revision_code": 0,
+            "density_code": 0,
+            "organization_code": 0,
+            "feature_code": 0,
+            "physical_straps": []
+          },
+          {
+            "index": 14,
+            "offset": 54369,
+            "descriptor": "00600ee9",
+            "memory_type_code": 9,
+            "memory_type": "GDDR6",
+            "strap_code": 14,
+            "variant_index": 14,
+            "vendor_code": 0,
+            "vendor": "code-0",
+            "revision_code": 0,
+            "density_code": 6,
+            "organization_code": 0,
+            "feature_code": 0,
+            "physical_straps": []
+          },
+          {
+            "index": 15,
+            "offset": 54391,
+            "descriptor": "00600ff9",
+            "memory_type_code": 9,
+            "memory_type": "GDDR6",
+            "strap_code": 15,
+            "variant_index": 15,
+            "vendor_code": 0,
+            "vendor": "code-0",
+            "revision_code": 0,
+            "density_code": 6,
+            "organization_code": 0,
+            "feature_code": 0,
+            "physical_straps": []
+          }
+        ]
+      }
+    },
+    {
+      "file": "MSI.RTX3070.8192.210519_2.rom",
+      "size": 999424,
+      "sha256_16": "4de4e5f13448fbb9",
+      "legacy_image": {
+        "base": 37376,
+        "length": 65024
+      },
+      "bit": {
+        "signature_offset": 37808,
+        "image_rel": 432,
+        "version": "1.0",
+        "hlen": 12,
+        "rlen": 6,
+        "entry_count": 17,
+        "checksum_zero": true,
+        "tokens": [
+          {
+            "type": "2",
+            "name": "i2c",
+            "version": 1,
+            "table_length": 4,
+            "table_offset_rel": 562,
+            "table_offset_abs": 37938,
+            "record_offset": 37820
+          },
+          {
+            "type": "B",
+            "name": "biosdata",
+            "version": 2,
+            "table_length": 37,
+            "table_offset_rel": 574,
+            "table_offset_abs": 37950,
+            "record_offset": 37826
+          },
+          {
+            "type": "C",
+            "name": "clock",
+            "version": 2,
+            "table_length": 44,
+            "table_offset_rel": 611,
+            "table_offset_abs": 37987,
+            "record_offset": 37832
+          },
+          {
+            "type": "D",
+            "name": "dfp-panel",
+            "version": 1,
+            "table_length": 4,
+            "table_offset_rel": 655,
+            "table_offset_abs": 38031,
+            "record_offset": 37838
+          },
+          {
+            "type": "I",
+            "name": "nvinit",
+            "version": 1,
+            "table_length": 36,
+            "table_offset_rel": 659,
+            "table_offset_abs": 38035,
+            "record_offset": 37844
+          },
+          {
+            "type": "M",
+            "name": "memory",
+            "version": 2,
+            "table_length": 41,
+            "table_offset_rel": 695,
+            "table_offset_abs": 38071,
+            "record_offset": 37850
+          },
+          {
+            "type": "N",
+            "name": "nop",
+            "version": 0,
+            "table_length": 0,
+            "table_offset_rel": 0,
+            "table_offset_abs": 37376,
+            "record_offset": 37856
+          },
+          {
+            "type": "P",
+            "name": "power",
+            "version": 2,
+            "table_length": 232,
+            "table_offset_rel": 736,
+            "table_offset_abs": 38112,
+            "record_offset": 37862
+          },
+          {
+            "type": "S",
+            "name": "string",
+            "version": 2,
+            "table_length": 24,
+            "table_offset_rel": 968,
+            "table_offset_abs": 38344,
+            "record_offset": 37868
+          },
+          {
+            "type": "T",
+            "name": "tmds",
+            "version": 1,
+            "table_length": 2,
+            "table_offset_rel": 992,
+            "table_offset_abs": 38368,
+            "record_offset": 37874
+          },
+          {
+            "type": "U",
+            "name": "display",
+            "version": 1,
+            "table_length": 5,
+            "table_offset_rel": 994,
+            "table_offset_abs": 38370,
+            "record_offset": 37880
+          },
+          {
+            "type": "V",
+            "name": "virtual-strap",
+            "version": 1,
+            "table_length": 6,
+            "table_offset_rel": 999,
+            "table_offset_abs": 38375,
+            "record_offset": 37886
+          },
+          {
+            "type": "x",
+            "name": "mxm",
+            "version": 1,
+            "table_length": 8,
+            "table_offset_rel": 1005,
+            "table_offset_abs": 38381,
+            "record_offset": 37892
+          },
+          {
+            "type": "d",
+            "name": "dp",
+            "version": 1,
+            "table_length": 2,
+            "table_offset_rel": 1013,
+            "table_offset_abs": 38389,
+            "record_offset": 37898
+          },
+          {
+            "type": "p",
+            "name": "pmu-falcon",
+            "version": 2,
+            "table_length": 4,
+            "table_offset_rel": 1015,
+            "table_offset_abs": 38391,
+            "record_offset": 37904
+          },
+          {
+            "type": "u",
+            "name": "uefi",
+            "version": 1,
+            "table_length": 13,
+            "table_offset_rel": 1019,
+            "table_offset_abs": 38395,
+            "record_offset": 37910
+          },
+          {
+            "type": "i",
+            "name": "info",
+            "version": 2,
+            "table_length": 110,
+            "table_offset_rel": 1032,
+            "table_offset_abs": 38408,
+            "record_offset": 37916
+          }
+        ]
+      },
+      "memory": {
+        "token_offset": 38071,
+        "group_count": 14,
+        "translation": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "info_table_offset": 54054,
+        "info_table_version": 16,
+        "info_header_length": 7,
+        "info_record_length": 22,
+        "info_record_count": 16,
+        "entries": [
+          {
+            "index": 0,
+            "offset": 54061,
+            "descriptor": "02501009",
+            "memory_type_code": 9,
+            "memory_type": "GDDR6",
+            "strap_code": 0,
+            "variant_index": 0,
+            "vendor_code": 1,
+            "vendor": "Samsung",
+            "revision_code": 0,
+            "density_code": 5,
+            "organization_code": 2,
+            "feature_code": 0,
+            "physical_straps": [
+              0,
+              8
+            ]
+          },
+          {
+            "index": 1,
+            "offset": 54083,
+            "descriptor": "0250f119",
+            "memory_type_code": 9,
+            "memory_type": "GDDR6",
+            "strap_code": 1,
+            "variant_index": 1,
+            "vendor_code": 15,
+            "vendor": "Micron",
+            "revision_code": 0,
+            "density_code": 5,
+            "organization_code": 2,
+            "feature_code": 0,
+            "physical_straps": [
+              1,
+              9
+            ]
+          },
+          {
+            "index": 2,
+            "offset": 54105,
+            "descriptor": "02506229",
+            "memory_type_code": 9,
+            "memory_type": "GDDR6",
+            "strap_code": 2,
+            "variant_index": 2,
+            "vendor_code": 6,
+            "vendor": "Hynix",
+            "revision_code": 0,
+            "density_code": 5,
+            "organization_code": 2,
+            "feature_code": 0,
+            "physical_straps": [
+              2,
+              10
+            ]
+          },
+          {
+            "index": 3,
+            "offset": 54127,
+            "descriptor": "02501339",
+            "memory_type_code": 9,
+            "memory_type": "GDDR6",
+            "strap_code": 3,
+            "variant_index": 3,
+            "vendor_code": 1,
+            "vendor": "Samsung",
+            "revision_code": 0,
+            "density_code": 5,
+            "organization_code": 2,
+            "feature_code": 0,
+            "physical_straps": [
+              3,
+              11
+            ]
+          },
+          {
+            "index": 4,
+            "offset": 54149,
+            "descriptor": "0250f449",
+            "memory_type_code": 9,
+            "memory_type": "GDDR6",
+            "strap_code": 4,
+            "variant_index": 4,
+            "vendor_code": 15,
+            "vendor": "Micron",
+            "revision_code": 0,
+            "density_code": 5,
+            "organization_code": 2,
+            "feature_code": 0,
+            "physical_straps": [
+              4,
+              12
+            ]
+          },
+          {
+            "index": 5,
+            "offset": 54171,
+            "descriptor": "02506559",
+            "memory_type_code": 9,
+            "memory_type": "GDDR6",
+            "strap_code": 5,
+            "variant_index": 5,
+            "vendor_code": 6,
+            "vendor": "Hynix",
+            "revision_code": 0,
+            "density_code": 5,
+            "organization_code": 2,
+            "feature_code": 0,
+            "physical_straps": [
+              5,
+              13
+            ]
+          },
+          {
+            "index": 6,
+            "offset": 54193,
+            "descriptor": "02601669",
+            "memory_type_code": 9,
+            "memory_type": "GDDR6",
+            "strap_code": 6,
+            "variant_index": 6,
+            "vendor_code": 1,
+            "vendor": "Samsung",
+            "revision_code": 0,
+            "density_code": 6,
+            "organization_code": 2,
+            "feature_code": 0,
+            "physical_straps": [
+              6
+            ]
+          },
+          {
+            "index": 7,
+            "offset": 54215,
+            "descriptor": "0260f779",
+            "memory_type_code": 9,
+            "memory_type": "GDDR6",
+            "strap_code": 7,
+            "variant_index": 7,
+            "vendor_code": 15,
+            "vendor": "Micron",
+            "revision_code": 0,
+            "density_code": 6,
+            "organization_code": 2,
+            "feature_code": 0,
+            "physical_straps": [
+              7
+            ]
+          },
+          {
+            "index": 8,
+            "offset": 54237,
+            "descriptor": "02606889",
+            "memory_type_code": 9,
+            "memory_type": "GDDR6",
+            "strap_code": 8,
+            "variant_index": 8,
+            "vendor_code": 6,
+            "vendor": "Hynix",
+            "revision_code": 0,
+            "density_code": 6,
+            "organization_code": 2,
+            "feature_code": 0,
+            "physical_straps": []
+          },
+          {
+            "index": 9,
+            "offset": 54259,
+            "descriptor": "02601999",
+            "memory_type_code": 9,
+            "memory_type": "GDDR6",
+            "strap_code": 9,
+            "variant_index": 9,
+            "vendor_code": 1,
+            "vendor": "Samsung",
+            "revision_code": 0,
+            "density_code": 6,
+            "organization_code": 2,
+            "feature_code": 0,
+            "physical_straps": []
+          },
+          {
+            "index": 10,
+            "offset": 54281,
+            "descriptor": "0260faa9",
+            "memory_type_code": 9,
+            "memory_type": "GDDR6",
+            "strap_code": 10,
+            "variant_index": 10,
+            "vendor_code": 15,
+            "vendor": "Micron",
+            "revision_code": 0,
+            "density_code": 6,
+            "organization_code": 2,
+            "feature_code": 0,
+            "physical_straps": []
+          },
+          {
+            "index": 11,
+            "offset": 54303,
+            "descriptor": "02606bb9",
+            "memory_type_code": 9,
+            "memory_type": "GDDR6",
+            "strap_code": 11,
+            "variant_index": 11,
+            "vendor_code": 6,
+            "vendor": "Hynix",
+            "revision_code": 0,
+            "density_code": 6,
+            "organization_code": 2,
+            "feature_code": 0,
+            "physical_straps": []
+          },
+          {
+            "index": 12,
+            "offset": 54325,
+            "descriptor": "00600cc9",
+            "memory_type_code": 9,
+            "memory_type": "GDDR6",
+            "strap_code": 12,
+            "variant_index": 12,
+            "vendor_code": 0,
+            "vendor": "code-0",
+            "revision_code": 0,
+            "density_code": 6,
+            "organization_code": 0,
+            "feature_code": 0,
+            "physical_straps": []
+          },
+          {
+            "index": 13,
+            "offset": 54347,
+            "descriptor": "00000dd9",
+            "memory_type_code": 9,
+            "memory_type": "GDDR6",
+            "strap_code": 13,
+            "variant_index": 13,
+            "vendor_code": 0,
+            "vendor": "code-0",
+            "revision_code": 0,
+            "density_code": 0,
+            "organization_code": 0,
+            "feature_code": 0,
+            "physical_straps": []
+          },
+          {
+            "index": 14,
+            "offset": 54369,
+            "descriptor": "00600ee9",
+            "memory_type_code": 9,
+            "memory_type": "GDDR6",
+            "strap_code": 14,
+            "variant_index": 14,
+            "vendor_code": 0,
+            "vendor": "code-0",
+            "revision_code": 0,
+            "density_code": 6,
+            "organization_code": 0,
+            "feature_code": 0,
+            "physical_straps": []
+          },
+          {
+            "index": 15,
+            "offset": 54391,
+            "descriptor": "00600ff9",
+            "memory_type_code": 9,
+            "memory_type": "GDDR6",
+            "strap_code": 15,
+            "variant_index": 15,
+            "vendor_code": 0,
+            "vendor": "code-0",
+            "revision_code": 0,
+            "density_code": 6,
+            "organization_code": 0,
+            "feature_code": 0,
+            "physical_straps": []
+          }
+        ]
+      }
+    },
+    {
+      "file": "MSI.RTX3070.8192.200923.rom",
+      "size": 999424,
+      "sha256_16": "eee06a47a9de56f9",
+      "legacy_image": {
+        "base": 37376,
+        "length": 65024
+      },
+      "bit": {
+        "signature_offset": 37808,
+        "image_rel": 432,
+        "version": "1.0",
+        "hlen": 12,
+        "rlen": 6,
+        "entry_count": 17,
+        "checksum_zero": true,
+        "tokens": [
+          {
+            "type": "2",
+            "name": "i2c",
+            "version": 1,
+            "table_length": 4,
+            "table_offset_rel": 562,
+            "table_offset_abs": 37938,
+            "record_offset": 37820
+          },
+          {
+            "type": "B",
+            "name": "biosdata",
+            "version": 2,
+            "table_length": 37,
+            "table_offset_rel": 574,
+            "table_offset_abs": 37950,
+            "record_offset": 37826
+          },
+          {
+            "type": "C",
+            "name": "clock",
+            "version": 2,
+            "table_length": 44,
+            "table_offset_rel": 611,
+            "table_offset_abs": 37987,
+            "record_offset": 37832
+          },
+          {
+            "type": "D",
+            "name": "dfp-panel",
+            "version": 1,
+            "table_length": 4,
+            "table_offset_rel": 655,
+            "table_offset_abs": 38031,
+            "record_offset": 37838
+          },
+          {
+            "type": "I",
+            "name": "nvinit",
+            "version": 1,
+            "table_length": 36,
+            "table_offset_rel": 659,
+            "table_offset_abs": 38035,
+            "record_offset": 37844
+          },
+          {
+            "type": "M",
+            "name": "memory",
+            "version": 2,
+            "table_length": 41,
+            "table_offset_rel": 695,
+            "table_offset_abs": 38071,
+            "record_offset": 37850
+          },
+          {
+            "type": "N",
+            "name": "nop",
+            "version": 0,
+            "table_length": 0,
+            "table_offset_rel": 0,
+            "table_offset_abs": 37376,
+            "record_offset": 37856
+          },
+          {
+            "type": "P",
+            "name": "power",
+            "version": 2,
+            "table_length": 232,
+            "table_offset_rel": 736,
+            "table_offset_abs": 38112,
+            "record_offset": 37862
+          },
+          {
+            "type": "S",
+            "name": "string",
+            "version": 2,
+            "table_length": 24,
+            "table_offset_rel": 968,
+            "table_offset_abs": 38344,
+            "record_offset": 37868
+          },
+          {
+            "type": "T",
+            "name": "tmds",
+            "version": 1,
+            "table_length": 2,
+            "table_offset_rel": 992,
+            "table_offset_abs": 38368,
+            "record_offset": 37874
+          },
+          {
+            "type": "U",
+            "name": "display",
+            "version": 1,
+            "table_length": 5,
+            "table_offset_rel": 994,
+            "table_offset_abs": 38370,
+            "record_offset": 37880
+          },
+          {
+            "type": "V",
+            "name": "virtual-strap",
+            "version": 1,
+            "table_length": 6,
+            "table_offset_rel": 999,
+            "table_offset_abs": 38375,
+            "record_offset": 37886
+          },
+          {
+            "type": "x",
+            "name": "mxm",
+            "version": 1,
+            "table_length": 8,
+            "table_offset_rel": 1005,
+            "table_offset_abs": 38381,
+            "record_offset": 37892
+          },
+          {
+            "type": "d",
+            "name": "dp",
+            "version": 1,
+            "table_length": 2,
+            "table_offset_rel": 1013,
+            "table_offset_abs": 38389,
+            "record_offset": 37898
+          },
+          {
+            "type": "p",
+            "name": "pmu-falcon",
+            "version": 2,
+            "table_length": 4,
+            "table_offset_rel": 1015,
+            "table_offset_abs": 38391,
+            "record_offset": 37904
+          },
+          {
+            "type": "u",
+            "name": "uefi",
+            "version": 1,
+            "table_length": 13,
+            "table_offset_rel": 1019,
+            "table_offset_abs": 38395,
+            "record_offset": 37910
+          },
+          {
+            "type": "i",
+            "name": "info",
+            "version": 2,
+            "table_length": 110,
+            "table_offset_rel": 1032,
+            "table_offset_abs": 38408,
+            "record_offset": 37916
+          }
+        ]
+      },
+      "memory": {
+        "token_offset": 38071,
+        "group_count": 14,
+        "translation": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "info_table_offset": 54102,
+        "info_table_version": 16,
+        "info_header_length": 7,
+        "info_record_length": 14,
+        "info_record_count": 16,
+        "entries": [
+          {
+            "index": 0,
+            "offset": 54109,
+            "descriptor": "02501009",
+            "memory_type_code": 9,
+            "memory_type": "GDDR6",
+            "strap_code": 0,
+            "variant_index": 0,
+            "vendor_code": 1,
+            "vendor": "Samsung",
+            "revision_code": 0,
+            "density_code": 5,
+            "organization_code": 2,
+            "feature_code": 0,
+            "physical_straps": [
+              0,
+              8
+            ]
+          },
+          {
+            "index": 1,
+            "offset": 54123,
+            "descriptor": "0250f119",
+            "memory_type_code": 9,
+            "memory_type": "GDDR6",
+            "strap_code": 1,
+            "variant_index": 1,
+            "vendor_code": 15,
+            "vendor": "Micron",
+            "revision_code": 0,
+            "density_code": 5,
+            "organization_code": 2,
+            "feature_code": 0,
+            "physical_straps": [
+              1,
+              9
+            ]
+          },
+          {
+            "index": 2,
+            "offset": 54137,
+            "descriptor": "02506229",
+            "memory_type_code": 9,
+            "memory_type": "GDDR6",
+            "strap_code": 2,
+            "variant_index": 2,
+            "vendor_code": 6,
+            "vendor": "Hynix",
+            "revision_code": 0,
+            "density_code": 5,
+            "organization_code": 2,
+            "feature_code": 0,
+            "physical_straps": [
+              2,
+              10
+            ]
+          },
+          {
+            "index": 3,
+            "offset": 54151,
+            "descriptor": "02501339",
+            "memory_type_code": 9,
+            "memory_type": "GDDR6",
+            "strap_code": 3,
+            "variant_index": 3,
+            "vendor_code": 1,
+            "vendor": "Samsung",
+            "revision_code": 0,
+            "density_code": 5,
+            "organization_code": 2,
+            "feature_code": 0,
+            "physical_straps": [
+              3,
+              11
+            ]
+          },
+          {
+            "index": 4,
+            "offset": 54165,
+            "descriptor": "0250f449",
+            "memory_type_code": 9,
+            "memory_type": "GDDR6",
+            "strap_code": 4,
+            "variant_index": 4,
+            "vendor_code": 15,
+            "vendor": "Micron",
+            "revision_code": 0,
+            "density_code": 5,
+            "organization_code": 2,
+            "feature_code": 0,
+            "physical_straps": [
+              4,
+              12
+            ]
+          },
+          {
+            "index": 5,
+            "offset": 54179,
+            "descriptor": "02506559",
+            "memory_type_code": 9,
+            "memory_type": "GDDR6",
+            "strap_code": 5,
+            "variant_index": 5,
+            "vendor_code": 6,
+            "vendor": "Hynix",
+            "revision_code": 0,
+            "density_code": 5,
+            "organization_code": 2,
+            "feature_code": 0,
+            "physical_straps": [
+              5,
+              13
+            ]
+          },
+          {
+            "index": 6,
+            "offset": 54193,
+            "descriptor": "02601669",
+            "memory_type_code": 9,
+            "memory_type": "GDDR6",
+            "strap_code": 6,
+            "variant_index": 6,
+            "vendor_code": 1,
+            "vendor": "Samsung",
+            "revision_code": 0,
+            "density_code": 6,
+            "organization_code": 2,
+            "feature_code": 0,
+            "physical_straps": [
+              6
+            ]
+          },
+          {
+            "index": 7,
+            "offset": 54207,
+            "descriptor": "0260f779",
+            "memory_type_code": 9,
+            "memory_type": "GDDR6",
+            "strap_code": 7,
+            "variant_index": 7,
+            "vendor_code": 15,
+            "vendor": "Micron",
+            "revision_code": 0,
+            "density_code": 6,
+            "organization_code": 2,
+            "feature_code": 0,
+            "physical_straps": [
+              7
+            ]
+          },
+          {
+            "index": 8,
+            "offset": 54221,
+            "descriptor": "02606889",
+            "memory_type_code": 9,
+            "memory_type": "GDDR6",
+            "strap_code": 8,
+            "variant_index": 8,
+            "vendor_code": 6,
+            "vendor": "Hynix",
+            "revision_code": 0,
+            "density_code": 6,
+            "organization_code": 2,
+            "feature_code": 0,
+            "physical_straps": []
+          },
+          {
+            "index": 9,
+            "offset": 54235,
+            "descriptor": "02601999",
+            "memory_type_code": 9,
+            "memory_type": "GDDR6",
+            "strap_code": 9,
+            "variant_index": 9,
+            "vendor_code": 1,
+            "vendor": "Samsung",
+            "revision_code": 0,
+            "density_code": 6,
+            "organization_code": 2,
+            "feature_code": 0,
+            "physical_straps": []
+          },
+          {
+            "index": 10,
+            "offset": 54249,
+            "descriptor": "0260faa9",
+            "memory_type_code": 9,
+            "memory_type": "GDDR6",
+            "strap_code": 10,
+            "variant_index": 10,
+            "vendor_code": 15,
+            "vendor": "Micron",
+            "revision_code": 0,
+            "density_code": 6,
+            "organization_code": 2,
+            "feature_code": 0,
+            "physical_straps": []
+          },
+          {
+            "index": 11,
+            "offset": 54263,
+            "descriptor": "02606bb9",
+            "memory_type_code": 9,
+            "memory_type": "GDDR6",
+            "strap_code": 11,
+            "variant_index": 11,
+            "vendor_code": 6,
+            "vendor": "Hynix",
+            "revision_code": 0,
+            "density_code": 6,
+            "organization_code": 2,
+            "feature_code": 0,
+            "physical_straps": []
+          },
+          {
+            "index": 12,
+            "offset": 54277,
+            "descriptor": "00600cc9",
+            "memory_type_code": 9,
+            "memory_type": "GDDR6",
+            "strap_code": 12,
+            "variant_index": 12,
+            "vendor_code": 0,
+            "vendor": "code-0",
+            "revision_code": 0,
+            "density_code": 6,
+            "organization_code": 0,
+            "feature_code": 0,
+            "physical_straps": []
+          },
+          {
+            "index": 13,
+            "offset": 54291,
+            "descriptor": "00000dd9",
+            "memory_type_code": 9,
+            "memory_type": "GDDR6",
+            "strap_code": 13,
+            "variant_index": 13,
+            "vendor_code": 0,
+            "vendor": "code-0",
+            "revision_code": 0,
+            "density_code": 0,
+            "organization_code": 0,
+            "feature_code": 0,
+            "physical_straps": []
+          },
+          {
+            "index": 14,
+            "offset": 54305,
+            "descriptor": "00600ee9",
+            "memory_type_code": 9,
+            "memory_type": "GDDR6",
+            "strap_code": 14,
+            "variant_index": 14,
+            "vendor_code": 0,
+            "vendor": "code-0",
+            "revision_code": 0,
+            "density_code": 6,
+            "organization_code": 0,
+            "feature_code": 0,
+            "physical_straps": []
+          },
+          {
+            "index": 15,
+            "offset": 54319,
+            "descriptor": "00600ff9",
+            "memory_type_code": 9,
+            "memory_type": "GDDR6",
+            "strap_code": 15,
+            "variant_index": 15,
+            "vendor_code": 0,
+            "vendor": "code-0",
+            "revision_code": 0,
+            "density_code": 6,
+            "organization_code": 0,
+            "feature_code": 0,
+            "physical_straps": []
+          }
+        ]
+      }
+    }
+  ]
+}
