@@ -1,0 +1,730 @@
+{
+ "pass": "4.18-hubfill",
+ "substrate": "/home/z/my-project/repo-gpu/tools/gsp-extract/rm-full.elf",
+ "census_reproduced": {
+  "indirects": 221201,
+  "offsets": 225
+ },
+ "hubs": [
+  {
+   "hub": [
+    "0x1498788",
+    "0x14b01d6"
+   ],
+   "hub_bytes": 96846,
+   "distinct_slots": 44,
+   "dispatches_by_offset": {
+    "-0x6e8": 1,
+    "-0x6c0": 1,
+    "-0x6b8": 1,
+    "-0x688": 17,
+    "-0x680": 11,
+    "-0x670": 5,
+    "-0x658": 1,
+    "-0x648": 2,
+    "-0x5f0": 2,
+    "-0x5b8": 1,
+    "-0x580": 1,
+    "-0x568": 1,
+    "-0x560": 1,
+    "-0x4d0": 1,
+    "-0x4c8": 1,
+    "-0x470": 4,
+    "-0x468": 3,
+    "-0x460": 2,
+    "-0x3d0": 1,
+    "-0x398": 1,
+    "-0x320": 1,
+    "-0x310": 1,
+    "-0x290": 1,
+    "-0x288": 1,
+    "-0x280": 5,
+    "-0x228": 1,
+    "-0x218": 1,
+    "-0x150": 2,
+    "-0x148": 1,
+    "-0x128": 1,
+    "-0x120": 1,
+    "-0x118": 1,
+    "-0x110": 1,
+    "-0x108": 1,
+    "-0x100": 1,
+    "-0xf8": 1,
+    "-0xf0": 1,
+    "-0xe8": 1,
+    "-0xe0": 1,
+    "-0xd8": 1,
+    "-0xd0": 1,
+    "-0xc8": 1,
+    "-0xc0": 1,
+    "-0xb8": 1
+   },
+   "fills_in_hub": 120,
+   "fills_by_offset": {
+    "-0x228": 2,
+    "-0x218": 5,
+    "-0x150": 1,
+    "-0x148": 2,
+    "-0x128": 2,
+    "-0x120": 3,
+    "-0x118": 6,
+    "-0x110": 4,
+    "-0x108": 5,
+    "-0x100": 5,
+    "-0xf8": 6,
+    "-0xf0": 7,
+    "-0xe8": 8,
+    "-0xe0": 5,
+    "-0xd8": 7,
+    "-0xd0": 5,
+    "-0xc8": 8,
+    "-0xc0": 18,
+    "-0xb8": 21
+   },
+   "fill_value_classes": {
+    "carried": 97,
+    "ld-copied": 23
+   },
+   "named_targets": [],
+   "fills_first24": [
+    {
+     "fill": "0x14987b8",
+     "width": "sd",
+     "slot": "s0+-0xe0",
+     "val": "ra",
+     "class": "carried"
+    },
+    {
+     "fill": "0x14987c6",
+     "width": "sd",
+     "slot": "s0+-0xd8",
+     "val": "a0",
+     "class": "carried"
+    },
+    {
+     "fill": "0x149880a",
+     "width": "sd",
+     "slot": "s0+-0xc0",
+     "val": "zero",
+     "class": "carried"
+    },
+    {
+     "fill": "0x149880e",
+     "width": "sd",
+     "slot": "s0+-0xb8",
+     "val": "zero",
+     "class": "carried"
+    },
+    {
+     "fill": "0x14988bc",
+     "width": "sd",
+     "slot": "s0+-0xf8",
+     "val": "a4",
+     "class": "carried"
+    },
+    {
+     "fill": "0x14988c0",
+     "width": "sw",
+     "slot": "s0+-0xc0",
+     "val": "a4",
+     "class": "carried"
+    },
+    {
+     "fill": "0x14988da",
+     "width": "sd",
+     "slot": "s0+-0xf0",
+     "val": "a5",
+     "class": "carried"
+    },
+    {
+     "fill": "0x1498906",
+     "width": "sd",
+     "slot": "s0+-0xe8",
+     "val": "a5",
+     "class": "carried"
+    },
+    {
+     "fill": "0x14989b2",
+     "width": "sd",
+     "slot": "s0+-0xb8",
+     "val": "t1",
+     "class": "carried"
+    },
+    {
+     "fill": "0x1498ace",
+     "width": "sd",
+     "slot": "s0+-0xe8",
+     "val": "a5",
+     "class": "carried"
+    },
+    {
+     "fill": "0x1498ad8",
+     "width": "sd",
+     "slot": "s0+-0xf0",
+     "val": "a4",
+     "class": "carried"
+    },
+    {
+     "fill": "0x1498bd6",
+     "width": "sd",
+     "slot": "s0+-0x120",
+     "val": "ra",
+     "class": "carried"
+    },
+    {
+     "fill": "0x1498be2",
+     "width": "sd",
+     "slot": "s0+-0xd8",
+     "val": "a0",
+     "class": "carried"
+    },
+    {
+     "fill": "0x1498be6",
+     "width": "sd",
+     "slot": "s0+-0x108",
+     "val": "a2",
+     "class": "carried"
+    },
+    {
+     "fill": "0x1498bea",
+     "width": "sd",
+     "slot": "s0+-0x100",
+     "val": "a3",
+     "class": "carried"
+    },
+    {
+     "fill": "0x1498c48",
+     "width": "sd",
+     "slot": "s0+-0xc0",
+     "val": "zero",
+     "class": "carried"
+    },
+    {
+     "fill": "0x1498c4c",
+     "width": "sd",
+     "slot": "s0+-0xb8",
+     "val": "zero",
+     "class": "carried"
+    },
+    {
+     "fill": "0x1498c78",
+     "width": "sd",
+     "slot": "s0+-0xe8",
+     "val": "s3",
+     "class": "carried"
+    },
+    {
+     "fill": "0x1498c84",
+     "width": "sd",
+     "slot": "s0+-0xf8",
+     "val": "a5",
+     "class": "carried"
+    },
+    {
+     "fill": "0x1498c88",
+     "width": "sd",
+     "slot": "s0+-0x128",
+     "val": "a3",
+     "class": "carried"
+    },
+    {
+     "fill": "0x1498c98",
+     "width": "sd",
+     "slot": "s0+-0x148",
+     "val": "t6",
+     "class": "ld-copied"
+    },
+    {
+     "fill": "0x1498c9c",
+     "width": "sd",
+     "slot": "s0+-0x110",
+     "val": "t4",
+     "class": "carried"
+    },
+    {
+     "fill": "0x1498ca2",
+     "width": "sd",
+     "slot": "s0+-0xf0",
+     "val": "a1",
+     "class": "carried"
+    },
+    {
+     "fill": "0x1498ca6",
+     "width": "sd",
+     "slot": "s0+-0xe0",
+     "val": "a2",
+     "class": "carried"
+    }
+   ]
+  },
+  {
+   "hub": [
+    "0x125d240",
+    "0x126cf62"
+   ],
+   "hub_bytes": 64802,
+   "distinct_slots": 38,
+   "dispatches_by_offset": {
+    "-0x800": 1,
+    "-0x7f0": 1,
+    "-0x7e8": 1,
+    "-0x7d8": 1,
+    "-0x7c8": 1,
+    "-0x7c0": 1,
+    "-0x7b8": 1,
+    "-0x7b0": 1,
+    "-0x750": 1,
+    "-0x748": 1,
+    "-0x728": 1,
+    "-0x720": 1,
+    "-0x708": 1,
+    "-0x6f0": 1,
+    "-0x6e8": 1,
+    "-0x6e0": 1,
+    "-0x6d8": 1,
+    "-0x6c8": 1,
+    "-0x6c0": 1,
+    "-0x698": 1,
+    "-0x688": 1,
+    "-0x640": 1,
+    "-0x5b0": 1,
+    "-0x5a8": 1,
+    "-0x570": 2,
+    "-0x530": 2,
+    "-0x508": 1,
+    "-0x500": 2,
+    "-0x4f0": 2,
+    "-0x4d0": 2,
+    "-0x4c8": 2,
+    "-0x370": 2,
+    "-0x360": 1,
+    "-0x350": 2,
+    "-0xd8": 1,
+    "-0xb8": 3,
+    "-0xb0": 1,
+    "-0x48": 1
+   },
+   "fills_in_hub": 51,
+   "fills_by_offset": {
+    "-0x7e8": 1,
+    "-0x7c0": 1,
+    "-0x750": 1,
+    "-0xd8": 9,
+    "-0xb8": 12,
+    "-0xb0": 15,
+    "-0x48": 12
+   },
+   "fill_value_classes": {
+    "ld-copied": 8,
+    "carried": 42,
+    "lui": 1
+   },
+   "named_targets": [],
+   "fills_first24": [
+    {
+     "fill": "0x125d974",
+     "width": "sd",
+     "slot": "s0+-0x48",
+     "val": "a4",
+     "class": "ld-copied"
+    },
+    {
+     "fill": "0x125df78",
+     "width": "sd",
+     "slot": "s0+-0xb0",
+     "val": "s1",
+     "class": "carried"
+    },
+    {
+     "fill": "0x125e068",
+     "width": "sd",
+     "slot": "s0+-0xb8",
+     "val": "s8",
+     "class": "lui"
+    },
+    {
+     "fill": "0x125ee14",
+     "width": "sd",
+     "slot": "s0+-0x48",
+     "val": "a3",
+     "class": "ld-copied"
+    },
+    {
+     "fill": "0x125ef32",
+     "width": "sd",
+     "slot": "s0+-0xb0",
+     "val": "a4",
+     "class": "ld-copied"
+    },
+    {
+     "fill": "0x125efc6",
+     "width": "sd",
+     "slot": "s0+-0xb8",
+     "val": "s3",
+     "class": "carried"
+    },
+    {
+     "fill": "0x12605ba",
+     "width": "sd",
+     "slot": "s0+-0x48",
+     "val": "a2",
+     "class": "carried"
+    },
+    {
+     "fill": "0x1262022",
+     "width": "sd",
+     "slot": "s0+-0x48",
+     "val": "a5",
+     "class": "carried"
+    },
+    {
+     "fill": "0x1262094",
+     "width": "sd",
+     "slot": "s0+-0x48",
+     "val": "a5",
+     "class": "ld-copied"
+    },
+    {
+     "fill": "0x12625b0",
+     "width": "sd",
+     "slot": "s0+-0x48",
+     "val": "a4",
+     "class": "ld-copied"
+    },
+    {
+     "fill": "0x12632c0",
+     "width": "sd",
+     "slot": "s0+-0xb0",
+     "val": "t4",
+     "class": "carried"
+    },
+    {
+     "fill": "0x1263552",
+     "width": "sd",
+     "slot": "s0+-0xb0",
+     "val": "t4",
+     "class": "carried"
+    },
+    {
+     "fill": "0x1263698",
+     "width": "sd",
+     "slot": "s0+-0xb0",
+     "val": "t4",
+     "class": "carried"
+    },
+    {
+     "fill": "0x126388a",
+     "width": "sd",
+     "slot": "s0+-0xd8",
+     "val": "a1",
+     "class": "carried"
+    },
+    {
+     "fill": "0x12638ba",
+     "width": "sd",
+     "slot": "s0+-0xb8",
+     "val": "zero",
+     "class": "carried"
+    },
+    {
+     "fill": "0x12638c0",
+     "width": "sd",
+     "slot": "s0+-0xb0",
+     "val": "zero",
+     "class": "carried"
+    },
+    {
+     "fill": "0x1263e20",
+     "width": "sw",
+     "slot": "s3+-0x7c0",
+     "val": "s2",
+     "class": "carried"
+    },
+    {
+     "fill": "0x1263e32",
+     "width": "sw",
+     "slot": "s3+-0x750",
+     "val": "zero",
+     "class": "carried"
+    },
+    {
+     "fill": "0x1263ec4",
+     "width": "sw",
+     "slot": "s3+-0x7e8",
+     "val": "a5",
+     "class": "carried"
+    },
+    {
+     "fill": "0x1265bb4",
+     "width": "sd",
+     "slot": "s0+-0xb0",
+     "val": "a5",
+     "class": "carried"
+    },
+    {
+     "fill": "0x1265bb8",
+     "width": "sd",
+     "slot": "s0+-0xb8",
+     "val": "a4",
+     "class": "carried"
+    },
+    {
+     "fill": "0x1265e02",
+     "width": "sd",
+     "slot": "s0+-0xb0",
+     "val": "s4",
+     "class": "carried"
+    },
+    {
+     "fill": "0x1266204",
+     "width": "sd",
+     "slot": "s0+-0x48",
+     "val": "a5",
+     "class": "ld-copied"
+    },
+    {
+     "fill": "0x1266324",
+     "width": "sd",
+     "slot": "s0+-0x48",
+     "val": "a5",
+     "class": "ld-copied"
+    }
+   ]
+  },
+  {
+   "hub": [
+    "0x133cd26",
+    "0x1355c32"
+   ],
+   "hub_bytes": 102156,
+   "distinct_slots": 35,
+   "dispatches_by_offset": {
+    "-0x7e0": 2,
+    "-0x7d8": 1,
+    "-0x760": 1,
+    "-0x6e8": 1,
+    "-0x6e0": 1,
+    "-0x6d8": 1,
+    "-0x6d0": 1,
+    "-0x628": 1,
+    "-0x600": 1,
+    "-0x5c8": 2,
+    "-0x580": 1,
+    "-0x460": 1,
+    "-0x3c8": 1,
+    "-0x3c0": 1,
+    "-0x3b0": 1,
+    "-0x3a8": 1,
+    "-0x398": 2,
+    "-0x340": 1,
+    "-0x2e0": 1,
+    "-0x2b8": 3,
+    "-0x2a0": 4,
+    "-0x290": 1,
+    "-0x240": 1,
+    "-0x238": 2,
+    "-0x230": 1,
+    "-0x200": 1,
+    "-0x1d0": 1,
+    "-0x1c8": 1,
+    "-0x1b8": 1,
+    "-0x1b0": 1,
+    "-0x1a0": 1,
+    "-0x140": 1,
+    "-0x128": 17,
+    "-0x120": 1,
+    "-0xc8": 2
+   },
+   "fills_in_hub": 33,
+   "fills_by_offset": {
+    "-0x2e0": 2,
+    "-0x2b8": 1,
+    "-0x2a0": 1,
+    "-0x290": 1,
+    "-0x200": 1,
+    "-0x1d0": 1,
+    "-0x1b8": 1,
+    "-0x1a0": 1,
+    "-0x140": 2,
+    "-0x128": 4,
+    "-0x120": 6,
+    "-0xc8": 12
+   },
+   "fill_value_classes": {
+    "carried": 32,
+    "ld-copied": 1
+   },
+   "named_targets": [],
+   "fills_first24": [
+    {
+     "fill": "0x133defe",
+     "width": "sd",
+     "slot": "s0+-0xc8",
+     "val": "zero",
+     "class": "carried"
+    },
+    {
+     "fill": "0x133e226",
+     "width": "sd",
+     "slot": "s0+-0xc8",
+     "val": "zero",
+     "class": "carried"
+    },
+    {
+     "fill": "0x133e280",
+     "width": "sd",
+     "slot": "s0+-0x140",
+     "val": "ra",
+     "class": "carried"
+    },
+    {
+     "fill": "0x133e34a",
+     "width": "sw",
+     "slot": "s0+-0x120",
+     "val": "s7",
+     "class": "carried"
+    },
+    {
+     "fill": "0x133e454",
+     "width": "sw",
+     "slot": "s0+-0x120",
+     "val": "zero",
+     "class": "carried"
+    },
+    {
+     "fill": "0x133e652",
+     "width": "sd",
+     "slot": "s0+-0x2b8",
+     "val": "zero",
+     "class": "carried"
+    },
+    {
+     "fill": "0x133e65e",
+     "width": "sd",
+     "slot": "s0+-0x2a0",
+     "val": "zero",
+     "class": "carried"
+    },
+    {
+     "fill": "0x133e666",
+     "width": "sd",
+     "slot": "s0+-0x290",
+     "val": "zero",
+     "class": "carried"
+    },
+    {
+     "fill": "0x133e8c4",
+     "width": "sd",
+     "slot": "s0+-0x2e0",
+     "val": "zero",
+     "class": "carried"
+    },
+    {
+     "fill": "0x133ea80",
+     "width": "sd",
+     "slot": "s0+-0x2e0",
+     "val": "a5",
+     "class": "carried"
+    },
+    {
+     "fill": "0x133ebc2",
+     "width": "sd",
+     "slot": "s0+-0xc8",
+     "val": "zero",
+     "class": "carried"
+    },
+    {
+     "fill": "0x133ec10",
+     "width": "sd",
+     "slot": "s0+-0x120",
+     "val": "zero",
+     "class": "carried"
+    },
+    {
+     "fill": "0x133ec1c",
+     "width": "sd",
+     "slot": "s0+-0x128",
+     "val": "zero",
+     "class": "carried"
+    },
+    {
+     "fill": "0x133fb56",
+     "width": "sd",
+     "slot": "s0+-0xc8",
+     "val": "s10",
+     "class": "carried"
+    },
+    {
+     "fill": "0x134bd06",
+     "width": "sd",
+     "slot": "s0+-0xc8",
+     "val": "zero",
+     "class": "carried"
+    },
+    {
+     "fill": "0x134bf7c",
+     "width": "sd",
+     "slot": "s0+-0x128",
+     "val": "zero",
+     "class": "carried"
+    },
+    {
+     "fill": "0x134bf80",
+     "width": "sd",
+     "slot": "s0+-0x120",
+     "val": "zero",
+     "class": "carried"
+    },
+    {
+     "fill": "0x134bfac",
+     "width": "sd",
+     "slot": "s0+-0xc8",
+     "val": "zero",
+     "class": "carried"
+    },
+    {
+     "fill": "0x134c250",
+     "width": "sd",
+     "slot": "s0+-0xc8",
+     "val": "zero",
+     "class": "carried"
+    },
+    {
+     "fill": "0x134d39e",
+     "width": "sd",
+     "slot": "s0+-0xc8",
+     "val": "zero",
+     "class": "carried"
+    },
+    {
+     "fill": "0x134d3d4",
+     "width": "sd",
+     "slot": "s0+-0x128",
+     "val": "a7",
+     "class": "carried"
+    },
+    {
+     "fill": "0x134d3e8",
+     "width": "sd",
+     "slot": "s0+-0x120",
+     "val": "a4",
+     "class": "carried"
+    },
+    {
+     "fill": "0x134d78e",
+     "width": "sd",
+     "slot": "s0+-0xc8",
+     "val": "zero",
+     "class": "carried"
+    },
+    {
+     "fill": "0x134d7bc",
+     "width": "sd",
+     "slot": "s0+-0x140",
+     "val": "a6",
+     "class": "carried"
+    }
+   ]
+  }
+ ]
+}

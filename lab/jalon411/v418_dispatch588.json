@@ -1,0 +1,127 @@
+{
+ "pass": "4.18-dispatch588",
+ "substrate": "/home/z/my-project/repo-gpu/tools/gsp-extract/rm-full.elf",
+ "sites_found": 5,
+ "provenance": {
+  "other-def": 1,
+  "copied-carried": 3,
+  "lui-static": 1
+ },
+ "results": [
+  {
+   "site": "0x123ec8a",
+   "xfer": "c.jalr",
+   "base": "s4",
+   "feeder": "ld",
+   "trail_len": 967,
+   "provenance": "other-def",
+   "provenance_hop": null,
+   "neighbors": [
+    {
+     "pc": "0x123ec7c",
+     "op": "ld",
+     "off": "-0x588",
+     "kind": "mem"
+    },
+    {
+     "pc": "0x123eca4",
+     "op": "ld",
+     "off": "-0x560",
+     "kind": "mem"
+    },
+    {
+     "pc": "0x123ecb4",
+     "op": "ld",
+     "off": "-0x558",
+     "kind": "mem"
+    },
+    {
+     "pc": "0x123ed3c",
+     "op": "ld",
+     "off": "-0x598",
+     "kind": "mem"
+    }
+   ]
+  },
+  {
+   "site": "0x12938c8",
+   "xfer": "c.jalr",
+   "base": "s5",
+   "feeder": "ld",
+   "trail_len": 1024,
+   "provenance": "copied-carried",
+   "provenance_hop": "s1",
+   "neighbors": [
+    {
+     "pc": "0x12938be",
+     "op": "ld",
+     "off": "-0x588",
+     "kind": "mem"
+    },
+    {
+     "pc": "0x129391a",
+     "op": "ld",
+     "off": "-0x560",
+     "kind": "mem"
+    },
+    {
+     "pc": "0x1293926",
+     "op": "ld",
+     "off": "-0x558",
+     "kind": "mem"
+    }
+   ]
+  },
+  {
+   "site": "0x146ddd6",
+   "xfer": "c.jalr",
+   "base": "s5",
+   "feeder": "ld",
+   "trail_len": 781,
+   "provenance": "copied-carried",
+   "provenance_hop": "s2",
+   "neighbors": [
+    {
+     "pc": "0x146ddce",
+     "op": "ld",
+     "off": "-0x588",
+     "kind": "mem"
+    }
+   ]
+  },
+  {
+   "site": "0x147a88a",
+   "xfer": "c.jalr",
+   "base": "s2",
+   "feeder": "ld",
+   "trail_len": 1024,
+   "provenance": "lui-static",
+   "provenance_hop": null,
+   "neighbors": [
+    {
+     "pc": "0x147a882",
+     "op": "ld",
+     "off": "-0x588",
+     "kind": "mem"
+    }
+   ]
+  },
+  {
+   "site": "0x1482af0",
+   "xfer": "c.jalr",
+   "base": "s4",
+   "feeder": "ld",
+   "trail_len": 1024,
+   "provenance": "copied-carried",
+   "provenance_hop": "s3",
+   "neighbors": [
+    {
+     "pc": "0x1482ae6",
+     "op": "ld",
+     "off": "-0x588",
+     "kind": "mem"
+    }
+   ]
+  }
+ ]
+}
