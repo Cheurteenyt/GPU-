@@ -1,0 +1,249 @@
+{
+ "pass": "4.17-deepbody",
+ "substrate": "/home/z/my-project/repo-gpu/tools/gsp-extract/rm-full.elf",
+ "sites": [
+  {
+   "site": "0x115a986",
+   "role": "companion",
+   "seen": false,
+   "island_before": "0x1c96",
+   "island_after": "0x557e",
+   "store_at_site": [
+    {
+     "pc": "0x115a986",
+     "width": "sd",
+     "src": "s11",
+     "off": 1416,
+     "base": "a5",
+     "is_center": true
+    }
+   ],
+   "window_stores_n": 69,
+   "window_xfers": [],
+   "window_state_slots": []
+  },
+  {
+   "site": "0x115ad8a",
+   "role": "companion",
+   "seen": false,
+   "island_before": "0x209a",
+   "island_after": "0x517a",
+   "store_at_site": [
+    {
+     "pc": "0x115ad8a",
+     "width": "sd",
+     "src": "t4",
+     "off": 1416,
+     "base": "ra",
+     "is_center": true
+    }
+   ],
+   "window_stores_n": 76,
+   "window_xfers": [],
+   "window_state_slots": []
+  },
+  {
+   "site": "0x115b5c8",
+   "role": "companion",
+   "seen": false,
+   "island_before": "0x28d8",
+   "island_after": "0x493c",
+   "store_at_site": [
+    {
+     "pc": "0x115b5c8",
+     "width": "sd",
+     "src": "a6",
+     "off": 1416,
+     "base": "s1",
+     "is_center": true
+    }
+   ],
+   "window_stores_n": 56,
+   "window_xfers": [],
+   "window_state_slots": []
+  },
+  {
+   "site": "0x115c7c0",
+   "role": "companion",
+   "seen": false,
+   "island_before": "0x3ad0",
+   "island_after": "0x3744",
+   "store_at_site": [
+    {
+     "pc": "0x115c7c0",
+     "width": "sd",
+     "src": "a2",
+     "off": 1416,
+     "base": "a4",
+     "is_center": true
+    }
+   ],
+   "window_stores_n": 56,
+   "window_xfers": [],
+   "window_state_slots": []
+  },
+  {
+   "site": "0x115d324",
+   "role": "anchor",
+   "seen": false,
+   "island_before": "0x4634",
+   "island_after": "0x2be0",
+   "store_at_site": [
+    {
+     "pc": "0x115d324",
+     "width": "sd",
+     "src": "a5",
+     "off": 0,
+     "base": "s1",
+     "is_center": true
+    }
+   ],
+   "window_stores_n": 44,
+   "window_xfers": [],
+   "window_state_slots": []
+  },
+  {
+   "site": "0x1326394",
+   "role": "calibration-proven-4.16",
+   "seen": true,
+   "island_before": "0x0",
+   "island_after": "0x0",
+   "store_at_site": [
+    {
+     "pc": "0x1326394",
+     "width": "sd",
+     "src": "zero",
+     "off": -1416,
+     "base": "a5",
+     "is_center": true
+    }
+   ],
+   "window_stores_n": 3,
+   "window_xfers": [
+    {
+     "pc": "0x13262a0",
+     "xfer": "c.jalr",
+     "ops": "a5",
+     "state_slot": null
+    },
+    {
+     "pc": "0x13262bc",
+     "xfer": "c.jalr",
+     "ops": "a5",
+     "state_slot": null
+    },
+    {
+     "pc": "0x13262e6",
+     "xfer": "jalr",
+     "ops": "ra, ra, -0x50e",
+     "state_slot": null
+    },
+    {
+     "pc": "0x132630e",
+     "xfer": "jalr",
+     "ops": "ra, ra, 0x31a",
+     "state_slot": null
+    },
+    {
+     "pc": "0x1326324",
+     "xfer": "jalr",
+     "ops": "ra, ra, 0x72c",
+     "state_slot": null
+    },
+    {
+     "pc": "0x1326354",
+     "xfer": "jalr",
+     "ops": "ra, ra, 0x2d4",
+     "state_slot": null
+    },
+    {
+     "pc": "0x1326362",
+     "xfer": "jalr",
+     "ops": "ra, ra, 0x6ee",
+     "state_slot": null
+    },
+    {
+     "pc": "0x132638c",
+     "xfer": "jalr",
+     "ops": "ra, ra, 0xcc",
+     "state_slot": null
+    },
+    {
+     "pc": "0x13263a6",
+     "xfer": "jalr",
+     "ops": "ra, ra, 0x282",
+     "state_slot": null
+    },
+    {
+     "pc": "0x13263c4",
+     "xfer": "c.jalr",
+     "ops": "a5",
+     "state_slot": null
+    },
+    {
+     "pc": "0x13263e2",
+     "xfer": "jalr",
+     "ops": "ra, ra, 0x4a2",
+     "state_slot": null
+    },
+    {
+     "pc": "0x1326448",
+     "xfer": "jalr",
+     "ops": "ra, ra, 0x46c",
+     "state_slot": null
+    },
+    {
+     "pc": "0x132648c",
+     "xfer": "jalr",
+     "ops": "ra, ra, 0x19c",
+     "state_slot": null
+    }
+   ],
+   "window_state_slots": []
+  },
+  {
+   "site": "0x1158c9c",
+   "role": "prologue",
+   "seen": true,
+   "island_before": "0x0",
+   "island_after": "0x0",
+   "store_at_site": [],
+   "window_stores_n": 29,
+   "window_xfers": [
+    {
+     "pc": "0x1158c38",
+     "xfer": "jalr",
+     "ops": "ra, ra, 0x2e0",
+     "state_slot": null
+    },
+    {
+     "pc": "0x1158c86",
+     "xfer": "jalr",
+     "ops": "ra, ra, -0x65e",
+     "state_slot": null
+    },
+    {
+     "pc": "0x1158c92",
+     "xfer": "jalr",
+     "ops": "ra, ra, 0x4c2",
+     "state_slot": null
+    }
+   ],
+   "window_state_slots": []
+  }
+ ],
+ "span": {
+  "lo": "0x1158c9c",
+  "hi": "0x115d400",
+  "bytes": 18276,
+  "covered": 88,
+  "coverage_pct": 0.48,
+  "covered_runs_top8": [
+   [
+    "0x1158c9c",
+    "0x1158cf4",
+    88
+   ]
+  ]
+ }
+}
