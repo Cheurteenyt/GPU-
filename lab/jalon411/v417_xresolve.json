@@ -1,0 +1,520 @@
+{
+ "pass": "4.17-xresolve",
+ "substrate": "/home/z/my-project/repo-gpu/tools/gsp-extract/rm-full.elf",
+ "method_note": "the backward walk follows the verified instruction trail (each backstep is a boundary-verified insn start whose decode ends exactly at the previous step); the formation rules are the exact 4.16 set with insn-size disambiguation. Trail length = how much verified context backs each site.",
+ "flat_crosscheck": {
+  "X=?": 49,
+  "families_total": 64,
+  "families_reproduced_416": true,
+  "flat_table": {
+   "X=0x8+s1": 2,
+   "X=?": 48,
+   "X=0x8+s2": 1,
+   "X=0x5+s1": 2,
+   "X=0x4+s1": 1,
+   "X=0x4+s2": 1,
+   "X=0x4+s11": 1,
+   "X=0x1+s1": 3,
+   "X=0x1+s9": 1,
+   "X=0x3+s1": 2,
+   "X=0x8+s6": 1,
+   "X=?+s3": 1
+  },
+  "note": "the 4.16 summary counted 48 'X=?' plus the 'X=?+s3' variant separately: 49 X-unresolved sites total \u2014 both reproduced here."
+ },
+ "xsites": 49,
+ "verdicts": {
+  "honest-gap": 11,
+  "copied-from": 4,
+  "no-verified-trail": 34
+ },
+ "X_resolved_by_verdict": {},
+ "results": [
+  {
+   "site": "0x10a8c0c",
+   "width": "sd",
+   "base": "s2",
+   "verified": true,
+   "trail_len": 512,
+   "trail_stop": "trail-limit",
+   "verdict": "honest-gap",
+   "X": null,
+   "sreg": null,
+   "slot_if_sreg": null
+  },
+  {
+   "site": "0x10a9fbc",
+   "width": "sd",
+   "base": "s3",
+   "verified": true,
+   "trail_len": 512,
+   "trail_stop": "trail-limit",
+   "verdict": "copied-from",
+   "X": null,
+   "sreg": "a5",
+   "slot_if_sreg": null
+  },
+  {
+   "site": "0x10b32e2",
+   "width": "sd",
+   "base": "s8",
+   "verified": true,
+   "trail_len": 512,
+   "trail_stop": "trail-limit",
+   "verdict": "copied-from",
+   "X": null,
+   "sreg": "a5",
+   "slot_if_sreg": null
+  },
+  {
+   "site": "0x10b3838",
+   "width": "sd",
+   "base": "s10",
+   "verified": true,
+   "trail_len": 512,
+   "trail_stop": "trail-limit",
+   "verdict": "copied-from",
+   "X": null,
+   "sreg": "a5",
+   "slot_if_sreg": null
+  },
+  {
+   "site": "0x11591fc",
+   "width": "sd",
+   "base": "a5",
+   "verified": false,
+   "trail_len": 0,
+   "trail_stop": "unverified-edge",
+   "verdict": "no-verified-trail"
+  },
+  {
+   "site": "0x115c32a",
+   "width": "sd",
+   "base": "a4",
+   "verified": false,
+   "trail_len": 0,
+   "trail_stop": "unverified-edge",
+   "verdict": "no-verified-trail"
+  },
+  {
+   "site": "0x119c28e",
+   "width": "sd",
+   "base": "s0",
+   "verified": true,
+   "trail_len": 512,
+   "trail_stop": "trail-limit",
+   "verdict": "honest-gap",
+   "X": null,
+   "sreg": null,
+   "slot_if_sreg": null
+  },
+  {
+   "site": "0x11a4382",
+   "width": "sd",
+   "base": "s0",
+   "verified": true,
+   "trail_len": 36,
+   "trail_stop": "unverified-edge",
+   "verdict": "honest-gap",
+   "X": null,
+   "sreg": null,
+   "slot_if_sreg": null
+  },
+  {
+   "site": "0x11dd19a",
+   "width": "sw",
+   "base": "s5",
+   "verified": true,
+   "trail_len": 512,
+   "trail_stop": "trail-limit",
+   "verdict": "honest-gap",
+   "X": null,
+   "sreg": null,
+   "slot_if_sreg": null
+  },
+  {
+   "site": "0x11dd1ac",
+   "width": "sw",
+   "base": "s5",
+   "verified": true,
+   "trail_len": 512,
+   "trail_stop": "trail-limit",
+   "verdict": "honest-gap",
+   "X": null,
+   "sreg": null,
+   "slot_if_sreg": null
+  },
+  {
+   "site": "0x11dd29a",
+   "width": "sw",
+   "base": "s5",
+   "verified": true,
+   "trail_len": 512,
+   "trail_stop": "trail-limit",
+   "verdict": "honest-gap",
+   "X": null,
+   "sreg": null,
+   "slot_if_sreg": null
+  },
+  {
+   "site": "0x1286910",
+   "width": "sw",
+   "base": "a5",
+   "verified": true,
+   "trail_len": 512,
+   "trail_stop": "trail-limit",
+   "verdict": "honest-gap",
+   "X": null,
+   "sreg": null,
+   "slot_if_sreg": null
+  },
+  {
+   "site": "0x130608a",
+   "width": "sd",
+   "base": "a5",
+   "verified": true,
+   "trail_len": 512,
+   "trail_stop": "trail-limit",
+   "verdict": "copied-from",
+   "X": null,
+   "sreg": "a1",
+   "slot_if_sreg": null
+  },
+  {
+   "site": "0x14d482c",
+   "width": "sd",
+   "base": "s0",
+   "verified": true,
+   "trail_len": 341,
+   "trail_stop": "unverified-edge",
+   "verdict": "honest-gap",
+   "X": null,
+   "sreg": null,
+   "slot_if_sreg": null
+  },
+  {
+   "site": "0x172f022",
+   "width": "sw",
+   "base": "s5",
+   "verified": false,
+   "trail_len": 0,
+   "trail_stop": "unverified-edge",
+   "verdict": "no-verified-trail"
+  },
+  {
+   "site": "0x172f9a0",
+   "width": "sw",
+   "base": "s11",
+   "verified": false,
+   "trail_len": 0,
+   "trail_stop": "unverified-edge",
+   "verdict": "no-verified-trail"
+  },
+  {
+   "site": "0x172f9b4",
+   "width": "sw",
+   "base": "s11",
+   "verified": false,
+   "trail_len": 0,
+   "trail_stop": "unverified-edge",
+   "verdict": "no-verified-trail"
+  },
+  {
+   "site": "0x18ba450",
+   "width": "sd",
+   "base": "s5",
+   "verified": true,
+   "trail_len": 512,
+   "trail_stop": "trail-limit",
+   "verdict": "honest-gap",
+   "X": null,
+   "sreg": null,
+   "slot_if_sreg": null
+  },
+  {
+   "site": "0x18fd27c",
+   "width": "sd",
+   "base": "a1",
+   "verified": false,
+   "trail_len": 0,
+   "trail_stop": "unverified-edge",
+   "verdict": "no-verified-trail"
+  },
+  {
+   "site": "0x18fda1a",
+   "width": "sd",
+   "base": "a3",
+   "verified": false,
+   "trail_len": 0,
+   "trail_stop": "unverified-edge",
+   "verdict": "no-verified-trail"
+  },
+  {
+   "site": "0x18fe686",
+   "width": "sd",
+   "base": "a1",
+   "verified": false,
+   "trail_len": 0,
+   "trail_stop": "unverified-edge",
+   "verdict": "no-verified-trail"
+  },
+  {
+   "site": "0x18fe962",
+   "width": "sd",
+   "base": "a1",
+   "verified": false,
+   "trail_len": 0,
+   "trail_stop": "unverified-edge",
+   "verdict": "no-verified-trail"
+  },
+  {
+   "site": "0x1900238",
+   "width": "sd",
+   "base": "t3",
+   "verified": false,
+   "trail_len": 0,
+   "trail_stop": "unverified-edge",
+   "verdict": "no-verified-trail"
+  },
+  {
+   "site": "0x1900efa",
+   "width": "sd",
+   "base": "a3",
+   "verified": false,
+   "trail_len": 0,
+   "trail_stop": "unverified-edge",
+   "verdict": "no-verified-trail"
+  },
+  {
+   "site": "0x1902694",
+   "width": "sd",
+   "base": "a5",
+   "verified": false,
+   "trail_len": 0,
+   "trail_stop": "unverified-edge",
+   "verdict": "no-verified-trail"
+  },
+  {
+   "site": "0x1902a0e",
+   "width": "sd",
+   "base": "a5",
+   "verified": false,
+   "trail_len": 0,
+   "trail_stop": "unverified-edge",
+   "verdict": "no-verified-trail"
+  },
+  {
+   "site": "0x1903df2",
+   "width": "sd",
+   "base": "a3",
+   "verified": false,
+   "trail_len": 0,
+   "trail_stop": "unverified-edge",
+   "verdict": "no-verified-trail"
+  },
+  {
+   "site": "0x19041f0",
+   "width": "sd",
+   "base": "t5",
+   "verified": false,
+   "trail_len": 0,
+   "trail_stop": "unverified-edge",
+   "verdict": "no-verified-trail"
+  },
+  {
+   "site": "0x19044da",
+   "width": "sd",
+   "base": "a3",
+   "verified": false,
+   "trail_len": 0,
+   "trail_stop": "unverified-edge",
+   "verdict": "no-verified-trail"
+  },
+  {
+   "site": "0x1904808",
+   "width": "sd",
+   "base": "a5",
+   "verified": false,
+   "trail_len": 0,
+   "trail_stop": "unverified-edge",
+   "verdict": "no-verified-trail"
+  },
+  {
+   "site": "0x19052c8",
+   "width": "sd",
+   "base": "a3",
+   "verified": false,
+   "trail_len": 0,
+   "trail_stop": "unverified-edge",
+   "verdict": "no-verified-trail"
+  },
+  {
+   "site": "0x1905dbe",
+   "width": "sd",
+   "base": "t1",
+   "verified": false,
+   "trail_len": 0,
+   "trail_stop": "unverified-edge",
+   "verdict": "no-verified-trail"
+  },
+  {
+   "site": "0x19062e6",
+   "width": "sd",
+   "base": "t3",
+   "verified": false,
+   "trail_len": 0,
+   "trail_stop": "unverified-edge",
+   "verdict": "no-verified-trail"
+  },
+  {
+   "site": "0x1906d94",
+   "width": "sd",
+   "base": "a3",
+   "verified": false,
+   "trail_len": 0,
+   "trail_stop": "unverified-edge",
+   "verdict": "no-verified-trail"
+  },
+  {
+   "site": "0x1a7c20e",
+   "width": "sw",
+   "base": "s1",
+   "verified": true,
+   "trail_len": 512,
+   "trail_stop": "trail-limit",
+   "verdict": "honest-gap",
+   "X": null,
+   "sreg": null,
+   "slot_if_sreg": null
+  },
+  {
+   "site": "0x1aae13e",
+   "width": "sw",
+   "base": "a5",
+   "verified": false,
+   "trail_len": 0,
+   "trail_stop": "unverified-edge",
+   "verdict": "no-verified-trail"
+  },
+  {
+   "site": "0x1b032f2",
+   "width": "sd",
+   "base": "a5",
+   "verified": false,
+   "trail_len": 0,
+   "trail_stop": "unverified-edge",
+   "verdict": "no-verified-trail"
+  },
+  {
+   "site": "0x1b03820",
+   "width": "sd",
+   "base": "a5",
+   "verified": false,
+   "trail_len": 0,
+   "trail_stop": "unverified-edge",
+   "verdict": "no-verified-trail"
+  },
+  {
+   "site": "0x1b03896",
+   "width": "sd",
+   "base": "a3",
+   "verified": false,
+   "trail_len": 0,
+   "trail_stop": "unverified-edge",
+   "verdict": "no-verified-trail"
+  },
+  {
+   "site": "0x1b03ec0",
+   "width": "sd",
+   "base": "a5",
+   "verified": false,
+   "trail_len": 0,
+   "trail_stop": "unverified-edge",
+   "verdict": "no-verified-trail"
+  },
+  {
+   "site": "0x1b040b4",
+   "width": "sd",
+   "base": "a3",
+   "verified": false,
+   "trail_len": 0,
+   "trail_stop": "unverified-edge",
+   "verdict": "no-verified-trail"
+  },
+  {
+   "site": "0x1b04ab2",
+   "width": "sd",
+   "base": "a3",
+   "verified": false,
+   "trail_len": 0,
+   "trail_stop": "unverified-edge",
+   "verdict": "no-verified-trail"
+  },
+  {
+   "site": "0x1b05a74",
+   "width": "sd",
+   "base": "a5",
+   "verified": false,
+   "trail_len": 0,
+   "trail_stop": "unverified-edge",
+   "verdict": "no-verified-trail"
+  },
+  {
+   "site": "0x1b27eac",
+   "width": "sd",
+   "base": "s3",
+   "verified": true,
+   "trail_len": 512,
+   "trail_stop": "trail-limit",
+   "verdict": "honest-gap",
+   "X": null,
+   "sreg": null,
+   "slot_if_sreg": null
+  },
+  {
+   "site": "0x1b3d2d0",
+   "width": "sd",
+   "base": "a5",
+   "verified": false,
+   "trail_len": 0,
+   "trail_stop": "unverified-edge",
+   "verdict": "no-verified-trail"
+  },
+  {
+   "site": "0x1b3db4c",
+   "width": "sd",
+   "base": "a6",
+   "verified": false,
+   "trail_len": 0,
+   "trail_stop": "unverified-edge",
+   "verdict": "no-verified-trail"
+  },
+  {
+   "site": "0x1b3ec7a",
+   "width": "sd",
+   "base": "a3",
+   "verified": false,
+   "trail_len": 0,
+   "trail_stop": "unverified-edge",
+   "verdict": "no-verified-trail"
+  },
+  {
+   "site": "0x1bd26bc",
+   "width": "sw",
+   "base": "s7",
+   "verified": false,
+   "trail_len": 0,
+   "trail_stop": "unverified-edge",
+   "verdict": "no-verified-trail"
+  },
+  {
+   "site": "0x1bedfea",
+   "width": "sw",
+   "base": "s6",
+   "verified": false,
+   "trail_len": 0,
+   "trail_stop": "unverified-edge",
+   "verdict": "no-verified-trail"
+  }
+ ]
+}
