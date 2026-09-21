@@ -9,28 +9,36 @@
 > enforcement, mapped it end-to-end, and adopted the community-published
 > break that walks around it at runtime.
 
-## The three phases
+## The four phases
 
 | Phase | What happened | Where |
 |---|---|---|
 | **I. Read-only intelligence** (rings 0-42) | the VBIOS decoded table by table: power budget, memory ladder, timings, fans, vP-states, the Falcon ucode inventory — and the **unlock ROM built** (caps 2200 MHz + 280 W, gate-checked) | `lab/findings-gx*.md`, `CHANGELOG.md`, `tools/vbios-unlock-mod.py` |
 | **II. The write campaign** (15 VM flash runs) | the full EEPROM write path walked inside a QEMU/VFIO VM; every failure named and fixed; **the CERT20 wall proven**: Falcon VV (`SIG_INVALID`) + PMU EWR (`OK_TO_FLASH_CHECK_FAILED`) refuse any modified image | `day0/vfio-flash-*/`, `tools/vfio-flash-session.sh`, the `CHANGELOG` CERT20 entry |
-| **III. The published break** (now) | the community exploit (the unbounded signature DMA in the SEC2 booter → the canary defeated by uniformity → the PC hijack → the PLM opening → the runtime register writes) — **validated end-to-end in emulation on OUR firmware**; the GA104 discovery campaign (the mailbox oracle) is designed | `tools/cert20-plm-feat-test.py`, `lab/findings-cert20-e2e-pass.md`, the cmp170hx wiki (cloned sibling) |
+| **III. The published break** | the community exploit (the unbounded signature DMA in the SEC2 booter → the canary defeated by uniformity → the PC hijack → the PLM opening) — **validated in emulation on OUR firmware, then proven executing on the real GA104**: the hardware runs show the SEC2 Falcon spinning at V=0x4a7, the IMEM self-loop gadget — the canary defeat and the PC hijack confirmed in silicon | `tools/cert20-plm-feat-test.py`, `lab/findings-cert20-e2e-pass.md`, `day0/cert20-plm-feat-test.log`, the cmp170hx wiki |
+| **IV. The GSP-RM cartography** (now) | the rm.elf reverse-engineered at scale: 66 % of the image boundary-verified (recursive descent), 221,201 verified indirect transfers, the state-pointer derivation graph measured end to end — and the honest revision: **the power limit is the EDPp runtime policy of the GSP-RM, not a fuse shadow** — the FEAT_OVR lane does not reach it; the next lane = the static RPC-table anchors (ID→handler) inside the runtime-bound dispatch graph | `lab/jalon411/findings-4.14→4.19.md`, `tools/analysis/gsp-extract/` |
 
-## The current phase: the GA104 discovery campaign
+## The current phase: from the cartography to the EDPp handlers
 
-The exploit is validated mechanically on our firmware (the emulator: 16
-BAR0 writes, 0 deviations). What remains is die-specific discovery:
+Phase III is proven in silicon, not just emulation — and the hardware
+runs taught the two facts that define phase IV:
 
-1. **The baseline fire** — the uniform fill V=0x4a7 (the GA100 value) on
-   our GA104; the CSB MAILBOX0 read-back tells which code path ran
-   (MB0=0x47 = the canary abort; silence = the hijack).
-2. **The V sweep** — candidate addresses, one driver cycle each, the
-   mailbox oracle mapping the booter's code paths without ever reading
-   the encrypted image.
-3. **The chain** — write_addr/write_value at the discovered slots → the
-   PLM opens → the power-limit register (250 → 280 W) hunt in the
-   FEAT_OVR space.
+1. **The anti-tamper lock is real and persistent.** After a ROP fire the
+   secure domain reads DENIED across the registers and the FEAT region,
+   surviving warm reboots (the always-on island). Recovery = a full
+   power cycle. **One fire per power cycle — never more.**
+2. **The honest 280 W map.** The exploit opens *fuse shadows* (the
+   FEAT_OVR space). Our 250 W ceiling is the **EDPp table applied by
+   the GSP-RM at runtime** — a policy, not a fuse. Opening the PLMs
+   does not touch it. The reachable lane is the GSP-RM's own RPC
+   dispatch tables — static ID→handler anchors that survive the
+   runtime-bound dispatch graph — leading to the `NV2080_CTRL_CMD_PWR_*`
+   handlers and the EDPp enforcement code.
+
+The active gains meanwhile, on the machine now: the core offset **+225 →
+2325 MHz** (above the 2200 MHz cap target), the undervolt 1995 MHz @
+987 mV (the effective 280 W perf/watt), 250 W stock power. The memory OC
+(via LACT) is the last unapplied immediate lever.
 
 Everything is volatile (lost at power cycle, reapplied per run) — the
 worst case is a failed module load and a clean reboot. The dual-BIOS
@@ -41,7 +49,9 @@ switch (pos 2) is the last-resort net; it has never been needed.
 **[lab/DATA-INDEX.md](lab/DATA-INDEX.md)** — the master index (in
 reconstruction): the decoded structures, the artifacts, the instruments.
 The lab findings: **`lab/findings-gx1.md` → `gx41.md`** (the read-only
-era) and `lab/findings-cert20-e2e-pass.md` (the break validation). The
+era), `lab/findings-cert20-e2e-pass.md` (the break validation), and
+**`lab/jalon411/`** (the GSP-RM cartography, passes 4.14→4.19: the
+boundary-verified map, the dispatch census, the derivation graph). The
 authoritative campaign state: **[STATE.md](STATE.md)**.
 
 ## The doctrine (how the rules evolved)
