@@ -3,6 +3,55 @@
 All measured work, ring by ring. Registers are frozen once scored; the
 findings files carry the honesty ledgers.
 
+## Phase III→IV (2026-09-21) — the ROP proven in silicon, the anti-tamper lock, the honest EDPp revision, the GSP-RM cartography merged
+
+- **The hardware ROP campaign (7+ runs, day0/cert20-plm-feat-test.log)** —
+  the published chain fired on the real GA104 via the driver patch
+  (kernel_gsp.c `_kgspCreateSignatureMemdesc`: the signature memdesc grown
+  to 0xF800 → the unbounded DMA; kernel_gsp_tu102.c:879 carries the size
+  into the WprMeta). **Run-5 capital: the SEC2 Falcon spins at V=0x4a7 —
+  the paper's IMEM self-loop test/stall gadget — the canary defeat and
+  the PC hijack confirmed in silicon.** The V=0x7dd9 probe = the same
+  `0xbadf5620` abort (V-independent → the failure sits upstream, in the
+  HMAC validation of the payload; the GA100 gadget addresses do not
+  transfer to our booter build).
+- **The anti-tamper lock** — after a fire the secure domain reads DENIED
+  across the registers and the whole FEAT region (cert20-scan:
+  6144/6144), persisting across warm reboots (the always-on island).
+  Recovery = a full power cycle. Campaign rule: **one fire per power
+  cycle**. cert20-brom-dump.py documented (the Falcon XFER ports —
+  DENIED = the documented answer too).
+- **The honest 280 W revision** — the power ceiling is the **EDPp table
+  applied by the GSP-RM at runtime**, not a fuse shadow: the FEAT_OVR
+  lane (what the exploit opens) does not reach it. The active gains
+  stand: offset +225 → 2325 MHz (above the 2200 cap), the undervolt
+  1995 @ 987 mV, 250 W. The designed next lane: the static RPC dispatch
+  tables (ID→handler) → the `NV2080_CTRL_CMD_PWR_*` handlers → the EDPp
+  code.
+- **The driver patch cycle** — the patch built and installed (DKMS,
+  `nvidia/610.57.04`), the payload verified in the shipped .ko.zst; the
+  system fully functional. memtest_vulkan on it produced **the campaign's
+  first NVRM Xid (109, CTX SWITCH TIMEOUT** — TDR recovered); the stock
+  source was restored from the pacman package and rebuilt for the
+  scientific comparison (the memtest baseline pending).
+- **The GSP-RM cartography merged (PR #1, passes 4.14→4.19,
+  lab/jalon411/)** — the recursive-descent boundary proof (66.03 % of
+  the image, 3.4M insns, 81,871 validated call edges — the linear-sweep
+  desync retired), 221,201 verified indirect transfers (47,961
+  object-vtable / 1,201 state-frame), the state-pointer **derivation
+  graph** (base = argument + 0x1000, 0.4 % static formation), the
+  -0x588 family resolved into three semantics, and the honest wall:
+  **0 named targets in 3,542 slot fills — the dispatch is runtime-bound
+  end to end**. The kcore power scan (host-RAM policy copy question)
+  died with its session without output — banked honestly as a
+  placeholder.
+- **The repo moderation** — the PR-only workflow exercised end to end:
+  PR #2 (the era/function reorganization, 250+ files), PR #1 (the
+  campaign artifacts + the cartography wave, rebase-merged), PR #3 (the
+  two local commits recovered — the run-5 capital + the brom-dump tool).
+  `main` only, locally and remotely; `delete_branch_on_merge` enabled;
+  the branch protection verified by a rejected direct push.
+
 ## The CERT20 campaign (2026-09-19 → 09-20) — the write-path mapped, the wall proven, the published break adopted, the GA104 discovery campaign opened
 
 - **15 VM flash runs** (day0/vfio-flash-20260919-*) — the full write-path
