@@ -1,0 +1,469 @@
+{
+ "pass": "4.16-map588",
+ "substrate": "/home/z/my-project/repo-gpu/tools/gsp-extract/rm-full.elf",
+ "note": "X is the lui page constant; the wide slot = s_reg + (X<<12) - 0x588. X=4 is the banked state marker (slot 0x3A78).",
+ "families": {
+  "X=?": {
+   "sites": 48,
+   "verified": 15,
+   "widths": {
+    "sd": 38,
+    "sw": 10
+   },
+   "first16": [
+    {
+     "site": "0x10a8c0c",
+     "width": "sd",
+     "src": "a0",
+     "base": "s2",
+     "X": null,
+     "form": "other-formation",
+     "sreg": null,
+     "slot_if_sreg": null,
+     "verified": true
+    },
+    {
+     "site": "0x10a9fbc",
+     "width": "sd",
+     "src": "zero",
+     "base": "s3",
+     "X": null,
+     "form": "other-formation",
+     "sreg": null,
+     "slot_if_sreg": null,
+     "verified": true
+    },
+    {
+     "site": "0x10b32e2",
+     "width": "sd",
+     "src": "zero",
+     "base": "s8",
+     "X": null,
+     "form": "other-formation",
+     "sreg": null,
+     "slot_if_sreg": null,
+     "verified": true
+    },
+    {
+     "site": "0x10b3838",
+     "width": "sd",
+     "src": "a0",
+     "base": "s10",
+     "X": null,
+     "form": "other-formation",
+     "sreg": null,
+     "slot_if_sreg": null,
+     "verified": true
+    },
+    {
+     "site": "0x11591fc",
+     "width": "sd",
+     "src": "t6",
+     "base": "a5",
+     "X": null,
+     "form": "other-formation",
+     "sreg": null,
+     "slot_if_sreg": null,
+     "verified": false
+    },
+    {
+     "site": "0x115c32a",
+     "width": "sd",
+     "src": "a7",
+     "base": "a4",
+     "X": null,
+     "form": "other-formation",
+     "sreg": null,
+     "slot_if_sreg": null,
+     "verified": false
+    },
+    {
+     "site": "0x119c28e",
+     "width": "sd",
+     "src": "zero",
+     "base": "s0",
+     "X": null,
+     "form": "other-formation",
+     "sreg": null,
+     "slot_if_sreg": null,
+     "verified": true
+    },
+    {
+     "site": "0x11a4382",
+     "width": "sd",
+     "src": "zero",
+     "base": "s0",
+     "X": null,
+     "form": "other-formation",
+     "sreg": null,
+     "slot_if_sreg": null,
+     "verified": true
+    },
+    {
+     "site": "0x11dd19a",
+     "width": "sw",
+     "src": "a5",
+     "base": "s5",
+     "X": null,
+     "form": "other-formation",
+     "sreg": null,
+     "slot_if_sreg": null,
+     "verified": true
+    },
+    {
+     "site": "0x11dd1ac",
+     "width": "sw",
+     "src": "a5",
+     "base": "s5",
+     "X": null,
+     "form": "other-formation",
+     "sreg": null,
+     "slot_if_sreg": null,
+     "verified": true
+    },
+    {
+     "site": "0x11dd29a",
+     "width": "sw",
+     "src": "a5",
+     "base": "s5",
+     "X": null,
+     "form": "other-formation",
+     "sreg": null,
+     "slot_if_sreg": null,
+     "verified": true
+    },
+    {
+     "site": "0x1286910",
+     "width": "sw",
+     "src": "a0",
+     "base": "a5",
+     "X": null,
+     "form": "other-formation",
+     "sreg": null,
+     "slot_if_sreg": null,
+     "verified": true
+    },
+    {
+     "site": "0x130608a",
+     "width": "sd",
+     "src": "zero",
+     "base": "a5",
+     "X": null,
+     "form": "other-formation",
+     "sreg": null,
+     "slot_if_sreg": null,
+     "verified": true
+    },
+    {
+     "site": "0x14d482c",
+     "width": "sd",
+     "src": "a0",
+     "base": "s0",
+     "X": null,
+     "form": "other-formation",
+     "sreg": null,
+     "slot_if_sreg": null,
+     "verified": true
+    },
+    {
+     "site": "0x172f022",
+     "width": "sw",
+     "src": "a0",
+     "base": "s5",
+     "X": null,
+     "form": "other-formation",
+     "sreg": null,
+     "slot_if_sreg": null,
+     "verified": false
+    },
+    {
+     "site": "0x172f9a0",
+     "width": "sw",
+     "src": "a3",
+     "base": "s11",
+     "X": null,
+     "form": "other-formation",
+     "sreg": null,
+     "slot_if_sreg": null,
+     "verified": false
+    }
+   ]
+  },
+  "X=0x1+s1": {
+   "sites": 3,
+   "verified": 0,
+   "widths": {
+    "sw": 3
+   },
+   "first16": [
+    {
+     "site": "0x135fc00",
+     "width": "sw",
+     "src": "a3",
+     "base": "a4",
+     "X": 1,
+     "form": "c.lui",
+     "sreg": "s1",
+     "slot_if_sreg": "0xa78",
+     "verified": false
+    },
+    {
+     "site": "0x172d77e",
+     "width": "sw",
+     "src": "a0",
+     "base": "a4",
+     "X": 1,
+     "form": "c.lui",
+     "sreg": "s1",
+     "slot_if_sreg": "0xa78",
+     "verified": false
+    },
+    {
+     "site": "0x172d7c0",
+     "width": "sw",
+     "src": "a4",
+     "base": "a3",
+     "X": 1,
+     "form": "c.lui",
+     "sreg": "s1",
+     "slot_if_sreg": "0xa78",
+     "verified": false
+    }
+   ]
+  },
+  "X=0x8+s1": {
+   "sites": 2,
+   "verified": 2,
+   "widths": {
+    "sd": 2
+   },
+   "first16": [
+    {
+     "site": "0x10a8b9e",
+     "width": "sd",
+     "src": "zero",
+     "base": "a5",
+     "X": 8,
+     "form": "c.lui",
+     "sreg": "s1",
+     "slot_if_sreg": "0x7a78",
+     "verified": true
+    },
+    {
+     "site": "0x10bd03c",
+     "width": "sd",
+     "src": "zero",
+     "base": "s2",
+     "X": 8,
+     "form": "c.lui",
+     "sreg": "s1",
+     "slot_if_sreg": "0x7a78",
+     "verified": true
+    }
+   ]
+  },
+  "X=0x5+s1": {
+   "sites": 2,
+   "verified": 0,
+   "widths": {
+    "sd": 1,
+    "sw": 1
+   },
+   "first16": [
+    {
+     "site": "0x115b1ce",
+     "width": "sd",
+     "src": "t1",
+     "base": "a3",
+     "X": 5,
+     "form": "c.lui",
+     "sreg": "s1",
+     "slot_if_sreg": "0x4a78",
+     "verified": false
+    },
+    {
+     "site": "0x115b1fa",
+     "width": "sw",
+     "src": "t6",
+     "base": "a3",
+     "X": 5,
+     "form": "c.lui",
+     "sreg": "s1",
+     "slot_if_sreg": "0x4a78",
+     "verified": false
+    }
+   ]
+  },
+  "X=0x3+s1": {
+   "sites": 2,
+   "verified": 2,
+   "widths": {
+    "sd": 2
+   },
+   "first16": [
+    {
+     "site": "0x18ba5c2",
+     "width": "sd",
+     "src": "zero",
+     "base": "s5",
+     "X": 3,
+     "form": "c.lui",
+     "sreg": "s1",
+     "slot_if_sreg": "0x2a78",
+     "verified": true
+    },
+    {
+     "site": "0x18c5a64",
+     "width": "sd",
+     "src": "zero",
+     "base": "s2",
+     "X": 3,
+     "form": "c.lui",
+     "sreg": "s1",
+     "slot_if_sreg": "0x2a78",
+     "verified": true
+    }
+   ]
+  },
+  "X=0x8+s2": {
+   "sites": 1,
+   "verified": 1,
+   "widths": {
+    "sd": 1
+   },
+   "first16": [
+    {
+     "site": "0x10a98de",
+     "width": "sd",
+     "src": "zero",
+     "base": "a5",
+     "X": 8,
+     "form": "c.lui",
+     "sreg": "s2",
+     "slot_if_sreg": "0x7a78",
+     "verified": true
+    }
+   ]
+  },
+  "X=0x4+s1": {
+   "sites": 1,
+   "verified": 1,
+   "widths": {
+    "sw": 1
+   },
+   "first16": [
+    {
+     "site": "0x11dd146",
+     "width": "sw",
+     "src": "a2",
+     "base": "a3",
+     "X": 4,
+     "form": "c.lui",
+     "sreg": "s1",
+     "slot_if_sreg": "0x3a78",
+     "verified": true
+    }
+   ]
+  },
+  "X=0x4+s2": {
+   "sites": 1,
+   "verified": 1,
+   "widths": {
+    "sd": 1
+   },
+   "first16": [
+    {
+     "site": "0x130b786",
+     "width": "sd",
+     "src": "zero",
+     "base": "a5",
+     "X": 4,
+     "form": "c.lui",
+     "sreg": "s2",
+     "slot_if_sreg": "0x3a78",
+     "verified": true
+    }
+   ]
+  },
+  "X=0x4+s11": {
+   "sites": 1,
+   "verified": 1,
+   "widths": {
+    "sd": 1
+   },
+   "first16": [
+    {
+     "site": "0x1326394",
+     "width": "sd",
+     "src": "zero",
+     "base": "a5",
+     "X": 4,
+     "form": "c.lui",
+     "sreg": "s11",
+     "slot_if_sreg": "0x3a78",
+     "verified": true
+    }
+   ]
+  },
+  "X=0x1+s9": {
+   "sites": 1,
+   "verified": 0,
+   "widths": {
+    "sw": 1
+   },
+   "first16": [
+    {
+     "site": "0x170d150",
+     "width": "sw",
+     "src": "a4",
+     "base": "a5",
+     "X": 1,
+     "form": "c.lui",
+     "sreg": "s9",
+     "slot_if_sreg": "0xa78",
+     "verified": false
+    }
+   ]
+  },
+  "X=0x8+s6": {
+   "sites": 1,
+   "verified": 1,
+   "widths": {
+    "sd": 1
+   },
+   "first16": [
+    {
+     "site": "0x1b27e36",
+     "width": "sd",
+     "src": "zero",
+     "base": "s2",
+     "X": 8,
+     "form": "c.lui",
+     "sreg": "s6",
+     "slot_if_sreg": "0x7a78",
+     "verified": true
+    }
+   ]
+  },
+  "X=?+s3": {
+   "sites": 1,
+   "verified": 0,
+   "widths": {
+    "sw": 1
+   },
+   "first16": [
+    {
+     "site": "0x1bd26bc",
+     "width": "sw",
+     "src": "a0",
+     "base": "s7",
+     "X": null,
+     "form": "other-formation",
+     "sreg": "s3",
+     "slot_if_sreg": null,
+     "verified": false
+    }
+   ]
+  }
+ }
+}

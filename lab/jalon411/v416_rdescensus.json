@@ -1,0 +1,700 @@
+{
+ "pass": "4.16-rdescensus",
+ "substrate": "/home/z/my-project/repo-gpu/tools/gsp-extract/rm-full.elf",
+ "seeds": {
+  "entry": "0x1000000",
+  "vtable_slot0_seeds": 0,
+  "prologue_starts": 13645,
+  "regions_walked": 52946
+ },
+ "strict_vtables_rebuilt": {
+  "found": 382,
+  "kept_prologue_adjacent": 0,
+  "anchor_site": [
+   [
+    "0x115d324",
+    "0x1c4b888",
+    "0x114bc84",
+    "s1"
+   ]
+  ],
+  "first12": []
+ },
+ "verified": {
+  "insns": 3400949,
+  "starts": 52873,
+  "bytes_covered": 10111774,
+  "coverage_pct": 66.03
+ },
+ "walk_stats": {
+  "stop_reasons": {
+   "data": 274,
+   "ret": 38720,
+   "indirect-tail-cont": 8584,
+   "join-seen": 13482,
+   "stop-insn": 1,
+   "overlap": 10
+  },
+  "top20_walks": [
+   3335,
+   2972,
+   1652,
+   1456,
+   1407,
+   1166,
+   1074,
+   1065,
+   1042,
+   1029,
+   1026,
+   1019,
+   1014,
+   997,
+   994,
+   961,
+   948,
+   921,
+   916,
+   910
+  ],
+  "median_walk": 35
+ },
+ "edges": {
+  "distinct": 81871,
+  "invalid_rejected": 600,
+  "indirect_sites_verified": 35843
+ },
+ "census_under_boundaries": {
+  "-0x588": {
+   "sites": 24,
+   "verified": 24,
+   "first12": [
+    [
+     "0x10a8b9e",
+     "sd",
+     "zero",
+     "a5",
+     "-0x588",
+     true
+    ],
+    [
+     "0x10a8c0c",
+     "sd",
+     "a0",
+     "s2",
+     "-0x588",
+     true
+    ],
+    [
+     "0x10a98de",
+     "sd",
+     "zero",
+     "a5",
+     "-0x588",
+     true
+    ],
+    [
+     "0x10a9fbc",
+     "sd",
+     "zero",
+     "s3",
+     "-0x588",
+     true
+    ],
+    [
+     "0x10b32e2",
+     "sd",
+     "zero",
+     "s8",
+     "-0x588",
+     true
+    ],
+    [
+     "0x10b3838",
+     "sd",
+     "a0",
+     "s10",
+     "-0x588",
+     true
+    ],
+    [
+     "0x10bd03c",
+     "sd",
+     "zero",
+     "s2",
+     "-0x588",
+     true
+    ],
+    [
+     "0x119c28e",
+     "sd",
+     "zero",
+     "s0",
+     "-0x588",
+     true
+    ],
+    [
+     "0x11a4382",
+     "sd",
+     "zero",
+     "s0",
+     "-0x588",
+     true
+    ],
+    [
+     "0x11dd146",
+     "sw",
+     "a2",
+     "a3",
+     "-0x588",
+     true
+    ],
+    [
+     "0x11dd19a",
+     "sw",
+     "a5",
+     "s5",
+     "-0x588",
+     true
+    ],
+    [
+     "0x11dd1ac",
+     "sw",
+     "a5",
+     "s5",
+     "-0x588",
+     true
+    ]
+   ]
+  },
+  "0x588": {
+   "sites": 37,
+   "verified": 37,
+   "first12": [
+    [
+     "0x10bf34a",
+     "sb",
+     "a4",
+     "s7",
+     "0x588",
+     true
+    ],
+    [
+     "0x114d5b6",
+     "sd",
+     "s1",
+     "a2",
+     "0x588",
+     true
+    ],
+    [
+     "0x115668e",
+     "sd",
+     "s1",
+     "a2",
+     "0x588",
+     true
+    ],
+    [
+     "0x119c23c",
+     "sd",
+     "s11",
+     "sp",
+     "0x588",
+     true
+    ],
+    [
+     "0x11d8274",
+     "sw",
+     "zero",
+     "s1",
+     "0x588",
+     true
+    ],
+    [
+     "0x12407bc",
+     "sw",
+     "zero",
+     "s1",
+     "0x588",
+     true
+    ],
+    [
+     "0x13ca38c",
+     "sw",
+     "a0",
+     "s1",
+     "0x588",
+     true
+    ],
+    [
+     "0x14021c4",
+     "sd",
+     "a4",
+     "a5",
+     "0x588",
+     true
+    ],
+    [
+     "0x1406b8a",
+     "sd",
+     "a5",
+     "s5",
+     "0x588",
+     true
+    ],
+    [
+     "0x1407b98",
+     "sd",
+     "a5",
+     "a0",
+     "0x588",
+     true
+    ],
+    [
+     "0x14a00e8",
+     "sw",
+     "zero",
+     "s1",
+     "0x588",
+     true
+    ],
+    [
+     "0x14a0140",
+     "sw",
+     "a3",
+     "s1",
+     "0x588",
+     true
+    ]
+   ]
+  }
+ },
+ "unverified_region_sites": [
+  [
+   "0x10060c6",
+   "sd",
+   "a2",
+   "a5",
+   "0x588",
+   false
+  ],
+  [
+   "0x114dd7e",
+   "sd",
+   "s1",
+   "a2",
+   "0x588",
+   false
+  ],
+  [
+   "0x114e1da",
+   "sd",
+   "s1",
+   "a2",
+   "0x588",
+   false
+  ],
+  [
+   "0x114e9f0",
+   "sd",
+   "s1",
+   "a2",
+   "0x588",
+   false
+  ],
+  [
+   "0x1156ca8",
+   "sd",
+   "s6",
+   "a2",
+   "0x588",
+   false
+  ],
+  [
+   "0x11591fc",
+   "sd",
+   "t6",
+   "a5",
+   "-0x588",
+   false
+  ],
+  [
+   "0x115a986",
+   "sd",
+   "s11",
+   "a5",
+   "0x588",
+   false
+  ],
+  [
+   "0x115ad8a",
+   "sd",
+   "t4",
+   "ra",
+   "0x588",
+   false
+  ],
+  [
+   "0x115b1ce",
+   "sd",
+   "t1",
+   "a3",
+   "-0x588",
+   false
+  ],
+  [
+   "0x115b1fa",
+   "sw",
+   "t6",
+   "a3",
+   "-0x588",
+   false
+  ],
+  [
+   "0x115b5c8",
+   "sd",
+   "a6",
+   "s1",
+   "0x588",
+   false
+  ],
+  [
+   "0x115c32a",
+   "sd",
+   "a7",
+   "a4",
+   "-0x588",
+   false
+  ],
+  [
+   "0x115c7c0",
+   "sd",
+   "a2",
+   "a4",
+   "0x588",
+   false
+  ],
+  [
+   "0x1187954",
+   "sw",
+   "a1",
+   "a5",
+   "0x588",
+   false
+  ],
+  [
+   "0x135fc00",
+   "sw",
+   "a3",
+   "a4",
+   "-0x588",
+   false
+  ],
+  [
+   "0x147d60e",
+   "sw",
+   "zero",
+   "s9",
+   "0x588",
+   false
+  ],
+  [
+   "0x14e1ce8",
+   "sw",
+   "a2",
+   "a4",
+   "0x588",
+   false
+  ],
+  [
+   "0x14e1dea",
+   "sw",
+   "s7",
+   "a3",
+   "0x588",
+   false
+  ],
+  [
+   "0x15f4524",
+   "sw",
+   "t1",
+   "a7",
+   "0x588",
+   false
+  ],
+  [
+   "0x170d150",
+   "sw",
+   "a4",
+   "a5",
+   "-0x588",
+   false
+  ]
+ ],
+ "banked": {
+  "functions": {
+   "0x1158c9c": true,
+   "0x1325e00": true,
+   "0x130b712": true,
+   "0x11dd0ec": true
+  },
+  "sites": {
+   "0x115a986": false,
+   "0x115ad8a": false,
+   "0x115b5c8": false,
+   "0x115c7c0": false,
+   "0x115d324": false,
+   "0x1326394": true,
+   "0x130b786": true,
+   "0x11dd146": true,
+   "0x11dd19a": true,
+   "0x11dd1ac": true,
+   "0x10bf34a": true,
+   "0x116b3c4": true
+  },
+  "callers": {}
+ },
+ "indirect_first40": [
+  [
+   "0x100cd4c",
+   "0x100ccc0",
+   "c.jalr",
+   "a6"
+  ],
+  [
+   "0x100f7ea",
+   "0x100f71c",
+   "c.jr",
+   "a5"
+  ],
+  [
+   "0x1012754",
+   "0x101272a",
+   "c.jr",
+   "a5"
+  ],
+  [
+   "0x10165a4",
+   "0x1016568",
+   "c.jalr",
+   "a5"
+  ],
+  [
+   "0x10165ba",
+   "0x1016568",
+   "c.jalr",
+   "a5"
+  ],
+  [
+   "0x1016646",
+   "0x1016568",
+   "c.jalr",
+   "a5"
+  ],
+  [
+   "0x101666c",
+   "0x1016568",
+   "c.jalr",
+   "a5"
+  ],
+  [
+   "0x101667a",
+   "0x1016568",
+   "c.jalr",
+   "a5"
+  ],
+  [
+   "0x1016680",
+   "0x1016568",
+   "c.jalr",
+   "a5"
+  ],
+  [
+   "0x101668a",
+   "0x1016568",
+   "c.jalr",
+   "a5"
+  ],
+  [
+   "0x1016d36",
+   "0x1016c4c",
+   "jalr",
+   "zero, t1, -0x70e"
+  ],
+  [
+   "0x1019c7c",
+   "0x1019c28",
+   "c.jalr",
+   "a5"
+  ],
+  [
+   "0x101a4b0",
+   "0x101a494",
+   "c.jalr",
+   "a4"
+  ],
+  [
+   "0x101a4cc",
+   "0x101a494",
+   "jalr",
+   "zero, t1, -0x30"
+  ],
+  [
+   "0x101ac08",
+   "0x101abe0",
+   "c.jalr",
+   "a4"
+  ],
+  [
+   "0x101ae92",
+   "0x101ae78",
+   "c.jalr",
+   "a4"
+  ],
+  [
+   "0x101aeb6",
+   "0x101ae78",
+   "jalr",
+   "zero, t1, -0x78a"
+  ],
+  [
+   "0x101b72e",
+   "0x101b714",
+   "c.jalr",
+   "a4"
+  ],
+  [
+   "0x101c12c",
+   "0x101c0c4",
+   "c.jr",
+   "a5"
+  ],
+  [
+   "0x101d276",
+   "0x101d210",
+   "c.jalr",
+   "a5"
+  ],
+  [
+   "0x101d290",
+   "0x101d210",
+   "c.jalr",
+   "a5"
+  ],
+  [
+   "0x101d4fe",
+   "0x101d4b0",
+   "c.jalr",
+   "a5"
+  ],
+  [
+   "0x101d92a",
+   "0x101d8d0",
+   "c.jalr",
+   "a5"
+  ],
+  [
+   "0x101d974",
+   "0x101d8d0",
+   "jalr",
+   "zero, t1, -0x648"
+  ],
+  [
+   "0x101f12a",
+   "0x101f0b0",
+   "jalr",
+   "zero, t1, -0x4e"
+  ],
+  [
+   "0x101f5e6",
+   "0x101f5e4",
+   "c.jr",
+   "a5"
+  ],
+  [
+   "0x101fbfa",
+   "0x101fafc",
+   "jalr",
+   "zero, t1, -0x192"
+  ],
+  [
+   "0x10204be",
+   "0x10203c4",
+   "c.jalr",
+   "a4"
+  ],
+  [
+   "0x102058c",
+   "0x10203c4",
+   "c.jalr",
+   "a4"
+  ],
+  [
+   "0x1020630",
+   "0x10203c4",
+   "c.jalr",
+   "a4"
+  ],
+  [
+   "0x10207d4",
+   "0x10203c4",
+   "c.jalr",
+   "a5"
+  ],
+  [
+   "0x1021f7a",
+   "0x1021de4",
+   "c.jalr",
+   "a5"
+  ],
+  [
+   "0x10230c8",
+   "0x1022bec",
+   "c.jalr",
+   "a5"
+  ],
+  [
+   "0x1023156",
+   "0x1022bec",
+   "c.jalr",
+   "t4"
+  ],
+  [
+   "0x102327e",
+   "0x1022bec",
+   "c.jalr",
+   "a5"
+  ],
+  [
+   "0x1023b82",
+   "0x1023afc",
+   "c.jalr",
+   "a5"
+  ],
+  [
+   "0x1023ba4",
+   "0x1023afc",
+   "c.jalr",
+   "a5"
+  ],
+  [
+   "0x1023bb2",
+   "0x1023afc",
+   "c.jalr",
+   "a5"
+  ],
+  [
+   "0x1023c2e",
+   "0x1023afc",
+   "jalr",
+   "zero, t1, -0x502"
+  ],
+  [
+   "0x1024f5a",
+   "0x1024e24",
+   "c.jalr",
+   "a5"
+  ]
+ ]
+}
