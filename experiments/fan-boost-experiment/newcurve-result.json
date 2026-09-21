@@ -1,0 +1,9 @@
+{
+ "tag": "newcurve",
+ "steady_median_core_mhz": 1890.0,
+ "steady_median_temp_c": 50.0,
+ "temp_max_c": 57.0,
+ "steady_median_watts": 108.975,
+ "steady_median_fan_pct": 35.5,
+ "rows": 148
+}

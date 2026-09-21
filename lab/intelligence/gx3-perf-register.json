@@ -1,0 +1,1815 @@
+{
+  "instrument": "gx3-perf",
+  "ring": 3,
+  "specimens": [
+    {
+      "file": "MSI.RTX3070.8192.210519_1.rom",
+      "size": 999424,
+      "sha256_16": "41a0860f8abfcfa7",
+      "p_token": {
+        "version": 2,
+        "table_length": 232,
+        "table_offset_rel": 736,
+        "table_offset_abs": 38112
+      },
+      "pointer_count": 58,
+      "named_count": 39,
+      "pointers": [
+        {
+          "rel": 0,
+          "name": "PERFORMANCE",
+          "raw": 433229,
+          "domain": "spec_adjusted",
+          "offset": 563277
+        },
+        {
+          "rel": 4,
+          "name": "MEMORY TIMINGS MAPPING",
+          "raw": 434426,
+          "domain": "spec_adjusted",
+          "offset": 564474
+        },
+        {
+          "rel": 8,
+          "name": "MEMORY TIMINGS",
+          "raw": 441472,
+          "domain": "spec_adjusted",
+          "offset": 571520
+        },
+        {
+          "rel": 12,
+          "name": "VOLTAGE",
+          "null": true
+        },
+        {
+          "rel": 16,
+          "name": "THERMAL",
+          "null": true
+        },
+        {
+          "rel": 20,
+          "name": "THERMAL DEVICES",
+          "raw": 460956,
+          "domain": "spec_adjusted",
+          "offset": 591004
+        },
+        {
+          "rel": 24,
+          "name": "THERMAL COOLERS",
+          "null": true
+        },
+        {
+          "rel": 28,
+          "name": "PERF SETTINGS SCRIPT",
+          "null": true
+        },
+        {
+          "rel": 32,
+          "name": "VOLT MAPPING",
+          "raw": 447109,
+          "domain": "spec_adjusted",
+          "offset": 577157
+        },
+        {
+          "rel": 36,
+          "name": "VENTURA",
+          "null": true
+        },
+        {
+          "rel": 40,
+          "name": "POWER SENSE",
+          "raw": 455823,
+          "domain": "spec_adjusted",
+          "offset": 585871
+        },
+        {
+          "rel": 44,
+          "name": "POWER BUDGET",
+          "raw": 458568,
+          "domain": "spec_adjusted",
+          "offset": 588616
+        },
+        {
+          "rel": 48,
+          "name": "BOOST",
+          "null": true
+        },
+        {
+          "rel": 52,
+          "name": "CSTEP",
+          "null": true
+        },
+        {
+          "rel": 56,
+          "name": "POWER BASE CLOCK",
+          "raw": 433694,
+          "domain": "unresolved",
+          "offset": null
+        },
+        {
+          "rel": 60,
+          "name": "POWER TOPOLOGY",
+          "raw": 456258,
+          "domain": "spec_adjusted",
+          "offset": 586306
+        },
+        {
+          "rel": 64,
+          "name": "POWER LEAKAGE",
+          "raw": 460411,
+          "domain": "spec_adjusted",
+          "offset": 590459
+        },
+        {
+          "rel": 68,
+          "name": "PERF TEST SPEC",
+          "raw": 434412,
+          "domain": "spec_adjusted",
+          "offset": 564460
+        },
+        {
+          "rel": 72,
+          "name": "THERMAL CHANNEL",
+          "raw": 461158,
+          "domain": "spec_adjusted",
+          "offset": 591206
+        },
+        {
+          "rel": 76,
+          "name": "THERMAL ADJUSTMENT",
+          "raw": 461327,
+          "domain": "spec_adjusted",
+          "offset": 591375
+        },
+        {
+          "rel": 80,
+          "name": "THERMAL POLICY",
+          "raw": 460735,
+          "domain": "spec_adjusted",
+          "offset": 590783
+        },
+        {
+          "rel": 84,
+          "name": "PSTATE MEMORY CLK FREQ",
+          "null": true
+        },
+        {
+          "rel": 88,
+          "name": "FAN COOLERS",
+          "raw": 461357,
+          "domain": "spec_adjusted",
+          "offset": 591405
+        },
+        {
+          "rel": 92,
+          "name": "POWER FAN_MGMT",
+          "raw": 461415,
+          "domain": "spec_adjusted",
+          "offset": 591463
+        },
+        {
+          "rel": 96,
+          "name": "DI/DT",
+          "null": true
+        },
+        {
+          "rel": 100,
+          "name": "FAN TEST",
+          "raw": 461827,
+          "domain": "spec_adjusted",
+          "offset": 591875
+        },
+        {
+          "rel": 104,
+          "name": "VOLTAGE RAIL",
+          "raw": 17201,
+          "domain": "image_rel",
+          "offset": 54577
+        },
+        {
+          "rel": 108,
+          "name": "VOLTAGE DEVICE",
+          "raw": 17069,
+          "domain": "image_rel",
+          "offset": 54445
+        },
+        {
+          "rel": 112,
+          "name": "VOLTAGE POLICY",
+          "raw": 17223,
+          "domain": "image_rel",
+          "offset": 54599
+        },
+        {
+          "rel": 116,
+          "name": "LOW POWER",
+          "raw": 446418,
+          "domain": "spec_adjusted",
+          "offset": 576466
+        },
+        {
+          "rel": 120,
+          "name": "LOW POWER PCIe",
+          "raw": 446469,
+          "domain": "spec_adjusted",
+          "offset": 576517
+        },
+        {
+          "rel": 124,
+          "name": "LOW POWER PCIe-PLATFORM",
+          "raw": 446534,
+          "domain": "spec_adjusted",
+          "offset": 576582
+        },
+        {
+          "rel": 128,
+          "name": "LOW POWER GR",
+          "raw": 446603,
+          "domain": "spec_adjusted",
+          "offset": 576651
+        },
+        {
+          "rel": 132,
+          "name": "LOW POWER MS",
+          "raw": 446638,
+          "domain": "spec_adjusted",
+          "offset": 576686
+        },
+        {
+          "rel": 136,
+          "name": "LOW POWER DI",
+          "raw": 446720,
+          "domain": "spec_adjusted",
+          "offset": 576768
+        },
+        {
+          "rel": 140,
+          "name": "LOW POWER GC6",
+          "raw": 446759,
+          "domain": "spec_adjusted",
+          "offset": 576807
+        },
+        {
+          "rel": 144,
+          "name": "LOW POWER PSI",
+          "raw": 446870,
+          "domain": "spec_adjusted",
+          "offset": 576918
+        },
+        {
+          "rel": 148,
+          "name": "THERM MONITOR",
+          "raw": 461341,
+          "domain": "unresolved",
+          "offset": null
+        },
+        {
+          "rel": 152,
+          "name": "OVERCLOCKING",
+          "raw": 467945,
+          "domain": "spec_adjusted",
+          "offset": 597993
+        },
+        {
+          "rel": 156,
+          "name": "unk-9c",
+          "raw": 446887,
+          "domain": "spec_adjusted",
+          "offset": 576935
+        },
+        {
+          "rel": 160,
+          "name": "unk-a0",
+          "raw": 465679,
+          "domain": "spec_adjusted",
+          "offset": 595727
+        },
+        {
+          "rel": 164,
+          "name": "unk-a4",
+          "raw": 466101,
+          "domain": "spec_adjusted",
+          "offset": 596149
+        },
+        {
+          "rel": 168,
+          "name": "unk-a8",
+          "raw": 466218,
+          "domain": "spec_adjusted",
+          "offset": 596266
+        },
+        {
+          "rel": 172,
+          "name": "unk-ac",
+          "raw": 466608,
+          "domain": "spec_adjusted",
+          "offset": 596656
+        },
+        {
+          "rel": 176,
+          "name": "unk-b0",
+          "raw": 467023,
+          "domain": "spec_adjusted",
+          "offset": 597071
+        },
+        {
+          "rel": 180,
+          "name": "unk-b4",
+          "raw": 467083,
+          "domain": "spec_adjusted",
+          "offset": 597131
+        },
+        {
+          "rel": 184,
+          "name": "unk-b8",
+          "raw": 466693,
+          "domain": "spec_adjusted",
+          "offset": 596741
+        },
+        {
+          "rel": 188,
+          "name": "unk-bc",
+          "raw": 447013,
+          "domain": "spec_adjusted",
+          "offset": 577061
+        },
+        {
+          "rel": 192,
+          "name": "unk-c0",
+          "raw": 446842,
+          "domain": "spec_adjusted",
+          "offset": 576890
+        },
+        {
+          "rel": 196,
+          "name": "unk-c4",
+          "null": true
+        },
+        {
+          "rel": 200,
+          "name": "unk-c8",
+          "null": true
+        },
+        {
+          "rel": 204,
+          "name": "unk-cc",
+          "null": true
+        },
+        {
+          "rel": 208,
+          "name": "unk-d0",
+          "raw": 467774,
+          "domain": "spec_adjusted",
+          "offset": 597822
+        },
+        {
+          "rel": 212,
+          "name": "unk-d4",
+          "raw": 447062,
+          "domain": "unresolved",
+          "offset": null
+        },
+        {
+          "rel": 216,
+          "name": "unk-d8",
+          "raw": 447076,
+          "domain": "unresolved",
+          "offset": null
+        },
+        {
+          "rel": 220,
+          "name": "unk-dc",
+          "raw": 461841,
+          "domain": "spec_adjusted",
+          "offset": 591889
+        },
+        {
+          "rel": 224,
+          "name": "unk-e0",
+          "raw": 461871,
+          "domain": "spec_adjusted",
+          "offset": 591919
+        },
+        {
+          "rel": 228,
+          "name": "unk-e4",
+          "raw": 460945,
+          "domain": "spec_adjusted",
+          "offset": 590993
+        }
+      ],
+      "power_budget": {
+        "version": "0x30",
+        "hlen": 44,
+        "rlen": 71,
+        "count": 20,
+        "cap_entry": 2,
+        "entries": [
+          {
+            "index": 0,
+            "offset": 588660,
+            "min": 20000,
+            "avg": 5001000,
+            "peak": 5001000,
+            "unkn12": 770
+          },
+          {
+            "index": 1,
+            "offset": 588731,
+            "min": 1,
+            "avg": 1001000,
+            "peak": 1001000,
+            "unkn12": 0
+          },
+          {
+            "index": 2,
+            "offset": 588802,
+            "min": 100000,
+            "avg": 240000,
+            "peak": 250000,
+            "unkn12": 0
+          },
+          {
+            "index": 3,
+            "offset": 588873,
+            "min": 1,
+            "avg": 5001000,
+            "peak": 5001000,
+            "unkn12": 0
+          },
+          {
+            "index": 4,
+            "offset": 588944,
+            "min": 1,
+            "avg": 5001000,
+            "peak": 5001000,
+            "unkn12": 0
+          },
+          {
+            "index": 5,
+            "offset": 589015,
+            "min": 1000,
+            "avg": 66000,
+            "peak": 78000,
+            "unkn12": 0
+          },
+          {
+            "index": 6,
+            "offset": 589086,
+            "min": 1000,
+            "avg": 150000,
+            "peak": 175000,
+            "unkn12": 0
+          },
+          {
+            "index": 7,
+            "offset": 589157,
+            "min": 1000,
+            "avg": 150000,
+            "peak": 175000,
+            "unkn12": 0
+          },
+          {
+            "index": 8,
+            "offset": 589228,
+            "min": 1000,
+            "avg": 11350,
+            "peak": 12390,
+            "unkn12": 0
+          },
+          {
+            "index": 9,
+            "offset": 589299,
+            "min": 1000,
+            "avg": 22750,
+            "peak": 24820,
+            "unkn12": 0
+          },
+          {
+            "index": 10,
+            "offset": 589370,
+            "min": 1000,
+            "avg": 28000,
+            "peak": 30800,
+            "unkn12": 0
+          },
+          {
+            "index": 11,
+            "offset": 589441,
+            "min": 0,
+            "avg": 0,
+            "peak": 0,
+            "unkn12": 0
+          },
+          {
+            "index": 12,
+            "offset": 589512,
+            "min": 1000,
+            "avg": 5001000,
+            "peak": 5001000,
+            "unkn12": 3083
+          },
+          {
+            "index": 13,
+            "offset": 589583,
+            "min": 1,
+            "avg": 226800,
+            "peak": 252000,
+            "unkn12": 0
+          },
+          {
+            "index": 14,
+            "offset": 589654,
+            "min": 1,
+            "avg": 5001000,
+            "peak": 5001000,
+            "unkn12": 770
+          },
+          {
+            "index": 15,
+            "offset": 589725,
+            "min": 1,
+            "avg": 5001000,
+            "peak": 5001000,
+            "unkn12": 770
+          },
+          {
+            "index": 16,
+            "offset": 589796,
+            "min": 10000,
+            "avg": 85000,
+            "peak": 92800,
+            "unkn12": 3277
+          },
+          {
+            "index": 17,
+            "offset": 589867,
+            "min": 1,
+            "avg": 66000,
+            "peak": 72000,
+            "unkn12": 0
+          },
+          {
+            "index": 18,
+            "offset": 589938,
+            "min": 1,
+            "avg": 5001000,
+            "peak": 5001000,
+            "unkn12": 0
+          },
+          {
+            "index": 19,
+            "offset": 590009,
+            "min": 0,
+            "avg": 0,
+            "peak": 0,
+            "unkn12": 0
+          }
+        ],
+        "cap_entry_values": {
+          "min": 100000,
+          "avg": 240000,
+          "peak": 250000
+        }
+      },
+      "geometries": {
+        "PERFORMANCE": {
+          "version": "0x60",
+          "hlen": 10,
+          "rlen": 5,
+          "count": 7
+        },
+        "POWER SENSE": {
+          "version": "0x20",
+          "hlen": 8,
+          "rlen": 61,
+          "count": 7
+        },
+        "FAN COOLERS": {
+          "version": "0x10",
+          "hlen": 6,
+          "rlen": 26,
+          "count": 2
+        },
+        "POWER FAN_MGMT": {
+          "version": "0x20",
+          "hlen": 4,
+          "rlen": 51,
+          "count": 8
+        },
+        "OVERCLOCKING": {
+          "version": "0x10",
+          "hlen": 7,
+          "rlen": 5,
+          "count": 2
+        }
+      }
+    },
+    {
+      "file": "MSI.RTX3070.8192.210519_2.rom",
+      "size": 999424,
+      "sha256_16": "4de4e5f13448fbb9",
+      "p_token": {
+        "version": 2,
+        "table_length": 232,
+        "table_offset_rel": 736,
+        "table_offset_abs": 38112
+      },
+      "pointer_count": 58,
+      "named_count": 39,
+      "pointers": [
+        {
+          "rel": 0,
+          "name": "PERFORMANCE",
+          "raw": 433229,
+          "domain": "spec_adjusted",
+          "offset": 563277
+        },
+        {
+          "rel": 4,
+          "name": "MEMORY TIMINGS MAPPING",
+          "raw": 434426,
+          "domain": "spec_adjusted",
+          "offset": 564474
+        },
+        {
+          "rel": 8,
+          "name": "MEMORY TIMINGS",
+          "raw": 441472,
+          "domain": "spec_adjusted",
+          "offset": 571520
+        },
+        {
+          "rel": 12,
+          "name": "VOLTAGE",
+          "null": true
+        },
+        {
+          "rel": 16,
+          "name": "THERMAL",
+          "null": true
+        },
+        {
+          "rel": 20,
+          "name": "THERMAL DEVICES",
+          "raw": 460956,
+          "domain": "spec_adjusted",
+          "offset": 591004
+        },
+        {
+          "rel": 24,
+          "name": "THERMAL COOLERS",
+          "null": true
+        },
+        {
+          "rel": 28,
+          "name": "PERF SETTINGS SCRIPT",
+          "null": true
+        },
+        {
+          "rel": 32,
+          "name": "VOLT MAPPING",
+          "raw": 447109,
+          "domain": "spec_adjusted",
+          "offset": 577157
+        },
+        {
+          "rel": 36,
+          "name": "VENTURA",
+          "null": true
+        },
+        {
+          "rel": 40,
+          "name": "POWER SENSE",
+          "raw": 455823,
+          "domain": "spec_adjusted",
+          "offset": 585871
+        },
+        {
+          "rel": 44,
+          "name": "POWER BUDGET",
+          "raw": 458568,
+          "domain": "spec_adjusted",
+          "offset": 588616
+        },
+        {
+          "rel": 48,
+          "name": "BOOST",
+          "null": true
+        },
+        {
+          "rel": 52,
+          "name": "CSTEP",
+          "null": true
+        },
+        {
+          "rel": 56,
+          "name": "POWER BASE CLOCK",
+          "raw": 433694,
+          "domain": "unresolved",
+          "offset": null
+        },
+        {
+          "rel": 60,
+          "name": "POWER TOPOLOGY",
+          "raw": 456258,
+          "domain": "spec_adjusted",
+          "offset": 586306
+        },
+        {
+          "rel": 64,
+          "name": "POWER LEAKAGE",
+          "raw": 460411,
+          "domain": "spec_adjusted",
+          "offset": 590459
+        },
+        {
+          "rel": 68,
+          "name": "PERF TEST SPEC",
+          "raw": 434412,
+          "domain": "unresolved",
+          "offset": null
+        },
+        {
+          "rel": 72,
+          "name": "THERMAL CHANNEL",
+          "raw": 461158,
+          "domain": "spec_adjusted",
+          "offset": 591206
+        },
+        {
+          "rel": 76,
+          "name": "THERMAL ADJUSTMENT",
+          "raw": 461327,
+          "domain": "spec_adjusted",
+          "offset": 591375
+        },
+        {
+          "rel": 80,
+          "name": "THERMAL POLICY",
+          "raw": 460735,
+          "domain": "spec_adjusted",
+          "offset": 590783
+        },
+        {
+          "rel": 84,
+          "name": "PSTATE MEMORY CLK FREQ",
+          "null": true
+        },
+        {
+          "rel": 88,
+          "name": "FAN COOLERS",
+          "raw": 461357,
+          "domain": "spec_adjusted",
+          "offset": 591405
+        },
+        {
+          "rel": 92,
+          "name": "POWER FAN_MGMT",
+          "raw": 461415,
+          "domain": "spec_adjusted",
+          "offset": 591463
+        },
+        {
+          "rel": 96,
+          "name": "DI/DT",
+          "null": true
+        },
+        {
+          "rel": 100,
+          "name": "FAN TEST",
+          "raw": 461827,
+          "domain": "spec_adjusted",
+          "offset": 591875
+        },
+        {
+          "rel": 104,
+          "name": "VOLTAGE RAIL",
+          "raw": 17201,
+          "domain": "image_rel",
+          "offset": 54577
+        },
+        {
+          "rel": 108,
+          "name": "VOLTAGE DEVICE",
+          "raw": 17069,
+          "domain": "image_rel",
+          "offset": 54445
+        },
+        {
+          "rel": 112,
+          "name": "VOLTAGE POLICY",
+          "raw": 17223,
+          "domain": "image_rel",
+          "offset": 54599
+        },
+        {
+          "rel": 116,
+          "name": "LOW POWER",
+          "raw": 446418,
+          "domain": "spec_adjusted",
+          "offset": 576466
+        },
+        {
+          "rel": 120,
+          "name": "LOW POWER PCIe",
+          "raw": 446469,
+          "domain": "spec_adjusted",
+          "offset": 576517
+        },
+        {
+          "rel": 124,
+          "name": "LOW POWER PCIe-PLATFORM",
+          "raw": 446534,
+          "domain": "spec_adjusted",
+          "offset": 576582
+        },
+        {
+          "rel": 128,
+          "name": "LOW POWER GR",
+          "raw": 446603,
+          "domain": "spec_adjusted",
+          "offset": 576651
+        },
+        {
+          "rel": 132,
+          "name": "LOW POWER MS",
+          "raw": 446638,
+          "domain": "spec_adjusted",
+          "offset": 576686
+        },
+        {
+          "rel": 136,
+          "name": "LOW POWER DI",
+          "raw": 446720,
+          "domain": "spec_adjusted",
+          "offset": 576768
+        },
+        {
+          "rel": 140,
+          "name": "LOW POWER GC6",
+          "raw": 446759,
+          "domain": "spec_adjusted",
+          "offset": 576807
+        },
+        {
+          "rel": 144,
+          "name": "LOW POWER PSI",
+          "raw": 446870,
+          "domain": "spec_adjusted",
+          "offset": 576918
+        },
+        {
+          "rel": 148,
+          "name": "THERM MONITOR",
+          "raw": 461341,
+          "domain": "unresolved",
+          "offset": null
+        },
+        {
+          "rel": 152,
+          "name": "OVERCLOCKING",
+          "raw": 467945,
+          "domain": "spec_adjusted",
+          "offset": 597993
+        },
+        {
+          "rel": 156,
+          "name": "unk-9c",
+          "raw": 446887,
+          "domain": "spec_adjusted",
+          "offset": 576935
+        },
+        {
+          "rel": 160,
+          "name": "unk-a0",
+          "raw": 465679,
+          "domain": "spec_adjusted",
+          "offset": 595727
+        },
+        {
+          "rel": 164,
+          "name": "unk-a4",
+          "raw": 466101,
+          "domain": "spec_adjusted",
+          "offset": 596149
+        },
+        {
+          "rel": 168,
+          "name": "unk-a8",
+          "raw": 466218,
+          "domain": "spec_adjusted",
+          "offset": 596266
+        },
+        {
+          "rel": 172,
+          "name": "unk-ac",
+          "raw": 466608,
+          "domain": "spec_adjusted",
+          "offset": 596656
+        },
+        {
+          "rel": 176,
+          "name": "unk-b0",
+          "raw": 467023,
+          "domain": "spec_adjusted",
+          "offset": 597071
+        },
+        {
+          "rel": 180,
+          "name": "unk-b4",
+          "raw": 467083,
+          "domain": "spec_adjusted",
+          "offset": 597131
+        },
+        {
+          "rel": 184,
+          "name": "unk-b8",
+          "raw": 466693,
+          "domain": "spec_adjusted",
+          "offset": 596741
+        },
+        {
+          "rel": 188,
+          "name": "unk-bc",
+          "raw": 447013,
+          "domain": "spec_adjusted",
+          "offset": 577061
+        },
+        {
+          "rel": 192,
+          "name": "unk-c0",
+          "raw": 446842,
+          "domain": "spec_adjusted",
+          "offset": 576890
+        },
+        {
+          "rel": 196,
+          "name": "unk-c4",
+          "null": true
+        },
+        {
+          "rel": 200,
+          "name": "unk-c8",
+          "null": true
+        },
+        {
+          "rel": 204,
+          "name": "unk-cc",
+          "null": true
+        },
+        {
+          "rel": 208,
+          "name": "unk-d0",
+          "raw": 467774,
+          "domain": "spec_adjusted",
+          "offset": 597822
+        },
+        {
+          "rel": 212,
+          "name": "unk-d4",
+          "raw": 447062,
+          "domain": "unresolved",
+          "offset": null
+        },
+        {
+          "rel": 216,
+          "name": "unk-d8",
+          "raw": 447076,
+          "domain": "unresolved",
+          "offset": null
+        },
+        {
+          "rel": 220,
+          "name": "unk-dc",
+          "raw": 461841,
+          "domain": "spec_adjusted",
+          "offset": 591889
+        },
+        {
+          "rel": 224,
+          "name": "unk-e0",
+          "raw": 461871,
+          "domain": "spec_adjusted",
+          "offset": 591919
+        },
+        {
+          "rel": 228,
+          "name": "unk-e4",
+          "raw": 460945,
+          "domain": "spec_adjusted",
+          "offset": 590993
+        }
+      ],
+      "power_budget": {
+        "version": "0x30",
+        "hlen": 44,
+        "rlen": 71,
+        "count": 20,
+        "cap_entry": 2,
+        "entries": [
+          {
+            "index": 0,
+            "offset": 588660,
+            "min": 20000,
+            "avg": 5001000,
+            "peak": 5001000,
+            "unkn12": 770
+          },
+          {
+            "index": 1,
+            "offset": 588731,
+            "min": 1,
+            "avg": 1001000,
+            "peak": 1001000,
+            "unkn12": 0
+          },
+          {
+            "index": 2,
+            "offset": 588802,
+            "min": 100000,
+            "avg": 220000,
+            "peak": 220000,
+            "unkn12": 0
+          },
+          {
+            "index": 3,
+            "offset": 588873,
+            "min": 1,
+            "avg": 5001000,
+            "peak": 5001000,
+            "unkn12": 0
+          },
+          {
+            "index": 4,
+            "offset": 588944,
+            "min": 1,
+            "avg": 5001000,
+            "peak": 5001000,
+            "unkn12": 0
+          },
+          {
+            "index": 5,
+            "offset": 589015,
+            "min": 1000,
+            "avg": 66000,
+            "peak": 78000,
+            "unkn12": 0
+          },
+          {
+            "index": 6,
+            "offset": 589086,
+            "min": 1000,
+            "avg": 150000,
+            "peak": 175000,
+            "unkn12": 0
+          },
+          {
+            "index": 7,
+            "offset": 589157,
+            "min": 1000,
+            "avg": 150000,
+            "peak": 175000,
+            "unkn12": 0
+          },
+          {
+            "index": 8,
+            "offset": 589228,
+            "min": 1000,
+            "avg": 11350,
+            "peak": 12390,
+            "unkn12": 0
+          },
+          {
+            "index": 9,
+            "offset": 589299,
+            "min": 1000,
+            "avg": 22750,
+            "peak": 24820,
+            "unkn12": 0
+          },
+          {
+            "index": 10,
+            "offset": 589370,
+            "min": 1000,
+            "avg": 28000,
+            "peak": 30800,
+            "unkn12": 0
+          },
+          {
+            "index": 11,
+            "offset": 589441,
+            "min": 0,
+            "avg": 0,
+            "peak": 0,
+            "unkn12": 0
+          },
+          {
+            "index": 12,
+            "offset": 589512,
+            "min": 1000,
+            "avg": 5001000,
+            "peak": 5001000,
+            "unkn12": 3083
+          },
+          {
+            "index": 13,
+            "offset": 589583,
+            "min": 1,
+            "avg": 226800,
+            "peak": 252000,
+            "unkn12": 0
+          },
+          {
+            "index": 14,
+            "offset": 589654,
+            "min": 1,
+            "avg": 5001000,
+            "peak": 5001000,
+            "unkn12": 770
+          },
+          {
+            "index": 15,
+            "offset": 589725,
+            "min": 1,
+            "avg": 5001000,
+            "peak": 5001000,
+            "unkn12": 770
+          },
+          {
+            "index": 16,
+            "offset": 589796,
+            "min": 10000,
+            "avg": 85000,
+            "peak": 92800,
+            "unkn12": 3277
+          },
+          {
+            "index": 17,
+            "offset": 589867,
+            "min": 1,
+            "avg": 66000,
+            "peak": 72000,
+            "unkn12": 0
+          },
+          {
+            "index": 18,
+            "offset": 589938,
+            "min": 1,
+            "avg": 5001000,
+            "peak": 5001000,
+            "unkn12": 0
+          },
+          {
+            "index": 19,
+            "offset": 590009,
+            "min": 0,
+            "avg": 0,
+            "peak": 0,
+            "unkn12": 0
+          }
+        ],
+        "cap_entry_values": {
+          "min": 100000,
+          "avg": 220000,
+          "peak": 220000
+        }
+      },
+      "geometries": {
+        "PERFORMANCE": {
+          "version": "0x60",
+          "hlen": 10,
+          "rlen": 5,
+          "count": 7
+        },
+        "POWER SENSE": {
+          "version": "0x20",
+          "hlen": 8,
+          "rlen": 61,
+          "count": 7
+        },
+        "FAN COOLERS": {
+          "version": "0x10",
+          "hlen": 6,
+          "rlen": 26,
+          "count": 2
+        },
+        "POWER FAN_MGMT": {
+          "version": "0x20",
+          "hlen": 4,
+          "rlen": 51,
+          "count": 8
+        },
+        "OVERCLOCKING": {
+          "version": "0x10",
+          "hlen": 7,
+          "rlen": 5,
+          "count": 2
+        }
+      }
+    },
+    {
+      "file": "MSI.RTX3070.8192.200923.rom",
+      "size": 999424,
+      "sha256_16": "eee06a47a9de56f9",
+      "p_token": {
+        "version": 2,
+        "table_length": 232,
+        "table_offset_rel": 736,
+        "table_offset_abs": 38112
+      },
+      "pointer_count": 58,
+      "named_count": 39,
+      "pointers": [
+        {
+          "rel": 0,
+          "name": "PERFORMANCE",
+          "raw": 419029,
+          "domain": "spec_adjusted",
+          "offset": 548053
+        },
+        {
+          "rel": 4,
+          "name": "MEMORY TIMINGS MAPPING",
+          "raw": 420224,
+          "domain": "spec_adjusted",
+          "offset": 549248
+        },
+        {
+          "rel": 8,
+          "name": "MEMORY TIMINGS",
+          "raw": 427270,
+          "domain": "spec_adjusted",
+          "offset": 556294
+        },
+        {
+          "rel": 12,
+          "name": "VOLTAGE",
+          "null": true
+        },
+        {
+          "rel": 16,
+          "name": "THERMAL",
+          "null": true
+        },
+        {
+          "rel": 20,
+          "name": "THERMAL DEVICES",
+          "raw": 446066,
+          "domain": "spec_adjusted",
+          "offset": 575090
+        },
+        {
+          "rel": 24,
+          "name": "THERMAL COOLERS",
+          "null": true
+        },
+        {
+          "rel": 28,
+          "name": "PERF SETTINGS SCRIPT",
+          "null": true
+        },
+        {
+          "rel": 32,
+          "name": "VOLT MAPPING",
+          "raw": 432907,
+          "domain": "spec_adjusted",
+          "offset": 561931
+        },
+        {
+          "rel": 36,
+          "name": "VENTURA",
+          "null": true
+        },
+        {
+          "rel": 40,
+          "name": "POWER SENSE",
+          "raw": 441621,
+          "domain": "spec_adjusted",
+          "offset": 570645
+        },
+        {
+          "rel": 44,
+          "name": "POWER BUDGET",
+          "raw": 443758,
+          "domain": "spec_adjusted",
+          "offset": 572782
+        },
+        {
+          "rel": 48,
+          "name": "BOOST",
+          "null": true
+        },
+        {
+          "rel": 52,
+          "name": "CSTEP",
+          "null": true
+        },
+        {
+          "rel": 56,
+          "name": "POWER BASE CLOCK",
+          "raw": 419494,
+          "domain": "unresolved",
+          "offset": null
+        },
+        {
+          "rel": 60,
+          "name": "POWER TOPOLOGY",
+          "raw": 442056,
+          "domain": "spec_adjusted",
+          "offset": 571080
+        },
+        {
+          "rel": 64,
+          "name": "POWER LEAKAGE",
+          "raw": 445521,
+          "domain": "spec_adjusted",
+          "offset": 574545
+        },
+        {
+          "rel": 68,
+          "name": "PERF TEST SPEC",
+          "raw": 420210,
+          "domain": "unresolved",
+          "offset": null
+        },
+        {
+          "rel": 72,
+          "name": "THERMAL CHANNEL",
+          "raw": 446268,
+          "domain": "spec_adjusted",
+          "offset": 575292
+        },
+        {
+          "rel": 76,
+          "name": "THERMAL ADJUSTMENT",
+          "raw": 446437,
+          "domain": "spec_adjusted",
+          "offset": 575461
+        },
+        {
+          "rel": 80,
+          "name": "THERMAL POLICY",
+          "raw": 445845,
+          "domain": "spec_adjusted",
+          "offset": 574869
+        },
+        {
+          "rel": 84,
+          "name": "PSTATE MEMORY CLK FREQ",
+          "null": true
+        },
+        {
+          "rel": 88,
+          "name": "FAN COOLERS",
+          "raw": 446467,
+          "domain": "spec_adjusted",
+          "offset": 575491
+        },
+        {
+          "rel": 92,
+          "name": "POWER FAN_MGMT",
+          "raw": 446525,
+          "domain": "spec_adjusted",
+          "offset": 575549
+        },
+        {
+          "rel": 96,
+          "name": "DI/DT",
+          "null": true
+        },
+        {
+          "rel": 100,
+          "name": "FAN TEST",
+          "raw": 446937,
+          "domain": "spec_adjusted",
+          "offset": 575961
+        },
+        {
+          "rel": 104,
+          "name": "VOLTAGE RAIL",
+          "raw": 17121,
+          "domain": "image_rel",
+          "offset": 54497
+        },
+        {
+          "rel": 108,
+          "name": "VOLTAGE DEVICE",
+          "raw": 16989,
+          "domain": "image_rel",
+          "offset": 54365
+        },
+        {
+          "rel": 112,
+          "name": "VOLTAGE POLICY",
+          "raw": 17143,
+          "domain": "image_rel",
+          "offset": 54519
+        },
+        {
+          "rel": 116,
+          "name": "LOW POWER",
+          "raw": 432216,
+          "domain": "spec_adjusted",
+          "offset": 561240
+        },
+        {
+          "rel": 120,
+          "name": "LOW POWER PCIe",
+          "raw": 432267,
+          "domain": "spec_adjusted",
+          "offset": 561291
+        },
+        {
+          "rel": 124,
+          "name": "LOW POWER PCIe-PLATFORM",
+          "raw": 432332,
+          "domain": "spec_adjusted",
+          "offset": 561356
+        },
+        {
+          "rel": 128,
+          "name": "LOW POWER GR",
+          "raw": 432401,
+          "domain": "spec_adjusted",
+          "offset": 561425
+        },
+        {
+          "rel": 132,
+          "name": "LOW POWER MS",
+          "raw": 432436,
+          "domain": "spec_adjusted",
+          "offset": 561460
+        },
+        {
+          "rel": 136,
+          "name": "LOW POWER DI",
+          "raw": 432518,
+          "domain": "spec_adjusted",
+          "offset": 561542
+        },
+        {
+          "rel": 140,
+          "name": "LOW POWER GC6",
+          "raw": 432557,
+          "domain": "spec_adjusted",
+          "offset": 561581
+        },
+        {
+          "rel": 144,
+          "name": "LOW POWER PSI",
+          "raw": 432668,
+          "domain": "spec_adjusted",
+          "offset": 561692
+        },
+        {
+          "rel": 148,
+          "name": "THERM MONITOR",
+          "raw": 446451,
+          "domain": "unresolved",
+          "offset": null
+        },
+        {
+          "rel": 152,
+          "name": "OVERCLOCKING",
+          "raw": 452862,
+          "domain": "spec_adjusted",
+          "offset": 581886
+        },
+        {
+          "rel": 156,
+          "name": "unk-9c",
+          "raw": 432685,
+          "domain": "spec_adjusted",
+          "offset": 561709
+        },
+        {
+          "rel": 160,
+          "name": "unk-a0",
+          "raw": 450788,
+          "domain": "spec_adjusted",
+          "offset": 579812
+        },
+        {
+          "rel": 164,
+          "name": "unk-a4",
+          "raw": 451210,
+          "domain": "spec_adjusted",
+          "offset": 580234
+        },
+        {
+          "rel": 168,
+          "name": "unk-a8",
+          "raw": 451327,
+          "domain": "spec_adjusted",
+          "offset": 580351
+        },
+        {
+          "rel": 172,
+          "name": "unk-ac",
+          "raw": 451525,
+          "domain": "spec_adjusted",
+          "offset": 580549
+        },
+        {
+          "rel": 176,
+          "name": "unk-b0",
+          "raw": 451940,
+          "domain": "spec_adjusted",
+          "offset": 580964
+        },
+        {
+          "rel": 180,
+          "name": "unk-b4",
+          "raw": 452000,
+          "domain": "spec_adjusted",
+          "offset": 581024
+        },
+        {
+          "rel": 184,
+          "name": "unk-b8",
+          "raw": 451610,
+          "domain": "spec_adjusted",
+          "offset": 580634
+        },
+        {
+          "rel": 188,
+          "name": "unk-bc",
+          "raw": 432811,
+          "domain": "spec_adjusted",
+          "offset": 561835
+        },
+        {
+          "rel": 192,
+          "name": "unk-c0",
+          "raw": 432640,
+          "domain": "spec_adjusted",
+          "offset": 561664
+        },
+        {
+          "rel": 196,
+          "name": "unk-c4",
+          "null": true
+        },
+        {
+          "rel": 200,
+          "name": "unk-c8",
+          "null": true
+        },
+        {
+          "rel": 204,
+          "name": "unk-cc",
+          "null": true
+        },
+        {
+          "rel": 208,
+          "name": "unk-d0",
+          "raw": 452691,
+          "domain": "spec_adjusted",
+          "offset": 581715
+        },
+        {
+          "rel": 212,
+          "name": "unk-d4",
+          "raw": 432860,
+          "domain": "unresolved",
+          "offset": null
+        },
+        {
+          "rel": 216,
+          "name": "unk-d8",
+          "raw": 432874,
+          "domain": "unresolved",
+          "offset": null
+        },
+        {
+          "rel": 220,
+          "name": "unk-dc",
+          "raw": 446951,
+          "domain": "spec_adjusted",
+          "offset": 575975
+        },
+        {
+          "rel": 224,
+          "name": "unk-e0",
+          "raw": 446981,
+          "domain": "spec_adjusted",
+          "offset": 576005
+        },
+        {
+          "rel": 228,
+          "name": "unk-e4",
+          "raw": 446055,
+          "domain": "spec_adjusted",
+          "offset": 575079
+        }
+      ],
+      "power_budget": {
+        "version": "0x30",
+        "hlen": 44,
+        "rlen": 67,
+        "count": 20,
+        "cap_entry": 2,
+        "entries": [
+          {
+            "index": 0,
+            "offset": 572826,
+            "min": 20000,
+            "avg": 5001000,
+            "peak": 5001000,
+            "unkn12": 770
+          },
+          {
+            "index": 1,
+            "offset": 572893,
+            "min": 1,
+            "avg": 1001000,
+            "peak": 1001000,
+            "unkn12": 0
+          },
+          {
+            "index": 2,
+            "offset": 572960,
+            "min": 100000,
+            "avg": 240000,
+            "peak": 250000,
+            "unkn12": 0
+          },
+          {
+            "index": 3,
+            "offset": 573027,
+            "min": 1,
+            "avg": 5001000,
+            "peak": 5001000,
+            "unkn12": 0
+          },
+          {
+            "index": 4,
+            "offset": 573094,
+            "min": 1,
+            "avg": 5001000,
+            "peak": 5001000,
+            "unkn12": 0
+          },
+          {
+            "index": 5,
+            "offset": 573161,
+            "min": 1000,
+            "avg": 66000,
+            "peak": 78000,
+            "unkn12": 0
+          },
+          {
+            "index": 6,
+            "offset": 573228,
+            "min": 1000,
+            "avg": 150000,
+            "peak": 175000,
+            "unkn12": 0
+          },
+          {
+            "index": 7,
+            "offset": 573295,
+            "min": 1000,
+            "avg": 150000,
+            "peak": 175000,
+            "unkn12": 0
+          },
+          {
+            "index": 8,
+            "offset": 573362,
+            "min": 1000,
+            "avg": 11350,
+            "peak": 12390,
+            "unkn12": 0
+          },
+          {
+            "index": 9,
+            "offset": 573429,
+            "min": 1000,
+            "avg": 22750,
+            "peak": 24820,
+            "unkn12": 0
+          },
+          {
+            "index": 10,
+            "offset": 573496,
+            "min": 1000,
+            "avg": 28000,
+            "peak": 30800,
+            "unkn12": 0
+          },
+          {
+            "index": 11,
+            "offset": 573563,
+            "min": 0,
+            "avg": 0,
+            "peak": 0,
+            "unkn12": 0
+          },
+          {
+            "index": 12,
+            "offset": 573630,
+            "min": 1000,
+            "avg": 5001000,
+            "peak": 5001000,
+            "unkn12": 3083
+          },
+          {
+            "index": 13,
+            "offset": 573697,
+            "min": 1,
+            "avg": 226800,
+            "peak": 252000,
+            "unkn12": 0
+          },
+          {
+            "index": 14,
+            "offset": 573764,
+            "min": 1,
+            "avg": 5001000,
+            "peak": 5001000,
+            "unkn12": 770
+          },
+          {
+            "index": 15,
+            "offset": 573831,
+            "min": 1,
+            "avg": 5001000,
+            "peak": 5001000,
+            "unkn12": 770
+          },
+          {
+            "index": 16,
+            "offset": 573898,
+            "min": 10000,
+            "avg": 85000,
+            "peak": 92800,
+            "unkn12": 3277
+          },
+          {
+            "index": 17,
+            "offset": 573965,
+            "min": 1,
+            "avg": 66000,
+            "peak": 72000,
+            "unkn12": 0
+          },
+          {
+            "index": 18,
+            "offset": 574032,
+            "min": 1,
+            "avg": 5001000,
+            "peak": 5001000,
+            "unkn12": 0
+          },
+          {
+            "index": 19,
+            "offset": 574099,
+            "min": 0,
+            "avg": 0,
+            "peak": 0,
+            "unkn12": 0
+          }
+        ],
+        "cap_entry_values": {
+          "min": 100000,
+          "avg": 240000,
+          "peak": 250000
+        }
+      },
+      "geometries": {
+        "PERFORMANCE": {
+          "version": "0x60",
+          "hlen": 10,
+          "rlen": 5,
+          "count": 7
+        },
+        "POWER SENSE": {
+          "version": "0x20",
+          "hlen": 8,
+          "rlen": 61,
+          "count": 7
+        },
+        "FAN COOLERS": {
+          "version": "0x10",
+          "hlen": 6,
+          "rlen": 26,
+          "count": 2
+        },
+        "POWER FAN_MGMT": {
+          "version": "0x20",
+          "hlen": 4,
+          "rlen": 51,
+          "count": 8
+        },
+        "OVERCLOCKING": {
+          "version": "0x10",
+          "hlen": 7,
+          "rlen": 5,
+          "count": 2
+        }
+      }
+    }
+  ]
+}
