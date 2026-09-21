@@ -1,0 +1,464 @@
+{
+ "pass": "4.14 \u2014 the data-flow around the vtable installs (who allocates the O2, who binds it)",
+ "substrate": {
+  "path": "/home/z/my-project/repo-gpu/tools/gsp-extract/rm-full.elf",
+  "fingerprint": "ONE RWX LOAD vaddr=0x1000000 filesz==memsz=0xE9B000, shnum=0 \u2014 v414 re-verified"
+ },
+ "linear_sweep": {
+  "insns_streamed": 5444046,
+  "prologue_starts": 37444
+ },
+ "c2_validation": {
+  "vtable_installs": 946,
+  "functions": 780,
+  "strict_vtables_slot0_codeptr": {
+   "installs": 57,
+   "functions": 55
+  },
+  "banked_4_13": "88 installs / 85 functions",
+  "anchor_0x115d324": [
+   [
+    "0x115d324",
+    "0x1c4b56c"
+   ]
+  ],
+  "banked_anchor_value": "0x1c4b890 (the 4.13 tool) \u2014 byte-exact formation here: auipc 0xaee@0x115d31c + addi 0x56c = 0x1c4b56c"
+ },
+ "companion": {
+  "sites_found": 87,
+  "functions": 29,
+  "banked_4_13": "64 writes / ~26 giant functions",
+  "provenance_distribution": {
+   "entry-value": 51,
+   "clobbered-pattern": 19,
+   "static-formed": 1,
+   "derived-other": 7,
+   "stack-frame": 3,
+   "memory-load": 3,
+   "argument": 2,
+   "li-imm": 1
+  }
+ },
+ "alloc_and_bind": {
+  "mv_after_call_candidates": 22375
+ },
+ "mega_constructors": {
+  "0x1158c9c": {
+   "window": "0x1158c9c..0x116ec9c",
+   "companion_sites": 4,
+   "companion_detail": [
+    [
+     "0x115a986",
+     "0x588",
+     "derived-other"
+    ],
+    [
+     "0x115ad8a",
+     "0x588",
+     "derived-other"
+    ],
+    [
+     "0x115b5c8",
+     "0x588",
+     "clobbered-pattern"
+    ],
+    [
+     "0x115c7c0",
+     "0x588",
+     "derived-other"
+    ]
+   ],
+   "vtable_installs": [
+    [
+     "0x11593f2",
+     "0x1c4a6a6"
+    ],
+    [
+     "0x115d324",
+     "0x1c4b56c"
+    ],
+    [
+     "0x116b3c4",
+     "0xff000065"
+    ]
+   ],
+   "provenance": {
+    "derived-other": 3,
+    "clobbered-pattern": 1
+   }
+  },
+  "0x1325df4": {
+   "window": "0x1325df4..0x132a414",
+   "companion_sites": 0,
+   "companion_detail": [],
+   "vtable_installs": [],
+   "provenance": {}
+  }
+ },
+ "detail": {
+  "vtable_installs_first40": [
+   [
+    "0x100d404",
+    "0x41909fa"
+   ],
+   [
+    "0x100f98a",
+    "0x20249b06"
+   ],
+   [
+    "0x103240c",
+    "0x41d3b98"
+   ],
+   [
+    "0x103fd88",
+    "0x10102ff0c"
+   ],
+   [
+    "0x104b88c",
+    "0x419054a"
+   ],
+   [
+    "0x104b910",
+    "0x41904c4"
+   ],
+   [
+    "0x104cd16",
+    "0x4190130"
+   ],
+   [
+    "0x104f076",
+    "0x4190d82"
+   ],
+   [
+    "0x1051cc0",
+    "0x4190162"
+   ],
+   [
+    "0x1068950",
+    "0x41904aa"
+   ],
+   [
+    "0x108d6d8",
+    "0x80000000"
+   ],
+   [
+    "0x108d8a0",
+    "0x80000000"
+   ],
+   [
+    "0x10948ec",
+    "0x419050c"
+   ],
+   [
+    "0x10a81f8",
+    "0x80000000"
+   ],
+   [
+    "0x10b1136",
+    "0x84081081"
+   ],
+   [
+    "0x10c937a",
+    "0x4002fb4"
+   ],
+   [
+    "0x10c9486",
+    "0x400367a"
+   ],
+   [
+    "0x10c9498",
+    "0x4003768"
+   ],
+   [
+    "0x10c9512",
+    "0x4003a3c"
+   ],
+   [
+    "0x10c961e",
+    "0x4004102"
+   ],
+   [
+    "0x10c9630",
+    "0x40041f0"
+   ],
+   [
+    "0x10c96a8",
+    "0x4004278"
+   ],
+   [
+    "0x10c96be",
+    "0x4004362"
+   ],
+   [
+    "0x10ca5c2",
+    "0x400465e"
+   ],
+   [
+    "0x10ca702",
+    "0x400451e"
+   ],
+   [
+    "0x10cbc2c",
+    "0x41d3496"
+   ],
+   [
+    "0x10ce7dc",
+    "0x419061c"
+   ],
+   [
+    "0x10ec028",
+    "0x4190de4"
+   ],
+   [
+    "0x10fa112",
+    "0x41d2fda"
+   ],
+   [
+    "0x1106bd4",
+    "0x41d3570"
+   ],
+   [
+    "0x110dddc",
+    "0x41d327a"
+   ],
+   [
+    "0x110ffec",
+    "0x41d2faa"
+   ],
+   [
+    "0x111298c",
+    "0x41d360a"
+   ],
+   [
+    "0x1118144",
+    "0x41d3e54"
+   ],
+   [
+    "0x111eefc",
+    "0x41d309a"
+   ],
+   [
+    "0x111fb40",
+    "0x41d3456"
+   ],
+   [
+    "0x111fe2c",
+    "0x41d316a"
+   ],
+   [
+    "0x1120110",
+    "0x41d3e88"
+   ],
+   [
+    "0x1120400",
+    "0x41d3b98"
+   ],
+   [
+    "0x11206e0",
+    "0x41d38b6"
+   ]
+  ],
+  "companion_sites_first40": [
+   [
+    "0x10060c6",
+    "0x588",
+    "entry-value"
+   ],
+   [
+    "0x114d5b6",
+    "0x588",
+    "clobbered-pattern"
+   ],
+   [
+    "0x114dd7e",
+    "0x588",
+    "entry-value"
+   ],
+   [
+    "0x114e1da",
+    "0x588",
+    "clobbered-pattern"
+   ],
+   [
+    "0x114e9f0",
+    "0x588",
+    "entry-value"
+   ],
+   [
+    "0x115668e",
+    "0x588",
+    "clobbered-pattern"
+   ],
+   [
+    "0x1156ca8",
+    "0x588",
+    "static-formed"
+   ],
+   [
+    "0x115a986",
+    "0x588",
+    "derived-other"
+   ],
+   [
+    "0x115ad8a",
+    "0x588",
+    "derived-other"
+   ],
+   [
+    "0x115b5c8",
+    "0x588",
+    "clobbered-pattern"
+   ],
+   [
+    "0x115c7c0",
+    "0x588",
+    "derived-other"
+   ],
+   [
+    "0x119c23c",
+    "0x588",
+    "stack-frame"
+   ],
+   [
+    "0x14021c4",
+    "0x588",
+    "clobbered-pattern"
+   ],
+   [
+    "0x1406b8a",
+    "0x588",
+    "memory-load"
+   ],
+   [
+    "0x1407b98",
+    "0x588",
+    "clobbered-pattern"
+   ],
+   [
+    "0x14d4804",
+    "0x588",
+    "stack-frame"
+   ],
+   [
+    "0x14d7292",
+    "0x588",
+    "derived-other"
+   ],
+   [
+    "0x14e0060",
+    "0x588",
+    "derived-other"
+   ],
+   [
+    "0x14e18d8",
+    "0x588",
+    "derived-other"
+   ],
+   [
+    "0x160e606",
+    "0x588",
+    "clobbered-pattern"
+   ],
+   [
+    "0x17b4264",
+    "0x588",
+    "stack-frame"
+   ],
+   [
+    "0x18f4c6a",
+    "0x588",
+    "entry-value"
+   ],
+   [
+    "0x18f5220",
+    "0x588",
+    "entry-value"
+   ],
+   [
+    "0x18f54c6",
+    "0x588",
+    "entry-value"
+   ],
+   [
+    "0x18f598a",
+    "0x588",
+    "entry-value"
+   ],
+   [
+    "0x18f8dc0",
+    "0x588",
+    "entry-value"
+   ],
+   [
+    "0x18f939c",
+    "0x588",
+    "entry-value"
+   ],
+   [
+    "0x18f969a",
+    "0x588",
+    "entry-value"
+   ],
+   [
+    "0x18fa7b2",
+    "0x588",
+    "entry-value"
+   ],
+   [
+    "0x18fb2f2",
+    "0x588",
+    "entry-value"
+   ],
+   [
+    "0x18fb452",
+    "0x588",
+    "entry-value"
+   ],
+   [
+    "0x18fc70c",
+    "0x588",
+    "entry-value"
+   ],
+   [
+    "0x18fc9ea",
+    "0x588",
+    "entry-value"
+   ],
+   [
+    "0x18fca84",
+    "0x588",
+    "entry-value"
+   ],
+   [
+    "0x19168b8",
+    "0x588",
+    "clobbered-pattern"
+   ],
+   [
+    "0x1923844",
+    "0x588",
+    "clobbered-pattern"
+   ],
+   [
+    "0x192c696",
+    "0x588",
+    "derived-other"
+   ],
+   [
+    "0x192efd6",
+    "0x588",
+    "clobbered-pattern"
+   ],
+   [
+    "0x194a4fc",
+    "0x588",
+    "clobbered-pattern"
+   ],
+   [
+    "0x1966af0",
+    "0x588",
+    "clobbered-pattern"
+   ]
+  ]
+ }
+}
