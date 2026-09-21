@@ -1,0 +1,490 @@
+{
+ "pass": "4.15 \u2014 the O2 allocator hunt (cleaned call-graph pass)",
+ "pool": {
+  "raw_any_dst": 15688,
+  "strict_sreg_dst": 11852,
+  "resolved_targets": 8200,
+  "unresolved_in_strict": 3652
+ },
+ "call_graph": {
+  "resolved_call_edges": 134347,
+  "distinct_callees": 36545,
+  "invalid_target_edges": 44076,
+  "resolved_tail_edges": 1962,
+  "indirect_calls": 39023,
+  "indirect_tails": 34154
+ },
+ "top_candidates": [
+  {
+   "target": "0x1aa2826",
+   "callers_mv_a0_save": 7,
+   "fn_extent": "0x1aa2826..0x1aa2900",
+   "fn_bytes": 218,
+   "head": [
+    "0x1aa2826: ld s4, 0(sp)",
+    "0x1aa2828: addi sp, 0x30",
+    "0x1aa282a: jr ra",
+    "0x1aa282c: auipc a2, 0x1e8fb",
+    "0x1aa2830: addi a2, a2, 0x37c",
+    "0x1aa2834: li a0, 2"
+   ],
+   "prologue_like": false,
+   "data_suspect": true,
+   "outgoing_ra_calls": 4,
+   "indirect_jumps": 0,
+   "interesting_constants": {},
+   "top_consts": {
+    "0x1f": 5,
+    "0x400000": 4,
+    "0x2": 2,
+    "0x111000": 2,
+    "0x52c": 2,
+    "0x520": 2,
+    "0x3d0": 2,
+    "0x30": 1,
+    "0x37c": 1,
+    "0x744": 1,
+    "0x364": 1,
+    "-0x30": 1
+   }
+  },
+  {
+   "target": "0x1aa3006",
+   "callers_mv_a0_save": 7,
+   "fn_extent": "0x1aa3006..0x1aa312c",
+   "fn_bytes": 294,
+   "head": [
+    "0x1aa3006: .byte 0x73, 0x02",
+    "0x1aa3008: lbu a5, -0x7c(a5)",
+    "0x1aa300c: bnez a5, 0x9e",
+    "0x1aa300e: ebreak ",
+    "0x1aa3010: j -0xcc",
+    "0x1aa3012: li a0, 1"
+   ],
+   "prologue_like": false,
+   "data_suspect": true,
+   "outgoing_ra_calls": 2,
+   "indirect_jumps": 0,
+   "interesting_constants": {},
+   "top_consts": {
+    "0x400000": 8,
+    "0x111000": 4,
+    "0x52c": 4,
+    "0x520": 4,
+    "0x3d0": 4,
+    "0x1": 1,
+    "-0x334": 1,
+    "0x0": 1,
+    "-0xa0": 1,
+    "-0x190": 1,
+    "-0x20": 1
+   }
+  },
+  {
+   "target": "0x1aa336e",
+   "callers_mv_a0_save": 7,
+   "fn_extent": "0x1aa336e..0x1aa346e",
+   "fn_bytes": 256,
+   "head": [
+    "0x1aa336e: ld s7, 0xa8(sp)",
+    "0x1aa3370: mv a0, s1",
+    "0x1aa3372: ld s1, 0xd8(sp)",
+    "0x1aa3374: addi sp, 0xf0",
+    "0x1aa3376: jr ra",
+    "0x1aa3378: mv s1, a4"
+   ],
+   "prologue_like": false,
+   "data_suspect": false,
+   "outgoing_ra_calls": 6,
+   "indirect_jumps": 0,
+   "interesting_constants": {
+    "0x10": 1
+   },
+   "top_consts": {
+    "0x1": 3,
+    "0x0": 3,
+    "-0xc0": 2,
+    "0x4": 2,
+    "0x30": 2,
+    "-0xf0": 2,
+    "0xf0": 1,
+    "-0x51c": 1,
+    "0x50": 1,
+    "0x70": 1,
+    "-0x570": 1,
+    "-0x590": 1
+   }
+  },
+  {
+   "target": "0x1aa2b8e",
+   "callers_mv_a0_save": 7,
+   "fn_extent": "0x1aa2b8e..0x1aa2df4",
+   "fn_bytes": 614,
+   "head": [
+    "0x1aa2b8e: sd a5, 0x10(a0)",
+    "0x1aa2b90: auipc a5, 0xffdc3",
+    "0x1aa2b94: addi a5, a5, 0x7c8",
+    "0x1aa2b98: sd a5, 0x38(s2)",
+    "0x1aa2b9c: lbu a5, 0xa8(s1)",
+    "0x1aa2ba0: sb a5, 0xa8(s2)"
+   ],
+   "prologue_like": false,
+   "data_suspect": true,
+   "outgoing_ra_calls": 12,
+   "indirect_jumps": 0,
+   "interesting_constants": {},
+   "top_consts": {
+    "0x400000": 8,
+    "0x40": 5,
+    "0x111000": 4,
+    "0x52c": 4,
+    "0x520": 4,
+    "0x3d0": 4,
+    "0x2": 3,
+    "0x1": 3,
+    "0x0": 3,
+    "0x7c8": 1,
+    "0x30": 1,
+    "0x4a": 1
+   }
+  },
+  {
+   "target": "0x1aa2faa",
+   "callers_mv_a0_save": 6,
+   "fn_extent": "0x1aa2faa..0x1aa312c",
+   "fn_bytes": 386,
+   "head": [
+    "0x1aa2faa: ebreak ",
+    "0x1aa2fac: auipc a2, 0x1e8fb",
+    "0x1aa2fb0: addi a2, a2, -0x284",
+    "0x1aa2fb4: li a0, 2",
+    "0x1aa2fb6: addi a1, zero, 0x40",
+    "0x1aa2fba: auipc ra, 0xffffb"
+   ],
+   "prologue_like": false,
+   "data_suspect": true,
+   "outgoing_ra_calls": 6,
+   "indirect_jumps": 0,
+   "interesting_constants": {},
+   "top_consts": {
+    "0x400000": 8,
+    "0x111000": 4,
+    "0x52c": 4,
+    "0x520": 4,
+    "0x3d0": 4,
+    "0x40": 3,
+    "0x2": 2,
+    "-0x284": 1,
+    "-0x31c": 1,
+    "0x1": 1,
+    "-0x334": 1,
+    "0x0": 1
+   }
+  },
+  {
+   "target": "0x1aa2f92",
+   "callers_mv_a0_save": 6,
+   "fn_extent": "0x1aa2f92..0x1aa312c",
+   "fn_bytes": 410,
+   "head": [
+    "0x1aa2f92: .byte 0xff, 0xff",
+    "0x1aa2f94: jalr ra, ra, 0x694",
+    "0x1aa2f98: mv a1, s5",
+    "0x1aa2f9a: li a0, 0",
+    "0x1aa2f9c: auipc ra, 0xab",
+    "0x1aa2fa0: jalr ra, ra, -0x550"
+   ],
+   "prologue_like": false,
+   "data_suspect": true,
+   "outgoing_ra_calls": 8,
+   "indirect_jumps": 0,
+   "interesting_constants": {},
+   "top_consts": {
+    "0x400000": 8,
+    "0x111000": 4,
+    "0x52c": 4,
+    "0x520": 4,
+    "0x3d0": 4,
+    "0x40": 3,
+    "0x0": 2,
+    "0x2": 2,
+    "-0x284": 1,
+    "-0x31c": 1,
+    "0x1": 1,
+    "-0x334": 1
+   }
+  },
+  {
+   "target": "0x1aa28fc",
+   "callers_mv_a0_save": 6,
+   "fn_extent": "0x1aa28fc..0x1aa2900",
+   "fn_bytes": 4,
+   "head": [
+    "0x1aa28fc: sd s3, 8(sp)",
+    "0x1aa28fe: sd s4, 0(sp)"
+   ],
+   "prologue_like": false,
+   "data_suspect": false,
+   "outgoing_ra_calls": 0,
+   "indirect_jumps": 0,
+   "interesting_constants": {},
+   "top_consts": {}
+  },
+  {
+   "target": "0x1aa2a74",
+   "callers_mv_a0_save": 6,
+   "fn_extent": "0x1aa2a74..0x1aa2b2a",
+   "fn_bytes": 182,
+   "head": [
+    "0x1aa2a74: addi4spn s0, sp, 4",
+    "0x1aa2a76: sw a2, 0(a3)",
+    "0x1aa2a78: add a5, a4",
+    "0x1aa2a7a: sw zero, 0(a5)",
+    "0x1aa2a7e: j -0x88",
+    "0x1aa2a80: li a0, 1"
+   ],
+   "prologue_like": false,
+   "data_suspect": true,
+   "outgoing_ra_calls": 2,
+   "indirect_jumps": 0,
+   "interesting_constants": {},
+   "top_consts": {
+    "0x400000": 4,
+    "0x111000": 2,
+    "0x52c": 2,
+    "0x520": 2,
+    "0x3d0": 2,
+    "0x1": 1,
+    "0x156": 1,
+    "0x0": 1,
+    "0x4f2": 1,
+    "0x470": 1,
+    "-0x30": 1
+   }
+  },
+  {
+   "target": "0x1aa2b2e",
+   "callers_mv_a0_save": 6,
+   "fn_extent": "0x1aa2b2e..0x1aa2df4",
+   "fn_bytes": 710,
+   "head": [
+    "0x1aa2b2e: sd s2, 0x10(sp)",
+    "0x1aa2b30: sd s3, 8(sp)",
+    "0x1aa2b32: addi4spn s0, sp, 0x30",
+    "0x1aa2b34: lui a5, 2",
+    "0x1aa2b36: add a5, a0",
+    "0x1aa2b38: ld a5, 0x50(a5)"
+   ],
+   "prologue_like": false,
+   "data_suspect": false,
+   "outgoing_ra_calls": 13,
+   "indirect_jumps": 1,
+   "interesting_constants": {
+    "0x1000": 1
+   },
+   "top_consts": {
+    "0x400000": 8,
+    "0x40": 5,
+    "0x1": 4,
+    "0x111000": 4,
+    "0x52c": 4,
+    "0x520": 4,
+    "0x3d0": 4,
+    "0x2": 3,
+    "0x0": 3,
+    "0x2000": 1,
+    "0x1000": 1,
+    "0xb8": 1
+   }
+  },
+  {
+   "target": "0x1aa26ca",
+   "callers_mv_a0_save": 6,
+   "fn_extent": "0x1aa26ca..0x1aa26e2",
+   "fn_bytes": 24,
+   "head": [
+    "0x1aa26ca: sw zero, 0(a5)",
+    "0x1aa26ce: j -0x12a",
+    "0x1aa26d0: auipc ra, 1",
+    "0x1aa26d4: jalr ra, ra, -0x28c",
+    "0x1aa26d8: addi sp, -0x30",
+    "0x1aa26da: sd s0, 0x20(sp)"
+   ],
+   "prologue_like": false,
+   "data_suspect": false,
+   "outgoing_ra_calls": 1,
+   "indirect_jumps": 0,
+   "interesting_constants": {},
+   "top_consts": {
+    "-0x30": 1
+   }
+  },
+  {
+   "target": "0x1aa2808",
+   "callers_mv_a0_save": 6,
+   "fn_extent": "0x1aa2808..0x1aa2900",
+   "fn_bytes": 248,
+   "head": [
+    "0x1aa2808: sd a4, 0x108(a5)",
+    "0x1aa280c: auipc a4, 0xffdc0",
+    "0x1aa2810: addi a4, a4, -0x7b4",
+    "0x1aa2814: sb a3, 0xc1(a5)",
+    "0x1aa2818: sd a4, 0x110(a5)",
+    "0x1aa281c: ld ra, 0x28(sp)"
+   ],
+   "prologue_like": true,
+   "data_suspect": true,
+   "outgoing_ra_calls": 4,
+   "indirect_jumps": 0,
+   "interesting_constants": {},
+   "top_consts": {
+    "0x1f": 5,
+    "0x400000": 4,
+    "0x2": 2,
+    "0x111000": 2,
+    "0x52c": 2,
+    "0x520": 2,
+    "0x3d0": 2,
+    "-0x7b4": 1,
+    "0x30": 1,
+    "0x37c": 1,
+    "0x744": 1,
+    "0x364": 1
+   }
+  },
+  {
+   "target": "0x1aa2488",
+   "callers_mv_a0_save": 6,
+   "fn_extent": "0x1aa2488..0x1aa26e2",
+   "fn_bytes": 602,
+   "head": [
+    "0x1aa2488: auipc ra, 0xffe22",
+    "0x1aa248c: jalr ra, ra, -0x508",
+    "0x1aa2490: mv a1, s1",
+    "0x1aa2492: auipc a0, 0x26ef",
+    "0x1aa2496: addi a0, a0, -0x6d2",
+    "0x1aa249a: auipc ra, 0xffe22"
+   ],
+   "prologue_like": false,
+   "data_suspect": true,
+   "outgoing_ra_calls": 14,
+   "indirect_jumps": 0,
+   "interesting_constants": {
+    "0x10": 1
+   },
+   "top_consts": {
+    "0x400000": 8,
+    "0x51": 6,
+    "0x111000": 4,
+    "0x52c": 4,
+    "0x520": 4,
+    "0x3d0": 4,
+    "0x0": 3,
+    "0x2": 3,
+    "-0x6d2": 1,
+    "0x170": 1,
+    "0x10": 1,
+    "0xc0": 1
+   }
+  },
+  {
+   "target": "0x1aa246a",
+   "callers_mv_a0_save": 6,
+   "fn_extent": "0x1aa246a..0x1aa26e2",
+   "fn_bytes": 632,
+   "head": [
+    "0x1aa246a: .byte 0xfb, 0x00",
+    "0x1aa246c: beqz s4, 0xc6",
+    "0x1aa2470: ld a5, 0x80(s3)",
+    "0x1aa2474: ld a4, -0x130(s0)",
+    "0x1aa2478: mv a1, s10",
+    "0x1aa247a: auipc a0, 0x26ef"
+   ],
+   "prologue_like": false,
+   "data_suspect": true,
+   "outgoing_ra_calls": 14,
+   "indirect_jumps": 0,
+   "interesting_constants": {
+    "0x10": 1
+   },
+   "top_consts": {
+    "0x400000": 8,
+    "0x51": 6,
+    "0x111000": 4,
+    "0x52c": 4,
+    "0x520": 4,
+    "0x3d0": 4,
+    "0x0": 3,
+    "0x2": 3,
+    "-0x6ba": 1,
+    "-0x6d2": 1,
+    "0x170": 1,
+    "0x10": 1
+   }
+  },
+  {
+   "target": "0x1aa2a9c",
+   "callers_mv_a0_save": 6,
+   "fn_extent": "0x1aa2a9c..0x1aa2b2a",
+   "fn_bytes": 142,
+   "head": [
+    "0x1aa2a9c: lw s1, 0x58(a4)",
+    "0x1aa2a9e: auipc ra, 0xab",
+    "0x1aa2aa2: jalr ra, ra, -0x52",
+    "0x1aa2aa6: lbu a5, 0(s1)",
+    "0x1aa2aaa: beqz a5, -0x8e",
+    "0x1aa2aac: lui a4, 0x111"
+   ],
+   "prologue_like": false,
+   "data_suspect": true,
+   "outgoing_ra_calls": 1,
+   "indirect_jumps": 0,
+   "interesting_constants": {},
+   "top_consts": {
+    "0x400000": 4,
+    "0x111000": 2,
+    "0x52c": 2,
+    "0x520": 2,
+    "0x3d0": 2,
+    "0x470": 1,
+    "-0x30": 1
+   }
+  },
+  {
+   "target": "0x1aa3340",
+   "callers_mv_a0_save": 6,
+   "fn_extent": "0x1aa3340..0x1aa346e",
+   "fn_bytes": 302,
+   "head": [
+    "0x1aa3340: auipc s7, 0x2731",
+    "0x1aa3344: lw s7, -0x228(s7)",
+    "0x1aa3348: bnez s7, 0x30",
+    "0x1aa334c: auipc a1, 0x1e8fb",
+    "0x1aa3350: addi a1, a1, -0x504",
+    "0x1aa3354: li a0, 1"
+   ],
+   "prologue_like": false,
+   "data_suspect": true,
+   "outgoing_ra_calls": 7,
+   "indirect_jumps": 0,
+   "interesting_constants": {
+    "0x10": 1
+   },
+   "top_consts": {
+    "0x1": 4,
+    "0x0": 3,
+    "-0xc0": 2,
+    "0x4": 2,
+    "0x30": 2,
+    "-0xf0": 2,
+    "-0x504": 1,
+    "0x5": 1,
+    "0xf0": 1,
+    "-0x51c": 1,
+    "0x50": 1,
+    "0x70": 1
+   }
+  }
+ ],
+ "note": "rank = strict sites (a0 saved into a callee-saved reg within 40 insns of the call)"
+}
