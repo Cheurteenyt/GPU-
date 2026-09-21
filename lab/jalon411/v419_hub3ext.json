@@ -1,0 +1,476 @@
+{
+ "pass": "4.19-hub3ext",
+ "substrate": "/home/z/my-project/repo-gpu/tools/gsp-extract/rm-full.elf",
+ "census_reproduced": {
+  "indirects": 221201,
+  "offsets": 225
+ },
+ "hub3": {
+  "range": [
+   "0x133cd26",
+   "0x1355c32"
+  ],
+  "hub_bytes": 102156,
+  "distinct_offsets": 35,
+  "dispatches": 61,
+  "fills_in_hub_418": 33
+ },
+ "external_fills": 3338,
+ "external_fill_value_classes": {
+  "carried": 2884,
+  "ld-copied": 445,
+  "lui": 9
+ },
+ "external_fill_regions_top16": {
+  "0x1b08c5c-0x1b288a6": 452,
+  "0x1a762f4-0x1a93400": 151,
+  "0x14f5c98-0x15151c2": 57,
+  "0x159e4e0-0x15c2180": 54,
+  "0x1ae0304-0x1af8bf2": 53,
+  "0x1042ca0-0x1055612": 49,
+  "0x14e1e94-0x14eebf6": 43,
+  "0x160183c-0x161114a": 43,
+  "0x11b7098-0x11bd7e4": 41,
+  "0x12e075a-0x12ed5be": 41,
+  "0x1041bb8-0x10429fc": 35,
+  "0x151d8d8-0x15388ac": 35,
+  "0x125d240-0x126cf62": 33,
+  "0x158190c-0x15979c6": 28,
+  "0x15c253c-0x15e41c2": 27,
+  "0x153d8e8-0x1552174": 26
+ },
+ "n_external_regions": 307,
+ "named_targets": [],
+ "fills_first32": [
+  {
+   "fill": "0x100db70",
+   "width": "sw",
+   "slot": "s1+-0x2e0",
+   "region": "0x100ccbc-0x100fd5c",
+   "dist_to_hub": 3338678,
+   "val": "a1",
+   "class": "carried"
+  },
+  {
+   "fill": "0x100f3bc",
+   "width": "sd",
+   "slot": "s0+-0xc8",
+   "region": "0x100ccbc-0x100fd5c",
+   "dist_to_hub": 3332458,
+   "val": "a1",
+   "class": "carried"
+  },
+  {
+   "fill": "0x100f4d4",
+   "width": "sd",
+   "slot": "s0+-0xc8",
+   "region": "0x100ccbc-0x100fd5c",
+   "dist_to_hub": 3332178,
+   "val": "a1",
+   "class": "carried"
+  },
+  {
+   "fill": "0x100f50e",
+   "width": "sd",
+   "slot": "s0+-0xc8",
+   "region": "0x100ccbc-0x100fd5c",
+   "dist_to_hub": 3332120,
+   "val": "a1",
+   "class": "carried"
+  },
+  {
+   "fill": "0x100fd24",
+   "width": "sd",
+   "slot": "s0+-0xc8",
+   "region": "0x100ccbc-0x100fd5c",
+   "dist_to_hub": 3330050,
+   "val": "ra",
+   "class": "carried"
+  },
+  {
+   "fill": "0x101118c",
+   "width": "sd",
+   "slot": "s0+-0x1a0",
+   "region": "0x1011114-0x10132d8",
+   "dist_to_hub": 3324826,
+   "val": "zero",
+   "class": "carried"
+  },
+  {
+   "fill": "0x101125c",
+   "width": "sd",
+   "slot": "s0+-0x1a0",
+   "region": "0x1011114-0x10132d8",
+   "dist_to_hub": 3324618,
+   "val": "a3",
+   "class": "carried"
+  },
+  {
+   "fill": "0x101baec",
+   "width": "sd",
+   "slot": "s0+-0x128",
+   "region": "0x1019c28-0x10217da",
+   "dist_to_hub": 3281466,
+   "val": "a2",
+   "class": "carried"
+  },
+  {
+   "fill": "0x101bb0a",
+   "width": "sd",
+   "slot": "s0+-0x128",
+   "region": "0x1019c28-0x10217da",
+   "dist_to_hub": 3281436,
+   "val": "a2",
+   "class": "ld-copied"
+  },
+  {
+   "fill": "0x101bd14",
+   "width": "sd",
+   "slot": "s0+-0x128",
+   "region": "0x1019c28-0x10217da",
+   "dist_to_hub": 3280914,
+   "val": "a2",
+   "class": "carried"
+  },
+  {
+   "fill": "0x1020490",
+   "width": "sd",
+   "slot": "s0+-0x120",
+   "region": "0x1019c28-0x10217da",
+   "dist_to_hub": 3262614,
+   "val": "a5",
+   "class": "ld-copied"
+  },
+  {
+   "fill": "0x1020498",
+   "width": "sd",
+   "slot": "s0+-0x128",
+   "region": "0x1019c28-0x10217da",
+   "dist_to_hub": 3262606,
+   "val": "a5",
+   "class": "ld-copied"
+  },
+  {
+   "fill": "0x10204a0",
+   "width": "sd",
+   "slot": "s0+-0x140",
+   "region": "0x1019c28-0x10217da",
+   "dist_to_hub": 3262598,
+   "val": "a5",
+   "class": "carried"
+  },
+  {
+   "fill": "0x1020702",
+   "width": "sd",
+   "slot": "s0+-0x140",
+   "region": "0x1019c28-0x10217da",
+   "dist_to_hub": 3261988,
+   "val": "a5",
+   "class": "carried"
+  },
+  {
+   "fill": "0x1020956",
+   "width": "sd",
+   "slot": "s0+-0xc8",
+   "region": "0x1019c28-0x10217da",
+   "dist_to_hub": 3261392,
+   "val": "a5",
+   "class": "ld-copied"
+  },
+  {
+   "fill": "0x1020b20",
+   "width": "sd",
+   "slot": "s0+-0xc8",
+   "region": "0x1019c28-0x10217da",
+   "dist_to_hub": 3260934,
+   "val": "a5",
+   "class": "ld-copied"
+  },
+  {
+   "fill": "0x1020e4e",
+   "width": "sd",
+   "slot": "s0+-0xc8",
+   "region": "0x1019c28-0x10217da",
+   "dist_to_hub": 3260120,
+   "val": "zero",
+   "class": "carried"
+  },
+  {
+   "fill": "0x1020fde",
+   "width": "sd",
+   "slot": "s0+-0xc8",
+   "region": "0x1019c28-0x10217da",
+   "dist_to_hub": 3259720,
+   "val": "s3",
+   "class": "carried"
+  },
+  {
+   "fill": "0x1021354",
+   "width": "sd",
+   "slot": "s0+-0xc8",
+   "region": "0x1019c28-0x10217da",
+   "dist_to_hub": 3258834,
+   "val": "s3",
+   "class": "carried"
+  },
+  {
+   "fill": "0x10213ce",
+   "width": "sd",
+   "slot": "s0+-0xc8",
+   "region": "0x1019c28-0x10217da",
+   "dist_to_hub": 3258712,
+   "val": "s3",
+   "class": "carried"
+  },
+  {
+   "fill": "0x10220f0",
+   "width": "sd",
+   "slot": "s0+-0xc8",
+   "region": "0x10217ec-0x1023660",
+   "dist_to_hub": 3255350,
+   "val": "a5",
+   "class": "ld-copied"
+  },
+  {
+   "fill": "0x1022c1a",
+   "width": "sd",
+   "slot": "s0+-0x120",
+   "region": "0x10217ec-0x1023660",
+   "dist_to_hub": 3252492,
+   "val": "ra",
+   "class": "carried"
+  },
+  {
+   "fill": "0x1022ce4",
+   "width": "sd",
+   "slot": "s0+-0x128",
+   "region": "0x10217ec-0x1023660",
+   "dist_to_hub": 3252290,
+   "val": "s11",
+   "class": "carried"
+  },
+  {
+   "fill": "0x1024e4a",
+   "width": "sd",
+   "slot": "s0+-0xc8",
+   "region": "0x1023728-0x102580a",
+   "dist_to_hub": 3243740,
+   "val": "a1",
+   "class": "carried"
+  },
+  {
+   "fill": "0x10267d0",
+   "width": "sd",
+   "slot": "s0+-0xc8",
+   "region": "0x10258b4-0x102a96e",
+   "dist_to_hub": 3237206,
+   "val": "a3",
+   "class": "carried"
+  },
+  {
+   "fill": "0x102a316",
+   "width": "sd",
+   "slot": "s0+-0xc8",
+   "region": "0x10258b4-0x102a96e",
+   "dist_to_hub": 3222032,
+   "val": "a1",
+   "class": "carried"
+  },
+  {
+   "fill": "0x102ad48",
+   "width": "sd",
+   "slot": "s0+-0xc8",
+   "region": "0x102ad18-0x102ad62",
+   "dist_to_hub": 3219422,
+   "val": "ra",
+   "class": "carried"
+  },
+  {
+   "fill": "0x102c97c",
+   "width": "sd",
+   "slot": "s0+-0xc8",
+   "region": "0x102be10-0x102d05c",
+   "dist_to_hub": 3212202,
+   "val": "a0",
+   "class": "carried"
+  },
+  {
+   "fill": "0x1034d46",
+   "width": "sd",
+   "slot": "s0+-0x140",
+   "region": "0x1030358-0x1038e88",
+   "dist_to_hub": 3178464,
+   "val": "zero",
+   "class": "carried"
+  },
+  {
+   "fill": "0x1034da6",
+   "width": "sw",
+   "slot": "s0+-0x140",
+   "region": "0x1030358-0x1038e88",
+   "dist_to_hub": 3178368,
+   "val": "a5",
+   "class": "carried"
+  },
+  {
+   "fill": "0x1034f30",
+   "width": "sw",
+   "slot": "s0+-0x140",
+   "region": "0x1030358-0x1038e88",
+   "dist_to_hub": 3177974,
+   "val": "a5",
+   "class": "carried"
+  },
+  {
+   "fill": "0x1039344",
+   "width": "sd",
+   "slot": "s0+-0xc8",
+   "region": "0x10391cc-0x1040d3c",
+   "dist_to_hub": 3160546,
+   "val": "a6",
+   "class": "carried"
+  }
+ ],
+ "offset_coverage": {
+  "-0x7e0": {
+   "dispatches_in_hub": 2,
+   "fills_external": 5
+  },
+  "-0x7d8": {
+   "dispatches_in_hub": 1,
+   "fills_external": 4
+  },
+  "-0x760": {
+   "dispatches_in_hub": 1,
+   "fills_external": 5
+  },
+  "-0x6e8": {
+   "dispatches_in_hub": 1,
+   "fills_external": 8
+  },
+  "-0x6e0": {
+   "dispatches_in_hub": 1,
+   "fills_external": 7
+  },
+  "-0x6d8": {
+   "dispatches_in_hub": 1,
+   "fills_external": 7
+  },
+  "-0x6d0": {
+   "dispatches_in_hub": 1,
+   "fills_external": 3
+  },
+  "-0x628": {
+   "dispatches_in_hub": 1,
+   "fills_external": 4
+  },
+  "-0x600": {
+   "dispatches_in_hub": 1,
+   "fills_external": 9
+  },
+  "-0x5c8": {
+   "dispatches_in_hub": 2,
+   "fills_external": 6
+  },
+  "-0x580": {
+   "dispatches_in_hub": 1,
+   "fills_external": 3
+  },
+  "-0x460": {
+   "dispatches_in_hub": 1,
+   "fills_external": 7
+  },
+  "-0x3c8": {
+   "dispatches_in_hub": 1,
+   "fills_external": 17
+  },
+  "-0x3c0": {
+   "dispatches_in_hub": 1,
+   "fills_external": 15
+  },
+  "-0x3b0": {
+   "dispatches_in_hub": 1,
+   "fills_external": 28
+  },
+  "-0x3a8": {
+   "dispatches_in_hub": 1,
+   "fills_external": 30
+  },
+  "-0x398": {
+   "dispatches_in_hub": 2,
+   "fills_external": 23
+  },
+  "-0x340": {
+   "dispatches_in_hub": 1,
+   "fills_external": 22
+  },
+  "-0x2e0": {
+   "dispatches_in_hub": 1,
+   "fills_external": 39
+  },
+  "-0x2b8": {
+   "dispatches_in_hub": 3,
+   "fills_external": 37
+  },
+  "-0x2a0": {
+   "dispatches_in_hub": 4,
+   "fills_external": 35
+  },
+  "-0x290": {
+   "dispatches_in_hub": 1,
+   "fills_external": 39
+  },
+  "-0x240": {
+   "dispatches_in_hub": 1,
+   "fills_external": 51
+  },
+  "-0x238": {
+   "dispatches_in_hub": 2,
+   "fills_external": 67
+  },
+  "-0x230": {
+   "dispatches_in_hub": 1,
+   "fills_external": 56
+  },
+  "-0x200": {
+   "dispatches_in_hub": 1,
+   "fills_external": 75
+  },
+  "-0x1d0": {
+   "dispatches_in_hub": 1,
+   "fills_external": 100
+  },
+  "-0x1c8": {
+   "dispatches_in_hub": 1,
+   "fills_external": 97
+  },
+  "-0x1b8": {
+   "dispatches_in_hub": 1,
+   "fills_external": 122
+  },
+  "-0x1b0": {
+   "dispatches_in_hub": 1,
+   "fills_external": 119
+  },
+  "-0x1a0": {
+   "dispatches_in_hub": 1,
+   "fills_external": 105
+  },
+  "-0x140": {
+   "dispatches_in_hub": 1,
+   "fills_external": 212
+  },
+  "-0x128": {
+   "dispatches_in_hub": 17,
+   "fills_external": 362
+  },
+  "-0x120": {
+   "dispatches_in_hub": 1,
+   "fills_external": 382
+  },
+  "-0xc8": {
+   "dispatches_in_hub": 2,
+   "fills_external": 1237
+  }
+ }
+}
