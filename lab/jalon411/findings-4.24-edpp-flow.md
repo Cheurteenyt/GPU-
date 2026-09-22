@@ -12,7 +12,7 @@ vs client limit, the value 0, the 250 W cap — each get a section.
 
 | actor | role | evidence |
 |---|---|---|
-| **SBIOS/ACPI** | the ORIGIN of platform intent: the request bits and the platform limit value arrive from the platform; the limit info is reported BACK to it | the DSM-GPS calls: PSHARESTATUS decode `platform_request_handler_ctrl.c:2369-2375`, GETEDPPLIMIT `:1001-1019`, SETEDPPLIMITINFO `:1022-1037` |
+| **SBIOS/ACPI** | the ORIGIN of platform intent: the request bits and the platform limit value arrive from the platform; the limit info is reported BACK to it | the DSM-GPS calls: PSHARESTATUS decode `platform_request_handler_ctrl.c:2369-2376`, GETEDPPLIMIT `:1001-1019`, SETEDPPLIMITINFO `:1022-1037` |
 | **PRH module (the open kernel, host side)** | a RELAY + a small state machine: it caches what the SBIOS asked (`sensorData`), what was applied (`controlData`), and converts deltas into RM control calls | the two caches `g_platform_request_handler_nvoc.h:152-157, 223-234, 255`; the apply-tolerance macro `ctrl.c:146-147` |
 | **GSP-RM (the closed firmware)** | the limit AUTHORITY: it holds the policy object, re-derives the limits, applies the cap | 4.20 pass (the policy object 0x6d0 @ state+0x4E98, the GET handler memset, the recomputation worker); the negative proof §5 below |
 
@@ -57,12 +57,12 @@ SBIOS event / v-Pstate change →
 `pfmreqhndlrHandleStatusChangeEvent` (`ctrl.c:1488`) →
 `_pfmreqhndlrCallPshareStatus(bInit=NV_FALSE)` (`ctrl.c:1501`, def
 `:2337`). ONE ACPI PSHARESTATUS call returns the request bits
-(`ctrl.c:2369-2375`):
+(`ctrl.c:2369-2376`):
 
 ```
 _PLATFORM_GETEDPPEAKLIMIT_SET   -> bQueryEdppRequired      (:2369)
 _PLATFORM_SETEDPPEAKLIMITINFO_SET -> bPlatformEdpUpdate    (:2370)
-_EDPPEAK_LIMIT_UPDATE           -> bEDPpeakLimitUpdateRequest (:2375)
+_EDPPEAK_LIMIT_UPDATE           -> bEDPpeakLimitUpdateRequest (:2376)
 ```
 
 then three branches:
@@ -86,14 +86,15 @@ enable state only.
 `pfmreqhndlrHandlePlatformGetEdppLimit_IMPL` (`ctrl.c:1697-1725`) →
 ACPI DSM `GETEDPPLIMIT` → `*pPlatformEdppLimit = result[0]`
 (**:1722**) — the limit VALUE comes from the platform, in mW, over
-ACPI. It is cached (`:2402-2410` region) and then applied:
+ACPI. It is cached (the GET call `:2407`, the cache write `:2416`) and
+then applied:
 
 - at runtime: `pfmreqhndlrHandlePlatformEdppLimitUpdate_IMPL`
   (`ctrl.c:1647-1686`) → RPC `UPDATE_EDPP_LIMIT` with
   **`clientLimit = platformEdppLimit; bEnable = NV_TRUE`**
   (**:1659-1664**).
 - at init: DEFERRED (`bDifferPlatformEdppLimit = NV_TRUE`,
-  **:2418-2421**), applied later by the §2.1 work item.
+  **:2419-2422**), applied later by the §2.1 work item.
 
 **2 — the limit-info report (the round trip).** If the SBIOS raised
 `_PLATFORM_SETEDPPEAKLIMITINFO_SET` (`ctrl.c:2493-2500`):
@@ -105,8 +106,8 @@ calls ACPI `SETEDPPLIMITINFO` with the full struct
 `NV0000_CTRL_PFM_REQ_HNDLR_EDPP_LIMIT_INFO_V1`
 (`platform_request_handler_utils.h:82-92`: ulVersion, **limitLast** =
 the cached platform limit, limitMin, limitRated, limitMax, limitCurr,
-limitBattRated, limitBattMax) (**:2837-2857**). The SBIOS gets told
-what the GPU's policy allows.
+limitBattRated, limitBattMax) (**fill :2837-2849, the ACPI call
+:2858**). The SBIOS gets told what the GPU's policy allows.
 
 ## 3. Platform limit vs client limit — when each applies
 
@@ -127,7 +128,7 @@ what the GPU's policy allows.
 
 ## 4. The value 0 — PROVEN, the exact lines
 
-`platform_request_handler_ctrl.c:1665-1670`:
+`platform_request_handler_ctrl.c:1661-1668`:
 
 ```c
 params.clientLimit = platformEdppLimit;
@@ -139,6 +140,9 @@ if (platformEdppLimit == 0)
     params.bEnable = NV_FALSE;
 }
 ```
+
+(Citation audit: the if-block itself sits at :1665-1668, the quoted
+assignment block at :1661-1664.)
 
 **0 = "remove the platform limit / fall back to the GPU default" — a
 RESET request, never a 0 W limit.** The bEnable-only call of §2.2 1.A
@@ -212,7 +216,11 @@ GSP-RM internal (closed): the policy object (0x6d0) ◀── the VBIOS parse
 
 ## Discipline
 
-Every line number was read from the 610.57.04 tree in this pass. The
+Every line number was read from the 610.57.04 tree in this pass and
+RE-AUDITED post-PR (71 citations re-checked against the raw tag
+sources by the windowed audit: all 71 quoted constructs exist; 60 line
+numbers exact as banked, 12 drifts of 1-11 lines corrected in place —
+the audit record is `findings-4.24-citation-audit.md`). The
 SBIOS-side trigger conditions and the GSP-RM stub consequences are
 labeled HYPOTHESIS/PROVEN respectively and not mixed. The negative
 grep (§5) is reproducible with one command.
