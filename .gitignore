@@ -26,3 +26,4 @@ day0/*/qemu-strace.log
 
 # the 4.25 open-tag cross-check cache (fetched once, sha256-pinned in the JSON)
 lab/jalon411/.v425-ctrl2080-cache/
+v431b_relist.asm
