@@ -1,0 +1,106 @@
+{
+ "run": {
+  "path": "/home/z/my-project/work/downloads/NVIDIA-Linux-x86_64-610.57.04.run",
+  "size": 463025450,
+  "sha256": "b2e935c66b83bb00c0c857bc8e0ee0fd52de9286b40c9cc1eec29a7ce7eb116d"
+ },
+ "makeself_header": {
+  "fields": {
+   "skip": 1022,
+   "skip_decompress": 849,
+   "size_decompress": 173
+  },
+  "generator": "Makeself 1.6.0-nv9",
+  "extraction_line": "tail -n +$skip $0 | zstd -d | UnTAR",
+  "md5_field": "MD5=aac83f799c35ab3b4532a5ebfa992d2f",
+  "crc_field": "CRCsum=3114458761"
+ },
+ "payload": {
+  "start_byte_offset": 160635,
+  "start_hex": "0x2737b",
+  "magic": "28b52ffd",
+  "format": "zstd frame",
+  "end_byte_offset": 463025450,
+  "framing_note": "tail -n +1022 = from LINE 1022 (1-based); the payload is ONE zstd stream to EOF; per-member plain offsets in the .run coordinate do not exist (compression) \u2014 the member offsets live in the decompressed tar coordinate"
+ },
+ "tar": {
+  "decompressed_size": 1808865280,
+  "member_count": 1189,
+  "firmware_members": [
+   {
+    "name": "firmware/",
+    "header_off": 0,
+    "data_off": 512,
+    "size": 0,
+    "mtime": 1785298293,
+    "mode": "0000755",
+    "typeflag": "5",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+   },
+   {
+    "name": "firmware/gsp_ga10x.bin",
+    "header_off": 512,
+    "data_off": 1024,
+    "size": 84310168,
+    "mtime": 1785289927,
+    "mode": "0000644",
+    "typeflag": "0",
+    "sha256": "c0156954f3e048d56011524e0c2ae2881bb6db8173b53f9b2f4eb94197f02999"
+   },
+   {
+    "name": "firmware/gsp_tu10x.bin",
+    "header_off": 84311552,
+    "data_off": 84312064,
+    "size": 29381504,
+    "mtime": 1785289926,
+    "mode": "0000644",
+    "typeflag": "0",
+    "sha256": "d157e3b7dd5da2ca8d1ccb6ca98958f9e35d10a9ef7326277ebac133e4b0d1a7"
+   },
+   {
+    "name": "firmware/ucodes_ga10x.bin",
+    "header_off": 1742094848,
+    "data_off": 1742095360,
+    "size": 31744,
+    "mtime": 1785289649,
+    "mode": "0000644",
+    "typeflag": "0",
+    "sha256": "3a36ceb211c20694f3d2e33ade2bbd2c3ae0b61ba2f28eaff4362aac547a632c"
+   },
+   {
+    "name": "firmware/ucodes_tu10x.bin",
+    "header_off": 1742127104,
+    "data_off": 1742127616,
+    "size": 12032,
+    "mtime": 1785289649,
+    "mode": "0000644",
+    "typeflag": "0",
+    "sha256": "dcbdf512ab09b7f6d946e7f415bcfbc9137f5db1cf0c3c576f4b34b5275acb38"
+   }
+  ]
+ },
+ "gsp": {
+  "gsp_ga10x.bin": {
+   "tar_name": "firmware/gsp_ga10x.bin",
+   "size": 84310168,
+   "sha256_from_payload": "c0156954f3e048d56011524e0c2ae2881bb6db8173b53f9b2f4eb94197f02999",
+   "sha256_reference_extraction": "c0156954f3e048d56011524e0c2ae2881bb6db8173b53f9b2f4eb94197f02999",
+   "byte_exact_vs_reference": true,
+   "header_off": 512,
+   "data_off": 1024,
+   "mtime": 1785289927,
+   "mode": "0000644"
+  },
+  "gsp_tu10x.bin": {
+   "tar_name": "firmware/gsp_tu10x.bin",
+   "size": 29381504,
+   "sha256_from_payload": "d157e3b7dd5da2ca8d1ccb6ca98958f9e35d10a9ef7326277ebac133e4b0d1a7",
+   "sha256_reference_extraction": "d157e3b7dd5da2ca8d1ccb6ca98958f9e35d10a9ef7326277ebac133e4b0d1a7",
+   "byte_exact_vs_reference": true,
+   "header_off": 84311552,
+   "data_off": 84312064,
+   "mtime": 1785289926,
+   "mode": "0000644"
+  }
+ }
+}

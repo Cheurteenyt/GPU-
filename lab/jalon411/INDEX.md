@@ -28,6 +28,7 @@ for the next session = pass 4.26 (the recv capture, armed).**
 | 4.27 | gspbin-container | gsp_ga10x.bin acquired, the provenance proven | byte-exact rebuilder delivered |
 | 4.28 | x86-substrate + the hunt closed | **nv-kernel.o_binary acquired; the issuer = NVML userspace PROVEN** | **the "250000" = the LACT clock-VF offset, NOT power** |
 | 4.29 | lz-real-roundtrip | **the pair premise falsified at phdr level (comp-725KB = vgpu.elf, flat); no NVIDIA LZ4 stream in 1.81 GB scanned** | codec unchanged, T6 = the real-bytes round-trip, permanent; recv76_analyze delivered |
+| 4.30 | gspbin-pipeline | **the GFW directory grammar decoded (13 records, the +0x6d000 bias law, 5/5 byte-exact containments); the u32 patch premise falsified — the six 250000 = lui+addi pairs; the patch landed (18 B differ / 48 rewritten); the load path source-proven (GA104 = gsp_ga10x.bin)** | gspbuild patchrm + R14-R17; the signature coverage = UNDECIDABLE-BY-BYTES |
 
 ## The current state of the 280 W question (after 4.28)
 

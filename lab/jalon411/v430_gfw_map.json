@@ -1,0 +1,735 @@
+{
+ "fwimage": {
+  "size": 84258816,
+  "sha256": "85213b87db131c17a0ebbb1b44abd18c4fcd58080dd43cde82c5c67a5b08eeec"
+ },
+ "directory": {
+  "base": 446464,
+  "size": 4096,
+  "header": {
+   "magic": "0x81b26a705c10e14d",
+   "field1": "0x18",
+   "load_area_size": "0x4fee000",
+   "first_cursor": [
+    "0x30",
+    "0x48",
+    "0xb8"
+   ]
+  },
+  "record_count": 13,
+  "records": [
+   {
+    "rel": "0x30",
+    "abs_off": "0x6d030",
+    "name": "kernel_ga10x.elf",
+    "fields_abs": "0x6d048",
+    "regions": [
+     {
+      "vaddr": "0xffffffff92fff000",
+      "comp_off": "0x0",
+      "align": "0x1000",
+      "load_off": "0x1000",
+      "size": "0xd000",
+      "flags": "0x5",
+      "true_fw_off": "0x6e000",
+      "end_true": "0x7b000"
+     },
+     {
+      "vaddr": "0xffffffffa3000000",
+      "comp_off": "0xd000",
+      "align": "0x1000",
+      "load_off": "0xe000",
+      "size": "0x19000",
+      "flags": "0x6",
+      "true_fw_off": "0x7b000",
+      "end_true": "0x94000"
+     }
+    ],
+    "trailing": [
+     "0xd0",
+     "0xe8",
+     "0x158"
+    ]
+   },
+   {
+    "rel": "0xd0",
+    "abs_off": "0x6d0d0",
+    "name": "kernel_gh100.elf",
+    "fields_abs": "0x6d0e8",
+    "regions": [
+     {
+      "vaddr": "0xffffffff92fff000",
+      "comp_off": "0x0",
+      "align": "0x1000",
+      "load_off": "0x27000",
+      "size": "0xd000",
+      "flags": "0x5",
+      "true_fw_off": "0x94000",
+      "end_true": "0xa1000"
+     },
+     {
+      "vaddr": "0xffffffffa3000000",
+      "comp_off": "0xd000",
+      "align": "0x1000",
+      "load_off": "0x34000",
+      "size": "0x1a000",
+      "flags": "0x6",
+      "true_fw_off": "0xa1000",
+      "end_true": "0xbb000"
+     }
+    ],
+    "trailing": [
+     "0x170",
+     "0x188",
+     "0x1f8"
+    ]
+   },
+   {
+    "rel": "0x170",
+    "abs_off": "0x6d170",
+    "name": "kernel_gb10x.elf",
+    "fields_abs": "0x6d188",
+    "regions": [
+     {
+      "vaddr": "0xffffffff92fff000",
+      "comp_off": "0x0",
+      "align": "0x1000",
+      "load_off": "0x4e000",
+      "size": "0xd000",
+      "flags": "0x5",
+      "true_fw_off": "0xbb000",
+      "end_true": "0xc8000"
+     },
+     {
+      "vaddr": "0xffffffffa3000000",
+      "comp_off": "0xd000",
+      "align": "0x1000",
+      "load_off": "0x5b000",
+      "size": "0x1c000",
+      "flags": "0x6",
+      "true_fw_off": "0xc8000",
+      "end_true": "0xe4000"
+     }
+    ],
+    "trailing": [
+     "0x210",
+     "0x228",
+     "0x298"
+    ]
+   },
+   {
+    "rel": "0x210",
+    "abs_off": "0x6d210",
+    "name": "kernel_gb10y.elf",
+    "fields_abs": "0x6d228",
+    "regions": [
+     {
+      "vaddr": "0xffffffff92fff000",
+      "comp_off": "0x0",
+      "align": "0x1000",
+      "load_off": "0x77000",
+      "size": "0xd000",
+      "flags": "0x5",
+      "true_fw_off": "0xe4000",
+      "end_true": "0xf1000"
+     },
+     {
+      "vaddr": "0xffffffffa3000000",
+      "comp_off": "0xd000",
+      "align": "0x1000",
+      "load_off": "0x84000",
+      "size": "0x1c000",
+      "flags": "0x6",
+      "true_fw_off": "0xf1000",
+      "end_true": "0x10d000"
+     }
+    ],
+    "trailing": [
+     "0x2b0",
+     "0x2c8",
+     "0x338"
+    ]
+   },
+   {
+    "rel": "0x2b0",
+    "abs_off": "0x6d2b0",
+    "name": "kernel_gb20x.elf",
+    "fields_abs": "0x6d2c8",
+    "regions": [
+     {
+      "vaddr": "0xffffffff92fff000",
+      "comp_off": "0x0",
+      "align": "0x1000",
+      "load_off": "0xa0000",
+      "size": "0xe000",
+      "flags": "0x5",
+      "true_fw_off": "0x10d000",
+      "end_true": "0x11b000"
+     },
+     {
+      "vaddr": "0xffffffffa3000000",
+      "comp_off": "0xe000",
+      "align": "0x1000",
+      "load_off": "0xae000",
+      "size": "0x1b000",
+      "flags": "0x6",
+      "true_fw_off": "0x11b000",
+      "end_true": "0x136000"
+     }
+    ],
+    "trailing": [
+     "0x350",
+     "0x368",
+     "0x3d8"
+    ]
+   },
+   {
+    "rel": "0x350",
+    "abs_off": "0x6d350",
+    "name": "kernel_gb20y.elf",
+    "fields_abs": "0x6d368",
+    "regions": [
+     {
+      "vaddr": "0xffffffff92fff000",
+      "comp_off": "0x0",
+      "align": "0x1000",
+      "load_off": "0xc9000",
+      "size": "0xe000",
+      "flags": "0x5",
+      "true_fw_off": "0x136000",
+      "end_true": "0x144000"
+     },
+     {
+      "vaddr": "0xffffffffa3000000",
+      "comp_off": "0xe000",
+      "align": "0x1000",
+      "load_off": "0xd7000",
+      "size": "0x1a000",
+      "flags": "0x6",
+      "true_fw_off": "0x144000",
+      "end_true": "0x15e000"
+     }
+    ],
+    "trailing": [
+     "0x3f0",
+     "0x408",
+     "0x478"
+    ]
+   },
+   {
+    "rel": "0x3f0",
+    "abs_off": "0x6d3f0",
+    "name": "kernel_gr10x.elf",
+    "fields_abs": "0x6d408",
+    "regions": [
+     {
+      "vaddr": "0xffffffff92fff000",
+      "comp_off": "0x0",
+      "align": "0x1000",
+      "load_off": "0xf1000",
+      "size": "0xd000",
+      "flags": "0x5",
+      "true_fw_off": "0x15e000",
+      "end_true": "0x16b000"
+     },
+     {
+      "vaddr": "0xffffffffa3000000",
+      "comp_off": "0xd000",
+      "align": "0x1000",
+      "load_off": "0xfe000",
+      "size": "0x1c000",
+      "flags": "0x6",
+      "true_fw_off": "0x16b000",
+      "end_true": "0x187000"
+     }
+    ],
+    "trailing": [
+     "0x490",
+     "0x4a0",
+     "0x548"
+    ]
+   },
+   {
+    "rel": "0x490",
+    "abs_off": "0x6d490",
+    "name": "debug.elf",
+    "fields_abs": "0x6d4a0",
+    "regions": [
+     {
+      "vaddr": "0x1000000",
+      "comp_off": "0x0",
+      "align": "0x1000",
+      "load_off": "0x11a000",
+      "size": "0x8000",
+      "flags": "0x5",
+      "true_fw_off": "0x187000",
+      "end_true": "0x18f000"
+     },
+     {
+      "vaddr": "0x4000000",
+      "comp_off": "0x8000",
+      "align": "0x1000",
+      "load_off": "0x122000",
+      "size": "0x2000",
+      "flags": "0x6",
+      "true_fw_off": "0x18f000",
+      "end_true": "0x191000"
+     },
+     {
+      "vaddr": "0x20002000",
+      "comp_off": "0xa000",
+      "align": "0x1000",
+      "load_off": "0x124000",
+      "size": "0x1000",
+      "flags": "0xe",
+      "true_fw_off": "0x191000",
+      "end_true": "0x192000"
+     }
+    ],
+    "trailing": [
+     "0x560",
+     "0x570",
+     "0x618"
+    ]
+   },
+   {
+    "rel": "0x560",
+    "abs_off": "0x6d560",
+    "name": "init.elf",
+    "fields_abs": "0x6d570",
+    "regions": [
+     {
+      "vaddr": "0x1000000",
+      "comp_off": "0x0",
+      "align": "0x1000",
+      "load_off": "0x125000",
+      "size": "0x8000",
+      "flags": "0x5",
+      "true_fw_off": "0x192000",
+      "end_true": "0x19a000"
+     },
+     {
+      "vaddr": "0x4000000",
+      "comp_off": "0x8000",
+      "align": "0x1000",
+      "load_off": "0x12d000",
+      "size": "0x4000",
+      "flags": "0x6",
+      "true_fw_off": "0x19a000",
+      "end_true": "0x19e000"
+     },
+     {
+      "vaddr": "0x20006000",
+      "comp_off": "0xc000",
+      "align": "0x1000",
+      "load_off": "0x131000",
+      "size": "0x1000",
+      "flags": "0xe",
+      "true_fw_off": "0x19e000",
+      "end_true": "0x19f000"
+     }
+    ],
+    "trailing": [
+     "0x630",
+     "0x638",
+     "0x6e0"
+    ]
+   },
+   {
+    "rel": "0x630",
+    "abs_off": "0x6d630",
+    "name": "rm.elf",
+    "fields_abs": "0x6d638",
+    "regions": [
+     {
+      "vaddr": "0x1000000",
+      "comp_off": "0x0",
+      "align": "0x1000",
+      "load_off": "0x132000",
+      "size": "0xe9b000",
+      "flags": "0x5",
+      "true_fw_off": "0x19f000",
+      "end_true": "0x103a000"
+     },
+     {
+      "vaddr": "0x4000000",
+      "comp_off": "0xe9b000",
+      "align": "0x1000",
+      "load_off": "0xfcd000",
+      "size": "0x1d5000",
+      "flags": "0x6",
+      "true_fw_off": "0x103a000",
+      "end_true": "0x120f000"
+     },
+     {
+      "vaddr": "0x203c6000",
+      "comp_off": "0x1070000",
+      "align": "0x1000",
+      "load_off": "0x11a2000",
+      "size": "0x1000",
+      "flags": "0xe",
+      "true_fw_off": "0x120f000",
+      "end_true": "0x1210000"
+     }
+    ],
+    "trailing": [
+     "0x6f8",
+     "0x708",
+     "0x7b0"
+    ]
+   },
+   {
+    "rel": "0x6f8",
+    "abs_off": "0x6d6f8",
+    "name": "vgpu.elf",
+    "fields_abs": "0x6d708",
+    "regions": [
+     {
+      "vaddr": "0x1000000",
+      "comp_off": "0x0",
+      "align": "0x1000",
+      "load_off": "0x11a3000",
+      "size": "0xa2000",
+      "flags": "0x5",
+      "true_fw_off": "0x1210000",
+      "end_true": "0x12b2000"
+     },
+     {
+      "vaddr": "0x4000000",
+      "comp_off": "0xa2000",
+      "align": "0x1000",
+      "load_off": "0x1245000",
+      "size": "0xf000",
+      "flags": "0x6",
+      "true_fw_off": "0x12b2000",
+      "end_true": "0x12c1000"
+     },
+     {
+      "vaddr": "0x20025000",
+      "comp_off": "0xb1000",
+      "align": "0x1000",
+      "load_off": "0x1254000",
+      "size": "0x1000",
+      "flags": "0xe",
+      "true_fw_off": "0x12c1000",
+      "end_true": "0x12c2000"
+     }
+    ],
+    "trailing": [
+     "0x7c8",
+     "0x7d8",
+     "0x880"
+    ]
+   },
+   {
+    "rel": "0x7c8",
+    "abs_off": "0x6d7c8",
+    "name": "mnoc.elf",
+    "fields_abs": "0x6d7d8",
+    "regions": [
+     {
+      "vaddr": "0x1000000",
+      "comp_off": "0x0",
+      "align": "0x1000",
+      "load_off": "0x1255000",
+      "size": "0x5000",
+      "flags": "0x5",
+      "true_fw_off": "0x12c2000",
+      "end_true": "0x12c7000"
+     },
+     {
+      "vaddr": "0x4000000",
+      "comp_off": "0x5000",
+      "align": "0x1000",
+      "load_off": "0x125a000",
+      "size": "0x9000",
+      "flags": "0x6",
+      "true_fw_off": "0x12c7000",
+      "end_true": "0x12d0000"
+     },
+     {
+      "vaddr": "0x20003000",
+      "comp_off": "0xe000",
+      "align": "0x1000",
+      "load_off": "0x1263000",
+      "size": "0x1000",
+      "flags": "0xe",
+      "true_fw_off": "0x12d0000",
+      "end_true": "0x12d1000"
+     }
+    ],
+    "trailing": [
+     "0x898",
+     "0x8a8",
+     "0x0"
+    ]
+   },
+   {
+    "rel": "0x898",
+    "abs_off": "0x6d898",
+    "name": "rm.bindata.bin",
+    "fields_abs": "0x6d8a8",
+    "regions": [
+     {
+      "vaddr": "0x0",
+      "comp_off": "0x0",
+      "align": "0x1",
+      "load_off": "0x1264000",
+      "size": "0x3d8a000",
+      "flags": "0x0",
+      "true_fw_off": "0x12d1000",
+      "end_true": "0x505b000"
+     }
+    ],
+    "trailing": [
+     "0x0",
+     "0x0",
+     "0x0"
+    ]
+   }
+  ],
+  "records_end": "0x6d8f8"
+ },
+ "components": {
+  "bootloader.bin": {
+   "record": "(boot area)",
+   "true_fw_off": "0x0",
+   "size": 446464,
+   "sha256": "ab90560bad520e65b3f04089978b5f20fafdb551fec2cac15a0ec9acd8c371d5",
+   "byte_exact": true
+  },
+  "pmu-wdt-41KB.bin": {
+   "record": "debug.elf",
+   "true_fw_off": "0x187000",
+   "size": 41584,
+   "sha256": "9c7e63fca810dfcd379d7c21676848cf0948473ef2b4a98e76398cfcdaedf045",
+   "byte_exact": true
+  },
+  "gsp-rm-17MB.bin": {
+   "record": "rm.elf",
+   "true_fw_off": "0x19f000",
+   "size": 17236632,
+   "sha256": "ee1475a798c6a8cb8ecac7d58e18e2bbbbfa51569186ce958feaebe976af773a",
+   "byte_exact": true
+  },
+  "comp-725KB.bin": {
+   "record": "vgpu.elf",
+   "true_fw_off": "0x1210000",
+   "size": 725616,
+   "sha256": "5c072ef3439407da09077f1cadfee627d4b859e9701381846c453a6c4b3df918",
+   "byte_exact": true
+  },
+  "comp-58KB.bin": {
+   "record": "mnoc.elf",
+   "true_fw_off": "0x12c2000",
+   "size": 57968,
+   "sha256": "4f8e65988d22ace0a2cdb7f0491d359516c17fd40e6ba4f262c7b63ddf51e843",
+   "byte_exact": true
+  },
+  "(no campaign copy)": [
+   {
+    "record": "kernel_ga10x.elf",
+    "true_fw_off": "0x6e000",
+    "elf_magic": true
+   },
+   {
+    "record": "kernel_gh100.elf",
+    "true_fw_off": "0x94000",
+    "elf_magic": true
+   },
+   {
+    "record": "kernel_gb10x.elf",
+    "true_fw_off": "0xbb000",
+    "elf_magic": true
+   },
+   {
+    "record": "kernel_gb10y.elf",
+    "true_fw_off": "0xe4000",
+    "elf_magic": true
+   },
+   {
+    "record": "kernel_gb20x.elf",
+    "true_fw_off": "0x10d000",
+    "elf_magic": true
+   },
+   {
+    "record": "kernel_gb20y.elf",
+    "true_fw_off": "0x136000",
+    "elf_magic": true
+   },
+   {
+    "record": "kernel_gr10x.elf",
+    "true_fw_off": "0x15e000",
+    "elf_magic": true
+   },
+   {
+    "record": "debug.elf",
+    "true_fw_off": "0x187000",
+    "elf_magic": true
+   },
+   {
+    "record": "init.elf",
+    "true_fw_off": "0x192000",
+    "elf_magic": true
+   },
+   {
+    "record": "rm.elf",
+    "true_fw_off": "0x19f000",
+    "elf_magic": true
+   },
+   {
+    "record": "vgpu.elf",
+    "true_fw_off": "0x1210000",
+    "elf_magic": true
+   },
+   {
+    "record": "mnoc.elf",
+    "true_fw_off": "0x12c2000",
+    "elf_magic": true
+   }
+  ]
+ },
+ "phdr_mirror": {
+  "rm.elf": [
+   {
+    "region_flags": 5,
+    "phdr_p_flags": 5,
+    "flags_equal": true,
+    "vaddr_equal": true,
+    "comp_off_equal": true,
+    "size_equal": true
+   },
+   {
+    "region_flags": 6,
+    "phdr_p_flags": 6,
+    "flags_equal": true,
+    "vaddr_equal": true,
+    "comp_off_equal": true,
+    "size_equal": true
+   },
+   {
+    "region_flags": 14,
+    "phdr_p_flags": 6,
+    "flags_equal": true,
+    "vaddr_equal": true,
+    "comp_off_equal": true,
+    "size_equal": true
+   }
+  ],
+  "vgpu.elf": [
+   {
+    "region_flags": 5,
+    "phdr_p_flags": 5,
+    "flags_equal": true,
+    "vaddr_equal": true,
+    "comp_off_equal": true,
+    "size_equal": true
+   },
+   {
+    "region_flags": 6,
+    "phdr_p_flags": 6,
+    "flags_equal": true,
+    "vaddr_equal": true,
+    "comp_off_equal": true,
+    "size_equal": true
+   },
+   {
+    "region_flags": 14,
+    "phdr_p_flags": 6,
+    "flags_equal": true,
+    "vaddr_equal": true,
+    "comp_off_equal": true,
+    "size_equal": true
+   }
+  ],
+  "mnoc.elf": [
+   {
+    "region_flags": 5,
+    "phdr_p_flags": 5,
+    "flags_equal": true,
+    "vaddr_equal": true,
+    "comp_off_equal": true,
+    "size_equal": true
+   },
+   {
+    "region_flags": 6,
+    "phdr_p_flags": 6,
+    "flags_equal": true,
+    "vaddr_equal": true,
+    "comp_off_equal": true,
+    "size_equal": true
+   },
+   {
+    "region_flags": 14,
+    "phdr_p_flags": 6,
+    "flags_equal": true,
+    "vaddr_equal": true,
+    "comp_off_equal": true,
+    "size_equal": true
+   }
+  ],
+  "debug.elf": [
+   {
+    "region_flags": 5,
+    "phdr_p_flags": 5,
+    "flags_equal": true,
+    "vaddr_equal": true,
+    "comp_off_equal": true,
+    "size_equal": true
+   },
+   {
+    "region_flags": 6,
+    "phdr_p_flags": 6,
+    "flags_equal": true,
+    "vaddr_equal": true,
+    "comp_off_equal": true,
+    "size_equal": true
+   },
+   {
+    "region_flags": 14,
+    "phdr_p_flags": 6,
+    "flags_equal": true,
+    "vaddr_equal": true,
+    "comp_off_equal": true,
+    "size_equal": true
+   }
+  ]
+ },
+ "bindata": {
+  "true_fw_off": "0x12d1000",
+  "size": "0x3d8a000",
+  "ends_at": "0x505b000",
+  "is_eof": true
+ },
+ "needle_search_64B": {
+  "bootloader.bin": [
+   "0x0"
+  ],
+  "pmu-wdt-41KB.bin": [
+   "0x187000"
+  ],
+  "gsp-rm-17MB.bin": [
+   "0x19f000"
+  ],
+  "comp-725KB.bin": [
+   "0x1210000"
+  ],
+  "comp-58KB.bin": [
+   "0x12c2000"
+  ]
+ },
+ "coverage": {
+  "boot_area": [
+   "0x0",
+   "0x6d000"
+  ],
+  "directory": [
+   "0x6d000",
+   "0x6e000"
+  ],
+  "load_area_size": "0x4fee000",
+  "first_data": "0x6e000",
+  "region_count": 30,
+  "contiguity_gaps": []
+ }
+}

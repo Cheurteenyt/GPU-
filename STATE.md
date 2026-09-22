@@ -4,6 +4,25 @@ One page to answer: where the campaign stands, what is proven, what is
 open, what is next. The historical snapshots (2026-09-17, 2026-09-20)
 are at the bottom.
 
+## The 4.30 addition: the gsp.bin pipeline is packaged end to end
+
+The pass 4.30 (`lab/jalon411/findings-4.30-gspbin-pipeline.md`) closed
+the packaging lane of the fallback path: the GFW directory grammar
+decoded (13 records, the true = field + 0x6d000 bias law, five
+byte-exact component containments — `bootloader.bin` = the boot area,
+debug.elf = the old "pmu-wdt-41KB.bin", mnoc.elf = comp-58KB), the
+container's signature inventory (twelve per-family blobs, 4 × RSA-3K
+blocks each; no digest stored anywhere — the coverage stays
+UNDECIDABLE-BY-BYTES with the one-boot experiment armed), and the
+250000→280000 patch landed byte-precisely (`gspbuild.py patchrm`):
+the mission's six-u32 premise falsified — the six sites are lui+addi
+pairs (the mission's VAs = rm-full.elf coordinates) — 48 B rewritten,
+18 B differ, tests 42 PASS / 0 FAIL including the 84 MB byte-exact
+rebuild. The driver-side file selection is source-proven: the GA104
+loads `/lib/firmware/nvidia/610.57.04/gsp_ga10x.bin`. The patch's
+SEMANTIC (power policy vs clock) stays HYPOTHÈSE until the one-boot
+experiment or the 4.26 capture observes it.
+
 ## The current phase: the transport instrumented → the recv capture (pass 4.26)
 
 **The falsification of record (the passes 4.23-4.28, the night of
