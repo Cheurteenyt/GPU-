@@ -1,0 +1,45 @@
+# lab/jalon411 — the RM cartography & the power-enforcement hunt (the master index)
+
+The wave of passes 4.14 → 4.28: from the rm.elf dispatch cartography to
+the EDPp enforcement hunt. Every pass = one findings file + the
+instruments (the `v4xx_*.py` scripts + their JSONs). **The entry point
+for the next session = pass 4.26 (the recv capture, armed).**
+
+## The passes
+
+| pass | findings | what it established | the verdict |
+|---|---|---|---|
+| 4.14 | datflow | the vtable installs, the companion census | the bases = carried, not formed |
+| 4.15 | aliased-slot-and-o2 | the 0x588 alias, the O2 verdict | no dominant allocator |
+| 4.16 | boundary-proof | the recursive descent, the 66 % verified | the dispatch-driven architecture |
+| 4.17 | stategraph | the 665 slots, the derivation graph | one state shape, many bases |
+| 4.18 | hubfill | the hub fills, the first X resolutions | 0 named targets |
+| 4.19 | prov588-entrypoints | the full provenance table | the family = 3 semantics |
+| 4.20 | rpc-anchors | **the RPC dispatch table found (1156 entries)** | the anchors survive the runtime-bind |
+| 4.21 | pfm-worker-runtime-data | the mW scan, the ceiling = runtime data | 280000 = zero hits in rm.elf |
+| 4.22 | power-transport | the open kernel sends no tables | the BIT parser = the closed x86 blob |
+| 4.23 | transport-edpp | the transport instrumented end to end | the machine degraded — restored |
+| 4.24 | payload-fieldmap **(FALSIFIED 4.23's assumption)** | the 1616 = cmd 0x2080d031, the handler = unconsumed | 250000 @104 = rides unread |
+| 4.24 | edpp-flow | the EDPp lifecycle modeled from the open source | the client vs the platform limits |
+| 4.24 | gsp-lz | the LZ4 codec + the container built and verified | 13/13, byte-exact |
+| 4.24 | citation-audit | every 4.24 claim re-executed | clean |
+| 4.25 | x86-marshal | win.elf falsified (a RISC-V artifact), the 0x2080d0 family = 19 controls | the offsets = HYPOTHESIS |
+| 4.25 | recv-edpp | the GSP→CPU completion chain proven | **the 96-B prediction armed — the capture = 4.26** |
+| 4.27 | gspbin-container | gsp_ga10x.bin acquired, the provenance proven | byte-exact rebuilder delivered |
+| 4.28 | x86-substrate + the hunt closed | **nv-kernel.o_binary acquired; the issuer = NVML userspace PROVEN** | **the "250000" = the LACT clock-VF offset, NOT power** |
+
+## The current state of the 280 W question (after 4.28)
+
+- The power limit value **never travels** the fn=76 transport (the
+  250000 = the LACT clock offset, the falsification).
+- The enforcement = **the GSP-RM's EDPp policy object** (the 0x6d0
+  object, the 4.20/4.21 passes), fed by mechanisms still to observe.
+- **The only road to the real data = pass 4.26: the recv-hook capture**
+  (the response-path instrument = merged and armed; the boot = the
+  capture).
+
+## The instruments (the naming convention)
+
+`v4XX_<topic>.py` = the pass's instrument; `<topic>.json` = its output.
+The chained verification = the flat results re-derived before every new
+pass (the discipline since 4.19).

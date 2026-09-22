@@ -1,8 +1,31 @@
-# gpu-lab — state of the campaign (2026-09-21)
+# gpu-lab — state of the campaign (2026-09-22)
 
 One page to answer: where the campaign stands, what is proven, what is
 open, what is next. The historical snapshots (2026-09-17, 2026-09-20)
 are at the bottom.
+
+## The current phase: the transport instrumented → the recv capture (pass 4.26)
+
+**The falsification of record (the passes 4.23-4.28, the night of
+2026-09-21/22):** the "250000 mW" values captured in the RPC transport
+were **the LACT clock-VF offsets, not power** — the issuer = NVML
+userspace (proven: no code immediate in either x86 core; the 53 kernel
+sites attributed). The power limit value **never travels** the fn=76
+(`GSP_RM_CONTROL`) transport. The 4.23 rewrites corrupted the clock
+table (the RM's power state degraded to 240/245; the restoration = the
+power cycle + the LACT re-apply).
+
+**The enforcement map now stands:** the GSP-RM's EDPp policy object
+(the 0x6d0 object, pass 4.20) = fed by mechanisms still unobserved.
+**The only road to the real data = pass 4.26: the recv-hook capture**
+(the response-path instrument = merged and armed; the 96-byte
+prediction). The tools for the fallback path (the gsp.bin rebuild =
+the LZ4 codec + the byte-exact container, 13/13 tested) = ready in
+tools/gsp-lz/ + tools/gsp-container/.
+
+The wave's master index: **lab/jalon411/INDEX.md** (the passes
+4.14→4.28, the verdicts, the instruments). The power-limit instruments:
+tools/edpp/.
 
 ## The current phase: the GSP-RM cartography → the EDPp handlers
 
