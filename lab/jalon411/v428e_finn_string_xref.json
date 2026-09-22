@@ -1,0 +1,13 @@
+{
+ "binary": {
+  "sha256": "48096db025a439328592250b1c79e7f27943b37b733583778407f3cf46bca251",
+  "size": 19233368
+ },
+ "exact_disasm": [],
+ "exact_refs": [],
+ "near_refs": [],
+ "string": {
+  "abs": "0xc06ef8",
+  "off_in_rodata": "0x820778"
+ }
+}
