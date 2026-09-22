@@ -1,10 +1,20 @@
-# 4.28 — the x86 substrate: `nv-kernel.o_binary` landed, censused, the hunt opened
+# 4.28 — the x86 substrate: the hunt CLOSED — the five fields named, the sender proven userspace
 
-Status: **hunt OPENED, not closed.** The five captured values {255, 3, 257, 257,
-250000} of the 1544-B `0x2080d031` params struct remain **HYPOTHESIS** — this
-pass does not name them. This pass (1) lands the substrate PR #10 declared
-absent, (2) freezes its census behind a selftest, (3) collects the first
-hunt facts, (4) falsifies the hunt's naive form and names the corrected one.
+Status: **hunt CLOSED by wave 4.** The five captured values {255, 3, 257, 257,
+250000} of the 1544-B `0x2080d031` params struct are **NAMED** (section 8.4):
+the struct is the RM **clock-VF-offset table** — 8-B header {flags,
+domain-bitmask} + 32 clock-domain entries x 48 B {version 1.1, flag byte, the
+offset value} — and the senders are `nvmlDeviceSetGpcClkVfOffset` /
+`nvmlDeviceSetMClkVfOffset` (NVML) and the Xorg driver's twin (nvidia_drv.so,
+committed this wave). The kernel side (BOTH package cores) never builds these
+params: the naive kernel hunt is falsified (wave 2), the issuer is proven
+userspace (wave 3), the mechanism and the naming are closed (wave 4) — and
+the 4.24 "250000 = the EDPp 250-W class" semantic is CORRECTED (a
+clock-offset value rides that lane, not power). The wave history: part 1
+(sections 1-5, the substrate landing + census), wave 2 (section 6, the
+host pfmreqhndlr cluster), wave 3 (section 7, the NVML issuer), wave 4
+(section 8, the completion — which supersedes the section 7.3 residual-stack
+hypothesis, honestly marked there and corrected in 8.0).
 
 ## §1 — the substrate (PROVEN)
 
@@ -240,3 +250,208 @@ dispatcher) and the `[global+0x8c]` handle cache; then the 4.26 live capture
 checks the response triplet against §7.3's hypothesis.
 
 ---
+
+## §8 — wave 4: the completion — the struct NAMED, the mechanism decoded (PROVEN, v428_x86_site_attributor / v428_x86_copygraph / v428_userspace_scan)
+
+### §8.0 — the deltas vs waves 2-3 (read first)
+
+Complementary registers to the wave-2 `v428_site_attribution` (the 53-site
+roll-up below closes over the whole census, both instruments agree on the
+non-EDPp classification), and three corrections that complete wave 3:
+
+1. the two NVML sites sit in **two twin functions** ([0x108250..0x108550]
+and [0x108930..0x108c20], .eh_frame_hdr bounds), not two branches of one —
+and their own log strings name them: **nvmlDeviceSetMClkVfOffset** and
+**nvmlDeviceSetGpcClkVfOffset** (source `dmal/common/common_clock.c`).
+2. the request buffer is NOT partially-initialized: the OUTER function
+zeroes all **1544 B** (`rep stosq` ecx=0xc1 at rbp-0x640); the 904-B
+memset (ecx=0x71) of section 7.3 belongs to the HELPER's own local
+buffer (the 904-B = 8+32x28 query twin).
+3. the captured {255 @0, 257 @8, 257 @56} are therefore NOT residual
+stack — they are the **0x20809030 RESPONSE echoed back** (the mechanism
+below, proven by contradiction), and the naming closes.
+
+### §8.1 — the corrected hunt, kernel side: every site attributed, the naive form FALSIFIED (PROVEN)
+
+Instruments: `v428_x86_site_attributor.py` (+ register, selftest = full
+re-derivation) and `v428_x86_copygraph.py` (+ register). All 53 census sites
+(35 x 1544, 14 x 100000, 4 family) are attributed and classified; the roll-up
+closes with zero unclassified sites.
+
+- **the 14 x 100000 `.text` sites — the "EDPp quantum embedded in host code"
+  reading is FALSIFIED.** Every site is a timeout/delay/display constant:
+  `kbifDoSecondaryBusHotReset_GM107` + `kbifDoFunctionLevelReset_TU102`
+  (`mov edi, 0x186a0` — a 100-ms reset timeout), `_checkTimeout` x2 and
+  `tmrDelay_PTIMER` x3 (100-ms/100-us timeout+delay constants),
+  `kdispComputeDpModeSettings_v02_04` x4 (DisplayPort mode arithmetic),
+  `nvswitch_init_pll_config_lr10/ls10` x2 (64-bit PLL constant overlaps),
+  `libspdm_init_context_with_secured_context` x1 (an SPDM context field at
+  +0x108). None is a power value; none touches any EDPp path.
+- **the 35 x 0x608 sites — none is the d031 marshal.** The REAL (IMM/DISP)
+  sites: hal function-table slots (`__nvoc_init_funcTable_KernelFalcon_1`,
+  nvswitch hal x2 — vtable offsets), rcdb record sizes (`krcWatchdogInit_IMPL`
+  x2 — the watchdog record, its windows show the rcdb magics `0xdeaf0006` and
+  `0x314159xx`; `rcdbDumpSystemInfo_IMPL`; the nocat journal x2 —
+  source-PROVEN: `subdeviceCtrlCmdNvdGetNocatJournalRpt_IMPL` iterates
+  `journalRecords[]` at subdevice_ctrl_nvd.c:162-210, the 1544-B stride =
+  sizeof(NV2080_NOCAT_JOURNAL_RECORD), ctrl2080nvd.h:201-208), a vgpu record
+  (`kvgpumgrGuestUnregister`), member offsets (kbus/kgmmu/bar2/vgpu-task),
+  nvswitch platform code, and **one marshal-class site**:
+  `rpcCtrlSubdeviceGetP2pCaps_v21_02` — decoded end to end in section 7.
+  The artifacts: 3 jcc disp32 overlaps, 12 `.rela.text` r_offset offset
+  coincidences (the nvoc objCreate/dtor cluster at .text 0x608xx), 2
+  `.symtab` st_value coincidences (`__nvoc_dtor_RsShared`,
+  `__nvoc_objCreateDynamic_RsResource`), and the 2 `.rodata` sites.
+- **the census's family reading is refined:** the three family dwords
+  (0x2080d2a5, 0x2080d2e9 x2, 0x2080d338) sit INSIDE GSP firmware bindata
+  blobs (`kgspBinArchiveBooterUnloadUcode_AD102…`,
+  `kgspBinArchiveGspRmCcFmcGfwProdSigned_GH100…`,
+  `kgspBinArchiveConcatenatedFMC_GH100/GR100…`) — random-image coincidences,
+  not "data tables". The conclusion stands and sharpens: `0x2080d031`
+  appears nowhere in the committed core — not as an immediate, not in a
+  table, not in `.data`.
+- **the five-value store probe** (captured immediates {255, 3, 257, 250000}
+  as stores, and stores at the five captured poffs) across every REAL-site
+  function: 9 hits, all in the rcdb/spdm/nvswitch lanes — **no host function
+  builds the captured pattern.** The honest kernel-side negative, banked.
+- instrument corrections banked (the audit's discipline applies to the
+  auditor): the copygraph first draft read relocations only at instruction
+  starts (call rel32 relocs sit at +1) and probed the store's destination
+  for the immediate instead of the source; both caught, corrected, re-run.
+
+### §8.2 — the two RPC lanes, and the one marshal-class site calibrated (PROVEN)
+
+The host RM object holds a **626-symbol RPC stub family** (`rpc<Api>_vNN_NN`
++ `_STUB` pairs). These are NOT fn=76: each stub sends a DEDICATED RPC
+function — `rpcCtrlSubdeviceGetP2pCaps_v21_02` (vgpu/rpc.c:6338, OPEN source)
+calls `rpcWriteCommonHeader(pGpu, pRpc, NV_VGPU_MSG_FUNCTION_CTRL_SUBDEVICE_
+GET_P2P_CAPS, sizeof(rpc_ctrl_subdevice_get_p2p_caps_v21_02))` — in machine
+code `mov edx, 0xbf` + `mov ecx, 0x608`: function **191** (rpc_global_enums.h
+:201 `X(RM, CTRL_SUBDEVICE_GET_P2P_CAPS, 191)`) and params size **1544**
+(= sizeof the GetP2pCaps v21_02 struct, g_sdk-structures.h:4239). The stub
+then `portMemCopy`s the caller's params and calls the generated
+serialize/deserialize pair — the field-offset copy graph for THAT control.
+No stub exists for anything d031-shaped (the rpc symbol census: Subdevice
+stubs = GetLibosHeapStats, GetP2pCaps, GetVgpuHeapStats only; the perf/power
+stubs = PerfBoost, RatedTdpGet/Set, GetLevelInfo).
+
+**The lane law:** the captured `0x2080d031` rode **fn=76**
+(`X(GSP, GSP_RM_CONTROL, 76)` — rpc_global_enums.h:86), the GENERIC lane
+(`rpcRmApiControl_GSP`, vgpu/rpc.c:10659 — the 4.25-x86 citation, path
+corrected from "rpc.c" to the tree's actual `src/nvidia/src/kernel/vgpu/
+rpc.c`), where the cmd is a runtime parameter from the client. A control
+absent from every kernel table and stub can only enter that lane from the
+client — userspace.
+
+### §8.3 — the userspace extension: the origin PROVEN, the mechanism decoded (PROVEN)
+
+Instruments: `v428_userspace_scan.py` (+ register, selftest). Substrates
+committed with the same provenance law (package sha256
+`b2e935c6…b116d` verified on download against the 4.27 acquisition
+register): `libnvidia-ml.so.610.57.04` (2,654,168 B, `50feda0f…`),
+`libnvidia-eglcore.so.610.57.04` (39,091,248 B, `afd79b7f…`),
+`nvidia_drv.so` (3,627,376 B, `28ae0bf0…`).
+
+- **the package sweep (190 files >50 KB):** `0x2080d031` lives in
+  libnvidia-ml.so **x2** (.text, `mov ecx, imm32`), nvidia_drv.so **x1**
+  (.text, `mov esi, imm32`), the GSP firmware images (their dispatch
+  entries — the v425 whole-image census), eglcore **zero** — and, the
+  discovery of this pass, **kernel/nvidia/nv-kernel.o_binary x1**.
+- **the two cores:** the package ships BOTH `kernel-open/nvidia/
+  nv-kernel.o_binary` (19,233,368 B — the committed substrate, ZERO d031)
+  and `kernel/nvidia/nv-kernel.o_binary` (**120,980,872 B**, sha256
+  `c90f58d5…8cbf` — the CLOSED driver's core, not committed: over the
+  100-MB limit, hash-documented in the register + PROVENANCE). The closed
+  core's single d031 is a `.rodata` **table row** at 0x666b110, stride 0x20
+  {u32 cmd, u32 tag, u64 0, u64 0x44}: 0x2080d02d->4116, 0x2080d031->1544,
+  0x2080d036->… — the HOST twin of the GSP dispatch table (v425-x86
+  section 3: same rows, same 0x44). Routing metadata, NOT a marshal: no
+  code immediate exists even there. **In both cores the params build is
+  userspace-only** — the origin verdict is independent of which core the
+  rig links.
+- **NVML deep dive (the two senders, named by their own log strings):**
+  functions [0x108250..0x108550] and [0x108930..0x108c20] reference
+  `'cDeviceSetMClkVfOffset'` and `'cDeviceSetGpcClkVfOffset'` with the
+  source path `'dmal/common/common_clock.c'` and line numbers 5855/5861/5866
+  — **nvmlDeviceSetMClkVfOffset / nvmlDeviceSetGpcClkVfOffset**. The flow:
+  zero the 1544-B stack table (`rep stosq`, ecx=0xc1), query the current
+  table (the helper 0x107820 sends **0x20809029**, params 904 B = 8 + 32 x
+  28 — the 32-entry/28-B query twin; parses the domain mask and the
+  entries; writes `params[4] = mask`), then the outer function patches
+  entry[i] and sends d031 with size 0x608. The helper also sends
+  **0x20809030** (the second 1544-B sibling of the v425-x86 trio) on its
+  own path.
+- **nvidia_drv.so deep dive (the mechanism, PROVEN):** function
+  [0x77920..0x77a50] — memset 1544 B; `params[4] = dev->[+0x5fc]` (the
+  domain mask); **send 0x20809030 whose RESPONSE FILLS the buffer** —
+  proven by contradiction: the very next instruction checks
+  `byte [rsp + 48*i + 9] == 1` (the entry's version-minor), which can only
+  pass if the send populated the zeroed buffer; patch entry[i]
+  (`byte@+4 = 0`; `dword@+8 = int(offset / (devField / 100.0) * 1000.0)`);
+  **send 0x2080d031**. The two `.rodata` constants of the formula are
+  **100.0 and 1000.0** (so value = offset x 100000 / devField); NVML's
+  integer twin uses 100 and 1000 — the same conversion in two codebases.
+  The callers are two NV-CONTROL-style attribute handlers (tail-jumps at
+  0x3a1ba with esi=1 and 0x3a2a7). This is the Xorg driver's
+  clock-VF-offset setter — the path nvidia-settings/Coolbits drives.
+- **eglcore side observations (banked, uninterpreted):** d031 = 0;
+  250000 x5 `.text`, 240000 x4 `.rodata`, 100000 x6 — power-class values
+  in the GL core, no d031 linkage.
+
+### §8.4 — the naming: the five captured fields (the deliverable)
+
+**The struct law (PROVEN three ways):** the 1544-B params =
+**8-B header + 32 entries x 48 B** (the memset count 0xC1 qwords; the
+48-stride stores `lea rcx,[i+i*2]; shl rcx,4`; the 32-entry domain table
+of the 0x20809029 query twin, mask-checked `bt`/loop-to-0x20).
+
+| poff | captured | the field | verdict |
+|---|---|---|---|
+| 0 | 255 (0xFF) | the table **flags** dword — GSP-authored (rides the 0x20809030 response) | layout **PROVEN** / semantics **HYPOTHESIS** (an all-valid-domains flags shape) |
+| 4 | 3 | the **clock-domain bitmask** (userspace writes it from the device's domain mask; the helper writes `params[4] = mask` from the query) | **PROVEN** (bit 0+1 = the two active domains) |
+| 8+48i | 257 (x2) | **entry[i] version = {major=1, minor=1}** (0x101) — GSP-authored; the X driver *checks* minor==1 before patching | **PROVEN** (the 4.25-x86 "version-pair shape ((1<<8)\|1)" reading confirmed and named) |
+| 12+48i | 0 | entry[i] **flag byte** (userspace patches 0) | layout **PROVEN** / semantics **HYPOTHESIS** |
+| 16+48i | 250000 | entry[i] the **clock VF-offset value** = offset x 100000 / devField (the 100.0/1000.0 formula; NVML's integer twin) | lane **PROVEN** / exact input units **HYPOTHESIS** (a x1000 milli-scale — a kHz-class offset; the devField divisor [+0x628/+0x638] is not decoded) |
+
+The captured message was therefore a **Set*VfOffset send targeting
+entry[1]** (domain index 1; mask 3 = domains 0+1) with the offset value
+250000 — the 250-W-shaped number is a **clock offset**, not an EDPp limit.
+
+### §8.5 — the ledger reconciliation (4.23 / 4.24 / 4.25)
+
+1. **4.23 "the transport never carries the EDPp limits" — CONFIRMED and
+   SHARPENED**: the one 250000 that rides the CPU->GSP transport is a
+   clock-VF-offset value in the SetClkVfOffset lane. No power limit rides
+   the send side anywhere in this pass's evidence.
+2. **4.24's poff64 semantics ("the EDPp 250-W class in mW") — FALSIFIED as
+   to lane** (a seductive numerical coincidence, now explained); the
+   "CARRIED, not consumed" mechanics stand and strengthen — the GSP
+   handler ignores the params, and the carried shape is the GSP's own
+   echoed table format plus the userspace patch.
+3. **4.24's "two versioned sub-blocks @8/@56, 48 B apart" — CONFIRMED and
+   NAMED**: entry[0]/entry[1] version pairs of the 48-B domain entries.
+4. **4.25-x86's 1544-B census — refined, not overturned**: the fn=76
+   dispatch trio {0x20809004, 0x20809030, 0x2080d031} is the
+   clock-VF-offset table control family (query twin 0x20809029, 904 B,
+   added); the dedicated lane ALSO has a 1544-B struct
+   (NV2080_CTRL_GET_P2P_CAPS_PARAMS_v21_02, sizeof PROVEN by the stub's
+   ecx + rpc.c source) — a size-class coincidence with a different shape.
+   The open-SDK "no shipped 1544-B sibling" claim stands.
+5. **4.28 part-1's own readings — corrected in place**: the family dwords
+   are firmware-bindata coincidences (not "data tables"); the "100000 x14
+   primary target list" is falsified (timeouts/delays).
+6. **the section 7.2 GET_EDPP prediction — UNTOUCHED**: it concerns the
+   0x20800afd RESPONSE path (the 4.26 live capture), not this send-side
+   payload; the d031 red herring is now removed from the ledger.
+
+### §8.6 — queue
+
+1. **the 4.26 live capture** (boot RpcDump=1 + RpcRecvMode=2, the armed
+   instruments of PR #11) — now the ONLY road to the EDPp limits
+   themselves; the d031 payload is cleared of the power question.
+2. optional: decode the offset-value units fully (the devField divisor
+   [+0x628/+0x638] and the NV-CONTROL attribute ids of the two drv
+   callers) — a documentation nicety, no longer load-bearing.
+3. optional: 0x20809004 (the third 1544-B sibling) — likely another table
+   variant of the same family.
+4. observed only: eglcore's 250000 x5 / 240000 x4 / 100000 x6.

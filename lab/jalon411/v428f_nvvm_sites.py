@@ -20,7 +20,12 @@ import struct
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-LIB = "/home/z/my-project/work/downloads/extracted/libnvidia-ml.so.610.57.04"
+# wave-4 courtesy fix: the wave-3 draft pointed at a session-local
+# extraction path (repo-law violation — instruments resolve from the
+# repo); repointed at the committed binary, same sha256.
+LIB = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..",
+                   "..", "tools", "analysis", "x86-rm", "binaries",
+                   "libnvidia-ml.so.610.57.04")
 REG = os.path.join(HERE, "v428f_nvvm_sites.json")
 
 from capstone import Cs, CS_ARCH_X86, CS_MODE_64

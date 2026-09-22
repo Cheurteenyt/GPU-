@@ -1,0 +1,824 @@
+{
+ "five_value_probe": {
+  "__nvoc_init_funcTable_KernelFalcon_1": [],
+  "_bar2WalkCBWriteBuffer": [],
+  "_checkTimeout": [],
+  "kbifDoFunctionLevelReset_TU102": [],
+  "kbifDoSecondaryBusHotReset_GM107": [],
+  "kbusStateInitLockedKernel_GM107": [],
+  "kdispComputeDpModeSettings_v02_04": [],
+  "kernelhostvgpudeviceapiCtrlCmdBootloadVgpuTask_IMPL": [],
+  "kgmmuCreateFakeSparseTablesInternal_KERNEL": [],
+  "krcWatchdogInit_IMPL": [
+   {
+    "insn": "mov qword ptr [r14 + 0x40], 0x608",
+    "off": "0x2d9a86",
+    "probe": "store at poff 64"
+   },
+   {
+    "insn": "mov qword ptr [rcx + 0x40], rax",
+    "off": "0x2d9c1a",
+    "probe": "store at poff 64"
+   },
+   {
+    "insn": "mov dword ptr [rax + 0x68], 3",
+    "off": "0x2da16d",
+    "probe": "captured-value store",
+    "value": 3
+   },
+   {
+    "insn": "mov qword ptr [rcx + 0x40], rax",
+    "off": "0x2da407",
+    "probe": "store at poff 64"
+   },
+   {
+    "insn": "mov qword ptr [r14 + 0x40], rax",
+    "off": "0x2da480",
+    "probe": "store at poff 64"
+   },
+   {
+    "insn": "mov dword ptr [r15 + 0x68], 3",
+    "off": "0x2da6fc",
+    "probe": "captured-value store",
+    "value": 3
+   }
+  ],
+  "kvgpumgrGuestUnregister": [],
+  "libspdm_init_context_with_secured_context": [
+   {
+    "insn": "mov dword ptr [rbx], 3",
+    "off": "0x3ab917",
+    "probe": "captured-value store",
+    "value": 3
+   },
+   {
+    "insn": "mov byte ptr [rbx + 0x140], 3",
+    "off": "0x3ab950",
+    "probe": "captured-value store",
+    "value": 3
+   }
+  ],
+  "nvswitch_init_minion_lr10": [],
+  "nvswitch_lib_ctrl": [
+   {
+    "insn": "mov dword ptr [r15 + 0x1fb0], 3",
+    "off": "0x10df84",
+    "probe": "captured-value store",
+    "value": 3
+   }
+  ],
+  "nvswitch_setup_hal_lr10": [],
+  "nvswitch_setup_hal_ls10": [],
+  "rcdbDumpSystemInfo_IMPL": [],
+  "rcdbReportNextNocatJournalEntry": [],
+  "rpcCtrlSubdeviceGetP2pCaps_v21_02": [],
+  "subdeviceCtrlCmdNvdGetNocatJournalRpt_IMPL": [],
+  "tmrDelay_PTIMER": []
+ },
+ "rollup": [
+  {
+   "class": "hal function-table slot",
+   "file_off": "0x37d69",
+   "func": "__nvoc_init_funcTable_KernelFalcon_1",
+   "needle": "size_1544",
+   "role": "DISP",
+   "section": ".text"
+  },
+  {
+   "class": "nvswitch hal vtable slot (off-target)",
+   "file_off": "0xbc63e",
+   "func": "nvswitch_setup_hal_lr10",
+   "needle": "size_1544",
+   "role": "DISP",
+   "section": ".text"
+  },
+  {
+   "class": "nvswitch minion buffer size (off-target platform)",
+   "file_off": "0xbda52",
+   "func": "nvswitch_init_minion_lr10",
+   "needle": "size_1544",
+   "role": "IMM",
+   "section": ".text"
+  },
+  {
+   "class": "nvswitch hal vtable slot (off-target)",
+   "file_off": "0x100e8e",
+   "func": "nvswitch_setup_hal_ls10",
+   "needle": "size_1544",
+   "role": "DISP",
+   "section": ".text"
+  },
+  {
+   "class": "nvswitch lib ctrl member offset (off-target)",
+   "file_off": "0x10e871",
+   "func": "nvswitch_lib_ctrl",
+   "needle": "size_1544",
+   "role": "DISP",
+   "section": ".text"
+  },
+  {
+   "class": "rcdb system-info record size",
+   "file_off": "0x15aa36",
+   "func": "rcdbDumpSystemInfo_IMPL",
+   "needle": "size_1544",
+   "role": "IMM",
+   "section": ".text"
+  },
+  {
+   "class": "rcdb nocat journal entry size",
+   "file_off": "0x15d2fc",
+   "func": "rcdbReportNextNocatJournalEntry",
+   "needle": "size_1544",
+   "role": "IMM",
+   "section": ".text"
+  },
+  {
+   "class": "kbus state member offset (value 0x100000)",
+   "file_off": "0x17d80b",
+   "func": "kbusStateInitLockedKernel_GM107",
+   "needle": "size_1544",
+   "role": "DISP",
+   "section": ".text"
+  },
+  {
+   "class": "jcc disp32 overlap artifact",
+   "file_off": "0x1b886d",
+   "func": "dispcmnCtrlCmdSystemExecuteAcpiMethod_IMPL",
+   "needle": "size_1544",
+   "role": "OVERLAP",
+   "section": ".text"
+  },
+  {
+   "class": "gmmu table member offset",
+   "file_off": "0x2ada05",
+   "func": "kgmmuCreateFakeSparseTablesInternal_KERNEL",
+   "needle": "size_1544",
+   "role": "DISP",
+   "section": ".text"
+  },
+  {
+   "class": "bar2 walk buffer member offset",
+   "file_off": "0x2b3814",
+   "func": "_bar2WalkCBWriteBuffer",
+   "needle": "size_1544",
+   "role": "DISP",
+   "section": ".text"
+  },
+  {
+   "class": "rcdb-watchdog record size (magics 0xdeaf0006 / 0x314159xx)",
+   "file_off": "0x2d9aca",
+   "func": "krcWatchdogInit_IMPL",
+   "needle": "size_1544",
+   "role": "IMM",
+   "section": ".text"
+  },
+  {
+   "class": "rcdb-watchdog record size (magics 0xdeaf0006 / 0x314159xx)",
+   "file_off": "0x2d9bea",
+   "func": "krcWatchdogInit_IMPL",
+   "needle": "size_1544",
+   "role": "IMM",
+   "section": ".text"
+  },
+  {
+   "class": "jcc disp32 overlap artifact",
+   "file_off": "0x2e5695",
+   "func": "getGpuInfos",
+   "needle": "size_1544",
+   "role": "OVERLAP",
+   "section": ".text"
+  },
+  {
+   "class": "rcdb nocat journal entry stride",
+   "file_off": "0x2eb742",
+   "func": "subdeviceCtrlCmdNvdGetNocatJournalRpt_IMPL",
+   "needle": "size_1544",
+   "role": "IMM",
+   "section": ".text"
+  },
+  {
+   "class": "jcc disp32 overlap artifact",
+   "file_off": "0x32c244",
+   "func": "clUpdatePcieConfig_IMPL",
+   "needle": "size_1544",
+   "role": "OVERLAP",
+   "section": ".text"
+  },
+  {
+   "class": "rpc-marshal-stub (GetP2pCaps, NOT d031)",
+   "file_off": "0x37ab36",
+   "func": "rpcCtrlSubdeviceGetP2pCaps_v21_02",
+   "needle": "size_1544",
+   "role": "IMM",
+   "section": ".text"
+  },
+  {
+   "class": "vgpu task member offset",
+   "file_off": "0x38cbcb",
+   "func": "kernelhostvgpudeviceapiCtrlCmdBootloadVgpuTask_IMPL",
+   "needle": "size_1544",
+   "role": "DISP",
+   "section": ".text"
+  },
+  {
+   "class": "vgpu record size (guest-unregister lane)",
+   "file_off": "0x394a3d",
+   "func": "kvgpumgrGuestUnregister",
+   "needle": "size_1544",
+   "role": "IMM",
+   "section": ".text"
+  },
+  {
+   "class": "firmware-bindata coincidence (__nvoc_exported_method_def_KernelSMDebuggerSession)",
+   "file_off": "0xbf487c",
+   "func": null,
+   "needle": "size_1544",
+   "role": "non-text",
+   "section": ".rodata"
+  },
+  {
+   "class": "firmware-bindata coincidence (__nvoc_exported_method_def_KernelSMDebuggerSession)",
+   "file_off": "0xbf48a4",
+   "func": null,
+   "needle": "size_1544",
+   "role": "non-text",
+   "section": ".rodata"
+  },
+  {
+   "class": "st_value offset coincidence (nvoc cluster)",
+   "file_off": "0xdb7a19",
+   "func": null,
+   "needle": "size_1544",
+   "role": "non-text",
+   "section": ".symtab"
+  },
+  {
+   "class": "st_value offset coincidence (nvoc cluster)",
+   "file_off": "0xdd3dc9",
+   "func": null,
+   "needle": "size_1544",
+   "role": "non-text",
+   "section": ".symtab"
+  },
+  {
+   "class": "r_offset/addend offset artifact (byte+1)",
+   "file_off": "0xee7609",
+   "func": null,
+   "needle": "size_1544",
+   "role": "non-text",
+   "section": ".rela.text"
+  },
+  {
+   "class": "r_offset/addend offset artifact (byte+1)",
+   "file_off": "0xee7621",
+   "func": null,
+   "needle": "size_1544",
+   "role": "non-text",
+   "section": ".rela.text"
+  },
+  {
+   "class": "r_offset/addend offset artifact (byte+1)",
+   "file_off": "0xee7639",
+   "func": null,
+   "needle": "size_1544",
+   "role": "non-text",
+   "section": ".rela.text"
+  },
+  {
+   "class": "r_offset/addend offset artifact (byte+1)",
+   "file_off": "0xee7651",
+   "func": null,
+   "needle": "size_1544",
+   "role": "non-text",
+   "section": ".rela.text"
+  },
+  {
+   "class": "r_offset/addend offset artifact (byte+1)",
+   "file_off": "0xee7669",
+   "func": null,
+   "needle": "size_1544",
+   "role": "non-text",
+   "section": ".rela.text"
+  },
+  {
+   "class": "r_offset/addend offset artifact (byte+1)",
+   "file_off": "0xee7681",
+   "func": null,
+   "needle": "size_1544",
+   "role": "non-text",
+   "section": ".rela.text"
+  },
+  {
+   "class": "r_offset/addend offset artifact (byte+1)",
+   "file_off": "0xee7699",
+   "func": null,
+   "needle": "size_1544",
+   "role": "non-text",
+   "section": ".rela.text"
+  },
+  {
+   "class": "r_offset/addend offset artifact (byte+1)",
+   "file_off": "0xee76b1",
+   "func": null,
+   "needle": "size_1544",
+   "role": "non-text",
+   "section": ".rela.text"
+  },
+  {
+   "class": "r_offset/addend offset artifact (byte+1)",
+   "file_off": "0xee76c9",
+   "func": null,
+   "needle": "size_1544",
+   "role": "non-text",
+   "section": ".rela.text"
+  },
+  {
+   "class": "r_offset/addend offset artifact (byte+1)",
+   "file_off": "0xee76e1",
+   "func": null,
+   "needle": "size_1544",
+   "role": "non-text",
+   "section": ".rela.text"
+  },
+  {
+   "class": "r_offset/addend offset artifact (r_offset)",
+   "file_off": "0x11bed18",
+   "func": null,
+   "needle": "size_1544",
+   "role": "non-text",
+   "section": ".rela.data"
+  },
+  {
+   "class": "r_offset/addend offset artifact (r_offset)",
+   "file_off": "0x11c9920",
+   "func": null,
+   "needle": "size_1544",
+   "role": "non-text",
+   "section": ".rela.rodata"
+  },
+  {
+   "class": "nvswitch pll 64-bit constant overlap (off-target)",
+   "file_off": "0x88de6",
+   "func": "nvswitch_init_pll_config_lr10",
+   "needle": "val_100000",
+   "role": "OVERLAP",
+   "section": ".text"
+  },
+  {
+   "class": "nvswitch pll 64-bit constant overlap (off-target)",
+   "file_off": "0xc2a86",
+   "func": "nvswitch_init_pll_config_ls10",
+   "needle": "val_100000",
+   "role": "OVERLAP",
+   "section": ".text"
+  },
+  {
+   "class": "reset timeout 100 ms (us class)",
+   "file_off": "0x1711fa",
+   "func": "kbifDoSecondaryBusHotReset_GM107",
+   "needle": "val_100000",
+   "role": "IMM",
+   "section": ".text"
+  },
+  {
+   "class": "reset timeout 100 ms (us class)",
+   "file_off": "0x1720a1",
+   "func": "kbifDoFunctionLevelReset_TU102",
+   "needle": "val_100000",
+   "role": "IMM",
+   "section": ".text"
+  },
+  {
+   "class": "displayport mode arithmetic",
+   "file_off": "0x1b3809",
+   "func": "kdispComputeDpModeSettings_v02_04",
+   "needle": "val_100000",
+   "role": "IMM",
+   "section": ".text"
+  },
+  {
+   "class": "displayport mode arithmetic",
+   "file_off": "0x1b3829",
+   "func": "kdispComputeDpModeSettings_v02_04",
+   "needle": "val_100000",
+   "role": "IMM",
+   "section": ".text"
+  },
+  {
+   "class": "displayport mode arithmetic",
+   "file_off": "0x1b3838",
+   "func": "kdispComputeDpModeSettings_v02_04",
+   "needle": "val_100000",
+   "role": "IMM",
+   "section": ".text"
+  },
+  {
+   "class": "displayport mode arithmetic",
+   "file_off": "0x1b3aad",
+   "func": "kdispComputeDpModeSettings_v02_04",
+   "needle": "val_100000",
+   "role": "IMM",
+   "section": ".text"
+  },
+  {
+   "class": "timeout constant 100 ms (us class)",
+   "file_off": "0x208cb9",
+   "func": "_checkTimeout",
+   "needle": "val_100000",
+   "role": "IMM",
+   "section": ".text"
+  },
+  {
+   "class": "timeout constant 100 ms (us class)",
+   "file_off": "0x208cbe",
+   "func": "_checkTimeout",
+   "needle": "val_100000",
+   "role": "IMM",
+   "section": ".text"
+  },
+  {
+   "class": "ptimer delay constant (us class)",
+   "file_off": "0x2eff3a",
+   "func": "tmrDelay_PTIMER",
+   "needle": "val_100000",
+   "role": "IMM",
+   "section": ".text"
+  },
+  {
+   "class": "ptimer delay constant (us class)",
+   "file_off": "0x2f0150",
+   "func": "tmrDelay_PTIMER",
+   "needle": "val_100000",
+   "role": "IMM",
+   "section": ".text"
+  },
+  {
+   "class": "ptimer delay constant (us class)",
+   "file_off": "0x2f0156",
+   "func": "tmrDelay_PTIMER",
+   "needle": "val_100000",
+   "role": "IMM",
+   "section": ".text"
+  },
+  {
+   "class": "spdm context field",
+   "file_off": "0x3ab9ae",
+   "func": "libspdm_init_context_with_secured_context",
+   "needle": "val_100000",
+   "role": "IMM",
+   "section": ".text"
+  },
+  {
+   "class": "firmware-bindata coincidence (kgspBinArchiveBooterUnloadUcode_AD102_BINDATA_LABEL_IMAGE_PROD_data)",
+   "file_off": "0x3f5557",
+   "func": null,
+   "needle": "fam_0x2080d2a5",
+   "role": "non-text",
+   "section": ".rodata"
+  },
+  {
+   "class": "firmware-bindata coincidence (kgspBinArchiveGspRmCcFmcGfwProdSigned_GH100_BINDATA_LABEL_UCODE_IMAGE_data)",
+   "file_off": "0x524c0b",
+   "func": null,
+   "needle": "fam_0x2080d2e9",
+   "role": "non-text",
+   "section": ".rodata"
+  },
+  {
+   "class": "firmware-bindata coincidence (kgspBinArchiveConcatenatedFMC_GH100_BINDATA_LABEL_UCODE_IMAGE_PROD_data)",
+   "file_off": "0x903243",
+   "func": null,
+   "needle": "fam_0x2080d2e9",
+   "role": "non-text",
+   "section": ".rodata"
+  },
+  {
+   "class": "firmware-bindata coincidence (kgspBinArchiveConcatenatedFMC_GR100_BINDATA_LABEL_UCODE_IMAGE_PROD_data)",
+   "file_off": "0x7efa34",
+   "func": null,
+   "needle": "fam_0x2080d338",
+   "role": "non-text",
+   "section": ".rodata"
+  }
+ ],
+ "rollup_counts": {
+  "bar2 walk buffer member offset": 1,
+  "displayport mode arithmetic": 4,
+  "firmware-bindata coincidence": 6,
+  "gmmu table member offset": 1,
+  "hal function-table slot": 1,
+  "jcc disp32 overlap artifact": 3,
+  "kbus state member offset": 1,
+  "nvswitch hal vtable slot": 2,
+  "nvswitch lib ctrl member offset": 1,
+  "nvswitch minion buffer size": 1,
+  "nvswitch pll 64-bit constant overlap": 2,
+  "ptimer delay constant": 3,
+  "r_offset/addend offset artifact": 12,
+  "rcdb nocat journal entry size": 1,
+  "rcdb nocat journal entry stride": 1,
+  "rcdb system-info record size": 1,
+  "rcdb-watchdog record size": 2,
+  "reset timeout 100 ms": 2,
+  "rpc-marshal-stub": 1,
+  "spdm context field": 1,
+  "st_value offset coincidence": 2,
+  "timeout constant 100 ms": 2,
+  "vgpu record size": 1,
+  "vgpu task member offset": 1
+ },
+ "stub": {
+  "calls": [
+   {
+    "arg_window": [
+     "37ab09 push      r13",
+     "37ab0b mov       r13, rsi",
+     "37ab0e push      r12",
+     "37ab10 push      rbx",
+     "37ab11 mov       rbx, r8",
+     "37ab14 sub       rsp, 0x28",
+     "37ab18 mov       rax, qword ptr [rsi + 0x4e0]",
+     "37ab1f mov       qword ptr [rbp - 0x38], rax",
+     "37ab23 call      0x37ab28 ; reloc R_X86_64_PC32 rpcWriteCommonHeader+0x-4"
+    ],
+    "at": 3648291,
+    "target": "0x37ab28 ; reloc R_X86_64_PC32 rpcWriteCommonHeader+0x-4"
+   },
+   {
+    "arg_window": [
+     "37ab8b mov       ecx, 0x10",
+     "37ab90 mov       esi, 0x10",
+     "37ab95 add       r12d, 1",
+     "37ab99 lea       rax, [rdx + rdx*2]",
+     "37ab9d lea       rdx, [rdx + rax*4]",
+     "37aba1 shl       rax, 4",
+     "37aba5 lea       rdx, [rbx + rdx*4 + 0xc]",
+     "37abaa lea       rdi, [r15 + rax + 0xc]",
+     "37abaf call      0x37abb4 ; reloc R_X86_64_PC32 portMemCopy+0x-4"
+    ],
+    "at": 3648431,
+    "target": "0x37abb4 ; reloc R_X86_64_PC32 portMemCopy+0x-4"
+   },
+   {
+    "arg_window": [
+     "37aba1 shl       rax, 4",
+     "37aba5 lea       rdx, [rbx + rdx*4 + 0xc]",
+     "37abaa lea       rdi, [r15 + rax + 0xc]",
+     "37abaf call      0x37abb4 ; reloc R_X86_64_PC32 portMemCopy+0x-4",
+     "37abb4 cmp       r12d, dword ptr [rbx + 4]",
+     "37abb8 jb        0x37ab88",
+     "37abba mov       rsi, r13",
+     "37abbd mov       rdi, r14",
+     "37abc0 call      0x37abc5 ; reloc R_X86_64_PC32 +0x370ebc"
+    ],
+    "at": 3648448,
+    "target": "0x37abc5 ; reloc R_X86_64_PC32 +0x370ebc"
+   },
+   {
+    "arg_window": [
+     "37ac31 mov       edx, dword ptr [r13 + 0x3c]",
+     "37ac35 mov       dword ptr [r15 + 0x1c], edx",
+     "37ac39 mov       eax, dword ptr [r13 + 0x40]",
+     "37ac3d lea       rdx, [rsi + r11 + 0x28]",
+     "37ac42 mov       esi, 9",
+     "37ac47 mov       dword ptr [r15 + 0x20], eax",
+     "37ac4b mov       eax, dword ptr [r13 + 0x44]",
+     "37ac4f mov       dword ptr [r15 + 0x24], eax",
+     "37ac53 call      0x37ac58 ; reloc R_X86_64_PC32 portMemCopy+0x-4"
+    ],
+    "at": 3648595,
+    "target": "0x37ac58 ; reloc R_X86_64_PC32 portMemCopy+0x-4"
+   },
+   {
+    "arg_window": [
+     "37ac8c je        0x37ac08",
+     "37ac92 mov       rax, qword ptr [rbp - 0x40]",
+     "37ac96 lea       rdi, [rbx + r9 + 0xc]",
+     "37ac9b mov       ecx, 0x10",
+     "37aca0 mov       esi, 0x10",
+     "37aca5 mov       qword ptr [rbp - 0x50], r11",
+     "37aca9 lea       rdx, [rax + r11 + 0xc]",
+     "37acae mov       qword ptr [rbp - 0x48], r9",
+     "37acb2 call      0x37acb7 ; reloc R_X86_64_PC32 portMemCopy+0x-4"
+    ],
+    "at": 3648690,
+    "target": "0x37acb7 ; reloc R_X86_64_PC32 portMemCopy+0x-4"
+   }
+  ],
+  "disasm": [
+   "37aaf0 endbr64   ",
+   "37aaf4 push      rbp",
+   "37aaf5 mov       ecx, 0x608",
+   "37aafa mov       edx, 0xbf",
+   "37aaff mov       rbp, rsp",
+   "37ab02 push      r15",
+   "37ab04 push      r14",
+   "37ab06 mov       r14, rdi",
+   "37ab09 push      r13",
+   "37ab0b mov       r13, rsi",
+   "37ab0e push      r12",
+   "37ab10 push      rbx",
+   "37ab11 mov       rbx, r8",
+   "37ab14 sub       rsp, 0x28",
+   "37ab18 mov       rax, qword ptr [rsi + 0x4e0]",
+   "37ab1f mov       qword ptr [rbp - 0x38], rax",
+   "37ab23 call      0x37ab28 ; reloc R_X86_64_PC32 rpcWriteCommonHeader+0x-4",
+   "37ab28 mov       r12d, eax",
+   "37ab2b test      eax, eax",
+   "37ab2d je        0x37ab48",
+   "37ab2f add       rsp, 0x28",
+   "37ab33 mov       eax, r12d",
+   "37ab36 pop       rbx",
+   "37ab37 pop       r12",
+   "37ab39 pop       r13",
+   "37ab3b pop       r14",
+   "37ab3d pop       r15",
+   "37ab3f pop       rbp",
+   "37ab40 ret       ",
+   "37ab41 nop       dword ptr [rax]",
+   "37ab48 test      rbx, rbx",
+   "37ab4b je        0x37acc8",
+   "37ab51 movzx     eax, byte ptr [rbx]",
+   "37ab54 test      al, al",
+   "37ab56 jne       0x37ab62",
+   "37ab58 cmp       dword ptr [rbx + 4], 0x20",
+   "37ab5c ja        0x37acc8",
+   "37ab62 mov       rcx, qword ptr [rbp - 0x38]",
+   "37ab66 mov       byte ptr [rcx + 0x20], al",
+   "37ab69 movzx     eax, byte ptr [rbx + 1]",
+   "37ab6d mov       byte ptr [rcx + 0x21], al",
+   "37ab70 cmp       byte ptr [rbx], 0",
+   "37ab73 jne       0x37abba",
+   "37ab75 mov       eax, dword ptr [rbx + 4]",
+   "37ab78 mov       dword ptr [rcx + 0x24], eax",
+   "37ab7b test      eax, eax",
+   "37ab7d je        0x37abba",
+   "37ab7f lea       r15, [rcx + 0x20]",
+   "37ab83 nop       dword ptr [rax + rax]",
+   "37ab88 mov       edx, r12d",
+   "37ab8b mov       ecx, 0x10",
+   "37ab90 mov       esi, 0x10",
+   "37ab95 add       r12d, 1",
+   "37ab99 lea       rax, [rdx + rdx*2]",
+   "37ab9d lea       rdx, [rdx + rax*4]",
+   "37aba1 shl       rax, 4",
+   "37aba5 lea       rdx, [rbx + rdx*4 + 0xc]",
+   "37abaa lea       rdi, [r15 + rax + 0xc]",
+   "37abaf call      0x37abb4 ; reloc R_X86_64_PC32 portMemCopy+0x-4",
+   "37abb4 cmp       r12d, dword ptr [rbx + 4]",
+   "37abb8 jb        0x37ab88",
+   "37abba mov       rsi, r13",
+   "37abbd mov       rdi, r14",
+   "37abc0 call      0x37abc5 ; reloc R_X86_64_PC32 +0x370ebc",
+   "37abc5 mov       r12d, eax",
+   "37abc8 test      eax, eax",
+   "37abca jne       0x37ab2f",
+   "37abd0 mov       rcx, qword ptr [rbp - 0x38]",
+   "37abd4 mov       eax, dword ptr [rcx + 0x24]",
+   "37abd7 cmp       eax, 0x20",
+   "37abda ja        0x37acc8",
+   "37abe0 cmp       byte ptr [rcx + 0x20], 0",
+   "37abe4 jne       0x37acd8",
+   "37abea mov       rsi, qword ptr [rbp - 0x38]",
+   "37abee xor       r14d, r14d",
+   "37abf1 add       rsi, 0x20",
+   "37abf5 mov       qword ptr [rbp - 0x40], rsi",
+   "37abf9 test      eax, eax",
+   "37abfb jne       0x37ac6e",
+   "37abfd jmp       0x37ab2f",
+   "37ac02 nop       word ptr [rax + rax]",
+   "37ac08 lea       rax, [r15 + r15*2]",
+   "37ac0c mov       rsi, qword ptr [rbp - 0x40]",
+   "37ac10 lea       rdi, [rbx + r9 + 0x28]",
+   "37ac15 mov       ecx, 9",
+   "37ac1a mov       r13, rax",
+   "37ac1d lea       rax, [r15 + rax*4]",
+   "37ac21 add       r14d, 1",
+   "37ac25 shl       r13, 4",
+   "37ac29 add       r13, qword ptr [rbp - 0x38]",
+   "37ac2d lea       r15, [rbx + rax*4]",
+   "37ac31 mov       edx, dword ptr [r13 + 0x3c]",
+   "37ac35 mov       dword ptr [r15 + 0x1c], edx",
+   "37ac39 mov       eax, dword ptr [r13 + 0x40]",
+   "37ac3d lea       rdx, [rsi + r11 + 0x28]",
+   "37ac42 mov       esi, 9",
+   "37ac47 mov       dword ptr [r15 + 0x20], eax",
+   "37ac4b mov       eax, dword ptr [r13 + 0x44]",
+   "37ac4f mov       dword ptr [r15 + 0x24], eax",
+   "37ac53 call      0x37ac58 ; reloc R_X86_64_PC32 portMemCopy+0x-4",
+   "37ac58 mov       eax, dword ptr [r13 + 0x54]",
+   "37ac5c mov       dword ptr [r15 + 0x34], eax",
+   "37ac60 mov       rax, qword ptr [rbp - 0x38]",
+   "37ac64 cmp       r14d, dword ptr [rax + 0x24]",
+   "37ac68 jae       0x37ab2f",
+   "37ac6e mov       r15d, r14d",
+   "37ac71 lea       rax, [r15 + r15*2]",
+   "37ac75 mov       r11, rax",
+   "37ac78 lea       r9, [r15 + rax*4]",
+   "37ac7c mov       rax, qword ptr [rbp - 0x38]",
+   "37ac80 shl       r11, 4",
+   "37ac84 shl       r9, 2",
+   "37ac88 cmp       byte ptr [rax + 0x20], 0",
+   "37ac8c je        0x37ac08",
+   "37ac92 mov       rax, qword ptr [rbp - 0x40]",
+   "37ac96 lea       rdi, [rbx + r9 + 0xc]",
+   "37ac9b mov       ecx, 0x10",
+   "37aca0 mov       esi, 0x10",
+   "37aca5 mov       qword ptr [rbp - 0x50], r11",
+   "37aca9 lea       rdx, [rax + r11 + 0xc]",
+   "37acae mov       qword ptr [rbp - 0x48], r9",
+   "37acb2 call      0x37acb7 ; reloc R_X86_64_PC32 portMemCopy+0x-4",
+   "37acb7 mov       r11, qword ptr [rbp - 0x50]",
+   "37acbb mov       r9, qword ptr [rbp - 0x48]",
+   "37acbf jmp       0x37ac08",
+   "37acc4 nop       dword ptr [rax]",
+   "37acc8 mov       r12d, 0x1f",
+   "37acce jmp       0x37ab2f",
+   "37acd3 nop       dword ptr [rax + rax]",
+   "37acd8 mov       dword ptr [rbx + 4], eax",
+   "37acdb jmp       0x37abea"
+  ],
+  "imm_histogram": {
+   "0x10": [
+    "0x37ab8b",
+    "0x37ab90",
+    "0x37ac9b",
+    "0x37aca0"
+   ],
+   "0x1f": [
+    "0x37acc8"
+   ],
+   "0x20": [
+    "0x37ab58",
+    "0x37abd7",
+    "0x37abf1"
+   ],
+   "0x28": [
+    "0x37ab14",
+    "0x37ab2f"
+   ],
+   "0x37ab28": [
+    "0x37ab23"
+   ],
+   "0x37ab2f": [
+    "0x37abca",
+    "0x37abfd",
+    "0x37ac68",
+    "0x37acce"
+   ],
+   "0x37ab48": [
+    "0x37ab2d"
+   ],
+   "0x37ab62": [
+    "0x37ab56"
+   ],
+   "0x37ab88": [
+    "0x37abb8"
+   ],
+   "0x37abb4": [
+    "0x37abaf"
+   ],
+   "0x37abba": [
+    "0x37ab73",
+    "0x37ab7d"
+   ],
+   "0x37abc5": [
+    "0x37abc0"
+   ],
+   "0x37abea": [
+    "0x37acdb"
+   ],
+   "0x37ac08": [
+    "0x37ac8c",
+    "0x37acbf"
+   ],
+   "0x37ac58": [
+    "0x37ac53"
+   ],
+   "0x37ac6e": [
+    "0x37abfb"
+   ],
+   "0x37acb7": [
+    "0x37acb2"
+   ],
+   "0x37acc8": [
+    "0x37ab4b",
+    "0x37ab5c",
+    "0x37abda"
+   ],
+   "0x37acd8": [
+    "0x37abe4"
+   ],
+   "0x608": [
+    "0x37aaf5"
+   ],
+   "0xbf": [
+    "0x37aafa"
+   ]
+  },
+  "name": "rpcCtrlSubdeviceGetP2pCaps_v21_02",
+  "size": 496,
+  "start": 3648240
+ },
+ "substrate_sha256": "48096db025a439328592250b1c79e7f27943b37b733583778407f3cf46bca251"
+}
