@@ -22,3 +22,4 @@ tools/gsp-extract/*.bin
 acquisitions/*-mod-*.rom
 day0/strace-archive/
 day0/*/qemu-strace.log
+.ogkm-610-cache/

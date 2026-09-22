@@ -39,8 +39,11 @@ everything else zero:
 The 4.23 capture is 32 bytes LONGER than the message, and this is now
 PROVEN from the open source:
 
-- `src/nvidia/src/kernel/rmapi/rpc_common.c:182`:
+- `src/nvidia/src/kernel/rmapi/rpc_common.c:184`:
   `pVgpuRpcHeader->length = sizeof(rpc_message_header_v) + paramLength;`
+  (citation-audit correction: the pass originally cited :182 — the drifted
+  line numbers in this doc were re-audited against the 610.57.04 raw
+  sources; see findings-4.24-citation-audit.md)
   — the header's `length` field INCLUDES the 32-byte RPC message header
   (`g_rpc-message-header.h:41`, `rpc_message_header_v03_00`: 8 u32s =
   32 B, `rpc_message_data[]` follows).
@@ -63,14 +66,14 @@ Layout sources: `g_rpc-structures.h:1423`
 
 | offset | field | value | status | evidence |
 |---|---|---|---|---|
-| 0x00 | hClient | 0xc1d0004c | **PROVEN** (layout) | g_rpc-structures.h:1423; rpc.c:10793 `rpc_params->hClient = hClient` |
-| 0x04 | hObject | 0xa55a0030 | **PROVEN** (layout) | rpc.c:10794 |
+| 0x00 | hClient | 0xc1d0004c | **PROVEN** (layout) | g_rpc-structures.h:1423; rpc.c:10794 `rpc_params->hClient = hClient` |
+| 0x04 | hObject | 0xa55a0030 | **PROVEN** (layout) | rpc.c:10795 |
 | 0x08 | cmd | **0x2080d031** | **PROVEN** | exists in the firmware dispatch table (§4, raw entry); FINN interface `0x2080d0` = CLOSED-ONLY: the open SDK exposes 38 subdevice-0x2080 interfaces, max id 0x2080a7 — `0x2080d0` appears in none of the headers |
-| 0x0C | status | 0 | **PROVEN** (send path: zeroed) | rpc_common.c:139 portMemSet before write |
+| 0x0C | status | 0 | **PROVEN** (send path: zeroed) | rpc_common.c:150-152 portMemSet before write |
 | 0x10 | paramsSize | 1544 | **PROVEN + cross-validated** | == the dispatch entry tag 0x608 (§4) |
-| 0x14 | rmapiRpcFlags | 0 | **PROVEN** (RMAPI_RPC_FLAGS_NONE) | rpc.c:10801 |
-| 0x18 | rmctrlFlags | 0 | **PROVEN** | rpc.c:10802 |
-| 0x1C | rmctrlAccessRight | 0 | **PROVEN** | rpc.c:10803 |
+| 0x14 | rmapiRpcFlags | 0 | **PROVEN** (RMAPI_RPC_FLAGS_NONE) | rpc.c:10798 |
+| 0x18 | rmctrlFlags | 0 | **PROVEN** | rpc.c:10799 |
+| 0x1C | rmctrlAccessRight | 0 | **PROVEN** | rpc.c:10800 |
 | 0x20 | reserved0 | 0 (u64) | **PROVEN** | g_rpc-structures.h:1432 |
 | 0x28 (poff 0) | param[0] | 255 | **HYPOTHESIS** (semantics) | the struct = closed-only; only the byte values are proven |
 | 0x2C (poff 4) | param[4] | 3 | **HYPOTHESIS** | " |
