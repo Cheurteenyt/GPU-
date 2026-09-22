@@ -1,0 +1,433 @@
+{
+ "elf": {
+  "e_type": 1,
+  "e_machine": 243,
+  "e_entry": 0,
+  "e_phoff": 0,
+  "e_shoff": 84308952,
+  "e_phnum": 0,
+  "e_shnum": 19,
+  "e_shstrndx": 18
+ },
+ "sections": [
+  {
+   "index": 0,
+   "sh_name": 0,
+   "sh_type": 0,
+   "sh_flags": "0x0",
+   "sh_addr": "0x0",
+   "sh_offset": "0x0",
+   "sh_size": "0x0",
+   "sh_link": 0,
+   "sh_info": 0,
+   "sh_addralign": 0,
+   "sh_entsize": 0,
+   "name": ""
+  },
+  {
+   "index": 1,
+   "sh_name": 27,
+   "sh_type": 1,
+   "sh_flags": "0x3",
+   "sh_addr": "0x0",
+   "sh_offset": "0x40",
+   "sh_size": "0x505b000",
+   "sh_link": 0,
+   "sh_info": 0,
+   "sh_addralign": 1,
+   "sh_entsize": 0,
+   "name": ".fwimage"
+  },
+  {
+   "index": 2,
+   "sh_name": 36,
+   "sh_type": 7,
+   "sh_flags": "0x0",
+   "sh_addr": "0x0",
+   "sh_offset": "0x505b040",
+   "sh_size": "0x24",
+   "sh_link": 0,
+   "sh_info": 0,
+   "sh_addralign": 1,
+   "sh_entsize": 0,
+   "name": ".note.gnu.build-id"
+  },
+  {
+   "index": 3,
+   "sh_name": 55,
+   "sh_type": 1,
+   "sh_flags": "0x0",
+   "sh_addr": "0x0",
+   "sh_offset": "0x505b064",
+   "sh_size": "0xa",
+   "sh_link": 0,
+   "sh_info": 0,
+   "sh_addralign": 1,
+   "sh_entsize": 0,
+   "name": ".fwversion"
+  },
+  {
+   "index": 4,
+   "sh_name": 66,
+   "sh_type": 1,
+   "sh_flags": "0x0",
+   "sh_addr": "0x0",
+   "sh_offset": "0x505b06e",
+   "sh_size": "0x1000",
+   "sh_link": 0,
+   "sh_info": 0,
+   "sh_addralign": 1,
+   "sh_entsize": 0,
+   "name": ".fwsignature_cc_gr10x"
+  },
+  {
+   "index": 5,
+   "sh_name": 88,
+   "sh_type": 1,
+   "sh_flags": "0x0",
+   "sh_addr": "0x0",
+   "sh_offset": "0x505c06e",
+   "sh_size": "0x1000",
+   "sh_link": 0,
+   "sh_info": 0,
+   "sh_addralign": 1,
+   "sh_entsize": 0,
+   "name": ".fwsignature_gr10x"
+  },
+  {
+   "index": 6,
+   "sh_name": 107,
+   "sh_type": 1,
+   "sh_flags": "0x0",
+   "sh_addr": "0x0",
+   "sh_offset": "0x505d06e",
+   "sh_size": "0x1000",
+   "sh_link": 0,
+   "sh_info": 0,
+   "sh_addralign": 1,
+   "sh_entsize": 0,
+   "name": ".fwsignature_gb20y"
+  },
+  {
+   "index": 7,
+   "sh_name": 126,
+   "sh_type": 1,
+   "sh_flags": "0x0",
+   "sh_addr": "0x0",
+   "sh_offset": "0x505e06e",
+   "sh_size": "0x1000",
+   "sh_link": 0,
+   "sh_info": 0,
+   "sh_addralign": 1,
+   "sh_entsize": 0,
+   "name": ".fwsignature_cc_gb20x"
+  },
+  {
+   "index": 8,
+   "sh_name": 148,
+   "sh_type": 1,
+   "sh_flags": "0x0",
+   "sh_addr": "0x0",
+   "sh_offset": "0x505f06e",
+   "sh_size": "0x1000",
+   "sh_link": 0,
+   "sh_info": 0,
+   "sh_addralign": 1,
+   "sh_entsize": 0,
+   "name": ".fwsignature_gb20x"
+  },
+  {
+   "index": 9,
+   "sh_name": 167,
+   "sh_type": 1,
+   "sh_flags": "0x0",
+   "sh_addr": "0x0",
+   "sh_offset": "0x506006e",
+   "sh_size": "0x1000",
+   "sh_link": 0,
+   "sh_info": 0,
+   "sh_addralign": 1,
+   "sh_entsize": 0,
+   "name": ".fwsignature_cc_gb10x"
+  },
+  {
+   "index": 10,
+   "sh_name": 189,
+   "sh_type": 1,
+   "sh_flags": "0x0",
+   "sh_addr": "0x0",
+   "sh_offset": "0x506106e",
+   "sh_size": "0x1000",
+   "sh_link": 0,
+   "sh_info": 0,
+   "sh_addralign": 1,
+   "sh_entsize": 0,
+   "name": ".fwsignature_gb10y"
+  },
+  {
+   "index": 11,
+   "sh_name": 208,
+   "sh_type": 1,
+   "sh_flags": "0x0",
+   "sh_addr": "0x0",
+   "sh_offset": "0x506206e",
+   "sh_size": "0x1000",
+   "sh_link": 0,
+   "sh_info": 0,
+   "sh_addralign": 1,
+   "sh_entsize": 0,
+   "name": ".fwsignature_gb10x"
+  },
+  {
+   "index": 12,
+   "sh_name": 227,
+   "sh_type": 1,
+   "sh_flags": "0x0",
+   "sh_addr": "0x0",
+   "sh_offset": "0x506306e",
+   "sh_size": "0x1000",
+   "sh_link": 0,
+   "sh_info": 0,
+   "sh_addralign": 1,
+   "sh_entsize": 0,
+   "name": ".fwsignature_cc_gh100"
+  },
+  {
+   "index": 13,
+   "sh_name": 249,
+   "sh_type": 1,
+   "sh_flags": "0x0",
+   "sh_addr": "0x0",
+   "sh_offset": "0x506406e",
+   "sh_size": "0x1000",
+   "sh_link": 0,
+   "sh_info": 0,
+   "sh_addralign": 1,
+   "sh_entsize": 0,
+   "name": ".fwsignature_gh100"
+  },
+  {
+   "index": 14,
+   "sh_name": 268,
+   "sh_type": 1,
+   "sh_flags": "0x0",
+   "sh_addr": "0x0",
+   "sh_offset": "0x506506e",
+   "sh_size": "0x1000",
+   "sh_link": 0,
+   "sh_info": 0,
+   "sh_addralign": 1,
+   "sh_entsize": 0,
+   "name": ".fwsignature_ad10x"
+  },
+  {
+   "index": 15,
+   "sh_name": 287,
+   "sh_type": 1,
+   "sh_flags": "0x0",
+   "sh_addr": "0x0",
+   "sh_offset": "0x506606e",
+   "sh_size": "0x1000",
+   "sh_link": 0,
+   "sh_info": 0,
+   "sh_addralign": 1,
+   "sh_entsize": 0,
+   "name": ".fwsignature_ga10x"
+  },
+  {
+   "index": 16,
+   "sh_name": 1,
+   "sh_type": 2,
+   "sh_flags": "0x0",
+   "sh_addr": "0x0",
+   "sh_offset": "0x5067070",
+   "sh_size": "0x60",
+   "sh_link": 17,
+   "sh_info": 1,
+   "sh_addralign": 8,
+   "sh_entsize": 24,
+   "name": ".symtab"
+  },
+  {
+   "index": 17,
+   "sh_name": 9,
+   "sh_type": 3,
+   "sh_flags": "0x0",
+   "sh_addr": "0x0",
+   "sh_offset": "0x50670d0",
+   "sh_size": "0x1d2",
+   "sh_link": 0,
+   "sh_info": 0,
+   "sh_addralign": 1,
+   "sh_entsize": 0,
+   "name": ".strtab"
+  },
+  {
+   "index": 18,
+   "sh_name": 17,
+   "sh_type": 3,
+   "sh_flags": "0x0",
+   "sh_addr": "0x0",
+   "sh_offset": "0x50672a2",
+   "sh_size": "0x132",
+   "sh_link": 0,
+   "sh_info": 0,
+   "sh_addralign": 1,
+   "sh_entsize": 0,
+   "name": ".shstrtab"
+  }
+ ],
+ "coverage": {
+  "data_region_end": "0x50673d8",
+  "gaps": [
+   [
+    "0x506706e",
+    2
+   ],
+   [
+    "0x50673d4",
+    4
+   ]
+  ]
+ },
+ "gzip_hits": [
+  {
+   "offset": 14714864,
+   "hdr_follow": "fc16736902ff",
+   "decompresses": true,
+   "out_len": 524288,
+   "sample": "\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+  },
+  {
+   "offset": 14716096,
+   "hdr_follow": "50e01f6702ff",
+   "decompresses": true,
+   "out_len": 524288,
+   "sample": "\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+  },
+  {
+   "offset": 14717400,
+   "hdr_follow": "1f17736902ff",
+   "decompresses": true,
+   "out_len": 524288,
+   "sample": "\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+  },
+  {
+   "offset": 14718816,
+   "hdr_follow": "c3e01f6702ff",
+   "decompresses": true,
+   "out_len": 524288,
+   "sample": "\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+  },
+  {
+   "offset": 14720712,
+   "hdr_follow": "5617736902ff",
+   "decompresses": true,
+   "out_len": 524288,
+   "sample": "\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+  },
+  {
+   "offset": 14722080,
+   "hdr_follow": "72e11f6702ff",
+   "decompresses": true,
+   "out_len": 524288,
+   "sample": "\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+  },
+  {
+   "offset": 14723504,
+   "hdr_follow": "5f17736902ff",
+   "decompresses": true,
+   "out_len": 524288,
+   "sample": "\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+  },
+  {
+   "offset": 14724872,
+   "hdr_follow": "6717736902ff",
+   "decompresses": true,
+   "out_len": 524288,
+   "sample": "\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+  },
+  {
+   "offset": 14726240,
+   "hdr_follow": "6f17736902ff",
+   "decompresses": true,
+   "out_len": 524288,
+   "sample": "\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+  },
+  {
+   "offset": 14727608,
+   "hdr_follow": "7e17736902ff",
+   "decompresses": true,
+   "out_len": 524288,
+   "sample": "\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+  },
+  {
+   "offset": 14728976,
+   "hdr_follow": "2617736902ff",
+   "decompresses": true,
+   "out_len": 524288,
+   "sample": "\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+  },
+  {
+   "offset": 14730248,
+   "hdr_follow": "d9e01f6702ff",
+   "decompresses": true,
+   "out_len": 524288,
+   "sample": "\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000"
+  }
+ ],
+ "odd_elf": {
+  "offset": 30341950,
+  "plausible": false,
+  "head_hex": "7f454c460daca9ffeb7b83de0ed9dbc8"
+ },
+ "gfw_crossmap": [
+  {
+   "component": "init.elf",
+   "dir_at_fwi": "0x6d560",
+   "dir_at_gsp": "0x6d5a0",
+   "section_holder": ".fwimage",
+   "load_regions": [
+    {
+     "vaddr": "0x1000000",
+     "fw_at": "0x125000",
+     "fw_size": "0x8000",
+     "gsp_at": "0x125040"
+    },
+    {
+     "vaddr": "0x4000000",
+     "fw_at": "0x12d000",
+     "fw_size": "0x4000",
+     "gsp_at": "0x12d040"
+    }
+   ]
+  },
+  {
+   "component": "rm.elf",
+   "dir_at_fwi": "0x3c88",
+   "dir_at_gsp": "0x3cc8",
+   "section_holder": ".fwimage",
+   "load_regions": []
+  },
+  {
+   "component": "vgpu.elf",
+   "dir_at_fwi": "0x6d6f8",
+   "dir_at_gsp": "0x6d738",
+   "section_holder": ".fwimage",
+   "load_regions": [
+    {
+     "vaddr": "0x1000000",
+     "fw_at": "0x11a3000",
+     "fw_size": "0xa2000",
+     "gsp_at": "0x11a3040"
+    },
+    {
+     "vaddr": "0x4000000",
+     "fw_at": "0x1245000",
+     "fw_size": "0xf000",
+     "gsp_at": "0x1245040"
+    }
+   ]
+  }
+ ]
+}
