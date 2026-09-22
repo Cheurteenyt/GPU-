@@ -461,8 +461,8 @@
    },
    {
     "calls_after": [
-     "0xbda5e",
-     "0xbda82"
+     "__x86_indirect_thunk_rax-4",
+     "<sym-1>+774076"
     ],
     "context": [
      {
@@ -494,7 +494,7 @@
       "addr": "0xbda59",
       "m": "call",
       "ops": "0xbda5e",
-      "target": "0xbda5e"
+      "target": "__x86_indirect_thunk_rax-4"
      },
      {
       "addr": "0xbda5e",
@@ -530,7 +530,7 @@
       "addr": "0xbda7d",
       "m": "call",
       "ops": "0xbda82",
-      "target": "0xbda82"
+      "target": "<sym-1>+774076"
      },
      {
       "addr": "0xbda82",
@@ -646,15 +646,15 @@
    },
    {
     "calls_after": [
-     "0x10e88f",
-     "0x10e89b"
+     "nvswitch_os_is_admin-4",
+     "nvswitch_os_is_fabric_manager-4"
     ],
     "context": [
      {
       "addr": "0x10e861",
       "m": "call",
       "ops": "0x10e866",
-      "target": "0x10e866"
+      "target": "nvswitch_os_is_fabric_manager-4"
      },
      {
       "addr": "0x10e866",
@@ -696,7 +696,7 @@
       "addr": "0x10e88a",
       "m": "call",
       "ops": "0x10e88f",
-      "target": "0x10e88f"
+      "target": "nvswitch_os_is_admin-4"
      },
      {
       "addr": "0x10e88f",
@@ -717,7 +717,7 @@
       "addr": "0x10e896",
       "m": "call",
       "ops": "0x10e89b",
-      "target": "0x10e89b"
+      "target": "nvswitch_os_is_fabric_manager-4"
      },
      {
       "addr": "0x10e89b",
@@ -743,14 +743,14 @@
    },
    {
     "calls_after": [
-     "0x15aa54"
+     "nvCheckOkFailedNoLog-4"
     ],
     "context": [
      {
       "addr": "0x15aa22",
       "m": "call",
       "ops": "0x15aa27",
-      "target": "0x15aa27"
+      "target": "nvCheckOkFailedNoLog-4"
      },
      {
       "addr": "0x15aa27",
@@ -792,7 +792,7 @@
       "addr": "0x15aa4f",
       "m": "call",
       "ops": "0x15aa54",
-      "target": "0x15aa54"
+      "target": "nvCheckOkFailedNoLog-4"
      },
      {
       "addr": "0x15aa54",
@@ -839,7 +839,7 @@
    },
    {
     "calls_after": [
-     "0x15d30d"
+     "portMemSet-4"
     ],
     "context": [
      {
@@ -876,7 +876,7 @@
       "addr": "0x15d308",
       "m": "call",
       "ops": "0x15d30d",
-      "target": "0x15d30d"
+      "target": "portMemSet-4"
      },
      {
       "addr": "0x15d30d",
@@ -932,7 +932,7 @@
    },
    {
     "calls_after": [
-     "0x17d833"
+     "__x86_indirect_thunk_rax-4"
     ],
     "context": [
      {
@@ -979,7 +979,7 @@
       "addr": "0x17d82e",
       "m": "call",
       "ops": "0x17d833",
-      "target": "0x17d833"
+      "target": "__x86_indirect_thunk_rax-4"
      },
      {
       "addr": "0x17d833",
@@ -1026,7 +1026,7 @@
    },
    {
     "calls_after": [
-     "0x1b888a"
+     "osCallACPI_DSM-4"
     ],
     "context": [
      {
@@ -1079,7 +1079,7 @@
       "addr": "0x1b8885",
       "m": "call",
       "ops": "0x1b888a",
-      "target": "0x1b888a"
+      "target": "osCallACPI_DSM-4"
      },
      {
       "addr": "0x1b888a",
@@ -1121,7 +1121,7 @@
    },
    {
     "calls_after": [
-     "0x2ada35"
+     "__x86_indirect_thunk_rax-4"
     ],
     "context": [
      {
@@ -1138,7 +1138,7 @@
       "addr": "0x2ad9fc",
       "m": "call",
       "ops": "0x2ada01",
-      "target": "0x2ada01"
+      "target": "__x86_indirect_thunk_rax-4"
      },
      {
       "addr": "0x2ada01",
@@ -1194,7 +1194,7 @@
       "addr": "0x2ada30",
       "m": "call",
       "ops": "0x2ada35",
-      "target": "0x2ada35"
+      "target": "__x86_indirect_thunk_rax-4"
      },
      {
       "addr": "0x2ada35",
@@ -1215,7 +1215,7 @@
    },
    {
     "calls_after": [
-     "0x2b383f"
+     "__x86_indirect_thunk_rax-4"
     ],
     "context": [
      {
@@ -1232,7 +1232,7 @@
       "addr": "0x2b380c",
       "m": "call",
       "ops": "0x2b3811",
-      "target": "0x2b3811"
+      "target": "memdescGetPhysAddr-4"
      },
      {
       "addr": "0x2b3811",
@@ -1278,7 +1278,7 @@
       "addr": "0x2b383a",
       "m": "call",
       "ops": "0x2b383f",
-      "target": "0x2b383f"
+      "target": "__x86_indirect_thunk_rax-4"
      },
      {
       "addr": "0x2b383f",
@@ -1319,7 +1319,7 @@
       "addr": "0x2d9abc",
       "m": "call",
       "ops": "0x2d9ac1",
-      "target": "0x2d9ac1"
+      "target": "portMemSet-4"
      },
      {
       "addr": "0x2d9ac1",
@@ -1400,14 +1400,14 @@
    },
    {
     "calls_after": [
-     "0x2d9c37"
+     "__x86_indirect_thunk_rax-4"
     ],
     "context": [
      {
       "addr": "0x2d9bd1",
       "m": "call",
       "ops": "0x2d9bd6",
-      "target": "0x2d9bd6"
+      "target": "portMemSet-4"
      },
      {
       "addr": "0x2d9bd6",
@@ -1478,7 +1478,7 @@
       "addr": "0x2d9c32",
       "m": "call",
       "ops": "0x2d9c37",
-      "target": "0x2d9c37"
+      "target": "__x86_indirect_thunk_rax-4"
      }
     ],
     "func_range": "0x2d9760..0x2dac1a",
@@ -1584,9 +1584,9 @@
    },
    {
     "calls_after": [
-     "0x2eb752",
-     "0x2eb762",
-     "0x2eb767"
+     "osGetMonotonicTimeNs-4",
+     "osGetSystemTime-4",
+     "osGetTimestampFreq-4"
     ],
     "context": [
      {
@@ -1618,7 +1618,7 @@
       "addr": "0x2eb74d",
       "m": "call",
       "ops": "0x2eb752",
-      "target": "0x2eb752"
+      "target": "osGetMonotonicTimeNs-4"
      },
      {
       "addr": "0x2eb752",
@@ -1639,13 +1639,13 @@
       "addr": "0x2eb75d",
       "m": "call",
       "ops": "0x2eb762",
-      "target": "0x2eb762"
+      "target": "osGetSystemTime-4"
      },
      {
       "addr": "0x2eb762",
       "m": "call",
       "ops": "0x2eb767",
-      "target": "0x2eb767"
+      "target": "osGetTimestampFreq-4"
      },
      {
       "addr": "0x2eb767",
@@ -1856,7 +1856,7 @@
    },
    {
     "calls_after": [
-     "0x38cc00"
+     "gpuGetRmEngineType_IMPL-4"
     ],
     "context": [
      {
@@ -1923,7 +1923,7 @@
       "addr": "0x38cbfb",
       "m": "call",
       "ops": "0x38cc00",
-      "target": "0x38cc00"
+      "target": "gpuGetRmEngineType_IMPL-4"
      },
      {
       "addr": "0x38cc00",
@@ -1949,8 +1949,8 @@
    },
    {
     "calls_after": [
-     "0x394a56",
-     "0x394a72"
+     "nvAssertOkFailedNoLog-4",
+     "serverGetClientUnderLock-4"
     ],
     "context": [
      {
@@ -1993,7 +1993,7 @@
       "addr": "0x394a51",
       "m": "call",
       "ops": "0x394a56",
-      "target": "0x394a56"
+      "target": "nvAssertOkFailedNoLog-4"
      },
      {
       "addr": "0x394a56",
@@ -2020,7 +2020,7 @@
       "addr": "0x394a6d",
       "m": "call",
       "ops": "0x394a72",
-      "target": "0x394a72"
+      "target": "serverGetClientUnderLock-4"
      },
      {
       "addr": "0x394a72",
@@ -2228,7 +2228,7 @@
    },
    {
     "calls_after": [
-     "0x171203"
+     "osDelayUs-4"
     ],
     "context": [
      {
@@ -2245,7 +2245,7 @@
       "addr": "0x1711f4",
       "m": "call",
       "ops": "0x1711f9",
-      "target": "0x1711f9"
+      "target": "clPcieWriteWord_IMPL-4"
      },
      {
       "addr": "0x1711f9",
@@ -2256,7 +2256,7 @@
       "addr": "0x1711fe",
       "m": "call",
       "ops": "0x171203",
-      "target": "0x171203"
+      "target": "osDelayUs-4"
      },
      {
       "addr": "0x171203",
@@ -2322,8 +2322,8 @@
    },
    {
     "calls_after": [
-     "0x1720b3",
-     "0x1720c6"
+     "osDelayUs-4",
+     "__x86_indirect_thunk_rax-4"
     ],
     "context": [
      {
@@ -2340,7 +2340,7 @@
       "addr": "0x17209b",
       "m": "call",
       "ops": "0x1720a0",
-      "target": "0x1720a0"
+      "target": "__x86_indirect_thunk_rax-4"
      },
      {
       "addr": "0x1720a0",
@@ -2356,7 +2356,7 @@
       "addr": "0x1720ae",
       "m": "call",
       "ops": "0x1720b3",
-      "target": "0x1720b3"
+      "target": "osDelayUs-4"
      },
      {
       "addr": "0x1720b3",
@@ -2377,7 +2377,7 @@
       "addr": "0x1720c1",
       "m": "call",
       "ops": "0x1720c6",
-      "target": "0x1720c6"
+      "target": "__x86_indirect_thunk_rax-4"
      },
      {
       "addr": "0x1720c6",
@@ -3048,7 +3048,7 @@
    },
    {
     "calls_after": [
-     "0x2f0186"
+     "nvDbg_Printf-4"
     ],
     "context": [
      {
@@ -3121,7 +3121,7 @@
       "addr": "0x2f0181",
       "m": "call",
       "ops": "0x2f0186",
-      "target": "0x2f0186"
+      "target": "nvDbg_Printf-4"
      },
      {
       "addr": "0x2f0186",
@@ -3142,7 +3142,7 @@
    },
    {
     "calls_after": [
-     "0x2f0186"
+     "nvDbg_Printf-4"
     ],
     "context": [
      {
@@ -3210,7 +3210,7 @@
       "addr": "0x2f0181",
       "m": "call",
       "ops": "0x2f0186",
-      "target": "0x2f0186"
+      "target": "nvDbg_Printf-4"
      },
      {
       "addr": "0x2f0186",
@@ -3326,5 +3326,99 @@
     "offset": 3848622
    }
   ]
- }
+ },
+ "userspace": [
+  {
+   "cmd_0x2080d031": {
+    "count": 2,
+    "first_offsets": [
+     1082643,
+     1084394
+    ]
+   },
+   "lib": "libnvidia-ml.so.610.57.04",
+   "sha256": "50feda0f0d2712bd3b82d1c2f8c5083b9169607d5db481ebc278ec76582068a0",
+   "size": 2654168,
+   "size_1544": {
+    "count": 12,
+    "first_offsets": [
+     20089,
+     501812,
+     501853,
+     501916,
+     908402,
+     1079979
+    ]
+   },
+   "val_100000": {
+    "count": 28,
+    "first_offsets": [
+     140304,
+     170116,
+     170641,
+     1045789,
+     1045845,
+     1045904
+    ]
+   },
+   "val_240000": {
+    "count": 0,
+    "first_offsets": []
+   },
+   "val_250000": {
+    "count": 0,
+    "first_offsets": []
+   }
+  },
+  {
+   "cmd_0x2080d031": {
+    "count": 0,
+    "first_offsets": []
+   },
+   "lib": "libnvidia-eglcore.so.610.57.04",
+   "sha256": "afd79b7f6e708cb2521aeb852d26d0768d694ae1394f0e213c61300f25bd3246",
+   "size": 39091248,
+   "size_1544": {
+    "count": 881,
+    "first_offsets": [
+     16288,
+     26276,
+     2429274,
+     2854987,
+     2909347,
+     2911977
+    ]
+   },
+   "val_100000": {
+    "count": 6,
+    "first_offsets": [
+     10900638,
+     11936183,
+     11936188,
+     11939586,
+     12217033,
+     22609988
+    ]
+   },
+   "val_240000": {
+    "count": 4,
+    "first_offsets": [
+     34618728,
+     34618732,
+     34618768,
+     34618772
+    ]
+   },
+   "val_250000": {
+    "count": 5,
+    "first_offsets": [
+     4790675,
+     10740618,
+     11069920,
+     11845977,
+     13460195
+    ]
+   }
+  }
+ ]
 }
