@@ -19,6 +19,25 @@ lz4's official block codec):
                           campaign artifact (a 1 MiB slice of the flat RM
                           image) / all-byte-values ramp / length boundaries
                           (15, 255, 270, 65536+ runs).
+  T5 campaign artifact:   the 1 MiB code slice + the 4 MiB image head of
+                          the flat rm-full.elf (when locally present).
+  T6 (4.29) the REAL
+      component round-trip:
+                          EVERY component binary the campaign ships in
+                          tools/analysis/gsp-extract/binaries/ — the
+                          bootloader, comp-58KB (vgpu-class), comp-725KB
+                          (= vgpu.elf), gsp-rm-17MB (= rm.elf), the PMU
+                          WDT image — round-trips byte-exact in BOTH
+                          directions, ours and reference-crossed. This is
+                          the permanent test the 4.29 brief demands. HONEST
+                          SCOPE (v429_lz_pair_forensics.json): these files
+                          are the FLAT component ELFs — the test validates
+                          the codec ON the real bytes; none of them is a
+                          compressed stream (no NVIDIA LZ4 stream exists in
+                          the artifact set, v429_lz_package_hunt.json).
+                          Runtime note: the battery adds ~40 s (the
+                          17,236,632-byte rm.elf compressed once, shared
+                          across T1/T2).
 
 Run: python3 tests_gsplz.py
 """
@@ -36,6 +55,9 @@ except ImportError:
     HAVE_REF = False
 
 RM_IMAGE = "/home/z/my-project/work/gpu-repo/tools/analysis/gsp-extract/rm-full.elf"
+REAL_BIN_DIR = "/home/z/my-project/work/gpu-repo/tools/analysis/gsp-extract/binaries/"
+REAL_FILES = ["bootloader.bin", "comp-58KB.bin", "comp-725KB.bin",
+              "gsp-rm-17MB.bin", "pmu-wdt-41KB.bin"]
 
 FAILURES = []
 
@@ -130,12 +152,41 @@ def t5_campaign_artifact():
     t3_ours_decodes_ref(data, "rm-full.elf image head 4 MiB")
 
 
+def t6_real_component_roundtrip():
+    """4.29 — the round-trip on the REAL component binaries, permanent.
+
+    Compress once per file, verify the three properties on the shared
+    stream: ours round-trips (T1), the reference decodes ours (T2),
+    ours decodes the reference (T3).
+    """
+    for name in REAL_FILES:
+        path = REAL_BIN_DIR + name
+        if not os.path.exists(path):
+            print(f"  [skip] {name} not present")
+            continue
+        with open(path, "rb") as f:
+            data = f.read()
+        comp = lz4block.compress(data)             # once, shared
+        back = lz4block.decompress(comp, len(data))
+        check(f"T6 T1 round-trip {name}", back == data,
+              f"({len(data):,} B -> {len(comp):,} B)")
+        if HAVE_REF:
+            ref = lz4.block.decompress(comp, uncompressed_size=len(data))
+            check(f"T6 T2 ref-decodes-ours {name}", ref == data, "")
+            ref_comp = lz4.block.compress(data, store_size=False)
+            back2 = lz4block.decompress(ref_comp, len(data))
+            check(f"T6 T3 ours-decodes-ref {name}", back2 == data,
+                  f"(ref stream {len(ref_comp):,} B)")
+
+
 def main():
     print(f"reference implementation: {'python-lz4 PRESENT' if HAVE_REF else 'ABSENT (T2/T3 skipped)'}")
     print("=== T4 adversarial battery ===")
     t4_adversarial()
     print("=== T5 the campaign artifact ===")
     t5_campaign_artifact()
+    print("=== T6 the REAL component round-trip (4.29, permanent) ===")
+    t6_real_component_roundtrip()
     if FAILURES:
         print(f"\n{len(FAILURES)} FAILURES: {FAILURES}")
         sys.exit(1)
