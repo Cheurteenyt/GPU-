@@ -1,0 +1,91 @@
+{
+ "original": {
+  "path": "/home/z/my-project/work/downloads/extracted/firmware/gsp_ga10x.bin",
+  "sha256": "c0156954f3e048d56011524e0c2ae2881bb6db8173b53f9b2f4eb94197f02999",
+  "size": 84310168
+ },
+ "patch": {
+  "old": 250000,
+  "new": 280000,
+  "encoding": "lui+addi pairs (RISC-V)",
+  "rm_fw_off": "0x19f000",
+  "rm_size": "0x1071000",
+  "sites": [
+   {
+    "rm_off": "0x190c6",
+    "fw_off": "0x1b80c6",
+    "container_off": "0x1b8106",
+    "rd": 15,
+    "op": "addi"
+   },
+   {
+    "rm_off": "0x1a02a",
+    "fw_off": "0x1b902a",
+    "container_off": "0x1b906a",
+    "rd": 12,
+    "op": "addi"
+   },
+   {
+    "rm_off": "0x1f09a8",
+    "fw_off": "0x38f9a8",
+    "container_off": "0x38f9e8",
+    "rd": 12,
+    "op": "addi"
+   },
+   {
+    "rm_off": "0x7c467c",
+    "fw_off": "0x96367c",
+    "container_off": "0x9636bc",
+    "rd": 15,
+    "op": "addiw"
+   },
+   {
+    "rm_off": "0xb99bb4",
+    "fw_off": "0xd38bb4",
+    "container_off": "0xd38bf4",
+    "rd": 15,
+    "op": "addi"
+   },
+   {
+    "rm_off": "0xb99c90",
+    "fw_off": "0xd38c90",
+    "container_off": "0xd38cd0",
+    "rd": 18,
+    "op": "addi"
+   }
+  ],
+  "rewritten_bytes": 48,
+  "differing_bytes": 18,
+  "differing_offsets": [
+   "0x1b8107",
+   "0x1b8108",
+   "0x1b810d",
+   "0x1b906b",
+   "0x1b906c",
+   "0x1b9071",
+   "0x38f9e9",
+   "0x38f9ea",
+   "0x38f9ef",
+   "0x9636bd",
+   "0x9636be",
+   "0x9636c3",
+   "0xd38bf5",
+   "0xd38bf6",
+   "0xd38bfb",
+   "0xd38cd1",
+   "0xd38cd2",
+   "0xd38cd7"
+  ],
+  "corrected_premise": "the mission's 6 u32 sites / 24 bytes rested on a u32 encoding that occurs 0 times in the image; the sites are lui+addi pairs (the mission's VAs match rm-full.elf, p_offset 0x40)"
+ },
+ "patched": {
+  "path": "/home/z/my-project/work/patched/gsp_ga10x_280000_610.57.04.bin",
+  "sha256": "6a3c1a060e9c280965aebd77eb48c2161cf99aa40fd5d99c77c40a3a85c9859d",
+  "size": 84310168,
+  "reparse": "VALID",
+  "fwversion": "610.57.04",
+  "fwimage_prefix_unchanged": true,
+  "fwimage_post_rm_unchanged": true
+ },
+ "note": "artifact kept OUTSIDE the repo (>5 MB rule); reproduce with gspbuild.py patchrm <container> 0x19f000 0x1071000 250000 280000 <out>"
+}

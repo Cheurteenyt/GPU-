@@ -20,7 +20,8 @@ import tempfile
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from gspbuild import (EHDR_FMT, EHDR_SIZE, SHDR_FMT, SHDR_SIZE, GspFw)
+from gspbuild import (EHDR_FMT, EHDR_SIZE, SHDR_FMT, SHDR_SIZE, GspFw,
+                      patch_rm_constant, riscv_lui_addi_sites, riscv_split)
 
 REAL = Path(os.environ.get(
     "GSP_GA10X",
@@ -147,6 +148,59 @@ def test_synthetic():
     check("T5 overlap detected", (not ok4) and
           any("overlap" in i for i in iss4), "; ".join(iss4))
 
+    # T6: the RISC-V lui+addi constant patcher (synthetic, task 4)
+    import struct as _s
+    def lui(rd, hi):
+        return _s.pack("<I", (hi << 12) | (rd << 7) | 0x37)
+    def addi(rd, rs1, lo, w=False):
+        return _s.pack("<I", ((lo & 0xFFF) << 20) | (rs1 << 15) |
+                       (rd << 7) | (0x1B if w else 0x13))
+    # exact-size assembly (no variable-length slice assignment: the fixture
+    # must not resize — the 4.27 ledger's bytearray lesson)
+    blob = b"".join([
+        lui(15, 0x3D) + addi(15, 15, 0x090),        # +0:  site A (aligned)
+        lui(0, 0x3D) + addi(0, 0, 0x090),           # +8:  lui x0 NOP decoy
+        b"\x90\x12\x34\x56\x00\x00",                # +16: inert filler (6 B)
+        lui(12, 0x3D) + addi(12, 12, 0x090, w=True),  # +22: site B (22%4==2)
+        lui(15, 0x3D) + addi(15, 15, 0x091),        # +30: decoy: wrong lo
+        lui(15, 0x3D) + addi(16, 15, 0x090),        # +38: decoy: rd2 != rd
+    ])
+    sites = riscv_lui_addi_sites(blob, 250000)
+    check("T6 census = 2 sites (decoys rejected)",
+          [(o, rd, op) for o, rd, op in sites] == [(0, 15, "addi"),
+                                                   (22, 12, "addiw")],
+          str([(hex(o), rd, op) for o, rd, op in sites]))
+    patched = bytearray(blob)
+    nh, nl = riscv_split(280000)
+    for o, rd, op in sites:
+        opc = 0x1B if op == "addiw" else 0x13
+        _s.pack_into("<I", patched, o, (nh << 12) | (rd << 7) | 0x37)
+        _s.pack_into("<I", patched, o + 4, ((nl & 0xFFF) << 20) |
+                     (rd << 15) | (rd << 7) | opc)
+    patched = bytes(patched)
+    diffs = [i for i in range(len(blob)) if blob[i] != patched[i]]
+    # the expected diff set is DERIVED from the word encodings (a rewrite
+    # of 8 B per site changes only the immediate bytes — the rd/opcode
+    # bytes are shared), not hand-counted:
+    expect = set()
+    for o, rd, op in sites:
+        opc = 0x1B if op == "addiw" else 0x13
+        old8 = lui(rd, 0x3D) + addi(rd, rd, 0x090, w=(op == "addiw"))
+        new8 = lui(rd, 0x44) + addi(rd, rd, 0x5C0, w=(op == "addiw"))
+        expect |= {o + k for k in range(8) if old8[k] != new8[k]}
+    det6 = (f"{len(diffs)} B @0x{diffs[0]:x},0x{diffs[-1]:x} "
+            f"(expected {len(expect)})" if diffs else "none")
+    check("T6 synthetic patch diff set == encoding-derived",
+          set(diffs) == expect, det6)
+    check("T6 new immediates = 0x44 (both sites)",
+          (_s.unpack_from("<I", patched, 0)[0] >> 12) == 0x44 and
+          (_s.unpack_from("<I", patched, 22)[0] >> 12) == 0x44)
+    check("T6 decoys byte-identical", patched[30:46] == blob[30:46])
+
+    # T7: riscv_split sanity (the mission's two values)
+    check("T7 split(250000) = (0x3d, 0x090)", riscv_split(250000) == (0x3D, 0x090))
+    check("T7 split(280000) = (0x44, 0x5c0)", riscv_split(280000) == (0x44, 0x5C0))
+
 
 # ----------------------------------------------------------- real
 def test_real():
@@ -213,6 +267,93 @@ def test_real():
         check("R13 demo artifact written", out.exists()
               and out.stat().st_size == len(raw),
               f"{out} (temp, not committed)")
+
+    # ---------------------------------------------------- task 4 (4.30)
+    # the rm component's window inside .fwimage (v430_gfw_map.json):
+    # rm.elf spans fwimage [0x19f000, 0x1210000) = 0x1071000 B, flat,
+    # byte-exact == tools/analysis/gsp-extract/binaries/gsp-rm-17MB.bin.
+    # The mission's "6 u32 sites of 250000" premise is FALSIFIED (the u32
+    # pattern occurs 0 times in the whole image); the REAL encoding = six
+    # lui+addi/addiw pairs at rm-relative offsets
+    #   {0x190c6, 0x1a02a, 0x1f09a8, 0x7c467c, 0xb99bb4, 0xb99c90}
+    # (the mission's VA list matches rm-full.elf, p_offset 0x40). The
+    # minimal same-size patch therefore writes 6x8 = 48 bytes, not 6x4.
+    RM_OFF = 0x19f000
+    RM_SIZE = 0x1071000
+    SITES = [0x190c6, 0x1a02a, 0x1f09a8, 0x7c467c, 0xb99bb4, 0xb99c90]
+
+    # R14: the census on the real rm window
+    img4 = fw.fwimage()
+    rm_win = img4[RM_OFF:RM_OFF + RM_SIZE]
+    check("R14 rm window starts with ELF magic", rm_win[:4] == b"\x7fELF")
+    sites4 = riscv_lui_addi_sites(rm_win, 250000)
+    check("R14 census == 6 sites at the exact offsets",
+          [o for o, rd, op in sites4] == SITES,
+          str([hex(o) for o, rd, op in sites4]))
+
+    # R15: the patch — minimal-diff proof. The patch REWRITES 6x8 = 48 B
+    # (both instruction words per site); the bytes that actually DIFFER
+    # are only the immediate bytes (encoding-derived, 3 per site for
+    # 250000->280000: two in lui, one in addi => 18). The mission's
+    # "exactly 24 bytes (6x4)" rested on the falsified u32 premise.
+    blob4, sites4b = patch_rm_constant(fw, RM_OFF, RM_SIZE, 250000, 280000)
+    diffs4 = [i for i in range(len(raw)) if raw[i] != blob4[i]]
+    fw_abs = fw.by_name[".fwimage"]["sh_offset"]
+    expect48 = set(fw_abs + RM_OFF + s + k for s in SITES for k in range(8))
+    expect_diff = set()
+    for (s, (o, rd, op)) in zip(SITES, sites4):
+        opc = 0x1B if op == "addiw" else 0x13
+        old8 = struct.pack("<II", (0x3D << 12) | (rd << 7) | 0x37,
+                           (0x090 << 20) | (rd << 15) | (rd << 7) | opc)
+        new8 = struct.pack("<II", (0x44 << 12) | (rd << 7) | 0x37,
+                           (0x5C0 << 20) | (rd << 15) | (rd << 7) | opc)
+        expect_diff |= {fw_abs + RM_OFF + s + k
+                        for k in range(8) if old8[k] != new8[k]}
+    # the rewrite itself: all 8 bytes of every site window carry new8
+    pbw = GspFw(blob4).fwimage()
+    all_new = all(
+        pbw[RM_OFF + s + k] == struct.pack(
+            "<II", (0x44 << 12) | (rd << 7) | 0x37,
+            (0x5C0 << 20) | (rd << 15) | (rd << 7) |
+            (0x1B if op == "addiw" else 0x13))[k]
+        for (s, (o, rd, op)) in zip(SITES, sites4) for k in range(8))
+    check("R15 all 6x8 rewritten bytes carry the new encoding", all_new)
+    check("R15 diff set == encoding-derived (18 B expected)",
+          set(diffs4) == expect_diff,
+          f"{len(diffs4)} B differ, {len(expect48)} B rewritten")
+    check("R15 every differing byte inside the 6x8 rewrite window",
+          set(diffs4) <= expect48 and len(diffs4) == len(expect_diff))
+
+    # R16: the patched words decode to 280000; everything else identical
+    pb = GspFw(blob4)
+    ok5, iss5 = pb.verify()
+    check("R16 patched container re-parse valid", ok5, "; ".join(iss5))
+    check("R16 fwversion unchanged", pb.fwversion() == "610.57.04")
+    pw = pb.fwimage()
+    good = True
+    for s, (o, rd, op) in zip(SITES, sites4):
+        w, w2 = struct.unpack_from("<II", pw, RM_OFF + s)
+        opc = 0x1B if op == "addiw" else 0x13
+        good &= (w == (0x44 << 12) | (rd << 7) | 0x37)
+        good &= (w2 == (0x5C0 << 20) | (rd << 15) | (rd << 7) | opc)
+    check("R16 all 6 pairs now encode 280000 (rd/op preserved)", good)
+    import hashlib as _h
+    h6 = _h.sha256(blob4).hexdigest()
+    print(f"  NOTE  patched container sha256 = {h6} "
+          f"(produced in-memory; artifact NOT committed — >5 MB rule)")
+
+    # R17: the negative — a wrong expected count is rejected
+    try:
+        patch_rm_constant(fw, RM_OFF, RM_SIZE, 250000, 280000,
+                          expected_sites=7)
+        check("R17 wrong-site-count rejected", False)
+    except ValueError:
+        check("R17 wrong-site-count rejected", True)
+    try:
+        patch_rm_constant(fw, RM_OFF + 0x1000, RM_SIZE, 250000, 280000)
+        check("R17 non-ELF rm window rejected", False)
+    except ValueError:
+        check("R17 non-ELF rm window rejected", True)
 
 
 if __name__ == "__main__":

@@ -57,6 +57,102 @@ EHDR_SIZE = struct.calcsize(EHDR_FMT)          # 64
 SHDR_FMT = "<IIQQQQIIQQ"
 SHDR_SIZE = struct.calcsize(SHDR_FMT)          # 64
 
+# ------------------------------------------------ RISC-V constant patching
+# (pass 4.30, task 4). The mission's premise said the RM's 250000 constants
+# sit as SIX u32 words (0x0003D090 LE) at six VAs — FALSIFIED on the bytes:
+# the pattern 90 d0 03 00 occurs ZERO times in the whole 84,258,816-B
+# fwimage. The REAL encoding (proven, exhaustive 2-byte-step scan): SIX
+# lui+addi/addiw instruction PAIRS materializing 250000 as imm hi=0x3d /
+# lo=0x090 (six in rm-full.elf at the mission's exact VAs — its VA list was
+# computed on rm-full.elf, whose code LOAD has p_offset 0x40 — and six in
+# gsp-rm-17MB.bin at a uniform -0x78 shift). A minimal same-size patch
+# rewrites BOTH words (8 B per site); the bytes that actually DIFFER are
+# only the immediate bytes (3 per site for these values — two in lui, one
+# in addi — the rd/opcode bytes are shared), i.e. 18 bytes differ while
+# 48 are rewritten. The mission's "exactly 24 bytes differ (6x4)" was
+# itself a consequence of the falsified u32 premise.
+
+def riscv_split(value: int):
+    """The canonical lui+addi decomposition: value == (hi<<12) + lo with
+    lo a SIGNED 12-bit integer. Returns (hi, lo) — the same split the
+    compiler emits for `li`."""
+    hi = (value + 0x800) >> 12
+    lo = value - (hi << 12)
+    assert -0x800 <= lo <= 0x7FF, hex(value)
+    return hi, lo
+
+
+def riscv_lui_addi_sites(blob: bytes, value: int):
+    """Every lui+addi/addiw pair in `blob` that materializes `value`.
+
+    Exhaustive at 2-byte steps (the C extension makes 2-byte instruction
+    alignment legal; two of the six real 250000 sites sit at 2 mod 4).
+    Each hit: (offset, rd, op) with op in {'addi','addiw'}; the pair is
+    [lui rd, hi] @off ; [addi/addiw rd, rd, lo] @off+4.
+    """
+    hi, lo = riscv_split(value)
+    lo_u = lo & 0xFFF
+    sites = []
+    for off in range(0, len(blob) - 8, 2):
+        (w,) = struct.unpack_from("<I", blob, off)
+        if (w & 0x7F) != 0x37 or (w >> 12) != hi:
+            continue
+        rd = (w >> 7) & 0x1F
+        if rd == 0:
+            continue                      # lui x0 = the canonical NOP
+        (w2,) = struct.unpack_from("<I", blob, off + 4)
+        opc = w2 & 0x7F
+        if opc not in (0x13, 0x1B):
+            continue
+        if ((w2 >> 12) & 7) != 0:         # funct3 must be ADD
+            continue
+        if ((w2 >> 15) & 0x1F) != rd or ((w2 >> 7) & 0x1F) != rd:
+            continue
+        if (w2 >> 20) != lo_u:
+            continue
+        sites.append((off, rd, "addi" if opc == 0x13 else "addiw"))
+    return sites
+
+
+def patch_rm_constant(fw: "GspFw", rm_fw_off: int, rm_size: int,
+                      old_value: int, new_value: int,
+                      expected_sites: int = 6):
+    """Replace every lui+addi materialization of old_value inside the rm
+    component (fwimage-relative window [rm_fw_off, rm_fw_off+rm_size)) by
+    new_value, then rebuild the container.
+
+    Returns (blob, sites). Every site is re-decoded from the bytes and
+    re-verified before writing; the rd register and the addi/addiw opcode
+    are preserved; only the immediates change. Same-size by construction.
+    """
+    img = fw.fwimage()
+    if rm_fw_off < 0 or rm_fw_off + rm_size > len(img):
+        raise ValueError("rm window outside .fwimage")
+    rm = img[rm_fw_off:rm_fw_off + rm_size]
+    if rm[:4] != b"\x7fELF":
+        raise ValueError("the rm window does not start with the ELF magic "
+                         "(wrong offset?)")
+    old_hi, old_lo = riscv_split(old_value)
+    new_hi, new_lo = riscv_split(new_value)
+    sites = riscv_lui_addi_sites(rm, old_value)
+    if len(sites) != expected_sites:
+        raise ValueError(f"expected {expected_sites} sites of {old_value:#x} "
+                         f"in the rm window, found {len(sites)}")
+    patched = bytearray(rm)
+    for off, rd, op in sites:
+        (w,) = struct.unpack_from("<I", rm, off)
+        if (w >> 12) != old_hi:
+            raise ValueError(f"site @0x{off:x}: lui imm {(w>>12):#x} != "
+                             f"the canonical {old_hi:#x}")
+        opc = 0x13 if op == "addi" else 0x1B
+        new_lui = (new_hi << 12) | (rd << 7) | 0x37
+        new_add = (new_lo & 0xFFF) << 20 | (rd << 15) | (rd << 7) | opc
+        struct.pack_into("<II", patched, off, new_lui, new_add)
+    new_img = img[:rm_fw_off] + bytes(patched) + img[rm_fw_off + rm_size:]
+    blob = fw.rebuild({FW_IMAGE: new_img})
+    return blob, sites
+
+
 SHT_PROGBITS = 1
 FW_IMAGE = ".fwimage"
 FW_VERSION = ".fwversion"
@@ -232,7 +328,9 @@ def _cli():
         print(__doc__)
         print("usage: gspbuild.py verify <container>\n"
               "       gspbuild.py extract <container> <out.fwimage>\n"
-              "       gspbuild.py patch <container> <fw_off_hex> <hexbytes> <out>")
+              "       gspbuild.py patch <container> <fw_off_hex> <hexbytes> <out>\n"
+              "       gspbuild.py patchrm <container> <rm_off_hex> <rm_size_hex> "
+              "<old> <new> <out>  [sites=N]")
         return 2
     cmd, path = sys.argv[1], Path(sys.argv[2])
     fw = GspFw(path.read_bytes())
@@ -249,6 +347,33 @@ def _cli():
         out.write_bytes(fw.fwimage())
         print(f"wrote {out} ({len(fw.fwimage()):,} B)")
         return 0
+    if cmd == "patchrm":
+        # gspbuild.py patchrm <container> <rm_off_hex> <rm_size_hex> <old> <new> <out> [sites=N]
+        rm_off = int(sys.argv[3], 16)
+        rm_size = int(sys.argv[4], 16)
+        old_v = int(sys.argv[5], 0)
+        new_v = int(sys.argv[6], 0)
+        out = Path(sys.argv[7])
+        expect = int(sys.argv[8].split("=")[1]) if len(sys.argv) > 8 else 6
+        blob, sites = patch_rm_constant(fw, rm_off, rm_size, old_v, new_v,
+                                        expected_sites=expect)
+        out.write_bytes(blob)
+        diffs = [i for i in range(len(fw.data)) if fw.data[i] != blob[i]]
+        # the differing bytes must sit inside the sites' rewritten windows
+        fw_abs = fw.by_name[FW_IMAGE]["sh_offset"]
+        windows = sorted(set(fw_abs + rm_off + o + k
+                             for o, rd, op in sites for k in range(8)))
+        inside = [i for i in diffs if i in set(windows)]
+        ok_runs = len(inside) == len(diffs) and len(diffs) > 0
+        ok, issues = GspFw(blob).verify()
+        print(f"patchrm: {len(sites)} site(s) of {old_v} -> {new_v} "
+              f"(lui+addi pairs, rm @fwimage+0x{rm_off:x})")
+        for (off, rd, op) in sites:
+            print(f"  site rm+0x{off:x} rd=x{rd} {op}")
+        print(f"diff vs source: {len(diffs)} byte(s) differ "
+              f"({len(windows)} rewritten), all inside the sites: {ok_runs}")
+        print("re-parse:", "VALID" if ok else f"INVALID {issues}")
+        return 0 if ok and ok_runs else 1
     if cmd == "patch":
         fw_off = int(sys.argv[3], 16)
         new = bytes.fromhex(sys.argv[4])

@@ -1,0 +1,1038 @@
+{
+ "signature_sections": {
+  "cc_gr10x": {
+   "off": "0x505b06e",
+   "sha256": "4e68300f874ea7370a371734f1dbcaf2e62313347f5fcd5bb5791408fd40928d",
+   "nonzero": 1548,
+   "header": {
+    "ver": "0x20001",
+    "size": "0x8c8",
+    "n0c": "0xc",
+    "x101": "0x101",
+    "x200": "0x200"
+   },
+   "blocks": [
+    {
+     "start": "0x14",
+     "first_nonzero": 0,
+     "last_nonzero": 383,
+     "sha256": "8d20f35882cd5da4",
+     "entropy": 7.42
+    },
+    {
+     "start": "0x214",
+     "first_nonzero": 0,
+     "last_nonzero": 383,
+     "sha256": "cc255d425ee0e3a6",
+     "entropy": 7.47
+    },
+    {
+     "start": "0x414",
+     "first_nonzero": 0,
+     "last_nonzero": 383,
+     "sha256": "c0dac7d5b2fac6d7",
+     "entropy": 7.43
+    },
+    {
+     "start": "0x614",
+     "first_nonzero": 0,
+     "last_nonzero": 383,
+     "sha256": "df09b1e9439712b1",
+     "entropy": 7.42
+    }
+   ],
+   "tail_810": [
+    "0x0",
+    "0x10001",
+    "0x20001",
+    "0x1"
+   ],
+   "tail_870": [
+    "0x0",
+    "0x0",
+    "0x0",
+    "0x1",
+    "0x402",
+    "0x1"
+   ]
+  },
+  "gr10x": {
+   "off": "0x505c06e",
+   "sha256": "d926735b36772f6552f735ae335ca0f46b74ca196e63ecf6ea78bc56a18cb5ba",
+   "nonzero": 1546,
+   "header": {
+    "ver": "0x20001",
+    "size": "0x8c8",
+    "n0c": "0xc",
+    "x101": "0x101",
+    "x200": "0x200"
+   },
+   "blocks": [
+    {
+     "start": "0x14",
+     "first_nonzero": 0,
+     "last_nonzero": 383,
+     "sha256": "284a024c20cd26bd",
+     "entropy": 7.39
+    },
+    {
+     "start": "0x214",
+     "first_nonzero": 0,
+     "last_nonzero": 383,
+     "sha256": "195d9f669098aca9",
+     "entropy": 7.42
+    },
+    {
+     "start": "0x414",
+     "first_nonzero": 0,
+     "last_nonzero": 383,
+     "sha256": "6e47851d40ec8123",
+     "entropy": 7.4
+    },
+    {
+     "start": "0x614",
+     "first_nonzero": 0,
+     "last_nonzero": 383,
+     "sha256": "f8d19d469190f55e",
+     "entropy": 7.52
+    }
+   ],
+   "tail_810": [
+    "0x0",
+    "0x10001",
+    "0x20001",
+    "0x1"
+   ],
+   "tail_870": [
+    "0x0",
+    "0x0",
+    "0x0",
+    "0x1",
+    "0x402",
+    "0x1"
+   ]
+  },
+  "gb20y": {
+   "off": "0x505d06e",
+   "sha256": "bdbc8df6f6c685e66e11c278ba7a36835f2918b0f7e74cc4e92a2fb4a1cbebc5",
+   "nonzero": 1544,
+   "header": {
+    "ver": "0x20001",
+    "size": "0x8c8",
+    "n0c": "0xc",
+    "x101": "0x101",
+    "x200": "0x200"
+   },
+   "blocks": [
+    {
+     "start": "0x14",
+     "first_nonzero": 0,
+     "last_nonzero": 383,
+     "sha256": "e5f010fddb50dad2",
+     "entropy": 7.5
+    },
+    {
+     "start": "0x214",
+     "first_nonzero": 0,
+     "last_nonzero": 383,
+     "sha256": "43b9e0b916eb5552",
+     "entropy": 7.45
+    },
+    {
+     "start": "0x414",
+     "first_nonzero": 0,
+     "last_nonzero": 383,
+     "sha256": "6426cb0cd0c940fb",
+     "entropy": 7.41
+    },
+    {
+     "start": "0x614",
+     "first_nonzero": 0,
+     "last_nonzero": 383,
+     "sha256": "edc2ae1ee654cd0b",
+     "entropy": 7.46
+    }
+   ],
+   "tail_810": [
+    "0x0",
+    "0x10001",
+    "0x20001",
+    "0x1"
+   ],
+   "tail_870": [
+    "0x0",
+    "0x0",
+    "0x0",
+    "0x1",
+    "0x402",
+    "0x1"
+   ]
+  },
+  "cc_gb20x": {
+   "off": "0x505e06e",
+   "sha256": "ea72351f900d54eca3cb476ebc314a58494418c3b6904ef83824ebdc6c204135",
+   "nonzero": 1548,
+   "header": {
+    "ver": "0x20001",
+    "size": "0x8c8",
+    "n0c": "0xc",
+    "x101": "0x101",
+    "x200": "0x200"
+   },
+   "blocks": [
+    {
+     "start": "0x14",
+     "first_nonzero": 0,
+     "last_nonzero": 383,
+     "sha256": "0c6778cc39f676ae",
+     "entropy": 7.48
+    },
+    {
+     "start": "0x214",
+     "first_nonzero": 0,
+     "last_nonzero": 383,
+     "sha256": "75c8fb89512956e9",
+     "entropy": 7.43
+    },
+    {
+     "start": "0x414",
+     "first_nonzero": 0,
+     "last_nonzero": 383,
+     "sha256": "c720305e5a73ae76",
+     "entropy": 7.42
+    },
+    {
+     "start": "0x614",
+     "first_nonzero": 0,
+     "last_nonzero": 383,
+     "sha256": "8f99345bc3dcf62f",
+     "entropy": 7.47
+    }
+   ],
+   "tail_810": [
+    "0x0",
+    "0x10001",
+    "0x20001",
+    "0x1"
+   ],
+   "tail_870": [
+    "0x0",
+    "0x0",
+    "0x0",
+    "0x1",
+    "0x402",
+    "0x1"
+   ]
+  },
+  "gb20x": {
+   "off": "0x505f06e",
+   "sha256": "c8570050ed6c03aba4a35bb5e8a8b29fb48f0afc138dc975587ebb86fa30882d",
+   "nonzero": 1551,
+   "header": {
+    "ver": "0x20001",
+    "size": "0x8c8",
+    "n0c": "0xc",
+    "x101": "0x101",
+    "x200": "0x200"
+   },
+   "blocks": [
+    {
+     "start": "0x14",
+     "first_nonzero": 0,
+     "last_nonzero": 383,
+     "sha256": "7a85b626366523d8",
+     "entropy": 7.46
+    },
+    {
+     "start": "0x214",
+     "first_nonzero": 0,
+     "last_nonzero": 383,
+     "sha256": "e8f7078e3ea2bd6e",
+     "entropy": 7.4
+    },
+    {
+     "start": "0x414",
+     "first_nonzero": 0,
+     "last_nonzero": 383,
+     "sha256": "13068a439fdba370",
+     "entropy": 7.41
+    },
+    {
+     "start": "0x614",
+     "first_nonzero": 0,
+     "last_nonzero": 383,
+     "sha256": "18bb592d1359544b",
+     "entropy": 7.48
+    }
+   ],
+   "tail_810": [
+    "0x0",
+    "0x10001",
+    "0x20001",
+    "0x1"
+   ],
+   "tail_870": [
+    "0x0",
+    "0x0",
+    "0x0",
+    "0x1",
+    "0x402",
+    "0x1"
+   ]
+  },
+  "cc_gb10x": {
+   "off": "0x506006e",
+   "sha256": "1d15e8a4fb089576566f4b367305ffee87ecb8093401216ab349cf0991f31bb2",
+   "nonzero": 1551,
+   "header": {
+    "ver": "0x20001",
+    "size": "0x8c8",
+    "n0c": "0xc",
+    "x101": "0x101",
+    "x200": "0x200"
+   },
+   "blocks": [
+    {
+     "start": "0x14",
+     "first_nonzero": 0,
+     "last_nonzero": 383,
+     "sha256": "01f7547e352ed129",
+     "entropy": 7.44
+    },
+    {
+     "start": "0x214",
+     "first_nonzero": 0,
+     "last_nonzero": 383,
+     "sha256": "06b6880e07aac73c",
+     "entropy": 7.4
+    },
+    {
+     "start": "0x414",
+     "first_nonzero": 0,
+     "last_nonzero": 383,
+     "sha256": "b9ba4f2a6fbd84f4",
+     "entropy": 7.42
+    },
+    {
+     "start": "0x614",
+     "first_nonzero": 0,
+     "last_nonzero": 383,
+     "sha256": "8cf2cac5057de03c",
+     "entropy": 7.43
+    }
+   ],
+   "tail_810": [
+    "0x0",
+    "0x10001",
+    "0x20001",
+    "0x1"
+   ],
+   "tail_870": [
+    "0x0",
+    "0x0",
+    "0x0",
+    "0x1",
+    "0x402",
+    "0x1"
+   ]
+  },
+  "gb10y": {
+   "off": "0x506106e",
+   "sha256": "d9904045adc846ff323feb696b7376474d5d0653e7ddd204e5c6c0426b0cf0c2",
+   "nonzero": 1548,
+   "header": {
+    "ver": "0x20001",
+    "size": "0x8c8",
+    "n0c": "0xc",
+    "x101": "0x101",
+    "x200": "0x200"
+   },
+   "blocks": [
+    {
+     "start": "0x14",
+     "first_nonzero": 0,
+     "last_nonzero": 383,
+     "sha256": "47d62a18839c498a",
+     "entropy": 7.4
+    },
+    {
+     "start": "0x214",
+     "first_nonzero": 0,
+     "last_nonzero": 383,
+     "sha256": "2340353eab3f1f9c",
+     "entropy": 7.43
+    },
+    {
+     "start": "0x414",
+     "first_nonzero": 0,
+     "last_nonzero": 383,
+     "sha256": "6490eb9926ed5ec3",
+     "entropy": 7.49
+    },
+    {
+     "start": "0x614",
+     "first_nonzero": 0,
+     "last_nonzero": 383,
+     "sha256": "ee8929012d0f0fa6",
+     "entropy": 7.44
+    }
+   ],
+   "tail_810": [
+    "0x0",
+    "0x10001",
+    "0x10001",
+    "0x1"
+   ],
+   "tail_870": [
+    "0x0",
+    "0x0",
+    "0x0",
+    "0x1",
+    "0x402",
+    "0x1"
+   ]
+  },
+  "gb10x": {
+   "off": "0x506206e",
+   "sha256": "ed6496cf44bb2b1944aad7bea1a6e8fd1db96d8513cd2dc1606881f6cb936274",
+   "nonzero": 1548,
+   "header": {
+    "ver": "0x20001",
+    "size": "0x8c8",
+    "n0c": "0xc",
+    "x101": "0x101",
+    "x200": "0x200"
+   },
+   "blocks": [
+    {
+     "start": "0x14",
+     "first_nonzero": 0,
+     "last_nonzero": 383,
+     "sha256": "4a29e20bd18e6a7f",
+     "entropy": 7.43
+    },
+    {
+     "start": "0x214",
+     "first_nonzero": 0,
+     "last_nonzero": 383,
+     "sha256": "a1968c96e0ac380a",
+     "entropy": 7.41
+    },
+    {
+     "start": "0x414",
+     "first_nonzero": 0,
+     "last_nonzero": 383,
+     "sha256": "695795be98cfe2f8",
+     "entropy": 7.44
+    },
+    {
+     "start": "0x614",
+     "first_nonzero": 0,
+     "last_nonzero": 383,
+     "sha256": "cf4ae10452351fd7",
+     "entropy": 7.43
+    }
+   ],
+   "tail_810": [
+    "0x0",
+    "0x10001",
+    "0x20001",
+    "0x1"
+   ],
+   "tail_870": [
+    "0x0",
+    "0x0",
+    "0x0",
+    "0x1",
+    "0x402",
+    "0x1"
+   ]
+  },
+  "cc_gh100": {
+   "off": "0x506306e",
+   "sha256": "012dbc1edd79a03837afbbfad2194ac759ce507883ccab96c49dfc9f438b3eba",
+   "nonzero": 1546,
+   "header": {
+    "ver": "0x20001",
+    "size": "0x8c8",
+    "n0c": "0xc",
+    "x101": "0x101",
+    "x200": "0x200"
+   },
+   "blocks": [
+    {
+     "start": "0x14",
+     "first_nonzero": 0,
+     "last_nonzero": 383,
+     "sha256": "9fbaba96e242080d",
+     "entropy": 7.4
+    },
+    {
+     "start": "0x214",
+     "first_nonzero": 0,
+     "last_nonzero": 383,
+     "sha256": "c08b3344115cacb1",
+     "entropy": 7.47
+    },
+    {
+     "start": "0x414",
+     "first_nonzero": 0,
+     "last_nonzero": 383,
+     "sha256": "5360f1cee2a168ba",
+     "entropy": 7.44
+    },
+    {
+     "start": "0x614",
+     "first_nonzero": 0,
+     "last_nonzero": 383,
+     "sha256": "9675ac4fcc1308d8",
+     "entropy": 7.43
+    }
+   ],
+   "tail_810": [
+    "0x0",
+    "0x10001",
+    "0x20001",
+    "0x1"
+   ],
+   "tail_870": [
+    "0x0",
+    "0x0",
+    "0x0",
+    "0x1",
+    "0x402",
+    "0x1"
+   ]
+  },
+  "gh100": {
+   "off": "0x506406e",
+   "sha256": "3767bb0a5b2fe58a0d847e706174bf836a0a7ad0a1db8ec89bca95144c0326cc",
+   "nonzero": 1546,
+   "header": {
+    "ver": "0x20001",
+    "size": "0x8c8",
+    "n0c": "0xc",
+    "x101": "0x101",
+    "x200": "0x200"
+   },
+   "blocks": [
+    {
+     "start": "0x14",
+     "first_nonzero": 0,
+     "last_nonzero": 383,
+     "sha256": "28486149539567f1",
+     "entropy": 7.41
+    },
+    {
+     "start": "0x214",
+     "first_nonzero": 0,
+     "last_nonzero": 383,
+     "sha256": "7e85199d540ee154",
+     "entropy": 7.32
+    },
+    {
+     "start": "0x414",
+     "first_nonzero": 0,
+     "last_nonzero": 383,
+     "sha256": "708de5854c0c12c0",
+     "entropy": 7.39
+    },
+    {
+     "start": "0x614",
+     "first_nonzero": 0,
+     "last_nonzero": 383,
+     "sha256": "575579d69df36757",
+     "entropy": 7.46
+    }
+   ],
+   "tail_810": [
+    "0x0",
+    "0x10001",
+    "0x20001",
+    "0x1"
+   ],
+   "tail_870": [
+    "0x0",
+    "0x0",
+    "0x0",
+    "0x1",
+    "0x402",
+    "0x1"
+   ]
+  },
+  "ad10x": {
+   "off": "0x506506e",
+   "sha256": "c08e3fc445324ae083bf745f1d4eb220a2589f344c83fcfc80a686151d0a1eb5",
+   "nonzero": 1550,
+   "header": {
+    "ver": "0x20001",
+    "size": "0x8c8",
+    "n0c": "0xc",
+    "x101": "0x101",
+    "x200": "0x200"
+   },
+   "blocks": [
+    {
+     "start": "0x14",
+     "first_nonzero": 0,
+     "last_nonzero": 383,
+     "sha256": "7723de823ad268f5",
+     "entropy": 7.39
+    },
+    {
+     "start": "0x214",
+     "first_nonzero": 0,
+     "last_nonzero": 383,
+     "sha256": "a9f66b3944b9e311",
+     "entropy": 7.48
+    },
+    {
+     "start": "0x414",
+     "first_nonzero": 0,
+     "last_nonzero": 383,
+     "sha256": "52268aea3cdf3366",
+     "entropy": 7.41
+    },
+    {
+     "start": "0x614",
+     "first_nonzero": 0,
+     "last_nonzero": 383,
+     "sha256": "fc3ecae9a44360e4",
+     "entropy": 7.4
+    }
+   ],
+   "tail_810": [
+    "0x0",
+    "0x10001",
+    "0x10001",
+    "0x1"
+   ],
+   "tail_870": [
+    "0x0",
+    "0x0",
+    "0x0",
+    "0x1",
+    "0x402",
+    "0x1"
+   ]
+  },
+  "ga10x": {
+   "off": "0x506606e",
+   "sha256": "d9caca1a00ac8f7c75845d81017c00a72072314bdf999756244c295dda060fb5",
+   "nonzero": 1542,
+   "header": {
+    "ver": "0x20001",
+    "size": "0x8c8",
+    "n0c": "0xc",
+    "x101": "0x101",
+    "x200": "0x200"
+   },
+   "blocks": [
+    {
+     "start": "0x14",
+     "first_nonzero": 0,
+     "last_nonzero": 383,
+     "sha256": "707f9ca38da26aff",
+     "entropy": 7.42
+    },
+    {
+     "start": "0x214",
+     "first_nonzero": 0,
+     "last_nonzero": 383,
+     "sha256": "777a6df496cc387d",
+     "entropy": 7.44
+    },
+    {
+     "start": "0x414",
+     "first_nonzero": 0,
+     "last_nonzero": 383,
+     "sha256": "46966b38a50be60b",
+     "entropy": 7.45
+    },
+    {
+     "start": "0x614",
+     "first_nonzero": 0,
+     "last_nonzero": 383,
+     "sha256": "06d92d355f40cfe0",
+     "entropy": 7.47
+    }
+   ],
+   "tail_810": [
+    "0x0",
+    "0x10001",
+    "0x10001",
+    "0x1"
+   ],
+   "tail_870": [
+    "0x0",
+    "0x0",
+    "0x0",
+    "0x1",
+    "0x402",
+    "0x1"
+   ]
+  }
+ },
+ "cross_blob_diff_bytes_vs_ga10x": {
+  "cc_gr10x": 1530,
+  "gr10x": 1537,
+  "gb20y": 1531,
+  "cc_gb20x": 1532,
+  "gb20x": 1533,
+  "cc_gb10x": 1532,
+  "gb10y": 1532,
+  "gb10x": 1532,
+  "cc_gh100": 1537,
+  "gh100": 1527,
+  "ad10x": 1531,
+  "ga10x": 0
+ },
+ "digest_search": {
+  "fwimage_WHOLE": {
+   "size": 84258816,
+   "sha256": "85213b87db131c17a0ebbb1b44abd18c4fcd58080dd43cde82c5c67a5b08eeec",
+   "hits": {
+    "sig_ga10x": {
+     "sha256": false,
+     "sha256_off": null,
+     "sha1": false
+    },
+    "sig_all_12": {
+     "sha256": false,
+     "sha256_off": null,
+     "sha1": false
+    },
+    "boot_area": {
+     "sha256": false,
+     "sha256_off": null,
+     "sha1": false
+    },
+    "bindata": {
+     "sha256": false,
+     "sha256_off": null,
+     "sha1": false
+    },
+    "container_whole": {
+     "sha256": false,
+     "sha256_off": null,
+     "sha1": false
+    }
+   }
+  },
+  "load_area": {
+   "size": 83812352,
+   "sha256": "78ac21fff0b2c413c48f89fdf71f713fbafb76eff2f2021ecceeb21dcf1eb5ad",
+   "hits": {
+    "sig_ga10x": {
+     "sha256": false,
+     "sha256_off": null,
+     "sha1": false
+    },
+    "sig_all_12": {
+     "sha256": false,
+     "sha256_off": null,
+     "sha1": false
+    },
+    "boot_area": {
+     "sha256": false,
+     "sha256_off": null,
+     "sha1": false
+    },
+    "bindata": {
+     "sha256": false,
+     "sha256_off": null,
+     "sha1": false
+    },
+    "container_whole": {
+     "sha256": false,
+     "sha256_off": null,
+     "sha1": false
+    }
+   }
+  },
+  "boot_area": {
+   "size": 446464,
+   "sha256": "ab90560bad520e65b3f04089978b5f20fafdb551fec2cac15a0ec9acd8c371d5",
+   "hits": {
+    "sig_ga10x": {
+     "sha256": false,
+     "sha256_off": null,
+     "sha1": false
+    },
+    "sig_all_12": {
+     "sha256": false,
+     "sha256_off": null,
+     "sha1": false
+    },
+    "boot_area": {
+     "sha256": false,
+     "sha256_off": null,
+     "sha1": false
+    },
+    "bindata": {
+     "sha256": false,
+     "sha256_off": null,
+     "sha1": false
+    },
+    "container_whole": {
+     "sha256": false,
+     "sha256_off": null,
+     "sha1": false
+    }
+   }
+  },
+  "bindata": {
+   "size": 64528384,
+   "sha256": "cace04104b456011e6f80276f84a1eccf446ffc26190650e6c8c0f9ee8ddb0bf",
+   "hits": {
+    "sig_ga10x": {
+     "sha256": false,
+     "sha256_off": null,
+     "sha1": false
+    },
+    "sig_all_12": {
+     "sha256": false,
+     "sha256_off": null,
+     "sha1": false
+    },
+    "boot_area": {
+     "sha256": false,
+     "sha256_off": null,
+     "sha1": false
+    },
+    "bindata": {
+     "sha256": false,
+     "sha256_off": null,
+     "sha1": false
+    },
+    "container_whole": {
+     "sha256": false,
+     "sha256_off": null,
+     "sha1": false
+    }
+   }
+  },
+  "rm.elf": {
+   "size": 17236632,
+   "sha256": "ee1475a798c6a8cb8ecac7d58e18e2bbbbfa51569186ce958feaebe976af773a",
+   "hits": {
+    "sig_ga10x": {
+     "sha256": false,
+     "sha256_off": null,
+     "sha1": false
+    },
+    "sig_all_12": {
+     "sha256": false,
+     "sha256_off": null,
+     "sha1": false
+    },
+    "boot_area": {
+     "sha256": false,
+     "sha256_off": null,
+     "sha1": false
+    },
+    "bindata": {
+     "sha256": false,
+     "sha256_off": null,
+     "sha1": false
+    },
+    "container_whole": {
+     "sha256": false,
+     "sha256_off": null,
+     "sha1": false
+    }
+   }
+  },
+  "vgpu.elf": {
+   "size": 725616,
+   "sha256": "5c072ef3439407da09077f1cadfee627d4b859e9701381846c453a6c4b3df918",
+   "hits": {
+    "sig_ga10x": {
+     "sha256": false,
+     "sha256_off": null,
+     "sha1": false
+    },
+    "sig_all_12": {
+     "sha256": false,
+     "sha256_off": null,
+     "sha1": false
+    },
+    "boot_area": {
+     "sha256": false,
+     "sha256_off": null,
+     "sha1": false
+    },
+    "bindata": {
+     "sha256": false,
+     "sha256_off": null,
+     "sha1": false
+    },
+    "container_whole": {
+     "sha256": false,
+     "sha256_off": null,
+     "sha1": false
+    }
+   }
+  },
+  "mnoc.elf": {
+   "size": 57968,
+   "sha256": "4f8e65988d22ace0a2cdb7f0491d359516c17fd40e6ba4f262c7b63ddf51e843",
+   "hits": {
+    "sig_ga10x": {
+     "sha256": false,
+     "sha256_off": null,
+     "sha1": false
+    },
+    "sig_all_12": {
+     "sha256": false,
+     "sha256_off": null,
+     "sha1": false
+    },
+    "boot_area": {
+     "sha256": false,
+     "sha256_off": null,
+     "sha1": false
+    },
+    "bindata": {
+     "sha256": false,
+     "sha256_off": null,
+     "sha1": false
+    },
+    "container_whole": {
+     "sha256": false,
+     "sha256_off": null,
+     "sha1": false
+    }
+   }
+  },
+  "debug.elf": {
+   "size": 41584,
+   "sha256": "9c7e63fca810dfcd379d7c21676848cf0948473ef2b4a98e76398cfcdaedf045",
+   "hits": {
+    "sig_ga10x": {
+     "sha256": false,
+     "sha256_off": null,
+     "sha1": false
+    },
+    "sig_all_12": {
+     "sha256": false,
+     "sha256_off": null,
+     "sha1": false
+    },
+    "boot_area": {
+     "sha256": false,
+     "sha256_off": null,
+     "sha1": false
+    },
+    "bindata": {
+     "sha256": false,
+     "sha256_off": null,
+     "sha1": false
+    },
+    "container_whole": {
+     "sha256": false,
+     "sha256_off": null,
+     "sha1": false
+    }
+   }
+  },
+  "init.elf": {
+   "size": 45056,
+   "sha256": "75ee40966be9b6fa1f678e9286616537e262e1d836cc85669191796201f260fe",
+   "hits": {
+    "sig_ga10x": {
+     "sha256": false,
+     "sha256_off": null,
+     "sha1": false
+    },
+    "sig_all_12": {
+     "sha256": false,
+     "sha256_off": null,
+     "sha1": false
+    },
+    "boot_area": {
+     "sha256": false,
+     "sha256_off": null,
+     "sha1": false
+    },
+    "bindata": {
+     "sha256": false,
+     "sha256_off": null,
+     "sha1": false
+    },
+    "container_whole": {
+     "sha256": false,
+     "sha256_off": null,
+     "sha1": false
+    }
+   }
+  },
+  "kernel_ga10x.elf": {
+   "size": 155648,
+   "sha256": "242424f1928bebd6086e2bb1396f8b503277cff603522e15a46b75f6304e6bac",
+   "hits": {
+    "sig_ga10x": {
+     "sha256": false,
+     "sha256_off": null,
+     "sha1": false
+    },
+    "sig_all_12": {
+     "sha256": false,
+     "sha256_off": null,
+     "sha1": false
+    },
+    "boot_area": {
+     "sha256": false,
+     "sha256_off": null,
+     "sha1": false
+    },
+    "bindata": {
+     "sha256": false,
+     "sha256_off": null,
+     "sha1": false
+    },
+    "container_whole": {
+     "sha256": false,
+     "sha256_off": null,
+     "sha1": false
+    }
+   }
+  },
+  "bootloader.bin(=boot_area)": {
+   "size": 446464,
+   "sha256": "ab90560bad520e65b3f04089978b5f20fafdb551fec2cac15a0ec9acd8c371d5",
+   "hits": {
+    "sig_ga10x": {
+     "sha256": false,
+     "sha256_off": null,
+     "sha1": false
+    },
+    "sig_all_12": {
+     "sha256": false,
+     "sha256_off": null,
+     "sha1": false
+    },
+    "boot_area": {
+     "sha256": false,
+     "sha256_off": null,
+     "sha1": false
+    },
+    "bindata": {
+     "sha256": false,
+     "sha256_off": null,
+     "sha1": false
+    },
+    "container_whole": {
+     "sha256": false,
+     "sha256_off": null,
+     "sha1": false
+    }
+   }
+  }
+ },
+ "boot_area_rsa_shaped_windows": {
+  "window": "0x180",
+  "count": 0,
+  "first": []
+ }
+}

@@ -68,3 +68,34 @@ sha256sum NVIDIA-Linux-x86_64-610.57.04.run        # verify against the acquisit
 sh NVIDIA-Linux-x86_64-610.57.04.run --extract-only
 sha256sum extracted/kernel-open/nvidia/nv-kernel.o_binary   # must match the sha256 above
 ```
+
+## The pass-4.30 extension: the GSP firmware files INSIDE the .run (byte-exact)
+
+The two GSP firmware files of the package, located in the makeself
+payload and re-extracted byte-exact (instrument:
+`lab/jalon411/v430_run_provenance.py`, register:
+`lab/jalon411/v430_run_provenance.json` — every number below is
+re-derived by its selftest, exit 2 on drift):
+
+| field | value |
+|---|---|
+| package | `NVIDIA-Linux-x86_64-610.57.04.run`, 463,025,450 B, sha256 `b2e935c6…eb116d` (re-verified streaming in-instrument) |
+| packaging | makeself 1.6.0-nv9; header `skip=1022`; the wrapper's own extraction line (verbatim): `tail -n +$skip $0 \| zstd -d \| UnTAR` |
+| payload start | **byte offset 160,635 (0x2737b)** — `tail -n +1022` starts at LINE 1022 (1-based); the zstd frame magic `28 b5 2f fd` is byte-checked there |
+| payload end | EOF (one zstd stream to the end of the file) |
+| decompressed | POSIX tar, 1,808,865,280 B, 1,189 members walked (name/size/mtime/mode/header-offset each) |
+| honest framing | per-member plain offsets DO NOT exist in the .run coordinate (one zstd stream — compression rewrites everything after 0x2737b); the member offsets below are in the DECOMPRESSED-tar coordinate, which is byte-stable |
+
+| in-tar member | size | sha256 | tar data offset (decompressed coordinate) |
+|---|---|---|---|
+| `./firmware/gsp_ga10x.bin` | 84,310,168 | `c0156954f3e048d56011524e0c2ae2881bb6db8173b53f9b2f4eb94197f02999` | 0x400 |
+| `./firmware/gsp_tu10x.bin` | 29,381,504 | `d157e3b7dd5da2ca8d1ccb6ca98958f9e35d10a9ef7326277ebac133e4b0d1a7` | 0x5068000 |
+
+Both re-extracted from the payload and compared byte-exact against the
+makeself reference extraction (`--extract-only`) — sha256 equality on
+both files (the same hashes findings-4.27 §1 banked). Reproduce:
+
+```bash
+sha256sum NVIDIA-Linux-x86_64-610.57.04.run   # b2e935c6…
+python3 lab/jalon411/v430_run_provenance.py   # re-derives the table above in-situ
+```
