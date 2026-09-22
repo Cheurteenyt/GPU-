@@ -48,6 +48,28 @@ tools/edpp/.
 
 ## The current phase: the GSP-RM cartography → the EDPp handlers
 
+### 4.31 (2026-09-23) — the booter verify hunt: the bypass target is NOT in the plaintext booter
+
+- The LS-signature verification is NOT in bootloader.bin (the gsp.bin boot-area libos ELF):
+  proven by the exhaustive negative census (no crypto CSRs 0x7d5-0x7d9, no SBI crypto
+  ecall — our SBI = a7 0x900001EB a6 {0,7,8,9,0xa}, no SHA/RSA constants, no 0xc0deca7e).
+  The paper's verify/dma/auth/fail addresses are all < 0x8000 = BROM-resident for THEIR
+  build; for OUR stack the crypto lives in the BROM and/or the ENCRYPTED BooterLoad
+  (nvidia.ko BINDATA IMAGE_PROD 0x87d7 B, NUM_SIGS=2) that the BROM RSA-3K covers —
+  patching it requires a re-sign we cannot make. The driver-patch bypass (proven, 7+ runs)
+  remains the production path.
+- New facts banked: gsp_ga10x.bin = a RISC-V ELF and our booter = its first section at
+  container offset 0x40 (boot area sha ab90560b, 0x6d000); the booter's secure plumbing =
+  SBI stubs (fail=ecall a7=8 @0x103a7e), region CSRs 0x5ca-0x5d1/0x8d0, the MEMMAP
+  builders (0x100258 defaults, 0x101798 family), the handler table @0x1244A0-E8, the
+  boot-params handoff @0x168000, and the kernel_<chip>.elf name table matching the 4.30
+  GFW record names.
+- Delivered: tools/booter-patch/patch_booter.py (locate-ko/locate-gsp/patch-gsp, 5/5 —
+  the encrypted-IMAGE patch is REFUSED by construction) and tools/booter_emu.py (RV64
+  emulator on OUR image, 5/5 — directed patch demo: 0x1014DC bounds check original→FAIL
+  oracle vs NOP'd→clean ret, exactly 4 bytes differ).
+
+
 **Phase III is proven in silicon.** The hardware campaign (7+ runs,
 `day0/cert20-plm-feat-test.log`) fired the published ROP chain on our
 GA104 with the driver patch (kernel_gsp.c `_kgspCreateSignatureMemdesc`,

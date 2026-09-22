@@ -1,0 +1,11 @@
+{
+  "bin_len": 446464,
+  "decoded_insns": 220572,
+  "data_halfwords": 125,
+  "coverage_ins_bytes": 446214,
+  "sha256": "ab90560bad520e65b3f04089978b5f20fafdb551fec2cac15a0ec9acd8c371d5",
+  "objdump_comparison": {
+    "note": "objdump committ\u00e9 = 5370 insns pars\u00e9es; capstone = re-decode ind\u00e9pendant",
+    "capstone_total_lines": 220697
+  }
+}v431b_relist.asm (6.2 MB) is regenerable: python3 lab/jalon411/v431b_capstone_relist.py
