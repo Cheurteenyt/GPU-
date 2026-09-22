@@ -8,10 +8,22 @@
 | identity | ELF64 (class 2), little-endian (data 1), **ET_REL (type 1)**, **EM_X86_64 (machine 62)**, 13 sections, symtab present |
 | source package | `NVIDIA-Linux-x86_64-610.57.04.run` (official NVIDIA download, us.download.nvidia.com) |
 | package size | 463,025,450 bytes |
-| package sha256 | `b2e935c6…` (full value in the campaign acquisition register; the `.run` itself is not committed) |
+| package sha256 | `b2e935c66b83bb00c0c857bc8e0ee0fd52de9286b40c9cc1eec29a7ce7eb116d` |
 | in-package path | `kernel-open/nvidia/nv-kernel.o_binary` |
 | extraction | makeself `--extract` of the official `.run` (no modification), file copied verbatim |
 | acquisition date | 2026-09-22 (campaign pass 4.27 acquired the package; pass 4.28 landed this file) |
+
+## Companion artifact — `libnvidia-ml.so.610.57.04`
+
+| field | value |
+|---|---|
+| file | `tools/analysis/x86-rm/binaries/libnvidia-ml.so.610.57.04` |
+| size | 2,654,168 bytes |
+| sha256 | `50feda0f0d27…` (full value in `lab/jalon411/v428f_nvvm_sites.json`) |
+| identity | ELF64, ET_DYN, x86-64, stripped |
+| in-package path | `libnvidia-ml.so.610.57.04` |
+| role | the 4.28 wave-3 decisive artifact: the ONLY binary of the package carrying the `0x2080d031` cmd (2 sites, each paired with the `0x608` params-size immediate) — the issuer of the captured RPC |
+| note | `libnvidia-eglcore.so.610.57.04` (39,091,248 B, sha256 `afd79b7f…`) was needle-scanned but NOT committed (no decisive evidence; hash recorded in the register) |
 
 ## What this file is
 

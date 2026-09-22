@@ -160,4 +160,83 @@ needle test queued — libnvidia-ml), (b) the `__nvoc` by-name runtime path,
   (`effective = addend + r_off + 4`); plain addend matching is a silent
   false-negative. Documented in the register.
 
+## §7 — wave 3: the issuer is NVML (PROVEN) — the marshal caught byte-level
+
+Substrate: `libnvidia-ml.so.610.57.04` (2,654,168 B, sha256 `50feda0f…`,
+extracted verbatim from the same official package — sha256 of the `.run`
+re-verified `b2e935c6…` after the sandbox reset). Committed at
+`tools/analysis/x86-rm/binaries/` per the repo's binary precedent.
+
+### §7.1 — the cmd+size pair (PROVEN, addresses cited)
+
+`0x2080d031` occurs **exactly twice** in the whole package's user/kernel
+binaries scanned so far — both in NVML, both in the same marshaling shape
+(two branches of one function):
+
+```asm
+; site 1 @0x108513                      ; site 2 @0x108bea
+mov  r9d, 0x608        ; 0x1084c9       mov  r9d, 0x608        ; 0x108ba9
+mov  r12d, 0x3e7       ; 0x1084cf       mov  r12d, 0x3e7
+mov  r8, r15           ; params         mov  r8, r15
+mov  ecx, 0x2080d031   ; 0x108512       mov  ecx, 0x2080d031   ; 0x108be9+1
+mov  esi, [rax+0x8c]   ; subdevice h.   ...
+call 0x9e560           ; NVML RM ctl    call ...
+```
+
+`0x608` = **1544** — the params size of the captured control. The size
+immediate sits 0x43–0x48 bytes before each cmd immediate. `r12d = 0x3e7`
+(999) rides along as an argument; after the call, `cmp eax, 0x66` opens the
+error path. `libnvidia-eglcore.so` carries **zero** `0x2080d031`; the closed
+kernel RM carries zero (§6.3).
+
+### §7.2 — the copy graph, first named write (PROVEN as code, value HYPOTHÈSE)
+
+Immediately before each marshal, the request buffer is fed:
+
+```asm
+imul  eax, eax, 0x64            ; ×100
+idiv  dword ptr [rbp-0x644]     ; ÷ N (runtime)
+imul  eax, eax, 0x3e8           ; ×1000
+mov   dword ptr [rbp+rcx-0x630], eax   ; → the params area
+```
+
+with `rcx = idx*3*16` — a **48-byte-stride per-entry record** (flag byte at
+entry+0, dword at entry+4): a **milliwatt-scale conversion written INTO the
+1544-B request**. The exact stack-frame-to-wire offset map (which of the five
+captured offsets {0, 4, 8, 12, 104} each store lands on) is the v428g ring
+(function frame reconstruction — the function is huge, multiple branches).
+
+### §7.3 — where 250000 is NOT, and what that means
+
+- `250000` (0x3d090): **0 occurrences in NVML**; `240000` (0x3a980): **0 in
+  NVML** (4 adjacent dwords in eglcore @34618728..34618772 — unqualified,
+  likely another domain).
+- The captured REQUEST carried `250000` @offset 104 (4.24: unique occurrence
+  in the capture). NVML cannot have embedded it as an immediate.
+  **HYPOTHÈSE (strong, now testable): the request's 1544-B buffer is a stack
+  frame that NVML only partially initializes — the captured 250000@104 is
+  residual stack content** left by a previous call on the same stack (e.g. a
+  prior SET request or another control), NOT an IN field of GET_EDPP_LIMIT_INFO.
+  This explains the 4.24 uniqueness finding and does NOT contradict the
+  4.25-recv prediction (the RESPONSE is where the GSP writes the
+  {100000, 240000, 250000} triplet).
+- `100000` (0x186a0): **28 occurrences in NVML** (clusters at 1045789..1045971,
+  1057734..1058109, 1064731..1066271) — the power-conversion candidates for
+  v428g classification.
+
+### §7.4 — the verdicts after wave 3
+
+| question | verdict |
+|---|---|
+| who issues the captured RPC 0x2080d031/1544 | **PROVEN: NVML (userspace)** — the only cmd+size pair in the package |
+| does the closed kernel RM issue it | **PROVEN: no** (§6.3) |
+| is the 1544-B buffer fully initialized by the issuer | **PROVEN: no** (rep stosq 0x71 qwords = 904 B zeroed; conversion stores land in a 48-B-stride sub-area) — the rest is stack residue |
+| the five captured fields {255, 3, 257, 257, 250000} | still **HYPOTHÈSE** — 255/257 have hundreds of matches (can't be immediates-only); the frame map (v428g) or the live capture (4.26) decides |
+| the EDPp host-side handlers (kernel) | **PROVEN: local ACPI paths** (DSM 0x2c → 1 dword; controls 0x20800ad0/ad2/afd) — a DIFFERENT lane than the RPC'd GSP control |
+
+Queue: v428g = full frame map of the NVML marshaler (stack offsets → wire
+offsets), classify the 28 × `0x186a0`, resolve `call 0x9e560` (the NVML RM
+dispatcher) and the `[global+0x8c]` handle cache; then the 4.26 live capture
+checks the response triplet against §7.3's hypothesis.
+
 ---

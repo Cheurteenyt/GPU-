@@ -52,7 +52,8 @@ def load_sections(buf):
         b = e_shoff + i * e_shentsize
         f = struct.unpack_from("<IIQQQQIIQQ", buf, b)
         raw.append(dict(index=i, nameoff=f[0], type=f[1], flags=f[2],
-                        offset=f[4], size=f[5], link=f[6], entsize=f[9]))
+                        offset=f[4], size=f[5], link=f[6], info=f[7],
+                        entsize=f[9]))
     strtab_off = raw[e_shstrndx]["offset"]
     for s in raw:
         e = buf.index(b"\x00", strtab_off + s["nameoff"])
