@@ -1,6 +1,6 @@
 # lab/jalon411 — the RM cartography & the power-enforcement hunt (the master index)
 
-The wave of passes 4.14 → 4.28: from the rm.elf dispatch cartography to
+The wave of passes 4.14 → 4.29: from the rm.elf dispatch cartography to
 the EDPp enforcement hunt. Every pass = one findings file + the
 instruments (the `v4xx_*.py` scripts + their JSONs). **The entry point
 for the next session = pass 4.26 (the recv capture, armed).**
@@ -27,6 +27,7 @@ for the next session = pass 4.26 (the recv capture, armed).**
 | 4.25 | recv-edpp | the GSP→CPU completion chain proven | **the 96-B prediction armed — the capture = 4.26** |
 | 4.27 | gspbin-container | gsp_ga10x.bin acquired, the provenance proven | byte-exact rebuilder delivered |
 | 4.28 | x86-substrate + the hunt closed | **nv-kernel.o_binary acquired; the issuer = NVML userspace PROVEN** | **the "250000" = the LACT clock-VF offset, NOT power** |
+| 4.29 | lz-real-roundtrip | **the pair premise falsified at phdr level (comp-725KB = vgpu.elf, flat); no NVIDIA LZ4 stream in 1.81 GB scanned** | codec unchanged, T6 = the real-bytes round-trip, permanent; recv76_analyze delivered |
 
 ## The current state of the 280 W question (after 4.28)
 

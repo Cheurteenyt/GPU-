@@ -1,0 +1,197 @@
+{
+ "package_sha256": "b2e935c66b83bb00c0c857bc8e0ee0fd52de9286b40c9cc1eec29a7ce7eb116d",
+ "expected_package_sha256": "b2e935c66b83bb00c0c857bc8e0ee0fd52de9286b40c9cc1eec29a7ce7eb116d",
+ "files_scanned": 1123,
+ "bytes_scanned": 1807971040,
+ "hits": {
+  "libcuda.so.610.57.04": {
+   "lz4_frame": 1,
+   "lz4_skippable": 5,
+   "zstd": 3
+  },
+  "libcudadebugger.so.610.57.04": {
+   "xz": 1
+  },
+  "libnvidia-api.so.1": {
+   "gzip": 1
+  },
+  "libnvidia-eglcore.so.610.57.04": {
+   "lz4_skippable": 2,
+   "zstd": 2,
+   "gzip": 1,
+   "xz": 1
+  },
+  "libnvidia-glcore.so.610.57.04": {
+   "lz4_skippable": 2,
+   "zstd": 2,
+   "xz": 1
+  },
+  "libnvidia-gpucomp.so.610.57.04": {
+   "gzip": 1,
+   "bzip2": 3
+  },
+  "libnvidia-nvvm.so.610.57.04": {
+   "bzip2": 2
+  },
+  "libnvidia-opencl.so.610.57.04": {
+   "lz4_frame": 1,
+   "lz4_skippable": 5,
+   "zstd": 3
+  },
+  "libnvidia-ptxjitcompiler.so.610.57.04": {
+   "lz4_frame": 1,
+   "lz4_skippable": 6,
+   "zstd": 3,
+   "gzip": 3
+  },
+  "libnvidia-rtcore.so.610.57.04": {
+   "lz4_frame": 1,
+   "lz4_skippable": 6,
+   "zstd": 3,
+   "bzip2": 1
+  },
+  "libnvidia-tileiras.so.610.57.04": {
+   "gzip": 1
+  },
+  "libnvidia-vksc-core.so.610.57.04": {
+   "bzip2": 1
+  },
+  "libvdpau_nvidia.so.610.57.04": {
+   "xz": 6,
+   "bzip2": 1
+  },
+  "nvidia-cuda-mps-control.1.gz": {
+   "gzip": 1
+  },
+  "nvidia-installer.1.gz": {
+   "gzip": 1
+  },
+  "nvidia-modprobe.1.gz": {
+   "gzip": 1
+  },
+  "nvidia-persistenced-init.tar.bz2": {
+   "bzip2": 1
+  },
+  "nvidia-persistenced.1.gz": {
+   "gzip": 1
+  },
+  "nvidia-settings.1.gz": {
+   "gzip": 1
+  },
+  "nvidia-smi.1.gz": {
+   "gzip": 1
+  },
+  "nvidia-xconfig.1.gz": {
+   "gzip": 1
+  },
+  "nvidia_drv.so": {
+   "xz": 7
+  },
+  "nvoptix.bin": {
+   "lz4_skippable": 1,
+   "gzip": 1
+  },
+  "32/libcuda.so.610.57.04": {
+   "lz4_frame": 1,
+   "lz4_skippable": 6,
+   "zstd": 3
+  },
+  "32/libnvcuvid.so.610.57.04": {
+   "gzip": 8
+  },
+  "32/libnvidia-eglcore.so.610.57.04": {
+   "lz4_skippable": 2,
+   "zstd": 2,
+   "gzip": 3,
+   "xz": 1
+  },
+  "32/libnvidia-encode.so.610.57.04": {
+   "gzip": 8
+  },
+  "32/libnvidia-glcore.so.610.57.04": {
+   "lz4_skippable": 2,
+   "zstd": 2,
+   "gzip": 3,
+   "xz": 1
+  },
+  "32/libnvidia-glvkspirv.so.610.57.04": {
+   "gzip": 1
+  },
+  "32/libnvidia-gpucomp.so.610.57.04": {
+   "gzip": 16,
+   "bzip2": 2
+  },
+  "32/libnvidia-nvvm.so.610.57.04": {
+   "gzip": 4,
+   "bzip2": 2
+  },
+  "32/libnvidia-opencl.so.610.57.04": {
+   "lz4_frame": 1,
+   "lz4_skippable": 6,
+   "zstd": 3
+  },
+  "32/libnvidia-ptxjitcompiler.so.610.57.04": {
+   "lz4_frame": 1,
+   "lz4_skippable": 6,
+   "zstd": 3,
+   "gzip": 2
+  },
+  "32/libnvidia-tileiras.so.610.57.04": {
+   "gzip": 28
+  },
+  "32/libvdpau_nvidia.so.610.57.04": {
+   "xz": 6,
+   "bzip2": 1
+  },
+  "kernel-open/nvidia-modeset/nv-modeset-kernel.o_binary": {
+   "xz": 6
+  },
+  "kernel-open/nvidia/nv-kernel.o_binary": {
+   "gzip": 1,
+   "bzip2": 1
+  },
+  "kernel/nvidia-modeset/nv-modeset-kernel.o_binary": {
+   "xz": 6
+  },
+  "kernel/nvidia/nv-kernel.o_binary": {
+   "gzip": 36,
+   "bzip2": 3
+  },
+  "firmware/gsp_ga10x.bin": {
+   "gzip": 31,
+   "bzip2": 2
+  },
+  "firmware/gsp_tu10x.bin": {
+   "gzip": 32
+  }
+ },
+ "lz4_frame_plausibility": {
+  "libcuda.so.610.57.04@5115999": "no (RuntimeError)",
+  "libnvidia-opencl.so.610.57.04@5279247": "no (RuntimeError)",
+  "libnvidia-ptxjitcompiler.so.610.57.04@26313121": "no (RuntimeError)",
+  "libnvidia-rtcore.so.610.57.04@13366622": "no (RuntimeError)",
+  "32/libcuda.so.610.57.04@4380143": "no (RuntimeError)",
+  "32/libnvidia-opencl.so.610.57.04@4609119": "no (RuntimeError)",
+  "32/libnvidia-ptxjitcompiler.so.610.57.04@24460353": "no (RuntimeError)"
+ },
+ "fwimage_gspga10x_rescan": {
+  "fwimage.bin": {
+   "lz4_frame": 0,
+   "lz4_legacy": 0,
+   "lz4_skippable": 0,
+   "zstd": 0,
+   "gzip": 31,
+   "xz": 0,
+   "bzip2": 2
+  }
+ },
+ "totals": {
+  "lz4_frame": 7,
+  "lz4_legacy": 0,
+  "lz4_skippable": 49,
+  "zstd": 29,
+  "gzip": 188,
+  "xz": 36,
+  "bzip2": 20
+ }
+}

@@ -1,0 +1,139 @@
+{
+ "identities": [
+  {
+   "path": "/home/z/my-project/work/gpu-repo/tools/analysis/gsp-extract/binaries/comp-725KB.bin",
+   "is_elf": true,
+   "ei_class": 2,
+   "ei_data": 1,
+   "e_type": 2,
+   "e_machine": 243,
+   "machine_name": "RISC-V",
+   "entry": "0x1075604",
+   "phnum": 4,
+   "phdrs": [
+    {
+     "type": "0x00000001",
+     "off": 0,
+     "vaddr": "0x1000000",
+     "filesz": 663552,
+     "memsz": 663552
+    },
+    {
+     "type": "0x00000001",
+     "off": 663552,
+     "vaddr": "0x4000000",
+     "filesz": 61440,
+     "memsz": 61440
+    },
+    {
+     "type": "0x00000007",
+     "off": 724992,
+     "vaddr": "0x20025000",
+     "filesz": 0,
+     "memsz": 4096
+    },
+    {
+     "type": "0x60000000",
+     "off": 0,
+     "vaddr": "0x20000000",
+     "filesz": 0,
+     "memsz": 0
+    }
+   ]
+  },
+  {
+   "path": "/home/z/my-project/work/gpu-repo/tools/analysis/gsp-extract/binaries/gsp-rm-17MB.bin",
+   "is_elf": true,
+   "ei_class": 2,
+   "ei_data": 1,
+   "e_type": 2,
+   "e_machine": 243,
+   "machine_name": "RISC-V",
+   "entry": "0x1a9e1c0",
+   "phnum": 4,
+   "phdrs": [
+    {
+     "type": "0x00000001",
+     "off": 0,
+     "vaddr": "0x1000000",
+     "filesz": 15314944,
+     "memsz": 15314944
+    },
+    {
+     "type": "0x00000001",
+     "off": 15314944,
+     "vaddr": "0x4000000",
+     "filesz": 1921024,
+     "memsz": 1921024
+    },
+    {
+     "type": "0x00000007",
+     "off": 17235968,
+     "vaddr": "0x203c6000",
+     "filesz": 0,
+     "memsz": 4096
+    },
+    {
+     "type": "0x60000000",
+     "off": 0,
+     "vaddr": "0x20000000",
+     "filesz": 0,
+     "memsz": 0
+    }
+   ]
+  }
+ ],
+ "sizes": {
+  "comp-725KB.bin": 725616,
+  "gsp-rm-17MB.bin": 17236632
+ },
+ "decode_attempts": [
+  {
+   "decoder": "ours",
+   "stream_size": 725616,
+   "requested_out": 17236632,
+   "outcome": "exception",
+   "exception": "ValueError",
+   "message": "zero offset"
+  },
+  {
+   "decoder": "ours",
+   "stream_size": 17236632,
+   "requested_out": 725616,
+   "outcome": "exception",
+   "exception": "ValueError",
+   "message": "zero offset"
+  },
+  {
+   "decoder": "reference",
+   "stream_size": 725616,
+   "requested_out": 17236632,
+   "outcome": "exception",
+   "exception": "LZ4BlockError",
+   "message": "Decompression failed: corrupt input or insufficient space in destination buffer. Error code: 18"
+  }
+ ],
+ "containment": {
+  "comp_in_fwimage": {
+   "needle_size": 725616,
+   "hay_size": 84258816,
+   "byte_exact_hits": [
+    18939904
+   ]
+  },
+  "rm_in_fwimage": {
+   "needle_size": 17236632,
+   "hay_size": 84258816,
+   "byte_exact_hits": [
+    1699840
+   ]
+  }
+ },
+ "verdict": {
+  "comp_is_elf_not_stream": true,
+  "rm_is_elf_not_stream": true,
+  "decode_of_comp_as_rm_succeeded": false,
+  "both_stored_flat_in_fwimage": true,
+  "containment_windows_overlap": "DISJOINT"
+ }
+}
