@@ -1,0 +1,135 @@
+{
+ "file": "/home/z/my-project/work/gpu-repo/tools/edpp/edpp_payload_1616.bin",
+ "size": 1616,
+ "sha256": "573a2836428bda3c2843a470c1932354bbb55f17b0a27e2a1ead6a0f8b628d8f",
+ "capture_length_law": {
+  "dumped": 1616,
+  "body_valid_bytes": 1584,
+  "overcapture_bytes": 32,
+  "evidence": "rpc_common.c:182 (length = header + paramLength); the dump base = rpc_message_data (kernel_gsp.c patch v4)",
+  "verdict": "PROVEN \u2014 32 bytes @1584..1615 = the queue residue, NOT the message"
+ },
+ "rpc_header": {
+  "hClient": 3251634252,
+  "hObject": 2774138928,
+  "cmd": 545312817,
+  "status": 0,
+  "paramsSize": 1544,
+  "rmapiRpcFlags": 0,
+  "rmctrlFlags": 0,
+  "rmctrlAccessRight": 0,
+  "reserved0": 0,
+  "cmd_resolved": "closed-only FINN interface 0x2080d0, msg id 0x31",
+  "paramsSize_matches_body": true,
+  "params_actual_size": 1544
+ },
+ "dispatch_cross_check": {
+  "table": "0x1c183b8, 1156 entries, stride 0x20 (findings-4.20)",
+  "entry": {
+   "id": "0x2080d031",
+   "tag": "0x608 (=1544 = paramsSize, EXACT)",
+   "pA": "0x1c23870",
+   "handler": "0x11267fc",
+   "handler_boundary_verified": true,
+   "sz0": "0x44"
+  },
+  "raw_entry_hex": "31d08020080600007038c20100000000fc671201000000004400000000000000",
+  "verdict": "PROVEN \u2014 the cmd EXISTS in the firmware dispatch table; tag == declared paramsSize byte-exact",
+  "handler_walk": "lab/jalon411/v424_handler_walk.py / v424_entry_calib.py \u2014 the handler block [0x11267fc..0x1126826) sets bit 0x400000 at state+0x520 and state+0x52c, zeroes state+0x3d0, then joins the shared path returning NV_ERR_INVALID_STATE (0x40, nvstatuscodes.h:93). It NEVER loads/stores the RPC params."
+ },
+ "signature_hits_whole": {
+  "250000": {
+   "label": "250 W (max candidate)",
+   "offsets": [
+    104
+   ]
+  }
+ },
+ "edpp_info_struct_test": {
+  "hypothesis_base": 96,
+  "verdict": "NOT PROVEN at this base \u2014 vals [257, 0, 250000]",
+  "window": {
+   "limitMin": {
+    "offset": 96,
+    "raw": 257,
+    "W": 0.257
+   },
+   "limitRated": {
+    "offset": 100,
+    "raw": 0,
+    "W": 0.0
+   },
+   "limitMax": {
+    "offset": 104,
+    "raw": 250000,
+    "W": 250.0
+   },
+   "limitCurr": {
+    "offset": 108,
+    "raw": 0,
+    "W": 0.0
+   },
+   "limitBattRated": {
+    "offset": 112,
+    "raw": 0,
+    "W": 0.0
+   },
+   "limitBattMax": {
+    "offset": 116,
+    "raw": 0,
+    "W": 0.0
+   }
+  }
+ },
+ "params_u32_census_nonzero": [
+  {
+   "poff": 0,
+   "raw": 255,
+   "note": ""
+  },
+  {
+   "poff": 4,
+   "raw": 3,
+   "note": ""
+  },
+  {
+   "poff": 8,
+   "raw": 257,
+   "note": ""
+  },
+  {
+   "poff": 56,
+   "raw": 257,
+   "note": ""
+  },
+  {
+   "poff": 64,
+   "raw": 250000,
+   "note": "250 W (max candidate)"
+  }
+ ],
+ "params_stats": {
+  "u32_count": 394,
+  "nonzero_count": 5,
+  "powerlike_count": 1,
+  "distinct_nonzero": 4,
+  "top_nonzero": [
+   [
+    "0x101",
+    2
+   ],
+   [
+    "0xff",
+    1
+   ],
+   [
+    "0x3",
+    1
+   ],
+   [
+    "0x3d090",
+    1
+   ]
+  ]
+ }
+}

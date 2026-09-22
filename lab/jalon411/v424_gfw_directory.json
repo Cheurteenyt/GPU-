@@ -1,0 +1,127 @@
+{
+ "containment": {
+  "comp-725KB.bin": {
+   "present_at": "0x1210000",
+   "size": 725616
+  },
+  "gsp-rm-17MB.bin": {
+   "present_at": "0x19f000",
+   "size": 17236632
+  }
+ },
+ "regions": [
+  {
+   "name": "init.elf",
+   "at": "0x6d560",
+   "regions": [
+    {
+     "vaddr": "0x1000000",
+     "window": [
+      "0x1000000",
+      "0x0",
+      "0x1000",
+      "0x125000",
+      "0x8000"
+     ]
+    },
+    {
+     "vaddr": "0x4000000",
+     "window": [
+      "0x4000000",
+      "0x8000",
+      "0x1000",
+      "0x12d000",
+      "0x4000"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "rm.elf",
+   "at": "0x3c88",
+   "regions": []
+  },
+  {
+   "name": "vgpu.elf",
+   "at": "0x6d6f8",
+   "regions": [
+    {
+     "vaddr": "0x1000000",
+     "window": [
+      "0x1000000",
+      "0x0",
+      "0x1000",
+      "0x11a3000",
+      "0xa2000"
+     ]
+    },
+    {
+     "vaddr": "0x4000000",
+     "window": [
+      "0x4000000",
+      "0xa2000",
+      "0x1000",
+      "0x1245000",
+      "0xf000"
+     ]
+    }
+   ]
+  }
+ ],
+ "tests": [
+  {
+   "region": "init.elf region-1 (flag 5)",
+   "offset": "0x125000",
+   "size": "0x8000",
+   "entropy": -0.0,
+   "head": "00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+   "starts_with_ELF": false,
+   "lz4_decode": null
+  },
+  {
+   "region": "init.elf region-2 (flag 6)",
+   "offset": "0x12d000",
+   "size": "0x4000",
+   "entropy": -0.0,
+   "head": "00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+   "starts_with_ELF": false,
+   "lz4_decode": null
+  },
+  {
+   "region": "rm.elf region-1 (flag 5)",
+   "offset": "0x132000",
+   "size": "0xe9b000",
+   "entropy": 5.794,
+   "head": "00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+   "starts_with_ELF": false,
+   "lz4_decode": null
+  },
+  {
+   "region": "rm.elf region-2 (flag 6)",
+   "offset": "0xfcd000",
+   "size": "0x1d5000",
+   "entropy": 5.374,
+   "head": "49 4d 45 4f 55 54 00 00 4e 56 5f 55 43 4f 44 45",
+   "starts_with_ELF": false,
+   "lz4_decode": null
+  },
+  {
+   "region": "vgpu.elf region-1 (flag 5)",
+   "offset": "0x11a3000",
+   "size": "0xa2000",
+   "entropy": 3.765,
+   "head": "da 4d 32 3c de f5 6b be 80 fe c4 3d a7 00 b1 3d",
+   "starts_with_ELF": false,
+   "lz4_decode": null
+  },
+  {
+   "region": "vgpu.elf region-2 (flag 6)",
+   "offset": "0x1245000",
+   "size": "0xf000",
+   "entropy": 7.113,
+   "head": "ce 85 26 85 82 97 9b 0b 05 00 6f f0 ef ec 83 37",
+   "starts_with_ELF": false,
+   "lz4_decode": null
+  }
+ ]
+}
