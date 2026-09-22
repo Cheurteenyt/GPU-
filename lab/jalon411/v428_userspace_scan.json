@@ -1,0 +1,4968 @@
+{
+ "closed_core_row": {
+  "file": "kernel/nvidia/nv-kernel.o_binary (the package's CLOSED core, not committed: 121 MB > the 100 MB limit)",
+  "occurrences": 1,
+  "reading": "stride-0x20 rows {u32 cmd, u32 tag, u64 0, u64 0x44}: 0x2080d02d->4116, 0x2080d031->1544 (0x608), 0x2080d036->next \u2014 the HOST twin of the GSP dispatch table (v425-x86 section 3, same rows, same 0x44); the ONLY d031 occurrence in the 121 MB object \u2014 no code immediate",
+  "rederived": true,
+  "row_file_off": "0x666b110",
+  "row_hex": "44d08020 14100000 0000000000000000 4400000000000000 31d08020 08060000 0000000000000000 4400000000000000 36d08020",
+  "row_hex_live": "0000000000000000440000000000000031d080200806000000000000000000000000000000000000440000000000000036d08020",
+  "section": ".rodata",
+  "sha256": "c90f58d59e8fef44fa07d057bd9ffb1e1b5ee38d3c51b35df71e05e0ad268cbf",
+  "size": 120980872
+ },
+ "drv_deep": {
+  "callers": [
+   "jmp 0x77920 from 0x3a1ba (esi=1)",
+   "jmp 0x77920 from 0x3a2a7"
+  ],
+  "disasm": [
+   "77920  push      r15                                         ",
+   "77922  mov       eax, esi                                    ",
+   "77924  push      r14                                         ",
+   "77926  push      r13                                         ",
+   "77928  push      r12                                         ",
+   "7792a  push      rbp                                         ",
+   "7792b  mov       rbp, rax                                    ",
+   "7792e  push      rbx                                         ",
+   "7792f  sub       rsp, 0x618                                  ",
+   "77936  mov       r12d, dword ptr [rdi + rax*4 + 0x600]       ",
+   "7793e  lea       rax, [r12 + r12*2]                          ",
+   "77942  cmp       byte ptr [rdi + rax*8 + 0x270], 0           ",
+   "7794a  jne       0x77960                                     ",
+   "7794c  xor       eax, eax                                    ",
+   "7794e  add       rsp, 0x618                                  ",
+   "77955  pop       rbx                                         ",
+   "77956  pop       rbp                                         ",
+   "77957  pop       r12                                         ",
+   "77959  pop       r13                                         ",
+   "7795b  pop       r14                                         ",
+   "7795d  pop       r15                                         ",
+   "7795f  ret                                                   ",
+   "77960  mov       r13, rsp                                    ",
+   "77963  mov       r15, qword ptr [rdi + 0x28]                 ",
+   "77967  mov       rbx, rdi                                    ",
+   "7796a  xor       eax, eax                                    ",
+   "7796c  mov       ecx, 0xc1                                   ",
+   "77971  mov       rdi, r13                                    ",
+   "77974  mov       r14d, edx                                   ",
+   "77977  mov       esi, 0x20809030                             ",
+   "7797c  rep stosq qword ptr [rdi], rax                        ",
+   "7797f  mov       eax, dword ptr [rbx + 0x5fc]                ",
+   "77985  mov       edi, dword ptr [rbx + 0x18]                 ",
+   "77988  mov       rdx, r13                                    ",
+   "7798b  mov       ecx, 0x608                                  ",
+   "77990  mov       dword ptr [rsp + 4], eax                    ",
+   "77994  mov       rax, qword ptr [r15 + 0x5d40]               ",
+   "7799b  call      qword ptr [rax + 0x20]                      ",
+   "7799e  test      eax, eax                                    ",
+   "779a0  jne       0x7794c                                     ",
+   "779a2  cmp       ebp, 1                                      ",
+   "779a5  je        0x77a20                                     ",
+   "779a7  test      ebp, ebp                                    ",
+   "779a9  jne       0x779b1                                     ",
+   "779ab  mov       eax, dword ptr [rbx + 0x628]                ",
+   "779b1  lea       rdx, [r12 + r12*2]                          ",
+   "779b5  shl       rdx, 4                                      ",
+   "779b9  cmp       byte ptr [rsp + rdx + 9], 1                 ",
+   "779be  jne       0x7794c                                     ",
+   "779c0  pxor      xmm0, xmm0                                  ",
+   "779c4  mov       eax, eax                                    ",
+   "779c6  pxor      xmm1, xmm1                                  ",
+   "779ca  mov       byte ptr [rsp + rdx + 0xc], 0               ",
+   "779cf  cvtsi2ss  xmm0, r14d                                  ",
+   "779d4  mov       edi, dword ptr [rbx + 0x18]                 ",
+   "779d7  mov       ecx, 0x608                                  ",
+   "779dc  mov       esi, 0x2080d031                             ",
+   "779e1  cvtsi2ss  xmm1, rax                                   ",
+   "779e6  divss     xmm1, dword ptr [rip + 0x21de4a]             ; -> .rodata (nvidiaUnlock+0x242678)",
+   "779ee  divss     xmm0, xmm1                                  ",
+   "779f2  mulss     xmm0, dword ptr [rip + 0x21de42]             ; -> .rodata (nvidiaUnlock+0x24267c)",
+   "779fa  cvttss2si eax, xmm0                                   ",
+   "779fe  mov       dword ptr [rsp + rdx + 0x10], eax           ",
+   "77a02  mov       rax, qword ptr [r15 + 0x5d40]               ",
+   "77a09  mov       rdx, r13                                    ",
+   "77a0c  call      qword ptr [rax + 0x20]                      ",
+   "77a0f  test      eax, eax                                    ",
+   "77a11  sete      al                                          ",
+   "77a14  jmp       0x7794e                                     ",
+   "77a19  nop       dword ptr [rax]                             ",
+   "77a20  mov       edx, r14d                                   ",
+   "77a23  mov       eax, dword ptr [rbx + 0x638]                ",
+   "77a29  shr       edx, 0x1f                                   ",
+   "77a2c  add       edx, r14d                                   ",
+   "77a2f  sar       edx, 1                                      ",
+   "77a31  mov       r14d, edx                                   ",
+   "77a34  lea       rdx, [r12 + r12*2]                          ",
+   "77a38  shl       rdx, 4                                      ",
+   "77a3c  cmp       byte ptr [rsp + rdx + 9], 1                 ",
+   "77a41  jne       0x7794c                                     ",
+   "77a47  jmp       0x779c0                                     ",
+   "77a4c  nop       dword ptr [rax]                             "
+  ],
+  "func": [
+   "0x77920",
+   "0x77a50"
+  ],
+  "mechanism": {
+   "memset": "rep stosq, ecx=0xc1 -> 1544 B zeroed (8 + 32*48)",
+   "patch": "byte[rsp+48i+0xc]=0; dword[rsp+48i+0x10] = the value",
+   "poff4": "params[4] = dev->[+0x5fc] (the domain mask)",
+   "send1": "0x20809030 (the set/query whose RESPONSE fills the buffer \u2014 proven by contradiction: the version check)",
+   "send2": "0x2080d031 with the patched table",
+   "value": "int(offset_f / (devField_f / 100.0) * 1000.0) = offset * 100000 / devField",
+   "version_check": "byte [rsp + 48*i + 9] == 1 (entry[i].minor)"
+  },
+  "site_file_off": "0x779dd",
+  "size": 304,
+  "value_formula_constants": {
+   "divss@779e6": {
+    "float": 100.0,
+    "target": "0x295838"
+   },
+   "mulss@779f2": {
+    "float": 1000.0,
+    "target": "0x29583c"
+   }
+  }
+ },
+ "libnvidia-eglcore": {
+  "census": {
+   "cmd_0x2080d031": {
+    "count": 0,
+    "hits": [],
+    "value": 545312817
+   },
+   "family_0x2080d0xx": {
+    "distinct": 3,
+    "values": {
+     "0x2080d000": [
+      "0x237ccbf"
+     ],
+     "0x2080d003": [
+      "0x23ece60"
+     ],
+     "0x2080d041": [
+      "0xe5c13e",
+      "0xe5c21b"
+     ]
+    }
+   },
+   "size_1544": {
+    "count": 881,
+    "hits": [
+     {
+      "file_off": "0x3fa0",
+      "section": ".hash"
+     },
+     {
+      "file_off": "0x66a4",
+      "section": ".gnu.hash"
+     },
+     {
+      "file_off": "0x25115a",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x2b904b",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x2c64a3",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x2c6ee9",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x2c6f1e",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x2c6f2f",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x2c710d",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x2c7131",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x2c716f",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x2c71b9",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x2c7257",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x2c728b",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x2c72c0",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x2c72d1",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x2c807f",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x2c8090",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x2cc200",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x2dbbb4",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x2dbbe9",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x2dbc03",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x2dc298",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x2edd91",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x2eddc0",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x2eddd5",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x2edded",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x2eddff",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x2ee133",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x2ee6c7",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x2ee70c",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x2ee816",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x2ee83a",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x2ee8b1",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x2ee8fe",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x2ee941",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x2ee957",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x2ee96d",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x2ee983",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x2ee9cd",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x2ee9e5",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x2eea74",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x2eead8",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x2eeb0f",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x2eec44",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x2eec5a",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x2eec9e",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x2eee2e",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x2ef147",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x2ef1dd",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x2ef203",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x2ef218",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x2ef60a",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x2ef676",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x2ef749",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x2efd99",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x2f0af2",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x2f0b22",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x2f0b3c",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x2f0b64",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x2f0bcd",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x2f0bec",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x2f0c04",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x2f0c54",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x2f10ea",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x2f1133",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x2f1148",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x2f1198",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x3a8e09",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x4828c9",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x487a3d",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x48ec52",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x4b1d05",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x4d0cd9",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x4d5dcc",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x4f1a74",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x55d0fd",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x567142",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x567163",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x59e6d6",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x5fa730",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x6281ed",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x628279",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x628325",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x628365",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x628392",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x6283ad",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x6283ed",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x62840d",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x629e75",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x62a25f",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x62a35c",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x62c467",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x633a10",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x6374a6",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x63af88",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x63b07f",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x63b84d",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x63bd03",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x63bf68",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x63e408",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x63e6a1",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x63fe8f",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x6455cf",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x6456a8",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x64579a",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x645898",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x645b2d",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x646203",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x646456",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x64767b",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x648ed7",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x64921a",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x64d554",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x64d9c4",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x64db0b",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x650e39",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x665062",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x66557f",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x666cd8",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x666ffb",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x6696de",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x66e0ba",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x673ab3",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x673cf7",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x677be6",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x677e6a",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x67a88f",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x6ab6b4",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x6ac34b",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x6ac4f1",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x6ba127",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x6ba365",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x6ba632",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x6ba669",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x6ba696",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x6ba6bc",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x6ba6ec",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x6ba9d9",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x6baffa",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x6bbb73",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x6bbb8d",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x6bbc97",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x6bbd61",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x6bbd79",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x6bbdcd",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x6bbde2",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x6bbeec",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x6bbf04",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x6bbf71",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x6bbf8f",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x6bc03a",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x6bc04f",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x6bc0cf",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x6bc0e4",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x6bc2b3",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x6bc2cf",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x6bc3e6",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x6bc4a9",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x6bc4c1",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x6bc50d",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x6bc522",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x6bc61c",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x6bc63d",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x6bc699",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x6bc6b9",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x6bc75a",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x6bc76f",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x6bc7df",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x6bc7f4",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x6bc9b5",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x6bc9cf",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x6bca65",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x6bca81",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x6d2045",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x70faca",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x70fd72",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x70fdd2",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x70ff9a",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x70ffcb",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x70fffa",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x710012",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x71002a",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x7103e8",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x777649",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x7cfc8e",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x7d480d",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x7d4cd5",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x7d54ec",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x7d5d4c",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x7d6f6c",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x7d9aa1",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x7e7561",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x7f5ad9",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x88576c",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x8baeb6",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x8baf35",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x8bb08f",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x8bb118",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x8ca616",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x8cab3d",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x8cad35",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x8cb3c7",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x8cb4e0",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x8d2a64",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x8d3d32",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x906af5",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x9080bb",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x90edf4",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x920e58",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x920e68",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x920f5f",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x920f6f",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x920fe2",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x920ff2",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x952c1d",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x952c2d",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x952f01",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x952f11",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x95c5ce",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x962086",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x964dd3",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x980174",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x99023f",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x9a70c3",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x9a72fe",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x9ac68b",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x9ac6ae",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x9d7608",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x9ebed4",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x9ee4d3",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x9ee749",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x9ee7f3",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x9ee9b7",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x9ef6bc",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x9ef759",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x9f16bb",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x9f453a",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xa16814",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xa6c7da",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xa6cd69",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xa6cdb5",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xa6ceb3",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xab7e64",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xaba9cc",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xac1736",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xac1e24",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xac86cb",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xafe96d",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xaff2b8",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xafffe3",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xb01907",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xb01f31",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xb02203",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xb027f6",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xb035a7",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xb061f9",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xb06597",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xb07090",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xb074ea",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xb07f1f",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xb087fb",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xb08d86",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xb0a834",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xb0b876",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xb0c5bc",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xb0d1ff",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xb0dd13",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xb0dec7",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xb0f91d",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xb10bde",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xb17994",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xb46d42",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xb4c4ef",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xb4c6fa",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xb7eaa4",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xb983f9",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xb984f9",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xb989b4",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xba9dea",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xba9e23",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xbb9355",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xbb957d",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xbbce8e",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xbc2244",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xbfaf14",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xc4fa2b",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xc6b714",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xc95084",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xd31e25",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xd31ea0",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xd8583e",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xdad44c",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xde39d0",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xde950c",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xdf5195",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xe1a53e",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xe327ae",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xe8a544",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0xe8a578",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0xefc2e2",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0xf6352c",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0xf6dd4e",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x11e9e47",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x11ea2f5",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x11ead98",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x11eafa1",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x11eb811",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x11ebb6b",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x11ebd0f",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x11ec031",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x11eccb7",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x11ecd0f",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x11ed66f",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x11ee36b",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x11ee4a7",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x11ee9b1",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x11f1795",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x11f2c91",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x11f316f",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x11f3471",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x11f40e7",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x11f413f",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x11f47b5",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x11f488b",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x11f576b",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x11f58a7",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x11f5d91",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x11fa381",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x11fac21",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x11fb1bf",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x11fc537",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x11fdf9b",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x11fe0c7",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x11fe5d1",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x12031a1",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1203737",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1204997",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x120639b",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x12064c7",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x12069b1",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1207eb0",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1209695",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x120a118",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x120a5fc",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x120a7a3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x120ab91",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x120b08f",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x120b391",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x120bfa7",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x120bfff",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x120d64b",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x120d787",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x120dc31",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1211458",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1211ed1",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x121224b",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x12123ef",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1212711",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1213387",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1214a0b",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1214b47",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1214ff1",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x121961c",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1219be1",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x121a17f",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x121b437",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x121cd7b",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x121cea7",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x121d391",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1221e71",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x12223f7",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1223617",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1224ecb",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1225007",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x12254d1",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x12277cb",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1228bc5",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1228cc5",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x12295ca",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x122a2d1",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x122a364",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x122a80f",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x122b049",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x122b3c9",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x122b9b7",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x122ba0f",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x122bb14",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x122bc3e",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x122bd1f",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x122c087",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x122c1c3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x122c238",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x122c26d",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x122c2d8",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x122c3fb",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x122c4b6",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x122c505",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x122c577",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x122c814",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x122d117",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x122d36a",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x122d54b",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x122d6a7",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x122db71",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x123072b",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1230aad",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x12311e5",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x123152e",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1231bea",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1231dcb",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1232001",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1232901",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x12329a4",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1232e97",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1233235",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1233709",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1233a89",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1234077",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x12340cf",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x12341d4",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x12342fe",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x12343df",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1234863",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x12348d8",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x123490d",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1234978",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1234a2b",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1234a9b",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1234b56",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1234ba5",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1234c17",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x12357b7",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1235a0a",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1235beb",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1235d47",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1236211",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x123b231",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x123b7bf",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x123cb97",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x123e90b",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x123ea6f",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x123ef51",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1243581",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1243f01",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x12444f7",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x12458f7",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x124763b",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x124778f",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1247c71",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x126c019",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1290aa3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1290ab3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1290c33",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1290f23",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1291163",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1291173",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x12915b3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x12917f3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1291803",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1291883",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x129bd23",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x129de93",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x129f643",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x129f723",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x129fd93",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x12a97d3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x12a9bc3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x12a9f73",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x12aa363",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x12aa4a3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x12aac23",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x12ab2a3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x12ab8f3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x12abb63",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x12abf03",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x12ac2b3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x12ac813",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x12b1013",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x12b1113",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x12b1243",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x12b1333",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x12c1922",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x12c3552",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x12c5492",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x12c7072",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x12d9693",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x12d9b83",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x12d9d03",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x12da5f3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x12da823",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x12df4a3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x12df713",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x12dfdb3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x12e03f3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x12e1043",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x12e3bb3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x12e3ea3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x12e40d3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x12e4753",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x12e4dc3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x12e5d03",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x12e5ff3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x12e6223",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x12e82e3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x12e9703",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x12f41c3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x12f4d83",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x12f5943",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x130e8c3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x130ef43",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x130f593",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1323243",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1323353",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1323443",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1329542",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1350522",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1374d48",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1378673",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1378683",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1378803",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1378af3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1378d33",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1378d43",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x13793d3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x13793e3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1379463",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x13853e3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x138a453",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1393a63",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1393e63",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x13941a3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1394523",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1394653",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1394dd3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1395453",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1395aa3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x139ac53",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x139aca3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x13a30c3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x13a36a3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x13a38f3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x13a4733",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x13a4ba3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x13a7853",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x13a7a53",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x13af0d3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x13b12c3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x13b12d3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x13b16d3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x13b16e3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x13b6b63",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x13b6b73",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x13b6f73",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x13b6f83",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x13d1063",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x13d3f33",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x13d4c03",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x13d5843",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x13d8893",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x13d8f13",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x13d9583",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x13d97e3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x13d9ad3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x13d9d03",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x13e4643",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x13e4d23",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x13ead73",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x13f53c3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x13f5a43",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x13f6093",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x140adc3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x140e6b3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x142b1d3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x142b4c3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x142d143",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x142d433",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x142eff3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x142f2e3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1431013",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1431303",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1431533",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1433453",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1461983",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1461993",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1461b13",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1461e03",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1462043",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1462053",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x14626e3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x14626f3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1462773",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x146e5c3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1473633",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x147cad3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x147ced3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x147d283",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x147d673",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x147d823",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x147dfa3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x147e623",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x147ec73",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x148c6c3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x148cca3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x148cef3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x148dcf3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x148e163",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1490da3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1490fa3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x14a00c3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x14a00d3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x14b5033",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x14b7ff3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x14b86b3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x14ba3a3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x14bd293",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x14bdf63",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x14beba3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x14c1c33",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x14c22b3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x14c2923",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x14c2b83",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x14c2e73",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x14c30a3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x14dcf23",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x14dd5a3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x14ddbf3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x14f29a3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x14f6293",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1512f43",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1513233",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1514eb3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x15151a3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1516d63",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1517053",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1518dd3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x15190c3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x15192f3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x151b213",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x15495a3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x15495c3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1549743",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1549a33",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1549c63",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1549c83",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x154a0c3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x154a2f3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x154a313",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x154a3a3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x15547f3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1556973",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x155b253",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x15622b3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x15626a3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1562a53",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1562e43",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1562fa3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1563723",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1563da3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x15643f3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1569b83",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1569ca3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1569f03",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x15710e3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1571643",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x15716c3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1571923",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1571d73",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1572063",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1573493",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1573cc3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1574723",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x15757b3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1576a63",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1576e03",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x15911b3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1591603",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1591763",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1591a13",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1592a93",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x15a1e73",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x15af243",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x15af6a3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x15afde3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x15b0073",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x15b0903",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x15b17b3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x15c0893",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x15c6423",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x15c6aa3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x15c70f3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x15e0c22",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1629be0",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x162d203",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x162d223",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x162d3a3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x162d693",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x162d8c3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x162d8e3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x162dd23",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x162df53",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x162df73",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x162e003",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x16384d3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x163a653",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x163ef33",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1640ab3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1646013",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1646403",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x16467b3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1646ba3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1646d03",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1647483",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1647b03",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1648153",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x164d8e3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x164da03",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x164dc63",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1654e33",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1655393",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1655413",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1655673",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1655ac3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1655db3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x16571e3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1657a13",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1658473",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1659503",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x165a7b3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x165ab53",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1674f53",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x16753a3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1675503",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x16757b3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1676843",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1685c13",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1699dc3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x16aa1c3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x16aa843",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x16aae93",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x16c49c2",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x170d7e0",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x17152b2",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1719cc3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1719de3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x171cab3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x171cbd3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1720a93",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1720c13",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1723302",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1727783",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1727e73",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1728593",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1728623",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1729363",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x173a1b3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x173b432",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x173ef22",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x17475b3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1747bb3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1748ad3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x175f2d3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x17603f3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1764b43",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1765213",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1765913",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x17a14e3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x17a1ba3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x17a2243",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x17a3d63",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x17a4423",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x17a4ae3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x17a51b3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x17a5873",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x17a5f33",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x17ad0a3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x17ad153",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x17ad363",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x17adac3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x17adb73",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x17b4883",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x17b4f63",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x17b5673",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x17b74a3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x17b7b83",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x17b8293",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x17cbbc3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x17cc2a3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x17cc9b3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x17cca33",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x17ccea3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x17cd273",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x17cd633",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x17cd723",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x17d3143",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x17d3213",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x17ef753",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x180a1b3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x180a893",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x180afa3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1851f83",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x18536e3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1853783",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1856c03",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x18572e3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x18579f3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1859823",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1859f03",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x185a613",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x186df43",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x186e623",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x186ed33",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x186edb3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x186f223",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x186f5f3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x186f9b3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x186faa3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x18754c3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1875593",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1891ad3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x18ac533",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x18acc13",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x18ad323",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x18f4303",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x18f5a63",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x18f5b03",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x18f8f83",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x18f9663",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x18f9d73",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x18fbba3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x18fc283",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x18fc993",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1909d53",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x19104c3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1910ba3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x19112b3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1911333",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x19117a3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1911b73",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1911f33",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1912023",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1917a13",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1917ae3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1932a13",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x194e8f3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x194efd3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x194f6e3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x198a103",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x198a7b3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x198ae43",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x198b503",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x198bbb3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x198c263",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x198c923",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x198cfd3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x198d683",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x198dd43",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x198e3f3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x198eaa3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x198f163",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x198f813",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x198fec3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1996683",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1997de3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1997e83",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x199b2e3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x199b9b3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x199c0b3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x19a5e13",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x19a6533",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x19a6bb3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x19c3bc3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1a377a3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1a38f13",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1a38fa3",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1a39043",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x1a39563",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x20f6aa1",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x20ffdd4",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x2108d54",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x22801e8",
+      "section": ".eh_frame"
+     }
+    ],
+    "value": 1544
+   },
+   "val_100000": {
+    "count": 6,
+    "hits": [
+     {
+      "file_off": "0xa6549e",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xb621b7",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xb621bc",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xb62f02",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xba6ac9",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x1590044",
+      "section": ".rodata"
+     }
+    ],
+    "value": 100000
+   },
+   "val_240000": {
+    "count": 4,
+    "hits": [
+     {
+      "file_off": "0x2103d68",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x2103d6c",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x2103d90",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x2103d94",
+      "section": ".rodata"
+     }
+    ],
+    "value": 240000
+   },
+   "val_250000": {
+    "count": 5,
+    "hits": [
+     {
+      "file_off": "0x491993",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xa3e38a",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xa8e9e0",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xb4c159",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xcd62e3",
+      "section": ".text"
+     }
+    ],
+    "value": 250000
+   }
+  },
+  "sha256": "afd79b7f6e708cb2521aeb852d26d0768d694ae1394f0e213c61300f25bd3246",
+  "size": 39091248
+ },
+ "libnvidia-ml": {
+  "census": {
+   "cmd_0x2080d031": {
+    "count": 2,
+    "hits": [
+     {
+      "file_off": "0x108513",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x108bea",
+      "section": ".text"
+     }
+    ],
+    "value": 545312817
+   },
+   "family_0x2080d0xx": {
+    "distinct": 6,
+    "values": {
+     "0x2080d003": [
+      "0x10daa3",
+      "0x22b840"
+     ],
+     "0x2080d01c": [
+      "0x112cb7"
+     ],
+     "0x2080d031": [
+      "0x108513",
+      "0x108bea"
+     ],
+     "0x2080d041": [
+      "0x14b0fe",
+      "0x14b1f7"
+     ],
+     "0x2080d067": [
+      "0x106964"
+     ],
+     "0x2080d088": [
+      "0x1054e2"
+     ]
+    }
+   },
+   "size_1544": {
+    "count": 12,
+    "hits": [
+     {
+      "file_off": "0x4e79",
+      "section": ".dynsym"
+     },
+     {
+      "file_off": "0x7a834",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x7a85d",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x7a89c",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xddc72",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x107aab",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x1084cb",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x108bab",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x10c8be",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x10ce1f",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x10f025",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x130dd2",
+      "section": ".text"
+     }
+    ],
+    "value": 1544
+   },
+   "val_100000": {
+    "count": 28,
+    "hits": [
+     {
+      "file_off": "0x22410",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x29884",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x29a91",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xff51d",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xff555",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xff590",
+      "section": ".text"
+     },
+     {
+      "file_off": "0xff5d3",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x1023c6",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x10253d",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x103f1b",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x10435f",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x10439f",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x1044f1",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x10451f",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x10459b",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x1045d7",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x1106a1",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x1106f9",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x1139ea",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x114e26",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x114efc",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x11548e",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x115684",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x11689d",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x1168c8",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x1182e6",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x13f91b",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x2006bc",
+      "section": ".eh_frame_hdr"
+     }
+    ],
+    "value": 100000
+   },
+   "val_240000": {
+    "count": 0,
+    "hits": [],
+    "value": 240000
+   },
+   "val_250000": {
+    "count": 0,
+    "hits": [],
+    "value": 250000
+   }
+  },
+  "sha256": "50feda0f0d2712bd3b82d1c2f8c5083b9169607d5db481ebc278ec76582068a0",
+  "size": 2654168
+ },
+ "ml_deep": {
+  "senders": [
+   {
+    "disasm": [
+     "9e560  push      rbp                                         ",
+     "9e561  mov       rbp, rsp                                    ",
+     "9e564  push      r15                                         ",
+     "9e566  mov       r15d, r9d                                   ",
+     "9e569  push      r14                                         ",
+     "9e56b  mov       r14, r8                                     ",
+     "9e56e  push      r13                                         ",
+     "9e570  mov       r13d, ecx                                   ",
+     "9e573  push      r12                                         ",
+     "9e575  mov       r12d, edx                                   ",
+     "9e578  push      rbx                                         ",
+     "9e579  sub       rsp, 0x28                                   ",
+     "9e57d  lea       rax, [rip + 0x1ea2bc]                        ; -> 0x288840 (nvmlDeviceGetUnrepairableMemoryFlag_v1+0x1eaef0)",
+     "9e584  mov       qword ptr [rbp - 0x38], rdi                 ",
+     "9e588  mov       dword ptr [rbp - 0x3c], esi                 ",
+     "9e58b  mov       r9d, dword ptr [rax + 0x12633e0]            ",
+     "9e592  test      r9d, r9d                                    ",
+     "9e595  je        0x9e5b4                                     ",
+     "9e597  mov       edx, dword ptr [rax + 0x12633e4]            ",
+     "9e59d  mov       r10d, 0xf                                   ",
+     "9e5a3  test      edx, edx                                    ",
+     "9e5a5  je        0x9e689                                     ",
+     "9e5ab  sub       edx, 1                                      ",
+     "9e5ae  mov       dword ptr [rax + 0x12633e4], edx            ",
+     "9e5b4  lea       rbx, [rip + 0x144f83d]                       ; -> 0x14eddf8 (nvmlDeviceGetUnrepairableMemoryFlag_v1+0x14504a8)",
+     "9e5bb  mov       dword ptr [rbp - 0x40], 3                   ",
+     "9e5c2  cmp       dword ptr [rbx], 4                          ",
+     "9e5c5  jg        0x9e619                                     ",
+     "9e5c7  mov       rax, qword ptr [rbp - 0x38]                 ",
+     "9e5cb  mov       edi, dword ptr [rbp - 0x3c]                 ",
+     "9e5ce  mov       r8d, r15d                                   ",
+     "9e5d1  mov       rcx, r14                                    ",
+     "9e5d4  mov       edx, r13d                                   ",
+     "9e5d7  mov       esi, r12d                                   ",
+     "9e5da  call      qword ptr [rax + 0x20]                      ",
+     "9e5dd  cmp       dword ptr [rbx], 4                          ",
+     "9e5e0  mov       r10d, eax                                   ",
+     "9e5e3  jg        0x9e6a0                                     ",
+     "9e5e9  cmp       r10d, 3                                     ",
+     "9e5ed  je        0x9e5f9                                     ",
+     "9e5ef  cmp       r10d, 0x66                                  ",
+     "9e5f3  jne       0x9e689                                     ",
+     "9e5f9  sub       dword ptr [rbp - 0x40], 1                   ",
+     "9e5fd  mov       eax, dword ptr [rbx]                        ",
+     "9e5ff  je        0x9e680                                     ",
+     "9e601  cmp       eax, 2                                      ",
+     "9e604  jg        0x9e780                                     ",
+     "9e60a  mov       edi, 0x64                                   ",
+     "9e60f  call      0x1987f0                                    ",
+     "9e614  cmp       dword ptr [rbx], 4                          ",
+     "9e617  jle       0x9e5c7                                     ",
+     "9e619  lea       rdi, [rip + 0x144f7c0]                       ; -> 0x14edde0 (nvmlDeviceGetUnrepairableMemoryFlag_v1+0x1450490)",
+     "9e620  call      0x1970e0                                    ",
+     "9e625  mov       edi, 0xba                                   ",
+     "9e62a  xor       eax, eax                                    ",
+     "9e62c  movss     dword ptr [rbp - 0x44], xmm0                ",
+     "9e631  call      0x1f680                                      ; PLT syscall",
+     "9e636  movss     xmm0, dword ptr [rbp - 0x44]                ",
+     "9e63b  sub       rsp, 8                                      ",
+     "9e63f  mov       r8d, 0x30                                   ",
+     "9e645  mulss     xmm0, dword ptr [rip + 0xffefb]              ; -> .rodata (nvmlDeviceGetUnrepairableMemoryFlag_v1+0x100bf8)",
+     "9e64d  push      r13                                         ",
+     "9e64f  mov       rdx, rax                                    ",
+     "9e652  mov       r9d, r12d                                   ",
+     "9e655  lea       rdi, [rip + 0x10f734]                        ; -> .rodata (nvmlDeviceGetUnrepairableMemoryFlag_v1+0x110440)",
+     "9e65c  lea       rcx, [rip + 0x10f710]                        ; -> .rodata (nvmlDeviceGetUnrepairableMemoryFlag_v1+0x110423)",
+     "9e663  mov       eax, 1                                      ",
+     "9e668  lea       rsi, [rip + 0xffd26]                         ; -> .rodata (nvmlDeviceGetUnrepairableMemoryFlag_v1+0x100a45)",
+     "9e66f  cvtss2sd  xmm0, xmm0                                  ",
+     "9e673  call      0x139e40                                    ",
+     "9e678  pop       rdi                                         ",
+     "9e679  pop       r8                                          ",
+     "9e67b  jmp       0x9e5c7                                     ",
+     "9e680  cmp       eax, 1                                      ",
+     "9e683  jg        0x9e718                                     ",
+     "9e689  lea       rsp, [rbp - 0x28]                           ",
+     "9e68d  mov       eax, r10d                                   ",
+     "9e690  pop       rbx                                         ",
+     "9e691  pop       r12                                         ",
+     "9e693  pop       r13                                         ",
+     "9e695  pop       r14                                         ",
+     "9e697  pop       r15                                         ",
+     "9e699  pop       rbp                                         ",
+     "9e69a  ret                                                   ",
+     "9e69b  nop       dword ptr [rax + rax]                       ",
+     "9e6a0  lea       rdi, [rip + 0x144f739]                       ; -> 0x14edde0 (nvmlDeviceGetUnrepairableMemoryFlag_v1+0x1450490)",
+     "9e6a7  mov       dword ptr [rbp - 0x48], eax                 ",
+     "9e6aa  call      0x1970e0                                    ",
+     "9e6af  mov       edi, 0xba                                   ",
+     "9e6b4  xor       eax, eax                                    ",
+     "9e6b6  movss     dword ptr [rbp - 0x44], xmm0                ",
+     "9e6bb  call      0x1f680                                      ; PLT syscall",
+     "9e6c0  mov       r10d, dword ptr [rbp - 0x48]                ",
+     "9e6c4  mov       r9d, r12d                                   ",
+     "9e6c7  movss     xmm0, dword ptr [rbp - 0x44]                ",
+     "9e6cc  mov       rdx, rax                                    ",
+     "9e6cf  lea       rcx, [rip + 0x10f69d]                        ; -> .rodata (nvmlDeviceGetUnrepairableMemoryFlag_v1+0x110423)",
+     "9e6d6  lea       rsi, [rip + 0xffcb8]                         ; -> .rodata (nvmlDeviceGetUnrepairableMemoryFlag_v1+0x100a45)",
+     "9e6dd  mov       r8d, 0x32                                   ",
+     "9e6e3  mulss     xmm0, dword ptr [rip + 0xffe5d]              ; -> .rodata (nvmlDeviceGetUnrepairableMemoryFlag_v1+0x100bf8)",
+     "9e6eb  push      r10                                         ",
+     "9e6ed  lea       rdi, [rip + 0x10f6cc]                        ; -> .rodata (nvmlDeviceGetUnrepairableMemoryFlag_v1+0x110470)",
+     "9e6f4  mov       eax, 1                                      ",
+     "9e6f9  push      r13                                         ",
+     "9e6fb  mov       dword ptr [rbp - 0x44], r10d                ",
+     "9e6ff  cvtss2sd  xmm0, xmm0                                  ",
+     "9e703  call      0x139e40                                    ",
+     "9e708  pop       rcx                                         ",
+     "9e709  mov       r10d, dword ptr [rbp - 0x44]                ",
+     "9e70d  pop       rsi                                         ",
+     "9e70e  jmp       0x9e5e9                                     ",
+     "9e713  nop       dword ptr [rax + rax]                       ",
+     "9e718  lea       rdi, [rip + 0x144f6c1]                       ; -> 0x14edde0 (nvmlDeviceGetUnrepairableMemoryFlag_v1+0x1450490)",
+     "9e71f  mov       dword ptr [rbp - 0x3c], r10d                ",
+     "9e723  call      0x1970e0                                    ",
+     "9e728  mov       edi, 0xba                                   ",
+     "9e72d  xor       eax, eax                                    ",
+     "9e72f  movss     dword ptr [rbp - 0x38], xmm0                ",
+     "9e734  call      0x1f680                                      ; PLT syscall",
+     "9e739  movss     xmm0, dword ptr [rbp - 0x38]                ",
+     "9e73e  mov       r9, qword ptr [rbp + 0x10]                  ",
+     "9e742  mov       r8d, 0x46                                   ",
+     "9e748  mulss     xmm0, dword ptr [rip + 0xffdf8]              ; -> .rodata (nvmlDeviceGetUnrepairableMemoryFlag_v1+0x100bf8)",
+     "9e750  mov       rdx, rax                                    ",
+     "9e753  lea       rcx, [rip + 0x10f619]                        ; -> .rodata (nvmlDeviceGetUnrepairableMemoryFlag_v1+0x110423)",
+     "9e75a  mov       eax, 1                                      ",
+     "9e75f  lea       rsi, [rip + 0x14e789]                        ; -> .rodata (nvmlDeviceGetUnrepairableMemoryFlag_v1+0x14f59f)",
+     "9e766  lea       rdi, [rip + 0x10f6b3]                        ; -> .rodata (nvmlDeviceGetUnrepairableMemoryFlag_v1+0x1104d0)",
+     "9e76d  cvtss2sd  xmm0, xmm0                                  ",
+     "9e771  call      0x139e40                                    ",
+     "9e776  mov       r10d, dword ptr [rbp - 0x3c]                ",
+     "9e77a  jmp       0x9e689                                     ",
+     "9e77f  nop                                                   ",
+     "9e780  lea       rdi, [rip + 0x144f659]                       ; -> 0x14edde0 (nvmlDeviceGetUnrepairableMemoryFlag_v1+0x1450490)",
+     "9e787  mov       dword ptr [rbp - 0x48], r10d                ",
+     "9e78b  call      0x1970e0                                    ",
+     "9e790  mov       edi, 0xba                                   ",
+     "9e795  xor       eax, eax                                    ",
+     "9e797  movss     dword ptr [rbp - 0x44], xmm0                ",
+     "9e79c  call      0x1f680                                      ; PLT syscall",
+     "9e7a1  movss     xmm0, dword ptr [rbp - 0x44]                ",
+     "9e7a6  mov       r10d, dword ptr [rbp - 0x48]                ",
+     "9e7aa  sub       rsp, 8                                      ",
+     "9e7ae  mulss     xmm0, dword ptr [rip + 0xffd92]              ; -> .rodata (nvmlDeviceGetUnrepairableMemoryFlag_v1+0x100bf8)",
+     "9e7b6  mov       r9, qword ptr [rbp + 0x10]                  ",
+     "9e7ba  mov       rdx, rax                                    ",
+     "9e7bd  mov       r8d, 0x3b                                   ",
+     "9e7c3  push      r10                                         ",
+     "9e7c5  lea       rcx, [rip + 0x10f5a7]                        ; -> .rodata (nvmlDeviceGetUnrepairableMemoryFlag_v1+0x110423)",
+     "9e7cc  lea       rsi, [rip + 0xffef4]                         ; -> .rodata (nvmlDeviceGetUnrepairableMemoryFlag_v1+0x100d77)",
+     "9e7d3  mov       eax, 1                                      ",
+     "9e7d8  lea       rdi, [rip + 0x10f619]                        ; -> .rodata (nvmlDeviceGetUnrepairableMemoryFlag_v1+0x1104a8)",
+     "9e7df  cvtss2sd  xmm0, xmm0                                  ",
+     "9e7e3  call      0x139e40                                    ",
+     "9e7e8  pop       rax                                         ",
+     "9e7e9  pop       rdx                                         ",
+     "9e7ea  jmp       0x9e60a                                     ",
+     "9e7ef  nop                                                   "
+    ],
+    "func": [
+     "0x9e560",
+     "0x9e7f0"
+    ],
+    "va": "0x9e560"
+   }
+  ],
+  "sites": [
+   {
+    "calls": [
+     {
+      "at": "0x108327",
+      "internal": "0x1970e0"
+     },
+     {
+      "at": "0x10833b",
+      "plt": "syscall"
+     },
+     {
+      "at": "0x108377",
+      "internal": "0x139e40"
+     },
+     {
+      "at": "0x108399",
+      "internal": "0x107820"
+     },
+     {
+      "at": "0x1083c0",
+      "internal": "0x1970e0"
+     },
+     {
+      "at": "0x1083d4",
+      "plt": "syscall"
+     },
+     {
+      "at": "0x10841e",
+      "internal": "0x139e40"
+     },
+     {
+      "at": "0x108457",
+      "internal": "0x1970e0"
+     },
+     {
+      "at": "0x10846b",
+      "plt": "syscall"
+     },
+     {
+      "at": "0x1084aa",
+      "internal": "0x139e40"
+     },
+     {
+      "at": "0x10851f",
+      "internal": "0x9e560"
+     }
+    ],
+    "disasm": [
+     "108250  push      rbp                                         ",
+     "108251  xor       eax, eax                                    ",
+     "108253  mov       ecx, 0xc1                                   ",
+     "108258  mov       rbp, rsp                                    ",
+     "10825b  push      r15                                         ",
+     "10825d  push      r14                                         ",
+     "10825f  lea       r15, [rbp - 0x640]                          ",
+     "108266  mov       r14, rdi                                    ",
+     "108269  push      r13                                         ",
+     "10826b  mov       rdi, r15                                    ",
+     "10826e  mov       r13, rsi                                    ",
+     "108271  push      r12                                         ",
+     "108273  push      rbx                                         ",
+     "108274  mov       ebx, edx                                    ",
+     "108276  sub       rsp, 0x638                                  ",
+     "10827d  mov       dword ptr [rbp - 0x64c], 0                  ",
+     "108287  rep stosq qword ptr [rdi], rax                        ",
+     "10828a  lea       rax, [rip + 0x13e5b67]                       ; -> 0x14eddf8 (nvmlDeviceGetUnrepairableMemoryFlag_v1+0x14504a8)",
+     "108291  mov       dword ptr [rbp - 0x648], 0                  ",
+     "10829b  mov       dword ptr [rbp - 0x644], 0                  ",
+     "1082a5  cmp       dword ptr [rax], 4                          ",
+     "1082a8  jg        0x108450                                    ",
+     "1082ae  mov       rdi, qword ptr [r13 + 0x28340]              ",
+     "1082b5  test      rdi, rdi                                    ",
+     "1082b8  je        0x108430                                    ",
+     "1082be  mov       rax, qword ptr [rdi + 0x170]                ",
+     "1082c5  test      rax, rax                                    ",
+     "1082c8  je        0x108430                                    ",
+     "1082ce  mov       rax, qword ptr [rax + 0x18]                 ",
+     "1082d2  test      rax, rax                                    ",
+     "1082d5  je        0x108430                                    ",
+     "1082db  lea       rcx, [rbp - 0x648]                          ",
+     "1082e2  lea       r8, [rbp - 0x644]                           ",
+     "1082e9  mov       edx, 2                                      ",
+     "1082ee  mov       rsi, r13                                    ",
+     "1082f1  call      rax                                         ",
+     "1082f3  mov       r12d, eax                                   ",
+     "1082f6  test      eax, eax                                    ",
+     "1082f8  je        0x108380                                    ",
+     "1082fe  lea       rax, [rip + 0x13e5af3]                       ; -> 0x14eddf8 (nvmlDeviceGetUnrepairableMemoryFlag_v1+0x14504a8)",
+     "108305  cmp       dword ptr [rax], 1                          ",
+     "108308  jg        0x108320                                    ",
+     "10830a  lea       rsp, [rbp - 0x28]                           ",
+     "10830e  mov       eax, r12d                                   ",
+     "108311  pop       rbx                                         ",
+     "108312  pop       r12                                         ",
+     "108314  pop       r13                                         ",
+     "108316  pop       r14                                         ",
+     "108318  pop       r15                                         ",
+     "10831a  pop       rbp                                         ",
+     "10831b  ret                                                   ",
+     "10831c  nop       dword ptr [rax]                             ",
+     "108320  lea       rdi, [rip + 0x13e5ab9]                       ; -> 0x14edde0 (nvmlDeviceGetUnrepairableMemoryFlag_v1+0x1450490)",
+     "108327  call      0x1970e0                                    ",
+     "10832c  mov       edi, 0xba                                   ",
+     "108331  xor       eax, eax                                    ",
+     "108333  movss     dword ptr [rbp - 0x654], xmm0               ",
+     "10833b  call      0x1f680                                      ; PLT syscall",
+     "108340  movss     xmm0, dword ptr [rbp - 0x654]               ",
+     "108348  mulss     xmm0, dword ptr [rip + 0x961f8]              ; -> .rodata (nvmlDeviceGetUnrepairableMemoryFlag_v1+0x100bf8)",
+     "108350  mov       r8d, 0x16e5                                 ",
+     "108356  mov       rdx, rax                                    ",
+     "108359  lea       rcx, [rip + 0xc90f0]                         ; -> .rodata (nvmlDeviceGetUnrepairableMemoryFlag_v1+0x133b00)",
+     "108360  lea       rsi, [rip + 0xe4b88]                         ; -> .rodata (nvmlDeviceGetUnrepairableMemoryFlag_v1+0x14f59f)",
+     "108367  mov       eax, 1                                      ",
+     "10836c  lea       rdi, [rip + 0x960a5]                         ; -> .rodata (nvmlDeviceGetUnrepairableMemoryFlag_v1+0x100ac8)",
+     "108373  cvtss2sd  xmm0, xmm0                                  ",
+     "108377  call      0x139e40                                    ",
+     "10837c  jmp       0x10830a                                    ",
+     "10837e  nop                                                   ",
+     "108380  lea       rdx, [rbp - 0x650]                          ",
+     "108387  mov       r9, r15                                     ",
+     "10838a  xor       ecx, ecx                                    ",
+     "10838c  mov       rsi, r13                                    ",
+     "10838f  lea       r8, [rbp - 0x64c]                           ",
+     "108396  mov       rdi, r14                                    ",
+     "108399  call      0x107820                                    ",
+     "10839e  mov       r12d, eax                                   ",
+     "1083a1  test      eax, eax                                    ",
+     "1083a3  je        0x1084b8                                    ",
+     "1083a9  lea       rax, [rip + 0x13e5a48]                       ; -> 0x14eddf8 (nvmlDeviceGetUnrepairableMemoryFlag_v1+0x14504a8)",
+     "1083b0  cmp       dword ptr [rax], 1                          ",
+     "1083b3  jle       0x10830a                                    ",
+     "1083b9  lea       rdi, [rip + 0x13e5a20]                       ; -> 0x14edde0 (nvmlDeviceGetUnrepairableMemoryFlag_v1+0x1450490)",
+     "1083c0  call      0x1970e0                                    ",
+     "1083c5  mov       edi, 0xba                                   ",
+     "1083ca  xor       eax, eax                                    ",
+     "1083cc  movss     dword ptr [rbp - 0x654], xmm0               ",
+     "1083d4  call      0x1f680                                      ; PLT syscall",
+     "1083d9  movss     xmm0, dword ptr [rbp - 0x654]               ",
+     "1083e1  push      r12                                         ",
+     "1083e3  lea       rsi, [rip + 0xe4b05]                         ; -> .rodata (nvmlDeviceGetUnrepairableMemoryFlag_v1+0x14f59f)",
+     "1083ea  mulss     xmm0, dword ptr [rip + 0x96156]              ; -> .rodata (nvmlDeviceGetUnrepairableMemoryFlag_v1+0x100bf8)",
+     "1083f2  push      0x16ea                                      ",
+     "1083f7  mov       rdx, rax                                    ",
+     "1083fa  lea       rdi, [rip + 0x9625f]                         ; -> .rodata (nvmlDeviceGetUnrepairableMemoryFlag_v1+0x100d10)",
+     "108401  lea       r9, [rip + 0xcf2c8]                          ; -> .rodata (nvmlDeviceGetUnrepairableMemoryFlag_v1+0x139d80)",
+     "108408  mov       r8d, 0x16ea                                 ",
+     "10840e  mov       eax, 1                                      ",
+     "108413  lea       rcx, [rip + 0xc9036]                         ; -> .rodata (nvmlDeviceGetUnrepairableMemoryFlag_v1+0x133b00)",
+     "10841a  cvtss2sd  xmm0, xmm0                                  ",
+     "10841e  call      0x139e40                                    ",
+     "108423  pop       rsi                                         ",
+     "108424  pop       rdi                                         ",
+     "108425  jmp       0x10830a                                    ",
+     "10842a  nop       word ptr [rax + rax]                        ",
+     "108430  lea       rax, [rip + 0x13e59c1]                       ; -> 0x14eddf8 (nvmlDeviceGetUnrepairableMemoryFlag_v1+0x14504a8)",
+     "108437  mov       r12d, 3                                     ",
+     "10843d  cmp       dword ptr [rax], 1                          ",
+     "108440  jle       0x10830a                                    ",
+     "108446  jmp       0x108320                                    ",
+     "10844b  nop       dword ptr [rax + rax]                       ",
+     "108450  lea       rdi, [rip + 0x13e5989]                       ; -> 0x14edde0 (nvmlDeviceGetUnrepairableMemoryFlag_v1+0x1450490)",
+     "108457  call      0x1970e0                                    ",
+     "10845c  mov       edi, 0xba                                   ",
+     "108461  xor       eax, eax                                    ",
+     "108463  movss     dword ptr [rbp - 0x654], xmm0               ",
+     "10846b  call      0x1f680                                      ; PLT syscall",
+     "108470  movss     xmm0, dword ptr [rbp - 0x654]               ",
+     "108478  mov       r9d, ebx                                    ",
+     "10847b  mov       r8d, 0x16df                                 ",
+     "108481  mulss     xmm0, dword ptr [rip + 0x960bf]              ; -> .rodata (nvmlDeviceGetUnrepairableMemoryFlag_v1+0x100bf8)",
+     "108489  mov       rdx, rax                                    ",
+     "10848c  lea       rcx, [rip + 0xc8fbd]                         ; -> .rodata (nvmlDeviceGetUnrepairableMemoryFlag_v1+0x133b00)",
+     "108493  mov       eax, 1                                      ",
+     "108498  lea       rsi, [rip + 0x95ef6]                         ; -> .rodata (nvmlDeviceGetUnrepairableMemoryFlag_v1+0x100a45)",
+     "10849f  lea       rdi, [rip + 0x95fc2]                         ; -> .rodata (nvmlDeviceGetUnrepairableMemoryFlag_v1+0x100b18)",
+     "1084a6  cvtss2sd  xmm0, xmm0                                  ",
+     "1084aa  call      0x139e40                                    ",
+     "1084af  jmp       0x1082ae                                    ",
+     "1084b4  nop       dword ptr [rax]                             ",
+     "1084b8  mov       eax, dword ptr [rbp - 0x64c]                ",
+     "1084be  sub       rsp, 8                                      ",
+     "1084c2  mov       rdi, qword ptr [r14 + 0x10]                 ",
+     "1084c6  mov       r8, r15                                     ",
+     "1084c9  mov       r9d, 0x608                                  ",
+     "1084cf  mov       r12d, 0x3e7                                 ",
+     "1084d5  lea       rcx, [rax + rax*2]                          ",
+     "1084d9  mov       eax, ebx                                    ",
+     "1084db  shr       eax, 0x1f                                   ",
+     "1084de  shl       rcx, 4                                      ",
+     "1084e2  add       eax, ebx                                    ",
+     "1084e4  mov       byte ptr [rbp + rcx - 0x634], 0             ",
+     "1084ec  sar       eax, 1                                      ",
+     "1084ee  imul      eax, eax, 0x64                              ",
+     "1084f1  cdq                                                   ",
+     "1084f2  idiv      dword ptr [rbp - 0x644]                     ",
+     "1084f8  mov       edx, dword ptr [rbp - 0x650]                ",
+     "1084fe  imul      eax, eax, 0x3e8                             ",
+     "108504  mov       dword ptr [rbp + rcx - 0x630], eax          ",
+     "10850b  lea       rax, [rip + 0x18032e]                        ; -> 0x288840 (nvmlDeviceGetUnrepairableMemoryFlag_v1+0x1eaef0)",
+     "108512  mov       ecx, 0x2080d031                             ",
+     "108517  mov       esi, dword ptr [rax + 0x8c]                 ",
+     "10851d  push      0                                           ",
+     "10851f  call      0x9e560                                     ",
+     "108524  pop       rdx                                         ",
+     "108525  pop       rcx                                         ",
+     "108526  cmp       eax, 0x66                                   ",
+     "108529  ja        0x10830a                                    ",
+     "10852f  mov       eax, eax                                    ",
+     "108531  lea       rdx, [rip + 0xce728]                         ; -> .rodata (nvmlDeviceGetUnrepairableMemoryFlag_v1+0x139310)",
+     "108538  movzx     r12d, word ptr [rdx + rax*2]                ",
+     "10853d  jmp       0x10830a                                    ",
+     "108542  nop       word ptr cs:[rax + rax]                     ",
+     "10854c  nop       dword ptr [rax]                             "
+    ],
+    "func": [
+     "0x108250",
+     "0x108550"
+    ],
+    "imms_of_note": [
+     {
+      "at": "0x108437",
+      "insn": "mov r12d, 3",
+      "value": 3
+     },
+     {
+      "at": "0x1084c9",
+      "insn": "mov r9d, 0x608",
+      "value": 1544
+     },
+     {
+      "at": "0x1084cf",
+      "insn": "mov r12d, 0x3e7",
+      "value": 999
+     },
+     {
+      "at": "0x1084ee",
+      "insn": "imul eax, eax, 0x64",
+      "value": 100
+     },
+     {
+      "at": "0x1084fe",
+      "insn": "imul eax, eax, 0x3e8",
+      "value": 1000
+     },
+     {
+      "at": "0x108526",
+      "insn": "cmp eax, 0x66",
+      "value": 102
+     }
+    ],
+    "sender_args": [
+     {
+      "arg_window": [
+       "1084ee  imul      eax, eax, 0x64",
+       "1084f1  cdq       ",
+       "1084f2  idiv      dword ptr [rbp - 0x644]",
+       "1084f8  mov       edx, dword ptr [rbp - 0x650]",
+       "1084fe  imul      eax, eax, 0x3e8",
+       "108504  mov       dword ptr [rbp + rcx - 0x630], eax",
+       "10850b  lea       rax, [rip + 0x18032e]",
+       "108512  mov       ecx, 0x2080d031",
+       "108517  mov       esi, dword ptr [rax + 0x8c]",
+       "10851d  push      0",
+       "10851f  call      0x9e560"
+      ],
+      "call_at": "0x10851f",
+      "target": "0x9e560"
+     }
+    ],
+    "site_file_off": "0x108513",
+    "site_va": "0x108513",
+    "size": 768,
+    "stride48_stores": [
+     {
+      "at": "0x1084e4",
+      "insn": "mov byte ptr [rbp + rcx - 0x634], 0"
+     },
+     {
+      "at": "0x108504",
+      "insn": "mov dword ptr [rbp + rcx - 0x630], eax"
+     }
+    ]
+   },
+   {
+    "calls": [
+     {
+      "at": "0x108a07",
+      "internal": "0x1970e0"
+     },
+     {
+      "at": "0x108a1b",
+      "plt": "syscall"
+     },
+     {
+      "at": "0x108a57",
+      "internal": "0x139e40"
+     },
+     {
+      "at": "0x108a7a",
+      "internal": "0x107820"
+     },
+     {
+      "at": "0x108aa1",
+      "internal": "0x1970e0"
+     },
+     {
+      "at": "0x108ab5",
+      "plt": "syscall"
+     },
+     {
+      "at": "0x108aff",
+      "internal": "0x139e40"
+     },
+     {
+      "at": "0x108b37",
+      "internal": "0x1970e0"
+     },
+     {
+      "at": "0x108b4b",
+      "plt": "syscall"
+     },
+     {
+      "at": "0x108b8a",
+      "internal": "0x139e40"
+     },
+     {
+      "at": "0x108bf6",
+      "internal": "0x9e560"
+     }
+    ],
+    "disasm": [
+     "108930  push      rbp                                         ",
+     "108931  xor       eax, eax                                    ",
+     "108933  mov       ecx, 0xc1                                   ",
+     "108938  mov       rbp, rsp                                    ",
+     "10893b  push      r15                                         ",
+     "10893d  push      r14                                         ",
+     "10893f  lea       r15, [rbp - 0x640]                          ",
+     "108946  mov       r14, rdi                                    ",
+     "108949  push      r13                                         ",
+     "10894b  mov       rdi, r15                                    ",
+     "10894e  mov       r13, rsi                                    ",
+     "108951  push      r12                                         ",
+     "108953  push      rbx                                         ",
+     "108954  mov       ebx, edx                                    ",
+     "108956  sub       rsp, 0x638                                  ",
+     "10895d  mov       dword ptr [rbp - 0x64c], 0                  ",
+     "108967  rep stosq qword ptr [rdi], rax                        ",
+     "10896a  lea       rax, [rip + 0x13e5487]                       ; -> 0x14eddf8 (nvmlDeviceGetUnrepairableMemoryFlag_v1+0x14504a8)",
+     "108971  mov       dword ptr [rbp - 0x648], 0                  ",
+     "10897b  mov       dword ptr [rbp - 0x644], 0                  ",
+     "108985  cmp       dword ptr [rax], 4                          ",
+     "108988  jg        0x108b30                                    ",
+     "10898e  mov       rdi, qword ptr [r13 + 0x28340]              ",
+     "108995  test      rdi, rdi                                    ",
+     "108998  je        0x108b10                                    ",
+     "10899e  mov       rax, qword ptr [rdi + 0x170]                ",
+     "1089a5  test      rax, rax                                    ",
+     "1089a8  je        0x108b10                                    ",
+     "1089ae  mov       rax, qword ptr [rax + 0x18]                 ",
+     "1089b2  test      rax, rax                                    ",
+     "1089b5  je        0x108b10                                    ",
+     "1089bb  lea       rcx, [rbp - 0x648]                          ",
+     "1089c2  lea       r8, [rbp - 0x644]                           ",
+     "1089c9  xor       edx, edx                                    ",
+     "1089cb  mov       rsi, r13                                    ",
+     "1089ce  call      rax                                         ",
+     "1089d0  mov       r12d, eax                                   ",
+     "1089d3  test      eax, eax                                    ",
+     "1089d5  je        0x108a60                                    ",
+     "1089db  lea       rax, [rip + 0x13e5416]                       ; -> 0x14eddf8 (nvmlDeviceGetUnrepairableMemoryFlag_v1+0x14504a8)",
+     "1089e2  cmp       dword ptr [rax], 1                          ",
+     "1089e5  jg        0x108a00                                    ",
+     "1089e7  lea       rsp, [rbp - 0x28]                           ",
+     "1089eb  mov       eax, r12d                                   ",
+     "1089ee  pop       rbx                                         ",
+     "1089ef  pop       r12                                         ",
+     "1089f1  pop       r13                                         ",
+     "1089f3  pop       r14                                         ",
+     "1089f5  pop       r15                                         ",
+     "1089f7  pop       rbp                                         ",
+     "1089f8  ret                                                   ",
+     "1089f9  nop       dword ptr [rax]                             ",
+     "108a00  lea       rdi, [rip + 0x13e53d9]                       ; -> 0x14edde0 (nvmlDeviceGetUnrepairableMemoryFlag_v1+0x1450490)",
+     "108a07  call      0x1970e0                                    ",
+     "108a0c  mov       edi, 0xba                                   ",
+     "108a11  xor       eax, eax                                    ",
+     "108a13  movss     dword ptr [rbp - 0x654], xmm0               ",
+     "108a1b  call      0x1f680                                      ; PLT syscall",
+     "108a20  movss     xmm0, dword ptr [rbp - 0x654]               ",
+     "108a28  mulss     xmm0, dword ptr [rip + 0x95b18]              ; -> .rodata (nvmlDeviceGetUnrepairableMemoryFlag_v1+0x100bf8)",
+     "108a30  mov       r8d, 0x1662                                 ",
+     "108a36  mov       rdx, rax                                    ",
+     "108a39  lea       rcx, [rip + 0xc8a10]                         ; -> .rodata (nvmlDeviceGetUnrepairableMemoryFlag_v1+0x133b00)",
+     "108a40  lea       rsi, [rip + 0xe44a8]                         ; -> .rodata (nvmlDeviceGetUnrepairableMemoryFlag_v1+0x14f59f)",
+     "108a47  mov       eax, 1                                      ",
+     "108a4c  lea       rdi, [rip + 0x959c5]                         ; -> .rodata (nvmlDeviceGetUnrepairableMemoryFlag_v1+0x100ac8)",
+     "108a53  cvtss2sd  xmm0, xmm0                                  ",
+     "108a57  call      0x139e40                                    ",
+     "108a5c  jmp       0x1089e7                                    ",
+     "108a5e  nop                                                   ",
+     "108a60  lea       rcx, [rbp - 0x64c]                          ",
+     "108a67  mov       r9, r15                                     ",
+     "108a6a  xor       r8d, r8d                                    ",
+     "108a6d  mov       rsi, r13                                    ",
+     "108a70  lea       rdx, [rbp - 0x650]                          ",
+     "108a77  mov       rdi, r14                                    ",
+     "108a7a  call      0x107820                                    ",
+     "108a7f  mov       r12d, eax                                   ",
+     "108a82  test      eax, eax                                    ",
+     "108a84  je        0x108b98                                    ",
+     "108a8a  lea       rax, [rip + 0x13e5367]                       ; -> 0x14eddf8 (nvmlDeviceGetUnrepairableMemoryFlag_v1+0x14504a8)",
+     "108a91  cmp       dword ptr [rax], 1                          ",
+     "108a94  jle       0x1089e7                                    ",
+     "108a9a  lea       rdi, [rip + 0x13e533f]                       ; -> 0x14edde0 (nvmlDeviceGetUnrepairableMemoryFlag_v1+0x1450490)",
+     "108aa1  call      0x1970e0                                    ",
+     "108aa6  mov       edi, 0xba                                   ",
+     "108aab  xor       eax, eax                                    ",
+     "108aad  movss     dword ptr [rbp - 0x654], xmm0               ",
+     "108ab5  call      0x1f680                                      ; PLT syscall",
+     "108aba  movss     xmm0, dword ptr [rbp - 0x654]               ",
+     "108ac2  push      r12                                         ",
+     "108ac4  lea       rsi, [rip + 0xe4424]                         ; -> .rodata (nvmlDeviceGetUnrepairableMemoryFlag_v1+0x14f59f)",
+     "108acb  mulss     xmm0, dword ptr [rip + 0x95a75]              ; -> .rodata (nvmlDeviceGetUnrepairableMemoryFlag_v1+0x100bf8)",
+     "108ad3  push      0x1667                                      ",
+     "108ad8  mov       rdx, rax                                    ",
+     "108adb  lea       rdi, [rip + 0x95b7e]                         ; -> .rodata (nvmlDeviceGetUnrepairableMemoryFlag_v1+0x100d10)",
+     "108ae2  lea       r9, [rip + 0xceb67]                          ; -> .rodata (nvmlDeviceGetUnrepairableMemoryFlag_v1+0x139d00)",
+     "108ae9  mov       r8d, 0x1667                                 ",
+     "108aef  mov       eax, 1                                      ",
+     "108af4  lea       rcx, [rip + 0xc8955]                         ; -> .rodata (nvmlDeviceGetUnrepairableMemoryFlag_v1+0x133b00)",
+     "108afb  cvtss2sd  xmm0, xmm0                                  ",
+     "108aff  call      0x139e40                                    ",
+     "108b04  pop       rsi                                         ",
+     "108b05  pop       rdi                                         ",
+     "108b06  jmp       0x1089e7                                    ",
+     "108b0b  nop       dword ptr [rax + rax]                       ",
+     "108b10  lea       rax, [rip + 0x13e52e1]                       ; -> 0x14eddf8 (nvmlDeviceGetUnrepairableMemoryFlag_v1+0x14504a8)",
+     "108b17  mov       r12d, 3                                     ",
+     "108b1d  cmp       dword ptr [rax], 1                          ",
+     "108b20  jle       0x1089e7                                    ",
+     "108b26  jmp       0x108a00                                    ",
+     "108b2b  nop       dword ptr [rax + rax]                       ",
+     "108b30  lea       rdi, [rip + 0x13e52a9]                       ; -> 0x14edde0 (nvmlDeviceGetUnrepairableMemoryFlag_v1+0x1450490)",
+     "108b37  call      0x1970e0                                    ",
+     "108b3c  mov       edi, 0xba                                   ",
+     "108b41  xor       eax, eax                                    ",
+     "108b43  movss     dword ptr [rbp - 0x654], xmm0               ",
+     "108b4b  call      0x1f680                                      ; PLT syscall",
+     "108b50  movss     xmm0, dword ptr [rbp - 0x654]               ",
+     "108b58  mov       r9d, ebx                                    ",
+     "108b5b  mov       r8d, 0x165c                                 ",
+     "108b61  mulss     xmm0, dword ptr [rip + 0x959df]              ; -> .rodata (nvmlDeviceGetUnrepairableMemoryFlag_v1+0x100bf8)",
+     "108b69  mov       rdx, rax                                    ",
+     "108b6c  lea       rcx, [rip + 0xc88dd]                         ; -> .rodata (nvmlDeviceGetUnrepairableMemoryFlag_v1+0x133b00)",
+     "108b73  mov       eax, 1                                      ",
+     "108b78  lea       rsi, [rip + 0x95816]                         ; -> .rodata (nvmlDeviceGetUnrepairableMemoryFlag_v1+0x100a45)",
+     "108b7f  lea       rdi, [rip + 0x958e2]                         ; -> .rodata (nvmlDeviceGetUnrepairableMemoryFlag_v1+0x100b18)",
+     "108b86  cvtss2sd  xmm0, xmm0                                  ",
+     "108b8a  call      0x139e40                                    ",
+     "108b8f  jmp       0x10898e                                    ",
+     "108b94  nop       dword ptr [rax]                             ",
+     "108b98  mov       eax, dword ptr [rbp - 0x64c]                ",
+     "108b9e  sub       rsp, 8                                      ",
+     "108ba2  mov       rdi, qword ptr [r14 + 0x10]                 ",
+     "108ba6  mov       r8, r15                                     ",
+     "108ba9  mov       r9d, 0x608                                  ",
+     "108baf  mov       r12d, 0x3e7                                 ",
+     "108bb5  lea       rcx, [rax + rax*2]                          ",
+     "108bb9  imul      eax, ebx, 0x64                              ",
+     "108bbc  shl       rcx, 4                                      ",
+     "108bc0  mov       byte ptr [rbp + rcx - 0x634], 0             ",
+     "108bc8  cdq                                                   ",
+     "108bc9  idiv      dword ptr [rbp - 0x644]                     ",
+     "108bcf  mov       edx, dword ptr [rbp - 0x650]                ",
+     "108bd5  imul      eax, eax, 0x3e8                             ",
+     "108bdb  mov       dword ptr [rbp + rcx - 0x630], eax          ",
+     "108be2  lea       rax, [rip + 0x17fc57]                        ; -> 0x288840 (nvmlDeviceGetUnrepairableMemoryFlag_v1+0x1eaef0)",
+     "108be9  mov       ecx, 0x2080d031                             ",
+     "108bee  mov       esi, dword ptr [rax + 0x8c]                 ",
+     "108bf4  push      0                                           ",
+     "108bf6  call      0x9e560                                     ",
+     "108bfb  pop       rdx                                         ",
+     "108bfc  pop       rcx                                         ",
+     "108bfd  cmp       eax, 0x66                                   ",
+     "108c00  ja        0x1089e7                                    ",
+     "108c06  mov       eax, eax                                    ",
+     "108c08  lea       rdx, [rip + 0xce051]                         ; -> .rodata (nvmlDeviceGetUnrepairableMemoryFlag_v1+0x139310)",
+     "108c0f  movzx     r12d, word ptr [rdx + rax*2]                ",
+     "108c14  jmp       0x1089e7                                    ",
+     "108c19  nop       dword ptr [rax]                             "
+    ],
+    "func": [
+     "0x108930",
+     "0x108c20"
+    ],
+    "imms_of_note": [
+     {
+      "at": "0x108b17",
+      "insn": "mov r12d, 3",
+      "value": 3
+     },
+     {
+      "at": "0x108ba9",
+      "insn": "mov r9d, 0x608",
+      "value": 1544
+     },
+     {
+      "at": "0x108baf",
+      "insn": "mov r12d, 0x3e7",
+      "value": 999
+     },
+     {
+      "at": "0x108bb9",
+      "insn": "imul eax, ebx, 0x64",
+      "value": 100
+     },
+     {
+      "at": "0x108bd5",
+      "insn": "imul eax, eax, 0x3e8",
+      "value": 1000
+     },
+     {
+      "at": "0x108bfd",
+      "insn": "cmp eax, 0x66",
+      "value": 102
+     }
+    ],
+    "sender_args": [
+     {
+      "arg_window": [
+       "108bc0  mov       byte ptr [rbp + rcx - 0x634], 0",
+       "108bc8  cdq       ",
+       "108bc9  idiv      dword ptr [rbp - 0x644]",
+       "108bcf  mov       edx, dword ptr [rbp - 0x650]",
+       "108bd5  imul      eax, eax, 0x3e8",
+       "108bdb  mov       dword ptr [rbp + rcx - 0x630], eax",
+       "108be2  lea       rax, [rip + 0x17fc57]",
+       "108be9  mov       ecx, 0x2080d031",
+       "108bee  mov       esi, dword ptr [rax + 0x8c]",
+       "108bf4  push      0",
+       "108bf6  call      0x9e560"
+      ],
+      "call_at": "0x108bf6",
+      "target": "0x9e560"
+     }
+    ],
+    "site_file_off": "0x108bea",
+    "site_va": "0x108bea",
+    "size": 752,
+    "stride48_stores": [
+     {
+      "at": "0x108bc0",
+      "insn": "mov byte ptr [rbp + rcx - 0x634], 0"
+     },
+     {
+      "at": "0x108bdb",
+      "insn": "mov dword ptr [rbp + rcx - 0x630], eax"
+     }
+    ]
+   }
+  ]
+ },
+ "nvidia_drv": {
+  "census": {
+   "cmd_0x2080d031": {
+    "count": 1,
+    "hits": [
+     {
+      "file_off": "0x779dd",
+      "section": ".text"
+     }
+    ],
+    "value": 545312817
+   },
+   "family_0x2080d0xx": {
+    "distinct": 3,
+    "values": {
+     "0x2080d003": [
+      "0x361160"
+     ],
+     "0x2080d031": [
+      "0x779dd"
+     ],
+     "0x2080d041": [
+      "0xaedce",
+      "0xaeeab"
+     ]
+    }
+   },
+   "size_1544": {
+    "count": 14,
+    "hits": [
+     {
+      "file_off": "0x7247b",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x726c6",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x73df6",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x74022",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x7798c",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x779d8",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x77a81",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x12312d",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x1641dd",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x1a610d",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x1ea25d",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x22e9bd",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x2730ed",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x358088",
+      "section": ".data.rel.ro"
+     }
+    ],
+    "value": 1544
+   },
+   "val_100000": {
+    "count": 21,
+    "hits": [
+     {
+      "file_off": "0x56999",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x8584e",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x8fd59",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x2b79d8",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x2b7a50",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x2b7ac8",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x2b7b40",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x2b7bb8",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x2b7c30",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x2b8518",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x2b87e8",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x2b8b30",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x2b8e78",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x2b91c0",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x2b9df0",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x2b9ee0",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x2ba2a0",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x2bc4d8",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x2bc898",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x2bcc58",
+      "section": ".rodata"
+     },
+     {
+      "file_off": "0x2bcd48",
+      "section": ".rodata"
+     }
+    ],
+    "value": 100000
+   },
+   "val_240000": {
+    "count": 0,
+    "hits": [],
+    "value": 240000
+   },
+   "val_250000": {
+    "count": 9,
+    "hits": [
+     {
+      "file_off": "0x6a1ec",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x11ea58",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x1257ae",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x1e5ae8",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x1ec8de",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x22a248",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x23103e",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x26e978",
+      "section": ".text"
+     },
+     {
+      "file_off": "0x27576e",
+      "section": ".text"
+     }
+    ],
+    "value": 250000
+   }
+  },
+  "sha256": "28ae0bf0e4097c611d99e39cb3afc1eaaa6013019a3cc609a669042b0c69229c",
+  "size": 3627376
+ },
+ "provenance": {
+  "closed_core_sha256": "c90f58d59e8fef44fa07d057bd9ffb1e1b5ee38d3c51b35df71e05e0ad268cbf",
+  "closed_core_size": 120980872,
+  "drv_sha256": "28ae0bf0e4097c611d99e39cb3afc1eaaa6013019a3cc609a669042b0c69229c",
+  "drv_size": 3627376,
+  "egl_sha256": "afd79b7f6e708cb2521aeb852d26d0768d694ae1394f0e213c61300f25bd3246",
+  "egl_size": 39091248,
+  "ml_sha256": "50feda0f0d2712bd3b82d1c2f8c5083b9169607d5db481ebc278ec76582068a0",
+  "ml_size": 2654168,
+  "package": "NVIDIA-Linux-x86_64-610.57.04.run",
+  "package_sha256": "b2e935c66b83bb00c0c857bc8e0ee0fd52de9286b40c9cc1eec29a7ce7eb116d",
+  "package_size": 463025450
+ }
+}

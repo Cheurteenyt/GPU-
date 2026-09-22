@@ -8,22 +8,43 @@
 | identity | ELF64 (class 2), little-endian (data 1), **ET_REL (type 1)**, **EM_X86_64 (machine 62)**, 13 sections, symtab present |
 | source package | `NVIDIA-Linux-x86_64-610.57.04.run` (official NVIDIA download, us.download.nvidia.com) |
 | package size | 463,025,450 bytes |
-| package sha256 | `b2e935c66b83bb00c0c857bc8e0ee0fd52de9286b40c9cc1eec29a7ce7eb116d` |
+| package sha256 | `b2e935c66b83bb00c0c857bc8e0ee0fd52de9286b40c9cc1eec29a7ce7eb116d` (full value in the campaign acquisition register; the `.run` itself is not committed) |
 | in-package path | `kernel-open/nvidia/nv-kernel.o_binary` |
 | extraction | makeself `--extract` of the official `.run` (no modification), file copied verbatim |
 | acquisition date | 2026-09-22 (campaign pass 4.27 acquired the package; pass 4.28 landed this file) |
 
-## Companion artifact — `libnvidia-ml.so.610.57.04`
+## The pass-4.28 userspace extension substrates (same package, same law)
 
-| field | value |
-|---|---|
-| file | `tools/analysis/x86-rm/binaries/libnvidia-ml.so.610.57.04` |
-| size | 2,654,168 bytes |
-| sha256 | `50feda0f0d27…` (full value in `lab/jalon411/v428f_nvvm_sites.json`) |
-| identity | ELF64, ET_DYN, x86-64, stripped |
-| in-package path | `libnvidia-ml.so.610.57.04` |
-| role | the 4.28 wave-3 decisive artifact: the ONLY binary of the package carrying the `0x2080d031` cmd (2 sites, each paired with the `0x608` params-size immediate) — the issuer of the captured RPC |
-| note | `libnvidia-eglcore.so.610.57.04` (39,091,248 B, sha256 `afd79b7f…`) was needle-scanned but NOT committed (no decisive evidence; hash recorded in the register) |
+All extracted verbatim from the same verified package; package sha256
+re-verified on the 4.28 downloads (waves 3 and 4, independently).
+
+| file | size | sha256 | in-package path |
+|---|---|---|---|
+| `binaries/libnvidia-ml.so.610.57.04` | 2,654,168 | `50feda0f0d2712bd3b82d1c2f8c5083b9169607d5db481ebc278ec76582068a0` | `libnvidia-ml.so.610.57.04` |
+| `binaries/libnvidia-eglcore.so.610.57.04` | 39,091,248 | `afd79b7f6e708cb2521aeb852d26d0768d694ae1394f0e213c61300f25bd3246` | `libnvidia-eglcore.so.610.57.04` |
+| `binaries/nvidia_drv.so` | 3,627,376 | `28ae0bf0e4097c611d99e39cb3afc1eaaa6013019a3cc609a669042b0c69229c` | `nvidia_drv.so` |
+
+- `libnvidia-ml.so` — the wave-3 decisive artifact (the issuer of the
+  captured RPC: the only package binary carrying the `0x2080d031` cmd
+  besides the GSP firmware images and the closed core's table row);
+  wave 4 named its two sending functions (nvmlDeviceSetMClkVfOffset /
+  nvmlDeviceSetGpcClkVfOffset).
+- `nvidia_drv.so` — the wave-4 decisive artifact: the Xorg driver's twin
+  of the same marshal, whose response-echo decode closed the naming.
+- `libnvidia-eglcore.so` — needle-scanned (d031 = 0; 250000 x5 `.text`,
+  240000 x4 `.rodata`, 100000 x6 — banked uninterpreted in the wave-4
+  register); committed for scan reproducibility.
+
+## The package's OTHER core (hash-documented, NOT committed — over the 100-MB limit)
+
+`kernel/nvidia/nv-kernel.o_binary` — **120,980,872 bytes**, sha256
+`c90f58d59e8fef44fa07d057bd9ffb1e1b5ee38d3c51b35df71e05e0ad268cbf`,
+ELF64 ET_REL EM_X86_64 (the CLOSED driver's core — a different build from
+the committed kernel-open one). It holds the host dispatch table in
+`.rodata` (stride-0x20 rows {cmd, tag, 0, 0x44}; the 0x2080d031 row at
+file 0x666b110). Reproduce from the same `.run`:
+`sh NVIDIA-Linux-x86_64-610.57.04.run --extract-only` then
+`sha256sum <target>/kernel/nvidia/nv-kernel.o_binary`.
 
 ## What this file is
 
