@@ -1,5 +1,5 @@
-# 4.42 — la transfer-list construite : le format plat u64 prouvé, la table
-# {valeur, cible}, le patch memdesc C, la validation émulateur 11/11
+# 4.42 — the transfer-list built: the flat u64 format proven, the
+# {value, target} table, the C memdesc patch, the emulator validation 11/11
 
 Substrates: tools/analysis/gsp-extract/bootloader.asm (le booter
 plaintext, NOTRE build — les lignes 976-1042 relues ce pass) ;
@@ -8,7 +8,7 @@ gsp_ga10x.bin (la section .fwsignature_ga10x, mesurée) ; le driver
 ouvert 610.57.04 (kernel_gsp.c:5666-5713, fetché et cité) ;
 tools/booter_emu.py (l'émulateur RV64, le 4.31, étendu ce pass).
 
-## 0. Le verdict d'ensemble
+## 0. The overall verdict
 
 Le gadget 0x100b48 (`sd a5, 0x0(a1)`) = l'écriture d'une boucle
 PLUS GRANDE que le résumé 4.41 : la fonction complète 0x100aec-0x100ba6
@@ -21,7 +21,7 @@ Le format des entrées attendu par la boucle = **8 octets PLATS, PAS de
 les octets. La capacité du memdesc signature = **512 entrées u64**
 (4096 B / 8 B), pas 256.
 
-## 1. TÂCHE 1 — l'architecture de la transfer-list (PROUVÉ, octet par octet)
+## 1. TASK 1 — the transfer-list architecture (PROVEN, byte by byte)
 
 ### 1.1 Le décodage complet de la boucle (bootloader.asm l.976-1042)
 
@@ -132,7 +132,7 @@ logge ses étapes de boot. Les labels pointent la région post-image
 Les cellules statiques (0x124488/90/98/4a0, 0x16C088) = ZÉRO dans
 l'image → la boucle = INERTE sans le setup runtime (v442c).
 
-## 2. TÂCHE 2 — la table {valeur, cible} pour limitMax=280000
+## 2. TASK 2 — the {value, target} table for limitMax=280000
 
 ### 2.1 La correction de prémisse (les findings bancés)
 
@@ -187,7 +187,7 @@ déréférence pas.
    write-list E1/E2 suppose l'exécution AU STADE RM (le hijack
    persistant ou le gadget du RM = la suite).
 
-## 3. TÂCHE 3 — le patch memdesc kernel_gsp.c (le C + le test)
+## 3. TASK 3 — the memdesc patch kernel_gsp.c (the C + the test)
 
 `tools/booter-patch/transfer_list_memdesc.c` :
 - `tl_build_payload()` — le payload 4096 B : 0xFF (le pattern stock)
@@ -209,7 +209,7 @@ ce pass) et la taille byte-prouvée du memdesc = 4096 B (0x1000). La
 sémantique exacte du 0xF800 (la longueur DMA du metadata WPR ?) =
 INDECIDABLE ce pass (les logs day0 hors workspace).
 
-## 4. TÂCHE 4 — la validation émulateur (11/11 PASS)
+## 4. TASK 4 — the emulator validation (11/11 PASS)
 
 `tools/booter_emu.py --test-transfer` (le mode ajouté ; rdtime
 modélisé = le compteur déterministe, 1 tick = 1 ns 4.34) :
@@ -225,7 +225,7 @@ modélisé = le compteur déterministe, 1 tick = 1 ns 4.34) :
 La non-régression : `--selftest` = **5/5 PASS** (la batterie 4.31
 intacte).
 
-## 5. Les leçons d'instrument (bancées)
+## 5. Instrument lessons (banked)
 
 1. **L'imm20 signé, DEUXIÈME leçon** : v442a a raté les 21 appelants
    (0xffffe = −2) jusqu'au fix — la leçon 4.31-L7 s'applique aux
@@ -241,7 +241,7 @@ intacte).
    a tenu (mesuré dans la section table), le "0xF800" du nom = resté
    non résolu — les deux traits séparés.
 
-## 6. La suite (la file)
+## 6. Next (the queue)
 
 1. Les gadgets ld (le déréférencement) de l'inventaire 4.40 → la
    résolution runtime de [state+0x4E98] et de la base params.
