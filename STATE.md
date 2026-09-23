@@ -4,6 +4,40 @@ One page to answer: where the campaign stands, what is proven, what is
 open, what is next. The historical snapshots (2026-09-17, 2026-09-20)
 are at the bottom.
 
+## The 4.38-4.42 arc: the dual-core provenance, the transfer-list, the booter bypass validated
+
+The five passes (4.38→4.42) completed the dual-core power provenance
+and built the offensive tooling:
+
+- **4.38**: the applied 250 W lives in **NO binary as a constant** —
+  the VBIOS parse is the source; the patch design = Lane V (the
+  VBIOS-in-RAM), Lane R (the corrected {240000, 250000} pair scanner),
+  Lane T (the RatedTdp hook). The v9 triple fingerprint = PROVEN
+  INVALID.
+- **4.40**: the ROP gadget hunt in OUR plaintext booter — **the
+  self-advancing transfer-list write-primitive** found @0x100b3e/
+  0x100b48 (ld stack → [a1], the bounds built-in).
+- **4.41**: the transfer loop decoded instruction by instruction — the
+  memdesc stack = the SOURCE, the RM state register = the DESTINATION.
+- **4.42**: **the transfer-list BUILT and PROVEN end-to-end**: the C
+  patch (`transfer_list_memdesc.c`), the {value, target} table for
+  limitMax=280000, the emulator validation 11/11 (the TT battery), the
+  C dump == the Python builder BYTE-EXACT.
+- **The boot test**: the patched gsp_ga10x.bin (sha 6a3c1a06…)
+  **booted WITHOUT signature rejection** — the rm.elf modification =
+  accepted by the silicon. The power limit = 250 (the constants = the
+  time hysteresis, 4.32 confirmed live). The machine = stable.
+- **The booter bypass validated**: the plaintext booter (gsp_ga10x.bin
+  = a RISC-V ELF, the booter = the first section @0x40) = emulated
+  (RV64IMC, the 4.31 tool), the locate-gsp = byte-exact on the real
+  firmware.
+
+The current state: the machine = restored to STOCK (250 W, zero Xid).
+The patched firmware artifact = preserved (~/gsp_ga10x_patched.bin).
+The static hunt = exhausted (4.36 the floor). The remaining roads =
+the 4.26 recv capture (the large-path hook = built) and the runtime
+ROP (the transfer-list = ready, the chain = the remaining work).
+
 ## The 4.37 addition: the break-day package (the data twins are descriptor-linked; the two boot days armed)
 
 The pass 4.37 (`lab/jalon411/findings-4.37-breakday-package.md`) ran

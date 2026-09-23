@@ -1,10 +1,10 @@
 # 4.41 — la boucle de transfert décodée : la pile memdesc = la SOURCE, la destination RM = le registre
 
-Substrate: tools/analysis/gsp-extract/bootloader.asm (le booter
-plaintext, OUR build). La boucle 0x100b00-0x100b60 = décodée
-instruction par instruction.
+Substrate: tools/analysis/gsp-extract/bootloader.asm (the plaintext
+booter, OUR build). The loop 0x100b00-0x100b60 = decoded instruction
+by instruction.
 
-## La mécanique complète
+## The complete mechanism
 
 | adresse | instruction | le rôle |
 |---|---|---|
@@ -21,8 +21,7 @@ instruction par instruction.
 
 ## La conclusion
 
-La pile memdesc 0xF800 (notre injection driver) = LA SOURCE de la
-transfer-list. Le booter transfère les données de notre pile vers le
-registre de l'état RM par le booter LUI-MÊME. Nous contrôlons la
-SOURCE (la pile 0xF800). Le contenu = écrit dans l'état RM = la
-politique.
+The memdesc stack 0xF800 (our driver injection) = the SOURCE of the
+transfer-list. The booter transfers the data from our stack to the RM
+state register ITSELF. We control the SOURCE (the 0xF800 stack). The
+content = written into the RM state = the policy.
