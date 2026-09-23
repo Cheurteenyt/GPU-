@@ -38,6 +38,11 @@ WHAT THIS TOOL DOES:
              proven by tests), and re-parses structurally valid.
   rebuild  — from-parts reconstruction (header + section data + inert
              slivers + section table) — byte-exact on unchanged input.
+  patchrm  — replace every lui+addi materialization of a constant inside
+             the rm component: the six CONTIGUOUS pairs (pass 4.30) AND
+             the split-form pairs (pass 4.34: lui @off, addi @off+gap,
+             gap 6/8, clobber-checked — the 7th 250000 site @rm+0xb99c4a
+             the contiguous-only scan missed).
 
 HONEST LEDGER:
   - Same-size patches only (the u32-class patch the campaign needs).
@@ -114,16 +119,106 @@ def riscv_lui_addi_sites(blob: bytes, value: int):
     return sites
 
 
+# ------------------------------------------------ split-form pairs (4.34)
+# The contiguous scan above pairs lui@off with addi@off+4 ONLY. The real
+# image also carries SPLIT pairs (proven: the 7th 250000 site, lui a4
+# @rm+0xb99c4a, addi a4 @rm+0xb99c52, gap 8, `sub s2,s10,s2` between —
+# v432e C2). A split pair materializes the constant iff NOTHING between
+# lui and addi writes rd; the clobber check is capstone-decoded (the
+# 4.31 lesson: capstone decodes everything).
+
+_NON_WRITERS = frozenset(
+    """sd sw sh sb c.sd c.sw c.swsp c.sdsp beq bne blt bge bltu bgeu beqz
+    bnez bltz bgez blez bgtz c.beqz c.bnez j c.j ret c.ret c.jr ecall
+    ebreak fence fence.i nop c.nop wfi mret sret uret sfence.vma""".split())
+
+
+def _insn_writes(ins, rd: int) -> bool:
+    """does capstone insn `ins` write GPR number `rd`? (conservative;
+    mirrors v432e's writes_reg but by register NUMBER)"""
+    if ins is None or ins.mnemonic in _NON_WRITERS:
+        return False
+    if ins.mnemonic == "jal":               # jal writes ra only if rd=ra
+        return rd == 1
+    try:
+        return ins.operands[0].type == capstone_riscv.CS_OP_REG and \
+            ins.operands[0].reg == rd
+    except Exception:
+        return ins.op_str.split(",")[0].strip() == f"x{rd}"
+
+
+def riscv_lui_addi_split_sites(blob: bytes, value: int, gaps=(6, 8)):
+    """Every split-form lui+addi pair in `blob` that materializes `value`:
+    [lui rd, hi] @off, [addi/addiw rd, rd, lo] @off+gap with gap > 4, the
+    intermediate instruction(s) NOT writing rd. Exhaustive at 2-byte
+    steps. Returns [(lui_off, addi_off, rd, op)] — addi_off = lui_off +
+    gap; the bytes between are untouched by patch_rm_constant."""
+    try:
+        import capstone
+    except ImportError:                      # pragma: no cover
+        raise SystemExit("capstone is required for the split-form scan")
+    global capstone_riscv, md
+    capstone_riscv = capstone
+    md = capstone.Cs(capstone.CS_ARCH_RISCV,
+                     capstone.CS_MODE_RISCV64 | capstone.CS_MODE_RISCVC)
+    hi, lo = riscv_split(value)
+    lo_u = lo & 0xFFF
+    sites = []
+    for gap in gaps:
+        if gap <= 4:
+            raise ValueError("split gaps must exceed 4 (the contiguous scan)")
+        for off in range(0, len(blob) - 4 - gap, 2):
+            (w,) = struct.unpack_from("<I", blob, off)
+            if (w & 0x7F) != 0x37 or (w >> 12) != hi:
+                continue
+            rd = (w >> 7) & 0x1F
+            if rd == 0:
+                continue
+            (w2,) = struct.unpack_from("<I", blob, off + gap)
+            opc = w2 & 0x7F
+            if opc not in (0x13, 0x1B):
+                continue
+            if ((w2 >> 12) & 7) != 0:
+                continue
+            if ((w2 >> 15) & 0x1F) != rd or ((w2 >> 7) & 0x1F) != rd:
+                continue
+            if (w2 >> 20) != lo_u:
+                continue
+            # clobber check: every instruction between lui and addi must
+            # not write rd. Decode sequentially from off+4; an insn that
+            # would straddle the addi is not a valid layout either.
+            mid = off + 4
+            clean = True
+            while mid < off + gap:
+                width = 4 if blob[mid] & 3 == 3 else 2
+                if mid + width > off + gap:
+                    clean = False
+                    break
+                ins = next(md.disasm(blob[mid:mid + width], mid), None)
+                if ins is None or ins.size != width or \
+                        _insn_writes(ins, rd):
+                    clean = False
+                    break
+                mid += width
+            if clean:
+                sites.append((off, off + gap, rd,
+                              "addi" if opc == 0x13 else "addiw"))
+    return sites
+
+
 def patch_rm_constant(fw: "GspFw", rm_fw_off: int, rm_size: int,
                       old_value: int, new_value: int,
-                      expected_sites: int = 6):
+                      expected_sites: int = 6, expected_split: int = 0):
     """Replace every lui+addi materialization of old_value inside the rm
     component (fwimage-relative window [rm_fw_off, rm_fw_off+rm_size)) by
     new_value, then rebuild the container.
 
-    Returns (blob, sites). Every site is re-decoded from the bytes and
-    re-verified before writing; the rd register and the addi/addiw opcode
-    are preserved; only the immediates change. Same-size by construction.
+    Returns (blob, sites, splits). Every site is re-decoded from the
+    bytes and re-verified before writing; the rd register and the
+    addi/addiw opcode are preserved; only the immediates change. The
+    split-form pairs (expected_split, 4.34) patch the two instructions
+    separately — the bytes between are never touched. Same-size by
+    construction.
     """
     img = fw.fwimage()
     if rm_fw_off < 0 or rm_fw_off + rm_size > len(img):
@@ -138,6 +233,11 @@ def patch_rm_constant(fw: "GspFw", rm_fw_off: int, rm_size: int,
     if len(sites) != expected_sites:
         raise ValueError(f"expected {expected_sites} sites of {old_value:#x} "
                          f"in the rm window, found {len(sites)}")
+    splits = riscv_lui_addi_split_sites(rm, old_value)
+    if len(splits) != expected_split:
+        raise ValueError(f"expected {expected_split} split-form sites of "
+                         f"{old_value:#x} in the rm window, found "
+                         f"{len(splits)}: {[(hex(a), hex(b)) for a, b, _, _ in splits]}")
     patched = bytearray(rm)
     for off, rd, op in sites:
         (w,) = struct.unpack_from("<I", rm, off)
@@ -148,9 +248,19 @@ def patch_rm_constant(fw: "GspFw", rm_fw_off: int, rm_size: int,
         new_lui = (new_hi << 12) | (rd << 7) | 0x37
         new_add = (new_lo & 0xFFF) << 20 | (rd << 15) | (rd << 7) | opc
         struct.pack_into("<II", patched, off, new_lui, new_add)
+    for lui_off, addi_off, rd, op in splits:
+        (w,) = struct.unpack_from("<I", rm, lui_off)
+        if (w >> 12) != old_hi:
+            raise ValueError(f"split @0x{lui_off:x}: lui imm {(w>>12):#x} != "
+                             f"the canonical {old_hi:#x}")
+        opc = 0x13 if op == "addi" else 0x1B
+        new_lui = (new_hi << 12) | (rd << 7) | 0x37
+        new_add = (new_lo & 0xFFF) << 20 | (rd << 15) | (rd << 7) | opc
+        struct.pack_into("<I", patched, lui_off, new_lui)
+        struct.pack_into("<I", patched, addi_off, new_add)
     new_img = img[:rm_fw_off] + bytes(patched) + img[rm_fw_off + rm_size:]
     blob = fw.rebuild({FW_IMAGE: new_img})
-    return blob, sites
+    return blob, sites, splits
 
 
 SHT_PROGBITS = 1
@@ -355,21 +465,30 @@ def _cli():
         new_v = int(sys.argv[6], 0)
         out = Path(sys.argv[7])
         expect = int(sys.argv[8].split("=")[1]) if len(sys.argv) > 8 else 6
-        blob, sites = patch_rm_constant(fw, rm_off, rm_size, old_v, new_v,
-                                        expected_sites=expect)
+        expect_split = int(sys.argv[9].split("=")[1]) if len(sys.argv) > 9 else 0
+        blob, sites, splits = patch_rm_constant(fw, rm_off, rm_size, old_v,
+                                                new_v, expected_sites=expect,
+                                                expected_split=expect_split)
         out.write_bytes(blob)
         diffs = [i for i in range(len(fw.data)) if fw.data[i] != blob[i]]
         # the differing bytes must sit inside the sites' rewritten windows
         fw_abs = fw.by_name[FW_IMAGE]["sh_offset"]
-        windows = sorted(set(fw_abs + rm_off + o + k
-                             for o, rd, op in sites for k in range(8)))
+        windows = sorted(set(
+            [fw_abs + rm_off + o + k for o, rd, op in sites for k in range(8)]
+            + [fw_abs + rm_off + o + k
+               for l_o, a_o, rd, op in splits
+               for o in (l_o, a_o) for k in range(4)]))
         inside = [i for i in diffs if i in set(windows)]
         ok_runs = len(inside) == len(diffs) and len(diffs) > 0
         ok, issues = GspFw(blob).verify()
-        print(f"patchrm: {len(sites)} site(s) of {old_v} -> {new_v} "
+        print(f"patchrm: {len(sites)} contiguous + {len(splits)} split-form "
+              f"site(s) of {old_v} -> {new_v} "
               f"(lui+addi pairs, rm @fwimage+0x{rm_off:x})")
         for (off, rd, op) in sites:
             print(f"  site rm+0x{off:x} rd=x{rd} {op}")
+        for (lui_off, addi_off, rd, op) in splits:
+            print(f"  split rm+0x{lui_off:x}..0x{addi_off:x} rd=x{rd} {op} "
+                  f"(clobber-checked)")
         print(f"diff vs source: {len(diffs)} byte(s) differ "
               f"({len(windows)} rewritten), all inside the sites: {ok_runs}")
         print("re-parse:", "VALID" if ok else f"INVALID {issues}")
