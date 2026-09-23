@@ -445,3 +445,100 @@ sharpened):
    duration and close the last INCERTAIN.
 4. The 4.26 recv capture stays the only road for the live policy
    values (the 96-B prediction remains armed).
+5. Function-level attribution of the three c.lui-100000 sites that sit
+   inside s2's and s3's covered regions (§8.1) — the region-granular
+   co-occurrence is proven; the same-FUNCTION question needs the
+   function-boundary walk.
+
+## 8. Addendum — the reconciliation pass (v432e): the local draft
+## arbitrated, two corrections, one confirmation
+
+A second, independent execution of this pass ran under the token
+session (the draft commit 0b6981e, pre-push). It disagreed with this
+document on three points. `v432e_reconcile.py` (+ `.json`) arbitrates
+all three on the bytes, on this machine, under the proven law; its
+coordinate-law re-check is 518/518 windows equal and the v416 map
+semantics are proven in passing (seen = instruction starts, covered =
+byte coverage: s1's start=1 / mid=0 / next=1).
+
+### 8.1 The c.lui loophole: 100000 is NOT absent from the firmware
+
+`v432_allpairs` promised c.lui/c.addi coverage in its docstring and did
+not implement it (full lui opcode 0x37 only). The compressed census,
+every hit validated against the map's seen bitmap, finds **36 real
+c.lui+addi materializations of 100000** (32 adjacent + 4 with one
+compressed instruction between; rd-matched; every one an instruction
+start). The §3.2 sentence "ABSENT from the firmware code" is CORRECTED:
+100000 is present in compressed form. The power-TRIO premise stays
+falsified exactly as stated, because 240000/250000/280000/500000/
+1000000/4000000 are NOT c.lui-encodable (|hi| > 0x1F — the theorem is
+asserted in the instrument): 240000 has ZERO sites under EVERY form.
+And what co-occurs with the 250000 sites is the time ladder itself:
+3 of the 36 c.lui-100000 sites fall INSIDE the covered regions of s2
+(two sites: A 0x1eb6f0, 0x1f04c6) and s3 (one site: A 0x7c1212) —
+100000 = 0.1 s next to the 0.25 s/0.5 s band, coherent only as µs.
+
+### 8.2 The seventh 250000 site: REAL (the gap-{2,4} scan hole)
+
+The allpairs scan enumerated gaps {2,4} only. Extended to {6,8} with an
+intermediate-instruction CLOBBER check, it finds ONE gap-8 split —
+exactly the draft's claim, here in law-correct coordinates:
+
+```
+0x1b99c82: lui      a4, 0x3d
+0x1b99c86: sub      s2, s10, s2      # does NOT write a4 — no clobber
+0x1b99c8a: addi     a4, a4, 0x90     # a4 = 250000
+0x1b99c8e: bgeu     s2, a4, 6        # threshold the difference
+0x1b99c92: c.mv     s2, a4           # s2 = min(s2, 250000)
+```
+
+seen=1, covered=1 (a verified instruction start, inside s4/s5's region
+[0x1b991a0,0x1b9b968]). The role: the SECOND clamp of the same
+threshold flow — s4/s5 clamp the value to 500000, this arm clamps the
+DIFFERENCE (s10 − s2) to 250000: the band [250000, 500000] is a
+hysteresis pair. The TIME verdict is REINFORCED (a 0.25–0.5 s deadband
+under the rdtime anchor). Two corrections follow: the six-site
+enumeration → **SEVEN** sites (§2's framing updated), and **the 4.30
+patched container still carries this live 250000 — that patch is 6/7
+regardless of semantics**; its boot stays barred as a 280 W experiment
+(keep it for the signature-coverage question only).
+
+### 8.3 The UPDATE_EDPP_LIMIT handler: both passes read the same bytes
+
+The handler @A 0x862480 ends `c.jr ra` (bytes 8082) after the s0/s1
+epilogue — the stub, exactly as §4.2 states. The draft's "real
+function" sat at A 0x8624B8 = B_file 0x862480: the draft read
+gsp-rm-17MB.bin WITHOUT the coordinate law (VA = B_file + 0x1000000),
+i.e. 0x38 bytes past the true handler, landing on the NEXT function's
+prologue (`c.addi16sp sp, -0xc0 ; c.sdsp s0/s3/s5 ...` — a real
+function, a real prologue, the wrong label). The draft's disassembly
+was accurate; only its addressing was off. Every coordinate the draft
+quoted carries the same −0x38 (its callee "0x188ef0c" = this
+document's 0x188EF44). Lesson banked beside §6: a coordinate law is a
+PREREQUISITE, not a finding — verify it before the first disassembly,
+not after the contradictions.
+
+### 8.4 The draft's "57 materializations of 100000": a worklog misreading
+
+The draft's own JSON says: full-form 100000 = 0, c.lui 100000 = 32,
+full-form 500000 = 25. Its worklog added the last two numbers into the
+wrong row. The v432e re-scan reproduces every full-form count of §3.2
+exactly at gaps {2,4} (100000=0, 240000=0, 250000=6, 280000=0) and
+asserts the five u32 hits equal under the law (the draft's B 0x4a7ba8,
+0x7bcba8, 0xb1aba8, 0xb33ba8, 0xb73ba8 = §3.2's A 0x4a7be0, 0x7bcbe0,
+0xb1abe0, 0xb33be0, 0xb73be0 — the same five words, two coordinate
+systems).
+
+### 8.5 The net effect on the global conclusion
+
+UNCHANGED and now stress-tested by an independent execution: the sites
+are time logic; the rm.elf patch is not a power-policy change; the
+280 W lane stays with the host feed (kernel_gsp.c / the perf construct
+path) or the HS-execution rewrite of the policy object. Corrected in
+this document by the reconciliation: §2's six-site framing (a seventh
+split site exists — the hysteresis clamp), §3.2's "absent" sentence
+(100000 is present, compressed form, 36 sites), §3.2's table row
+250000 (6 → 7 pair-equivalent sites), and the §5 patch-completeness
+implication (6/7). The v432e instrument closes the allpairs
+docstring's promise (c.lui) and the gap-{6,8} hole; its scan pattern
+is the reference for any future constant census in this repo.
