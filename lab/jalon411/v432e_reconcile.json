@@ -1,0 +1,604 @@
+{
+ "law": "B_file = A_img - 0x38; VA_A = A_img + 0x1000000",
+ "law_recheck": {
+  "windows": 518,
+  "fails": 0
+ },
+ "map_semantics": "seen=instruction starts, covered=byte coverage (proof: s1 lui @A 0x1a02a start=1 mid=0 covered_mid=1)",
+ "full_form_reproduction": {
+  "100000": [],
+  "240000": [],
+  "250000": [
+   "0x190fe",
+   "0x1a062",
+   "0x1f09e0",
+   "0x7c46b4",
+   "0xb99bec",
+   "0xb99cc8"
+  ],
+  "280000": [],
+  "500000": [
+   "0x186a8",
+   "0x92d14",
+   "0xda23a",
+   "0xda25c",
+   "0xda270",
+   "0x15b12e",
+   "0x1ff25e",
+   "0x1ff2a4",
+   "0x33f026",
+   "0x33f090",
+   "0x33f130",
+   "0x352b30"
+  ],
+  "1000000": [
+   "0xdc76",
+   "0x19d12",
+   "0x37e7e",
+   "0x846d4",
+   "0x84760",
+   "0x922be",
+   "0x923f2",
+   "0x93724",
+   "0x9b6aa",
+   "0x191be6",
+   "0x1b27cc",
+   "0x1b311c"
+  ],
+  "4000000": [
+   "0x1919e",
+   "0x8eada",
+   "0x8f0bc",
+   "0x15b2d6",
+   "0x5098d2",
+   "0x509ad8",
+   "0x5c7a4c",
+   "0x5dce44",
+   "0x5dcfee",
+   "0x5dd03c",
+   "0x5dd04e",
+   "0x5e9574"
+  ],
+  "279024": [
+   "0x2a3d6",
+   "0x3ecce",
+   "0xaf5da",
+   "0xaf6d6",
+   "0x1e08ce",
+   "0x1e0a94",
+   "0x21dc0e",
+   "0x259846",
+   "0xb99b80"
+  ],
+  "2500": [],
+  "25000": []
+ },
+ "full_form_gaps_6_8": {
+  "100000": [],
+  "240000": [],
+  "250000": [
+   "0xb99c82"
+  ],
+  "280000": [],
+  "500000": [
+   "0xd875c",
+   "0xda22a",
+   "0x21e52a",
+   "0x33f008",
+   "0x352b12",
+   "0x5ddd7e"
+  ],
+  "1000000": [
+   "0x1497e",
+   "0x1728a",
+   "0x188d4",
+   "0x31034",
+   "0x1919d2",
+   "0x1b35c2",
+   "0x1d2da8",
+   "0x1ea3ac",
+   "0x1f5878",
+   "0x1f7226",
+   "0x1f72a0",
+   "0x1f7fb2"
+  ],
+  "4000000": [
+   "0x39b83a"
+  ],
+  "279024": [],
+  "2500": [],
+  "25000": []
+ },
+ "claim7": {
+  "claim": "the local draft's 7th split-form 250000",
+  "B_file": "0xb99c4a",
+  "A_img": "0xb99c82",
+  "seen_start": true,
+  "covered": true,
+  "bytes_B": "37d7030033092d41130707096373e900",
+  "bytes_A": "37d7030033092d41130707096373e900",
+  "window": [
+   "0x1b99c80: c.addi   a1, 0xa",
+   "0x1b99c82: lui      a4, 0x3d",
+   "0x1b99c86: sub      s2, s10, s2",
+   "0x1b99c8a: addi     a4, a4, 0x90",
+   "0x1b99c8e: bgeu     s2, a4, 6",
+   "0x1b99c92: c.mv     s2, a4",
+   "0x1b99c94: ld       a1, 0x410(s1)",
+   "0x1b99c98: c.add    a5, s2",
+   "0x1b99c9a: sd       a5, 0x4d8(s1)",
+   "0x1b99c9e: c.li     a5, 1",
+   "0x1b99ca0: c.mv     a0, s5",
+   "0x1b99ca2: sb       a5, 0x440(s1)",
+   "0x1b99ca6: auipc    ra, 0xffcf5"
+  ]
+ },
+ "update_stub": {
+  "pushed_pass_claim": "c.jr ra @A 0x862480 (2 bytes)",
+  "draft_error": "the draft read gsp-rm-17MB.bin @0x862480 = A 0x8624B8 under the no-law assumption VA = B_file + 0x1000000",
+  "A_handler": {
+   "A_img": "0x862480",
+   "seen_start": true,
+   "bytes": "82803717110097e7",
+   "window": [
+    "0x1862478: c.ldsp   s0, 0x10(sp)",
+    "0x186247a: c.ldsp   s1, 8(sp)",
+    "0x186247c: c.li     a0, 0x1f",
+    "0x186247e: c.addi16sp sp, 0x20",
+    "0x1862480: c.jr     ra",
+    "0x1862482: lui      a4, 0x111",
+    "0x1862486: auipc    a5, 0x292e",
+    "0x186248a: ld       a5, 0x92(a5)",
+    "0x186248e: addi     a3, a4, 0x52c",
+    "0x1862492: c.add    a3, a5",
+    "0x1862494: c.lw     a1, 0(a3)",
+    "0x1862496: lui      a0, 0x400"
+   ]
+  },
+  "A_what_draft_read": {
+   "A_img": "0x8624b8",
+   "seen_start": true,
+   "bytes": "317122f94eed56e5",
+   "window": [
+    "0x18624ae: c.sw     a2, 0(a3)",
+    "0x18624b0: c.add    a5, a4",
+    "0x18624b2: sw       zero, 0(a5)",
+    "0x18624b6: c.j      -0x42",
+    "0x18624b8: c.addi16sp sp, -0xc0",
+    "0x18624ba: c.sdsp   s0, 0xb0(sp)",
+    "0x18624bc: c.sdsp   s3, 0x98(sp)",
+    "0x18624be: c.sdsp   s5, 0x88(sp)",
+    "0x18624c0: c.sdsp   s7, 0x78(sp)",
+    "0x18624c2: c.sdsp   ra, 0xb8(sp)",
+    "0x18624c4: c.sdsp   s1, 0xa8(sp)",
+    "0x18624c6: c.sdsp   s2, 0xa0(sp)"
+   ]
+  }
+ },
+ "u32_100000": {
+  "rescan_A": [
+   "0x4a7be0",
+   "0x7bcbe0",
+   "0xb1abe0",
+   "0xb33be0",
+   "0xb73be0"
+  ],
+  "draft_B_converted": [
+   "0x4a7be0",
+   "0x7bcbe0",
+   "0xb1abe0",
+   "0xb33be0",
+   "0xb73be0"
+  ],
+  "equal": true
+ },
+ "site_regions": [
+  null,
+  [
+   "0x1019c28",
+   "0x10217da"
+  ],
+  [
+   "0x11ea28c",
+   "0x11f145c"
+  ],
+  [
+   "0x17c09b8",
+   "0x17c65b8"
+  ],
+  [
+   "0x1b991a0",
+   "0x1b9b968"
+  ],
+  [
+   "0x1b991a0",
+   "0x1b9b968"
+  ]
+ ],
+ "clui100000_in_250000_regions": [
+  {
+   "A_img": "0x1eb6f0",
+   "B_file": "0x1eb6b8",
+   "gap": 2,
+   "seen_start": true,
+   "covered": true,
+   "rd": 14
+  },
+  {
+   "A_img": "0x1f04c6",
+   "B_file": "0x1f048e",
+   "gap": 2,
+   "seen_start": true,
+   "covered": true,
+   "rd": 17
+  },
+  {
+   "A_img": "0x7c1212",
+   "B_file": "0x7c11da",
+   "gap": 4,
+   "seen_start": true,
+   "covered": true,
+   "rd": 15
+  }
+ ],
+ "clui": {
+  "100000": {
+   "encodable": true,
+   "sites_total": 36,
+   "sites_seen_real": 36,
+   "sites": [
+    {
+     "A_img": "0x16898",
+     "B_file": "0x16860",
+     "gap": 2,
+     "seen_start": true,
+     "covered": true,
+     "rd": 20
+    },
+    {
+     "A_img": "0x164fe6",
+     "B_file": "0x164fae",
+     "gap": 2,
+     "seen_start": true,
+     "covered": true,
+     "rd": 15
+    },
+    {
+     "A_img": "0x173816",
+     "B_file": "0x1737de",
+     "gap": 2,
+     "seen_start": true,
+     "covered": true,
+     "rd": 10
+    },
+    {
+     "A_img": "0x1c2128",
+     "B_file": "0x1c20f0",
+     "gap": 2,
+     "seen_start": true,
+     "covered": true,
+     "rd": 13
+    },
+    {
+     "A_img": "0x1c22e2",
+     "B_file": "0x1c22aa",
+     "gap": 2,
+     "seen_start": true,
+     "covered": true,
+     "rd": 15
+    },
+    {
+     "A_img": "0x1d44ca",
+     "B_file": "0x1d4492",
+     "gap": 2,
+     "seen_start": true,
+     "covered": true,
+     "rd": 14
+    },
+    {
+     "A_img": "0x1d45ce",
+     "B_file": "0x1d4596",
+     "gap": 2,
+     "seen_start": true,
+     "covered": true,
+     "rd": 14
+    },
+    {
+     "A_img": "0x1d63ea",
+     "B_file": "0x1d63b2",
+     "gap": 2,
+     "seen_start": true,
+     "covered": true,
+     "rd": 14
+    },
+    {
+     "A_img": "0x1d6578",
+     "B_file": "0x1d6540",
+     "gap": 2,
+     "seen_start": true,
+     "covered": true,
+     "rd": 15
+    },
+    {
+     "A_img": "0x1eb6f0",
+     "B_file": "0x1eb6b8",
+     "gap": 2,
+     "seen_start": true,
+     "covered": true,
+     "rd": 14
+    },
+    {
+     "A_img": "0x1f04c6",
+     "B_file": "0x1f048e",
+     "gap": 2,
+     "seen_start": true,
+     "covered": true,
+     "rd": 17
+    },
+    {
+     "A_img": "0x1f7cc2",
+     "B_file": "0x1f7c8a",
+     "gap": 2,
+     "seen_start": true,
+     "covered": true,
+     "rd": 12
+    },
+    {
+     "A_img": "0x22a054",
+     "B_file": "0x22a01c",
+     "gap": 4,
+     "seen_start": true,
+     "covered": true,
+     "rd": 12
+    },
+    {
+     "A_img": "0x24f602",
+     "B_file": "0x24f5ca",
+     "gap": 2,
+     "seen_start": true,
+     "covered": true,
+     "rd": 12
+    },
+    {
+     "A_img": "0x24f934",
+     "B_file": "0x24f8fc",
+     "gap": 2,
+     "seen_start": true,
+     "covered": true,
+     "rd": 12
+    },
+    {
+     "A_img": "0x24fa46",
+     "B_file": "0x24fa0e",
+     "gap": 2,
+     "seen_start": true,
+     "covered": true,
+     "rd": 12
+    },
+    {
+     "A_img": "0x24fd38",
+     "B_file": "0x24fd00",
+     "gap": 2,
+     "seen_start": true,
+     "covered": true,
+     "rd": 12
+    },
+    {
+     "A_img": "0x250066",
+     "B_file": "0x25002e",
+     "gap": 2,
+     "seen_start": true,
+     "covered": true,
+     "rd": 12
+    },
+    {
+     "A_img": "0x280da4",
+     "B_file": "0x280d6c",
+     "gap": 2,
+     "seen_start": true,
+     "covered": true,
+     "rd": 12
+    },
+    {
+     "A_img": "0x281032",
+     "B_file": "0x280ffa",
+     "gap": 2,
+     "seen_start": true,
+     "covered": true,
+     "rd": 12
+    },
+    {
+     "A_img": "0x29d6aa",
+     "B_file": "0x29d672",
+     "gap": 2,
+     "seen_start": true,
+     "covered": true,
+     "rd": 11
+    },
+    {
+     "A_img": "0x2a8b56",
+     "B_file": "0x2a8b1e",
+     "gap": 2,
+     "seen_start": true,
+     "covered": true,
+     "rd": 11
+    },
+    {
+     "A_img": "0x2bbc24",
+     "B_file": "0x2bbbec",
+     "gap": 2,
+     "seen_start": true,
+     "covered": true,
+     "rd": 12
+    },
+    {
+     "A_img": "0x2c42f0",
+     "B_file": "0x2c42b8",
+     "gap": 2,
+     "seen_start": true,
+     "covered": true,
+     "rd": 11
+    },
+    {
+     "A_img": "0x2c596c",
+     "B_file": "0x2c5934",
+     "gap": 2,
+     "seen_start": true,
+     "covered": true,
+     "rd": 11
+    },
+    {
+     "A_img": "0x2d1c88",
+     "B_file": "0x2d1c50",
+     "gap": 2,
+     "seen_start": true,
+     "covered": true,
+     "rd": 15
+    },
+    {
+     "A_img": "0x41b638",
+     "B_file": "0x41b600",
+     "gap": 2,
+     "seen_start": true,
+     "covered": true,
+     "rd": 15
+    },
+    {
+     "A_img": "0x41b654",
+     "B_file": "0x41b61c",
+     "gap": 2,
+     "seen_start": true,
+     "covered": true,
+     "rd": 14
+    },
+    {
+     "A_img": "0x6e30c8",
+     "B_file": "0x6e3090",
+     "gap": 2,
+     "seen_start": true,
+     "covered": true,
+     "rd": 15
+    },
+    {
+     "A_img": "0x7c1212",
+     "B_file": "0x7c11da",
+     "gap": 4,
+     "seen_start": true,
+     "covered": true,
+     "rd": 15
+    },
+    {
+     "A_img": "0x855a0a",
+     "B_file": "0x8559d2",
+     "gap": 4,
+     "seen_start": true,
+     "covered": true,
+     "rd": 12
+    },
+    {
+     "A_img": "0x88f444",
+     "B_file": "0x88f40c",
+     "gap": 2,
+     "seen_start": true,
+     "covered": true,
+     "rd": 15
+    },
+    {
+     "A_img": "0x8bdede",
+     "B_file": "0x8bdea6",
+     "gap": 4,
+     "seen_start": true,
+     "covered": true,
+     "rd": 10
+    },
+    {
+     "A_img": "0xae973a",
+     "B_file": "0xae9702",
+     "gap": 2,
+     "seen_start": true,
+     "covered": true,
+     "rd": 14
+    },
+    {
+     "A_img": "0xb6c62e",
+     "B_file": "0xb6c5f6",
+     "gap": 2,
+     "seen_start": true,
+     "covered": true,
+     "rd": 15
+    },
+    {
+     "A_img": "0xb8b880",
+     "B_file": "0xb8b848",
+     "gap": 2,
+     "seen_start": true,
+     "covered": true,
+     "rd": 15
+    }
+   ]
+  },
+  "240000": {
+   "encodable": false,
+   "sites_total": 0,
+   "sites_seen_real": 0,
+   "sites": []
+  },
+  "250000": {
+   "encodable": false,
+   "sites_total": 0,
+   "sites_seen_real": 0,
+   "sites": []
+  },
+  "280000": {
+   "encodable": false,
+   "sites_total": 0,
+   "sites_seen_real": 0,
+   "sites": []
+  },
+  "500000": {
+   "encodable": false,
+   "sites_total": 0,
+   "sites_seen_real": 0,
+   "sites": []
+  },
+  "1000000": {
+   "encodable": false,
+   "sites_total": 0,
+   "sites_seen_real": 0,
+   "sites": []
+  },
+  "4000000": {
+   "encodable": false,
+   "sites_total": 0,
+   "sites_seen_real": 0,
+   "sites": []
+  },
+  "279024": {
+   "encodable": false,
+   "sites_total": 0,
+   "sites_seen_real": 0,
+   "sites": []
+  },
+  "2500": {
+   "encodable": true,
+   "sites_total": 0,
+   "sites_seen_real": 0,
+   "sites": []
+  },
+  "25000": {
+   "encodable": true,
+   "sites_total": 1,
+   "sites_seen_real": 0,
+   "sites": [
+    {
+     "A_img": "0x15edc4",
+     "B_file": "0x15ed8c",
+     "gap": 2,
+     "seen_start": false,
+     "covered": false,
+     "rd": 15
+    }
+   ]
+  }
+ }
+}

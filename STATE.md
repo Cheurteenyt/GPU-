@@ -95,6 +95,31 @@ tools/edpp/.
   feed / the HS-execution rewrite of the policy object). Do NOT boot the 4.30 patched
   container expecting watts.
 
+### 4.32e (2026-09-23) — the reconciliation: the draft pass arbitrated, the census holes closed
+
+- The independent draft execution (local, pre-push) disagreed on three points;
+  `v432e_reconcile.py` arbitrated all three on the bytes under the proven law.
+- A SEVENTH 250000 site is REAL: @A 0xb99c82, a gap-8 split (`lui a4,0x3d ; sub s2,s10,s2 ;
+  addi a4,a4,0x90 ; bgeu s2,a4 ; c.mv s2,a4`) — the allpairs gap-{2,4} hole; the `sub` does
+  not write a4 (no clobber), seen=1/covered=1. Role = the clamp of the DIFFERENCE (s10−s2)
+  to 250000: the hysteresis partner of s4/s5's 500000 clamp → the band [250000, 500000], the
+  TIME verdict REINFORCED. **The 4.30 patched container is 6/7 INCOMPLETE — the seventh site
+  survives it regardless of semantics.**
+- 100000 is NOT absent from the firmware: 36 REAL c.lui+addi sites (the allpairs docstring
+  promised the c.lui coverage, the code never scanned it), every hit a v416-verified
+  instruction start (the map semantics proven in passing: seen = starts, covered = bytes).
+  240000/250000/280000/500000/1000000/4000000 are NOT c.lui-encodable — the power-trio
+  falsification stands (240000 = 0 under EVERY form). 3 of the 36 c.lui-100000 sites
+  co-occur region-level inside s2's and s3's regions (0.1 s next to the 0.25/0.5 s band).
+- The draft's "real UPDATE_EDPP_LIMIT function" = the NEXT function's prologue at +0x38
+  (the draft read gsp-rm-17MB.bin without the coordinate law); the `c.jr ra` stub is
+  confirmed. The draft's "57 materializations of 100000" = a worklog misreading of its own
+  JSON (32 c.lui + the 500000 full-form count). Both passes agree on every full-form count
+  and on the five u32 hits (the same words, two coordinate systems).
+- Net effect: the 4.32 global verdict is UNCHANGED and stress-tested (NON — time logic, now
+  7 sites + 36 c.lui-100000). The v432e scan pattern (full + compressed forms, gaps
+  {2,4,6,8}, clobber-checked, seen-validated) = the reference constant census for the repo.
+
 **Phase III is proven in silicon.** The hardware campaign (7+ runs,
 `day0/cert20-plm-feat-test.log`) fired the published ROP chain on our
 GA104 with the driver patch (kernel_gsp.c `_kgspCreateSignatureMemdesc`,
