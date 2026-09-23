@@ -4,6 +4,39 @@ One page to answer: where the campaign stands, what is proven, what is
 open, what is next. The historical snapshots (2026-09-17, 2026-09-20)
 are at the bottom.
 
+## The 4.35 addition: the SAFE optimization lane proven (the host regkeys), the knobs carded
+
+The pass 4.35 (`lab/jalon411/findings-4.35-optimization-hunt2.md`) is
+the optimization hunt, round 2. **(A) The knob cards:** the 60 knobs of
+4.33 each carry a unit hypothesis, a risk class and an owner fan-in
+(the banked 4.32 counts reproduce exactly). The time-math knobs are
+refused BY CARD (1000000 = the 1e9/1e6 conversion chain,
+DO-NOT-TOUCH-BLIND; 10000000 = a 10-ms quanta with rdtime in-body); a
+coherent CLK-270k-FAMILY of 14 knobs (270000 × {1,2,3,6,8,9,10,12,16,
+20,25,30,50,100}) is catalogued; the GATED-TUNABLE shortlist is ranked
+by leverage (500000 / 100000000 / 4000000 in the fan-in-794 region
+0x10844a4); 1435840000 = a 1.43584-GHz clock threshold materialized on
+BOTH sides (3 COMPARE sites + a 16-entry data table @0x1c0d38c).
+**(B) The regkey lane = the no-patch lever, PROVEN:** 864 `Rm*`/`RM*`
+names in the firmware, 251 with direct PIC code xrefs (366 xrefs, 291
+PASS-TO-CALL — the lookup-by-name pattern: string → a1 → call → status
+gate), the name-pointer tables in the wild (RmVgpcSkyline ×27 + masks
+@0x1d858b8; RmCePceMap @0x1c492e0), the FNV-1a-32 hash machinery
+(basis 0x811C9DC5 at 3 sites, the hash-context init window cited), and
+the top tunables named (RML2MaxWaysSysmem = the L2-ways partitioning
+knob, RmClk2Enable, RMUseTc0NonCoherent, RmDisableDecompOnlyLce…).
+**(C) The data twins:** the 22×1000000 compiled-default table
+@0x404b4b0 (the top knob's data twin), the 2^n size-class ladders
+(@0x1c4ad68, 0x1c4ab68), the duplicated config blocks (the clone
+mass's data twin), and the d4d856ff ×666 DECODED — a live fill-value
+table (u32 0xff56d8d4 among distinct descending 0xff57xx records, step
+≈ −0x24), correcting the lane-D "waste" reading for that family (the
+banked 666 = the a_img-aligned 16-B unit, reproduced exactly). The two
+VA universes are formalized: runtime = campaign + 0x38 (the container
+phdrs = the loader truth). **The 280 W lane state is unchanged: the
+rm.elf patch lane stays CLOSED (the 4.34 REVERT verdict); round 2 adds
+the SAFE host-regkey road — the regkey experiments run on the STOCK
+firmware, one key, one boot, one counter delta.**
 ## The 4.34 addition: the rm.elf lane CLOSED (REVERT), the TIME domain resolved
 
 The pass 4.34 (`lab/jalon411/findings-4.34-time-queue-and-430-closure.md`)
