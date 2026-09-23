@@ -4,6 +4,30 @@ One page to answer: where the campaign stands, what is proven, what is
 open, what is next. The historical snapshots (2026-09-17, 2026-09-20)
 are at the bottom.
 
+## The 4.36 addition: the static hunt reaches its floor (the regkey canal is runtime)
+
+The pass 4.36 (`lab/jalon411/findings-4.36-regkey-flow.md`) paid the
+4.35 queue and closes the static program. **(A) The regkey-to-knob
+canal is NOT in-situ:** 0/12 shortlist knobs carry a regkey xref in
+their ret-bounded function, 0/12 at covered-region level (331
+distinct xrefs windowed, 366 verified xrefs over 148,249 canonical
+PIC pairs — the banked callee 0x188EF44 fan-in 50 reproduces
+exactly); the field flow cartographed the STATE-DEFAULT store targets
+instead (400000 into the -0xa0(s0) record with 5 same-field stores,
+1250000 into the adjacent 0x274/0x27c pair; zero a0 ret-stores). The
+C.LUI layout is byte-settled (quadrant 1, funct3 011, full 5-bit rd
+at [11:7]). **(B) The function-level owners:** 18/300 sites window
+ret-bounded, all with PIC fan-in 0 (leaf fragments / value-blocks);
+zero RPC-anchor and zero name-pointer ties at region level — the
+4.35a region cards remain the finest static attribution. **(C) The
+interrupted slices:** 5 of the 11 interrupted c.lui-100000 sites now
+BOTH-ARMS-AGREE:ARITH-CHAIN at CFG level (the 4.34 value-blocks
+confirmed + 0x1280da4 promoted); the 7 loop-shaped sites stay honest
+HYPOTHESIS (backward polling-loop edges). **The road forward: the
+SAFE host-regkey experiments on STOCK firmware (the 4.35 tunables),
+the knob cards as the gate, and the 4.26 recv-hook capture for the
+real values — the 280 W rm.elf lane stays CLOSED (the 4.34 REVERT).**
+
 ## The 4.35 addition: the SAFE optimization lane proven (the host regkeys), the knobs carded
 
 The pass 4.35 (`lab/jalon411/findings-4.35-optimization-hunt2.md`) is

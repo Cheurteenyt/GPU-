@@ -1,0 +1,1103 @@
+{
+ "law": "B_file = A_img - 0x38; VA_A = A_img + 0x1000000",
+ "img_len": "0xe9b000",
+ "law_recheck": {
+  "windows": 519,
+  "fails": 0
+ },
+ "map_semantics": {
+  "base": "A_img",
+  "seen": "instruction starts"
+ },
+ "covered_regions": 671,
+ "shortlist_source": "v435a shortlist_gated_tunable",
+ "shortlist_n": 12,
+ "clui_100000": 36,
+ "regkeys": {
+  "cards": 864,
+  "with_xrefs": 251,
+  "xrefs": 366
+ },
+ "selftest_rvmcd_xref": {
+  "auipc": "0xbf47fe: auipc ra, 2",
+  "jalr": "0xbf4802: jalr ra, ra, -0x4c"
+ },
+ "pic_edges": 148249,
+ "selftest_callee_fanin": {
+  "callee": "0x188EF44",
+  "fan_in_window16": 50
+ },
+ "region_level_cross": {
+  "pairs": 0,
+  "knobs_with_region_overlap": 0,
+  "values": []
+ },
+ "knob_flow_cards": [
+  {
+   "value": 500000,
+   "unit": "THRESHOLD/POLICY",
+   "leverage": 794,
+   "risk_class": "GATED-TUNABLE",
+   "sites": [
+    {
+     "A_img": "0x186a8",
+     "VA": "0x10186a8",
+     "rd": "a4",
+     "use": "COMPARE",
+     "use_at": "0x10186b6",
+     "func": [
+      null,
+      "0x18aa4"
+     ],
+     "owner_region": null,
+     "pic_fan_in_func": 0,
+     "prologue": null,
+     "regkey_pairs": []
+    },
+    {
+     "A_img": "0x92d14",
+     "VA": "0x1092d14",
+     "rd": "a2",
+     "use": "ARITH-CHAIN",
+     "use_at": "0x1092d1c",
+     "func": [
+      null,
+      "0x92e02"
+     ],
+     "owner_region": "0x10844a4",
+     "pic_fan_in_func": 0,
+     "prologue": null,
+     "regkey_pairs": []
+    },
+    {
+     "A_img": "0xda23a",
+     "VA": "0x10da23a",
+     "rd": "a2",
+     "use": "COMPARE",
+     "use_at": "0x10da248",
+     "func": [
+      null,
+      "0xda3fa"
+     ],
+     "owner_region": "0x10d93a0",
+     "pic_fan_in_func": 0,
+     "prologue": null,
+     "regkey_pairs": []
+    },
+    {
+     "A_img": "0xda25c",
+     "VA": "0x10da25c",
+     "rd": "a5",
+     "use": "COMPARE",
+     "use_at": "0x10da264",
+     "func": [
+      null,
+      "0xda3fa"
+     ],
+     "owner_region": "0x10d93a0",
+     "pic_fan_in_func": 0,
+     "prologue": null,
+     "regkey_pairs": []
+    },
+    {
+     "A_img": "0xda270",
+     "VA": "0x10da270",
+     "rd": "a5",
+     "use": "COMPARE",
+     "use_at": "0x10da278",
+     "func": [
+      null,
+      "0xda3fa"
+     ],
+     "owner_region": "0x10d93a0",
+     "pic_fan_in_func": 0,
+     "prologue": null,
+     "regkey_pairs": []
+    },
+    {
+     "A_img": "0x15b12e",
+     "VA": "0x115b12e",
+     "rd": "a2",
+     "use": "STORE-DATA",
+     "use_at": "0x115b164",
+     "func": [
+      null,
+      "0x15d702"
+     ],
+     "owner_region": null,
+     "pic_fan_in_func": 0,
+     "prologue": null,
+     "regkey_pairs": [],
+     "field": {
+      "op": "sw a2, -0x1f8(a5)",
+      "disp": "-0x1f8",
+      "base": "a5",
+      "same_field_stores": 0,
+      "same_field_loads": 0,
+      "ret_stores_a0": []
+     }
+    }
+   ],
+   "regkey_keys_co_resident": []
+  },
+  {
+   "value": 100000000,
+   "unit": "THRESHOLD/POLICY",
+   "leverage": 794,
+   "risk_class": "GATED-TUNABLE",
+   "sites": [
+    {
+     "A_img": "0x19208",
+     "VA": "0x1019208",
+     "rd": "a5",
+     "use": "COMPARE",
+     "use_at": "0x1019210",
+     "func": [
+      null,
+      "0x19d10"
+     ],
+     "owner_region": null,
+     "pic_fan_in_func": 0,
+     "prologue": null,
+     "regkey_pairs": []
+    },
+    {
+     "A_img": "0x19298",
+     "VA": "0x1019298",
+     "rd": "a3",
+     "use": "STORE-DATA",
+     "use_at": "0x10192a0",
+     "func": [
+      null,
+      "0x19d10"
+     ],
+     "owner_region": null,
+     "pic_fan_in_func": 0,
+     "prologue": null,
+     "regkey_pairs": [],
+     "field": {
+      "op": "sd a3, -0x6b8(a5)",
+      "disp": "-0x6b8",
+      "base": "a5",
+      "same_field_stores": 0,
+      "same_field_loads": 0,
+      "ret_stores_a0": []
+     }
+    },
+    {
+     "A_img": "0x6657e",
+     "VA": "0x106657e",
+     "rd": "a5",
+     "use": "COMPARE",
+     "use_at": "0x106658c",
+     "func": [
+      null,
+      "0x66aaa"
+     ],
+     "owner_region": "0x10661dc",
+     "pic_fan_in_func": 0,
+     "prologue": null,
+     "regkey_pairs": []
+    },
+    {
+     "A_img": "0x95f4c",
+     "VA": "0x1095f4c",
+     "rd": "a5",
+     "use": "COMPARE",
+     "use_at": "0x1095f5a",
+     "func": [
+      null,
+      "0x964d4"
+     ],
+     "owner_region": "0x10844a4",
+     "pic_fan_in_func": 0,
+     "prologue": null,
+     "regkey_pairs": []
+    },
+    {
+     "A_img": "0x9b6c0",
+     "VA": "0x109b6c0",
+     "rd": "a5",
+     "use": "COMPARE",
+     "use_at": "0x109b6ce",
+     "func": [
+      null,
+      "0x9b74c"
+     ],
+     "owner_region": "0x10844a4",
+     "pic_fan_in_func": 0,
+     "prologue": null,
+     "regkey_pairs": []
+    },
+    {
+     "A_img": "0x1de90a",
+     "VA": "0x11de90a",
+     "rd": "a2",
+     "use": "ARITH-CHAIN",
+     "use_at": "0x11de9ee",
+     "func": [
+      null,
+      "0x1dea7e"
+     ],
+     "owner_region": "0x11d28a8",
+     "pic_fan_in_func": 0,
+     "prologue": null,
+     "regkey_pairs": []
+    }
+   ],
+   "regkey_keys_co_resident": []
+  },
+  {
+   "value": 4000000,
+   "unit": "STATE-DEFAULT (tunable state field)",
+   "leverage": 794,
+   "risk_class": "GATED-TUNABLE",
+   "sites": [
+    {
+     "A_img": "0x1919e",
+     "VA": "0x101919e",
+     "rd": "a4",
+     "use": "STORE-DATA",
+     "use_at": "0x10191a8",
+     "func": [
+      null,
+      "0x19d10"
+     ],
+     "owner_region": null,
+     "pic_fan_in_func": 0,
+     "prologue": null,
+     "regkey_pairs": [],
+     "field": {
+      "op": "sd a4, 0x4a8(a5)",
+      "disp": "0x4a8",
+      "base": "a5",
+      "same_field_stores": 0,
+      "same_field_loads": 0,
+      "ret_stores_a0": []
+     }
+    },
+    {
+     "A_img": "0x8eada",
+     "VA": "0x108eada",
+     "rd": "a5",
+     "use": "COMPARE",
+     "use_at": "0x108eae8",
+     "func": [
+      null,
+      "0x8ec72"
+     ],
+     "owner_region": "0x10844a4",
+     "pic_fan_in_func": 0,
+     "prologue": null,
+     "regkey_pairs": []
+    },
+    {
+     "A_img": "0x8f0bc",
+     "VA": "0x108f0bc",
+     "rd": "a5",
+     "use": "COMPARE",
+     "use_at": "0x108f0ca",
+     "func": [
+      null,
+      "0x8f1e4"
+     ],
+     "owner_region": "0x10844a4",
+     "pic_fan_in_func": 0,
+     "prologue": null,
+     "regkey_pairs": []
+    },
+    {
+     "A_img": "0x15b2d6",
+     "VA": "0x115b2d6",
+     "rd": "a5",
+     "use": "STORE-DATA",
+     "use_at": "0x115b2de",
+     "func": [
+      null,
+      "0x15d702"
+     ],
+     "owner_region": null,
+     "pic_fan_in_func": 0,
+     "prologue": null,
+     "regkey_pairs": [],
+     "field": {
+      "op": "sw a5, -0x178(a3)",
+      "disp": "-0x178",
+      "base": "a3",
+      "same_field_stores": 0,
+      "same_field_loads": 0,
+      "ret_stores_a0": []
+     }
+    },
+    {
+     "A_img": "0x5098d2",
+     "VA": "0x15098d2",
+     "rd": "a2",
+     "use": "ARITH-CHAIN",
+     "use_at": "0x15098da",
+     "func": [
+      null,
+      "0x509984"
+     ],
+     "owner_region": "0x14f5c98",
+     "pic_fan_in_func": 0,
+     "prologue": null,
+     "regkey_pairs": []
+    },
+    {
+     "A_img": "0x509ad8",
+     "VA": "0x1509ad8",
+     "rd": "a2",
+     "use": "ARITH-CHAIN",
+     "use_at": "0x1509ae0",
+     "func": [
+      null,
+      "0x509ba0"
+     ],
+     "owner_region": "0x14f5c98",
+     "pic_fan_in_func": 0,
+     "prologue": null,
+     "regkey_pairs": []
+    }
+   ],
+   "regkey_keys_co_resident": []
+  },
+  {
+   "value": 400000,
+   "unit": "STATE-DEFAULT (tunable state field)",
+   "leverage": 213,
+   "risk_class": "GATED-TUNABLE",
+   "sites": [
+    {
+     "A_img": "0x2b297e",
+     "VA": "0x12b297e",
+     "rd": "a5",
+     "use": "STORE-DATA",
+     "use_at": "0x12b2986",
+     "func": [
+      null,
+      "0x2b31a4"
+     ],
+     "owner_region": "0x12afc8c",
+     "pic_fan_in_func": 0,
+     "prologue": null,
+     "regkey_pairs": [],
+     "field": {
+      "op": "sd a5, -0xf0(s0)",
+      "disp": "-0xf0",
+      "base": "s0",
+      "same_field_stores": 0,
+      "same_field_loads": 0,
+      "ret_stores_a0": []
+     }
+    },
+    {
+     "A_img": "0x2b2fc2",
+     "VA": "0x12b2fc2",
+     "rd": "a5",
+     "use": "STORE-DATA",
+     "use_at": "0x12b2fca",
+     "func": [
+      null,
+      "0x2b31a4"
+     ],
+     "owner_region": "0x12afc8c",
+     "pic_fan_in_func": 0,
+     "prologue": null,
+     "regkey_pairs": [],
+     "field": {
+      "op": "sd a5, -0xe8(s0)",
+      "disp": "-0xe8",
+      "base": "s0",
+      "same_field_stores": 0,
+      "same_field_loads": 0,
+      "ret_stores_a0": []
+     }
+    },
+    {
+     "A_img": "0x2b5102",
+     "VA": "0x12b5102",
+     "rd": "a5",
+     "use": "STORE-DATA",
+     "use_at": "0x12b510a",
+     "func": [
+      "0x2b5100",
+      "0x2b5112"
+     ],
+     "owner_region": "0x12afc8c",
+     "pic_fan_in_func": 0,
+     "prologue": null,
+     "regkey_pairs": [],
+     "field": {
+      "op": "c.sw a5, 0(a4)",
+      "disp": "0x0",
+      "base": "a4",
+      "same_field_stores": 1,
+      "same_field_loads": 0,
+      "ret_stores_a0": []
+     }
+    },
+    {
+     "A_img": "0x5c7b8e",
+     "VA": "0x15c7b8e",
+     "rd": "a5",
+     "use": "STORE-DATA",
+     "use_at": "0x15c7b96",
+     "func": [
+      "0x5c7b8a",
+      "0x5c7cd6"
+     ],
+     "owner_region": "0x15c253c",
+     "pic_fan_in_func": 0,
+     "prologue": null,
+     "regkey_pairs": [],
+     "field": {
+      "op": "sd a5, -0xa0(s0)",
+      "disp": "-0xa0",
+      "base": "s0",
+      "same_field_stores": 1,
+      "same_field_loads": 0,
+      "ret_stores_a0": []
+     }
+    },
+    {
+     "A_img": "0x5dcfc8",
+     "VA": "0x15dcfc8",
+     "rd": "a5",
+     "use": "STORE-DATA",
+     "use_at": "0x15dcfd0",
+     "func": [
+      "0x5dcfbe",
+      "0x5dd1f6"
+     ],
+     "owner_region": "0x15c253c",
+     "pic_fan_in_func": 0,
+     "prologue": null,
+     "regkey_pairs": [],
+     "field": {
+      "op": "sd a5, -0xa0(s0)",
+      "disp": "-0xa0",
+      "base": "s0",
+      "same_field_stores": 5,
+      "same_field_loads": 0,
+      "ret_stores_a0": []
+     }
+    },
+    {
+     "A_img": "0x5dd060",
+     "VA": "0x15dd060",
+     "rd": "a5",
+     "use": "STORE-DATA",
+     "use_at": "0x15dd068",
+     "func": [
+      null,
+      "0x5dd1f6"
+     ],
+     "owner_region": "0x15c253c",
+     "pic_fan_in_func": 0,
+     "prologue": null,
+     "regkey_pairs": [],
+     "field": {
+      "op": "sd a5, -0xa0(s0)",
+      "disp": "-0xa0",
+      "base": "s0",
+      "same_field_stores": 0,
+      "same_field_loads": 0,
+      "ret_stores_a0": []
+     }
+    }
+   ],
+   "regkey_keys_co_resident": []
+  },
+  {
+   "value": 1435840000,
+   "unit": "THRESHOLD/POLICY",
+   "leverage": 169,
+   "risk_class": "GATED-TUNABLE",
+   "sites": [
+    {
+     "A_img": "0x417b88",
+     "VA": "0x1417b88",
+     "rd": "a5",
+     "use": "COMPARE",
+     "use_at": "0x1417b90",
+     "func": [
+      null,
+      "0x417d6a"
+     ],
+     "owner_region": "0x14131aa",
+     "pic_fan_in_func": 0,
+     "prologue": null,
+     "regkey_pairs": []
+    },
+    {
+     "A_img": "0x41d6ce",
+     "VA": "0x141d6ce",
+     "rd": "a5",
+     "use": "COMPARE",
+     "use_at": "0x141d6d6",
+     "func": [
+      null,
+      "0x41d764"
+     ],
+     "owner_region": "0x14131aa",
+     "pic_fan_in_func": 0,
+     "prologue": null,
+     "regkey_pairs": []
+    },
+    {
+     "A_img": "0x44dc32",
+     "VA": "0x144dc32",
+     "rd": "a5",
+     "use": "COMPARE",
+     "use_at": "0x144dc3a",
+     "func": [
+      null,
+      "0x44dcc8"
+     ],
+     "owner_region": "0x144a0c8",
+     "pic_fan_in_func": 0,
+     "prologue": null,
+     "regkey_pairs": []
+    }
+   ],
+   "regkey_keys_co_resident": []
+  },
+  {
+   "value": 50000000,
+   "unit": "THRESHOLD/POLICY",
+   "leverage": 112,
+   "risk_class": "GATED-TUNABLE",
+   "sites": [
+    {
+     "A_img": "0x1e8a7c",
+     "VA": "0x11e8a7c",
+     "rd": "a5",
+     "use": "COMPARE",
+     "use_at": "0x11e8a8a",
+     "func": [
+      null,
+      "0x1e8be6"
+     ],
+     "owner_region": "0x11e8498",
+     "pic_fan_in_func": 0,
+     "prologue": null,
+     "regkey_pairs": []
+    },
+    {
+     "A_img": "0x1e8c38",
+     "VA": "0x11e8c38",
+     "rd": "a5",
+     "use": "COMPARE",
+     "use_at": "0x11e8c46",
+     "func": [
+      null,
+      "0x1e8d7c"
+     ],
+     "owner_region": "0x11e8498",
+     "pic_fan_in_func": 0,
+     "prologue": null,
+     "regkey_pairs": []
+    },
+    {
+     "A_img": "0x1e8e18",
+     "VA": "0x11e8e18",
+     "rd": "a5",
+     "use": "COMPARE",
+     "use_at": "0x11e8e26",
+     "func": [
+      null,
+      "0x1e8fb6"
+     ],
+     "owner_region": "0x11e8498",
+     "pic_fan_in_func": 0,
+     "prologue": null,
+     "regkey_pairs": []
+    },
+    {
+     "A_img": "0x1e9012",
+     "VA": "0x11e9012",
+     "rd": "a5",
+     "use": "COMPARE",
+     "use_at": "0x11e9020",
+     "func": [
+      null,
+      "0x1e9252"
+     ],
+     "owner_region": "0x11e8498",
+     "pic_fan_in_func": 0,
+     "prologue": null,
+     "regkey_pairs": []
+    },
+    {
+     "A_img": "0x1f7108",
+     "VA": "0x11f7108",
+     "rd": "a5",
+     "use": "COMPARE",
+     "use_at": "0x11f7116",
+     "func": [
+      null,
+      "0x1f73d0"
+     ],
+     "owner_region": "0x11f3508",
+     "pic_fan_in_func": 0,
+     "prologue": null,
+     "regkey_pairs": []
+    },
+    {
+     "A_img": "0x1f7304",
+     "VA": "0x11f7304",
+     "rd": "a5",
+     "use": "COMPARE",
+     "use_at": "0x11f7312",
+     "func": [
+      null,
+      "0x1f73d0"
+     ],
+     "owner_region": "0x11f3508",
+     "pic_fan_in_func": 0,
+     "prologue": null,
+     "regkey_pairs": []
+    }
+   ],
+   "regkey_keys_co_resident": []
+  },
+  {
+   "value": 20000000,
+   "unit": "THRESHOLD/POLICY",
+   "leverage": 82,
+   "risk_class": "GATED-TUNABLE",
+   "sites": [
+    {
+     "A_img": "0x1917a8",
+     "VA": "0x11917a8",
+     "rd": "a5",
+     "use": "UNRESOLVED-in-window",
+     "use_at": null,
+     "func": [
+      null,
+      "0x1923d2"
+     ],
+     "owner_region": null,
+     "pic_fan_in_func": 0,
+     "prologue": null,
+     "regkey_pairs": []
+    },
+    {
+     "A_img": "0x1f2148",
+     "VA": "0x11f2148",
+     "rd": "a5",
+     "use": "COMPARE",
+     "use_at": "0x11f2156",
+     "func": [
+      null,
+      "0x1f2344"
+     ],
+     "owner_region": "0x11f17bc",
+     "pic_fan_in_func": 0,
+     "prologue": null,
+     "regkey_pairs": []
+    },
+    {
+     "A_img": "0x1f7246",
+     "VA": "0x11f7246",
+     "rd": "a5",
+     "use": "COMPARE",
+     "use_at": "0x11f7254",
+     "func": [
+      null,
+      "0x1f73d0"
+     ],
+     "owner_region": "0x11f3508",
+     "pic_fan_in_func": 0,
+     "prologue": null,
+     "regkey_pairs": []
+    },
+    {
+     "A_img": "0x1fd278",
+     "VA": "0x11fd278",
+     "rd": "a3",
+     "use": "STORE-DATA",
+     "use_at": "0x11fd290",
+     "func": [
+      null,
+      "0x1fe298"
+     ],
+     "owner_region": null,
+     "pic_fan_in_func": 0,
+     "prologue": null,
+     "regkey_pairs": [],
+     "field": {
+      "op": "sd a3, -0x2f8(s0)",
+      "disp": "-0x2f8",
+      "base": "s0",
+      "same_field_stores": 0,
+      "same_field_loads": 0,
+      "ret_stores_a0": []
+     }
+    },
+    {
+     "A_img": "0x1fd898",
+     "VA": "0x11fd898",
+     "rd": "a5",
+     "use": "ARITH-CHAIN",
+     "use_at": "0x11fd8a8",
+     "func": [
+      null,
+      "0x1fe298"
+     ],
+     "owner_region": null,
+     "pic_fan_in_func": 0,
+     "prologue": null,
+     "regkey_pairs": []
+    },
+    {
+     "A_img": "0x228070",
+     "VA": "0x1228070",
+     "rd": "a5",
+     "use": "COMPARE",
+     "use_at": "0x122807e",
+     "func": [
+      null,
+      "0x228118"
+     ],
+     "owner_region": "0x1225000",
+     "pic_fan_in_func": 0,
+     "prologue": null,
+     "regkey_pairs": []
+    }
+   ],
+   "regkey_keys_co_resident": []
+  },
+  {
+   "value": 1250000,
+   "unit": "STATE-DEFAULT (tunable state field)",
+   "leverage": 52,
+   "risk_class": "GATED-TUNABLE",
+   "sites": [
+    {
+     "A_img": "0x16ec62",
+     "VA": "0x116ec62",
+     "rd": "a5",
+     "use": "STORE-DATA",
+     "use_at": "0x116ec6a",
+     "func": [
+      null,
+      "0x16ede2"
+     ],
+     "owner_region": "0x1161c64",
+     "pic_fan_in_func": 0,
+     "prologue": null,
+     "regkey_pairs": [],
+     "field": {
+      "op": "sw a5, 0x274(a0)",
+      "disp": "0x274",
+      "base": "a0",
+      "same_field_stores": 0,
+      "same_field_loads": 0,
+      "ret_stores_a0": []
+     }
+    },
+    {
+     "A_img": "0x16ecd4",
+     "VA": "0x116ecd4",
+     "rd": "a5",
+     "use": "STORE-DATA",
+     "use_at": "0x116ecdc",
+     "func": [
+      null,
+      "0x16ede2"
+     ],
+     "owner_region": "0x1161c64",
+     "pic_fan_in_func": 0,
+     "prologue": null,
+     "regkey_pairs": [],
+     "field": {
+      "op": "sw a5, 0x27c(a0)",
+      "disp": "0x27c",
+      "base": "a0",
+      "same_field_stores": 0,
+      "same_field_loads": 0,
+      "ret_stores_a0": []
+     }
+    },
+    {
+     "A_img": "0x699668",
+     "VA": "0x1699668",
+     "rd": "s7",
+     "use": "ARITH-CHAIN",
+     "use_at": "0x1699670",
+     "func": [
+      null,
+      "0x699f50"
+     ],
+     "owner_region": null,
+     "pic_fan_in_func": 0,
+     "prologue": null,
+     "regkey_pairs": []
+    }
+   ],
+   "regkey_keys_co_resident": []
+  },
+  {
+   "value": 600000,
+   "unit": "THRESHOLD/POLICY",
+   "leverage": 39,
+   "risk_class": "GATED-TUNABLE",
+   "sites": [
+    {
+     "A_img": "0x27dd50",
+     "VA": "0x127dd50",
+     "rd": "a5",
+     "use": "COMPARE",
+     "use_at": "0x127dd5a",
+     "func": [
+      null,
+      "0x27dfaa"
+     ],
+     "owner_region": "0x1270c34",
+     "pic_fan_in_func": 0,
+     "prologue": null,
+     "regkey_pairs": []
+    },
+    {
+     "A_img": "0x6f0c1a",
+     "VA": "0x16f0c1a",
+     "rd": "a5",
+     "use": "COMPARE",
+     "use_at": "0x16f0c24",
+     "func": [
+      null,
+      "0x6f0e8c"
+     ],
+     "owner_region": "0x16e2f28",
+     "pic_fan_in_func": 0,
+     "prologue": null,
+     "regkey_pairs": []
+    },
+    {
+     "A_img": "0x15acfa",
+     "VA": "0x115acfa",
+     "rd": "t3",
+     "use": "ARITH-CHAIN",
+     "use_at": "0x115ad02",
+     "func": [
+      null,
+      "0x15d702"
+     ],
+     "owner_region": null,
+     "pic_fan_in_func": 0,
+     "prologue": null,
+     "regkey_pairs": []
+    }
+   ],
+   "regkey_keys_co_resident": []
+  },
+  {
+   "value": 340000,
+   "unit": "THRESHOLD/POLICY",
+   "leverage": 35,
+   "risk_class": "GATED-TUNABLE",
+   "sites": [
+    {
+     "A_img": "0x24d100",
+     "VA": "0x124d100",
+     "rd": "a3",
+     "use": "COMPARE",
+     "use_at": "0x124d108",
+     "func": [
+      null,
+      "0x24d204"
+     ],
+     "owner_region": "0x1242e44",
+     "pic_fan_in_func": 0,
+     "prologue": null,
+     "regkey_pairs": []
+    },
+    {
+     "A_img": "0x27dd44",
+     "VA": "0x127dd44",
+     "rd": "a5",
+     "use": "COMPARE",
+     "use_at": "0x127dd4c",
+     "func": [
+      null,
+      "0x27dfaa"
+     ],
+     "owner_region": "0x1270c34",
+     "pic_fan_in_func": 0,
+     "prologue": null,
+     "regkey_pairs": []
+    }
+   ],
+   "regkey_keys_co_resident": []
+  },
+  {
+   "value": 202000,
+   "unit": "THRESHOLD/POLICY",
+   "leverage": 33,
+   "risk_class": "GATED-TUNABLE",
+   "sites": [
+    {
+     "A_img": "0x6fd53a",
+     "VA": "0x16fd53a",
+     "rd": "a1",
+     "use": "STORE-DATA",
+     "use_at": "0x16fd542",
+     "func": [
+      null,
+      "0x6fd650"
+     ],
+     "owner_region": "0x16f8034",
+     "pic_fan_in_func": 0,
+     "prologue": null,
+     "regkey_pairs": [],
+     "field": {
+      "op": "sw a1, 8(s7)",
+      "disp": "0x8",
+      "base": "s7",
+      "same_field_stores": 0,
+      "same_field_loads": 0,
+      "ret_stores_a0": []
+     }
+    },
+    {
+     "A_img": "0x6fd6cc",
+     "VA": "0x16fd6cc",
+     "rd": "a5",
+     "use": "COMPARE",
+     "use_at": "0x16fd6d4",
+     "func": [
+      null,
+      "0x6fd91a"
+     ],
+     "owner_region": "0x16f8034",
+     "pic_fan_in_func": 0,
+     "prologue": null,
+     "regkey_pairs": []
+    },
+    {
+     "A_img": "0x6fd6e4",
+     "VA": "0x16fd6e4",
+     "rd": "a5",
+     "use": "COMPARE",
+     "use_at": "0x16fd6ec",
+     "func": [
+      null,
+      "0x6fd91a"
+     ],
+     "owner_region": "0x16f8034",
+     "pic_fan_in_func": 0,
+     "prologue": null,
+     "regkey_pairs": []
+    }
+   ],
+   "regkey_keys_co_resident": []
+  },
+  {
+   "value": -25000000,
+   "unit": "THRESHOLD/POLICY",
+   "leverage": 23,
+   "risk_class": "GATED-TUNABLE",
+   "sites": [
+    {
+     "A_img": "0x27cc28",
+     "VA": "0x127cc28",
+     "rd": "a5",
+     "use": "ARITH-CHAIN",
+     "use_at": "0x127cc32",
+     "func": [
+      null,
+      "0x27cd84"
+     ],
+     "owner_region": "0x1270c34",
+     "pic_fan_in_func": 0,
+     "prologue": null,
+     "regkey_pairs": []
+    },
+    {
+     "A_img": "0x28401c",
+     "VA": "0x128401c",
+     "rd": "a5",
+     "use": "COMPARE",
+     "use_at": "0x128402e",
+     "func": [
+      null,
+      "0x284176"
+     ],
+     "owner_region": "0x1280bc4",
+     "pic_fan_in_func": 0,
+     "prologue": null,
+     "regkey_pairs": []
+    },
+    {
+     "A_img": "0x2840e0",
+     "VA": "0x12840e0",
+     "rd": "a5",
+     "use": "COMPARE",
+     "use_at": "0x12840f2",
+     "func": [
+      null,
+      "0x284176"
+     ],
+     "owner_region": "0x1280bc4",
+     "pic_fan_in_func": 0,
+     "prologue": null,
+     "regkey_pairs": []
+    },
+    {
+     "A_img": "0x284460",
+     "VA": "0x1284460",
+     "rd": "a5",
+     "use": "COMPARE",
+     "use_at": "0x1284472",
+     "func": [
+      null,
+      "0x2848c6"
+     ],
+     "owner_region": "0x1280bc4",
+     "pic_fan_in_func": 0,
+     "prologue": null,
+     "regkey_pairs": []
+    },
+    {
+     "A_img": "0x284600",
+     "VA": "0x1284600",
+     "rd": "a5",
+     "use": "COMPARE",
+     "use_at": "0x1284612",
+     "func": [
+      null,
+      "0x2848c6"
+     ],
+     "owner_region": "0x1280bc4",
+     "pic_fan_in_func": 0,
+     "prologue": null,
+     "regkey_pairs": []
+    },
+    {
+     "A_img": "0x288b4e",
+     "VA": "0x1288b4e",
+     "rd": "a5",
+     "use": "COMPARE",
+     "use_at": "0x1288b60",
+     "func": [
+      null,
+      "0x288b8a"
+     ],
+     "owner_region": null,
+     "pic_fan_in_func": 0,
+     "prologue": null,
+     "regkey_pairs": []
+    }
+   ],
+   "regkey_keys_co_resident": []
+  }
+ ],
+ "regkey_fed_candidates": [],
+ "summary": {
+  "shortlist_knobs": 12,
+  "knobs_with_regkey_co_resident": 0,
+  "regkey_fed_candidates": 0
+ }
+}
