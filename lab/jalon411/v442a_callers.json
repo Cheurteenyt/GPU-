@@ -1,0 +1,102 @@
+{
+  "target": 1051372,
+  "auipc_jalr_pairs_total": 228,
+  "callers_of_0x100aec": [
+    {
+      "auipc": "0x101b14",
+      "jalr": "0x101b18"
+    },
+    {
+      "auipc": "0x101b76",
+      "jalr": "0x101b7a"
+    },
+    {
+      "auipc": "0x101b94",
+      "jalr": "0x101b98"
+    },
+    {
+      "auipc": "0x101c0a",
+      "jalr": "0x101c0e"
+    },
+    {
+      "auipc": "0x101ca6",
+      "jalr": "0x101caa"
+    },
+    {
+      "auipc": "0x101cf8",
+      "jalr": "0x101cfc"
+    },
+    {
+      "auipc": "0x1022fe",
+      "jalr": "0x102302"
+    },
+    {
+      "auipc": "0x1028aa",
+      "jalr": "0x1028ae"
+    },
+    {
+      "auipc": "0x102b00",
+      "jalr": "0x102b04"
+    },
+    {
+      "auipc": "0x102b66",
+      "jalr": "0x102b6a"
+    },
+    {
+      "auipc": "0x102b92",
+      "jalr": "0x102b96"
+    },
+    {
+      "auipc": "0x102c18",
+      "jalr": "0x102c1c"
+    },
+    {
+      "auipc": "0x102d60",
+      "jalr": "0x102d64"
+    },
+    {
+      "auipc": "0x102db4",
+      "jalr": "0x102db8"
+    },
+    {
+      "auipc": "0x102fa6",
+      "jalr": "0x102faa"
+    },
+    {
+      "auipc": "0x1034e6",
+      "jalr": "0x1034ea"
+    },
+    {
+      "auipc": "0x103560",
+      "jalr": "0x103564"
+    },
+    {
+      "auipc": "0x1035c8",
+      "jalr": "0x1035cc"
+    },
+    {
+      "auipc": "0x10385e",
+      "jalr": "0x103862"
+    },
+    {
+      "auipc": "0x103912",
+      "jalr": "0x103916"
+    },
+    {
+      "auipc": "0x103992",
+      "jalr": "0x103996"
+    }
+  ],
+  "direct_jumps_into_range": [
+    {
+      "site": "0x100b9e",
+      "mnem": "j",
+      "target": "0x100b48"
+    },
+    {
+      "site": "0x100ba4",
+      "mnem": "j",
+      "target": "0x100b48"
+    }
+  ]
+}
