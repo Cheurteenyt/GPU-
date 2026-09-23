@@ -1,0 +1,123 @@
+{
+ "law": "B_file = A_img - 0x38; rm.elf sits at fwimage+0x19f000 (gsp_ga10x.bin .fwimage); VA_A = A_img + 0x1000000",
+ "base": {
+  "fwimage": "/home/z/my-project/GPU-/tools/analysis/gsp-extract/binaries/fwimage.bin",
+  "sha256": "85213b87db131c17a0ebbb1b44abd18c4fcd58080dd43cde82c5c67a5b08eeec",
+  "size": 84258816,
+  "rm_fw_off": "0x19f000",
+  "rm_size": "0x1071000"
+ },
+ "patch": {
+  "old": 250000,
+  "new": 280000,
+  "encoding": "lui hi/lo pairs; split-form = the two insns separately, the gap bytes NEVER touched"
+ },
+ "sites": [
+  {
+   "rm_off": "0x190c6",
+   "fw_off": "0x1b80c6",
+   "rd": 15,
+   "op": "addi",
+   "old": "0003d7b709078793",
+   "new": "000447b75c078793"
+  },
+  {
+   "rm_off": "0x1a02a",
+   "fw_off": "0x1b902a",
+   "rd": 12,
+   "op": "addi",
+   "old": "0003d63709060613",
+   "new": "000446375c060613"
+  },
+  {
+   "rm_off": "0x1f09a8",
+   "fw_off": "0x38f9a8",
+   "rd": 12,
+   "op": "addi",
+   "old": "0003d63709060613",
+   "new": "000446375c060613"
+  },
+  {
+   "rm_off": "0x7c467c",
+   "fw_off": "0x96367c",
+   "rd": 15,
+   "op": "addiw",
+   "old": "0003d7b70907879b",
+   "new": "000447b75c07879b"
+  },
+  {
+   "rm_off": "0xb99bb4",
+   "fw_off": "0xd38bb4",
+   "rd": 15,
+   "op": "addi",
+   "old": "0003d7b709078793",
+   "new": "000447b75c078793"
+  },
+  {
+   "rm_off": "0xb99c90",
+   "fw_off": "0xd38c90",
+   "rd": 18,
+   "op": "addi",
+   "old": "0003d93709090913",
+   "new": "000449375c090913"
+  },
+  {
+   "rm_off": "0xb99c4a",
+   "rm_addi_off": "0xb99c52",
+   "fw_off": "0xd38c4a",
+   "fw_addi_off": "0xd38c52",
+   "rd": 14,
+   "op": "addi",
+   "form": "split gap-8 (sub preserved)",
+   "old": "0003d737 ... 09070713",
+   "new": "00044737 ... 5c070713"
+  }
+ ],
+ "contiguous_count": 6,
+ "split_count": 1,
+ "differing_bytes": 21,
+ "differing_offsets": [
+  "0x1b80c7",
+  "0x1b80c8",
+  "0x1b80cd",
+  "0x1b902b",
+  "0x1b902c",
+  "0x1b9031",
+  "0x38f9a9",
+  "0x38f9aa",
+  "0x38f9af",
+  "0x96367d",
+  "0x96367e",
+  "0x963683",
+  "0xd38bb5",
+  "0xd38bb6",
+  "0xd38bbb",
+  "0xd38c4b",
+  "0xd38c4c",
+  "0xd38c55",
+  "0xd38c91",
+  "0xd38c92",
+  "0xd38c97"
+ ],
+ "rewritten_windows_bytes": 56,
+ "artifact": {
+  "path": "/home/z/my-project/artifacts/fwimage-77-patched.bin",
+  "sha256": "5962342bfe5abe4bd6f4807d9a0b0360ee5bd6e241c935b6f35932b090c1d73a",
+  "size": 84258816,
+  "note": "fwimage ONLY; the 7/7 CONTAINER needs gspbuild (see reproduction)"
+ },
+ "reproduction": {
+  "founder_command": "gspbuild.py patchrm <gsp_ga10x.bin> 0x19f000 0x1071000 250000 280000 <out.bin> sites=6 split=1",
+  "test_suite": "tests_gspbuild.py \u2014 27 PASS incl. R18-R20 + S1-S8 (the split census, the 7/7 patch, the negatives)",
+  "note": "the tests_gspbuild REAL lane regains coverage when the 84 MB container is present (GSP_GA10X=...)"
+ },
+ "verdict": {
+  "decision": "REVERT for any boot; the 7/7 artifact is the completeness proof, not a boot recommendation",
+  "rationale": [
+   "semantics: pass 4.32 PROVED the seven 250000 sites are the request/budget engine's TIME logic (the [250000,500000] us hysteresis band), NOT a power policy \u2014 turning them cannot reach 280 W",
+   "coherence: the 4.30 container (sha 6a3c1a06...) turns 6/7 sites \u2014 a half-turned binary; booting it was already registered 4.33 as the blocking defect",
+   "the 280 W path stays the host feed: the EDPp object is runtime-fed (vtable, 4.32 TASK 3) \u2014 the host-side limit API is the lever, not the rm.elf bytes"
+  ],
+  "runbook": "tools/edpp/runbook-280.sh updated in this pass: swap refuses the 6/7 container by hash; swap77 exists but prints the TIME-not-power warning and requires an explicit env opt-in"
+ }
+}

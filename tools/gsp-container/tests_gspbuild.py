@@ -21,7 +21,8 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
 from gspbuild import (EHDR_FMT, EHDR_SIZE, SHDR_FMT, SHDR_SIZE, GspFw,
-                      patch_rm_constant, riscv_lui_addi_sites, riscv_split)
+                      patch_rm_constant, riscv_lui_addi_sites,
+                      riscv_lui_addi_split_sites, riscv_split)
 
 REAL = Path(os.environ.get(
     "GSP_GA10X",
@@ -296,7 +297,8 @@ def test_real():
     # are only the immediate bytes (encoding-derived, 3 per site for
     # 250000->280000: two in lui, one in addi => 18). The mission's
     # "exactly 24 bytes (6x4)" rested on the falsified u32 premise.
-    blob4, sites4b = patch_rm_constant(fw, RM_OFF, RM_SIZE, 250000, 280000)
+    blob4, sites4b, splits4b = patch_rm_constant(fw, RM_OFF, RM_SIZE,
+                                                 250000, 280000)
     diffs4 = [i for i in range(len(raw)) if raw[i] != blob4[i]]
     fw_abs = fw.by_name[".fwimage"]["sh_offset"]
     expect48 = set(fw_abs + RM_OFF + s + k for s in SITES for k in range(8))
@@ -355,9 +357,93 @@ def test_real():
     except ValueError:
         check("R17 non-ELF rm window rejected", True)
 
+    # R18: the split-form census on the REAL rm window (4.34)
+    sp4 = riscv_lui_addi_split_sites(rm_win, 250000)
+    check("R18 split census == exactly the 7th site",
+          sp4 == [(0xb99c4a, 0xb99c52, 14, "addi")], str(sp4))
+    check("R18 split census of 280000 == 0 (no post-patch collision)",
+          riscv_lui_addi_split_sites(rm_win, 280000) == [])
+
+    # R19: the 7/7 patch — the split site re-decodes, the sub is preserved
+    blob5, sites5, splits5 = patch_rm_constant(
+        fw, RM_OFF, RM_SIZE, 250000, 280000, expected_split=1)
+    pw5 = GspFw(blob5).fwimage()
+    w, w2 = struct.unpack_from("<II", pw5, RM_OFF + 0xb99c4a)
+    check("R19 split lui now 0x44 (280000)", w == (0x44 << 12) | (14 << 7) | 0x37)
+    check("R19 split addi now 0x5c0 (280000)",
+          w2 == (0x5C0 << 20) | (14 << 15) | (14 << 7) | 0x13)
+    (subw,) = struct.unpack_from("<I", pw5, RM_OFF + 0xb99c4e)
+    (subw0,) = struct.unpack_from("<I", img4, RM_OFF + 0xb99c4e)
+    check("R19 the sub between lui and addi is byte-preserved",
+          subw == subw0, hex(subw))
+    diffs5 = [i for i in range(len(raw)) if raw[i] != blob5[i]]
+    check("R19 7/7 diff = 21 B (18 contiguous + 3 split)", len(diffs5) == 21,
+          f"{len(diffs5)}")
+    ok5b, iss5b = GspFw(blob5).verify()
+    check("R19 7/7 container re-parse valid", ok5b, "; ".join(iss5b))
+    import hashlib as _h2
+    h77 = _h2.sha256(blob5).hexdigest()
+    print(f"  NOTE  7/7 patched container sha256 = {h77}")
+
+    # R20: the split negative — a wrong split count is rejected
+    try:
+        patch_rm_constant(fw, RM_OFF, RM_SIZE, 250000, 280000,
+                          expected_split=2)
+        check("R20 wrong-split-count rejected", False)
+    except ValueError:
+        check("R20 wrong-split-count rejected", True)
+
+
+def test_split_fwimage():
+    """The split-form census + patch on the repo's fwimage.bin — runs
+    WITHOUT the 84 MB container (fwimage IS committed)."""
+    print("== SPLIT (fwimage.bin, always on) ==")
+    if not FWI.exists():
+        print(f"  SKIP  {FWI} absent")
+        return
+    img = FWI.read_bytes()
+    RM_OFF = 0x19f000
+    RM_SIZE = 0x1071000
+    rm = img[RM_OFF:RM_OFF + RM_SIZE]
+    check("S1 fwimage rm window starts with ELF magic", rm[:4] == b"\x7fELF")
+    sp = riscv_lui_addi_split_sites(rm, 250000)
+    check("S2 split census of 250000 == the 7th site only",
+          sp == [(0xb99c4a, 0xb99c52, 14, "addi")], str(sp))
+    check("S3 split census of 280000 == 0",
+          riscv_lui_addi_split_sites(rm, 280000) == [])
+    check("S4 split census of 100000 == 0 (the compressed-form lane)",
+          riscv_lui_addi_split_sites(rm, 100000) == [])
+    # the cited window (v432e C2): lui a4,0x3d / sub s2,s10,s2 /
+    # addi a4,a4,0x90 / bltu s2,a4,...
+    words = struct.unpack_from("<IIII", rm, 0xb99c4a)
+    check("S5 cited window words",
+          words == (0x0003D737, 0x412D0933, 0x09070713, 0x00E97363),
+          " ".join(f"{w:08x}" for w in words))
+    # the split patch, verified on the bytes: re-decode + minimal diff
+    hi_n, lo_n = riscv_split(280000)
+    patched = bytearray(rm)
+    struct.pack_into("<I", patched, 0xb99c4a, (hi_n << 12) | (14 << 7) | 0x37)
+    struct.pack_into("<I", patched, 0xb99c52, (lo_n << 20) | (14 << 15) |
+                     (14 << 7) | 0x13)
+    pd = [k for k in range(len(rm)) if rm[k] != patched[k]]
+    check("S6 split patch diff == 3 bytes at the predicted offsets",
+          pd == [0xb99c4b, 0xb99c4c, 0xb99c55],
+          " ".join(hex(k) for k in pd))
+    check("S7 patched split pair re-decodes 280000",
+          ((struct.unpack_from("<I", patched, 0xb99c4a)[0] >> 12) << 12)
+          + ((struct.unpack_from("<I", patched, 0xb99c52)[0] >> 20) & 0xFFF
+             - 0x1000
+             if (struct.unpack_from("<I", patched, 0xb99c52)[0] >> 20) & 0xFFF
+             >= 0x800 else
+             (struct.unpack_from("<I", patched, 0xb99c52)[0] >> 20) & 0xFFF)
+          == 280000)
+    check("S8 the sub between is byte-preserved",
+          patched[0xb99c4e:0xb99c52] == rm[0xb99c4e:0xb99c52])
+
 
 if __name__ == "__main__":
     test_synthetic()
     test_real()
+    test_split_fwimage()
     print(f"\n==== {PASS} PASS / {FAIL} FAIL ====")
     sys.exit(1 if FAIL else 0)

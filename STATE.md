@@ -1,26 +1,31 @@
-# gpu-lab — state of the campaign (2026-09-23)
+# gpu-lab — state of the campaign (2026-09-22)
 
 One page to answer: where the campaign stands, what is proven, what is
 open, what is next. The historical snapshots (2026-09-17, 2026-09-20)
 are at the bottom.
 
-## The 4.33 addition: the firmware optimization map is banked
+## The 4.34 addition: the rm.elf lane CLOSED (REVERT), the TIME domain resolved
 
-The pass 4.33 (`lab/jalon411/findings-4.33-firmware-optimization.md`)
-answered "where can the closed firmware be optimized" with four
-measured lanes: (A) the 60-value policy-knob table with per-site use
-classes — the only behavior-relevant surface, gated by per-knob
-semantics (the µs ladder = the only scale-proven family); (B) the
-duplicate-code census — 145,117 exact families, 27% of instruction
-starts inside a clone, shareable ≥ 12.2 MB, the #1 idiom ×26,060 —
-the quantified patch-coherence tax (the 4.32 7th-site lesson); (C)
-the call census — the firmware calls in auipc+jalr PIC pairs (only
-600 direct jal), 148,848 sites / 7,084 targets, top fan-in 52,114
-and 31,329, the ecall-0x25 gate 7,284 callers, PIC targets 100%
-seen-validated; (D) layout CLOSED — 0 file gaps, the booter's 96.3%
-zeros are structural (the GFW boot-area bias law). The 4.30 patched
-container is registered 6/7 INCOHERENT (the 7th split site keeps
-250000): complete it to 7/7 or revert before any boot experiment.
+The pass 4.34 (`lab/jalon411/findings-4.34-time-queue-and-430-closure.md`)
+did three things. **(A) The 4.30 closure:** the split-form finder
+(capstone clobber check) entered gspbuild and found exactly the 7th
+250000 site (lui a4 @rm+0xb99c4a, addi @+0xb99c52, gap 8 — the
+`sub s2,s10,s2` between); the 7/7-complete patch is PRODUCED (21 B
+differ, all pairs re-decode 280000, artifact outside the repo) with the
+verdict **REVERT for any boot** — the seven sites are TIME logic, not
+power (4.32), so the runbook-280.sh now refuses the half-turned 6/7
+container and gates the 7/7 behind RUNBOOK_77_ACK=1; the 280 W road is
+the host feed, on the STOCK firmware. **(B) The 34 c.lui-100000 bodies**
+(the 4.33 queue) classified by first consumer: 6 CALL-ARG, 4 MUL
+(×1e5/div converters), 5 STORE-DATA, 3 COMPARE (one against a rdtime
+delta), 8 ARITH, 11 slice-interrupted, 0 dead — the family is the RM's
+fine time quantum, never a power knob. **(C) The tick rate PROVEN:**
+451 rdtime reads; the literal conversion chain (s2 = 1e9 → divu =
+seconds → ×0xF4240 = µs) pins the RISC-V time CSR at **1 tick = 1 ns
+(1 GHz)** — 31.25 MHz appears zero times in code and data; the µs
+ladder of 4.32 is the policy layer on the nanosecond counter, and the
+100000-vs-rdtime threshold = 100 µs. Tests: 27 PASS / 0 FAIL
+(gspbuild R18-R20 + the always-on fwimage lane S1-S8).
 
 ## The 4.30 addition: the gsp.bin pipeline is packaged end to end
 
@@ -87,56 +92,6 @@ tools/edpp/.
   emulator on OUR image, 5/5 — directed patch demo: 0x1014DC bounds check original→FAIL
   oracle vs NOP'd→clean ret, exactly 4 bytes differ).
 
-### 4.32 (2026-09-23) — the EDPp provenance: the six 250000 sites are TIME logic, not power
-
-- The decisive prerequisite PROVEN first: rm-full.elf and gsp-rm-17MB.bin are byte-identical
-  code images under `B_file = A_img − 0x38` (v432_coord_check, 3,739/3,739 windows, the six
-  4.30 patch sites and the 17 v420 census sites re-verified) — all campaign coordinates
-  transfer losslessly.
-- T1: every one of the six 250000 sites has a cited mechanical role, none power:
-  s0 = threshold vs a 0x4f0-stride record field (+0x4a8), s1 = call argument consumed as a
-  TIMEOUT by the shared callee 0x188EF44 which reads `rdtime` and adds the value to the tick
-  to form a deadline, s2 = a deadline/deadband pair on the same record field (+0x470, the
-  −250000 arm 96 B away), s3 = the dividend of a packed {divisor, quotient} rate pair
-  (0xc0-stride records), s4/s5 = clamp-to-500000 + threshold in one function.
-- T2: 100000 and 240000 = ZERO lui+addi sites in the whole code image (7,434 pairs, all
-  legal decompositions) — the power trio {100/240/250} does NOT exist in the RM. The
-  co-occurring family {±250000, ±500000, 1000000, 4000000, 100000000} is scale-coherent only
-  as µs (the tick unit stays HYPOTHÈSE). The 0x441F0 near s4/s5 = an ADDRESS offset, excluded.
-- T3: the 0x6d0 policy object is re-derived from RM-internal runtime state: the v420 census
-  reproduced 17/17, the writers mapped (memset reset, the 0x2080A080 worker refresh at +0x660,
-  an 8-dword block copy from a descriptor-looked-up runtime object via 0x2080A618, flag
-  immediates) — NO static-constant fill, NO request-buffer fill; the six sites' regions are
-  disjoint from the object's regions.
-- CONCLUSION: the rm.elf patch 250000→280000 does NOT modify the power policy (NON, proven
-  level) — it would change timer durations. The 280 W lane stays host-side (the VBIOS-parse
-  feed / the HS-execution rewrite of the policy object). Do NOT boot the 4.30 patched
-  container expecting watts.
-
-### 4.32e (2026-09-23) — the reconciliation: the draft pass arbitrated, the census holes closed
-
-- The independent draft execution (local, pre-push) disagreed on three points;
-  `v432e_reconcile.py` arbitrated all three on the bytes under the proven law.
-- A SEVENTH 250000 site is REAL: @A 0xb99c82, a gap-8 split (`lui a4,0x3d ; sub s2,s10,s2 ;
-  addi a4,a4,0x90 ; bgeu s2,a4 ; c.mv s2,a4`) — the allpairs gap-{2,4} hole; the `sub` does
-  not write a4 (no clobber), seen=1/covered=1. Role = the clamp of the DIFFERENCE (s10−s2)
-  to 250000: the hysteresis partner of s4/s5's 500000 clamp → the band [250000, 500000], the
-  TIME verdict REINFORCED. **The 4.30 patched container is 6/7 INCOMPLETE — the seventh site
-  survives it regardless of semantics.**
-- 100000 is NOT absent from the firmware: 36 REAL c.lui+addi sites (the allpairs docstring
-  promised the c.lui coverage, the code never scanned it), every hit a v416-verified
-  instruction start (the map semantics proven in passing: seen = starts, covered = bytes).
-  240000/250000/280000/500000/1000000/4000000 are NOT c.lui-encodable — the power-trio
-  falsification stands (240000 = 0 under EVERY form). 3 of the 36 c.lui-100000 sites
-  co-occur region-level inside s2's and s3's regions (0.1 s next to the 0.25/0.5 s band).
-- The draft's "real UPDATE_EDPP_LIMIT function" = the NEXT function's prologue at +0x38
-  (the draft read gsp-rm-17MB.bin without the coordinate law); the `c.jr ra` stub is
-  confirmed. The draft's "57 materializations of 100000" = a worklog misreading of its own
-  JSON (32 c.lui + the 500000 full-form count). Both passes agree on every full-form count
-  and on the five u32 hits (the same words, two coordinate systems).
-- Net effect: the 4.32 global verdict is UNCHANGED and stress-tested (NON — time logic, now
-  7 sites + 36 c.lui-100000). The v432e scan pattern (full + compressed forms, gaps
-  {2,4,6,8}, clobber-checked, seen-validated) = the reference constant census for the repo.
 
 **Phase III is proven in silicon.** The hardware campaign (7+ runs,
 `day0/cert20-plm-feat-test.log`) fired the published ROP chain on our
