@@ -1,0 +1,251 @@
+{
+ "law": "B_file = A_img - 0x38; VA_A = A_img + 0x1000000",
+ "law_recheck": {
+  "windows": 519,
+  "fails": 0
+ },
+ "linear_recheck": {
+  "interrupted": 12,
+  "v434b_clobbered": 11,
+  "delta": 1
+ },
+ "resolved_sites": [
+  {
+   "A_img": "0x1f7cc2",
+   "VA": "0x11f7cc2",
+   "rd": "a2",
+   "linear_verdict": "NO-READ-in-40",
+   "cfg_verdict": "UNRESOLVED-ALL-ARMS (dead=0)",
+   "n_arms": 1,
+   "classes": [],
+   "dead_arms": 0,
+   "unresolved_arms": 1,
+   "arm_detail": [
+    {
+     "class": "UNRESOLVED-window-end",
+     "read_at": "0x11f7e72",
+     "depth": 0
+    }
+   ]
+  },
+  {
+   "A_img": "0x22a054",
+   "VA": "0x122a054",
+   "rd": "a2",
+   "linear_verdict": "NO-READ-in-40",
+   "cfg_verdict": "UNRESOLVED-ALL-ARMS (dead=1)",
+   "n_arms": 1,
+   "classes": [],
+   "dead_arms": 1,
+   "unresolved_arms": 0,
+   "arm_detail": [
+    {
+     "class": "DEAD-at-ret",
+     "read_at": "0x122a0f2",
+     "depth": 2
+    }
+   ]
+  },
+  {
+   "A_img": "0x24f602",
+   "VA": "0x124f602",
+   "rd": "a2",
+   "linear_verdict": "NO-READ-in-40",
+   "cfg_verdict": "UNRESOLVED-ALL-ARMS (dead=1)",
+   "n_arms": 1,
+   "classes": [],
+   "dead_arms": 1,
+   "unresolved_arms": 0,
+   "arm_detail": [
+    {
+     "class": "DEAD-at-ret",
+     "read_at": "0x124f6b8",
+     "depth": 0
+    }
+   ]
+  },
+  {
+   "A_img": "0x24f934",
+   "VA": "0x124f934",
+   "rd": "a2",
+   "linear_verdict": "NO-READ-in-40",
+   "cfg_verdict": "BOTH-ARMS-AGREE:ARITH-CHAIN",
+   "n_arms": 1,
+   "classes": [
+    "ARITH-CHAIN"
+   ],
+   "dead_arms": 0,
+   "unresolved_arms": 0,
+   "arm_detail": [
+    {
+     "class": "ARITH-CHAIN",
+     "read_at": "0x124f9da",
+     "depth": 3
+    }
+   ]
+  },
+  {
+   "A_img": "0x24fa46",
+   "VA": "0x124fa46",
+   "rd": "a2",
+   "linear_verdict": "NO-READ-in-40",
+   "cfg_verdict": "BOTH-ARMS-AGREE:ARITH-CHAIN",
+   "n_arms": 1,
+   "classes": [
+    "ARITH-CHAIN"
+   ],
+   "dead_arms": 0,
+   "unresolved_arms": 0,
+   "arm_detail": [
+    {
+     "class": "ARITH-CHAIN",
+     "read_at": "0x124faea",
+     "depth": 4
+    }
+   ]
+  },
+  {
+   "A_img": "0x250066",
+   "VA": "0x1250066",
+   "rd": "a2",
+   "linear_verdict": "DEAD-at-ret",
+   "cfg_verdict": "UNRESOLVED-ALL-ARMS (dead=1)",
+   "n_arms": 1,
+   "classes": [],
+   "dead_arms": 1,
+   "unresolved_arms": 0,
+   "arm_detail": [
+    {
+     "class": "DEAD-at-ret",
+     "read_at": "0x12500ae",
+     "depth": 5
+    }
+   ]
+  },
+  {
+   "A_img": "0x280da4",
+   "VA": "0x1280da4",
+   "rd": "a2",
+   "linear_verdict": "NO-READ-in-40",
+   "cfg_verdict": "BOTH-ARMS-AGREE:ARITH-CHAIN",
+   "n_arms": 1,
+   "classes": [
+    "ARITH-CHAIN"
+   ],
+   "dead_arms": 0,
+   "unresolved_arms": 0,
+   "arm_detail": [
+    {
+     "class": "ARITH-CHAIN",
+     "read_at": "0x1280e78",
+     "depth": 0
+    }
+   ]
+  },
+  {
+   "A_img": "0x281032",
+   "VA": "0x1281032",
+   "rd": "a2",
+   "linear_verdict": "DEAD-at-ret",
+   "cfg_verdict": "UNRESOLVED-ALL-ARMS (dead=1)",
+   "n_arms": 1,
+   "classes": [],
+   "dead_arms": 1,
+   "unresolved_arms": 0,
+   "arm_detail": [
+    {
+     "class": "DEAD-at-ret",
+     "read_at": "0x128107a",
+     "depth": 5
+    }
+   ]
+  },
+  {
+   "A_img": "0x2bbc24",
+   "VA": "0x12bbc24",
+   "rd": "a2",
+   "linear_verdict": "NO-READ-in-40",
+   "cfg_verdict": "UNRESOLVED-ALL-ARMS (dead=1)",
+   "n_arms": 1,
+   "classes": [],
+   "dead_arms": 1,
+   "unresolved_arms": 0,
+   "arm_detail": [
+    {
+     "class": "DEAD-at-ret",
+     "read_at": "0x12bbcbe",
+     "depth": 0
+    }
+   ]
+  },
+  {
+   "A_img": "0x2c42f0",
+   "VA": "0x12c42f0",
+   "rd": "a1",
+   "linear_verdict": "NO-READ-in-40",
+   "cfg_verdict": "BOTH-ARMS-AGREE:ARITH-CHAIN",
+   "n_arms": 1,
+   "classes": [
+    "ARITH-CHAIN"
+   ],
+   "dead_arms": 0,
+   "unresolved_arms": 0,
+   "arm_detail": [
+    {
+     "class": "ARITH-CHAIN",
+     "read_at": "0x12c4386",
+     "depth": 1
+    }
+   ]
+  },
+  {
+   "A_img": "0x2c596c",
+   "VA": "0x12c596c",
+   "rd": "a1",
+   "linear_verdict": "NO-READ-in-40",
+   "cfg_verdict": "BOTH-ARMS-AGREE:ARITH-CHAIN",
+   "n_arms": 1,
+   "classes": [
+    "ARITH-CHAIN"
+   ],
+   "dead_arms": 0,
+   "unresolved_arms": 0,
+   "arm_detail": [
+    {
+     "class": "ARITH-CHAIN",
+     "read_at": "0x12c5a02",
+     "depth": 1
+    }
+   ]
+  },
+  {
+   "A_img": "0x855a0a",
+   "VA": "0x1855a0a",
+   "rd": "a2",
+   "linear_verdict": "NO-READ-in-40",
+   "cfg_verdict": "UNRESOLVED-ALL-ARMS (dead=1)",
+   "n_arms": 1,
+   "classes": [],
+   "dead_arms": 1,
+   "unresolved_arms": 0,
+   "arm_detail": [
+    {
+     "class": "DEAD-at-ret",
+     "read_at": "0x1855b12",
+     "depth": 0
+    }
+   ]
+  }
+ ],
+ "verdict_histogram": {
+  "UNRESOLVED-ALL-ARMS (dead=0)": 1,
+  "UNRESOLVED-ALL-ARMS (dead=1)": 6,
+  "BOTH-ARMS-AGREE:ARITH-CHAIN": 5
+ },
+ "summary": {
+  "interrupted_sites": 12,
+  "both_arms_agree": 5,
+  "arms_diverge": 0,
+  "unresolved": 7
+ }
+}

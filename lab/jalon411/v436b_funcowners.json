@@ -1,0 +1,2472 @@
+{
+ "law": "B_file = A_img - 0x38; VA_A = A_img + 0x1000000",
+ "law_recheck": {
+  "windows": 519,
+  "fails": 0
+ },
+ "covered_regions": 671,
+ "pic_edges": 148249,
+ "rpc_key_tables": 239,
+ "knob_owner_cards": [
+  {
+   "value": 2000000000,
+   "sites": [
+    {
+     "A_img": "0x20e202",
+     "use": "COMPARE",
+     "owner_region": "0x120e0b0",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x427dbc",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x1427748",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x48025a",
+     "use": "STORE-DATA",
+     "owner_region": null,
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x5c1b76",
+     "use": "STORE-DATA",
+     "owner_region": "0x159e4e0",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0xdc5e",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x100ccbc",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x20bf28",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x1209748",
+     "func": null,
+     "pic_fan_in_func": null
+    }
+   ]
+  },
+  {
+   "value": 30000000,
+   "sites": [
+    {
+     "A_img": "0x1c30ee",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x11c1378",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2c641e",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x12bf874",
+     "func": [
+      "0x2c641e",
+      "0x2c65b0"
+     ],
+     "pic_fan_in_func": 0
+    },
+    {
+     "A_img": "0x3873f2",
+     "use": "STORE-DATA",
+     "owner_region": "0x1381bd4",
+     "func": [
+      "0x3873e6",
+      "0x387426"
+     ],
+     "pic_fan_in_func": 0
+    },
+    {
+     "A_img": "0x39c1dc",
+     "use": "COMPARE",
+     "owner_region": "0x13984a4",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0xa924ce",
+     "use": "COMPARE",
+     "owner_region": "0x1a762f4",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0xa92f7e",
+     "use": "COMPARE",
+     "owner_region": "0x1a762f4",
+     "func": null,
+     "pic_fan_in_func": null
+    }
+   ]
+  },
+  {
+   "value": 8000000,
+   "sites": [
+    {
+     "A_img": "0x892fde",
+     "use": "STORE-DATA",
+     "owner_region": "0x18744bc",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0xbf91d0",
+     "use": "COMPARE",
+     "owner_region": "0x1beff14",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0xbf9880",
+     "use": "DEAD-at-ret",
+     "owner_region": "0x1beff14",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0xbfdf10",
+     "use": "COMPARE",
+     "owner_region": "0x1beff14",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0xbfe5c0",
+     "use": "DEAD-at-ret",
+     "owner_region": "0x1beff14",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0xc02c50",
+     "use": "COMPARE",
+     "owner_region": "0x1beff14",
+     "func": null,
+     "pic_fan_in_func": null
+    }
+   ]
+  },
+  {
+   "value": 1000000000,
+   "sites": [
+    {
+     "A_img": "0xcf1c",
+     "use": "DEAD-at-ret",
+     "owner_region": "0x100ccbc",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0xcf72",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x100ccbc",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x1231c",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x1011114",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x1746a",
+     "use": "STORE-DATA",
+     "owner_region": null,
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x3101a",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x1030358",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x347c6",
+     "use": "DEAD-at-ret",
+     "owner_region": "0x1030358",
+     "func": null,
+     "pic_fan_in_func": null
+    }
+   ]
+  },
+  {
+   "value": 1000000,
+   "sites": [
+    {
+     "A_img": "0xdc76",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x100ccbc",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x19d12",
+     "use": "COMPARE",
+     "owner_region": "0x1019c28",
+     "func": [
+      "0x19d10",
+      "0x19e4a"
+     ],
+     "pic_fan_in_func": 0
+    },
+    {
+     "A_img": "0x37e7e",
+     "use": "STORE-DATA",
+     "owner_region": "0x1030358",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x846d4",
+     "use": "COMPARE",
+     "owner_region": "0x10844a4",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x84760",
+     "use": "COMPARE",
+     "owner_region": "0x10844a4",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x922be",
+     "use": "COMPARE",
+     "owner_region": "0x10844a4",
+     "func": null,
+     "pic_fan_in_func": null
+    }
+   ]
+  },
+  {
+   "value": 500000,
+   "sites": [
+    {
+     "A_img": "0x186a8",
+     "use": "COMPARE",
+     "owner_region": null,
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x92d14",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x10844a4",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0xda23a",
+     "use": "COMPARE",
+     "owner_region": "0x10d93a0",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0xda25c",
+     "use": "COMPARE",
+     "owner_region": "0x10d93a0",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0xda270",
+     "use": "COMPARE",
+     "owner_region": "0x10d93a0",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x15b12e",
+     "use": "STORE-DATA",
+     "owner_region": null,
+     "func": null,
+     "pic_fan_in_func": null
+    }
+   ]
+  },
+  {
+   "value": 100000000,
+   "sites": [
+    {
+     "A_img": "0x19208",
+     "use": "COMPARE",
+     "owner_region": null,
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x19298",
+     "use": "STORE-DATA",
+     "owner_region": null,
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x6657e",
+     "use": "COMPARE",
+     "owner_region": "0x10661dc",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x95f4c",
+     "use": "COMPARE",
+     "owner_region": "0x10844a4",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x9b6c0",
+     "use": "COMPARE",
+     "owner_region": "0x10844a4",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x1de90a",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x11d28a8",
+     "func": null,
+     "pic_fan_in_func": null
+    }
+   ]
+  },
+  {
+   "value": 4000000,
+   "sites": [
+    {
+     "A_img": "0x1919e",
+     "use": "STORE-DATA",
+     "owner_region": null,
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x8eada",
+     "use": "COMPARE",
+     "owner_region": "0x10844a4",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x8f0bc",
+     "use": "COMPARE",
+     "owner_region": "0x10844a4",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x15b2d6",
+     "use": "STORE-DATA",
+     "owner_region": null,
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x5098d2",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x14f5c98",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x509ad8",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x14f5c98",
+     "func": null,
+     "pic_fan_in_func": null
+    }
+   ]
+  },
+  {
+   "value": 200000,
+   "sites": [
+    {
+     "A_img": "0x667d8",
+     "use": "COMPARE",
+     "owner_region": "0x10661dc",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x66888",
+     "use": "COMPARE",
+     "owner_region": "0x10661dc",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x9b60e",
+     "use": "COMPARE",
+     "owner_region": "0x10844a4",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2b4f4c",
+     "use": "COMPARE",
+     "owner_region": "0x12afc8c",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2dc1f2",
+     "use": "STORE-DATA",
+     "owner_region": "0x12dc0cc",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2dd678",
+     "use": "UNRESOLVED-in-window",
+     "owner_region": "0x12dc0cc",
+     "func": null,
+     "pic_fan_in_func": null
+    }
+   ]
+  },
+  {
+   "value": 9259000,
+   "sites": [
+    {
+     "A_img": "0x879ef2",
+     "use": "DIVIDE",
+     "owner_region": "0x18744bc",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x87a1ea",
+     "use": "DIVIDE",
+     "owner_region": "0x18744bc",
+     "func": null,
+     "pic_fan_in_func": null
+    }
+   ]
+  },
+  {
+   "value": 8100000,
+   "sites": [
+    {
+     "A_img": "0x1ddb50",
+     "use": "COMPARE",
+     "owner_region": "0x11d28a8",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x205708",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x1200b94",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2460a4",
+     "use": "COMPARE",
+     "owner_region": "0x1242e44",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x257ce8",
+     "use": "STORE-DATA",
+     "owner_region": "0x12565a0",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2923f8",
+     "use": "COMPARE",
+     "owner_region": "0x1288c80",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2a0de2",
+     "use": "COMPARE",
+     "owner_region": "0x129c214",
+     "func": null,
+     "pic_fan_in_func": null
+    }
+   ]
+  },
+  {
+   "value": 250000,
+   "sites": [
+    {
+     "A_img": "0x190fe",
+     "use": "COMPARE",
+     "owner_region": null,
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x1a062",
+     "use": "UNRESOLVED-in-window",
+     "owner_region": "0x1019c28",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x1f09e0",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x11ea28c",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x7c46b4",
+     "use": "DIVIDE",
+     "owner_region": "0x17c09b8",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0xb99bec",
+     "use": "COMPARE",
+     "owner_region": "0x1b991a0",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0xb99cc8",
+     "use": "UNRESOLVED-in-window",
+     "owner_region": "0x1b991a0",
+     "func": null,
+     "pic_fan_in_func": null
+    }
+   ]
+  },
+  {
+   "value": 5000000,
+   "sites": [
+    {
+     "A_img": "0x19854",
+     "use": "STORE-DATA",
+     "owner_region": null,
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2c0de2",
+     "use": "COMPARE",
+     "owner_region": "0x12bf874",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2d3d08",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x12bf874",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2dbd6e",
+     "use": "COMPARE",
+     "owner_region": null,
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x459d2a",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x145419c",
+     "func": [
+      "0x459d24",
+      "0x45a1d0"
+     ],
+     "pic_fan_in_func": 0
+    },
+    {
+     "A_img": "0x509de8",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x14f5c98",
+     "func": null,
+     "pic_fan_in_func": null
+    }
+   ]
+  },
+  {
+   "value": 270000,
+   "sites": [
+    {
+     "A_img": "0x1efc68",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x11ea28c",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x1fe906",
+     "use": "ARITH-CHAIN",
+     "owner_region": null,
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x1fe96c",
+     "use": "ARITH-CHAIN",
+     "owner_region": null,
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x1ff590",
+     "use": "ARITH-CHAIN",
+     "owner_region": null,
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x20019a",
+     "use": "ARITH-CHAIN",
+     "owner_region": null,
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x20b0aa",
+     "use": "DIVIDE",
+     "owner_region": "0x1209748",
+     "func": null,
+     "pic_fan_in_func": null
+    }
+   ]
+  },
+  {
+   "value": 500000000,
+   "sites": [
+    {
+     "A_img": "0x1f7e2a",
+     "use": "COMPARE",
+     "owner_region": "0x11f3508",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x48027e",
+     "use": "ARITH-CHAIN",
+     "owner_region": null,
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x85a80c",
+     "use": "COMPARE",
+     "owner_region": null,
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x20e6e0",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x120e0b0",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x85a698",
+     "use": "ARITH-CHAIN",
+     "owner_region": null,
+     "func": null,
+     "pic_fan_in_func": null
+    }
+   ]
+  },
+  {
+   "value": 2000000,
+   "sites": [
+    {
+     "A_img": "0x216532",
+     "use": "ARITH-CHAIN",
+     "owner_region": null,
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x24d2aa",
+     "use": "COMPARE",
+     "owner_region": "0x1242e44",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x5dd3d6",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x15c253c",
+     "func": [
+      "0x5dd3ce",
+      "0x5dd6a8"
+     ],
+     "pic_fan_in_func": 0
+    },
+    {
+     "A_img": "0xb8b874",
+     "use": "STORE-DATA",
+     "owner_region": "0x1b7b3c0",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x296db6",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x1288c80",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2973e6",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x1288c80",
+     "func": null,
+     "pic_fan_in_func": null
+    }
+   ]
+  },
+  {
+   "value": 400000,
+   "sites": [
+    {
+     "A_img": "0x2b297e",
+     "use": "STORE-DATA",
+     "owner_region": "0x12afc8c",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2b2fc2",
+     "use": "STORE-DATA",
+     "owner_region": "0x12afc8c",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2b5102",
+     "use": "STORE-DATA",
+     "owner_region": "0x12afc8c",
+     "func": [
+      "0x2b5100",
+      "0x2b5112"
+     ],
+     "pic_fan_in_func": 0
+    },
+    {
+     "A_img": "0x5c7b8e",
+     "use": "STORE-DATA",
+     "owner_region": "0x15c253c",
+     "func": [
+      "0x5c7b8a",
+      "0x5c7cd6"
+     ],
+     "pic_fan_in_func": 0
+    },
+    {
+     "A_img": "0x5dcfc8",
+     "use": "STORE-DATA",
+     "owner_region": "0x15c253c",
+     "func": [
+      "0x5dcfbe",
+      "0x5dd1f6"
+     ],
+     "pic_fan_in_func": 0
+    },
+    {
+     "A_img": "0x5dd060",
+     "use": "STORE-DATA",
+     "owner_region": "0x15c253c",
+     "func": null,
+     "pic_fan_in_func": null
+    }
+   ]
+  },
+  {
+   "value": 1435840000,
+   "sites": [
+    {
+     "A_img": "0x417b88",
+     "use": "COMPARE",
+     "owner_region": "0x14131aa",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x41d6ce",
+     "use": "COMPARE",
+     "owner_region": "0x14131aa",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x44dc32",
+     "use": "COMPARE",
+     "owner_region": "0x144a0c8",
+     "func": null,
+     "pic_fan_in_func": null
+    }
+   ]
+  },
+  {
+   "value": 540000,
+   "sites": [
+    {
+     "A_img": "0x173896",
+     "use": "STORE-DATA",
+     "owner_region": "0x1161c64",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x720d7a",
+     "use": "COMPARE",
+     "owner_region": "0x172026c",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x812bc2",
+     "use": "STORE-DATA",
+     "owner_region": "0x1810860",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x14e500",
+     "use": "ARITH-CHAIN",
+     "owner_region": null,
+     "func": null,
+     "pic_fan_in_func": null
+    }
+   ]
+  },
+  {
+   "value": 2592000,
+   "sites": [
+    {
+     "A_img": "0x557e56",
+     "use": "DIVIDE",
+     "owner_region": "0x1552708",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x557f64",
+     "use": "DIVIDE",
+     "owner_region": "0x1552708",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x558aa4",
+     "use": "DIVIDE",
+     "owner_region": "0x1552708",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x570102",
+     "use": "DIVIDE",
+     "owner_region": "0x156da30",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x571d12",
+     "use": "DIVIDE",
+     "owner_region": "0x156da30",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0xbeaeac",
+     "use": "DIVIDE",
+     "owner_region": "0x1be9748",
+     "func": null,
+     "pic_fan_in_func": null
+    }
+   ]
+  },
+  {
+   "value": 50000000,
+   "sites": [
+    {
+     "A_img": "0x1e8a7c",
+     "use": "COMPARE",
+     "owner_region": "0x11e8498",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x1e8c38",
+     "use": "COMPARE",
+     "owner_region": "0x11e8498",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x1e8e18",
+     "use": "COMPARE",
+     "owner_region": "0x11e8498",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x1e9012",
+     "use": "COMPARE",
+     "owner_region": "0x11e8498",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x1f7108",
+     "use": "COMPARE",
+     "owner_region": "0x11f3508",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x1f7304",
+     "use": "COMPARE",
+     "owner_region": "0x11f3508",
+     "func": null,
+     "pic_fan_in_func": null
+    }
+   ]
+  },
+  {
+   "value": 2700000,
+   "sites": [
+    {
+     "A_img": "0x1568e4",
+     "use": "STORE-DATA",
+     "owner_region": "0x1155648",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2056f0",
+     "use": "COMPARE",
+     "owner_region": "0x1200b94",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x246086",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x1242e44",
+     "func": [
+      "0x246084",
+      "0x246098"
+     ],
+     "pic_fan_in_func": 0
+    },
+    {
+     "A_img": "0x292410",
+     "use": "COMPARE",
+     "owner_region": "0x1288c80",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2a0d82",
+     "use": "COMPARE",
+     "owner_region": "0x129c214",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2a605c",
+     "use": "COMPARE",
+     "owner_region": "0x129c214",
+     "func": null,
+     "pic_fan_in_func": null
+    }
+   ]
+  },
+  {
+   "value": 1620000,
+   "sites": [
+    {
+     "A_img": "0x2056e4",
+     "use": "COMPARE",
+     "owner_region": "0x1200b94",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x24605a",
+     "use": "COMPARE",
+     "owner_region": "0x1242e44",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x257d1e",
+     "use": "COMPARE",
+     "owner_region": "0x12565a0",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2923c8",
+     "use": "COMPARE",
+     "owner_region": "0x1288c80",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2a0dc6",
+     "use": "COMPARE",
+     "owner_region": "0x129c214",
+     "func": [
+      "0x2a0dc2",
+      "0x2a0e4a"
+     ],
+     "pic_fan_in_func": 0
+    },
+    {
+     "A_img": "0x2a6014",
+     "use": "COMPARE",
+     "owner_region": "0x129c214",
+     "func": null,
+     "pic_fan_in_func": null
+    }
+   ]
+  },
+  {
+   "value": 5400000,
+   "sites": [
+    {
+     "A_img": "0x2056fc",
+     "use": "COMPARE",
+     "owner_region": "0x1200b94",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x246098",
+     "use": "COMPARE",
+     "owner_region": "0x1242e44",
+     "func": [
+      "0x246098",
+      "0x2460d4"
+     ],
+     "pic_fan_in_func": 0
+    },
+    {
+     "A_img": "0x2923ec",
+     "use": "COMPARE",
+     "owner_region": "0x1288c80",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2a0e1c",
+     "use": "COMPARE",
+     "owner_region": "0x129c214",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2a6038",
+     "use": "COMPARE",
+     "owner_region": "0x129c214",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2bc532",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x12afc8c",
+     "func": null,
+     "pic_fan_in_func": null
+    }
+   ]
+  },
+  {
+   "value": 3240000,
+   "sites": [
+    {
+     "A_img": "0x155cca",
+     "use": "DIVIDE",
+     "owner_region": "0x1155648",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x155d28",
+     "use": "DIVIDE",
+     "owner_region": "0x1155648",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2a0d8e",
+     "use": "COMPARE",
+     "owner_region": "0x129c214",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2bc404",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x12afc8c",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2bdd44",
+     "use": "COMPARE",
+     "owner_region": "0x12afc8c",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2bdd5a",
+     "use": "COMPARE",
+     "owner_region": "0x12afc8c",
+     "func": null,
+     "pic_fan_in_func": null
+    }
+   ]
+  },
+  {
+   "value": 2430000,
+   "sites": [
+    {
+     "A_img": "0x24604a",
+     "use": "COMPARE",
+     "owner_region": "0x1242e44",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2923b8",
+     "use": "COMPARE",
+     "owner_region": "0x1288c80",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2a0d72",
+     "use": "COMPARE",
+     "owner_region": "0x129c214",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2a6004",
+     "use": "COMPARE",
+     "owner_region": "0x129c214",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2bc3f6",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x12afc8c",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2bdd66",
+     "use": "COMPARE",
+     "owner_region": "0x12afc8c",
+     "func": null,
+     "pic_fan_in_func": null
+    }
+   ]
+  },
+  {
+   "value": 4320000,
+   "sites": [
+    {
+     "A_img": "0x2460b0",
+     "use": "COMPARE",
+     "owner_region": "0x1242e44",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x292428",
+     "use": "COMPARE",
+     "owner_region": "0x1288c80",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2a6074",
+     "use": "COMPARE",
+     "owner_region": "0x129c214",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2bc38c",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x12afc8c",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2bfdae",
+     "use": "COMPARE",
+     "owner_region": "0x12bf874",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2c0e0e",
+     "use": "COMPARE",
+     "owner_region": "0x12bf874",
+     "func": null,
+     "pic_fan_in_func": null
+    }
+   ]
+  },
+  {
+   "value": 2160000,
+   "sites": [
+    {
+     "A_img": "0x246066",
+     "use": "COMPARE",
+     "owner_region": "0x1242e44",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2923d4",
+     "use": "COMPARE",
+     "owner_region": "0x1288c80",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2a0dd2",
+     "use": "COMPARE",
+     "owner_region": "0x129c214",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2a6020",
+     "use": "COMPARE",
+     "owner_region": "0x129c214",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2bc4a4",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x12afc8c",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2bdd86",
+     "use": "COMPARE",
+     "owner_region": "0x12afc8c",
+     "func": null,
+     "pic_fan_in_func": null
+    }
+   ]
+  },
+  {
+   "value": 13500000,
+   "sites": [
+    {
+     "A_img": "0x2a0df2",
+     "use": "COMPARE",
+     "owner_region": "0x129c214",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2bc448",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x12afc8c",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2c0010",
+     "use": "COMPARE",
+     "owner_region": "0x12bf874",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2c0c2e",
+     "use": "COMPARE",
+     "owner_region": "0x12bf874",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2cde46",
+     "use": "STORE-DATA",
+     "owner_region": "0x12bf874",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2d3cce",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x12bf874",
+     "func": null,
+     "pic_fan_in_func": null
+    }
+   ]
+  },
+  {
+   "value": 6750000,
+   "sites": [
+    {
+     "A_img": "0x2a0e28",
+     "use": "COMPARE",
+     "owner_region": "0x129c214",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2b05c6",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x12afc8c",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2bc412",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x12afc8c",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2bffda",
+     "use": "COMPARE",
+     "owner_region": "0x12bf874",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2c0ba6",
+     "use": "COMPARE",
+     "owner_region": "0x12bf874",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2d3e1a",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x12bf874",
+     "func": null,
+     "pic_fan_in_func": null
+    }
+   ]
+  },
+  {
+   "value": 2500000,
+   "sites": [
+    {
+     "A_img": "0x15b2ca",
+     "use": "STORE-DATA",
+     "owner_region": null,
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x1e76ec",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x11e4458",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2a0dae",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x129c214",
+     "func": [
+      "0x2a0dac",
+      "0x2a0dc2"
+     ],
+     "pic_fan_in_func": 0
+    },
+    {
+     "A_img": "0x2bc48e",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x12afc8c",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2bfdd2",
+     "use": "COMPARE",
+     "owner_region": "0x12bf874",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2bfe48",
+     "use": "COMPARE",
+     "owner_region": "0x12bf874",
+     "func": null,
+     "pic_fan_in_func": null
+    }
+   ]
+  },
+  {
+   "value": 810000,
+   "sites": [
+    {
+     "A_img": "0x156e02",
+     "use": "STORE-DATA",
+     "owner_region": null,
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2d7038",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x12bf874",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x6fd52e",
+     "use": "COMPARE",
+     "owner_region": "0x16f8034",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x156856",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x1155648",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x172db8",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x1161c64",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2de114",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x12dc0cc",
+     "func": null,
+     "pic_fan_in_func": null
+    }
+   ]
+  },
+  {
+   "value": -20000000,
+   "sites": [
+    {
+     "A_img": "0x2bec36",
+     "use": "COMPARE",
+     "owner_region": "0x12afc8c",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2c5544",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x12bf874",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2ca5dc",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x12bf874",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2cc398",
+     "use": "COMPARE",
+     "owner_region": "0x12bf874",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2d01d2",
+     "use": "COMPARE",
+     "owner_region": "0x12bf874",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2de69c",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x12dc0cc",
+     "func": null,
+     "pic_fan_in_func": null
+    }
+   ]
+  },
+  {
+   "value": -2700000,
+   "sites": [
+    {
+     "A_img": "0x2bec44",
+     "use": "COMPARE",
+     "owner_region": "0x12afc8c",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2c5554",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x12bf874",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2ca5ec",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x12bf874",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2cc3a6",
+     "use": "COMPARE",
+     "owner_region": "0x12bf874",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2d01e0",
+     "use": "COMPARE",
+     "owner_region": "0x12bf874",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2de6ac",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x12dc0cc",
+     "func": null,
+     "pic_fan_in_func": null
+    }
+   ]
+  },
+  {
+   "value": -2500000,
+   "sites": [
+    {
+     "A_img": "0x2bebf8",
+     "use": "COMPARE",
+     "owner_region": "0x12afc8c",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2c54fe",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x12bf874",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2ca3b8",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x12bf874",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2d0194",
+     "use": "COMPARE",
+     "owner_region": "0x12bf874",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2de49a",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x12dc0cc",
+     "func": null,
+     "pic_fan_in_func": null
+    }
+   ]
+  },
+  {
+   "value": -5000000,
+   "sites": [
+    {
+     "A_img": "0x2bec06",
+     "use": "COMPARE",
+     "owner_region": "0x12afc8c",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2c5514",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x12bf874",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2ca3ce",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x12bf874",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2d01a8",
+     "use": "COMPARE",
+     "owner_region": "0x12bf874",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2de4b0",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x12dc0cc",
+     "func": null,
+     "pic_fan_in_func": null
+    }
+   ]
+  },
+  {
+   "value": -10000000,
+   "sites": [
+    {
+     "A_img": "0x2bec14",
+     "use": "COMPARE",
+     "owner_region": "0x12afc8c",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2c5524",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x12bf874",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2ca3de",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x12bf874",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2d01b6",
+     "use": "COMPARE",
+     "owner_region": "0x12bf874",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2de4c0",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x12dc0cc",
+     "func": null,
+     "pic_fan_in_func": null
+    }
+   ]
+  },
+  {
+   "value": -13500000,
+   "sites": [
+    {
+     "A_img": "0x2bec22",
+     "use": "COMPARE",
+     "owner_region": "0x12afc8c",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2c5534",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x12bf874",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2ca3ee",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x12bf874",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2d01c4",
+     "use": "COMPARE",
+     "owner_region": "0x12bf874",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2de68c",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x12dc0cc",
+     "func": null,
+     "pic_fan_in_func": null
+    }
+   ]
+  },
+  {
+   "value": 10000000,
+   "sites": [
+    {
+     "A_img": "0x19844",
+     "use": "COMPARE",
+     "owner_region": null,
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x61fb4",
+     "use": "DEAD-at-ret",
+     "owner_region": "0x105df5c",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x62048",
+     "use": "COMPARE",
+     "owner_region": "0x105df5c",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x1c30de",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x11c1378",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x1c34d4",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x11c1378",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x229b1e",
+     "use": "COMPARE",
+     "owner_region": "0x1225000",
+     "func": null,
+     "pic_fan_in_func": null
+    }
+   ]
+  },
+  {
+   "value": 27000000,
+   "sites": [
+    {
+     "A_img": "0x1ca9a6",
+     "use": "DIVIDE",
+     "owner_region": "0x11c1378",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x1d26cc",
+     "use": "DIVIDE",
+     "owner_region": null,
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0xab013a",
+     "use": "STORE-DATA",
+     "owner_region": null,
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0xb5c43e",
+     "use": "UNRESOLVED-in-window",
+     "owner_region": "0x1b5aa38",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2442c4",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x1242e44",
+     "func": null,
+     "pic_fan_in_func": null
+    }
+   ]
+  },
+  {
+   "value": 20000000,
+   "sites": [
+    {
+     "A_img": "0x1917a8",
+     "use": "UNRESOLVED-in-window",
+     "owner_region": null,
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x1f2148",
+     "use": "COMPARE",
+     "owner_region": "0x11f17bc",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x1f7246",
+     "use": "COMPARE",
+     "owner_region": "0x11f3508",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x1fd278",
+     "use": "STORE-DATA",
+     "owner_region": null,
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x1fd898",
+     "use": "ARITH-CHAIN",
+     "owner_region": null,
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x228070",
+     "use": "COMPARE",
+     "owner_region": "0x1225000",
+     "func": null,
+     "pic_fan_in_func": null
+    }
+   ]
+  },
+  {
+   "value": 6000000,
+   "sites": [
+    {
+     "A_img": "0x2965fa",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x1288c80",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2ac346",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x129c214",
+     "func": [
+      "0x2ac346",
+      "0x2ac484"
+     ],
+     "pic_fan_in_func": 0
+    },
+    {
+     "A_img": "0x44e47c",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x144a0c8",
+     "func": [
+      "0x44e47c",
+      "0x44e740"
+     ],
+     "pic_fan_in_func": 0
+    }
+   ]
+  },
+  {
+   "value": -1000000,
+   "sites": [
+    {
+     "A_img": "0x17b92",
+     "use": "ARITH-CHAIN",
+     "owner_region": null,
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x193b4",
+     "use": "COMPARE",
+     "owner_region": null,
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0xab087a",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x1ab0694",
+     "func": null,
+     "pic_fan_in_func": null
+    }
+   ]
+  },
+  {
+   "value": 165000000,
+   "sites": [
+    {
+     "A_img": "0x26b192",
+     "use": "COMPARE",
+     "owner_region": "0x125d240",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x1e752e",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x11e4458",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x1e75be",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x11e4458",
+     "func": null,
+     "pic_fan_in_func": null
+    }
+   ]
+  },
+  {
+   "value": 1200000,
+   "sites": [
+    {
+     "A_img": "0x16ecc8",
+     "use": "STORE-DATA",
+     "owner_region": "0x1161c64",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2b50f0",
+     "use": "STORE-DATA",
+     "owner_region": "0x12afc8c",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x34955a",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x133cd26",
+     "func": [
+      "0x349556",
+      "0x349568"
+     ],
+     "pic_fan_in_func": 0
+    },
+    {
+     "A_img": "0x349a3a",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x133cd26",
+     "func": [
+      "0x349a36",
+      "0x349a48"
+     ],
+     "pic_fan_in_func": 0
+    }
+   ]
+  },
+  {
+   "value": 150000,
+   "sites": [
+    {
+     "A_img": "0x29afde",
+     "use": "STORE-DATA",
+     "owner_region": "0x129addc",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x7cdd64",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x17c6828",
+     "func": [
+      "0x7cdd64",
+      "0x7cde18"
+     ],
+     "pic_fan_in_func": 0
+    },
+    {
+     "A_img": "0x83506e",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x182d8b4",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x8357f2",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x182d8b4",
+     "func": null,
+     "pic_fan_in_func": null
+    }
+   ]
+  },
+  {
+   "value": 3000000,
+   "sites": [
+    {
+     "A_img": "0x74ca0",
+     "use": "COMPARE",
+     "owner_region": "0x106ea28",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x1e2e74",
+     "use": "COMPARE",
+     "owner_region": "0x11e2908",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x33f10a",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x133cd26",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x352bf6",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x133cd26",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x5dec9a",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x15c253c",
+     "func": null,
+     "pic_fan_in_func": null
+    }
+   ]
+  },
+  {
+   "value": 1250000,
+   "sites": [
+    {
+     "A_img": "0x16ec62",
+     "use": "STORE-DATA",
+     "owner_region": "0x1161c64",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x16ecd4",
+     "use": "STORE-DATA",
+     "owner_region": "0x1161c64",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x699668",
+     "use": "ARITH-CHAIN",
+     "owner_region": null,
+     "func": null,
+     "pic_fan_in_func": null
+    }
+   ]
+  },
+  {
+   "value": 3500000,
+   "sites": [
+    {
+     "A_img": "0x31fe1e",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x131d580",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x32b1b8",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x132683c",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x35545c",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x133cd26",
+     "func": null,
+     "pic_fan_in_func": null
+    }
+   ]
+  },
+  {
+   "value": 600000,
+   "sites": [
+    {
+     "A_img": "0x27dd50",
+     "use": "COMPARE",
+     "owner_region": "0x1270c34",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x6f0c1a",
+     "use": "COMPARE",
+     "owner_region": "0x16e2f28",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x15acfa",
+     "use": "ARITH-CHAIN",
+     "owner_region": null,
+     "func": null,
+     "pic_fan_in_func": null
+    }
+   ]
+  },
+  {
+   "value": 340000,
+   "sites": [
+    {
+     "A_img": "0x24d100",
+     "use": "COMPARE",
+     "owner_region": "0x1242e44",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x27dd44",
+     "use": "COMPARE",
+     "owner_region": "0x1270c34",
+     "func": null,
+     "pic_fan_in_func": null
+    }
+   ]
+  },
+  {
+   "value": 405000,
+   "sites": [
+    {
+     "A_img": "0x3541e6",
+     "use": "DIVIDE",
+     "owner_region": "0x133cd26",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x6fd4ce",
+     "use": "COMPARE",
+     "owner_region": "0x16f8034",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x6fd51e",
+     "use": "COMPARE",
+     "owner_region": "0x16f8034",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x14ea64",
+     "use": "ARITH-CHAIN",
+     "owner_region": null,
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x1561ca",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x1155648",
+     "func": null,
+     "pic_fan_in_func": null
+    }
+   ]
+  },
+  {
+   "value": 202000,
+   "sites": [
+    {
+     "A_img": "0x6fd53a",
+     "use": "STORE-DATA",
+     "owner_region": "0x16f8034",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x6fd6cc",
+     "use": "COMPARE",
+     "owner_region": "0x16f8034",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x6fd6e4",
+     "use": "COMPARE",
+     "owner_region": "0x16f8034",
+     "func": null,
+     "pic_fan_in_func": null
+    }
+   ]
+  },
+  {
+   "value": -25000000,
+   "sites": [
+    {
+     "A_img": "0x27cc28",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x1270c34",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x28401c",
+     "use": "COMPARE",
+     "owner_region": "0x1280bc4",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x2840e0",
+     "use": "COMPARE",
+     "owner_region": "0x1280bc4",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x284460",
+     "use": "COMPARE",
+     "owner_region": "0x1280bc4",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x284600",
+     "use": "COMPARE",
+     "owner_region": "0x1280bc4",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x288b4e",
+     "use": "COMPARE",
+     "owner_region": null,
+     "func": null,
+     "pic_fan_in_func": null
+    }
+   ]
+  },
+  {
+   "value": 1080000,
+   "sites": [
+    {
+     "A_img": "0x156862",
+     "use": "STORE-DATA",
+     "owner_region": "0x1155648",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x14ee12",
+     "use": "ARITH-CHAIN",
+     "owner_region": null,
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x151020",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x114f0bc",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x151224",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x114f0bc",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x156df2",
+     "use": "ARITH-CHAIN",
+     "owner_region": null,
+     "func": null,
+     "pic_fan_in_func": null
+    }
+   ]
+  },
+  {
+   "value": 37500000,
+   "sites": [
+    {
+     "A_img": "0x27cc3a",
+     "use": "COMPARE",
+     "owner_region": "0x1270c34",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x284024",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x1280bc4",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x284468",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x1280bc4",
+     "func": null,
+     "pic_fan_in_func": null
+    }
+   ]
+  },
+  {
+   "value": 16700000,
+   "sites": [
+    {
+     "A_img": "0x27cd84",
+     "use": "COMPARE",
+     "owner_region": "0x1270c34",
+     "func": [
+      "0x27cd84",
+      "0x27d0de"
+     ],
+     "pic_fan_in_func": 0
+    },
+    {
+     "A_img": "0x2840e8",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x1280bc4",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x284608",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x1280bc4",
+     "func": null,
+     "pic_fan_in_func": null
+    }
+   ]
+  },
+  {
+   "value": -500000,
+   "sites": [
+    {
+     "A_img": "0x1714c",
+     "use": "ARITH-CHAIN",
+     "owner_region": null,
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x33f036",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x133cd26",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x33f11a",
+     "use": "COMPARE",
+     "owner_region": "0x133cd26",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x352b40",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x133cd26",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x352c06",
+     "use": "COMPARE",
+     "owner_region": "0x133cd26",
+     "func": null,
+     "pic_fan_in_func": null
+    }
+   ]
+  },
+  {
+   "value": 600000000,
+   "sites": [
+    {
+     "A_img": "0x343234",
+     "use": "COMPARE",
+     "owner_region": "0x133cd26",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x343320",
+     "use": "COMPARE",
+     "owner_region": "0x133cd26",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x34341c",
+     "use": "COMPARE",
+     "owner_region": "0x133cd26",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x3434b0",
+     "use": "COMPARE",
+     "owner_region": "0x133cd26",
+     "func": null,
+     "pic_fan_in_func": null
+    }
+   ]
+  },
+  {
+   "value": 1600000,
+   "sites": [
+    {
+     "A_img": "0x34959e",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x133cd26",
+     "func": null,
+     "pic_fan_in_func": null
+    },
+    {
+     "A_img": "0x349a7e",
+     "use": "ARITH-CHAIN",
+     "owner_region": "0x133cd26",
+     "func": null,
+     "pic_fan_in_func": null
+    }
+   ]
+  }
+ ],
+ "summary": {
+  "sites_total": 300,
+  "sites_with_func_window": 18,
+  "sites_with_rpc_tie": 0,
+  "sites_with_name_ptrs": 0
+ }
+}
