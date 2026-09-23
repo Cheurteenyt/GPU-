@@ -1,0 +1,4704 @@
+{
+ "substrate": {
+  "path": "/home/z/my-project/GPU-/tools/analysis/x86-rm/binaries/nv-kernel.o_binary",
+  "size": 19233368,
+  "sha256": "48096db025a439328592250b1c79e7f27943b37b733583778407f3cf46bca251"
+ },
+ "targets_u32": {
+  "100000": 100000,
+  "240000": 240000,
+  "250000": 250000,
+  "280000": 280000,
+  "500000": 500000,
+  "2400": 2400,
+  "2500": 2500,
+  "2800": 2800
+ },
+ "text_imm_hits": [
+  {
+   "section": ".text",
+   "addr": 889644,
+   "fn": "_nvswitch_service_tstate_fatal_ls10",
+   "insn": "push   $0xaf0",
+   "imm": "0xaf0",
+   "value": "2800",
+   "kind": "imm",
+   "win": [
+    {
+     "addr": 889620,
+     "fn": "_nvswitch_service_tstate_fatal_ls10",
+     "insn": "mov    $0x36ba,%esi"
+    },
+    {
+     "addr": 889625,
+     "fn": "_nvswitch_service_tstate_fatal_ls10",
+     "insn": "mov    %r13,%rdi"
+    },
+    {
+     "addr": 889628,
+     "fn": "_nvswitch_service_tstate_fatal_ls10",
+     "insn": "call   d9321 <_nvswitch_service_tstate_fatal_ls10+0x8f1>"
+    },
+    {
+     "addr": 889633,
+     "fn": "_nvswitch_service_tstate_fatal_ls10",
+     "insn": "push   $0x0"
+    },
+    {
+     "addr": 889638,
+     "fn": "_nvswitch_service_tstate_fatal_ls10",
+     "insn": "xor    %r8d,%r8d"
+    },
+    {
+     "addr": 889641,
+     "fn": "_nvswitch_service_tstate_fatal_ls10",
+     "insn": "mov    %r12d,%ecx"
+    },
+    {
+     "addr": 889644,
+     "fn": "_nvswitch_service_tstate_fatal_ls10",
+     "insn": "push   $0xaf0"
+    },
+    {
+     "addr": 889649,
+     "fn": "_nvswitch_service_tstate_fatal_ls10",
+     "insn": "mov    $0x36ba,%edx"
+    },
+    {
+     "addr": 889654,
+     "fn": "_nvswitch_service_tstate_fatal_ls10",
+     "insn": "mov    %r14,%rsi"
+    },
+    {
+     "addr": 889657,
+     "fn": "_nvswitch_service_tstate_fatal_ls10",
+     "insn": "mov    %r13,%rdi"
+    },
+    {
+     "addr": 889660,
+     "fn": "_nvswitch_service_tstate_fatal_ls10",
+     "insn": "lea    -0x94(%rbp),%rax"
+    },
+    {
+     "addr": 889667,
+     "fn": "_nvswitch_service_tstate_fatal_ls10",
+     "insn": "push   $0x20"
+    },
+    {
+     "addr": 889669,
+     "fn": "_nvswitch_service_tstate_fatal_ls10",
+     "insn": "mov    $0x1,%r9d"
+    }
+   ]
+  },
+  {
+   "section": ".text",
+   "addr": 892047,
+   "fn": "_nvswitch_service_tstate_fatal_ls10",
+   "insn": "push   $0xaf0",
+   "imm": "0xaf0",
+   "value": "2800",
+   "kind": "imm",
+   "win": [
+    {
+     "addr": 892023,
+     "fn": "_nvswitch_service_tstate_fatal_ls10",
+     "insn": "mov    $0x36ba,%esi"
+    },
+    {
+     "addr": 892028,
+     "fn": "_nvswitch_service_tstate_fatal_ls10",
+     "insn": "mov    %r13,%rdi"
+    },
+    {
+     "addr": 892031,
+     "fn": "_nvswitch_service_tstate_fatal_ls10",
+     "insn": "call   d9c84 <_nvswitch_service_tstate_fatal_ls10+0x1254>"
+    },
+    {
+     "addr": 892036,
+     "fn": "_nvswitch_service_tstate_fatal_ls10",
+     "insn": "push   $0x0"
+    },
+    {
+     "addr": 892041,
+     "fn": "_nvswitch_service_tstate_fatal_ls10",
+     "insn": "xor    %r8d,%r8d"
+    },
+    {
+     "addr": 892044,
+     "fn": "_nvswitch_service_tstate_fatal_ls10",
+     "insn": "mov    %r12d,%ecx"
+    },
+    {
+     "addr": 892047,
+     "fn": "_nvswitch_service_tstate_fatal_ls10",
+     "insn": "push   $0xaf0"
+    },
+    {
+     "addr": 892052,
+     "fn": "_nvswitch_service_tstate_fatal_ls10",
+     "insn": "mov    $0x36ba,%edx"
+    },
+    {
+     "addr": 892057,
+     "fn": "_nvswitch_service_tstate_fatal_ls10",
+     "insn": "mov    %r14,%rsi"
+    },
+    {
+     "addr": 892060,
+     "fn": "_nvswitch_service_tstate_fatal_ls10",
+     "insn": "mov    %r13,%rdi"
+    },
+    {
+     "addr": 892063,
+     "fn": "_nvswitch_service_tstate_fatal_ls10",
+     "insn": "lea    -0x94(%rbp),%rax"
+    },
+    {
+     "addr": 892070,
+     "fn": "_nvswitch_service_tstate_fatal_ls10",
+     "insn": "push   $0x20"
+    },
+    {
+     "addr": 892072,
+     "fn": "_nvswitch_service_tstate_fatal_ls10",
+     "insn": "mov    $0x1,%r9d"
+    }
+   ]
+  },
+  {
+   "section": ".text",
+   "addr": 1497100,
+   "fn": "kbifPollBarFirewallDisengage_GB202",
+   "insn": "imul   $0x7a120,0x1b38(%rdi),%edx",
+   "imm": "0x7a120",
+   "value": "500000",
+   "kind": "imm",
+   "win": [
+    {
+     "addr": 1497082,
+     "fn": "kbifPollBarFirewallDisengage_GB202",
+     "insn": "push   %r13"
+    },
+    {
+     "addr": 1497084,
+     "fn": "kbifPollBarFirewallDisengage_GB202",
+     "insn": "push   %r12"
+    },
+    {
+     "addr": 1497086,
+     "fn": "kbifPollBarFirewallDisengage_GB202",
+     "insn": "mov    %rdi,%r12"
+    },
+    {
+     "addr": 1497089,
+     "fn": "kbifPollBarFirewallDisengage_GB202",
+     "insn": "push   %rbx"
+    },
+    {
+     "addr": 1497090,
+     "fn": "kbifPollBarFirewallDisengage_GB202",
+     "insn": "sub    $0x20,%rsp"
+    },
+    {
+     "addr": 1497094,
+     "fn": "kbifPollBarFirewallDisengage_GB202",
+     "insn": "mov    0x1b24(%rdi),%eax"
+    },
+    {
+     "addr": 1497100,
+     "fn": "kbifPollBarFirewallDisengage_GB202",
+     "insn": "imul   $0x7a120,0x1b38(%rdi),%edx"
+    },
+    {
+     "addr": 1497110,
+     "fn": "kbifPollBarFirewallDisengage_GB202",
+     "insn": "cmp    %edx,%eax"
+    },
+    {
+     "addr": 1497112,
+     "fn": "kbifPollBarFirewallDisengage_GB202",
+     "insn": "jb     16d820 <kbifPollBarFirewallDisengage_GB202+0x30>"
+    },
+    {
+     "addr": 1497114,
+     "fn": "kbifPollBarFirewallDisengage_GB202",
+     "insn": "mov    0x1b24(%rdi),%edx"
+    },
+    {
+     "addr": 1497120,
+     "fn": "kbifPollBarFirewallDisengage_GB202",
+     "insn": "lea    0x1b20(%r12),%r13"
+    },
+    {
+     "addr": 1497128,
+     "fn": "kbifPollBarFirewallDisengage_GB202",
+     "insn": "mov    $0xc,%ecx"
+    },
+    {
+     "addr": 1497133,
+     "fn": "kbifPollBarFirewallDisengage_GB202",
+     "insn": "lea    -0x38(%rbp),%rsi"
+    }
+   ]
+  },
+  {
+   "section": ".text",
+   "addr": 1511865,
+   "fn": "kbifDoSecondaryBusHotReset_GM107",
+   "insn": "mov    $0x186a0,%edi",
+   "imm": "0x186a0",
+   "value": "100000",
+   "kind": "imm",
+   "win": [
+    {
+     "addr": 1511824,
+     "fn": "kbifDoSecondaryBusHotReset_GM107",
+     "insn": "mov    %ebx,(%rsp)"
+    },
+    {
+     "addr": 1511827,
+     "fn": "kbifDoSecondaryBusHotReset_GM107",
+     "insn": "movzbl 0x1d8c(%r12),%edx"
+    },
+    {
+     "addr": 1511836,
+     "fn": "kbifDoSecondaryBusHotReset_GM107",
+     "insn": "mov    $0x3e,%r9d"
+    },
+    {
+     "addr": 1511842,
+     "fn": "kbifDoSecondaryBusHotReset_GM107",
+     "insn": "movzbl 0x1d8d(%r12),%ecx"
+    },
+    {
+     "addr": 1511851,
+     "fn": "kbifDoSecondaryBusHotReset_GM107",
+     "insn": "movzbl 0x1d8e(%r12),%r8d"
+    },
+    {
+     "addr": 1511860,
+     "fn": "kbifDoSecondaryBusHotReset_GM107",
+     "insn": "call   1711b9 <kbifDoSecondaryBusHotReset_GM107+0xd9>"
+    },
+    {
+     "addr": 1511865,
+     "fn": "kbifDoSecondaryBusHotReset_GM107",
+     "insn": "mov    $0x186a0,%edi"
+    },
+    {
+     "addr": 1511870,
+     "fn": "kbifDoSecondaryBusHotReset_GM107",
+     "insn": "call   1711c3 <kbifDoSecondaryBusHotReset_GM107+0xe3>"
+    },
+    {
+     "addr": 1511875,
+     "fn": "kbifDoSecondaryBusHotReset_GM107",
+     "insn": "pop    %rax"
+    },
+    {
+     "addr": 1511876,
+     "fn": "kbifDoSecondaryBusHotReset_GM107",
+     "insn": "pop    %rdx"
+    },
+    {
+     "addr": 1511877,
+     "fn": "kbifDoSecondaryBusHotReset_GM107",
+     "insn": "lea    -0x20(%rbp),%rsp"
+    },
+    {
+     "addr": 1511881,
+     "fn": "kbifDoSecondaryBusHotReset_GM107",
+     "insn": "pop    %rbx"
+    },
+    {
+     "addr": 1511882,
+     "fn": "kbifDoSecondaryBusHotReset_GM107",
+     "insn": "mov    %r13,%rsi"
+    }
+   ]
+  },
+  {
+   "section": ".text",
+   "addr": 1515616,
+   "fn": "kbifDoFunctionLevelReset_TU102",
+   "insn": "mov    $0x186a0,%edi",
+   "imm": "0x186a0",
+   "value": "100000",
+   "kind": "imm",
+   "win": [
+    {
+     "addr": 1515589,
+     "fn": "kbifDoFunctionLevelReset_TU102",
+     "insn": "test   %eax,%eax"
+    },
+    {
+     "addr": 1515591,
+     "fn": "kbifDoFunctionLevelReset_TU102",
+     "insn": "jne    172240 <kbifDoFunctionLevelReset_TU102+0x2d0>"
+    },
+    {
+     "addr": 1515597,
+     "fn": "kbifDoFunctionLevelReset_TU102",
+     "insn": "mov    %r12,%rsi"
+    },
+    {
+     "addr": 1515600,
+     "fn": "kbifDoFunctionLevelReset_TU102",
+     "insn": "mov    %r14,%rdi"
+    },
+    {
+     "addr": 1515603,
+     "fn": "kbifDoFunctionLevelReset_TU102",
+     "insn": "mov    0x2e0(%r12),%rax"
+    },
+    {
+     "addr": 1515611,
+     "fn": "kbifDoFunctionLevelReset_TU102",
+     "insn": "call   172060 <kbifDoFunctionLevelReset_TU102+0xf0>"
+    },
+    {
+     "addr": 1515616,
+     "fn": "kbifDoFunctionLevelReset_TU102",
+     "insn": "mov    $0x186a0,%edi"
+    },
+    {
+     "addr": 1515621,
+     "fn": "kbifDoFunctionLevelReset_TU102",
+     "insn": "movb   $0x1,0x23e1(%r12)"
+    },
+    {
+     "addr": 1515630,
+     "fn": "kbifDoFunctionLevelReset_TU102",
+     "insn": "call   172073 <kbifDoFunctionLevelReset_TU102+0x103>"
+    },
+    {
+     "addr": 1515635,
+     "fn": "kbifDoFunctionLevelReset_TU102",
+     "insn": "mov    0x1a8(%r12),%rax"
+    },
+    {
+     "addr": 1515643,
+     "fn": "kbifDoFunctionLevelReset_TU102",
+     "insn": "mov    %r12,%rsi"
+    },
+    {
+     "addr": 1515646,
+     "fn": "kbifDoFunctionLevelReset_TU102",
+     "insn": "mov    %r14,%rdi"
+    },
+    {
+     "addr": 1515649,
+     "fn": "kbifDoFunctionLevelReset_TU102",
+     "insn": "call   172086 <kbifDoFunctionLevelReset_TU102+0x116>"
+    }
+   ]
+  },
+  {
+   "section": ".text",
+   "addr": 1783750,
+   "fn": "kdispComputeDpModeSettings_v02_04",
+   "insn": "imul   $0x186a0,%rax,%rax",
+   "imm": "0x186a0",
+   "value": "100000",
+   "kind": "imm",
+   "win": [
+    {
+     "addr": 1783730,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "mov    0x30(%rbx),%ecx"
+    },
+    {
+     "addr": 1783733,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "xor    %edx,%edx"
+    },
+    {
+     "addr": 1783735,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "mov    0x28(%rbx),%rax"
+    },
+    {
+     "addr": 1783739,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "mov    0x8(%rbx),%esi"
+    },
+    {
+     "addr": 1783742,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "imul   %rcx,%rax"
+    },
+    {
+     "addr": 1783746,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "imul   %r11,%rsi"
+    },
+    {
+     "addr": 1783750,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "imul   $0x186a0,%rax,%rax"
+    },
+    {
+     "addr": 1783757,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "shl    $0x3,%rsi"
+    },
+    {
+     "addr": 1783761,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "div    %r15"
+    },
+    {
+     "addr": 1783764,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "xor    %edx,%edx"
+    },
+    {
+     "addr": 1783766,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "lea    0x0(,%r10,8),%r15d"
+    },
+    {
+     "addr": 1783774,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "div    %rsi"
+    },
+    {
+     "addr": 1783777,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "xor    %edx,%edx"
+    }
+   ]
+  },
+  {
+   "section": ".text",
+   "addr": 1783782,
+   "fn": "kdispComputeDpModeSettings_v02_04",
+   "insn": "imul   $0x186a0,%rcx,%rax",
+   "imm": "0x186a0",
+   "value": "100000",
+   "kind": "imm",
+   "win": [
+    {
+     "addr": 1783761,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "div    %r15"
+    },
+    {
+     "addr": 1783764,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "xor    %edx,%edx"
+    },
+    {
+     "addr": 1783766,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "lea    0x0(,%r10,8),%r15d"
+    },
+    {
+     "addr": 1783774,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "div    %rsi"
+    },
+    {
+     "addr": 1783777,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "xor    %edx,%edx"
+    },
+    {
+     "addr": 1783779,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "mov    %rax,%rsi"
+    },
+    {
+     "addr": 1783782,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "imul   $0x186a0,%rcx,%rax"
+    },
+    {
+     "addr": 1783789,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "mov    %r14d,%ecx"
+    },
+    {
+     "addr": 1783792,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "imul   %r15d,%ecx"
+    },
+    {
+     "addr": 1783796,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "div    %rcx"
+    },
+    {
+     "addr": 1783799,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "mov    $0x186a0,%edx"
+    },
+    {
+     "addr": 1783804,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "sub    %rsi,%rdx"
+    },
+    {
+     "addr": 1783807,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "imul   %rsi,%rdx"
+    }
+   ]
+  },
+  {
+   "section": ".text",
+   "addr": 1783799,
+   "fn": "kdispComputeDpModeSettings_v02_04",
+   "insn": "mov    $0x186a0,%edx",
+   "imm": "0x186a0",
+   "value": "100000",
+   "kind": "imm",
+   "win": [
+    {
+     "addr": 1783777,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "xor    %edx,%edx"
+    },
+    {
+     "addr": 1783779,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "mov    %rax,%rsi"
+    },
+    {
+     "addr": 1783782,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "imul   $0x186a0,%rcx,%rax"
+    },
+    {
+     "addr": 1783789,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "mov    %r14d,%ecx"
+    },
+    {
+     "addr": 1783792,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "imul   %r15d,%ecx"
+    },
+    {
+     "addr": 1783796,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "div    %rcx"
+    },
+    {
+     "addr": 1783799,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "mov    $0x186a0,%edx"
+    },
+    {
+     "addr": 1783804,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "sub    %rsi,%rdx"
+    },
+    {
+     "addr": 1783807,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "imul   %rsi,%rdx"
+    },
+    {
+     "addr": 1783811,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "movabs $0xa7c5ac471b47843,%rsi"
+    },
+    {
+     "addr": 1783821,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "shl    $0x6,%rdx"
+    },
+    {
+     "addr": 1783825,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "shr    $0x5,%rdx"
+    },
+    {
+     "addr": 1783829,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "mov    %rax,%rcx"
+    }
+   ]
+  },
+  {
+   "section": ".text",
+   "addr": 1784426,
+   "fn": "kdispComputeDpModeSettings_v02_04",
+   "insn": "imul   $0x186a0,%rax,%rax",
+   "imm": "0x186a0",
+   "value": "100000",
+   "kind": "imm",
+   "win": [
+    {
+     "addr": 1784410,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "imul   0x30(%rbx),%eax"
+    },
+    {
+     "addr": 1784414,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "xor    %edx,%edx"
+    },
+    {
+     "addr": 1784416,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "div    %r14d"
+    },
+    {
+     "addr": 1784419,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "add    %eax,%ecx"
+    },
+    {
+     "addr": 1784421,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "movslq %ecx,%rax"
+    },
+    {
+     "addr": 1784424,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "xor    %edx,%edx"
+    },
+    {
+     "addr": 1784426,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "imul   $0x186a0,%rax,%rax"
+    },
+    {
+     "addr": 1784433,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "div    %r15"
+    },
+    {
+     "addr": 1784436,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "xor    %edx,%edx"
+    },
+    {
+     "addr": 1784438,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "cltq"
+    },
+    {
+     "addr": 1784440,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "imul   0x28(%rbx),%rax"
+    },
+    {
+     "addr": 1784445,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "div    %r11"
+    },
+    {
+     "addr": 1784448,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "movabs $0xa7c5ac471b47843,%rdx"
+    }
+   ]
+  },
+  {
+   "section": ".text",
+   "addr": 2133111,
+   "fn": "_checkTimeout",
+   "insn": "cmp    $0x186a0,%rax",
+   "imm": "0x186a0",
+   "value": "100000",
+   "kind": "imm",
+   "win": [
+    {
+     "addr": 2133082,
+     "fn": "_checkTimeout",
+     "insn": "mov    0x10(%rbx),%rdx"
+    },
+    {
+     "addr": 2133086,
+     "fn": "_checkTimeout",
+     "insn": "mov    (%rbx),%rax"
+    },
+    {
+     "addr": 2133089,
+     "fn": "_checkTimeout",
+     "insn": "test   %rdx,%rdx"
+    },
+    {
+     "addr": 2133092,
+     "fn": "_checkTimeout",
+     "insn": "je     208d78 <_checkTimeout+0x1e8>"
+    },
+    {
+     "addr": 2133098,
+     "fn": "_checkTimeout",
+     "insn": "cmpb   $0x0,0x46e(%rdx)"
+    },
+    {
+     "addr": 2133105,
+     "fn": "_checkTimeout",
+     "insn": "je     208d78 <_checkTimeout+0x1e8>"
+    },
+    {
+     "addr": 2133111,
+     "fn": "_checkTimeout",
+     "insn": "cmp    $0x186a0,%rax"
+    },
+    {
+     "addr": 2133117,
+     "fn": "_checkTimeout",
+     "insn": "mov    $0x186a0,%edx"
+    },
+    {
+     "addr": 2133122,
+     "fn": "_checkTimeout",
+     "insn": "cmovbe %rax,%rdx"
+    },
+    {
+     "addr": 2133126,
+     "fn": "_checkTimeout",
+     "insn": "sub    %rdx,%rax"
+    },
+    {
+     "addr": 2133129,
+     "fn": "_checkTimeout",
+     "insn": "mov    %rax,(%rbx)"
+    },
+    {
+     "addr": 2133132,
+     "fn": "_checkTimeout",
+     "insn": "test   %rax,%rax"
+    },
+    {
+     "addr": 2133135,
+     "fn": "_checkTimeout",
+     "insn": "jne    208d66 <_checkTimeout+0x1d6>"
+    }
+   ]
+  },
+  {
+   "section": ".text",
+   "addr": 2133117,
+   "fn": "_checkTimeout",
+   "insn": "mov    $0x186a0,%edx",
+   "imm": "0x186a0",
+   "value": "100000",
+   "kind": "imm",
+   "win": [
+    {
+     "addr": 2133086,
+     "fn": "_checkTimeout",
+     "insn": "mov    (%rbx),%rax"
+    },
+    {
+     "addr": 2133089,
+     "fn": "_checkTimeout",
+     "insn": "test   %rdx,%rdx"
+    },
+    {
+     "addr": 2133092,
+     "fn": "_checkTimeout",
+     "insn": "je     208d78 <_checkTimeout+0x1e8>"
+    },
+    {
+     "addr": 2133098,
+     "fn": "_checkTimeout",
+     "insn": "cmpb   $0x0,0x46e(%rdx)"
+    },
+    {
+     "addr": 2133105,
+     "fn": "_checkTimeout",
+     "insn": "je     208d78 <_checkTimeout+0x1e8>"
+    },
+    {
+     "addr": 2133111,
+     "fn": "_checkTimeout",
+     "insn": "cmp    $0x186a0,%rax"
+    },
+    {
+     "addr": 2133117,
+     "fn": "_checkTimeout",
+     "insn": "mov    $0x186a0,%edx"
+    },
+    {
+     "addr": 2133122,
+     "fn": "_checkTimeout",
+     "insn": "cmovbe %rax,%rdx"
+    },
+    {
+     "addr": 2133126,
+     "fn": "_checkTimeout",
+     "insn": "sub    %rdx,%rax"
+    },
+    {
+     "addr": 2133129,
+     "fn": "_checkTimeout",
+     "insn": "mov    %rax,(%rbx)"
+    },
+    {
+     "addr": 2133132,
+     "fn": "_checkTimeout",
+     "insn": "test   %rax,%rax"
+    },
+    {
+     "addr": 2133135,
+     "fn": "_checkTimeout",
+     "insn": "jne    208d66 <_checkTimeout+0x1d6>"
+    },
+    {
+     "addr": 2133141,
+     "fn": "_checkTimeout",
+     "insn": "testb  $0x40,0x8(%rbx)"
+    }
+   ]
+  },
+  {
+   "section": ".text",
+   "addr": 3079927,
+   "fn": "tmrDelay_PTIMER",
+   "insn": "cmp    $0x186a0,%r12d",
+   "imm": "0x186a0",
+   "value": "100000",
+   "kind": "imm",
+   "win": [
+    {
+     "addr": 3079892,
+     "fn": "tmrDelay_PTIMER",
+     "insn": "cmpb   $0x0,0x489(%rbx)"
+    },
+    {
+     "addr": 3079899,
+     "fn": "tmrDelay_PTIMER",
+     "insn": "jne    2efff5 <tmrDelay_PTIMER+0x195>"
+    },
+    {
+     "addr": 3079905,
+     "fn": "tmrDelay_PTIMER",
+     "insn": "cmpb   $0x0,0x493c(%rbx)"
+    },
+    {
+     "addr": 3079912,
+     "fn": "tmrDelay_PTIMER",
+     "insn": "jne    2f0008 <tmrDelay_PTIMER+0x1a8>"
+    },
+    {
+     "addr": 3079918,
+     "fn": "tmrDelay_PTIMER",
+     "insn": "cmpb   $0x0,0x493e(%rbx)"
+    },
+    {
+     "addr": 3079925,
+     "fn": "tmrDelay_PTIMER",
+     "insn": "je     2eff04 <tmrDelay_PTIMER+0xa4>"
+    },
+    {
+     "addr": 3079927,
+     "fn": "tmrDelay_PTIMER",
+     "insn": "cmp    $0x186a0,%r12d"
+    },
+    {
+     "addr": 3079934,
+     "fn": "tmrDelay_PTIMER",
+     "insn": "ja     2f0108 <tmrDelay_PTIMER+0x2a8>"
+    },
+    {
+     "addr": 3079940,
+     "fn": "tmrDelay_PTIMER",
+     "insn": "test   %r12d,%r12d"
+    },
+    {
+     "addr": 3079943,
+     "fn": "tmrDelay_PTIMER",
+     "insn": "je     2f004d <tmrDelay_PTIMER+0x1ed>"
+    },
+    {
+     "addr": 3079949,
+     "fn": "tmrDelay_PTIMER",
+     "insn": "lea    0x3e7(%r12),%r14d"
+    },
+    {
+     "addr": 3079957,
+     "fn": "tmrDelay_PTIMER",
+     "insn": "imul   $0x10624dd3,%r14,%r14"
+    },
+    {
+     "addr": 3079964,
+     "fn": "tmrDelay_PTIMER",
+     "insn": "shr    $0x26,%r14"
+    }
+   ]
+  },
+  {
+   "section": ".text",
+   "addr": 3080462,
+   "fn": "tmrDelay_PTIMER",
+   "insn": "mov    $0x186a0,%r13d",
+   "imm": "0x186a0",
+   "value": "100000",
+   "kind": "imm",
+   "win": [
+    {
+     "addr": 3080442,
+     "fn": "tmrDelay_PTIMER",
+     "insn": "call   2f00ff <tmrDelay_PTIMER+0x29f>"
+    },
+    {
+     "addr": 3080447,
+     "fn": "tmrDelay_PTIMER",
+     "insn": "pop    %rcx"
+    },
+    {
+     "addr": 3080448,
+     "fn": "tmrDelay_PTIMER",
+     "insn": "pop    %rsi"
+    },
+    {
+     "addr": 3080449,
+     "fn": "tmrDelay_PTIMER",
+     "insn": "jmp    2f0088 <tmrDelay_PTIMER+0x228>"
+    },
+    {
+     "addr": 3080451,
+     "fn": "tmrDelay_PTIMER",
+     "insn": "nopl   0x0(%rax,%rax,1)"
+    },
+    {
+     "addr": 3080456,
+     "fn": "tmrDelay_PTIMER",
+     "insn": "mov    $0x64,%r14d"
+    },
+    {
+     "addr": 3080462,
+     "fn": "tmrDelay_PTIMER",
+     "insn": "mov    $0x186a0,%r13d"
+    },
+    {
+     "addr": 3080468,
+     "fn": "tmrDelay_PTIMER",
+     "insn": "mov    $0x186a0,%r12d"
+    },
+    {
+     "addr": 3080474,
+     "fn": "tmrDelay_PTIMER",
+     "insn": "jmp    2eff56 <tmrDelay_PTIMER+0xf6>"
+    },
+    {
+     "addr": 3080479,
+     "fn": "tmrDelay_PTIMER",
+     "insn": "nop"
+    },
+    {
+     "addr": 3080480,
+     "fn": "tmrDelay_PTIMER",
+     "insn": "xor    %eax,%eax"
+    },
+    {
+     "addr": 3080482,
+     "fn": "tmrDelay_PTIMER",
+     "insn": "mov    $0x0,%r8"
+    },
+    {
+     "addr": 3080489,
+     "fn": "tmrDelay_PTIMER",
+     "insn": "mov    $0x4,%ecx"
+    }
+   ]
+  },
+  {
+   "section": ".text",
+   "addr": 3080468,
+   "fn": "tmrDelay_PTIMER",
+   "insn": "mov    $0x186a0,%r12d",
+   "imm": "0x186a0",
+   "value": "100000",
+   "kind": "imm",
+   "win": [
+    {
+     "addr": 3080447,
+     "fn": "tmrDelay_PTIMER",
+     "insn": "pop    %rcx"
+    },
+    {
+     "addr": 3080448,
+     "fn": "tmrDelay_PTIMER",
+     "insn": "pop    %rsi"
+    },
+    {
+     "addr": 3080449,
+     "fn": "tmrDelay_PTIMER",
+     "insn": "jmp    2f0088 <tmrDelay_PTIMER+0x228>"
+    },
+    {
+     "addr": 3080451,
+     "fn": "tmrDelay_PTIMER",
+     "insn": "nopl   0x0(%rax,%rax,1)"
+    },
+    {
+     "addr": 3080456,
+     "fn": "tmrDelay_PTIMER",
+     "insn": "mov    $0x64,%r14d"
+    },
+    {
+     "addr": 3080462,
+     "fn": "tmrDelay_PTIMER",
+     "insn": "mov    $0x186a0,%r13d"
+    },
+    {
+     "addr": 3080468,
+     "fn": "tmrDelay_PTIMER",
+     "insn": "mov    $0x186a0,%r12d"
+    },
+    {
+     "addr": 3080474,
+     "fn": "tmrDelay_PTIMER",
+     "insn": "jmp    2eff56 <tmrDelay_PTIMER+0xf6>"
+    },
+    {
+     "addr": 3080479,
+     "fn": "tmrDelay_PTIMER",
+     "insn": "nop"
+    },
+    {
+     "addr": 3080480,
+     "fn": "tmrDelay_PTIMER",
+     "insn": "xor    %eax,%eax"
+    },
+    {
+     "addr": 3080482,
+     "fn": "tmrDelay_PTIMER",
+     "insn": "mov    $0x0,%r8"
+    },
+    {
+     "addr": 3080489,
+     "fn": "tmrDelay_PTIMER",
+     "insn": "mov    $0x4,%ecx"
+    },
+    {
+     "addr": 3080494,
+     "fn": "tmrDelay_PTIMER",
+     "insn": "mov    $0x0,%rdx"
+    }
+   ]
+  },
+  {
+   "section": ".text",
+   "addr": 3848552,
+   "fn": "libspdm_init_context_with_secured_context",
+   "insn": "movl   $0x186a0,0x108(%rbx)",
+   "imm": "0x186a0",
+   "value": "100000",
+   "kind": "imm",
+   "win": [
+    {
+     "addr": 3848499,
+     "fn": "libspdm_init_context_with_secured_context",
+     "insn": "movq   $0xd2,0x650(%rbx)"
+    },
+    {
+     "addr": 3848510,
+     "fn": "libspdm_init_context_with_secured_context",
+     "insn": "movq   $0x1a4,0x738(%rbx)"
+    },
+    {
+     "addr": 3848521,
+     "fn": "libspdm_init_context_with_secured_context",
+     "insn": "movb   $0x4,0xe8(%rbx)"
+    },
+    {
+     "addr": 3848528,
+     "fn": "libspdm_init_context_with_secured_context",
+     "insn": "movb   $0x3,0x140(%rbx)"
+    },
+    {
+     "addr": 3848535,
+     "fn": "libspdm_init_context_with_secured_context",
+     "insn": "mov    %ax,0x142(%rbx)"
+    },
+    {
+     "addr": 3848542,
+     "fn": "libspdm_init_context_with_secured_context",
+     "insn": "movl   $0x12001100,0x144(%rbx)"
+    },
+    {
+     "addr": 3848552,
+     "fn": "libspdm_init_context_with_secured_context",
+     "insn": "movl   $0x186a0,0x108(%rbx)"
+    },
+    {
+     "addr": 3848562,
+     "fn": "libspdm_init_context_with_secured_context",
+     "insn": "movq   $0x0,0xb08(%rbx)"
+    },
+    {
+     "addr": 3848573,
+     "fn": "libspdm_init_context_with_secured_context",
+     "insn": "movq   $0xffffffffffffffff,0xb58(%rbx)"
+    },
+    {
+     "addr": 3848584,
+     "fn": "libspdm_init_context_with_secured_context",
+     "insn": "movq   $0x0,0xb18(%rbx)"
+    },
+    {
+     "addr": 3848595,
+     "fn": "libspdm_init_context_with_secured_context",
+     "insn": "movl   $0x0,0x88(%rbx)"
+    },
+    {
+     "addr": 3848605,
+     "fn": "libspdm_init_context_with_secured_context",
+     "insn": "movb   $0x0,0x8c(%rbx)"
+    },
+    {
+     "addr": 3848612,
+     "fn": "libspdm_init_context_with_secured_context",
+     "insn": "movq   $0x0,0x50(%rbx)"
+    }
+   ]
+  }
+ ],
+ "data_hits": [
+  {
+   "section": ".rodata",
+   "off": 9066464,
+   "vaddr": 13156192,
+   "value": "2800",
+   "kind": "u32",
+   "ctx": [
+    "0x23",
+    "0x1e98",
+    "0x24",
+    "0xaf0",
+    "0xb04",
+    "0x23",
+    "0x10de",
+    "0x1c"
+   ],
+   "symbol": {
+    "name": "pcieExtCfgRegInfo",
+    "value": 13155648,
+    "size": 580,
+    "type": "r",
+    "match": "exact"
+   }
+  },
+  {
+   "section": ".rodata",
+   "off": 9043038,
+   "vaddr": 13132766,
+   "value": "240.0",
+   "kind": "f32",
+   "ctx": [
+    "0xa783830",
+    "0x0",
+    "0x43700000",
+    "0x436c6c61"
+   ],
+   "symbol": {
+    "name": "chipID",
+    "value": 13130784,
+    "size": 1008,
+    "type": "R",
+    "match": "nearest"
+   }
+  },
+  {
+   "section": ".rodata",
+   "off": 9049270,
+   "vaddr": 13138998,
+   "value": "240.0",
+   "kind": "f32",
+   "ctx": [
+    "0x4c4c55",
+    "0x0",
+    "0x43700000",
+    "0x65727275"
+   ],
+   "symbol": {
+    "name": "__FUNCTION__.5",
+    "value": 13138576,
+    "size": 22,
+    "type": "r",
+    "match": "nearest"
+   }
+  },
+  {
+   "section": ".rodata",
+   "off": 9050414,
+   "vaddr": 13140142,
+   "value": "240.0",
+   "kind": "f32",
+   "ctx": [
+    "0x69206867",
+    "0x2e6c7172",
+    "0x43700000",
+    "0x65727275"
+   ],
+   "symbol": {
+    "name": "__FUNCTION__.5",
+    "value": 13138576,
+    "size": 22,
+    "type": "r",
+    "match": "nearest"
+   }
+  },
+  {
+   "section": ".rodata",
+   "off": 9118590,
+   "vaddr": 13208318,
+   "value": "240.0",
+   "kind": "f32",
+   "ctx": [
+    "0x294547",
+    "0x0",
+    "0x43700000",
+    "0x626c6c61"
+   ],
+   "symbol": {
+    "name": "__FUNCTION__.21",
+    "value": 13204128,
+    "size": 33,
+    "type": "r",
+    "match": "nearest"
+   }
+  },
+  {
+   "section": ".rodata",
+   "off": 9178886,
+   "vaddr": 13268614,
+   "value": "240.0",
+   "kind": "f32",
+   "ctx": [
+    "0x646e4968",
+    "0x297865",
+    "0x43700000",
+    "0x43666e6f"
+   ],
+   "symbol": {
+    "name": "__FUNCTION__.5",
+    "value": 13267744,
+    "size": 32,
+    "type": "r",
+    "match": "nearest"
+   }
+  },
+  {
+   "section": ".rodata",
+   "off": 9194590,
+   "vaddr": 13284318,
+   "value": "240.0",
+   "kind": "f32",
+   "ctx": [
+    "0x656e6e61",
+    "0x296c",
+    "0x43700000",
+    "0x65746e6f"
+   ],
+   "symbol": {
+    "name": "CSWTCH.32",
+    "value": 13283952,
+    "size": 16,
+    "type": "r",
+    "match": "nearest"
+   }
+  },
+  {
+   "section": ".rodata",
+   "off": 9201070,
+   "vaddr": 13290798,
+   "value": "240.0",
+   "kind": "f32",
+   "ctx": [
+    "0x21214c4c",
+    "0xa",
+    "0x43700000",
+    "0x65746e6f"
+   ],
+   "symbol": {
+    "name": "__FUNCTION__.0",
+    "value": 13290784,
+    "size": 21,
+    "type": "r",
+    "match": "exact"
+   }
+  },
+  {
+   "section": ".rodata",
+   "off": 9258974,
+   "vaddr": 13348702,
+   "value": "240.0",
+   "kind": "f32",
+   "ctx": [
+    "0x294c",
+    "0x0",
+    "0x43700000",
+    "0x6e6e6168"
+   ],
+   "symbol": {
+    "name": "__FUNCTION__.2",
+    "value": 13342464,
+    "size": 22,
+    "type": "r",
+    "match": "nearest"
+   }
+  },
+  {
+   "section": ".rodata",
+   "off": 9259022,
+   "vaddr": 13348750,
+   "value": "240.0",
+   "kind": "f32",
+   "ctx": [
+    "0x30203e",
+    "0x0",
+    "0x43700000",
+    "0x6e6e6168"
+   ],
+   "symbol": {
+    "name": "__FUNCTION__.2",
+    "value": 13342464,
+    "size": 22,
+    "type": "r",
+    "match": "nearest"
+   }
+  },
+  {
+   "section": ".rodata",
+   "off": 9260102,
+   "vaddr": 13349830,
+   "value": "240.0",
+   "kind": "f32",
+   "ctx": [
+    "0x29666552",
+    "0x0",
+    "0x43700000",
+    "0x65746e6f"
+   ],
+   "symbol": {
+    "name": "__FUNCTION__.2",
+    "value": 13342464,
+    "size": 22,
+    "type": "r",
+    "match": "nearest"
+   }
+  },
+  {
+   "section": ".rodata",
+   "off": 9263246,
+   "vaddr": 13352974,
+   "value": "240.0",
+   "kind": "f32",
+   "ctx": [
+    "0x657a69",
+    "0x0",
+    "0x43700000",
+    "0x65746e6f"
+   ],
+   "symbol": {
+    "name": "__FUNCTION__.2",
+    "value": 13342464,
+    "size": 22,
+    "type": "r",
+    "match": "nearest"
+   }
+  },
+  {
+   "section": ".rodata",
+   "off": 9275950,
+   "vaddr": 13365678,
+   "value": "240.0",
+   "kind": "f32",
+   "ctx": [
+    "0x6726202c",
+    "0x29646966",
+    "0x43700000",
+    "0x4d646968"
+   ],
+   "symbol": {
+    "name": "__FUNCTION__.3",
+    "value": 13365344,
+    "size": 27,
+    "type": "r",
+    "match": "nearest"
+   }
+  },
+  {
+   "section": ".rodata",
+   "off": 9275998,
+   "vaddr": 13365726,
+   "value": "240.0",
+   "kind": "f32",
+   "ctx": [
+    "0x4c4c55",
+    "0x0",
+    "0x43700000",
+    "0x4d646968"
+   ],
+   "symbol": {
+    "name": "__FUNCTION__.3",
+    "value": 13365344,
+    "size": 27,
+    "type": "r",
+    "match": "nearest"
+   }
+  },
+  {
+   "section": ".rodata",
+   "off": 9276038,
+   "vaddr": 13365766,
+   "value": "240.0",
+   "kind": "f32",
+   "ctx": [
+    "0x4c4c55",
+    "0x0",
+    "0x43700000",
+    "0x4d646968"
+   ],
+   "symbol": {
+    "name": "__FUNCTION__.3",
+    "value": 13365344,
+    "size": 27,
+    "type": "r",
+    "match": "nearest"
+   }
+  },
+  {
+   "section": ".rodata",
+   "off": 9276222,
+   "vaddr": 13365950,
+   "value": "240.0",
+   "kind": "f32",
+   "ctx": [
+    "0x203e2074",
+    "0x30",
+    "0x43700000",
+    "0x4d646968"
+   ],
+   "symbol": {
+    "name": "__FUNCTION__.3",
+    "value": 13365344,
+    "size": 27,
+    "type": "r",
+    "match": "nearest"
+   }
+  },
+  {
+   "section": ".rodata",
+   "off": 9276310,
+   "vaddr": 13366038,
+   "value": "240.0",
+   "kind": "f32",
+   "ctx": [
+    "0x6843202c",
+    "0x294449",
+    "0x43700000",
+    "0x4d646968"
+   ],
+   "symbol": {
+    "name": "__FUNCTION__.3",
+    "value": 13365344,
+    "size": 27,
+    "type": "r",
+    "match": "nearest"
+   }
+  },
+  {
+   "section": ".rodata",
+   "off": 9276382,
+   "vaddr": 13366110,
+   "value": "240.0",
+   "kind": "f32",
+   "ctx": [
+    "0x6843202c",
+    "0x294449",
+    "0x43700000",
+    "0x4d646968"
+   ],
+   "symbol": {
+    "name": "__FUNCTION__.3",
+    "value": 13365344,
+    "size": 27,
+    "type": "r",
+    "match": "nearest"
+   }
+  },
+  {
+   "section": ".rodata",
+   "off": 9276726,
+   "vaddr": 13366454,
+   "value": "240.0",
+   "kind": "f32",
+   "ctx": [
+    "0xa78",
+    "0x0",
+    "0x43700000",
+    "0x4d646968"
+   ],
+   "symbol": {
+    "name": "__FUNCTION__.3",
+    "value": 13365344,
+    "size": 27,
+    "type": "r",
+    "match": "nearest"
+   }
+  },
+  {
+   "section": ".rodata",
+   "off": 9336750,
+   "vaddr": 13426478,
+   "value": "240.0",
+   "kind": "f32",
+   "ctx": [
+    "0x6449746e",
+    "0x29",
+    "0x43700000",
+    "0x6e6e6168"
+   ],
+   "symbol": {
+    "name": "__FUNCTION__.2",
+    "value": 13421456,
+    "size": 26,
+    "type": "r",
+    "match": "nearest"
+   }
+  },
+  {
+   "section": ".rodata",
+   "off": 9418574,
+   "vaddr": 13508302,
+   "value": "240.0",
+   "kind": "f32",
+   "ctx": [
+    "0x554e203d",
+    "0x4c4c",
+    "0x43700000",
+    "0x6552746e"
+   ],
+   "symbol": {
+    "name": "__FUNCTION__.2",
+    "value": 13508128,
+    "size": 34,
+    "type": "r",
+    "match": "nearest"
+   }
+  },
+  {
+   "section": ".rodata",
+   "off": 9418614,
+   "vaddr": 13508342,
+   "value": "240.0",
+   "kind": "f32",
+   "ctx": [
+    "0x4c4c554e",
+    "0x0",
+    "0x43700000",
+    "0x654d746e"
+   ],
+   "symbol": {
+    "name": "__FUNCTION__.2",
+    "value": 13508128,
+    "size": 34,
+    "type": "r",
+    "match": "nearest"
+   }
+  },
+  {
+   "section": ".rodata",
+   "off": 9438934,
+   "vaddr": 13528662,
+   "value": "240.0",
+   "kind": "f32",
+   "ctx": [
+    "0xa64",
+    "0x0",
+    "0x43700000",
+    "0x6e6e6168"
+   ],
+   "symbol": {
+    "name": "__FUNCTION__.12",
+    "value": 13528448,
+    "size": 36,
+    "type": "r",
+    "match": "nearest"
+   }
+  },
+  {
+   "section": ".rodata",
+   "off": 9442046,
+   "vaddr": 13531774,
+   "value": "240.0",
+   "kind": "f32",
+   "ctx": [
+    "0x6c656e6e",
+    "0x29",
+    "0x43700000",
+    "0x6e6e6168"
+   ],
+   "symbol": {
+    "name": "__FUNCTION__.12",
+    "value": 13528448,
+    "size": 36,
+    "type": "r",
+    "match": "nearest"
+   }
+  },
+  {
+   "section": ".rodata",
+   "off": 9442182,
+   "vaddr": 13531910,
+   "value": "240.0",
+   "kind": "f32",
+   "ctx": [
+    "0x6142726f",
+    "0x293172",
+    "0x43700000",
+    "0x6e6e6168"
+   ],
+   "symbol": {
+    "name": "__FUNCTION__.12",
+    "value": 13528448,
+    "size": 36,
+    "type": "r",
+    "match": "nearest"
+   }
+  },
+  {
+   "section": ".rodata",
+   "off": 9447414,
+   "vaddr": 13537142,
+   "value": "240.0",
+   "kind": "f32",
+   "ctx": [
+    "0x3020",
+    "0x0",
+    "0x43700000",
+    "0x614d696c"
+   ],
+   "symbol": {
+    "name": "__FUNCTION__.12",
+    "value": 13533312,
+    "size": 38,
+    "type": "r",
+    "match": "nearest"
+   }
+  },
+  {
+   "section": ".rodata",
+   "off": 9450302,
+   "vaddr": 13540030,
+   "value": "240.0",
+   "kind": "f32",
+   "ctx": [
+    "0x3a646568",
+    "0xa782520",
+    "0x43700000",
+    "0x69745565"
+   ],
+   "symbol": {
+    "name": "__FUNCTION__.0",
+    "value": 13539856,
+    "size": 19,
+    "type": "r",
+    "match": "nearest"
+   }
+  },
+  {
+   "section": ".rodata",
+   "off": 9451302,
+   "vaddr": 13541030,
+   "value": "240.0",
+   "kind": "f32",
+   "ctx": [
+    "0x736c6974",
+    "0xa",
+    "0x43700000",
+    "0x69745565"
+   ],
+   "symbol": {
+    "name": "__FUNCTION__.0",
+    "value": 13539856,
+    "size": 19,
+    "type": "r",
+    "match": "nearest"
+   }
+  },
+  {
+   "section": ".rodata",
+   "off": 9452326,
+   "vaddr": 13542054,
+   "value": "240.0",
+   "kind": "f32",
+   "ctx": [
+    "0x2029736b",
+    "0x30203d3d",
+    "0x43700000",
+    "0x69745565"
+   ],
+   "symbol": {
+    "name": "__FUNCTION__.0",
+    "value": 13539856,
+    "size": 19,
+    "type": "r",
+    "match": "nearest"
+   }
+  },
+  {
+   "section": ".rodata",
+   "off": 9453654,
+   "vaddr": 13543382,
+   "value": "240.0",
+   "kind": "f32",
+   "ctx": [
+    "0x294472",
+    "0x0",
+    "0x43700000",
+    "0x6e6e6168"
+   ],
+   "symbol": {
+    "name": "__FUNCTION__.9",
+    "value": 13542576,
+    "size": 22,
+    "type": "r",
+    "match": "nearest"
+   }
+  },
+  {
+   "section": ".rodata",
+   "off": 9454798,
+   "vaddr": 13544526,
+   "value": "240.0",
+   "kind": "f32",
+   "ctx": [
+    "0x203d2120",
+    "0x4c4c554e",
+    "0x43700000",
+    "0x6e6e6168"
+   ],
+   "symbol": {
+    "name": "__FUNCTION__.9",
+    "value": 13542576,
+    "size": 22,
+    "type": "r",
+    "match": "nearest"
+   }
+  },
+  {
+   "section": ".rodata",
+   "off": 9455126,
+   "vaddr": 13544854,
+   "value": "240.0",
+   "kind": "f32",
+   "ctx": [
+    "0x72746e45",
+    "0x736569",
+    "0x43700000",
+    "0x6e6e6168"
+   ],
+   "symbol": {
+    "name": "__FUNCTION__.9",
+    "value": 13542576,
+    "size": 22,
+    "type": "r",
+    "match": "nearest"
+   }
+  },
+  {
+   "section": ".rodata",
+   "off": 9455366,
+   "vaddr": 13545094,
+   "value": "240.0",
+   "kind": "f32",
+   "ctx": [
+    "0x47703e2d",
+    "0x297570",
+    "0x43700000",
+    "0x6e6e6168"
+   ],
+   "symbol": {
+    "name": "__FUNCTION__.9",
+    "value": 13542576,
+    "size": 22,
+    "type": "r",
+    "match": "nearest"
+   }
+  },
+  {
+   "section": ".rodata",
+   "off": 9455414,
+   "vaddr": 13545142,
+   "value": "240.0",
+   "kind": "f32",
+   "ctx": [
+    "0x5f59504f",
+    "0x41",
+    "0x43700000",
+    "0x6e6e6168"
+   ],
+   "symbol": {
+    "name": "__FUNCTION__.9",
+    "value": 13542576,
+    "size": 22,
+    "type": "r",
+    "match": "nearest"
+   }
+  },
+  {
+   "section": ".rodata",
+   "off": 9471942,
+   "vaddr": 13561670,
+   "value": "240.0",
+   "kind": "f32",
+   "ctx": [
+    "0x25783020",
+    "0xa78",
+    "0x43700000",
+    "0x436c6c61"
+   ],
+   "symbol": {
+    "name": "ADDRLIST_FBMEM_PREFERRED",
+    "value": 13558288,
+    "size": 12,
+    "type": "R",
+    "match": "nearest"
+   }
+  },
+  {
+   "section": ".rodata",
+   "off": 9482542,
+   "vaddr": 13572270,
+   "value": "240.0",
+   "kind": "f32",
+   "ctx": [
+    "0x72656e77",
+    "0x2928",
+    "0x43700000",
+    "0x614d7570"
+   ],
+   "symbol": {
+    "name": "__FUNCTION__.22",
+    "value": 13572064,
+    "size": 40,
+    "type": "r",
+    "match": "nearest"
+   }
+  },
+  {
+   "section": ".rodata",
+   "off": 9534878,
+   "vaddr": 13624606,
+   "value": "240.0",
+   "kind": "f32",
+   "ctx": [
+    "0x5f52475f",
+    "0x455a4953",
+    "0x43700000",
+    "0x75706d6f"
+   ],
+   "symbol": {
+    "name": "__FUNCTION__.5",
+    "value": 13621936,
+    "size": 29,
+    "type": "r",
+    "match": "nearest"
+   }
+  },
+  {
+   "section": ".rodata",
+   "off": 9550486,
+   "vaddr": 13640214,
+   "value": "240.0",
+   "kind": "f32",
+   "ctx": [
+    "0x746e",
+    "0x0",
+    "0x43700000",
+    "0x69666e6f"
+   ],
+   "symbol": {
+    "name": "__FUNCTION__.5",
+    "value": 13621936,
+    "size": 29,
+    "type": "r",
+    "match": "nearest"
+   }
+  },
+  {
+   "section": ".rodata",
+   "off": 9682670,
+   "vaddr": 13772398,
+   "value": "240.0",
+   "kind": "f32",
+   "ctx": [
+    "0x2975",
+    "0x0",
+    "0x43700000",
+    "0x614d7570"
+   ],
+   "symbol": {
+    "name": "__FUNCTION__.7",
+    "value": 13765104,
+    "size": 29,
+    "type": "r",
+    "match": "nearest"
+   }
+  },
+  {
+   "section": ".rodata",
+   "off": 9683238,
+   "vaddr": 13772966,
+   "value": "240.0",
+   "kind": "f32",
+   "ctx": [
+    "0x29657a69",
+    "0x0",
+    "0x43700000",
+    "0x5379706f"
+   ],
+   "symbol": {
+    "name": "__FUNCTION__.7",
+    "value": 13765104,
+    "size": 29,
+    "type": "r",
+    "match": "nearest"
+   }
+  },
+  {
+   "section": ".rodata",
+   "off": 9779806,
+   "vaddr": 13869534,
+   "value": "240.0",
+   "kind": "f32",
+   "ctx": [
+    "0x2968",
+    "0x0",
+    "0x43700000",
+    "0x65686361"
+   ],
+   "symbol": {
+    "name": "__FUNCTION__.11",
+    "value": 13868208,
+    "size": 22,
+    "type": "r",
+    "match": "nearest"
+   }
+  },
+  {
+   "section": ".rodata",
+   "off": 9779918,
+   "vaddr": 13869646,
+   "value": "240.0",
+   "kind": "f32",
+   "ctx": [
+    "0x2e6e6e69",
+    "0x63",
+    "0x43700000",
+    "0x436c6c61"
+   ],
+   "symbol": {
+    "name": "__FUNCTION__.11",
+    "value": 13868208,
+    "size": 22,
+    "type": "r",
+    "match": "nearest"
+   }
+  },
+  {
+   "section": ".rodata",
+   "off": 9780038,
+   "vaddr": 13869766,
+   "value": "240.0",
+   "kind": "f32",
+   "ctx": [
+    "0xa297832",
+    "0x0",
+    "0x43700000",
+    "0x436c6c61"
+   ],
+   "symbol": {
+    "name": "__FUNCTION__.11",
+    "value": 13868208,
+    "size": 22,
+    "type": "r",
+    "match": "nearest"
+   }
+  },
+  {
+   "section": ".rodata",
+   "off": 9861494,
+   "vaddr": 13951222,
+   "value": "240.0",
+   "kind": "f32",
+   "ctx": [
+    "0x203a7478",
+    "0xa7825",
+    "0x43700000",
+    "0x6e65696c"
+   ],
+   "symbol": {
+    "name": "g_rsAccessMetadata",
+    "value": 13950720,
+    "size": 16,
+    "type": "R",
+    "match": "nearest"
+   }
+  }
+ ],
+ "power_function_inventory": [
+  {
+   "addr": "0x2b70",
+   "size": 27,
+   "name": "__nvoc_down_thunk_RmClient_clientGetCachedPrivilege"
+  },
+  {
+   "addr": "0x38e0",
+   "size": 9,
+   "name": "cliresCtrlCmdSystemPfmreqhndlrGetExtendedPerfSensorCounters__EXPORT"
+  },
+  {
+   "addr": "0x38f0",
+   "size": 9,
+   "name": "cliresCtrlCmdSystemPfmreqhndlrGetPerfSensorCounters__EXPORT"
+  },
+  {
+   "addr": "0x3900",
+   "size": 9,
+   "name": "cliresCtrlCmdSystemPfmreqhndlrSetFrmData__EXPORT"
+  },
+  {
+   "addr": "0x3910",
+   "size": 9,
+   "name": "cliresCtrlCmdSystemPfmreqhndlrGetFrmData__EXPORT"
+  },
+  {
+   "addr": "0x3920",
+   "size": 9,
+   "name": "cliresCtrlCmdSystemPfmreqhndlrCallAcpi__EXPORT"
+  },
+  {
+   "addr": "0x3930",
+   "size": 9,
+   "name": "cliresCtrlCmdSystemPfmreqhndlrCtrl__EXPORT"
+  },
+  {
+   "addr": "0x3940",
+   "size": 9,
+   "name": "cliresCtrlCmdSystemPfmreqhndlrBatchControl__EXPORT"
+  },
+  {
+   "addr": "0x3950",
+   "size": 9,
+   "name": "cliresCtrlCmdSystemPfmreqhndlrControl__EXPORT"
+  },
+  {
+   "addr": "0x39a0",
+   "size": 9,
+   "name": "cliresCtrlCmdSystemNVPCFGetPowerModeInfo__EXPORT"
+  },
+  {
+   "addr": "0x3a10",
+   "size": 9,
+   "name": "cliresCtrlCmdSystemGetGpusPowerStatus__EXPORT"
+  },
+  {
+   "addr": "0x3a60",
+   "size": 9,
+   "name": "cliresCtrlCmdSystemGetExtendedPerfSensorCounters__EXPORT"
+  },
+  {
+   "addr": "0x3a80",
+   "size": 9,
+   "name": "cliresCtrlCmdSystemGetPerfSensorCounters__EXPORT"
+  },
+  {
+   "addr": "0x9170",
+   "size": 9,
+   "name": "deviceCtrlCmdKPerfCudaLimitSetControl__EXPORT"
+  },
+  {
+   "addr": "0x93b0",
+   "size": 9,
+   "name": "deviceCtrlCmdBifGetPciePowerControlMask__EXPORT"
+  },
+  {
+   "addr": "0xc0c0",
+   "size": 9,
+   "name": "dispcmnCtrlCmdCalculateDpImp__EXPORT"
+  },
+  {
+   "addr": "0xc0d0",
+   "size": 9,
+   "name": "dispcmnCtrlCmdDpRetrieveDpRingBuffer__EXPORT"
+  },
+  {
+   "addr": "0xc0f0",
+   "size": 9,
+   "name": "dispcmnCtrlCmdDfpGetDispMuxStatus__EXPORT"
+  },
+  {
+   "addr": "0xc100",
+   "size": 9,
+   "name": "dispcmnCtrlCmdDfpSwitchDispMux__EXPORT"
+  },
+  {
+   "addr": "0x17a00",
+   "size": 7,
+   "name": "gpuCheckGspFmcErrorCode_d69453"
+  },
+  {
+   "addr": "0x17a10",
+   "size": 5,
+   "name": "gpuResetGspFmcErrorCode_d44104"
+  },
+  {
+   "addr": "0x17b50",
+   "size": 10,
+   "name": "gpuPowerOff_395e98"
+  },
+  {
+   "addr": "0x17b60",
+   "size": 10,
+   "name": "gpuPowerOn_395e98"
+  },
+  {
+   "addr": "0x17b90",
+   "size": 10,
+   "name": "gpuPowerOffHda_395e98"
+  },
+  {
+   "addr": "0x17ba0",
+   "size": 10,
+   "name": "gpuPowerOnHda_395e98"
+  },
+  {
+   "addr": "0x17c50",
+   "size": 10,
+   "name": "gpuPrePowerOff_395e98"
+  },
+  {
+   "addr": "0x17c60",
+   "size": 7,
+   "name": "gpuPrePowerOff_ac1694"
+  },
+  {
+   "addr": "0x17d80",
+   "size": 7,
+   "name": "gpuIsProtectedPcieEnabledInHw_d69453"
+  },
+  {
+   "addr": "0x17d90",
+   "size": 7,
+   "name": "gpuIsProtectedPcieSupportedInFirmware_d69453"
+  },
+  {
+   "addr": "0x17dc0",
+   "size": 5,
+   "name": "gpuReportGspFmcErrorCode_d44104"
+  },
+  {
+   "addr": "0x24100",
+   "size": 7,
+   "name": "kdispComputeDpModeSettings_ac1694"
+  },
+  {
+   "addr": "0x27140",
+   "size": 7,
+   "name": "kfspGspFmcIsEnforced_d69453"
+  },
+  {
+   "addr": "0x2b260",
+   "size": 14,
+   "name": "kmemsysReadHdmTopFromVbios_2e93d0"
+  },
+  {
+   "addr": "0x2d1b0",
+   "size": 7,
+   "name": "kperfGpuBoostSyncStateInit_ac1694"
+  },
+  {
+   "addr": "0x2d1c0",
+   "size": 7,
+   "name": "kperfPerfSetPowerstate_ac1694"
+  },
+  {
+   "addr": "0x2d1d0",
+   "size": 27,
+   "name": "__nvoc_down_thunk_KernelPerf_engstateConstructEngine"
+  },
+  {
+   "addr": "0x2d1f0",
+   "size": 27,
+   "name": "__nvoc_down_thunk_KernelPerf_engstateStateInitLocked"
+  },
+  {
+   "addr": "0x2d210",
+   "size": 27,
+   "name": "__nvoc_down_thunk_KernelPerf_engstateStateLoad"
+  },
+  {
+   "addr": "0x2d230",
+   "size": 27,
+   "name": "__nvoc_down_thunk_KernelPerf_engstateStateUnload"
+  },
+  {
+   "addr": "0x2d250",
+   "size": 27,
+   "name": "__nvoc_down_thunk_KernelPerf_engstateStateDestroy"
+  },
+  {
+   "addr": "0x2d270",
+   "size": 24,
+   "name": "__nvoc_up_thunk_OBJENGSTATE_kperfInitMissing"
+  },
+  {
+   "addr": "0x2d290",
+   "size": 24,
+   "name": "__nvoc_up_thunk_OBJENGSTATE_kperfStatePreInitLocked"
+  },
+  {
+   "addr": "0x2d2b0",
+   "size": 24,
+   "name": "__nvoc_up_thunk_OBJENGSTATE_kperfStatePreInitUnlocked"
+  },
+  {
+   "addr": "0x2d2d0",
+   "size": 24,
+   "name": "__nvoc_up_thunk_OBJENGSTATE_kperfStateInitUnlocked"
+  },
+  {
+   "addr": "0x2d2f0",
+   "size": 24,
+   "name": "__nvoc_up_thunk_OBJENGSTATE_kperfStatePreLoad"
+  },
+  {
+   "addr": "0x2d310",
+   "size": 24,
+   "name": "__nvoc_up_thunk_OBJENGSTATE_kperfStatePostLoad"
+  },
+  {
+   "addr": "0x2d330",
+   "size": 24,
+   "name": "__nvoc_up_thunk_OBJENGSTATE_kperfStatePreUnload"
+  },
+  {
+   "addr": "0x2d350",
+   "size": 27,
+   "name": "__nvoc_up_thunk_OBJENGSTATE_kperfStatePostUnload"
+  },
+  {
+   "addr": "0x2d370",
+   "size": 27,
+   "name": "__nvoc_up_thunk_OBJENGSTATE_kperfIsPresent"
+  },
+  {
+   "addr": "0x2d390",
+   "size": 13,
+   "name": "__nvoc_dtor_KernelPerf"
+  },
+  {
+   "addr": "0x2d3a0",
+   "size": 158,
+   "name": "__nvoc_init__KernelPerf"
+  },
+  {
+   "addr": "0x2d440",
+   "size": 560,
+   "name": "__nvoc_objCreate_KernelPerf"
+  },
+  {
+   "addr": "0x2d670",
+   "size": 9,
+   "name": "__nvoc_objCreateDynamic_KernelPerf"
+  },
+  {
+   "addr": "0x2d690",
+   "size": 10,
+   "name": "perfbufferConstructHal_395e98"
+  },
+  {
+   "addr": "0x2d6a0",
+   "size": 27,
+   "name": "__nvoc_up_thunk_GpuResource_perfbufferControl"
+  },
+  {
+   "addr": "0x2d6c0",
+   "size": 27,
+   "name": "__nvoc_up_thunk_GpuResource_perfbufferMap"
+  },
+  {
+   "addr": "0x2d6e0",
+   "size": 27,
+   "name": "__nvoc_up_thunk_GpuResource_perfbufferUnmap"
+  },
+  {
+   "addr": "0x2d700",
+   "size": 27,
+   "name": "__nvoc_up_thunk_GpuResource_perfbufferShareCallback"
+  },
+  {
+   "addr": "0x2d720",
+   "size": 27,
+   "name": "__nvoc_up_thunk_GpuResource_perfbufferGetRegBaseOffsetAndSize"
+  },
+  {
+   "addr": "0x2d740",
+   "size": 27,
+   "name": "__nvoc_up_thunk_GpuResource_perfbufferGetMapAddrSpace"
+  },
+  {
+   "addr": "0x2d760",
+   "size": 27,
+   "name": "__nvoc_up_thunk_GpuResource_perfbufferInternalControlForward"
+  },
+  {
+   "addr": "0x2d780",
+   "size": 27,
+   "name": "__nvoc_up_thunk_GpuResource_perfbufferGetInternalObjectHandle"
+  },
+  {
+   "addr": "0x2d7a0",
+   "size": 30,
+   "name": "__nvoc_up_thunk_RmResource_perfbufferAccessCallback"
+  },
+  {
+   "addr": "0x2d7c0",
+   "size": 27,
+   "name": "__nvoc_up_thunk_RmResource_perfbufferGetMemInterMapParams"
+  },
+  {
+   "addr": "0x2d7e0",
+   "size": 31,
+   "name": "__nvoc_up_thunk_RmResource_perfbufferCheckMemInterUnmap"
+  },
+  {
+   "addr": "0x2d800",
+   "size": 27,
+   "name": "__nvoc_up_thunk_RmResource_perfbufferGetMemoryMappingDescriptor"
+  },
+  {
+   "addr": "0x2d820",
+   "size": 27,
+   "name": "__nvoc_up_thunk_RmResource_perfbufferControlSerialization_Prologue"
+  },
+  {
+   "addr": "0x2d840",
+   "size": 27,
+   "name": "__nvoc_up_thunk_RmResource_perfbufferControlSerialization_Epilogue"
+  },
+  {
+   "addr": "0x2d860",
+   "size": 27,
+   "name": "__nvoc_up_thunk_RmResource_perfbufferControl_Prologue"
+  },
+  {
+   "addr": "0x2d880",
+   "size": 27,
+   "name": "__nvoc_up_thunk_RmResource_perfbufferControl_Epilogue"
+  },
+  {
+   "addr": "0x2d8a0",
+   "size": 24,
+   "name": "__nvoc_up_thunk_RsResource_perfbufferCanCopy"
+  },
+  {
+   "addr": "0x2d8c0",
+   "size": 24,
+   "name": "__nvoc_up_thunk_RsResource_perfbufferIsDuplicate"
+  },
+  {
+   "addr": "0x2d8e0",
+   "size": 24,
+   "name": "__nvoc_up_thunk_RsResource_perfbufferPreDestruct"
+  },
+  {
+   "addr": "0x2d900",
+   "size": 24,
+   "name": "__nvoc_up_thunk_RsResource_perfbufferControlFilter"
+  },
+  {
+   "addr": "0x2d920",
+   "size": 27,
+   "name": "__nvoc_up_thunk_RsResource_perfbufferIsPartialUnmapSupported"
+  },
+  {
+   "addr": "0x2d940",
+   "size": 27,
+   "name": "__nvoc_up_thunk_RsResource_perfbufferMapTo"
+  },
+  {
+   "addr": "0x2d960",
+   "size": 27,
+   "name": "__nvoc_up_thunk_RsResource_perfbufferUnmapFrom"
+  },
+  {
+   "addr": "0x2d980",
+   "size": 27,
+   "name": "__nvoc_up_thunk_RsResource_perfbufferGetRefCount"
+  },
+  {
+   "addr": "0x2d9a0",
+   "size": 27,
+   "name": "__nvoc_up_thunk_RsResource_perfbufferAddAdditionalDependants"
+  },
+  {
+   "addr": "0x2d9c0",
+   "size": 13,
+   "name": "__nvoc_dtor_PerfBuffer"
+  },
+  {
+   "addr": "0x2d9d0",
+   "size": 810,
+   "name": "__nvoc_objCreate_PerfBuffer"
+  },
+  {
+   "addr": "0x2dd00",
+   "size": 107,
+   "name": "__nvoc_objCreateDynamic_PerfBuffer"
+  },
+  {
+   "addr": "0x2dd70",
+   "size": 10,
+   "name": "kpmuGetIsSelfInit_e661f0"
+  },
+  {
+   "addr": "0x2dd80",
+   "size": 7,
+   "name": "kpmuGetIsSelfInit_d69453"
+  },
+  {
+   "addr": "0x2dd90",
+   "size": 27,
+   "name": "__nvoc_down_thunk_KernelPmu_engstateConstructEngine"
+  },
+  {
+   "addr": "0x2ddb0",
+   "size": 27,
+   "name": "__nvoc_down_thunk_KernelPmu_engstateStateDestroy"
+  },
+  {
+   "addr": "0x2ddd0",
+   "size": 27,
+   "name": "__nvoc_down_thunk_KernelPmu_engstateStateInitLocked"
+  },
+  {
+   "addr": "0x2ddf0",
+   "size": 24,
+   "name": "__nvoc_up_thunk_OBJENGSTATE_kpmuInitMissing"
+  },
+  {
+   "addr": "0x2de10",
+   "size": 24,
+   "name": "__nvoc_up_thunk_OBJENGSTATE_kpmuStatePreInitLocked"
+  },
+  {
+   "addr": "0x2de30",
+   "size": 24,
+   "name": "__nvoc_up_thunk_OBJENGSTATE_kpmuStatePreInitUnlocked"
+  },
+  {
+   "addr": "0x2de50",
+   "size": 24,
+   "name": "__nvoc_up_thunk_OBJENGSTATE_kpmuStateInitUnlocked"
+  },
+  {
+   "addr": "0x2de70",
+   "size": 24,
+   "name": "__nvoc_up_thunk_OBJENGSTATE_kpmuStatePreLoad"
+  },
+  {
+   "addr": "0x2de90",
+   "size": 24,
+   "name": "__nvoc_up_thunk_OBJENGSTATE_kpmuStateLoad"
+  },
+  {
+   "addr": "0x2deb0",
+   "size": 24,
+   "name": "__nvoc_up_thunk_OBJENGSTATE_kpmuStatePostLoad"
+  },
+  {
+   "addr": "0x2ded0",
+   "size": 24,
+   "name": "__nvoc_up_thunk_OBJENGSTATE_kpmuStatePreUnload"
+  },
+  {
+   "addr": "0x2def0",
+   "size": 27,
+   "name": "__nvoc_up_thunk_OBJENGSTATE_kpmuStateUnload"
+  },
+  {
+   "addr": "0x2df10",
+   "size": 27,
+   "name": "__nvoc_up_thunk_OBJENGSTATE_kpmuStatePostUnload"
+  },
+  {
+   "addr": "0x2df30",
+   "size": 27,
+   "name": "__nvoc_up_thunk_OBJENGSTATE_kpmuIsPresent"
+  },
+  {
+   "addr": "0x2df50",
+   "size": 35,
+   "name": "__nvoc_dtor_KernelPmu"
+  },
+  {
+   "addr": "0x2df80",
+   "size": 720,
+   "name": "__nvoc_objCreate_KernelPmu"
+  },
+  {
+   "addr": "0x2e250",
+   "size": 9,
+   "name": "__nvoc_objCreateDynamic_KernelPmu"
+  },
+  {
+   "addr": "0x3e3b0",
+   "size": 10,
+   "name": "kgspExtractVbiosFromRom_395e98"
+  },
+  {
+   "addr": "0x41f90",
+   "size": 39,
+   "name": "kgspSetupGspFmcArgs_5baef9"
+  },
+  {
+   "addr": "0x42280",
+   "size": 39,
+   "name": "kgspExtractVbiosFromRom_5baef9"
+  },
+  {
+   "addr": "0x45060",
+   "size": 9,
+   "name": "kernelhostvgpudeviceapiCtrlCmdSetOfflinedPagePatchInfo__EXPORT"
+  },
+  {
+   "addr": "0x4a040",
+   "size": 7,
+   "name": "knvlinkGetNumLinksToBeReducedPerIoctrl_b2b553"
+  },
+  {
+   "addr": "0x4a050",
+   "size": 7,
+   "name": "knvlinkPoweredUpForD3_d69453"
+  },
+  {
+   "addr": "0x4b700",
+   "size": 10,
+   "name": "ksec2GspFmcIsEnforced_e661f0"
+  },
+  {
+   "addr": "0x4e960",
+   "size": 9,
+   "name": "lockStressObjCtrlCmdPerformLockStressInternalNoGpusLockApiLockReadMode__EXPORT"
+  },
+  {
+   "addr": "0x4e970",
+   "size": 9,
+   "name": "lockStressObjCtrlCmdPerformLockStressInternalApiLockReadMode__EXPORT"
+  },
+  {
+   "addr": "0x4e980",
+   "size": 9,
+   "name": "lockStressObjCtrlCmdPerformLockStressInternalNoGpusLock__EXPORT"
+  },
+  {
+   "addr": "0x4e990",
+   "size": 9,
+   "name": "lockStressObjCtrlCmdPerformLockStressInternalAllRmLocks__EXPORT"
+  },
+  {
+   "addr": "0x4e9a0",
+   "size": 9,
+   "name": "lockStressObjCtrlCmdPerformLockStressNoGpusLockApiLockReadMode__EXPORT"
+  },
+  {
+   "addr": "0x4e9b0",
+   "size": 9,
+   "name": "lockStressObjCtrlCmdPerformLockStressApiLockReadMode__EXPORT"
+  },
+  {
+   "addr": "0x4e9c0",
+   "size": 9,
+   "name": "lockStressObjCtrlCmdPerformLockStressNoGpusLock__EXPORT"
+  },
+  {
+   "addr": "0x4e9d0",
+   "size": 9,
+   "name": "lockStressObjCtrlCmdPerformLockStressAllRmLocks__EXPORT"
+  },
+  {
+   "addr": "0x5b040",
+   "size": 13,
+   "name": "__nvoc_dtor_OBJPFM"
+  },
+  {
+   "addr": "0x5b050",
+   "size": 498,
+   "name": "__nvoc_objCreate_OBJPFM"
+  },
+  {
+   "addr": "0x5b250",
+   "size": 9,
+   "name": "__nvoc_objCreateDynamic_OBJPFM"
+  },
+  {
+   "addr": "0x63e50",
+   "size": 10,
+   "name": "subdeviceCtrlCmdPerfReservePerfmonHw_395e98"
+  },
+  {
+   "addr": "0x63e60",
+   "size": 7,
+   "name": "subdeviceCtrlCmdPerfNotifyVideoevent_ac1694"
+  },
+  {
+   "addr": "0x63e70",
+   "size": 16,
+   "name": "subdeviceCtrlCmdBiosGetInfoV2__EXPORT"
+  },
+  {
+   "addr": "0x63e80",
+   "size": 16,
+   "name": "subdeviceCtrlCmdBiosGetSKUInfo__EXPORT"
+  },
+  {
+   "addr": "0x63e90",
+   "size": 16,
+   "name": "subdeviceCtrlCmdBiosGetPostTime__EXPORT"
+  },
+  {
+   "addr": "0x63ea0",
+   "size": 16,
+   "name": "subdeviceCtrlCmdClkPmumonClkDomainsGetSamples__EXPORT"
+  },
+  {
+   "addr": "0x63f50",
+   "size": 16,
+   "name": "subdeviceCtrlCmdPerfGetGpumonPerfmonUtilSamplesV2__EXPORT"
+  },
+  {
+   "addr": "0x63f60",
+   "size": 16,
+   "name": "subdeviceCtrlCmdPerfReservePerfmonHw__EXPORT"
+  },
+  {
+   "addr": "0x63f70",
+   "size": 16,
+   "name": "subdeviceCtrlCmdPerfGetLevelInfo_V2__EXPORT"
+  },
+  {
+   "addr": "0x63f80",
+   "size": 16,
+   "name": "subdeviceCtrlCmdPerfGetCurrentPstate__EXPORT"
+  },
+  {
+   "addr": "0x63f90",
+   "size": 16,
+   "name": "subdeviceCtrlCmdPerfGetVideoEnginePerfmonSample__EXPORT"
+  },
+  {
+   "addr": "0x63fa0",
+   "size": 16,
+   "name": "subdeviceCtrlCmdPerfGetPowerstate__EXPORT"
+  },
+  {
+   "addr": "0x63fb0",
+   "size": 16,
+   "name": "subdeviceCtrlCmdPerfNotifyVideoevent__EXPORT"
+  },
+  {
+   "addr": "0x63fc0",
+   "size": 16,
+   "name": "subdeviceCtrlCmdFbGetOfflinedPages__EXPORT"
+  },
+  {
+   "addr": "0x63fe0",
+   "size": 16,
+   "name": "subdeviceCtrlCmdFbGetDynamicOfflinedPages__EXPORT"
+  },
+  {
+   "addr": "0x64b10",
+   "size": 9,
+   "name": "subdeviceCtrlCmdOsUnixAudioDynamicPower__EXPORT"
+  },
+  {
+   "addr": "0x64d60",
+   "size": 9,
+   "name": "subdeviceCtrlCmdPerfSetAuxPowerState__EXPORT"
+  },
+  {
+   "addr": "0x64d70",
+   "size": 9,
+   "name": "subdeviceCtrlCmdPerfRatedTdpSetControl__EXPORT"
+  },
+  {
+   "addr": "0x64d80",
+   "size": 9,
+   "name": "subdeviceCtrlCmdPerfSetPowerstate__EXPORT"
+  },
+  {
+   "addr": "0x64d90",
+   "size": 9,
+   "name": "subdeviceCtrlCmdKPerfBoost__EXPORT"
+  },
+  {
+   "addr": "0x64eb0",
+   "size": 9,
+   "name": "subdeviceCtrlCmdFbGetCliManagedOfflinedPages__EXPORT"
+  },
+  {
+   "addr": "0x65210",
+   "size": 9,
+   "name": "subdeviceCtrlCmdThermalSystemExecuteV2__EXPORT"
+  },
+  {
+   "addr": "0x654c0",
+   "size": 9,
+   "name": "subdeviceCtrlCmdGpuGetMaxSupportedPageSize__EXPORT"
+  },
+  {
+   "addr": "0x65be0",
+   "size": 39,
+   "name": "subdeviceCtrlCmdFbGetDynamicOfflinedPages_92bfc3"
+  },
+  {
+   "addr": "0x65c40",
+   "size": 39,
+   "name": "subdeviceCtrlCmdFbGetOfflinedPages_92bfc3"
+  },
+  {
+   "addr": "0x65c70",
+   "size": 39,
+   "name": "subdeviceCtrlCmdPerfNotifyVideoevent_92bfc3"
+  },
+  {
+   "addr": "0x65ca0",
+   "size": 39,
+   "name": "subdeviceCtrlCmdPerfGetPowerstate_92bfc3"
+  },
+  {
+   "addr": "0x65cd0",
+   "size": 39,
+   "name": "subdeviceCtrlCmdPerfGetVideoEnginePerfmonSample_92bfc3"
+  },
+  {
+   "addr": "0x65d00",
+   "size": 39,
+   "name": "subdeviceCtrlCmdPerfGetCurrentPstate_92bfc3"
+  },
+  {
+   "addr": "0x65d30",
+   "size": 39,
+   "name": "subdeviceCtrlCmdPerfGetLevelInfo_V2_92bfc3"
+  },
+  {
+   "addr": "0x65f10",
+   "size": 39,
+   "name": "subdeviceCtrlCmdClkPmumonClkDomainsGetSamples_92bfc3"
+  },
+  {
+   "addr": "0x65f40",
+   "size": 39,
+   "name": "subdeviceCtrlCmdBiosGetPostTime_92bfc3"
+  },
+  {
+   "addr": "0x65f70",
+   "size": 39,
+   "name": "subdeviceCtrlCmdBiosGetInfoV2_92bfc3"
+  },
+  {
+   "addr": "0x6d990",
+   "size": 9,
+   "name": "vaspaceapiCtrlCmdVaspaceCopyServerReservedPdes__EXPORT"
+  },
+  {
+   "addr": "0x752e0",
+   "size": 1067,
+   "name": "nvlink_core_powerdown_intranode_conns_from_active_to_off.part.0"
+  },
+  {
+   "addr": "0x75850",
+   "size": 1396,
+   "name": "nvlink_core_powerdown_intranode_conns_from_active_to_L2"
+  },
+  {
+   "addr": "0x75dd0",
+   "size": 214,
+   "name": "nvlink_core_unilateral_powerdown_links_from_active_to_off"
+  },
+  {
+   "addr": "0x75eb0",
+   "size": 30,
+   "name": "nvlink_core_powerdown_intranode_conns_from_active_to_off"
+  },
+  {
+   "addr": "0x75ed0",
+   "size": 654,
+   "name": "nvlink_core_powerdown_intranode_conns_from_active_to_swcfg"
+  },
+  {
+   "addr": "0x76180",
+   "size": 796,
+   "name": "nvlink_core_powerdown_floorswept_conns_to_off"
+  },
+  {
+   "addr": "0x7af80",
+   "size": 816,
+   "name": "nvlink_lib_powerdown_links_from_active_to_L2"
+  },
+  {
+   "addr": "0x7b2b0",
+   "size": 1006,
+   "name": "nvlink_lib_powerdown_links_from_active_to_off"
+  },
+  {
+   "addr": "0x7b6a0",
+   "size": 482,
+   "name": "nvlink_lib_powerdown_links_from_active_to_swcfg"
+  },
+  {
+   "addr": "0x7ba40",
+   "size": 266,
+   "name": "nvlink_lib_powerdown_floorswept_links_to_off"
+  },
+  {
+   "addr": "0x7c5f0",
+   "size": 640,
+   "name": "_nvswitch_core_bios_read"
+  },
+  {
+   "addr": "0x7c870",
+   "size": 30,
+   "name": "nvswitch_bios_read_size"
+  },
+  {
+   "addr": "0x7c890",
+   "size": 189,
+   "name": "nvswitch_bios_get_image"
+  },
+  {
+   "addr": "0x7e250",
+   "size": 45,
+   "name": "cciModuleOnboardPerformPhaseTransitionAsync"
+  },
+  {
+   "addr": "0x7e330",
+   "size": 184,
+   "name": "cciModuleOnboardPerformPhaseAsync"
+  },
+  {
+   "addr": "0x7f850",
+   "size": 951,
+   "name": "_cci_cdb_perform_phases"
+  },
+  {
+   "addr": "0x82030",
+   "size": 207,
+   "name": "cciSetModulePower"
+  },
+  {
+   "addr": "0xb0870",
+   "size": 135,
+   "name": "nvswitch_ctrl_get_bios_info_lr10"
+  },
+  {
+   "addr": "0xb0960",
+   "size": 10,
+   "name": "nvswitch_get_swap_clk_default_lr10"
+  },
+  {
+   "addr": "0xb0a70",
+   "size": 37,
+   "name": "nvswitch_get_bios_nvlink_config_lr10"
+  },
+  {
+   "addr": "0xb6400",
+   "size": 9,
+   "name": "nvswitch_is_bios_supported_lr10"
+  },
+  {
+   "addr": "0xb7110",
+   "size": 9,
+   "name": "nvswitch_get_bios_size_lr10"
+  },
+  {
+   "addr": "0xba810",
+   "size": 255,
+   "name": "nvswitch_read_vbios_link_entries_lr10"
+  },
+  {
+   "addr": "0xba910",
+   "size": 148,
+   "name": "nvswitch_vbios_read_structure_lr10"
+  },
+  {
+   "addr": "0xba9b0",
+   "size": 468,
+   "name": "_nvswitch_vbios_identify_pci_image_loc.part.0"
+  },
+  {
+   "addr": "0xbab90",
+   "size": 405,
+   "name": "_nvswitch_perform_BIT_offset_update"
+  },
+  {
+   "addr": "0xbad30",
+   "size": 234,
+   "name": "_nvswitch_validate_BIT_header"
+  },
+  {
+   "addr": "0xbafb0",
+   "size": 649,
+   "name": "_nvswitch_vbios_fetch_nvlink_entries"
+  },
+  {
+   "addr": "0xbb240",
+   "size": 304,
+   "name": "_nvswitch_setup_link_vbios_overrides"
+  },
+  {
+   "addr": "0xbb370",
+   "size": 87,
+   "name": "nvswitch_parse_bios_image_lr10"
+  },
+  {
+   "addr": "0xbf200",
+   "size": 160,
+   "name": "_soeForceThermalSlowdown_LR10"
+  },
+  {
+   "addr": "0xc1130",
+   "size": 13,
+   "name": "nvswitch_init_thermal_lr10.cold"
+  },
+  {
+   "addr": "0xc1140",
+   "size": 37,
+   "name": "nvswitch_init_thermal_lr10"
+  },
+  {
+   "addr": "0xc1170",
+   "size": 270,
+   "name": "nvswitch_ctrl_therm_read_temperature_lr10"
+  },
+  {
+   "addr": "0xc1280",
+   "size": 91,
+   "name": "nvswitch_ctrl_therm_get_temperature_limit_lr10"
+  },
+  {
+   "addr": "0xc12e0",
+   "size": 5,
+   "name": "nvswitch_monitor_thermal_alert_lr10"
+  },
+  {
+   "addr": "0xc12f0",
+   "size": 1554,
+   "name": "nvswitch_therm_soe_callback_lr10"
+  },
+  {
+   "addr": "0xc1910",
+   "size": 10,
+   "name": "nvswitch_ctrl_therm_read_voltage_lr10"
+  },
+  {
+   "addr": "0xc1920",
+   "size": 10,
+   "name": "nvswitch_ctrl_therm_read_power_lr10"
+  },
+  {
+   "addr": "0xf6650",
+   "size": 13,
+   "name": "nvswitch_get_bios_size_ls10"
+  },
+  {
+   "addr": "0xf6880",
+   "size": 29,
+   "name": "nvswitch_get_bios_nvlink_config_ls10"
+  },
+  {
+   "addr": "0xf6a20",
+   "size": 268,
+   "name": "nvswitch_read_vbios_link_entries_ls10"
+  },
+  {
+   "addr": "0xf6b30",
+   "size": 135,
+   "name": "nvswitch_ctrl_get_bios_info_ls10"
+  },
+  {
+   "addr": "0xfe0a0",
+   "size": 9,
+   "name": "nvswitch_parse_bios_image_ls10"
+  },
+  {
+   "addr": "0xff470",
+   "size": 40,
+   "name": "nvswitch_is_bios_supported_ls10"
+  },
+  {
+   "addr": "0x10626a",
+   "size": 13,
+   "name": "nvswitch_init_thermal_ls10.cold"
+  },
+  {
+   "addr": "0x106280",
+   "size": 37,
+   "name": "nvswitch_init_thermal_ls10"
+  },
+  {
+   "addr": "0x1062b0",
+   "size": 1384,
+   "name": "nvswitch_ctrl_therm_read_temperature_ls10"
+  },
+  {
+   "addr": "0x106820",
+   "size": 91,
+   "name": "nvswitch_ctrl_therm_get_temperature_limit_ls10"
+  },
+  {
+   "addr": "0x106880",
+   "size": 5,
+   "name": "nvswitch_monitor_thermal_alert_ls10"
+  },
+  {
+   "addr": "0x106890",
+   "size": 1930,
+   "name": "nvswitch_therm_soe_callback_ls10"
+  },
+  {
+   "addr": "0x107020",
+   "size": 318,
+   "name": "nvswitch_ctrl_therm_read_voltage_ls10"
+  },
+  {
+   "addr": "0x107160",
+   "size": 318,
+   "name": "nvswitch_ctrl_therm_read_power_ls10"
+  },
+  {
+   "addr": "0x108740",
+   "size": 16,
+   "name": "nvswitch_monitor_thermal_alert"
+  },
+  {
+   "addr": "0x108750",
+   "size": 763,
+   "name": "_nvswitch_perform_i2c_transfer"
+  },
+  {
+   "addr": "0x108ea0",
+   "size": 16,
+   "name": "nvswitch_is_bios_supported"
+  },
+  {
+   "addr": "0x1098a0",
+   "size": 70,
+   "name": "nvswitch_lib_get_bios_version"
+  },
+  {
+   "addr": "0x10bf60",
+   "size": 16,
+   "name": "nvswitch_init_thermal"
+  },
+  {
+   "addr": "0x10c010",
+   "size": 16,
+   "name": "nvswitch_get_bios_nvlink_config"
+  },
+  {
+   "addr": "0x110500",
+   "size": 408,
+   "name": "RmPowerManagement"
+  },
+  {
+   "addr": "0x110c90",
+   "size": 413,
+   "name": "nv_dynamic_power_state_transition"
+  },
+  {
+   "addr": "0x111460",
+   "size": 43,
+   "name": "subdeviceCtrlCmdOsUnixAudioDynamicPower_IMPL"
+  },
+  {
+   "addr": "0x111620",
+   "size": 117,
+   "name": "rm_init_tegra_dynamic_power_management"
+  },
+  {
+   "addr": "0x1116f9",
+   "size": 13,
+   "name": "rm_init_dynamic_power_management.cold"
+  },
+  {
+   "addr": "0x111710",
+   "size": 763,
+   "name": "rm_init_dynamic_power_management"
+  },
+  {
+   "addr": "0x111a0b",
+   "size": 9,
+   "name": "rm_cleanup_dynamic_power_management.cold"
+  },
+  {
+   "addr": "0x111a20",
+   "size": 319,
+   "name": "rm_cleanup_dynamic_power_management"
+  },
+  {
+   "addr": "0x111b5f",
+   "size": 9,
+   "name": "os_ref_dynamic_power.cold"
+  },
+  {
+   "addr": "0x111b70",
+   "size": 560,
+   "name": "os_ref_dynamic_power"
+  },
+  {
+   "addr": "0x111da0",
+   "size": 14,
+   "name": "rm_ref_dynamic_power"
+  },
+  {
+   "addr": "0x111db0",
+   "size": 381,
+   "name": "os_unref_dynamic_power"
+  },
+  {
+   "addr": "0x111f2d",
+   "size": 9,
+   "name": "rm_enable_dynamic_power_management.cold"
+  },
+  {
+   "addr": "0x111f40",
+   "size": 58,
+   "name": "rm_enable_dynamic_power_management"
+  },
+  {
+   "addr": "0x111ff0",
+   "size": 14,
+   "name": "rm_unref_dynamic_power"
+  },
+  {
+   "addr": "0x112020",
+   "size": 11,
+   "name": "osGetDynamicPowerSupportMask"
+  },
+  {
+   "addr": "0x11202b",
+   "size": 30,
+   "name": "RmDestroyDeferredDynamicPowerManagement.cold"
+  },
+  {
+   "addr": "0x112050",
+   "size": 519,
+   "name": "RmDestroyDeferredDynamicPowerManagement"
+  },
+  {
+   "addr": "0x112260",
+   "size": 1005,
+   "name": "RmGcxPowerManagement"
+  },
+  {
+   "addr": "0x112650",
+   "size": 668,
+   "name": "rm_power_management"
+  },
+  {
+   "addr": "0x1128f0",
+   "size": 373,
+   "name": "rm_transition_dynamic_power"
+  },
+  {
+   "addr": "0x112ba7",
+   "size": 28,
+   "name": "RmInitPowerManagement.cold"
+  },
+  {
+   "addr": "0x112bd0",
+   "size": 1394,
+   "name": "RmInitPowerManagement"
+  },
+  {
+   "addr": "0x113142",
+   "size": 10,
+   "name": "RmDestroyPowerManagement.cold"
+  },
+  {
+   "addr": "0x113150",
+   "size": 61,
+   "name": "RmDestroyPowerManagement"
+  },
+  {
+   "addr": "0x11318d",
+   "size": 9,
+   "name": "rm_get_power_info.cold"
+  },
+  {
+   "addr": "0x1131a0",
+   "size": 922,
+   "name": "rm_get_power_info"
+  },
+  {
+   "addr": "0x116060",
+   "size": 32,
+   "name": "osGetPerformanceCounter"
+  },
+  {
+   "addr": "0x119b80",
+   "size": 20,
+   "name": "osTegraiGpuPerfBoost"
+  },
+  {
+   "addr": "0x119ba0",
+   "size": 103,
+   "name": "osGC6PowerControl"
+  },
+  {
+   "addr": "0x11c8d0",
+   "size": 97,
+   "name": "RmPowerSourceChangeEvent"
+  },
+  {
+   "addr": "0x120510",
+   "size": 397,
+   "name": "rm_perform_version_check"
+  },
+  {
+   "addr": "0x1206a0",
+   "size": 368,
+   "name": "rm_power_source_change_event"
+  },
+  {
+   "addr": "0x122fb0",
+   "size": 301,
+   "name": "rm_pmu_perfmon_get_load"
+  },
+  {
+   "addr": "0x129010",
+   "size": 253,
+   "name": "RmPowerManagementTegra"
+  },
+  {
+   "addr": "0x12a3e0",
+   "size": 15,
+   "name": "rm_gpu_ops_access_bits_buffer_alloc"
+  },
+  {
+   "addr": "0x12a3f0",
+   "size": 15,
+   "name": "rm_gpu_ops_access_bits_buffer_free"
+  },
+  {
+   "addr": "0x12a400",
+   "size": 17,
+   "name": "rm_gpu_ops_access_bits_dump"
+  },
+  {
+   "addr": "0x12b4d0",
+   "size": 233,
+   "name": "unixCallVideoBIOS"
+  },
+  {
+   "addr": "0x12da5b",
+   "size": 10,
+   "name": "nv_vbios_call.cold"
+  },
+  {
+   "addr": "0x12da70",
+   "size": 813,
+   "name": "nv_vbios_call"
+  },
+  {
+   "addr": "0x13fe00",
+   "size": 687,
+   "name": "_ctrl_convert_v2_NV2080_CTRL_CMD_BIOS_GET_INFO"
+  },
+  {
+   "addr": "0x141c70",
+   "size": 321,
+   "name": "_nvos32FunctionAllocTiledPitchHeight"
+  },
+  {
+   "addr": "0x149f90",
+   "size": 114,
+   "name": "_performRcAndDisableChannels"
+  },
+  {
+   "addr": "0x151000",
+   "size": 10,
+   "name": "rpcCtrlVaspaceCopyServerReservedPdes_STUB"
+  },
+  {
+   "addr": "0x151080",
+   "size": 10,
+   "name": "rpcCtrlPerfRatedTdpGetStatus_STUB"
+  },
+  {
+   "addr": "0x1513e0",
+   "size": 10,
+   "name": "rpcPerfGetLevelInfo_STUB"
+  },
+  {
+   "addr": "0x151470",
+   "size": 10,
+   "name": "rpcCtrlPerfRatedTdpSetControl_STUB"
+  },
+  {
+   "addr": "0x151640",
+   "size": 10,
+   "name": "rpcCtrlPerfBoost_STUB"
+  },
+  {
+   "addr": "0x1517a0",
+   "size": 7,
+   "name": "deserialize_NV2080_CTRL_BIOS_GET_SKU_INFO_PARAMS_STUB"
+  },
+  {
+   "addr": "0x167860",
+   "size": 369,
+   "name": "gpuPowerOn_GB20B"
+  },
+  {
+   "addr": "0x1679e0",
+   "size": 286,
+   "name": "gpuPowerOff_GB20B"
+  },
+  {
+   "addr": "0x167b00",
+   "size": 286,
+   "name": "gpuPowerOnHda_GB20B"
+  },
+  {
+   "addr": "0x167c20",
+   "size": 286,
+   "name": "gpuPowerOffHda_GB20B"
+  },
+  {
+   "addr": "0x167d80",
+   "size": 31,
+   "name": "gpuResetGspFmcErrorCode_GH100"
+  },
+  {
+   "addr": "0x167da0",
+   "size": 39,
+   "name": "gpuCheckGspFmcErrorCode_GH100"
+  },
+  {
+   "addr": "0x167dd0",
+   "size": 237,
+   "name": "gpuReportGspFmcErrorCode_GH100"
+  },
+  {
+   "addr": "0x168940",
+   "size": 88,
+   "name": "gpuIsProtectedPcieEnabledInHw_GH100"
+  },
+  {
+   "addr": "0x1689f0",
+   "size": 244,
+   "name": "gpuIsProtectedPcieSupportedInFirmware_GH100"
+  },
+  {
+   "addr": "0x1727d0",
+   "size": 1204,
+   "name": "kbifGetPciePowerControlValue_IMPL"
+  },
+  {
+   "addr": "0x172c90",
+   "size": 54,
+   "name": "deviceCtrlCmdBifGetPciePowerControlMask_IMPL"
+  },
+  {
+   "addr": "0x182f70",
+   "size": 61,
+   "name": "kbusGetUnusedPeerId_GM107"
+  },
+  {
+   "addr": "0x182fb0",
+   "size": 61,
+   "name": "kbusGetUnusedPciePeerId_GM107"
+  },
+  {
+   "addr": "0x189910",
+   "size": 128,
+   "name": "kbusGetUnusedPciePeerId_TU102"
+  },
+  {
+   "addr": "0x1adc70",
+   "size": 1349,
+   "name": "performKeyRotationByKeyPair"
+  },
+  {
+   "addr": "0x1ae1c0",
+   "size": 1043,
+   "name": "performKeyRotation_WORKITEM"
+  },
+  {
+   "addr": "0x1ae5e0",
+   "size": 533,
+   "name": "confComputePerformKeyRotation_IMPL"
+  },
+  {
+   "addr": "0x1ae800",
+   "size": 553,
+   "name": "confComputeCheckAndPerformKeyRotation_IMPL"
+  },
+  {
+   "addr": "0x1b3690",
+   "size": 1411,
+   "name": "kdispComputeDpModeSettings_v02_04"
+  },
+  {
+   "addr": "0x1b6180",
+   "size": 2639,
+   "name": "kdispComputeDpModeSettings_v05_01"
+  },
+  {
+   "addr": "0x1b8ef9",
+   "size": 10,
+   "name": "dispcmnCtrlCmdDfpSwitchDispMux_IMPL.cold"
+  },
+  {
+   "addr": "0x1b8f10",
+   "size": 555,
+   "name": "dispcmnCtrlCmdDfpSwitchDispMux_IMPL"
+  },
+  {
+   "addr": "0x1b913b",
+   "size": 10,
+   "name": "dispcmnCtrlCmdDfpGetDispMuxStatus_IMPL.cold"
+  },
+  {
+   "addr": "0x1b9150",
+   "size": 729,
+   "name": "dispcmnCtrlCmdDfpGetDispMuxStatus_IMPL"
+  },
+  {
+   "addr": "0x1b9cc1",
+   "size": 10,
+   "name": "dispcmnCtrlCmdCalculateDpImp_IMPL.cold"
+  },
+  {
+   "addr": "0x1b9cd0",
+   "size": 726,
+   "name": "dispcmnCtrlCmdCalculateDpImp_IMPL"
+  },
+  {
+   "addr": "0x1b9fb0",
+   "size": 53,
+   "name": "dispcmnCtrlCmdDpRetrieveDpRingBuffer_IMPL"
+  },
+  {
+   "addr": "0x1be87b",
+   "size": 10,
+   "name": "kdispOptimizePerFrameOsCallbacks_IMPL.cold"
+  },
+  {
+   "addr": "0x1be890",
+   "size": 752,
+   "name": "kdispOptimizePerFrameOsCallbacks_IMPL"
+  },
+  {
+   "addr": "0x1f33c0",
+   "size": 10,
+   "name": "kfspGspFmcIsEnforced_GH100"
+  },
+  {
+   "addr": "0x1f6de0",
+   "size": 31,
+   "name": "_gpuSetDisconnectedPropertiesWorker"
+  },
+  {
+   "addr": "0x1f8750",
+   "size": 18,
+   "name": "gpuIsGpuFullPower_IMPL"
+  },
+  {
+   "addr": "0x1f8770",
+   "size": 32,
+   "name": "gpuIsGpuFullPowerForPmResume_IMPL"
+  },
+  {
+   "addr": "0x1f8e10",
+   "size": 107,
+   "name": "gpuSetDisconnectedProperties_IMPL"
+  },
+  {
+   "addr": "0x1f9ad0",
+   "size": 40,
+   "name": "gpuIsCCMultiGpuProtectedPcieModeEnabled_IMPL"
+  },
+  {
+   "addr": "0x1fa8b0",
+   "size": 207,
+   "name": "gpuSetGC6SBIOSCapabilities_IMPL"
+  },
+  {
+   "addr": "0x207ce0",
+   "size": 1043,
+   "name": "gpuPowerManagementResume"
+  },
+  {
+   "addr": "0x208100",
+   "size": 489,
+   "name": "gpuPowerManagementEnter.constprop.0"
+  },
+  {
+   "addr": "0x21e32d",
+   "size": 20,
+   "name": "kgrctxSetupDeferredPmBuffer_IMPL.cold"
+  },
+  {
+   "addr": "0x21e350",
+   "size": 1749,
+   "name": "kgrctxSetupDeferredPmBuffer_IMPL"
+  },
+  {
+   "addr": "0x226ac0",
+   "size": 678,
+   "name": "kgspSetupGspFmcArgs_GH100"
+  },
+  {
+   "addr": "0x22a2f0",
+   "size": 436,
+   "name": "s_vbiosPatchInterfaceData"
+  },
+  {
+   "addr": "0x22cfe0",
+   "size": 2619,
+   "name": "kgspExtractVbiosFromRom_TU102"
+  },
+  {
+   "addr": "0x237bb0",
+   "size": 57,
+   "name": "kgspFreeVbiosImg"
+  },
+  {
+   "addr": "0x2387f0",
+   "size": 448,
+   "name": "s_vbiosReadStructure"
+  },
+  {
+   "addr": "0x2389b0",
+   "size": 4226,
+   "name": "kgspParseFwsecUcodeFromVbiosImg_IMPL"
+  },
+  {
+   "addr": "0x247eb0",
+   "size": 250,
+   "name": "gpuGc6EntryGpuPowerOff_IMPL"
+  },
+  {
+   "addr": "0x248150",
+   "size": 98,
+   "name": "gpuPowerOff_KERNEL"
+  },
+  {
+   "addr": "0x2481c0",
+   "size": 581,
+   "name": "gpuPowerOn_KERNEL"
+  },
+  {
+   "addr": "0x25da00",
+   "size": 143,
+   "name": "fbsrReserveSysMemoryForPowerMgmt_IMPL"
+  },
+  {
+   "addr": "0x25da90",
+   "size": 62,
+   "name": "fbsrFreeReservedSysMemoryForPowerMgmt_IMPL"
+  },
+  {
+   "addr": "0x262480",
+   "size": 223,
+   "name": "heapFreeBlackListedPages_IMPL"
+  },
+  {
+   "addr": "0x269280",
+   "size": 114,
+   "name": "memdescGetAdjustedPageSize"
+  },
+  {
+   "addr": "0x269400",
+   "size": 103,
+   "name": "memmapperCheckGpuFullPowerForMemory"
+  },
+  {
+   "addr": "0x272150",
+   "size": 958,
+   "name": "memmgrSavePowerMgmtState_KERNEL"
+  },
+  {
+   "addr": "0x272590",
+   "size": 613,
+   "name": "memmgrRestorePowerMgmtState_KERNEL"
+  },
+  {
+   "addr": "0x27dde0",
+   "size": 271,
+   "name": "pmaGetClientBlacklistedPages"
+  },
+  {
+   "addr": "0x27dfc0",
+   "size": 9,
+   "name": "pmaClearScrubbedPages"
+  },
+  {
+   "addr": "0x27ee80",
+   "size": 170,
+   "name": "_pmaCheckScrubbedPages"
+  },
+  {
+   "addr": "0x28b630",
+   "size": 135,
+   "name": "kmemsysReadHdmTopFromVbios_GB100"
+  },
+  {
+   "addr": "0x2920e0",
+   "size": 415,
+   "name": "subdeviceCtrlCmdFbGetCliManagedOfflinedPages_IMPL"
+  },
+  {
+   "addr": "0x292cf0",
+   "size": 194,
+   "name": "subdeviceCtrlCmdFbGetDynamicOfflinedPages_VF"
+  },
+  {
+   "addr": "0x292e50",
+   "size": 10,
+   "name": "subdeviceCtrlCmdFbGetOfflinedPages_VF"
+  },
+  {
+   "addr": "0x2c25c0",
+   "size": 195,
+   "name": "knvlinkGetNumLinksToBeReducedPerIoctrl_GH100"
+  },
+  {
+   "addr": "0x2c36b0",
+   "size": 57,
+   "name": "knvlinkPoweredUpForD3_TU102"
+  },
+  {
+   "addr": "0x2c6880",
+   "size": 215,
+   "name": "knvlinkIsP2pLoopbackSupportedPerLink_IMPL"
+  },
+  {
+   "addr": "0x2c7770",
+   "size": 31,
+   "name": "knvlinkSetPowerFeatures_IMPL"
+  },
+  {
+   "addr": "0x2c8c10",
+   "size": 989,
+   "name": "knvlinkSyncLinkMasksAndVbiosInfo_IMPL"
+  },
+  {
+   "addr": "0x2d4bf0",
+   "size": 157,
+   "name": "deviceKPerfCudaLimitCliDisable"
+  },
+  {
+   "addr": "0x2d4c90",
+   "size": 200,
+   "name": "deviceCtrlCmdKPerfCudaLimitSetControl_IMPL"
+  },
+  {
+   "addr": "0x2d4d60",
+   "size": 7,
+   "name": "kperfConstructEngine_IMPL"
+  },
+  {
+   "addr": "0x2d4d70",
+   "size": 62,
+   "name": "kperfStateInitLocked_IMPL"
+  },
+  {
+   "addr": "0x2d4db0",
+   "size": 77,
+   "name": "kperfStateLoad_IMPL"
+  },
+  {
+   "addr": "0x2d4e00",
+   "size": 43,
+   "name": "kperfStateUnload_IMPL"
+  },
+  {
+   "addr": "0x2d4e30",
+   "size": 33,
+   "name": "kperfStateDestroy_IMPL"
+  },
+  {
+   "addr": "0x2d4e60",
+   "size": 107,
+   "name": "kperfBoostSet_IMPL"
+  },
+  {
+   "addr": "0x2d4ed0",
+   "size": 273,
+   "name": "subdeviceCtrlCmdKPerfBoost_IMPL"
+  },
+  {
+   "addr": "0x2d4ff0",
+   "size": 224,
+   "name": "subdeviceCtrlCmdPerfGetGpumonPerfmonUtilSamplesV2_VF"
+  },
+  {
+   "addr": "0x2d50d0",
+   "size": 720,
+   "name": "subdeviceCtrlCmdPerfGetGpumonPerfmonUtilSamplesV2_KERNEL"
+  },
+  {
+   "addr": "0x2d53a0",
+   "size": 272,
+   "name": "subdeviceCtrlCmdPerfGetLevelInfo_V2_VF"
+  },
+  {
+   "addr": "0x2d54b0",
+   "size": 205,
+   "name": "subdeviceCtrlCmdPerfGetVideoEnginePerfmonSample_VF"
+  },
+  {
+   "addr": "0x2d5580",
+   "size": 13,
+   "name": "subdeviceCtrlCmdPerfGetPowerstate_VF"
+  },
+  {
+   "addr": "0x2d5590",
+   "size": 23,
+   "name": "subdeviceCtrlCmdPerfGetCurrentPstate_VF"
+  },
+  {
+   "addr": "0x2d55b0",
+   "size": 177,
+   "name": "kperfGpuBoostSyncStateInit_IMPL"
+  },
+  {
+   "addr": "0x2d5670",
+   "size": 821,
+   "name": "kperfDoSyncGpuBoostLimits_IMPL"
+  },
+  {
+   "addr": "0x2d59b0",
+   "size": 26,
+   "name": "kPerfGpuBoostSyncBridgelessUpdateInfo"
+  },
+  {
+   "addr": "0x2d59d0",
+   "size": 714,
+   "name": "kperfGpuBoostSyncStateUpdate"
+  },
+  {
+   "addr": "0x2d5ca0",
+   "size": 135,
+   "name": "subdeviceCtrlCmdPerfReservePerfmonHw_KERNEL"
+  },
+  {
+   "addr": "0x2d5d30",
+   "size": 275,
+   "name": "_kperfSendPostPowerStateCallback.constprop.0"
+  },
+  {
+   "addr": "0x2d5e50",
+   "size": 618,
+   "name": "subdeviceCtrlCmdPerfRatedTdpSetControl_KERNEL"
+  },
+  {
+   "addr": "0x2d60c0",
+   "size": 272,
+   "name": "subdeviceCtrlCmdPerfSetAuxPowerState_KERNEL"
+  },
+  {
+   "addr": "0x2d61d0",
+   "size": 341,
+   "name": "kperfPerfSetPowerstate_KERNEL"
+  },
+  {
+   "addr": "0x2d6330",
+   "size": 88,
+   "name": "subdeviceCtrlCmdPerfSetPowerstate_IMPL"
+  },
+  {
+   "addr": "0x2d6390",
+   "size": 343,
+   "name": "perfbufferConstructHal_KERNEL"
+  },
+  {
+   "addr": "0x2d64f0",
+   "size": 5,
+   "name": "kpmuStateDestroy_IMPL"
+  },
+  {
+   "addr": "0x2d6500",
+   "size": 108,
+   "name": "kpmuDestruct_IMPL"
+  },
+  {
+   "addr": "0x2d6570",
+   "size": 137,
+   "name": "kpmuReservedMemorySizeGet_IMPL"
+  },
+  {
+   "addr": "0x2d6600",
+   "size": 272,
+   "name": "kpmuInitLibosLoggingStructures_IMPL"
+  },
+  {
+   "addr": "0x2d6710",
+   "size": 9,
+   "name": "kpmuConstructEngine_IMPL"
+  },
+  {
+   "addr": "0x2d6720",
+   "size": 92,
+   "name": "kpmuFreeLibosLoggingStructures_IMPL"
+  },
+  {
+   "addr": "0x2d6780",
+   "size": 88,
+   "name": "kpmuLogBuf_IMPL"
+  },
+  {
+   "addr": "0x2d67e0",
+   "size": 7,
+   "name": "kpmuStateInitLocked_IMPL"
+  },
+  {
+   "addr": "0x2ddb70",
+   "size": 10,
+   "name": "ksec2GspFmcIsEnforced_GB20B"
+  },
+  {
+   "addr": "0x2e8b70",
+   "size": 366,
+   "name": "subdeviceCtrlCmdGpuGetMaxSupportedPageSize_IMPL"
+  },
+  {
+   "addr": "0x2e9f90",
+   "size": 115,
+   "name": "subdeviceCtrlCmdBiosGetSKUInfo_KERNEL"
+  },
+  {
+   "addr": "0x2ea390",
+   "size": 1977,
+   "name": "subdeviceCtrlCmdThermalSystemExecuteV2_IMPL"
+  },
+  {
+   "addr": "0x2ec460",
+   "size": 115,
+   "name": "subdeviceCtrlCmdBiosGetSKUInfo_VF"
+  },
+  {
+   "addr": "0x2ec620",
+   "size": 31,
+   "name": "subdeviceCtrlCmdBiosGetPostTime_VF"
+  },
+  {
+   "addr": "0x2ec7c0",
+   "size": 56,
+   "name": "subdeviceCtrlCmdBiosGetInfoV2_VF"
+  },
+  {
+   "addr": "0x2ec8b0",
+   "size": 252,
+   "name": "subdeviceCtrlCmdClkPmumonClkDomainsGetSamples_VF"
+  },
+  {
+   "addr": "0x2ee3d0",
+   "size": 88,
+   "name": "_tmrCallbackWrapperfunction"
+  },
+  {
+   "addr": "0x300a10",
+   "size": 535,
+   "name": "_gvaspaceReleaseUnreservedPTEs"
+  },
+  {
+   "addr": "0x304480",
+   "size": 1546,
+   "name": "gvaspaceCopyServerRmReservedPdesToServerRm_IMPL"
+  },
+  {
+   "addr": "0x306770",
+   "size": 1170,
+   "name": "gvaspaceCopyServerReservedPdes_IMPL"
+  },
+  {
+   "addr": "0x306c10",
+   "size": 190,
+   "name": "vaspaceapiCtrlCmdVaspaceCopyServerReservedPdes_IMPL"
+  },
+  {
+   "addr": "0x324800",
+   "size": 7,
+   "name": "osQueueDpc"
+  },
+  {
+   "addr": "0x335b60",
+   "size": 21,
+   "name": "pfmConstruct_IMPL"
+  },
+  {
+   "addr": "0x335b80",
+   "size": 52,
+   "name": "pfmUpdateAcpiIdMapping_IMPL"
+  },
+  {
+   "addr": "0x335bc0",
+   "size": 82,
+   "name": "pfmFindAcpiId_IMPL"
+  },
+  {
+   "addr": "0x335c20",
+   "size": 352,
+   "name": "_pfmreqhndlrPmgrPmuPostLoadWorkItem"
+  },
+  {
+   "addr": "0x335d80",
+   "size": 365,
+   "name": "_pfmreqhndlrThermPmuPostInitWorkItem"
+  },
+  {
+   "addr": "0x335ef0",
+   "size": 50,
+   "name": "pfmreqhndlrConstruct_IMPL"
+  },
+  {
+   "addr": "0x335f30",
+   "size": 355,
+   "name": "pfmreqhndlrInitGpu"
+  },
+  {
+   "addr": "0x3360a0",
+   "size": 60,
+   "name": "pfmreqhndlrGetGpu"
+  },
+  {
+   "addr": "0x3360e0",
+   "size": 785,
+   "name": "pfmreqhndlrPcontrol_IMPL"
+  },
+  {
+   "addr": "0x336400",
+   "size": 862,
+   "name": "pfmreqhndlrStateInit_IMPL"
+  },
+  {
+   "addr": "0x336760",
+   "size": 77,
+   "name": "pfmreqhndlrStateDestroy_IMPL"
+  },
+  {
+   "addr": "0x3367b0",
+   "size": 429,
+   "name": "pfmreqhndlrStateLoad_IMPL"
+  },
+  {
+   "addr": "0x336960",
+   "size": 7,
+   "name": "pfmreqhndlrStateUnload_IMPL"
+  },
+  {
+   "addr": "0x336970",
+   "size": 199,
+   "name": "pfmreqhndlrStateSync_IMPL"
+  },
+  {
+   "addr": "0x336a40",
+   "size": 98,
+   "name": "_handleCmdSystemPfmreqhndlrGetSupportedFunctions"
+  },
+  {
+   "addr": "0x336ab0",
+   "size": 78,
+   "name": "pfmreqhndlrControl_IMPL"
+  },
+  {
+   "addr": "0x336b00",
+   "size": 184,
+   "name": "cliresCtrlCmdSystemPfmreqhndlrGetFrmData_IMPL"
+  },
+  {
+   "addr": "0x336bc0",
+   "size": 78,
+   "name": "cliresCtrlCmdSystemPfmreqhndlrSetFrmData_IMPL"
+  },
+  {
+   "addr": "0x336c10",
+   "size": 816,
+   "name": "pfmreqhndlrCallACPI"
+  },
+  {
+   "addr": "0x336f40",
+   "size": 246,
+   "name": "cliresCtrlCmdSystemPfmreqhndlrCallAcpi_IMPL"
+  },
+  {
+   "addr": "0x337040",
+   "size": 284,
+   "name": "_pfmreqhndlrHandlePlatformSetEdppLimitInfoWorkItem"
+  },
+  {
+   "addr": "0x337160",
+   "size": 85,
+   "name": "pfmreqhndlrCallACPI_EX"
+  },
+  {
+   "addr": "0x3371c0",
+   "size": 301,
+   "name": "_pfmreqhndlrUpdatePlatformPowerModeWorkItem"
+  },
+  {
+   "addr": "0x3372f0",
+   "size": 191,
+   "name": "pfmreqhndlrUpdatePerfCounter"
+  },
+  {
+   "addr": "0x3373b0",
+   "size": 925,
+   "name": "pfmreqhndlrSampleCounter"
+  },
+  {
+   "addr": "0x337750",
+   "size": 616,
+   "name": "pfmreqhndlrGetPerfSensorCounterById_IMPL"
+  },
+  {
+   "addr": "0x3379c0",
+   "size": 161,
+   "name": "_pfmreqhndlrUpdateTgpuLimit"
+  },
+  {
+   "addr": "0x337a70",
+   "size": 595,
+   "name": "pfmreqhndlrOperatingLimitUpdate_IMPL"
+  },
+  {
+   "addr": "0x337cd0",
+   "size": 115,
+   "name": "_pfmreqhndlrUpdateSystemParamLimitWorkItem"
+  },
+  {
+   "addr": "0x337d50",
+   "size": 1450,
+   "name": "cliresCtrlCmdSystemPfmreqhndlrCtrl_IMPL"
+  },
+  {
+   "addr": "0x338300",
+   "size": 210,
+   "name": "_pfmreqhndlrUpdatePpmdLimit"
+  },
+  {
+   "addr": "0x3383e0",
+   "size": 91,
+   "name": "pfmreqhndlrHandleCheckPM1Available_IMPL"
+  },
+  {
+   "addr": "0x338440",
+   "size": 201,
+   "name": "pfmreqhndlrHandleEdppeakLimitUpdate_IMPL"
+  },
+  {
+   "addr": "0x338510",
+   "size": 183,
+   "name": "pfmreqhndlrHandlePlatformEdppLimitUpdate_IMPL"
+  },
+  {
+   "addr": "0x3385d0",
+   "size": 227,
+   "name": "pfmreqhndlrHandlePlatformGetEdppLimit_IMPL"
+  },
+  {
+   "addr": "0x3386c0",
+   "size": 284,
+   "name": "pfmreqhndlrHandlePlatformSetEdppLimitInfo_IMPL"
+  },
+  {
+   "addr": "0x3387e0",
+   "size": 1170,
+   "name": "_pfmreqhndlrCallPshareStatus"
+  },
+  {
+   "addr": "0x338c80",
+   "size": 1067,
+   "name": "pfmreqhndlrInitSensors"
+  },
+  {
+   "addr": "0x3390b0",
+   "size": 341,
+   "name": "pfmreqhndlrHandleStatusChangeEvent"
+  },
+  {
+   "addr": "0x339210",
+   "size": 192,
+   "name": "_handleCmdSystemPfmreqhndlrDataInitUsingSbiosAndAck"
+  },
+  {
+   "addr": "0x3392d0",
+   "size": 94,
+   "name": "pfmreqhndlrHandleUserConfigurableTgpMode_IMPL"
+  },
+  {
+   "addr": "0x339330",
+   "size": 261,
+   "name": "pfmreqhndlrGetPerfSensorCounters"
+  },
+  {
+   "addr": "0x33e1d0",
+   "size": 11,
+   "name": "rmclientGetCachedPrivilege_IMPL"
+  },
+  {
+   "addr": "0x3412e0",
+   "size": 118,
+   "name": "cliresCtrlCmdSystemPfmreqhndlrControl_IMPL"
+  },
+  {
+   "addr": "0x341360",
+   "size": 240,
+   "name": "cliresCtrlCmdSystemPfmreqhndlrBatchControl_IMPL"
+  },
+  {
+   "addr": "0x341450",
+   "size": 5537,
+   "name": "cliresCtrlCmdSystemNVPCFGetPowerModeInfo_IMPL"
+  },
+  {
+   "addr": "0x343a80",
+   "size": 277,
+   "name": "cliresCtrlCmdSystemGetGpusPowerStatus_IMPL"
+  },
+  {
+   "addr": "0x3450d0",
+   "size": 17,
+   "name": "cliresCtrlCmdSystemPfmreqhndlrGetPerfSensorCounters_IMPL"
+  },
+  {
+   "addr": "0x3450f0",
+   "size": 14,
+   "name": "cliresCtrlCmdSystemPfmreqhndlrGetExtendedPerfSensorCounters_IMPL"
+  },
+  {
+   "addr": "0x345120",
+   "size": 7,
+   "name": "cliresCtrlCmdSystemGetPerfSensorCounters_IMPL"
+  },
+  {
+   "addr": "0x345130",
+   "size": 7,
+   "name": "cliresCtrlCmdSystemGetExtendedPerfSensorCounters_IMPL"
+  },
+  {
+   "addr": "0x346f80",
+   "size": 5724,
+   "name": "embeddedParamCopyIn"
+  },
+  {
+   "addr": "0x3485e0",
+   "size": 3391,
+   "name": "embeddedParamCopyOut"
+  },
+  {
+   "addr": "0x34ea30",
+   "size": 70,
+   "name": "lockStressObjCtrlCmdPerformLockStressAllRmLocks_IMPL"
+  },
+  {
+   "addr": "0x34ea80",
+   "size": 73,
+   "name": "lockStressObjCtrlCmdPerformLockStressNoGpusLock_IMPL"
+  },
+  {
+   "addr": "0x34ead0",
+   "size": 73,
+   "name": "lockStressObjCtrlCmdPerformLockStressApiLockReadMode_IMPL"
+  },
+  {
+   "addr": "0x34eb20",
+   "size": 73,
+   "name": "lockStressObjCtrlCmdPerformLockStressNoGpusLockApiLockReadMode_IMPL"
+  },
+  {
+   "addr": "0x34eb70",
+   "size": 104,
+   "name": "lockStressObjCtrlCmdPerformLockStressInternalAllRmLocks_IMPL"
+  },
+  {
+   "addr": "0x34ebe0",
+   "size": 104,
+   "name": "lockStressObjCtrlCmdPerformLockStressInternalNoGpusLock_IMPL"
+  },
+  {
+   "addr": "0x34ec50",
+   "size": 104,
+   "name": "lockStressObjCtrlCmdPerformLockStressInternalApiLockReadMode_IMPL"
+  },
+  {
+   "addr": "0x34ecc0",
+   "size": 104,
+   "name": "lockStressObjCtrlCmdPerformLockStressInternalNoGpusLockApiLockReadMode_IMPL"
+  },
+  {
+   "addr": "0x3719c0",
+   "size": 97,
+   "name": "deserialize_NV2080_CTRL_PERF_GET_LEVEL_INFO_V2_PARAMS_v2B_0D"
+  },
+  {
+   "addr": "0x379af0",
+   "size": 154,
+   "name": "rpcCtrlPerfBoost_v1A_09"
+  },
+  {
+   "addr": "0x37a6e0",
+   "size": 284,
+   "name": "rpcCtrlVaspaceCopyServerReservedPdes_v1E_04"
+  },
+  {
+   "addr": "0x37b4a0",
+   "size": 251,
+   "name": "rpcCtrlPerfRatedTdpGetStatus_v1A_1F"
+  },
+  {
+   "addr": "0x37b5a0",
+   "size": 187,
+   "name": "rpcCtrlPerfRatedTdpSetControl_v1A_1F"
+  },
+  {
+   "addr": "0x380010",
+   "size": 36,
+   "name": "RmRpcPerfGetCurrentPstate"
+  },
+  {
+   "addr": "0x380040",
+   "size": 611,
+   "name": "rpcPerfGetLevelInfo_v2B_0D"
+  },
+  {
+   "addr": "0x386e90",
+   "size": 278,
+   "name": "deserialize_NV2080_CTRL_BIOS_GET_SKU_INFO_PARAMS_v25_0E"
+  },
+  {
+   "addr": "0x38bc80",
+   "size": 1020,
+   "name": "kernelhostvgpudeviceapiCtrlCmdSetOfflinedPagePatchInfo_IMPL"
+  },
+  {
+   "addr": "0x3904d0",
+   "size": 2902,
+   "name": "kvgpumgrSetSupportedPlacementIds"
+  },
+  {
+   "addr": "0x3c6080",
+   "size": 7,
+   "name": "clientGetCachedPrivilege_IMPL"
+  }
+ ],
+ "power_fn_imm_hits": [
+  {
+   "section": ".text",
+   "addr": 1783750,
+   "fn": "kdispComputeDpModeSettings_v02_04",
+   "insn": "imul   $0x186a0,%rax,%rax",
+   "imm": "0x186a0",
+   "value": "100000",
+   "kind": "imm",
+   "win": [
+    {
+     "addr": 1783730,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "mov    0x30(%rbx),%ecx"
+    },
+    {
+     "addr": 1783733,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "xor    %edx,%edx"
+    },
+    {
+     "addr": 1783735,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "mov    0x28(%rbx),%rax"
+    },
+    {
+     "addr": 1783739,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "mov    0x8(%rbx),%esi"
+    },
+    {
+     "addr": 1783742,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "imul   %rcx,%rax"
+    },
+    {
+     "addr": 1783746,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "imul   %r11,%rsi"
+    },
+    {
+     "addr": 1783750,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "imul   $0x186a0,%rax,%rax"
+    },
+    {
+     "addr": 1783757,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "shl    $0x3,%rsi"
+    },
+    {
+     "addr": 1783761,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "div    %r15"
+    },
+    {
+     "addr": 1783764,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "xor    %edx,%edx"
+    },
+    {
+     "addr": 1783766,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "lea    0x0(,%r10,8),%r15d"
+    },
+    {
+     "addr": 1783774,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "div    %rsi"
+    },
+    {
+     "addr": 1783777,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "xor    %edx,%edx"
+    }
+   ]
+  },
+  {
+   "section": ".text",
+   "addr": 1783782,
+   "fn": "kdispComputeDpModeSettings_v02_04",
+   "insn": "imul   $0x186a0,%rcx,%rax",
+   "imm": "0x186a0",
+   "value": "100000",
+   "kind": "imm",
+   "win": [
+    {
+     "addr": 1783761,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "div    %r15"
+    },
+    {
+     "addr": 1783764,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "xor    %edx,%edx"
+    },
+    {
+     "addr": 1783766,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "lea    0x0(,%r10,8),%r15d"
+    },
+    {
+     "addr": 1783774,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "div    %rsi"
+    },
+    {
+     "addr": 1783777,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "xor    %edx,%edx"
+    },
+    {
+     "addr": 1783779,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "mov    %rax,%rsi"
+    },
+    {
+     "addr": 1783782,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "imul   $0x186a0,%rcx,%rax"
+    },
+    {
+     "addr": 1783789,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "mov    %r14d,%ecx"
+    },
+    {
+     "addr": 1783792,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "imul   %r15d,%ecx"
+    },
+    {
+     "addr": 1783796,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "div    %rcx"
+    },
+    {
+     "addr": 1783799,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "mov    $0x186a0,%edx"
+    },
+    {
+     "addr": 1783804,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "sub    %rsi,%rdx"
+    },
+    {
+     "addr": 1783807,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "imul   %rsi,%rdx"
+    }
+   ]
+  },
+  {
+   "section": ".text",
+   "addr": 1783799,
+   "fn": "kdispComputeDpModeSettings_v02_04",
+   "insn": "mov    $0x186a0,%edx",
+   "imm": "0x186a0",
+   "value": "100000",
+   "kind": "imm",
+   "win": [
+    {
+     "addr": 1783777,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "xor    %edx,%edx"
+    },
+    {
+     "addr": 1783779,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "mov    %rax,%rsi"
+    },
+    {
+     "addr": 1783782,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "imul   $0x186a0,%rcx,%rax"
+    },
+    {
+     "addr": 1783789,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "mov    %r14d,%ecx"
+    },
+    {
+     "addr": 1783792,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "imul   %r15d,%ecx"
+    },
+    {
+     "addr": 1783796,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "div    %rcx"
+    },
+    {
+     "addr": 1783799,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "mov    $0x186a0,%edx"
+    },
+    {
+     "addr": 1783804,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "sub    %rsi,%rdx"
+    },
+    {
+     "addr": 1783807,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "imul   %rsi,%rdx"
+    },
+    {
+     "addr": 1783811,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "movabs $0xa7c5ac471b47843,%rsi"
+    },
+    {
+     "addr": 1783821,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "shl    $0x6,%rdx"
+    },
+    {
+     "addr": 1783825,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "shr    $0x5,%rdx"
+    },
+    {
+     "addr": 1783829,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "mov    %rax,%rcx"
+    }
+   ]
+  },
+  {
+   "section": ".text",
+   "addr": 1784426,
+   "fn": "kdispComputeDpModeSettings_v02_04",
+   "insn": "imul   $0x186a0,%rax,%rax",
+   "imm": "0x186a0",
+   "value": "100000",
+   "kind": "imm",
+   "win": [
+    {
+     "addr": 1784410,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "imul   0x30(%rbx),%eax"
+    },
+    {
+     "addr": 1784414,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "xor    %edx,%edx"
+    },
+    {
+     "addr": 1784416,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "div    %r14d"
+    },
+    {
+     "addr": 1784419,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "add    %eax,%ecx"
+    },
+    {
+     "addr": 1784421,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "movslq %ecx,%rax"
+    },
+    {
+     "addr": 1784424,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "xor    %edx,%edx"
+    },
+    {
+     "addr": 1784426,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "imul   $0x186a0,%rax,%rax"
+    },
+    {
+     "addr": 1784433,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "div    %r15"
+    },
+    {
+     "addr": 1784436,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "xor    %edx,%edx"
+    },
+    {
+     "addr": 1784438,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "cltq"
+    },
+    {
+     "addr": 1784440,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "imul   0x28(%rbx),%rax"
+    },
+    {
+     "addr": 1784445,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "div    %r11"
+    },
+    {
+     "addr": 1784448,
+     "fn": "kdispComputeDpModeSettings_v02_04",
+     "insn": "movabs $0xa7c5ac471b47843,%rdx"
+    }
+   ]
+  }
+ ],
+ "power_fn_data_hits": [],
+ "v428_raw14_crosscheck": [
+  {
+   "raw": 560614,
+   "insn_addr": 560605,
+   "fn": "nvswitch_init_pll_config_lr10",
+   "insn": "movabs $0xff00000001,%rax",
+   "verdict": "DECOY (non-imm operand or mid-insn)"
+  },
+  {
+   "raw": 797318,
+   "insn_addr": 797315,
+   "fn": "nvswitch_init_pll_config_ls10",
+   "insn": "mov    %rax,-0x48(%rbp)",
+   "verdict": "DECOY (non-imm operand or mid-insn)"
+  },
+  {
+   "raw": 1511930,
+   "insn_addr": 1511927,
+   "fn": "kbifSetLtrEnable_GM107",
+   "insn": "lea    -0x24(%rbp),%rdx",
+   "verdict": "DECOY (non-imm operand or mid-insn)"
+  },
+  {
+   "raw": 1515681,
+   "insn_addr": 1515679,
+   "fn": "kbifDoFunctionLevelReset_TU102",
+   "insn": "cmpb   $0x0,0x493e(%r14)",
+   "verdict": "DECOY (non-imm operand or mid-insn)"
+  },
+  {
+   "raw": 1783817,
+   "insn_addr": 1783811,
+   "fn": "kdispComputeDpModeSettings_v02_04",
+   "insn": "movabs $0xa7c5ac471b47843,%rsi",
+   "verdict": "DECOY (non-imm operand or mid-insn)"
+  },
+  {
+   "raw": 1783849,
+   "insn_addr": 1783846,
+   "fn": "kdispComputeDpModeSettings_v02_04",
+   "insn": "shr    $0x5,%rdx",
+   "verdict": "DECOY (non-imm operand or mid-insn)"
+  },
+  {
+   "raw": 1783864,
+   "insn_addr": 1783863,
+   "fn": "kdispComputeDpModeSettings_v02_04",
+   "insn": "add    $0x8,%esi",
+   "verdict": "DECOY (non-imm operand or mid-insn)"
+  },
+  {
+   "raw": 1784493,
+   "insn_addr": 1784488,
+   "fn": "kdispComputeDpModeSettings_v02_04",
+   "insn": "mov    $0x0,%rsi",
+   "verdict": "DECOY (non-imm operand or mid-insn)"
+  },
+  {
+   "raw": 2133177,
+   "insn_addr": 2133176,
+   "fn": "_checkTimeout",
+   "insn": "mov    (%rbx),%rax",
+   "verdict": "DECOY (non-imm operand or mid-insn)"
+  },
+  {
+   "raw": 2133182,
+   "insn_addr": 2133182,
+   "fn": "_checkTimeout",
+   "insn": "ja     208d66 <_checkTimeout+0x1d6>",
+   "verdict": "DECOY (non-imm operand or mid-insn)"
+  },
+  {
+   "raw": 3079994,
+   "insn_addr": 3079993,
+   "fn": "tmrDelay_PTIMER",
+   "insn": "mov    %r12d,%r13d",
+   "verdict": "DECOY (non-imm operand or mid-insn)"
+  },
+  {
+   "raw": 3080528,
+   "insn_addr": 3080528,
+   "fn": "tmrDelay_PTIMER",
+   "insn": "jmp    2eff56 <tmrDelay_PTIMER+0xf6>",
+   "verdict": "DECOY (non-imm operand or mid-insn)"
+  },
+  {
+   "raw": 3080534,
+   "insn_addr": 3080533,
+   "fn": "tmrDelay_PTIMER",
+   "insn": "cs nopw 0x0(%rax,%rax,1)",
+   "verdict": "DECOY (non-imm operand or mid-insn)"
+  },
+  {
+   "raw": 3848622,
+   "insn_addr": 3848620,
+   "fn": "libspdm_init_context_with_secured_context",
+   "insn": "movq   $0x0,0x110(%rbx)",
+   "verdict": "DECOY (non-imm operand or mid-insn)"
+  }
+ ]
+}
