@@ -78,6 +78,7 @@ class Emu:
         self.pc = VMA_BASE
         self.trace = trace
         self.sbi_base = sbi_base
+        self.time = 0  # le compteur rdtime émulé (1 tick = 1 ns, 4.34)
         self.tracer = None
         self.stop_at = set()
         self.events = collections.Counter()
@@ -255,6 +256,10 @@ class Emu:
                 r[REG_NAMES.index(p[0])] = 1 if r[REG_NAMES.index(p[1])] != 0 else 0
             elif mn == "zext.b":
                 r[REG_NAMES.index(p[0])] = r[REG_NAMES.index(p[1])] & 0xFF
+            elif mn == "rdtime":
+                # le CSR time (0xC01) — 1 tick = 1 ns (4.34 PROUVÉ);
+                # modèle déterministe: emu.time posé par le test.
+                r[REG_NAMES.index(p[0])] = self.time & (M - 1)
             elif mn == "sext.w":
                 r[REG_NAMES.index(p[0])] = sx(r[REG_NAMES.index(p[1])] & 0xFFFFFFFF, 32) & (M - 1)
             elif mn in ("j", "c.j"):
@@ -369,6 +374,174 @@ def test_bounds(patch=False, image=None):
     return ("FAIL" if not patch else "PASS") in status
 
 
+GADGET_ENTRY = 0x100B3E   # ld a5,0x8(sp) — la charge (le gadget 4.40)
+FULL_ENTRY   = 0x100AEC   # le prologue de la boucle de transfert (4.41)
+SIG_BASE     = 0x16D000   # le soustracteur t3 de la signature
+MAGIC_BYTE   = 0x08       # li a2,0x8 @0x1022c8 (le setup 4.42)
+
+
+def test_transfer():
+    """4.42 TÂCHE 4 — la validation émulateur de la transfer-list.
+
+    Le mécanisme bancé (bootloader.asm l.976-1042, décodé ce pass):
+      - la liste = un tableau PLAT u64; le pointeur de marche @sp+0x8;
+        +8 par itération; [a1] = la charge. PAS de next-ptr dans les
+        données (l'hypothèse {valeur,next} 16 B FALSIFIÉE).
+    TT-A le mode GADGET (entrée 0x100b3e): écriture #1 = [a1] (registre),
+          #2..N = [a4+0x498] + [a4+0x488]*8 (le scatter du ctx fabriqué),
+          a0=~0 garde le chemin RAW (pas de signature/rdtime).
+    TT-B le mode BOUCLE COMPLÈTE (entrée 0x100aec, n=2 = la forme du
+          setup): 1 signature ((label-0x16d000)&0xFFFF|magic<<56|n<<48)
+          + 1 rdtime; le compteur slot-0 += n.
+    TT-C le WRAP: slot+1 >= capacité -> slot = 1 (jamais 0).
+    TT-D les gardes: capacité=0 -> la boucle inerte (ret immédiat).
+    """
+    img = load_image()
+    results = []
+
+    def check(name, cond, detail=""):
+        results.append((name, bool(cond), detail))
+        print(f"[{'PASS' if cond else 'FAIL'}] {name} {detail}")
+
+    # ---- TT-A: le mode GADGET — scatter-write depuis le ctx fabriqué
+    e = Emu(img)
+    ctx, dest, lst, sp = 0x160000, 0x161000, 0x162000, 0x163000
+    vals = [0xAAAAAAA1, 0xBBBBBBB2, 0xCCCCCC3]
+    e.wmem(ctx + 0x488, 8, 2)          # slot0 = 2
+    e.wmem(ctx + 0x490, 8, 0x40)       # capacité
+    e.wmem(ctx + 0x498, 8, dest)       # dest base
+    e.wmem(ctx + 0x4A0, 1, MAGIC_BYTE)
+    for k, v in enumerate(vals):
+        e.wmem(lst + 8 * k, 8, v)      # la liste plate
+    e.wmem(sp + 8, 8, lst)             # la cellule de marche -> &list[0]
+    e.pc = GADGET_ENTRY
+    e.regs[REG_NAMES.index("a0")] = (M - 1)  # a0 = ~0 -> le chemin RAW pour toujours
+    e.regs[REG_NAMES.index("a3")] = 3  # a3 = la borne N
+    e.regs[REG_NAMES.index("a7")] = 0  # a7 = i départ
+    e.regs[REG_NAMES.index("a1")] = dest + 2 * 8  # la 1re cible = [a1] (registre)
+    e.regs[REG_NAMES.index("a4")] = ctx
+    e.regs[2] = sp                     # sp: la cellule de marche @sp+8
+    e.regs[1] = 0xDEADC0DE
+    e.stop_at = {0xDEADC0DE}
+    e.run(budget=400)
+    ok = e.pc == 0xDEADC0DE and not e.fail
+    got = [e.rmem(dest + 8 * (2 + k), 8) for k in range(3)]
+    check("TT-A gadget scatter: 3 écritures dans l'ordre", ok and got == vals,
+          f"got={['%x' % g for g in got]} slot_fin={e.rmem(ctx+0x488,8)}")
+    check("TT-A le compteur slot-0 += N", e.rmem(dest, 8) == 3,
+          f"[dest]={e.rmem(dest, 8)}")
+    check("TT-A le slot avance 2->5", e.rmem(ctx + 0x488, 8) == 5)
+
+    # ---- TT-B: la boucle COMPLÈTE n=2 (la forme du setup) — ctx RÉEL 0x124000
+    e = Emu(img)
+    dest = 0x168000                    # la région boot-params (STATE.md)
+    label = 0x16DFB0                   # le label du setup @0x1022f0-4
+    e.wmem(0x124488, 8, 7)             # slot = 7
+    e.wmem(0x124490, 8, 0x40)          # capacité
+    e.wmem(0x124498, 8, dest)          # dest base
+    e.wmem(0x1244A0, 1, MAGIC_BYTE)    # le magic byte (le setup écrit 0x8)
+    e.wmem(dest, 8, 6800)              # le compteur persistant slot-0
+    e.time = 0x1234                    # le rdtime émulé
+    sp = 0x164000
+    e.regs[2] = sp
+    e.regs[REG_NAMES.index("a0")] = 1  # n = a0+1 = 2 (la forme du setup)
+    e.regs[REG_NAMES.index("a1")] = label
+    e.regs[1] = 0xDEADC0DE
+    e.pc = FULL_ENTRY
+    e.stop_at = {0xDEADC0DE}
+    e.run(budget=400)
+    exp_sig = ((label - SIG_BASE) & 0xFFFF) | (MAGIC_BYTE << 56) | (2 << 48)
+    sig_got = e.rmem(dest + 8 * 7, 8)
+    ts_got = e.rmem(dest + 8 * 8, 8)
+    check("TT-B l'entrée signature transformée", sig_got == exp_sig,
+          f"sig={sig_got:016x} attendu={exp_sig:016x}")
+    check("TT-B l'entrée rdtime (1 tick=1ns, 4.34)", ts_got == 0x1234,
+          f"ts={ts_got:x}")
+    check("TT-B le compteur slot-0 += n (6800->6802)", e.rmem(dest, 8) == 6802,
+          f"[dest]={e.rmem(dest, 8)}")
+    check("TT-B le slot 7->9", e.rmem(0x124488, 8) == 9)
+    check("TT-B ret propre", e.pc == 0xDEADC0DE and not e.fail,
+          f"pc={e.pc:#x} fail={e.fail}")
+
+    # ---- TT-C: le WRAP slot+1 >= capacité -> slot=1
+    e = Emu(img)
+    ctx, dest, lst, sp = 0x160000, 0x161000, 0x162000, 0x163000
+    e.wmem(ctx + 0x488, 8, 0x3F)       # le dernier slot
+    e.wmem(ctx + 0x490, 8, 0x40)
+    e.wmem(ctx + 0x498, 8, dest)
+    e.wmem(lst, 8, 0x11)
+    e.wmem(lst + 8, 8, 0x22)
+    e.wmem(lst + 16, 8, 0x33)
+    e.wmem(sp + 8, 8, lst)
+    e.pc = GADGET_ENTRY
+    e.regs[REG_NAMES.index("a0")] = (M - 1)
+    e.regs[REG_NAMES.index("a3")] = 3
+    e.regs[REG_NAMES.index("a7")] = 0
+    e.regs[REG_NAMES.index("a1")] = dest + 0x3F * 8
+    e.regs[REG_NAMES.index("a4")] = ctx
+    e.regs[2] = sp
+    e.regs[1] = 0xDEADC0DE
+    e.stop_at = {0xDEADC0DE}
+    e.run(budget=400)
+    ok = (e.rmem(dest + 0x3F * 8, 8) == 0x11 and
+          e.rmem(dest + 1 * 8, 8) == 0x22 and
+          e.rmem(dest + 2 * 8, 8) == 0x33 and
+          e.rmem(ctx + 0x488, 8) == 3)   # wrap: 0x3F->1 puis 1->2->3
+    check("TT-C le wrap slot=cap -> 1 (jamais 0)", ok,
+          f"s0+0x3F={e.rmem(dest+0x3F*8,8):x} s1={e.rmem(dest+8,8):x} "
+          f"s2={e.rmem(dest+16,8):x} slot_fin={e.rmem(ctx+0x488,8)}")
+
+    # ---- TT-D: les gardes — capacité=0 -> INERT (ret sans écrire)
+    e = Emu(img)
+    dest = 0x161000
+    e.wmem(0x124490, 8, 0)             # capacité = 0 -> le garde beqz @0x100b08
+    e.wmem(0x124498, 8, dest)
+    e.wmem(dest, 8, 77)
+    e.regs[2] = 0x164000
+    e.regs[REG_NAMES.index("a0")] = 3
+    e.regs[1] = 0xDEADC0DE
+    e.pc = FULL_ENTRY
+    e.stop_at = {0xDEADC0DE}
+    e.run(budget=200)
+    check("TT-D capacité=0 -> la boucle inerte, ret propre",
+          e.pc == 0xDEADC0DE and e.rmem(dest, 8) == 77 and not e.fail,
+          f"pc={e.pc:#x} [dest]={e.rmem(dest,8)} steps={e.steps}")
+
+    # ---- TT-E: E2E — le PAYLOAD CONSTRUIT (le layout C/v442e) pilote la
+    #      vraie boucle: le ctx @payload+0x488, la liste @payload+0x500.
+    e = Emu(img)
+    PAY, DEST = 0x165000, 0x166000   # le payload [PAY,PAY+0x1000), dest après
+    E1 = 0x000445C00003A980          # {limitRated 240000, limitMax 280000}
+    payload = bytearray(b"\xFF" * 0x1000)
+    payload[0x488:0x490] = (2).to_bytes(8, "little")     # slot0 = 2
+    payload[0x490:0x498] = (0x400).to_bytes(8, "little") # capacité
+    payload[0x498:0x4A0] = DEST.to_bytes(8, "little")    # dest base
+    payload[0x4A0] = 0x08                                # magic
+    for k in range(3):
+        payload[0x500 + 8*k:0x508 + 8*k] = E1.to_bytes(8, "little")
+    for i, b in enumerate(payload):
+        e.mem[PAY - 0x100000 + i] = b
+    e.pc = GADGET_ENTRY
+    e.regs[REG_NAMES.index("a0")] = (M - 1)
+    e.regs[REG_NAMES.index("a3")] = 3
+    e.regs[REG_NAMES.index("a7")] = 0
+    e.regs[REG_NAMES.index("a1")] = DEST + 2 * 8   # la 1re cible (registre)
+    e.regs[REG_NAMES.index("a4")] = PAY            # le ctx = le payload LUI-MÊME
+    e.regs[2] = 0x167000
+    e.wmem(0x167000 + 8, 8, PAY + 0x500)           # la marche -> &list[0]
+    e.regs[1] = 0xDEADC0DE
+    e.stop_at = {0xDEADC0DE}
+    e.run(budget=400)
+    got = [e.rmem(DEST + 8 * (2 + k), 8) for k in range(3)]
+    check("TT-E E2E le payload construit -> E1 aux 3 slots",
+          e.pc == 0xDEADC0DE and got == [E1, E1, E1] and not e.fail,
+          f"got={['%x' % g for g in got]} slot_fin={e.rmem(PAY+0x488,8)}")
+
+    n_pass = sum(1 for _, ok, _ in results if ok)
+    print(f"test-transfer: {n_pass}/{len(results)} PASS")
+    return 0 if n_pass == len(results) else 1
+
+
 def selftest():
     img = load_image()
     fails = []
@@ -432,8 +605,12 @@ def main():
     ap.add_argument("--sbi-base", type=lambda x: int(x, 0), default=0x55800000)
     ap.add_argument("--test-bounds", action="store_true")
     ap.add_argument("--patch-bounds", action="store_true", help="NOP du bgeu @0x1014f4 avant run")
+    ap.add_argument("--test-transfer", action="store_true",
+                    help="4.42: la validation de la transfer-list (TT-A..D)")
     ap.add_argument("--selftest", action="store_true")
     a = ap.parse_args()
+    if a.test_transfer:
+        return test_transfer()
     if a.selftest:
         return selftest()
     img = load_image(a.image)

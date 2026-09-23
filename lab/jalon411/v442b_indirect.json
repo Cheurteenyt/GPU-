@@ -1,0 +1,14 @@
+{
+  "jalr_rx_pairs": [],
+  "jalr_rx_targeting_transfer_fn": [],
+  "branches_into_range": [
+    "0x100b08:beqz->0x100b78",
+    "0x100b0e:beqz->0x100b78",
+    "0x100b3a:bgeu->0x100b7c",
+    "0x100b54:bltu->0x100b5a",
+    "0x100b6a:bltu->0x100b2e",
+    "0x100b7c:bne->0x100ba0"
+  ],
+  "u64_ptr_hits": [],
+  "u32_half_hits": []
+}
