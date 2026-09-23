@@ -4,6 +4,37 @@ One page to answer: where the campaign stands, what is proven, what is
 open, what is next. The historical snapshots (2026-09-17, 2026-09-20)
 are at the bottom.
 
+## The 4.37 addition: the break-day package (the data twins are descriptor-linked; the two boot days armed)
+
+The pass 4.37 (`lab/jalon411/findings-4.37-breakday-package.md`) ran
+the one reachability probe the campaign never ran — **who references
+the banked data tables** — and armed the founder's two boot days.
+**(A) Code side all zero:** absolute lui+addi pairs into any table
+window = 0; lui+direct-access (the %lo-on-the-load idiom) = 0 with 0
+page-bases even in reach; PIC auipc refs = 0; resolved indexed access
+= 0. The widened diagnostic banks the boundary: 24 lui values land in
+the data LOAD (232 sites, `0x4000000` ×180 = the segment base,
+`0x4040000` ×2 = the defaults-table page) and auipc+addi into data = 0
+over all 416,206 auipc — **the data LOAD is never PIC-addressed at
+all.** **(B) The data-side probe = the result:** 25 u64 pointers from
+the data LOAD land one-per-record in the 22×1000000 defaults window
+(three structural families by stride) — **the compiled defaults are
+descriptor-linked instance state, not a loader-copied array**; the
+fill path = the RPC object-create path, exactly what the 4.26 capture
+watches. The knob card is unchanged (1000000 stays the DO-NOT-TOUCH-
+BLIND time family). **(C) The regkey experiment cards:** 17 cards from
+the banked evidence (xrefs ≥ 3 minus the REFUSED gate —
+RmClockUprocSecurityCheck / RmAllowChannelCreationOnPendingReset /
+RmDisableFbflcnDevinitBoot, reasons named), each with the nvlddmkm
+DWORD path, the test value, the concrete observable, the HYPOTHESIS
+prediction and the risk class. **(D) runbook-426.sh** scripts the
+capture day end to end (the STOCK sha check, the 4.25 recv hook
+byte-exact apply/restore, the initramfs plumbing, the §7.2 verdict
+checklist with the honest negative, the day-2 regkey pack). **The
+road is unchanged and now fully armed: day 1 = the 4.26 capture, day
+2 = the regkey experiments — the 280 W rm.elf lane stays CLOSED (the
+4.34 REVERT).**
+
 ## The 4.36 addition: the static hunt reaches its floor (the regkey canal is runtime)
 
 The pass 4.36 (`lab/jalon411/findings-4.36-regkey-flow.md`) paid the
