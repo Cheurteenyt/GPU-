@@ -1,0 +1,335 @@
+{
+ "substrates": {
+  "A_rm_full_elf": {
+   "path": "tools/analysis/gsp-extract/rm-full.elf",
+   "size": 15315064,
+   "phdrs": [
+    {
+     "type": 1,
+     "flags": 7,
+     "off": 64,
+     "vaddr": 16777216,
+     "filesz": 15314944,
+     "memsz": 15314944
+    }
+   ],
+   "img_offset": 64,
+   "img_size": 15314944
+  },
+  "B_gsp_rm_17MB": {
+   "path": "tools/analysis/gsp-extract/binaries/gsp-rm-17MB.bin",
+   "size": 17236632,
+   "phdrs": [
+    {
+     "type": 1,
+     "flags": 5,
+     "off": 0,
+     "vaddr": 16777216,
+     "filesz": 15314944,
+     "memsz": 15314944
+    },
+    {
+     "type": 1,
+     "flags": 6,
+     "off": 15314944,
+     "vaddr": 67108864,
+     "filesz": 1921024,
+     "memsz": 1921024
+    },
+    {
+     "type": 7,
+     "flags": 6,
+     "off": 17235968,
+     "vaddr": 540827648,
+     "filesz": 0,
+     "memsz": 4096
+    },
+    {
+     "type": 1610612736,
+     "flags": 4,
+     "off": 0,
+     "vaddr": 536870912,
+     "filesz": 0,
+     "memsz": 0
+    }
+   ]
+  }
+ },
+ "sites_B": [
+  {
+   "idx": 0,
+   "file_off_B": "0x190c6",
+   "va_B": "0x10190c6",
+   "va_A_expected": "0x10190fe",
+   "words": [
+    "0x3d7b7",
+    "0x9078793"
+   ],
+   "decoded": [
+    "lui a5, 0x3d",
+    "addi a5, a5, 0x90"
+   ],
+   "value": 250000,
+   "value_ok": true,
+   "rd": 15,
+   "rd_ok_vs_430": true,
+   "pair_ok": true,
+   "op2": "addi"
+  },
+  {
+   "idx": 1,
+   "file_off_B": "0x1a02a",
+   "va_B": "0x101a02a",
+   "va_A_expected": "0x101a062",
+   "words": [
+    "0x3d637",
+    "0x9060613"
+   ],
+   "decoded": [
+    "lui a2, 0x3d",
+    "addi a2, a2, 0x90"
+   ],
+   "value": 250000,
+   "value_ok": true,
+   "rd": 12,
+   "rd_ok_vs_430": true,
+   "pair_ok": true,
+   "op2": "addi"
+  },
+  {
+   "idx": 2,
+   "file_off_B": "0x1f09a8",
+   "va_B": "0x11f09a8",
+   "va_A_expected": "0x11f09e0",
+   "words": [
+    "0x3d637",
+    "0x9060613"
+   ],
+   "decoded": [
+    "lui a2, 0x3d",
+    "addi a2, a2, 0x90"
+   ],
+   "value": 250000,
+   "value_ok": true,
+   "rd": 12,
+   "rd_ok_vs_430": true,
+   "pair_ok": true,
+   "op2": "addi"
+  },
+  {
+   "idx": 3,
+   "file_off_B": "0x7c467c",
+   "va_B": "0x17c467c",
+   "va_A_expected": "0x17c46b4",
+   "words": [
+    "0x3d7b7",
+    "0x907879b"
+   ],
+   "decoded": [
+    "lui a5, 0x3d",
+    "addiw a5, a5, 0x90"
+   ],
+   "value": 250000,
+   "value_ok": true,
+   "rd": 15,
+   "rd_ok_vs_430": true,
+   "pair_ok": true,
+   "op2": "addiw"
+  },
+  {
+   "idx": 4,
+   "file_off_B": "0xb99bb4",
+   "va_B": "0x1b99bb4",
+   "va_A_expected": "0x1b99bec",
+   "words": [
+    "0x3d7b7",
+    "0x9078793"
+   ],
+   "decoded": [
+    "lui a5, 0x3d",
+    "addi a5, a5, 0x90"
+   ],
+   "value": 250000,
+   "value_ok": true,
+   "rd": 15,
+   "rd_ok_vs_430": true,
+   "pair_ok": true,
+   "op2": "addi"
+  },
+  {
+   "idx": 5,
+   "file_off_B": "0xb99c90",
+   "va_B": "0x1b99c90",
+   "va_A_expected": "0x1b99cc8",
+   "words": [
+    "0x3d937",
+    "0x9090913"
+   ],
+   "decoded": [
+    "lui s2, 0x3d",
+    "addi s2, s2, 0x90"
+   ],
+   "value": 250000,
+   "value_ok": true,
+   "rd": 18,
+   "rd_ok_vs_430": true,
+   "pair_ok": true,
+   "op2": "addi"
+  }
+ ],
+ "window_cmp": [
+  {
+   "site": 0,
+   "B_file": "0x190c6",
+   "A_img": "0x190fe",
+   "window": 512,
+   "bytes_equal": true
+  },
+  {
+   "site": 1,
+   "B_file": "0x1a02a",
+   "A_img": "0x1a062",
+   "window": 512,
+   "bytes_equal": true
+  },
+  {
+   "site": 2,
+   "B_file": "0x1f09a8",
+   "A_img": "0x1f09e0",
+   "window": 512,
+   "bytes_equal": true
+  },
+  {
+   "site": 3,
+   "B_file": "0x7c467c",
+   "A_img": "0x7c46b4",
+   "window": 512,
+   "bytes_equal": true
+  },
+  {
+   "site": 4,
+   "B_file": "0xb99bb4",
+   "A_img": "0xb99bec",
+   "window": 512,
+   "bytes_equal": true
+  },
+  {
+   "site": 5,
+   "B_file": "0xb99c90",
+   "A_img": "0xb99cc8",
+   "window": 512,
+   "bytes_equal": true
+  }
+ ],
+ "v420_census_remapped": [
+  {
+   "va": "0x143fde2",
+   "A_img": "0x43fde2",
+   "B_file": "0x43fdaa",
+   "bytes_equal": true
+  },
+  {
+   "va": "0x14400c6",
+   "A_img": "0x4400c6",
+   "B_file": "0x44008e",
+   "bytes_equal": true
+  },
+  {
+   "va": "0x14405f0",
+   "A_img": "0x4405f0",
+   "B_file": "0x4405b8",
+   "bytes_equal": true
+  },
+  {
+   "va": "0x1440a22",
+   "A_img": "0x440a22",
+   "B_file": "0x4409ea",
+   "bytes_equal": true
+  },
+  {
+   "va": "0x1440dbc",
+   "A_img": "0x440dbc",
+   "B_file": "0x440d84",
+   "bytes_equal": true
+  },
+  {
+   "va": "0x1446dba",
+   "A_img": "0x446dba",
+   "B_file": "0x446d82",
+   "bytes_equal": true
+  },
+  {
+   "va": "0x145841c",
+   "A_img": "0x45841c",
+   "B_file": "0x4583e4",
+   "bytes_equal": true
+  },
+  {
+   "va": "0x145848e",
+   "A_img": "0x45848e",
+   "B_file": "0x458456",
+   "bytes_equal": true
+  },
+  {
+   "va": "0x14584a0",
+   "A_img": "0x4584a0",
+   "B_file": "0x458468",
+   "bytes_equal": true
+  },
+  {
+   "va": "0x14584d8",
+   "A_img": "0x4584d8",
+   "B_file": "0x4584a0",
+   "bytes_equal": true
+  },
+  {
+   "va": "0x145884e",
+   "A_img": "0x45884e",
+   "B_file": "0x458816",
+   "bytes_equal": true
+  },
+  {
+   "va": "0x1458892",
+   "A_img": "0x458892",
+   "B_file": "0x45885a",
+   "bytes_equal": true
+  },
+  {
+   "va": "0x1458bfc",
+   "A_img": "0x458bfc",
+   "B_file": "0x458bc4",
+   "bytes_equal": true
+  },
+  {
+   "va": "0x1458c0e",
+   "A_img": "0x458c0e",
+   "B_file": "0x458bd6",
+   "bytes_equal": true
+  },
+  {
+   "va": "0x1458cdc",
+   "A_img": "0x458cdc",
+   "B_file": "0x458ca4",
+   "bytes_equal": true
+  },
+  {
+   "va": "0x145901a",
+   "A_img": "0x45901a",
+   "B_file": "0x458fe2",
+   "bytes_equal": true
+  },
+  {
+   "va": "0x15fbad6",
+   "A_img": "0x5fbad6",
+   "B_file": "0x5fba9e",
+   "bytes_equal": true
+  }
+ ],
+ "image_wide": {
+  "stride": 4096,
+  "windows": 3739,
+  "mismatches": [],
+  "first_divergence_A_img": null
+ },
+ "law": "B_file = A_img - 0x38 (VA_common = A_img + 0x1000000 = B_file + 0x38 + 0x1000000)"
+}
