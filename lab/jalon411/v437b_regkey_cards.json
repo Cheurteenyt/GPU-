@@ -1,0 +1,275 @@
+{
+ "source": "v435b_regkeys (864 names, 251 with xrefs) + v435a cards + v436a flow verdict + v437a probe",
+ "selection_rule": "pic_xrefs >= 3, minus the semantic REFUSED gate, minus CAUTION-only-audit keys",
+ "regkey_path": "HKLM\\SYSTEM\\CurrentControlSet\\Services\\nvlddmkm : DWORD <KeyName> (Windows) / the module-parameter equivalent on Linux",
+ "protocol": "one key, one boot, one counter delta; the stock firmware only; every flip logged with dmesg before/after; the REFUSED class never runs",
+ "n_with_xrefs3": 20,
+ "cards": [
+  {
+   "name": "RMForcePcieConfigSave",
+   "va_runtime": "0x1e29438",
+   "pic_xrefs": 19,
+   "consumer_classes": {
+    "PTR-CLOBBERED": 3,
+    "DEREF-LOAD (byte/half walk)": 1
+   },
+   "dominant_class": "PTR-CLOBBERED",
+   "test_value": "one-unit step from the stock value; never a blind big turn",
+   "observable": "nvidia-smi -q -d PERFORMANCE + lspci -vvv link caps before/after a config-save cycle (suspend/resume)",
+   "prediction": "HYPOTHESIS \u2014 direction from the name and the banked consumer region only",
+   "risk": "SAFE",
+   "risk_note": "lookup refusal is a no-op (the 4.35b status-gate shape)"
+  },
+  {
+   "name": "RmDisableDecompOnlyLce",
+   "va_runtime": "0x1e29798",
+   "pic_xrefs": 9,
+   "consumer_classes": {
+    "PASS-TO-CALL (ABI arg)": 3,
+    "PTR-CLOBBERED": 1
+   },
+   "dominant_class": "PASS-TO-CALL (ABI arg)",
+   "test_value": "one-unit step from the stock value; never a blind big turn",
+   "observable": "journalctl -b -k | grep -iE 'nvrm|NVRM.*RmDisableDecompOnlyLce' \u2014 the key's own enable/disable path usually prints",
+   "prediction": "HYPOTHESIS \u2014 direction from the name and the banked consumer region only",
+   "risk": "SAFE",
+   "risk_note": "lookup refusal is a no-op (the 4.35b status-gate shape)"
+  },
+  {
+   "name": "RmClk2Enable",
+   "va_runtime": "0x1e2a040",
+   "pic_xrefs": 8,
+   "consumer_classes": {
+    "PASS-TO-CALL (ABI arg)": 4
+   },
+   "dominant_class": "PASS-TO-CALL (ABI arg)",
+   "test_value": "one-unit step from the stock value; never a blind big turn",
+   "observable": "journalctl -b -k | grep -iE 'nvrm|NVRM.*RmClk2Enable' \u2014 the key's own enable/disable path usually prints",
+   "prediction": "HYPOTHESIS \u2014 direction from the name and the banked consumer region only",
+   "risk": "SAFE",
+   "risk_note": "lookup refusal is a no-op (the 4.35b status-gate shape)"
+  },
+  {
+   "name": "RMUseTc0NonCoherent",
+   "va_runtime": "0x1e28d88",
+   "pic_xrefs": 7,
+   "consumer_classes": {
+    "PASS-TO-CALL (ABI arg)": 4
+   },
+   "dominant_class": "PASS-TO-CALL (ABI arg)",
+   "test_value": "0x0 -> 0x1 flip (observe both boots)",
+   "observable": "journalctl -b -k | grep -iE 'nvrm|NVRM.*RMUseTc0NonCoherent' \u2014 the key's own enable/disable path usually prints",
+   "prediction": "HYPOTHESIS \u2014 direction from the name and the banked consumer region only",
+   "risk": "CAUTION",
+   "risk_note": "L2/TC0 coherence semantics \u2014 a wrong turn is data corruption, validate with memtest before load"
+  },
+  {
+   "name": "RMAcrUseCeForShadowCopy",
+   "va_runtime": "0x1e8a048",
+   "pic_xrefs": 4,
+   "consumer_classes": {
+    "DEREF-LOAD (byte/half walk)": 2,
+    "REG-READ": 2
+   },
+   "dominant_class": "DEREF-LOAD (byte/half walk)",
+   "test_value": "one-unit step from the stock value; never a blind big turn",
+   "observable": "journalctl -b -k | grep -iE 'nvrm|NVRM.*RMAcrUseCeForShadowCopy' \u2014 the key's own enable/disable path usually prints",
+   "prediction": "HYPOTHESIS \u2014 direction from the name and the banked consumer region only",
+   "risk": "SAFE",
+   "risk_note": "lookup refusal is a no-op (the 4.35b status-gate shape)"
+  },
+  {
+   "name": "RMEnableQoSRunlistIntr",
+   "va_runtime": "0x1e35c28",
+   "pic_xrefs": 4,
+   "consumer_classes": {
+    "PASS-TO-CALL (ABI arg)": 3,
+    "PTR-CLOBBERED": 1
+   },
+   "dominant_class": "PASS-TO-CALL (ABI arg)",
+   "test_value": "0x0 -> 0x1 flip (observe both boots)",
+   "observable": "journalctl -b -k | grep -iE 'nvrm|NVRM.*RMEnableQoSRunlistIntr' \u2014 the key's own enable/disable path usually prints",
+   "prediction": "HYPOTHESIS \u2014 direction from the name and the banked consumer region only",
+   "risk": "CAUTION",
+   "risk_note": "runlist interrupt QoS \u2014 changes scheduling latency; the observable IS the point"
+  },
+  {
+   "name": "RML2MaxWaysSysmem",
+   "va_runtime": "0x1e343f8",
+   "pic_xrefs": 4,
+   "consumer_classes": {
+    "REG-READ": 1,
+    "DEREF-LOAD (byte/half walk)": 2,
+    "PASS-TO-CALL (ABI arg)": 1
+   },
+   "dominant_class": "DEREF-LOAD (byte/half walk)",
+   "test_value": "one-unit step from the stock value; never a blind big turn",
+   "observable": "journalctl -b -k | grep -iE 'nvrm|NVRM.*RML2MaxWaysSysmem' \u2014 the key's own enable/disable path usually prints",
+   "prediction": "HYPOTHESIS \u2014 direction from the name and the banked consumer region only",
+   "risk": "CAUTION",
+   "risk_note": "L2-way partitioning for sysmem \u2014 mis-sizing starves the L2; watch the bandwidth delta"
+  },
+  {
+   "name": "RMNvLinkMinionControl",
+   "va_runtime": "0x1e86548",
+   "pic_xrefs": 4,
+   "consumer_classes": {
+    "PASS-TO-CALL (ABI arg)": 4
+   },
+   "dominant_class": "PASS-TO-CALL (ABI arg)",
+   "test_value": "one-unit step from the stock value; never a blind big turn",
+   "observable": "journalctl -b -k | grep -iE 'nvrm|NVRM.*RMNvLinkMinionControl' \u2014 the key's own enable/disable path usually prints",
+   "prediction": "HYPOTHESIS \u2014 direction from the name and the banked consumer region only",
+   "risk": "SAFE",
+   "risk_note": "lookup refusal is a no-op (the 4.35b status-gate shape)"
+  },
+  {
+   "name": "RmLpwrCacheStatsOnD3",
+   "va_runtime": "0x1e873b0",
+   "pic_xrefs": 4,
+   "consumer_classes": {
+    "PASS-TO-CALL (ABI arg)": 4
+   },
+   "dominant_class": "PASS-TO-CALL (ABI arg)",
+   "test_value": "one-unit step from the stock value; never a blind big turn",
+   "observable": "journalctl -b -k | grep -iE 'nvrm|NVRM.*RmLpwrCacheStatsOnD3' \u2014 the key's own enable/disable path usually prints",
+   "prediction": "HYPOTHESIS \u2014 direction from the name and the banked consumer region only",
+   "risk": "SAFE",
+   "risk_note": "lookup refusal is a no-op (the 4.35b status-gate shape)"
+  },
+  {
+   "name": "RmStreamMemOps",
+   "va_runtime": "0x1e27b70",
+   "pic_xrefs": 4,
+   "consumer_classes": {
+    "PASS-TO-CALL (ABI arg)": 4
+   },
+   "dominant_class": "PASS-TO-CALL (ABI arg)",
+   "test_value": "one-unit step from the stock value; never a blind big turn",
+   "observable": "journalctl -b -k | grep -iE 'nvrm|NVRM.*RmStreamMemOps' \u2014 the key's own enable/disable path usually prints",
+   "prediction": "HYPOTHESIS \u2014 direction from the name and the banked consumer region only",
+   "risk": "SAFE",
+   "risk_note": "lookup refusal is a no-op (the 4.35b status-gate shape)"
+  },
+  {
+   "name": "RmValidateClientData",
+   "va_runtime": "0x1e27b58",
+   "pic_xrefs": 4,
+   "consumer_classes": {
+    "PASS-TO-CALL (ABI arg)": 4
+   },
+   "dominant_class": "PASS-TO-CALL (ABI arg)",
+   "test_value": "one-unit step from the stock value; never a blind big turn",
+   "observable": "journalctl -b -k | grep -iE 'nvrm|NVRM.*RmValidateClientData' \u2014 the key's own enable/disable path usually prints",
+   "prediction": "HYPOTHESIS \u2014 direction from the name and the banked consumer region only",
+   "risk": "SAFE",
+   "risk_note": "lookup refusal is a no-op (the 4.35b status-gate shape)"
+  },
+  {
+   "name": "RMBug4686457War",
+   "va_runtime": "0x1e36880",
+   "pic_xrefs": 3,
+   "consumer_classes": {
+    "PASS-TO-CALL (ABI arg)": 3
+   },
+   "dominant_class": "PASS-TO-CALL (ABI arg)",
+   "test_value": "one-unit step from the stock value; never a blind big turn",
+   "observable": "journalctl -b -k | grep -iE 'nvrm|NVRM.*RMBug4686457War' \u2014 the key's own enable/disable path usually prints",
+   "prediction": "HYPOTHESIS \u2014 direction from the name and the banked consumer region only",
+   "risk": "SAFE",
+   "risk_note": "lookup refusal is a no-op (the 4.35b status-gate shape)"
+  },
+  {
+   "name": "RMEnableJadePhyFixedClkCARHack",
+   "va_runtime": "0x1e34298",
+   "pic_xrefs": 3,
+   "consumer_classes": {
+    "REG-READ": 2,
+    "PASS-TO-CALL (ABI arg)": 1
+   },
+   "dominant_class": "REG-READ",
+   "test_value": "0x0 -> 0x1 flip (observe both boots)",
+   "observable": "journalctl -b -k | grep -iE 'nvrm|NVRM.*RMEnableJadePhyFixedClkCARHack' \u2014 the key's own enable/disable path usually prints",
+   "prediction": "HYPOTHESIS \u2014 direction from the name and the banked consumer region only",
+   "risk": "SAFE",
+   "risk_note": "lookup refusal is a no-op (the 4.35b status-gate shape)"
+  },
+  {
+   "name": "RMFBTrainingCML",
+   "va_runtime": "0x1e29fa0",
+   "pic_xrefs": 3,
+   "consumer_classes": {
+    "PASS-TO-CALL (ABI arg)": 3
+   },
+   "dominant_class": "PASS-TO-CALL (ABI arg)",
+   "test_value": "one-unit step from the stock value; never a blind big turn",
+   "observable": "journalctl -b -k | grep -iE 'nvrm|NVRM.*RMFBTrainingCML' \u2014 the key's own enable/disable path usually prints",
+   "prediction": "HYPOTHESIS \u2014 direction from the name and the banked consumer region only",
+   "risk": "SAFE",
+   "risk_note": "lookup refusal is a no-op (the 4.35b status-gate shape)"
+  },
+  {
+   "name": "RMForceZCullRamSize",
+   "va_runtime": "0x1e34770",
+   "pic_xrefs": 3,
+   "consumer_classes": {
+    "PASS-TO-CALL (ABI arg)": 3
+   },
+   "dominant_class": "PASS-TO-CALL (ABI arg)",
+   "test_value": "one-unit step from the stock value; never a blind big turn",
+   "observable": "journalctl -b -k | grep -iE 'nvrm|NVRM.*RMForceZCullRamSize' \u2014 the key's own enable/disable path usually prints",
+   "prediction": "HYPOTHESIS \u2014 direction from the name and the banked consumer region only",
+   "risk": "SAFE",
+   "risk_note": "lookup refusal is a no-op (the 4.35b status-gate shape)"
+  },
+  {
+   "name": "RMSetMmuDummyPageSize",
+   "va_runtime": "0x1e36960",
+   "pic_xrefs": 3,
+   "consumer_classes": {
+    "PASS-TO-CALL (ABI arg)": 2,
+    "UNRESOLVED-in-24": 1
+   },
+   "dominant_class": "PASS-TO-CALL (ABI arg)",
+   "test_value": "one-unit step from the stock value; never a blind big turn",
+   "observable": "journalctl -b -k | grep -iE 'nvrm|NVRM.*RMSetMmuDummyPageSize' \u2014 the key's own enable/disable path usually prints",
+   "prediction": "HYPOTHESIS \u2014 direction from the name and the banked consumer region only",
+   "risk": "SAFE",
+   "risk_note": "lookup refusal is a no-op (the 4.35b status-gate shape)"
+  },
+  {
+   "name": "RmBug5515410War",
+   "va_runtime": "0x1e33900",
+   "pic_xrefs": 3,
+   "consumer_classes": {
+    "PASS-TO-CALL (ABI arg)": 3
+   },
+   "dominant_class": "PASS-TO-CALL (ABI arg)",
+   "test_value": "one-unit step from the stock value; never a blind big turn",
+   "observable": "journalctl -b -k | grep -iE 'nvrm|NVRM.*RmBug5515410War' \u2014 the key's own enable/disable path usually prints",
+   "prediction": "HYPOTHESIS \u2014 direction from the name and the banked consumer region only",
+   "risk": "SAFE",
+   "risk_note": "lookup refusal is a no-op (the 4.35b status-gate shape)"
+  }
+ ],
+ "n_cards": 17,
+ "refused_gate": [
+  {
+   "name": "RmClockUprocSecurityCheck",
+   "reason": "SECURITY-path check \u2014 flipping it weakens a validation gate; never a perf experiment"
+  },
+  {
+   "name": "RmAllowChannelCreationOnPendingReset",
+   "reason": "RESET-path policy \u2014 an experiment here can wedge channels; not a perf lever"
+  },
+  {
+   "name": "RmDisableFbflcnDevinitBoot",
+   "reason": "DEVINIT boot path \u2014 skipping FLCN devinit can brick the session; the card refuses"
+  }
+ ],
+ "n_refused": 3,
+ "data_twin_context": {
+  "t1_descriptor_pointers": 25,
+  "meaning": "the 22x1000000 defaults are descriptor-referenced (data side), never code-addressed \u2014 the capture watches the RPC object-create path, not a loader"
+ }
+}
