@@ -1,0 +1,4762 @@
+{
+ "law": "B_file = A_img - 0x38; VA_A = A_img + 0x1000000",
+ "law_recheck_fails": 0,
+ "segments": [
+  {
+   "off": "0x0",
+   "vaddr": "0x1000000",
+   "filesz": "0xe9b000",
+   "flags": "0x5"
+  },
+  {
+   "off": "0xe9b000",
+   "vaddr": "0x4000000",
+   "filesz": "0x1d5000",
+   "flags": "0x6"
+  }
+ ],
+ "family_strings_n": 281,
+ "auipc_all_offsets": 416206,
+ "cards": [
+  {
+   "name": "NV_UDE_ERR_VBIOS_VERIF_COMPLETED_AND_FAILED",
+   "va_runtime": "0x1e2b798",
+   "va_campaign": "0x1e2b760",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_UDE_ERR_FWSECLIC_DID_NOT_EXECUTE",
+   "va_runtime": "0x1e2b7c8",
+   "va_campaign": "0x1e2b790",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_SEC2MUTEX_ACQUIRE_BSI_WRITE_MUTEX_STATUS_INVALID_POINTER",
+   "va_runtime": "0x1e2f620",
+   "va_campaign": "0x1e2f5e8",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_SEC2MUTEX_ACQUIRE_BSI_WRITE_MUTEX_ID_NOT_AVAIL",
+   "va_runtime": "0x1e2f670",
+   "va_campaign": "0x1e2f638",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_SEC2MUTEX_ACQUIRE_BSI_WRITE_MUTEX_ACQUIRE_FAIL",
+   "va_runtime": "0x1e2f6b0",
+   "va_campaign": "0x1e2f678",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_SEC2MUTEX_RELEASE_BSI_WRITE_MUTEX_STATUS_INVALID_POINTER",
+   "va_runtime": "0x1e2f6f0",
+   "va_campaign": "0x1e2f6b8",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_SEC2MUTEX_RELEASE_BSI_WRITE_MUTEX_RELEASE_FAIL",
+   "va_runtime": "0x1e2f740",
+   "va_campaign": "0x1e2f708",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_IMEM_TO_DMEM_COPY_INVALID_PARA",
+   "va_runtime": "0x1e2f780",
+   "va_campaign": "0x1e2f748",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_FR_CNTR_PWRCLK_FREQ",
+   "va_runtime": "0x1e2f7b0",
+   "va_campaign": "0x1e2f778",
+   "pic_xrefs": 1,
+   "xref_detail": [
+    {
+     "class": "PASS-TO-CALL (ABI arg)",
+     "at": "0x11c06fe",
+     "rd": "a2",
+     "window": [
+      "0x11c06f0: addi     a2, a2, 0x8c",
+      "0x11c06f4: c.li     a1, 5",
+      "0x11c06f6: c.li     a0, 3",
+      "0x11c06f8: c.addi   sp, 0x10",
+      "0x11c06fa: auipc    t1, 0x8de",
+      "0x11c06fe: jalr     zero, t1, -0xd6",
+      "0x11c0702: c.ldsp   s0, 8(sp)",
+      "0x11c0704: auipc    a3, 0x1f0d0",
+      "0x11c0708: addi     a3, a3, -0x1ec",
+      "0x11c070c: auipc    a2, 0xc6f",
+      "0x11c0710: addi     a2, a2, 0x1c",
+      "0x11c0714: c.li     a1, 4"
+     ]
+    }
+   ],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_SEMUTEX_ACQUIRE_BSI_WRITE_MUTEXPLM_READ_SENDREQUEST_TIMEOUT",
+   "va_runtime": "0x1e2f7d8",
+   "va_campaign": "0x1e2f7a0",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_SEMUTEX_ACQUIRE_BSI_WRITE_MUTEXPLM_READ_SENDREQUEST_TIMEOUT_DUMMY",
+   "va_runtime": "0x1e2f828",
+   "va_campaign": "0x1e2f7f0",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_SEMUTEX_ACQUIRE_BSI_WRITE_MUTEXPLM_READ_GETDATA_TIMEOUT",
+   "va_runtime": "0x1e2f880",
+   "va_campaign": "0x1e2f848",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_SEMUTEX_ACQUIRE_BSI_WRITE_MUTEXPLM_READ_GETDATA_REQUEST_FAIL",
+   "va_runtime": "0x1e2f8c8",
+   "va_campaign": "0x1e2f890",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_SEMUTEX_ACQUIRE_BSI_WRITE_MUTEXPLM_WRITE_TIMEOUT_CHANNEL_EMPTY",
+   "va_runtime": "0x1e2f918",
+   "va_campaign": "0x1e2f8e0",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_SEMUTEX_ACQUIRE_BSI_WRITE_MUTEXPLM_WRITE_TIMEOUT_WRITE_COMPLETE",
+   "va_runtime": "0x1e2f968",
+   "va_campaign": "0x1e2f930",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_SEMUTEX_ACQUIRE_BSI_WRITE_MUTEXID_READ_SENDREQUEST_TIMEOUT",
+   "va_runtime": "0x1e2f9b8",
+   "va_campaign": "0x1e2f980",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_SEMUTEX_ACQUIRE_BSI_WRITE_MUTEXID_READ_SENDREQUEST_TIMEOUT_DUMMY",
+   "va_runtime": "0x1e2fa08",
+   "va_campaign": "0x1e2f9d0",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_SEMUTEX_ACQUIRE_BSI_WRITE_MUTEXID_READ_GETDATA_TIMEOUT",
+   "va_runtime": "0x1e2fa60",
+   "va_campaign": "0x1e2fa28",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_SEMUTEX_ACQUIRE_BSI_WRITE_MUTEXID_READ_GETDATA_REQUEST_FAIL",
+   "va_runtime": "0x1e2faa8",
+   "va_campaign": "0x1e2fa70",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_SEMUTEX_ACQUIRE_BSI_WRITE_MUTEXID_NOT_AVAILABLE",
+   "va_runtime": "0x1e2faf8",
+   "va_campaign": "0x1e2fac0",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_SEMUTEX_ACQUIRE_BSI_WRITE_MUTEXMUTEX_WRITE_TIMEOUT_CHANNEL_EMPTY",
+   "va_runtime": "0x1e2fb38",
+   "va_campaign": "0x1e2fb00",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_SEMUTEX_ACQUIRE_BSI_WRITE_MUTEXMUTEX_WRITE_TIMEOUT_WRITE_COMPLETE",
+   "va_runtime": "0x1e2fb90",
+   "va_campaign": "0x1e2fb58",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_SEMUTEX_ACQUIRE_BSI_WRITE_MUTEXMUTEX_READ_SENDREQUEST_TIMEOUT",
+   "va_runtime": "0x1e2fbe8",
+   "va_campaign": "0x1e2fbb0",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_SEMUTEX_ACQUIRE_BSI_WRITE_MUTEXMUTEX_READ_SENDREQUEST_TIMEOUT_DUMMY",
+   "va_runtime": "0x1e2fc38",
+   "va_campaign": "0x1e2fc00",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_SEMUTEX_ACQUIRE_BSI_WRITE_MUTEXMUTEX_READ_GETDATA_TIMEOUT",
+   "va_runtime": "0x1e2fc90",
+   "va_campaign": "0x1e2fc58",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_SEMUTEX_ACQUIRE_BSI_WRITE_MUTEXMUTEX_READ_GETDATA_REQUEST_FAIL",
+   "va_runtime": "0x1e2fce0",
+   "va_campaign": "0x1e2fca8",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_SEMUTEX_ACQUIRE_BSI_WRITE_MUTEX_ACQUIRE_ERROR",
+   "va_runtime": "0x1e2fd30",
+   "va_campaign": "0x1e2fcf8",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_SEMUTEX_RELEASE_BSI_WRITE_MUTEXMUTEX_READ_SENDREQUEST_TIMEOUT",
+   "va_runtime": "0x1e2fd70",
+   "va_campaign": "0x1e2fd38",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_SEMUTEX_RELEASE_BSI_WRITE_MUTEXMUTEX_READ_SENDREQUEST_TIMEOUT_DUMMY",
+   "va_runtime": "0x1e2fdc0",
+   "va_campaign": "0x1e2fd88",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_SEMUTEX_RELEASE_BSI_WRITE_MUTEXMUTEX_READ_GETDATA_TIMEOUT",
+   "va_runtime": "0x1e2fe18",
+   "va_campaign": "0x1e2fde0",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_SEMUTEX_RELEASE_BSI_WRITE_MUTEXMUTEX_READ_GETDATA_REQUEST_FAIL",
+   "va_runtime": "0x1e2fe68",
+   "va_campaign": "0x1e2fe30",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_SEMUTEX_RELEASE_BSI_WRITE_MUTEX_RELEASE_ERROR",
+   "va_runtime": "0x1e2feb8",
+   "va_campaign": "0x1e2fe80",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_SEMUTEX_RELEASE_BSI_WRITE_MUTEXMUTEX_WRITE_TIMEOUT_CHANNEL_EMPTY",
+   "va_runtime": "0x1e2fef8",
+   "va_campaign": "0x1e2fec0",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_SEMUTEX_RELEASE_BSI_WRITE_MUTEXMUTEX_WRITE_TIMEOUT_WRITE_COMPLETE",
+   "va_runtime": "0x1e2ff50",
+   "va_campaign": "0x1e2ff18",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_SEMUTEX_RELEASE_BSI_WRITE_MUTEXRELEASE_WRITE_TIMEOUT_CHANNEL_EMPTY",
+   "va_runtime": "0x1e2ffa8",
+   "va_campaign": "0x1e2ff70",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_SEMUTEX_RELEASE_BSI_WRITE_MUTEXRELEASE_WRITE_TIMEOUT_WRITE_COMPLETE",
+   "va_runtime": "0x1e30000",
+   "va_campaign": "0x1e2ffc8",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_SEMUTEX_RELEASE_BSI_WRITE_MUTEXPLM_WRITE_TIMEOUT_CHANNEL_EMPTY",
+   "va_runtime": "0x1e30058",
+   "va_campaign": "0x1e30020",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_SEMUTEX_RELEASE_BSI_WRITE_MUTEXPLM_WRITE_TIMEOUT_WRITE_COMPLETE",
+   "va_runtime": "0x1e300a8",
+   "va_campaign": "0x1e30070",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_CMD_UNSUPPORTED_GPU",
+   "va_runtime": "0x1e300f8",
+   "va_campaign": "0x1e300c0",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_CMD_UNSUPPORTED_COMMAND",
+   "va_runtime": "0x1e30128",
+   "va_campaign": "0x1e300f0",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_CMD_VBIOS_VERIFY_DEVID_FAIL",
+   "va_runtime": "0x1e30158",
+   "va_campaign": "0x1e30120",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_CMD_VBIOS_VERIFY_CERT_NOT_FOUND",
+   "va_runtime": "0x1e30190",
+   "va_campaign": "0x1e30158",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_CMD_VBIOS_VERIFY_CERT_PARSE_FAIL",
+   "va_runtime": "0x1e301c8",
+   "va_campaign": "0x1e30190",
+   "pic_xrefs": 1,
+   "xref_detail": [
+    {
+     "class": "PASS-TO-CALL (ABI arg)",
+     "at": "0x11c09e8",
+     "rd": "a2",
+     "window": [
+      "0x11c09d8: addi     a2, a2, 0x7bc",
+      "0x11c09dc: addi     a1, zero, 0x27",
+      "0x11c09e0: c.li     a0, 3",
+      "0x11c09e2: c.addi   sp, 0x10",
+      "0x11c09e4: auipc    t1, 0x8de",
+      "0x11c09e8: jalr     zero, t1, -0x3c0",
+      "0x11c09ec: c.ldsp   s0, 8(sp)",
+      "0x11c09ee: auipc    a3, 0x1f0d0",
+      "0x11c09f2: addi     a3, a3, -0x1a6",
+      "0x11c09f6: auipc    a2, 0xc6f",
+      "0x11c09fa: addi     a2, a2, 0x76a",
+      "0x11c09fe: addi     a1, zero, 0x26"
+     ]
+    }
+   ],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_CMD_VBIOS_VERIFY_CERT_VERIFY_FAIL",
+   "va_runtime": "0x1e30200",
+   "va_campaign": "0x1e301c8",
+   "pic_xrefs": 1,
+   "xref_detail": [
+    {
+     "class": "PASS-TO-CALL (ABI arg)",
+     "at": "0x11c09c6",
+     "rd": "a2",
+     "window": [
+      "0x11c09b6: addi     a2, a2, -0x7ea",
+      "0x11c09ba: addi     a1, zero, 0x28",
+      "0x11c09be: c.li     a0, 3",
+      "0x11c09c0: c.addi   sp, 0x10",
+      "0x11c09c2: auipc    t1, 0x8de",
+      "0x11c09c6: jalr     zero, t1, -0x39e",
+      "0x11c09ca: c.ldsp   s0, 8(sp)",
+      "0x11c09cc: auipc    a3, 0x1f0d0",
+      "0x11c09d0: addi     a3, a3, -0x16c",
+      "0x11c09d4: auipc    a2, 0xc6f",
+      "0x11c09d8: addi     a2, a2, 0x7bc",
+      "0x11c09dc: addi     a1, zero, 0x27"
+     ]
+    }
+   ],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_CMD_VBIOS_VERIFY_HAT_FAIL",
+   "va_runtime": "0x1e30238",
+   "va_campaign": "0x1e30200",
+   "pic_xrefs": 1,
+   "xref_detail": [
+    {
+     "class": "PASS-TO-CALL (ABI arg)",
+     "at": "0x11c09a4",
+     "rd": "a2",
+     "window": [
+      "0x11c0994: addi     a2, a2, -0x790",
+      "0x11c0998: addi     a1, zero, 0x29",
+      "0x11c099c: c.li     a0, 3",
+      "0x11c099e: c.addi   sp, 0x10",
+      "0x11c09a0: auipc    t1, 0x8de",
+      "0x11c09a4: jalr     zero, t1, -0x37c",
+      "0x11c09a8: c.ldsp   s0, 8(sp)",
+      "0x11c09aa: auipc    a3, 0x1f0d0",
+      "0x11c09ae: addi     a3, a3, -0x132",
+      "0x11c09b2: auipc    a2, 0xc70",
+      "0x11c09b6: addi     a2, a2, -0x7ea",
+      "0x11c09ba: addi     a1, zero, 0x28"
+     ]
+    }
+   ],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_CMD_VBIOS_VERIFY_BIOS_SIG_FAIL",
+   "va_runtime": "0x1e30268",
+   "va_campaign": "0x1e30230",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_CMD_VBIOS_VERIFY_HULK_INIT_FAIL",
+   "va_runtime": "0x1e302a0",
+   "va_campaign": "0x1e30268",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_CMD_VBIOS_VERIFY_HULK_KA_NOT_FOUND",
+   "va_runtime": "0x1e302d8",
+   "va_campaign": "0x1e302a0",
+   "pic_xrefs": 1,
+   "xref_detail": [
+    {
+     "class": "PASS-TO-CALL (ABI arg)",
+     "at": "0x11c093e",
+     "rd": "a2",
+     "window": [
+      "0x11c092e: addi     a2, a2, -0x68a",
+      "0x11c0932: addi     a1, zero, 0x2c",
+      "0x11c0936: c.li     a0, 3",
+      "0x11c0938: c.addi   sp, 0x10",
+      "0x11c093a: auipc    t1, 0x8de",
+      "0x11c093e: jalr     zero, t1, -0x316",
+      "0x11c0942: c.ldsp   s0, 8(sp)",
+      "0x11c0944: auipc    a3, 0x1f0d0",
+      "0x11c0948: addi     a3, a3, -0x84",
+      "0x11c094c: auipc    a2, 0xc70",
+      "0x11c0950: addi     a2, a2, -0x6dc",
+      "0x11c0954: addi     a1, zero, 0x2b"
+     ]
+    }
+   ],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_CMD_VBIOS_VERIFY_HULK_TYPE_INVALID",
+   "va_runtime": "0x1e30310",
+   "va_campaign": "0x1e302d8",
+   "pic_xrefs": 1,
+   "xref_detail": [
+    {
+     "class": "PASS-TO-CALL (ABI arg)",
+     "at": "0x11c091c",
+     "rd": "a2",
+     "window": [
+      "0x11c090c: addi     a2, a2, -0x630",
+      "0x11c0910: addi     a1, zero, 0x2d",
+      "0x11c0914: c.li     a0, 3",
+      "0x11c0916: c.addi   sp, 0x10",
+      "0x11c0918: auipc    t1, 0x8de",
+      "0x11c091c: jalr     zero, t1, -0x2f4",
+      "0x11c0920: c.ldsp   s0, 8(sp)",
+      "0x11c0922: auipc    a3, 0x1f0d0",
+      "0x11c0926: addi     a3, a3, -0x4a",
+      "0x11c092a: auipc    a2, 0xc70",
+      "0x11c092e: addi     a2, a2, -0x68a",
+      "0x11c0932: addi     a1, zero, 0x2c"
+     ]
+    }
+   ],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_CMD_VBIOS_VERIFY_HULK_SIG_INVALID",
+   "va_runtime": "0x1e30348",
+   "va_campaign": "0x1e30310",
+   "pic_xrefs": 1,
+   "xref_detail": [
+    {
+     "class": "PASS-TO-CALL (ABI arg)",
+     "at": "0x11c08fa",
+     "rd": "a2",
+     "window": [
+      "0x11c08ea: addi     a2, a2, -0x5d6",
+      "0x11c08ee: addi     a1, zero, 0x2e",
+      "0x11c08f2: c.li     a0, 3",
+      "0x11c08f4: c.addi   sp, 0x10",
+      "0x11c08f6: auipc    t1, 0x8de",
+      "0x11c08fa: jalr     zero, t1, -0x2d2",
+      "0x11c08fe: c.ldsp   s0, 8(sp)",
+      "0x11c0900: auipc    a3, 0x1f0d0",
+      "0x11c0904: addi     a3, a3, -0x10",
+      "0x11c0908: auipc    a2, 0xc70",
+      "0x11c090c: addi     a2, a2, -0x630",
+      "0x11c0910: addi     a1, zero, 0x2d"
+     ]
+    }
+   ],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_CERT_UNKNOWN_ERROR",
+   "va_runtime": "0x1e30380",
+   "va_campaign": "0x1e30348",
+   "pic_xrefs": 1,
+   "xref_detail": [
+    {
+     "class": "PASS-TO-CALL (ABI arg)",
+     "at": "0x11c08d8",
+     "rd": "a2",
+     "window": [
+      "0x11c08c8: addi     a2, a2, -0x57c",
+      "0x11c08cc: addi     a1, zero, 0x2f",
+      "0x11c08d0: c.li     a0, 3",
+      "0x11c08d2: c.addi   sp, 0x10",
+      "0x11c08d4: auipc    t1, 0x8de",
+      "0x11c08d8: jalr     zero, t1, -0x2b0",
+      "0x11c08dc: c.ldsp   s0, 8(sp)",
+      "0x11c08de: auipc    a3, 0x1f0d0",
+      "0x11c08e2: addi     a3, a3, 0x2a",
+      "0x11c08e6: auipc    a2, 0xc70",
+      "0x11c08ea: addi     a2, a2, -0x5d6",
+      "0x11c08ee: addi     a1, zero, 0x2e"
+     ]
+    }
+   ],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_CERT_EXT_NOT_FOUND",
+   "va_runtime": "0x1e303a8",
+   "va_campaign": "0x1e30370",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_CERT_EXT_NO_SUB_STRUCT_FOUND",
+   "va_runtime": "0x1e303d0",
+   "va_campaign": "0x1e30398",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_CERT_UNSUPPORTED_VERSION",
+   "va_runtime": "0x1e30408",
+   "va_campaign": "0x1e303d0",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_CERT_NO_EXTENSION_EXIST",
+   "va_runtime": "0x1e30438",
+   "va_campaign": "0x1e30400",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_CERT_T7QV1_PAYLOAD_SIZE_ERROR",
+   "va_runtime": "0x1e30468",
+   "va_campaign": "0x1e30430",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_CERT_T7_SW_FEATURE_PAYLOAD_SIZE_ERROR",
+   "va_runtime": "0x1e304a0",
+   "va_campaign": "0x1e30468",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_CERT_T7_UNSUPPORTED_HW_STRUCT_VERSION",
+   "va_runtime": "0x1e304e0",
+   "va_campaign": "0x1e304a8",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_CERT_T7_EXTENSIONS_NUM_EXCEED_LIMIT",
+   "va_runtime": "0x1e30520",
+   "va_campaign": "0x1e304e8",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_CERT_UGPU_PERSONALITY_MIS_MATCH",
+   "va_runtime": "0x1e30560",
+   "va_campaign": "0x1e30528",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_CERT_HULK_ECID_MISMATCH",
+   "va_runtime": "0x1e30598",
+   "va_campaign": "0x1e30560",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_CERT_HULK_ECID_ENCODING_UNKNOWN",
+   "va_runtime": "0x1e305c8",
+   "va_campaign": "0x1e30590",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_ECID_ENCODING_ALGO_UNKNOWN",
+   "va_runtime": "0x1e30600",
+   "va_campaign": "0x1e305c8",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_CERT_T7_REG_OVERRIDE_TYPE_UNKNOWN",
+   "va_runtime": "0x1e30630",
+   "va_campaign": "0x1e305f8",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_DERIVED_KEY_TYPE_INVALID",
+   "va_runtime": "0x1e30668",
+   "va_campaign": "0x1e30630",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_UCODE_NOT_IN_HS_MODE",
+   "va_runtime": "0x1e30698",
+   "va_campaign": "0x1e30660",
+   "pic_xrefs": 55,
+   "xref_detail": [
+    {
+     "class": "PTR-CLOBBERED",
+     "at": "0x1388f18",
+     "rd": "a0",
+     "window": [
+      "0x1388efe: addi     a0, a0, 0x766",
+      "0x1388f02: c.j      -0xe6",
+      "0x1388f04: lui      a4, 0x111",
+      "0x1388f08: auipc    a5, 0x2e07",
+      "0x1388f0c: ld       a5, 0x610(a5)",
+      "0x1388f10: addi     a3, a4, 0x52c",
+      "0x1388f14: c.add    a3, a5",
+      "0x1388f16: c.lw     a1, 0(a3)",
+      "0x1388f18: lui      a0, 0x400",
+      "0x1388f1c: addi     a2, a4, 0x520",
+      "0x1388f20: c.or     a1, a0",
+      "0x1388f22: c.sw     a1, 0(a3)"
+     ]
+    },
+    {
+     "class": "PTR-CLOBBERED",
+     "at": "0x137ef0a",
+     "rd": "a0",
+     "window": [
+      "0x137eefe: addi     a0, a0, 0x766",
+      "0x137ef02: c.j      -0xc8",
+      "0x137ef04: c.li     a3, 1",
+      "0x137ef06: addi     a1, zero, 0x40",
+      "0x137ef0a: auipc    a0, 0x2e50",
+      "0x137ef0e: addi     a0, a0, -0x6d2",
+      "0x137ef12: auipc    ra, 0x548",
+      "0x137ef16: jalr     ra, ra, -0x25e",
+      "0x137ef1a: slli     a5, s2, 3",
+      "0x137ef1e: addi     a5, a5, -0x30",
+      "0x137ef22: c.add    a5, s0",
+      "0x137ef24: ld       a5, -0x58(a5)"
+     ]
+    },
+    {
+     "class": "PASS-TO-CALL (ABI arg)",
+     "at": "0x13d7f5a",
+     "rd": "a1",
+     "window": [
+      "0x13d7f4e: addi     a1, a1, 0x716",
+      "0x13d7f52: c.li     a0, 3",
+      "0x13d7f54: c.mv     s1, ra",
+      "0x13d7f56: auipc    ra, 0x6c6",
+      "0x13d7f5a: jalr     ra, ra, 0x6ce",
+      "0x13d7f5e: c.li     a0, 1",
+      "0x13d7f60: auipc    a1, 0x1eef7",
+      "0x13d7f64: addi     a1, a1, -0x108",
+      "0x13d7f68: auipc    ra, 0x6c6",
+      "0x13d7f6c: jalr     ra, ra, 0x6bc",
+      "0x13d7f70: c.mv     a1, s1",
+      "0x13d7f72: c.li     a0, 0"
+     ]
+    },
+    {
+     "class": "UNRESOLVED-in-24",
+     "at": null,
+     "rd": "s3",
+     "window": [
+      "0x1b8bfc6: addi     s3, s3, 0x69e",
+      "0x1b8bfca: c.j      8",
+      "0x1b8bfcc: c.addiw  s8, 1",
+      "0x1b8bfce: beq      s4, s8, 0xb8",
+      "0x1b8bfd2: ld       a6, 0x130(s9)",
+      "0x1b8bfd6: ld       a0, -0xa8(s0)",
+      "0x1b8bfda: sd       zero, -0x88(s0)",
+      "0x1b8bfde: sw       zero, -0x80(s0)",
+      "0x1b8bfe2: addi     a5, s0, -0x8c",
+      "0x1b8bfe6: c.li     a4, 0",
+      "0x1b8bfe8: c.mv     a3, s8",
+      "0x1b8bfea: c.li     a2, 0x10"
+     ]
+    },
+    {
+     "class": "PASS-TO-CALL (ABI arg)",
+     "at": "0x13cd02e",
+     "rd": "a1",
+     "window": [
+      "0x13cd022: addi     a1, a1, 0x642",
+      "0x13cd026: c.li     a0, 2",
+      "0x13cd028: c.addi16sp sp, 0x30",
+      "0x13cd02a: auipc    t1, 0x6d1",
+      "0x13cd02e: jalr     zero, t1, 0x5fa",
+      "0x13cd032: c.nop    ",
+      "0x13cd034: c.addi16sp sp, -0x30",
+      "0x13cd036: c.sdsp   s0, 0x20(sp)",
+      "0x13cd038: c.sdsp   s1, 0x18(sp)",
+      "0x13cd03a: c.sdsp   s2, 0x10(sp)",
+      "0x13cd03c: c.sdsp   s3, 8(sp)",
+      "0x13cd03e: c.sdsp   ra, 0x28(sp)"
+     ]
+    },
+    {
+     "class": "PTR-CLOBBERED",
+     "at": "0x1389094",
+     "rd": "a0",
+     "window": [
+      "0x138907a: addi     a0, a0, 0x5ea",
+      "0x138907e: c.j      -0x262",
+      "0x1389080: lui      a4, 0x111",
+      "0x1389084: auipc    a5, 0x2e07",
+      "0x1389088: ld       a5, 0x494(a5)",
+      "0x138908c: addi     a3, a4, 0x52c",
+      "0x1389090: c.add    a3, a5",
+      "0x1389092: c.lw     a1, 0(a3)",
+      "0x1389094: lui      a0, 0x400",
+      "0x1389098: addi     a2, a4, 0x520",
+      "0x138909c: c.or     a1, a0",
+      "0x138909e: c.sw     a1, 0(a3)"
+     ]
+    }
+   ],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_CERT_HULK_DEVID_MISMATCH",
+   "va_runtime": "0x1e306c8",
+   "va_campaign": "0x1e30690",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_CERT_HULK_NO_ID_MATCH_FOUND",
+   "va_runtime": "0x1e306f8",
+   "va_campaign": "0x1e306c0",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_CERT_HULK_DATA_BUFFER_TOO_SMALL",
+   "va_runtime": "0x1e30730",
+   "va_campaign": "0x1e306f8",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_CERT_HULK_INFOROM_NOT_FOUND",
+   "va_runtime": "0x1e30768",
+   "va_campaign": "0x1e30730",
+   "pic_xrefs": 1,
+   "xref_detail": [
+    {
+     "class": "PASS-TO-CALL (ABI arg)",
+     "at": "0x11c0202",
+     "rd": "a2",
+     "window": [
+      "0x11c01f2: addi     a2, a2, 0x542",
+      "0x11c01f6: addi     a1, zero, 0x42",
+      "0x11c01fa: c.li     a0, 3",
+      "0x11c01fc: c.addi   sp, 0x10",
+      "0x11c01fe: auipc    t1, 0x8de",
+      "0x11c0202: jalr     zero, t1, 0x426",
+      "0x11c0206: c.ldsp   s0, 8(sp)",
+      "0x11c0208: auipc    a3, 0x1f0d1",
+      "0x11c020c: addi     a3, a3, -0x738",
+      "0x11c0210: auipc    a2, 0xc70",
+      "0x11c0214: addi     a2, a2, 0x4f0",
+      "0x11c0218: addi     a1, zero, 0x41"
+     ]
+    }
+   ],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_CERT_HULK_INFOROM_UL_GLOB_NOT_FOUND",
+   "va_runtime": "0x1e307a0",
+   "va_campaign": "0x1e30768",
+   "pic_xrefs": 1,
+   "xref_detail": [
+    {
+     "class": "PASS-TO-CALL (ABI arg)",
+     "at": "0x11c01e0",
+     "rd": "a2",
+     "window": [
+      "0x11c01d0: addi     a2, a2, 0x59c",
+      "0x11c01d4: addi     a1, zero, 0x43",
+      "0x11c01d8: c.li     a0, 3",
+      "0x11c01da: c.addi   sp, 0x10",
+      "0x11c01dc: auipc    t1, 0x8de",
+      "0x11c01e0: jalr     zero, t1, 0x448",
+      "0x11c01e4: c.ldsp   s0, 8(sp)",
+      "0x11c01e6: auipc    a3, 0x1f0d1",
+      "0x11c01ea: addi     a3, a3, -0x6fe",
+      "0x11c01ee: auipc    a2, 0xc70",
+      "0x11c01f2: addi     a2, a2, 0x542",
+      "0x11c01f6: addi     a1, zero, 0x42"
+     ]
+    }
+   ],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_CERT_HULK_INFOROM_HLK_OBJ_NOT_VALID",
+   "va_runtime": "0x1e307e0",
+   "va_campaign": "0x1e307a8",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_UGPU_PROCESSING_FAILED_INVALID_ULF_OBJECT",
+   "va_runtime": "0x1e30820",
+   "va_campaign": "0x1e307e8",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_UGPU_PROCESSING_FAILED_INVALID_UPR_OBJECT",
+   "va_runtime": "0x1e30860",
+   "va_campaign": "0x1e30828",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_FWSECLIC_PCI_EXP_ROM_NOT_FOUND",
+   "va_runtime": "0x1e308a0",
+   "va_campaign": "0x1e30868",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_VERIFY_ENG_HULK_3AES_SIG_MISMATCH_WITH_GPU_FUSE",
+   "va_runtime": "0x1e308d8",
+   "va_campaign": "0x1e308a0",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_VERIFY_ENG_HULK_NO_3AES_SIG",
+   "va_runtime": "0x1e30920",
+   "va_campaign": "0x1e308e8",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_DEVID_MATCH_LIST_DEVID_MATCH_FAILED",
+   "va_runtime": "0x1e30958",
+   "va_campaign": "0x1e30920",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_VERIFY_LICENSE_UGPU_SIG_INVALID",
+   "va_runtime": "0x1e30998",
+   "va_campaign": "0x1e30960",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_CERT_HULK_OPCODE_UNDEFINED",
+   "va_runtime": "0x1e309d0",
+   "va_campaign": "0x1e30998",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_CERT_HULK_REG_READ_BACK_VERIFY_MISMATCH",
+   "va_runtime": "0x1e30a00",
+   "va_campaign": "0x1e309c8",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_CERT_HULK_REG_RMW_RBV_READ_BACK_VERIFY_MISMATCH",
+   "va_runtime": "0x1e30a40",
+   "va_campaign": "0x1e30a08",
+   "pic_xrefs": 1,
+   "xref_detail": [
+    {
+     "class": "PASS-TO-CALL (ABI arg)",
+     "at": "0x11c006a",
+     "rd": "a2",
+     "window": [
+      "0x11c005a: addi     a2, a2, -0x64e",
+      "0x11c005e: addi     a1, zero, 0x4e",
+      "0x11c0062: c.li     a0, 3",
+      "0x11c0064: c.addi   sp, 0x10",
+      "0x11c0066: auipc    t1, 0x8de",
+      "0x11c006a: jalr     zero, t1, 0x5be",
+      "0x11c006e: c.ldsp   s0, 8(sp)",
+      "0x11c0070: auipc    a3, 0x1f0d1",
+      "0x11c0074: addi     a3, a3, -0x480",
+      "0x11c0078: auipc    a2, 0xc71",
+      "0x11c007c: addi     a2, a2, -0x6a8",
+      "0x11c0080: addi     a1, zero, 0x4d"
+     ]
+    }
+   ],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_HULK_INST_IN_SYS_VERIFICATION_FAILED",
+   "va_runtime": "0x1e30a88",
+   "va_campaign": "0x1e30a50",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_CERT_HULK_STRICT_ID_DEVID_MISMATCH",
+   "va_runtime": "0x1e30ac8",
+   "va_campaign": "0x1e30a90",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_CERT_HULK_STRICT_ID_ECID_MISMATCH",
+   "va_runtime": "0x1e30b00",
+   "va_campaign": "0x1e30ac8",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_PRI_TRANSACTION_ERROR",
+   "va_runtime": "0x1e30b38",
+   "va_campaign": "0x1e30b00",
+   "pic_xrefs": 1,
+   "xref_detail": [
+    {
+     "class": "PASS-TO-CALL (ABI arg)",
+     "at": "0x11bffe2",
+     "rd": "a2",
+     "window": [
+      "0x11bffd2: addi     a2, a2, -0x4ce",
+      "0x11bffd6: addi     a1, zero, 0x52",
+      "0x11bffda: c.li     a0, 3",
+      "0x11bffdc: c.addi   sp, 0x10",
+      "0x11bffde: auipc    t1, 0x8de",
+      "0x11bffe2: jalr     zero, t1, 0x646",
+      "0x11bffe6: c.ldsp   s0, 8(sp)",
+      "0x11bffe8: auipc    a3, 0x1f0d1",
+      "0x11bffec: addi     a3, a3, -0x398",
+      "0x11bfff0: auipc    a2, 0xc71",
+      "0x11bfff4: addi     a2, a2, -0x530",
+      "0x11bfff8: addi     a1, zero, 0x51"
+     ]
+    }
+   ],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_IMEM_TO_DMEM_COPY_INVALID_PARA",
+   "va_runtime": "0x1e30b68",
+   "va_campaign": "0x1e30b30",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_CERT20_INTBLK_VDPA_HEADER_INVALID",
+   "va_runtime": "0x1e30ba0",
+   "va_campaign": "0x1e30b68",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_CERT20_VDPA_NOT_FINALIZED",
+   "va_runtime": "0x1e30bd8",
+   "va_campaign": "0x1e30ba0",
+   "pic_xrefs": 1,
+   "xref_detail": [
+    {
+     "class": "PASS-TO-CALL (ABI arg)",
+     "at": "0x11bff7c",
+     "rd": "a2",
+     "window": [
+      "0x11bff6c: addi     a2, a2, -0x3c8",
+      "0x11bff70: addi     a1, zero, 0x55",
+      "0x11bff74: c.li     a0, 3",
+      "0x11bff76: c.addi   sp, 0x10",
+      "0x11bff78: auipc    t1, 0x8de",
+      "0x11bff7c: jalr     zero, t1, 0x6ac",
+      "0x11bff80: c.ldsp   s0, 8(sp)",
+      "0x11bff82: auipc    a3, 0x1f0d1",
+      "0x11bff86: addi     a3, a3, -0x2ea",
+      "0x11bff8a: auipc    a2, 0xc71",
+      "0x11bff8e: addi     a2, a2, -0x41a",
+      "0x11bff92: addi     a1, zero, 0x54"
+     ]
+    }
+   ],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_CERT20_VDPA_SIG_INVALID",
+   "va_runtime": "0x1e30c08",
+   "va_campaign": "0x1e30bd0",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_CERT20_VDPA_ENTRY_NOT_FOUND",
+   "va_runtime": "0x1e30c38",
+   "va_campaign": "0x1e30c00",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_CERT20_VDPA_CERT_INTBLK_MISMATCH",
+   "va_runtime": "0x1e30c70",
+   "va_campaign": "0x1e30c38",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_CERT20_VDPA_ENTRY_FOUND_DATA_MISMATCH",
+   "va_runtime": "0x1e30ca8",
+   "va_campaign": "0x1e30c70",
+   "pic_xrefs": 1,
+   "xref_detail": [
+    {
+     "class": "PASS-TO-CALL (ABI arg)",
+     "at": "0x11bfef4",
+     "rd": "a2",
+     "window": [
+      "0x11bfee4: addi     a2, a2, -0x270",
+      "0x11bfee8: addi     a1, zero, 0x59",
+      "0x11bfeec: c.li     a0, 3",
+      "0x11bfeee: c.addi   sp, 0x10",
+      "0x11bfef0: auipc    t1, 0x8de",
+      "0x11bfef4: jalr     zero, t1, 0x734",
+      "0x11bfef8: c.ldsp   s0, 8(sp)",
+      "0x11bfefa: auipc    a3, 0x1f0d1",
+      "0x11bfefe: addi     a3, a3, -0x202",
+      "0x11bff02: auipc    a2, 0xc71",
+      "0x11bff06: addi     a2, a2, -0x2c2",
+      "0x11bff0a: addi     a1, zero, 0x58"
+     ]
+    }
+   ],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_CERT20_VDPA_DATA_INVALID",
+   "va_runtime": "0x1e30ce8",
+   "va_campaign": "0x1e30cb0",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_CERT20_VDPA_FLASH_SIZE_LARGER_THAN_EXPECTED",
+   "va_runtime": "0x1e30d18",
+   "va_campaign": "0x1e30ce0",
+   "pic_xrefs": 1,
+   "xref_detail": [
+    {
+     "class": "PASS-TO-CALL (ABI arg)",
+     "at": "0x11bfeb0",
+     "rd": "a2",
+     "window": [
+      "0x11bfea0: addi     a2, a2, -0x1bc",
+      "0x11bfea4: addi     a1, zero, 0x5b",
+      "0x11bfea8: c.li     a0, 3",
+      "0x11bfeaa: c.addi   sp, 0x10",
+      "0x11bfeac: auipc    t1, 0x8de",
+      "0x11bfeb0: jalr     zero, t1, 0x778",
+      "0x11bfeb4: c.ldsp   s0, 8(sp)",
+      "0x11bfeb6: auipc    a3, 0x1f0d1",
+      "0x11bfeba: addi     a3, a3, -0x18e",
+      "0x11bfebe: auipc    a2, 0xc71",
+      "0x11bfec2: addi     a2, a2, -0x216",
+      "0x11bfec6: addi     a1, zero, 0x5a"
+     ]
+    }
+   ],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_CERT20_INTBLK_VDPA_BLOCK_OVERSIZE",
+   "va_runtime": "0x1e30d60",
+   "va_campaign": "0x1e30d28",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_CERT21_FMT_HAT_ENTRY_NUMBER_INVALID",
+   "va_runtime": "0x1e30d98",
+   "va_campaign": "0x1e30d60",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_CERT21_FMT_HAT_ENTRY_FOMMATTER_TOO_LONG",
+   "va_runtime": "0x1e30dd8",
+   "va_campaign": "0x1e30da0",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_CERT21_FMT_FORMATTER_DATA_BLOCK_OVER_SIZE",
+   "va_runtime": "0x1e30e18",
+   "va_campaign": "0x1e30de0",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_CERT21_FMT_UNEXPECTED_FORMATTER_TYPE",
+   "va_runtime": "0x1e30e58",
+   "va_campaign": "0x1e30e20",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_CERT21_FMT_EXCEED_FORMATTER_LENGTH",
+   "va_runtime": "0x1e30e98",
+   "va_campaign": "0x1e30e60",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_CERT21_CERT_VERSION_UNEXPECTED",
+   "va_runtime": "0x1e30ed0",
+   "va_campaign": "0x1e30e98",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_CERT21_FRTS_DEVINIT_NOT_COMPLETED",
+   "va_runtime": "0x1e30f08",
+   "va_campaign": "0x1e30ed0",
+   "pic_xrefs": 1,
+   "xref_detail": [
+    {
+     "class": "PASS-TO-CALL (ABI arg)",
+     "at": "0x11bfda0",
+     "rd": "a2",
+     "window": [
+      "0x11bfd90: addi     a2, a2, 0x144",
+      "0x11bfd94: addi     a1, zero, 0x63",
+      "0x11bfd98: c.li     a0, 3",
+      "0x11bfd9a: c.addi   sp, 0x10",
+      "0x11bfd9c: auipc    t1, 0x8df",
+      "0x11bfda0: jalr     zero, t1, -0x778",
+      "0x11bfda4: c.ldsp   s0, 8(sp)",
+      "0x11bfda6: auipc    a3, 0x1f0d1",
+      "0x11bfdaa: addi     a3, a3, 0x42",
+      "0x11bfdae: auipc    a2, 0xc71",
+      "0x11bfdb2: addi     a2, a2, 0xe2",
+      "0x11bfdb6: addi     a1, zero, 0x62"
+     ]
+    }
+   ],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_CERT21_FRTS_SECURE_INPUT_STRUCT_VERSION_UNEXPECTED",
+   "va_runtime": "0x1e30f40",
+   "va_campaign": "0x1e30f08",
+   "pic_xrefs": 1,
+   "xref_detail": [
+    {
+     "class": "PASS-TO-CALL (ABI arg)",
+     "at": "0x11bfd7e",
+     "rd": "a2",
+     "window": [
+      "0x11bfd6e: addi     a2, a2, 0x19e",
+      "0x11bfd72: addi     a1, zero, 0x64",
+      "0x11bfd76: c.li     a0, 3",
+      "0x11bfd78: c.addi   sp, 0x10",
+      "0x11bfd7a: auipc    t1, 0x8df",
+      "0x11bfd7e: jalr     zero, t1, -0x756",
+      "0x11bfd82: c.ldsp   s0, 8(sp)",
+      "0x11bfd84: auipc    a3, 0x1f0d1",
+      "0x11bfd88: addi     a3, a3, 0x7c",
+      "0x11bfd8c: auipc    a2, 0xc71",
+      "0x11bfd90: addi     a2, a2, 0x144",
+      "0x11bfd94: addi     a1, zero, 0x63"
+     ]
+    }
+   ],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_CERT21_FRTS_DMA_UNEXPECTED_MEDIA_TYPE",
+   "va_runtime": "0x1e30f88",
+   "va_campaign": "0x1e30f50",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_UDE_WAIT_FOR_COMPLETION_TIMEOUT",
+   "va_runtime": "0x1e30fc8",
+   "va_campaign": "0x1e30f90",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_CERT_HULK_UCODE_NOT_EXECUTING_ON_SEC2",
+   "va_runtime": "0x1e31000",
+   "va_campaign": "0x1e30fc8",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_CERT_HULK_SCRUBBER_BIN_NOT_COMPLETED_ON_VPR_SKU",
+   "va_runtime": "0x1e31040",
+   "va_campaign": "0x1e31008",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_CERT_HULK_UDE_NOT_COMPLETED_ON_NON_VPR_SKU",
+   "va_runtime": "0x1e31088",
+   "va_campaign": "0x1e31050",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_CERT_HULK_ACR_BIN_LOADED",
+   "va_runtime": "0x1e310c8",
+   "va_campaign": "0x1e31090",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_CERT_HULK_UNSUPPORTED_VERSION",
+   "va_runtime": "0x1e310f8",
+   "va_campaign": "0x1e310c0",
+   "pic_xrefs": 1,
+   "xref_detail": [
+    {
+     "class": "PASS-TO-CALL (ABI arg)",
+     "at": "0x11bfc90",
+     "rd": "a2",
+     "window": [
+      "0x11bfc80: addi     a2, a2, 0x444",
+      "0x11bfc84: addi     a1, zero, 0x6b",
+      "0x11bfc88: c.li     a0, 3",
+      "0x11bfc8a: c.addi   sp, 0x10",
+      "0x11bfc8c: auipc    t1, 0x8df",
+      "0x11bfc90: jalr     zero, t1, -0x668",
+      "0x11bfc94: c.ldsp   s0, 8(sp)",
+      "0x11bfc96: auipc    a3, 0x1f0d1",
+      "0x11bfc9a: addi     a3, a3, 0x212",
+      "0x11bfc9e: auipc    a2, 0xc71",
+      "0x11bfca2: addi     a2, a2, 0x3da",
+      "0x11bfca6: addi     a1, zero, 0x6a"
+     ]
+    }
+   ],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_SECUREBOOT_INVALID_INCMD_STRUCT",
+   "va_runtime": "0x1e31130",
+   "va_campaign": "0x1e310f8",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_SECUREBOOT_INVALID_MEDIA_TYPE",
+   "va_runtime": "0x1e31168",
+   "va_campaign": "0x1e31130",
+   "pic_xrefs": 1,
+   "xref_detail": [
+    {
+     "class": "PASS-TO-CALL (ABI arg)",
+     "at": "0x11bfc4c",
+     "rd": "a2",
+     "window": [
+      "0x11bfc3c: addi     a2, a2, 0x4f8",
+      "0x11bfc40: addi     a1, zero, 0x6d",
+      "0x11bfc44: c.li     a0, 3",
+      "0x11bfc46: c.addi   sp, 0x10",
+      "0x11bfc48: auipc    t1, 0x8df",
+      "0x11bfc4c: jalr     zero, t1, -0x624",
+      "0x11bfc50: c.ldsp   s0, 8(sp)",
+      "0x11bfc52: auipc    a3, 0x1f0d1",
+      "0x11bfc56: addi     a3, a3, 0x286",
+      "0x11bfc5a: auipc    a2, 0xc71",
+      "0x11bfc5e: addi     a2, a2, 0x4a6",
+      "0x11bfc62: addi     a1, zero, 0x6c"
+     ]
+    }
+   ],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_BCRT2X_VDPA_INTBLK_BUFFER_SIZE_OVERFLOW",
+   "va_runtime": "0x1e311a0",
+   "va_campaign": "0x1e31168",
+   "pic_xrefs": 1,
+   "xref_detail": [
+    {
+     "class": "PASS-TO-CALL (ABI arg)",
+     "at": "0x11bfc2a",
+     "rd": "a2",
+     "window": [
+      "0x11bfc1a: addi     a2, a2, 0x552",
+      "0x11bfc1e: addi     a1, zero, 0x6e",
+      "0x11bfc22: c.li     a0, 3",
+      "0x11bfc24: c.addi   sp, 0x10",
+      "0x11bfc26: auipc    t1, 0x8df",
+      "0x11bfc2a: jalr     zero, t1, -0x602",
+      "0x11bfc2e: c.ldsp   s0, 8(sp)",
+      "0x11bfc30: auipc    a3, 0x1f0d1",
+      "0x11bfc34: addi     a3, a3, 0x2c0",
+      "0x11bfc38: auipc    a2, 0xc71",
+      "0x11bfc3c: addi     a2, a2, 0x4f8",
+      "0x11bfc40: addi     a1, zero, 0x6d"
+     ]
+    }
+   ],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_BCRT2X_VDPA_INTBLK_ENTRIES_NUMBER_OVERLIMIT",
+   "va_runtime": "0x1e311e0",
+   "va_campaign": "0x1e311a8",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_BCRT2X_VDPA_INTBLK_ENTRIES_INVALID_ENTRY_TYPE",
+   "va_runtime": "0x1e31228",
+   "va_campaign": "0x1e311f0",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_BCRT2X_VDPA_UNEXPECTED_MAJOR_TYPE",
+   "va_runtime": "0x1e31270",
+   "va_campaign": "0x1e31238",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_BCRT2X_VDPA_UNEXPECTED_PCI_CODE_TYPE",
+   "va_runtime": "0x1e312a8",
+   "va_campaign": "0x1e31270",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_BOOTLOADER_FALCON_INVALID",
+   "va_runtime": "0x1e312e8",
+   "va_campaign": "0x1e312b0",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_BOOTLOADER_UCODE_HASH_MISMATCH",
+   "va_runtime": "0x1e31318",
+   "va_campaign": "0x1e312e0",
+   "pic_xrefs": 1,
+   "xref_detail": [
+    {
+     "class": "PASS-TO-CALL (ABI arg)",
+     "at": "0x11bfb5e",
+     "rd": "a2",
+     "window": [
+      "0x11bfb4e: addi     a2, a2, 0x796",
+      "0x11bfb52: addi     a1, zero, 0x74",
+      "0x11bfb56: c.li     a0, 3",
+      "0x11bfb58: c.addi   sp, 0x10",
+      "0x11bfb5a: auipc    t1, 0x8df",
+      "0x11bfb5e: jalr     zero, t1, -0x536",
+      "0x11bfb62: c.ldsp   s0, 8(sp)",
+      "0x11bfb64: auipc    a3, 0x1f0d1",
+      "0x11bfb68: addi     a3, a3, 0x41c",
+      "0x11bfb6c: auipc    a2, 0xc71",
+      "0x11bfb70: addi     a2, a2, 0x73c",
+      "0x11bfb74: addi     a1, zero, 0x73"
+     ]
+    }
+   ],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_BOOTLOADER_INTERFACE_HASH_MISMATCH",
+   "va_runtime": "0x1e31350",
+   "va_campaign": "0x1e31318",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_BOOTLOADER_INTERFACE_NOT_FOUND",
+   "va_runtime": "0x1e31388",
+   "va_campaign": "0x1e31350",
+   "pic_xrefs": 1,
+   "xref_detail": [
+    {
+     "class": "PASS-TO-CALL (ABI arg)",
+     "at": "0x11bfb1a",
+     "rd": "a2",
+     "window": [
+      "0x11bfb0a: addi     a2, a2, -0x7b6",
+      "0x11bfb0e: addi     a1, zero, 0x76",
+      "0x11bfb12: c.li     a0, 3",
+      "0x11bfb14: c.addi   sp, 0x10",
+      "0x11bfb16: auipc    t1, 0x8df",
+      "0x11bfb1a: jalr     zero, t1, -0x4f2",
+      "0x11bfb1e: c.ldsp   s0, 8(sp)",
+      "0x11bfb20: auipc    a3, 0x1f0d1",
+      "0x11bfb24: addi     a3, a3, 0x490",
+      "0x11bfb28: auipc    a2, 0xc71",
+      "0x11bfb2c: addi     a2, a2, 0x7f8",
+      "0x11bfb30: addi     a1, zero, 0x75"
+     ]
+    }
+   ],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_MMU_WPR_UNALIGNED",
+   "va_runtime": "0x1e313c0",
+   "va_campaign": "0x1e31388",
+   "pic_xrefs": 1,
+   "xref_detail": [
+    {
+     "class": "PASS-TO-CALL (ABI arg)",
+     "at": "0x11bfaf8",
+     "rd": "a2",
+     "window": [
+      "0x11bfae8: addi     a2, a2, -0x75c",
+      "0x11bfaec: addi     a1, zero, 0x77",
+      "0x11bfaf0: c.li     a0, 3",
+      "0x11bfaf2: c.addi   sp, 0x10",
+      "0x11bfaf4: auipc    t1, 0x8df",
+      "0x11bfaf8: jalr     zero, t1, -0x4d0",
+      "0x11bfafc: c.ldsp   s0, 8(sp)",
+      "0x11bfafe: auipc    a3, 0x1f0d1",
+      "0x11bfb02: addi     a3, a3, 0x4ca",
+      "0x11bfb06: auipc    a2, 0xc72",
+      "0x11bfb0a: addi     a2, a2, -0x7b6",
+      "0x11bfb0e: addi     a1, zero, 0x76"
+     ]
+    }
+   ],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_FALCON_LOADER_BUFFER_READ_UNDERFLOW",
+   "va_runtime": "0x1e313e8",
+   "va_campaign": "0x1e313b0",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_FALCON_LS_SETUP_FAILED",
+   "va_runtime": "0x1e31428",
+   "va_campaign": "0x1e313f0",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_FALCON_LOADER_INVALID_UCODE_DESCRIPTOR_INFO",
+   "va_runtime": "0x1e31458",
+   "va_campaign": "0x1e31420",
+   "pic_xrefs": 1,
+   "xref_detail": [
+    {
+     "class": "PASS-TO-CALL (ABI arg)",
+     "at": "0x11bfa92",
+     "rd": "a2",
+     "window": [
+      "0x11bfa82: addi     a2, a2, -0x65e",
+      "0x11bfa86: addi     a1, zero, 0x7a",
+      "0x11bfa8a: c.li     a0, 3",
+      "0x11bfa8c: c.addi   sp, 0x10",
+      "0x11bfa8e: auipc    t1, 0x8df",
+      "0x11bfa92: jalr     zero, t1, -0x46a",
+      "0x11bfa96: c.ldsp   s0, 8(sp)",
+      "0x11bfa98: auipc    a3, 0x1f0d1",
+      "0x11bfa9c: addi     a3, a3, 0x578",
+      "0x11bfaa0: auipc    a2, 0xc72",
+      "0x11bfaa4: addi     a2, a2, -0x6a8",
+      "0x11bfaa8: addi     a1, zero, 0x79"
+     ]
+    }
+   ],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_FALCON_LOADER_INVALID_INTERFACE_DESCRIPTOR_INFO",
+   "va_runtime": "0x1e314a0",
+   "va_campaign": "0x1e31468",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NV_FWSECLIC_ERR_CODE_SECUREBOOT_GPU_IN_GC6_EXIT",
+   "va_runtime": "0x1e314e8",
+   "va_campaign": "0x1e314b0",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RMDebugSyspipeOverride",
+   "va_runtime": "0x1e7b148",
+   "va_campaign": "0x1e7b110",
+   "pic_xrefs": 2,
+   "xref_detail": [
+    {
+     "class": "PASS-TO-CALL (ABI arg)",
+     "at": "0x14c44ea",
+     "rd": "a1",
+     "window": [
+      "0x14c44e0: addi     a1, a1, -0x3cc",
+      "0x14c44e4: c.mv     a0, s1",
+      "0x14c44e6: auipc    ra, 0xffb78",
+      "0x14c44ea: jalr     ra, ra, -0x45a",
+      "0x14c44ee: c.addiw  a0, 0",
+      "0x14c44f0: c.beqz   a0, 0x78",
+      "0x14c44f2: c.li     a0, 0",
+      "0x14c44f4: ld       a4, -0x48(s0)",
+      "0x14c44f8: ld       a5, 0(s3)",
+      "0x14c44fc: c.xor    a5, a4",
+      "0x14c44fe: c.li     a4, 0",
+      "0x14c4500: bnez     a5, 0x1ee"
+     ]
+    },
+    {
+     "class": "PASS-TO-CALL (ABI arg)",
+     "at": "0x14c459c",
+     "rd": "a1",
+     "window": [
+      "0x14c4592: addi     a1, a1, -0x47e",
+      "0x14c4596: c.mv     a0, s1",
+      "0x14c4598: auipc    ra, 0xffb78",
+      "0x14c459c: jalr     ra, ra, -0x50c",
+      "0x14c45a0: c.addiw  a0, 0",
+      "0x14c45a2: c.beqz   a0, -0x3a",
+      "0x14c45a4: c.j      -0xb2",
+      "0x14c45a6: sb       zero, 0x151(s4)",
+      "0x14c45aa: c.j      -0xb8",
+      "0x14c45ac: c.li     a5, 0",
+      "0x14c45ae: c.li     a4, 0",
+      "0x14c45b0: c.j      -0x122"
+     ]
+    }
+   ],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RmBootGspRmWithBoostClocks",
+   "va_runtime": "0x1e7b830",
+   "va_campaign": "0x1e7b7f8",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "NETIR_THERMAL_EVENT",
+   "va_runtime": "0x1e86a18",
+   "va_campaign": "0x1e869e0",
+   "pic_xrefs": 1,
+   "xref_detail": [
+    {
+     "class": "PTR-CLOBBERED",
+     "at": "0x15f80c2",
+     "rd": "a3",
+     "window": [
+      "0x15f80ba: addi     a3, a3, -0x6d6",
+      "0x15f80be: j        -0x9aa",
+      "0x15f80c2: auipc    a3, 0x88f",
+      "0x15f80c6: addi     a3, a3, -0x6f2",
+      "0x15f80ca: j        -0x9b6",
+      "0x15f80ce: auipc    a3, 0x88f",
+      "0x15f80d2: addi     a3, a3, -0x70e",
+      "0x15f80d6: j        -0x9c2",
+      "0x15f80da: auipc    a3, 0x88f",
+      "0x15f80de: addi     a3, a3, -0x72a",
+      "0x15f80e2: j        -0x9ce",
+      "0x15f80e6: auipc    a3, 0x88f"
+     ]
+    }
+   ],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RMPowerSupplyCapacity",
+   "va_runtime": "0x1e87088",
+   "va_campaign": "0x1e87050",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RmPmgrIddqOverride",
+   "va_runtime": "0x1e87138",
+   "va_campaign": "0x1e87100",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RmPmgrIddq1Override",
+   "va_runtime": "0x1e87150",
+   "va_campaign": "0x1e87118",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RmPmgrIddqNvvddOverride",
+   "va_runtime": "0x1e87168",
+   "va_campaign": "0x1e87130",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RmPmgrIddqMsvddOverride",
+   "va_runtime": "0x1e87180",
+   "va_campaign": "0x1e87148",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RmPmgrIddqCheckIgnore",
+   "va_runtime": "0x1e87198",
+   "va_campaign": "0x1e87160",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RmPmgrIsenseVcmOffsetOverride",
+   "va_runtime": "0x1e871c8",
+   "va_campaign": "0x1e87190",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RmPmgrIsenseDiffGainOverride",
+   "va_runtime": "0x1e871e8",
+   "va_campaign": "0x1e871b0",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RmPmgrIsenseDiffOffsetOverride",
+   "va_runtime": "0x1e87208",
+   "va_campaign": "0x1e871d0",
+   "pic_xrefs": 2,
+   "xref_detail": [
+    {
+     "class": "PASS-TO-CALL (ABI arg)",
+     "at": "0x16ba298",
+     "rd": "a1",
+     "window": [
+      "0x16ba28e: addi     a1, a1, -0xba",
+      "0x16ba292: c.mv     a0, s3",
+      "0x16ba294: auipc    ra, 0xff982",
+      "0x16ba298: jalr     ra, ra, -0x208",
+      "0x16ba29c: c.addiw  a0, 0",
+      "0x16ba29e: bnez     a0, -0x390",
+      "0x16ba2a2: c.j      -0x80",
+      "0x16ba2a4: lbu      a1, 0x539(s9)",
+      "0x16ba2a8: c.li     a4, 8",
+      "0x16ba2aa: bne      a1, a4, 0x40e",
+      "0x16ba2ae: c.li     a4, 0x17",
+      "0x16ba2b0: beq      a3, a4, 0x444"
+     ]
+    },
+    {
+     "class": "PASS-TO-CALL (ABI arg)",
+     "at": "0x16b98d8",
+     "rd": "a1",
+     "window": [
+      "0x16b98ce: addi     a1, a1, -0x6fa",
+      "0x16b98d2: c.mv     a0, s2",
+      "0x16b98d4: auipc    ra, 0xff982",
+      "0x16b98d8: jalr     ra, ra, 0x7b8",
+      "0x16b98dc: c.addiw  a0, 0",
+      "0x16b98de: c.bnez   a0, -0x84",
+      "0x16b98e0: lw       a5, -0x4c(s0)",
+      "0x16b98e4: c.beqz   a5, -0x8a",
+      "0x16b98e6: c.li     a5, 1",
+      "0x16b98e8: sb       a5, 0x529(s1)",
+      "0x16b98ec: c.j      -0x92",
+      "0x16b98ee: lhu      a1, 0x53a(a2)"
+     ]
+    }
+   ],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RmPmgrIsenseVcmCoarseOffsetOverride",
+   "va_runtime": "0x1e87228",
+   "va_campaign": "0x1e871f0",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RmPmgrIsenseDiffCoarseGainOverride",
+   "va_runtime": "0x1e87250",
+   "va_campaign": "0x1e87218",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RmPmgrIsenseCheckIgnore",
+   "va_runtime": "0x1e87278",
+   "va_campaign": "0x1e87240",
+   "pic_xrefs": 2,
+   "xref_detail": [
+    {
+     "class": "PASS-TO-CALL (ABI arg)",
+     "at": "0x16b9b3c",
+     "rd": "a1",
+     "window": [
+      "0x16b9b2e: addi     a1, a1, 0x716",
+      "0x16b9b32: c.mv     a0, s2",
+      "0x16b9b34: sd       a2, -0x58(s0)",
+      "0x16b9b38: auipc    ra, 0xff982",
+      "0x16b9b3c: jalr     ra, ra, 0x554",
+      "0x16b9b40: sext.w   a5, a0",
+      "0x16b9b44: ld       a2, -0x58(s0)",
+      "0x16b9b48: bnez     a5, -0x1a4",
+      "0x16b9b4c: lw       a5, -0x4c(s0)",
+      "0x16b9b50: andi     a5, a5, 0x1ff",
+      "0x16b9b54: beqz     a5, -0x1b0",
+      "0x16b9b58: c.j      -0x80"
+     ]
+    },
+    {
+     "class": "PASS-TO-CALL (ABI arg)",
+     "at": "0x16ba7e4",
+     "rd": "a1",
+     "window": [
+      "0x16ba7d8: addi     a1, a1, -0x594",
+      "0x16ba7dc: sd       a2, -0xc8(s0)",
+      "0x16ba7e0: auipc    ra, 0xff982",
+      "0x16ba7e4: jalr     ra, ra, -0x754",
+      "0x16ba7e8: c.addiw  a0, 0",
+      "0x16ba7ea: ld       a2, -0xc8(s0)",
+      "0x16ba7ee: bnez     a0, -0x5e4",
+      "0x16ba7f2: lw       a4, -0xbc(s0)",
+      "0x16ba7f6: andi     a4, a4, 0x1ff",
+      "0x16ba7fa: beqz     a4, -0x5f0",
+      "0x16ba7fe: c.j      -0x5fe",
+      "0x16ba800: auipc    a1, 0x1ec7c"
+     ]
+    }
+   ],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RmPerfCfOverride",
+   "va_runtime": "0x1e872a8",
+   "va_campaign": "0x1e87270",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RmPerfCfPmSensorOverrides",
+   "va_runtime": "0x1e872c0",
+   "va_campaign": "0x1e87288",
+   "pic_xrefs": 1,
+   "xref_detail": [
+    {
+     "class": "PASS-TO-CALL (ABI arg)",
+     "at": "0x16b9abe",
+     "rd": "a1",
+     "window": [
+      "0x16b9ab0: addi     a1, a1, 0x7dc",
+      "0x16b9ab4: c.mv     a0, s2",
+      "0x16b9ab6: sd       a2, -0x58(s0)",
+      "0x16b9aba: auipc    ra, 0xff982",
+      "0x16b9abe: jalr     ra, ra, 0x5d2",
+      "0x16b9ac2: sext.w   a5, a0",
+      "0x16b9ac6: ld       a2, -0x58(s0)",
+      "0x16b9aca: bnez     a5, -0x126",
+      "0x16b9ace: lw       a5, -0x4c(s0)",
+      "0x16b9ad2: c.andi   a5, 3",
+      "0x16b9ad4: beqz     a5, -0x130",
+      "0x16b9ad8: sw       a5, 0x500(s1)"
+     ]
+    }
+   ],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RmPerfCfPolicyOverrides",
+   "va_runtime": "0x1e872e0",
+   "va_campaign": "0x1e872a8",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RMLpwrLpsecDisable",
+   "va_runtime": "0x1e872f8",
+   "va_campaign": "0x1e872c0",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RMPowerFeature2",
+   "va_runtime": "0x1e87340",
+   "va_campaign": "0x1e87308",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RmLpwrCacheStatsOnD3",
+   "va_runtime": "0x1e873b0",
+   "va_campaign": "0x1e87378",
+   "pic_xrefs": 4,
+   "xref_detail": [
+    {
+     "class": "PASS-TO-CALL (ABI arg)",
+     "at": "0x172ee78",
+     "rd": "a1",
+     "window": [
+      "0x172ee6a: addi     a1, a1, 0x512",
+      "0x172ee6e: c.mv     a0, s2",
+      "0x172ee70: sd       a3, -0x90(s0)",
+      "0x172ee74: auipc    ra, 0xff90d",
+      "0x172ee78: jalr     ra, ra, 0x218",
+      "0x172ee7c: c.addiw  a0, 0",
+      "0x172ee7e: ld       a3, -0x90(s0)",
+      "0x172ee82: beqz     a0, 0x604",
+      "0x172ee86: lw       a2, 0x550(s1)",
+      "0x172ee8a: c.li     s11, 4",
+      "0x172ee8c: c.li     s5, 4",
+      "0x172ee8e: c.and    a3, a2"
+     ]
+    },
+    {
+     "class": "PASS-TO-CALL (ABI arg)",
+     "at": "0x170c15e",
+     "rd": "a1",
+     "window": [
+      "0x170c154: addi     a1, a1, 0x228",
+      "0x170c158: c.mv     a0, s3",
+      "0x170c15a: auipc    ra, 0xff930",
+      "0x170c15e: jalr     ra, ra, -0xce",
+      "0x170c162: lw       a5, 0xe0(s4)",
+      "0x170c166: c.andi   a5, 0x10",
+      "0x170c168: bnez     a5, 0x55e",
+      "0x170c16c: lbu      a5, 0x251(s6)",
+      "0x170c170: bnez     a5, 0x288",
+      "0x170c174: lbu      a5, 0x260(s6)",
+      "0x170c178: bnez     a5, 0x240",
+      "0x170c17c: lbu      a5, 0x261(s6)"
+     ]
+    },
+    {
+     "class": "PASS-TO-CALL (ABI arg)",
+     "at": "0x170c3a4",
+     "rd": "a1",
+     "window": [
+      "0x170c39a: addi     a1, a1, -0x1e",
+      "0x170c39e: c.mv     a0, s3",
+      "0x170c3a0: auipc    ra, 0xff930",
+      "0x170c3a4: jalr     ra, ra, -0x314",
+      "0x170c3a8: lbu      a5, 0x251(s6)",
+      "0x170c3ac: c.bnez   a5, 0x4a",
+      "0x170c3ae: lbu      a5, 0x260(s6)",
+      "0x170c3b2: c.li     s4, 0",
+      "0x170c3b4: beqz     a5, -0x238",
+      "0x170c3b8: c.mv     a2, s1",
+      "0x170c3ba: auipc    a1, 0x77b",
+      "0x170c3be: addi     a1, a1, -2"
+     ]
+    },
+    {
+     "class": "PASS-TO-CALL (ABI arg)",
+     "at": "0x1aae488",
+     "rd": "a1",
+     "window": [
+      "0x1aae47e: addi     a1, a1, -0x102",
+      "0x1aae482: c.mv     a0, s4",
+      "0x1aae484: auipc    ra, 0xff58e",
+      "0x1aae488: jalr     ra, ra, -0x3f8",
+      "0x1aae48c: sext.w   a5, a0",
+      "0x1aae490: c.beqz   a5, 8",
+      "0x1aae492: c.add    s5, s4",
+      "0x1aae494: sw       zero, 0x1c0(s5)",
+      "0x1aae498: c.lui    s5, 5",
+      "0x1aae49a: addi     a2, s5, 0x1c4",
+      "0x1aae49e: c.add    a2, s4",
+      "0x1aae4a0: auipc    a1, 0x3de"
+     ]
+    }
+   ],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RMLpwrGrGfnSupport",
+   "va_runtime": "0x1e873c8",
+   "va_campaign": "0x1e87390",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RMLpwrVbiosSwTable",
+   "va_runtime": "0x1e87410",
+   "va_campaign": "0x1e873d8",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RMLpwrArch",
+   "va_runtime": "0x1e87428",
+   "va_campaign": "0x1e873f0",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RmLpwrGrRgWar5070682",
+   "va_runtime": "0x1e87438",
+   "va_campaign": "0x1e87400",
+   "pic_xrefs": 1,
+   "xref_detail": [
+    {
+     "class": "PASS-TO-CALL (ABI arg)",
+     "at": "0x170c706",
+     "rd": "a1",
+     "window": [
+      "0x170c6fc: addi     a1, a1, -0x2f8",
+      "0x170c700: c.mv     a0, s3",
+      "0x170c702: auipc    ra, 0xff930",
+      "0x170c706: jalr     ra, ra, -0x676",
+      "0x170c70a: sext.w   a5, a0",
+      "0x170c70e: bnez     a5, 0x180",
+      "0x170c712: lw       a5, -0x6c(s0)",
+      "0x170c716: beqz     a5, 0x178",
+      "0x170c71a: c.li     a4, 1",
+      "0x170c71c: bne      a5, a4, -0x560",
+      "0x170c720: sb       a5, 0x263(s6)",
+      "0x170c724: c.j      -0x568"
+     ]
+    }
+   ],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RmLpwrFsmPerStepStatsInfra",
+   "va_runtime": "0x1e87450",
+   "va_campaign": "0x1e87418",
+   "pic_xrefs": 1,
+   "xref_detail": [
+    {
+     "class": "PASS-TO-CALL (ABI arg)",
+     "at": "0x170c67e",
+     "rd": "a1",
+     "window": [
+      "0x170c674: addi     a1, a1, -0x258",
+      "0x170c678: c.mv     a0, s3",
+      "0x170c67a: auipc    ra, 0xff930",
+      "0x170c67e: jalr     ra, ra, -0x5ee",
+      "0x170c682: c.addiw  a0, 0",
+      "0x170c684: c.bnez   a0, 0x12",
+      "0x170c686: lw       a5, -0x6c(s0)",
+      "0x170c68a: c.li     a4, 1",
+      "0x170c68c: bne      a5, a4, 0xa",
+      "0x170c690: sb       a5, 0x26c(s6)",
+      "0x170c694: c.j      -0x4d0",
+      "0x170c696: sb       zero, 0x26c(s6)"
+     ]
+    }
+   ],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RmLpwrFsmPerStepStatsCtrl",
+   "va_runtime": "0x1e87470",
+   "va_campaign": "0x1e87438",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RMPowerFeature",
+   "va_runtime": "0x1e87490",
+   "va_campaign": "0x1e87458",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RmLpwrCgElcgDriverUnloadSupport",
+   "va_runtime": "0x1e874b8",
+   "va_campaign": "0x1e87480",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RMLpwrBlcg",
+   "va_runtime": "0x1e874d8",
+   "va_campaign": "0x1e874a0",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RMLpwrBlcg1",
+   "va_runtime": "0x1e874e8",
+   "va_campaign": "0x1e874b0",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RMLpwrSlcg",
+   "va_runtime": "0x1e874f8",
+   "va_campaign": "0x1e874c0",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RMLpwrSlcg1",
+   "va_runtime": "0x1e87508",
+   "va_campaign": "0x1e874d0",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RMLpwrSlcg2",
+   "va_runtime": "0x1e87518",
+   "va_campaign": "0x1e874e0",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RmLpwrCgFlcgDriverUnloadSupport",
+   "va_runtime": "0x1e87528",
+   "va_campaign": "0x1e874f0",
+   "pic_xrefs": 1,
+   "xref_detail": [
+    {
+     "class": "PASS-TO-CALL (ABI arg)",
+     "at": "0x170eb0c",
+     "rd": "a1",
+     "window": [
+      "0x170eb02: addi     a1, a1, -0x60e",
+      "0x170eb06: c.mv     a0, s2",
+      "0x170eb08: auipc    ra, 0xff92d",
+      "0x170eb0c: jalr     ra, ra, 0x584",
+      "0x170eb10: sext.w   a5, a0",
+      "0x170eb14: c.beqz   a5, 6",
+      "0x170eb16: j        -0x1d08",
+      "0x170eb1a: lw       a4, -0x84(s0)",
+      "0x170eb1e: c.li     a5, 1",
+      "0x170eb20: bne      a4, a5, 8",
+      "0x170eb24: j        -0x1d16",
+      "0x170eb28: sb       zero, 0x24b(s4)"
+     ]
+    }
+   ],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RMAdaptivePwrDebug",
+   "va_runtime": "0x1e87548",
+   "va_campaign": "0x1e87510",
+   "pic_xrefs": 1,
+   "xref_detail": [
+    {
+     "class": "PASS-TO-CALL (ABI arg)",
+     "at": "0x170ce72",
+     "rd": "a1",
+     "window": [
+      "0x170ce68: addi     a1, a1, 0x6ac",
+      "0x170ce6c: c.mv     a0, s2",
+      "0x170ce6e: auipc    ra, 0xff92f",
+      "0x170ce72: jalr     ra, ra, 0x21e",
+      "0x170ce76: sext.w   a5, a0",
+      "0x170ce7a: c.bnez   a5, 0xe",
+      "0x170ce7c: lw       a4, -0x84(s0)",
+      "0x170ce80: c.lui    a5, 1",
+      "0x170ce82: c.add    a5, s4",
+      "0x170ce84: sw       a4, -0x25c(a5)",
+      "0x170ce88: c.mv     a2, s10",
+      "0x170ce8a: auipc    a1, 0x77a"
+     ]
+    }
+   ],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RMLpwrEiClient",
+   "va_runtime": "0x1e87560",
+   "va_campaign": "0x1e87528",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RmLpwrSeqFgpgGrEntryThresholdUs",
+   "va_runtime": "0x1e87570",
+   "va_campaign": "0x1e87538",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RmLpwrSeqFgpgGrMinResidentTimeUs ",
+   "va_runtime": "0x1e87590",
+   "va_campaign": "0x1e87558",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RmLpwrSeqFgpgNvencEntryThresholdUs",
+   "va_runtime": "0x1e875b8",
+   "va_campaign": "0x1e87580",
+   "pic_xrefs": 1,
+   "xref_detail": [
+    {
+     "class": "PASS-TO-CALL (ABI arg)",
+     "at": "0x170dc24",
+     "rd": "a1",
+     "window": [
+      "0x170dc1a: addi     a1, a1, -0x696",
+      "0x170dc1e: c.mv     a0, s2",
+      "0x170dc20: auipc    ra, 0xff92e",
+      "0x170dc24: jalr     ra, ra, 0x46c",
+      "0x170dc28: sext.w   a5, a0",
+      "0x170dc2c: bnez     a5, -0xcc4",
+      "0x170dc30: lw       a5, 0x58(s4)",
+      "0x170dc34: lw       a4, 0x54(s4)",
+      "0x170dc38: c.and    a5, a4",
+      "0x170dc3a: sw       a5, 0x58(s4)",
+      "0x170dc3e: j        -0xcd6",
+      "0x170dc42: c.li     a2, 0"
+     ]
+    }
+   ],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RmLpwrSeqFgpgNvencMinResidentTimeUs ",
+   "va_runtime": "0x1e875e0",
+   "va_campaign": "0x1e875a8",
+   "pic_xrefs": 1,
+   "xref_detail": [
+    {
+     "class": "PASS-TO-CALL (ABI arg)",
+     "at": "0x170e904",
+     "rd": "a1",
+     "window": [
+      "0x170e8fa: addi     a1, a1, -0x34e",
+      "0x170e8fe: c.mv     a0, s2",
+      "0x170e900: auipc    ra, 0xff92d",
+      "0x170e904: jalr     ra, ra, 0x78c",
+      "0x170e908: sext.w   a5, a0",
+      "0x170e90c: c.bnez   a5, 0x10",
+      "0x170e90e: lw       a5, -0x84(s0)",
+      "0x170e912: ld       a4, -0xb0(s0)",
+      "0x170e916: c.and    a5, a4",
+      "0x170e918: sw       a5, 0x50(s5)",
+      "0x170e91c: c.mv     a2, s10",
+      "0x170e91e: auipc    a1, 0x779"
+     ]
+    }
+   ],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RmLpwrSeqFgpgNvdecEntryThresholdUs",
+   "va_runtime": "0x1e87608",
+   "va_campaign": "0x1e875d0",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RmLpwrSeqFgpgNvdecMinResidentTimeUs ",
+   "va_runtime": "0x1e87630",
+   "va_campaign": "0x1e875f8",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RmLpwrSeqFgpgNvjpgEntryThresholdUs",
+   "va_runtime": "0x1e87658",
+   "va_campaign": "0x1e87620",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RmLpwrSeqFgpgNvjpgMinResidentTimeUs ",
+   "va_runtime": "0x1e87680",
+   "va_campaign": "0x1e87648",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RmLpwrSeqFgpgOfaEntryThresholdUs",
+   "va_runtime": "0x1e876a8",
+   "va_campaign": "0x1e87670",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RmLpwrSeqFgpgOfaMinResidentTimeUs ",
+   "va_runtime": "0x1e876d0",
+   "va_campaign": "0x1e87698",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RmLpwrSeqFgpg",
+   "va_runtime": "0x1e876f8",
+   "va_campaign": "0x1e876c0",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RmLpwrDtdPgSupport",
+   "va_runtime": "0x1e87708",
+   "va_campaign": "0x1e876d0",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RmLpwrDtdPgTpcPerGpc",
+   "va_runtime": "0x1e87720",
+   "va_campaign": "0x1e876e8",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RmLpwrDtdPgInitCompleteMethod",
+   "va_runtime": "0x1e87738",
+   "va_campaign": "0x1e87700",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RmLpwrDtdPgEnableStats",
+   "va_runtime": "0x1e87758",
+   "va_campaign": "0x1e87720",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RmLpwrC2CState",
+   "va_runtime": "0x1e87770",
+   "va_campaign": "0x1e87738",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RmLpwrFlcg",
+   "va_runtime": "0x1e87780",
+   "va_campaign": "0x1e87748",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RmLpwrSysClkSd",
+   "va_runtime": "0x1e87790",
+   "va_campaign": "0x1e87758",
+   "pic_xrefs": 1,
+   "xref_detail": [
+    {
+     "class": "PASS-TO-CALL (ABI arg)",
+     "at": "0x170e26e",
+     "rd": "a1",
+     "window": [
+      "0x170e264: addi     a1, a1, 0x4f8",
+      "0x170e268: c.mv     a0, s2",
+      "0x170e26a: auipc    ra, 0xff92e",
+      "0x170e26e: jalr     ra, ra, -0x1de",
+      "0x170e272: sext.w   a5, a0",
+      "0x170e276: c.bnez   a5, 0xe",
+      "0x170e278: lw       a4, -0x80(s0)",
+      "0x170e27c: c.lui    a5, 1",
+      "0x170e27e: c.add    a5, s3",
+      "0x170e280: sw       a4, -0xfc(a5)",
+      "0x170e284: addi     a2, s0, -0x80",
+      "0x170e288: auipc    a1, 0x779"
+     ]
+    }
+   ],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RMLpwrCsdSysclkIdleThresholdUs",
+   "va_runtime": "0x1e877a0",
+   "va_campaign": "0x1e87768",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RMLpwrTestCbkTimeMs",
+   "va_runtime": "0x1e877c0",
+   "va_campaign": "0x1e87788",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RmLpwrC2cPpsOverride",
+   "va_runtime": "0x1e877d8",
+   "va_campaign": "0x1e877a0",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RmLpwrC2cClientDisableOverride",
+   "va_runtime": "0x1e87808",
+   "va_campaign": "0x1e877d0",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RmLpwrC2cClxStateCoupling",
+   "va_runtime": "0x1e87828",
+   "va_campaign": "0x1e877f0",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RmLpwrC2cCl3IdleThresholdUs",
+   "va_runtime": "0x1e87848",
+   "va_campaign": "0x1e87810",
+   "pic_xrefs": 1,
+   "xref_detail": [
+    {
+     "class": "PASS-TO-CALL (ABI arg)",
+     "at": "0x1727f3e",
+     "rd": "a1",
+     "window": [
+      "0x1727f30: addi     a1, a1, -0x71c",
+      "0x1727f34: c.mv     a0, s3",
+      "0x1727f36: sw       zero, -0x4c(s0)",
+      "0x1727f3a: auipc    ra, 0xff914",
+      "0x1727f3e: jalr     ra, ra, 0x152",
+      "0x1727f42: c.addiw  a0, 0",
+      "0x1727f44: bnez     a0, 0x316",
+      "0x1727f48: lw       a5, -0x4c(s0)",
+      "0x1727f4c: andi     a4, a5, 1",
+      "0x1727f50: bnez     a4, 0x138",
+      "0x1727f54: srliw    a3, a5, 1",
+      "0x1727f58: srliw    a4, a5, 8"
+     ]
+    }
+   ],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RmLpwrC2cCl4IdleThresholdUs",
+   "va_runtime": "0x1e87868",
+   "va_campaign": "0x1e87830",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RMLpwrGrElcgThreshold",
+   "va_runtime": "0x1e87888",
+   "va_campaign": "0x1e87850",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RMLpwrCeElcgThreshold",
+   "va_runtime": "0x1e878a0",
+   "va_campaign": "0x1e87868",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RMLpwrNvdecElcgThreshold",
+   "va_runtime": "0x1e878b8",
+   "va_campaign": "0x1e87880",
+   "pic_xrefs": 1,
+   "xref_detail": [
+    {
+     "class": "PASS-TO-CALL (ABI arg)",
+     "at": "0x1727ff6",
+     "rd": "a1",
+     "window": [
+      "0x1727fec: addi     a1, a1, -0x768",
+      "0x1727ff0: c.mv     a0, s3",
+      "0x1727ff2: auipc    ra, 0xff914",
+      "0x1727ff6: jalr     ra, ra, 0x9a",
+      "0x1727ffa: c.addiw  a0, 0",
+      "0x1727ffc: c.bnez   a0, 8",
+      "0x1727ffe: lw       a5, -0x4c(s0)",
+      "0x1728002: c.sw     a5, 0x50(s1)",
+      "0x1728004: addi     a2, s0, -0x4c",
+      "0x1728008: auipc    a1, 0x760",
+      "0x172800c: addi     a1, a1, -0x768",
+      "0x1728010: c.mv     a0, s3"
+     ]
+    }
+   ],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RMLpwrNvencElcgThreshold",
+   "va_runtime": "0x1e878d8",
+   "va_campaign": "0x1e878a0",
+   "pic_xrefs": 1,
+   "xref_detail": [
+    {
+     "class": "PASS-TO-CALL (ABI arg)",
+     "at": "0x1728016",
+     "rd": "a1",
+     "window": [
+      "0x172800c: addi     a1, a1, -0x768",
+      "0x1728010: c.mv     a0, s3",
+      "0x1728012: auipc    ra, 0xff914",
+      "0x1728016: jalr     ra, ra, 0x7a",
+      "0x172801a: c.addiw  a0, 0",
+      "0x172801c: c.bnez   a0, 8",
+      "0x172801e: lw       a5, -0x4c(s0)",
+      "0x1728022: c.sw     a5, 0x54(s1)",
+      "0x1728024: c.lui    a5, 1",
+      "0x1728026: add      a3, s2, a5",
+      "0x172802a: lbu      a4, 0x273(a3)",
+      "0x172802e: bnez     a4, 0x198"
+     ]
+    }
+   ],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RMLpwrNvjpgElcgThreshold",
+   "va_runtime": "0x1e878f8",
+   "va_campaign": "0x1e878c0",
+   "pic_xrefs": 1,
+   "xref_detail": [
+    {
+     "class": "PASS-TO-CALL (ABI arg)",
+     "at": "0x172c54a",
+     "rd": "a1",
+     "window": [
+      "0x172c540: addi     a1, a1, 0x384",
+      "0x172c544: c.mv     a0, s4",
+      "0x172c546: auipc    ra, 0xff910",
+      "0x172c54a: jalr     ra, ra, -0x4ba",
+      "0x172c54e: sext.w   a5, a0",
+      "0x172c552: beqz     a5, -0x140",
+      "0x172c556: c.j      -0xb4",
+      "0x172c558: lui      a4, 0x111",
+      "0x172c55c: auipc    a5, 0x2a64",
+      "0x172c560: ld       a5, -0x44(a5)",
+      "0x172c564: addi     a3, a4, 0x52c",
+      "0x172c568: c.add    a3, a5"
+     ]
+    }
+   ],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RMLpwrOfaElcgThreshold",
+   "va_runtime": "0x1e87918",
+   "va_campaign": "0x1e878e0",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RMLpwrGrIdleThresholdUs",
+   "va_runtime": "0x1e87930",
+   "va_campaign": "0x1e878f8",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RmLpwrGrPgSwFilterFunction",
+   "va_runtime": "0x1e87948",
+   "va_campaign": "0x1e87910",
+   "pic_xrefs": 1,
+   "xref_detail": [
+    {
+     "class": "PASS-TO-CALL (ABI arg)",
+     "at": "0x172c46e",
+     "rd": "a1",
+     "window": [
+      "0x172c464: addi     a1, a1, 0x4b0",
+      "0x172c468: c.mv     a0, s4",
+      "0x172c46a: auipc    ra, 0xff910",
+      "0x172c46e: jalr     ra, ra, -0x3de",
+      "0x172c472: sext.w   a5, a0",
+      "0x172c476: c.bnez   a5, 0x2c",
+      "0x172c478: c.j      -0x66",
+      "0x172c47a: lui      a5, 0x2b3a5",
+      "0x172c47e: addi     a5, a5, 0x400",
+      "0x172c482: bne      s7, a5, -0x1fc",
+      "0x172c486: addi     a2, s0, -0x7c",
+      "0x172c48a: auipc    a1, 0x75b"
+     ]
+    }
+   ],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RmLpwrGrRgWar5291421",
+   "va_runtime": "0x1e87968",
+   "va_campaign": "0x1e87930",
+   "pic_xrefs": 1,
+   "xref_detail": [
+    {
+     "class": "PASS-TO-CALL (ABI arg)",
+     "at": "0x172c498",
+     "rd": "a1",
+     "window": [
+      "0x172c48e: addi     a1, a1, 0x4a6",
+      "0x172c492: c.mv     a0, s4",
+      "0x172c494: auipc    ra, 0xff910",
+      "0x172c498: jalr     ra, ra, -0x408",
+      "0x172c49c: sext.w   a5, a0",
+      "0x172c4a0: c.beqz   a5, -0x8e",
+      "0x172c4a2: c.li     a5, 0",
+      "0x172c4a4: c.li     a4, 0",
+      "0x172c4a6: c.j      -0x80",
+      "0x172c4a8: lbu      a5, 0x48(a5)",
+      "0x172c4ac: beqz     a5, -0x29c",
+      "0x172c4b0: c.j      -0x2a6"
+     ]
+    }
+   ],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RMLpwrMsIdleThresholdUs",
+   "va_runtime": "0x1e87980",
+   "va_campaign": "0x1e87948",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RmLpwrMscgWar4908479",
+   "va_runtime": "0x1e879f0",
+   "va_campaign": "0x1e879b8",
+   "pic_xrefs": 1,
+   "xref_detail": [
+    {
+     "class": "PASS-TO-CALL (ABI arg)",
+     "at": "0x172d020",
+     "rd": "a1",
+     "window": [
+      "0x172d018: addi     a1, a1, -0x65c",
+      "0x172d01c: auipc    ra, 0xff90f",
+      "0x172d020: jalr     ra, ra, 0x70",
+      "0x172d024: addi     a2, s2, 0x514",
+      "0x172d028: auipc    a1, 0x75b",
+      "0x172d02c: addi     a1, a1, -0x658",
+      "0x172d030: c.mv     a0, s1",
+      "0x172d032: auipc    ra, 0xff90f",
+      "0x172d036: jalr     ra, ra, 0x5a",
+      "0x172d03a: c.addiw  a0, 0",
+      "0x172d03c: c.bnez   a0, 0xa",
+      "0x172d03e: lw       a5, 0x514(s2)"
+     ]
+    }
+   ],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RMLpwrMsLtcIdleThresholdUs",
+   "va_runtime": "0x1e87a08",
+   "va_campaign": "0x1e879d0",
+   "pic_xrefs": 1,
+   "xref_detail": [
+    {
+     "class": "PASS-TO-CALL (ABI arg)",
+     "at": "0x172d036",
+     "rd": "a1",
+     "window": [
+      "0x172d02c: addi     a1, a1, -0x658",
+      "0x172d030: c.mv     a0, s1",
+      "0x172d032: auipc    ra, 0xff90f",
+      "0x172d036: jalr     ra, ra, 0x5a",
+      "0x172d03a: c.addiw  a0, 0",
+      "0x172d03c: c.bnez   a0, 0xa",
+      "0x172d03e: lw       a5, 0x514(s2)",
+      "0x172d042: beqz     a5, 0x28e",
+      "0x172d046: addi     a2, s2, 0x518",
+      "0x172d04a: auipc    a1, 0x75b",
+      "0x172d04e: addi     a1, a1, -0x662",
+      "0x172d052: c.mv     a0, s1"
+     ]
+    }
+   ],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RMLpwrEiIdleThresholdUs",
+   "va_runtime": "0x1e87a28",
+   "va_campaign": "0x1e879f0",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RMLpwrEi1IdleThresholdUs",
+   "va_runtime": "0x1e87a40",
+   "va_campaign": "0x1e87a08",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RMLpwrDfprIdleThresholdUs",
+   "va_runtime": "0x1e87a60",
+   "va_campaign": "0x1e87a28",
+   "pic_xrefs": 1,
+   "xref_detail": [
+    {
+     "class": "PASS-TO-CALL (ABI arg)",
+     "at": "0x172d0e8",
+     "rd": "a1",
+     "window": [
+      "0x172d0de: addi     a1, a1, -0x6b2",
+      "0x172d0e2: c.mv     a0, s1",
+      "0x172d0e4: auipc    ra, 0xff90f",
+      "0x172d0e8: jalr     ra, ra, -0x58",
+      "0x172d0ec: c.addiw  a0, 0",
+      "0x172d0ee: bnez     a0, -0x26a",
+      "0x172d0f2: lw       a4, -0x5c(s0)",
+      "0x172d0f6: c.li     a5, 1",
+      "0x172d0f8: bne      a4, a5, -0x274",
+      "0x172d0fc: sb       zero, 0x277(s5)",
+      "0x172d100: c.j      -0x27c",
+      "0x172d102: lbu      a5, 0x273(s5)"
+     ]
+    }
+   ],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RMLpwrMsDifrSwAsrIdleThresholdUs",
+   "va_runtime": "0x1e87a80",
+   "va_campaign": "0x1e87a48",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RMLpwrMsDifrCgIdleThresholdUs",
+   "va_runtime": "0x1e87aa8",
+   "va_campaign": "0x1e87a70",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RMLpwrVidNvdecRpgIdleThresholdUs",
+   "va_runtime": "0x1e87ac8",
+   "va_campaign": "0x1e87a90",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RMLpwrVidNvencRpgIdleThresholdUs",
+   "va_runtime": "0x1e87af0",
+   "va_campaign": "0x1e87ab8",
+   "pic_xrefs": 1,
+   "xref_detail": [
+    {
+     "class": "PASS-TO-CALL (ABI arg)",
+     "at": "0x172cfc4",
+     "rd": "a1",
+     "window": [
+      "0x172cfbc: addi     a1, a1, -0x500",
+      "0x172cfc0: auipc    ra, 0xff90f",
+      "0x172cfc4: jalr     ra, ra, 0xcc",
+      "0x172cfc8: c.j      -0x144",
+      "0x172cfca: c.lui    a2, 1",
+      "0x172cfcc: addi     a2, a2, -0x59c",
+      "0x172cfd0: c.add    a2, a1",
+      "0x172cfd2: auipc    a1, 0x75b",
+      "0x172cfd6: addi     a1, a1, -0x53a",
+      "0x172cfda: auipc    ra, 0xff90f",
+      "0x172cfde: jalr     ra, ra, 0xb2",
+      "0x172cfe2: c.j      -0x15e"
+     ]
+    }
+   ],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RMLpwrVidOfaRpgIdleThresholdUs",
+   "va_runtime": "0x1e87b18",
+   "va_campaign": "0x1e87ae0",
+   "pic_xrefs": 1,
+   "xref_detail": [
+    {
+     "class": "PASS-TO-CALL (ABI arg)",
+     "at": "0x172cfaa",
+     "rd": "a1",
+     "window": [
+      "0x172cfa2: addi     a1, a1, -0x4be",
+      "0x172cfa6: auipc    ra, 0xff90f",
+      "0x172cfaa: jalr     ra, ra, 0xe6",
+      "0x172cfae: c.j      -0x12a",
+      "0x172cfb0: c.lui    a2, 1",
+      "0x172cfb2: addi     a2, a2, -0x494",
+      "0x172cfb6: c.add    a2, a1",
+      "0x172cfb8: auipc    a1, 0x75b",
+      "0x172cfbc: addi     a1, a1, -0x500",
+      "0x172cfc0: auipc    ra, 0xff90f",
+      "0x172cfc4: jalr     ra, ra, 0xcc",
+      "0x172cfc8: c.j      -0x144"
+     ]
+    }
+   ],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RMLpwrVidNvjpgRpgIdleThresholdUs",
+   "va_runtime": "0x1e87b38",
+   "va_campaign": "0x1e87b00",
+   "pic_xrefs": 1,
+   "xref_detail": [
+    {
+     "class": "PASS-TO-CALL (ABI arg)",
+     "at": "0x172cf90",
+     "rd": "a1",
+     "window": [
+      "0x172cf88: addi     a1, a1, -0x484",
+      "0x172cf8c: auipc    ra, 0xff90f",
+      "0x172cf90: jalr     ra, ra, 0x100",
+      "0x172cf94: c.j      -0x110",
+      "0x172cf96: c.lui    a2, 1",
+      "0x172cf98: addi     a2, a2, -0x38c",
+      "0x172cf9c: c.add    a2, a1",
+      "0x172cf9e: auipc    a1, 0x75b",
+      "0x172cfa2: addi     a1, a1, -0x4be",
+      "0x172cfa6: auipc    ra, 0xff90f",
+      "0x172cfaa: jalr     ra, ra, 0xe6",
+      "0x172cfae: c.j      -0x12a"
+     ]
+    }
+   ],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RMLpwrMsFbXbarPgIdleThresholdUs",
+   "va_runtime": "0x1e87b60",
+   "va_campaign": "0x1e87b28",
+   "pic_xrefs": 1,
+   "xref_detail": [
+    {
+     "class": "PASS-TO-CALL (ABI arg)",
+     "at": "0x172cf76",
+     "rd": "a1",
+     "window": [
+      "0x172cf6e: addi     a1, a1, -0x442",
+      "0x172cf72: auipc    ra, 0xff90f",
+      "0x172cf76: jalr     ra, ra, 0x11a",
+      "0x172cf7a: c.j      -0xf6",
+      "0x172cf7c: c.lui    a2, 1",
+      "0x172cf7e: addi     a2, a2, -0x284",
+      "0x172cf82: c.add    a2, a1",
+      "0x172cf84: auipc    a1, 0x75b",
+      "0x172cf88: addi     a1, a1, -0x484",
+      "0x172cf8c: auipc    ra, 0xff90f",
+      "0x172cf90: jalr     ra, ra, 0x100",
+      "0x172cf94: c.j      -0x110"
+     ]
+    }
+   ],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RMLpwrVidNvdecPgIdleThresholdUs",
+   "va_runtime": "0x1e87b80",
+   "va_campaign": "0x1e87b48",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RMLpwrVidNvencPgIdleThresholdUs",
+   "va_runtime": "0x1e87ba0",
+   "va_campaign": "0x1e87b68",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RMLpwrVidOfaPgIdleThresholdUs",
+   "va_runtime": "0x1e87bc0",
+   "va_campaign": "0x1e87b88",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RMLpwrGpcRistIdleThresholdUs",
+   "va_runtime": "0x1e87be0",
+   "va_campaign": "0x1e87ba8",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RMLpwrGrRgIdleThresholdUs",
+   "va_runtime": "0x1e87c00",
+   "va_campaign": "0x1e87bc8",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RmLpwrCtrlMsLtcParameters",
+   "va_runtime": "0x1e87c20",
+   "va_campaign": "0x1e87be8",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RmLpwrCtrlDfprParameters",
+   "va_runtime": "0x1e87c40",
+   "va_campaign": "0x1e87c08",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RmLpwrCtrlMsDifrSwAsrParameters",
+   "va_runtime": "0x1e87c60",
+   "va_campaign": "0x1e87c28",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RmLpwrCtrlMsDifrCgParameters",
+   "va_runtime": "0x1e87c80",
+   "va_campaign": "0x1e87c48",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RmLpwrCtrlMsFbXbarPgParameters",
+   "va_runtime": "0x1e87ca0",
+   "va_campaign": "0x1e87c68",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RmLpwrCtrlGpcRistParameters",
+   "va_runtime": "0x1e87cc0",
+   "va_campaign": "0x1e87c88",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RmLpwrCtrlGrRgParameters",
+   "va_runtime": "0x1e87d10",
+   "va_campaign": "0x1e87cd8",
+   "pic_xrefs": 2,
+   "xref_detail": [
+    {
+     "class": "PASS-TO-CALL (ABI arg)",
+     "at": "0x172f514",
+     "rd": "a1",
+     "window": [
+      "0x172f50a: addi     a1, a1, 0x7d2",
+      "0x172f50e: c.mv     a0, s2",
+      "0x172f510: auipc    ra, 0xff90d",
+      "0x172f514: jalr     ra, ra, -0x484",
+      "0x172f518: sext.w   a3, a0",
+      "0x172f51c: c.bnez   a3, 6",
+      "0x172f51e: j        -0x1338",
+      "0x172f522: lw       a3, 0x1b0(s11)",
+      "0x172f526: lui      a4, 0xf0398",
+      "0x172f52a: addi     a4, a4, 0x4c1",
+      "0x172f52e: c.and    a3, a4",
+      "0x172f530: c.li     s11, 0x10"
+     ]
+    },
+    {
+     "class": "PASS-TO-CALL (ABI arg)",
+     "at": "0x172e1d8",
+     "rd": "a1",
+     "window": [
+      "0x172e1ce: addi     a1, a1, -0x4f2",
+      "0x172e1d2: c.mv     a0, s2",
+      "0x172e1d4: auipc    ra, 0xff90e",
+      "0x172e1d8: jalr     ra, ra, -0x148",
+      "0x172e1dc: sext.w   a4, a0",
+      "0x172e1e0: c.beqz   a4, 6",
+      "0x172e1e2: j        0x15ea",
+      "0x172e1e6: lw       a4, -0x7c(s0)",
+      "0x172e1ea: c.li     a3, 1",
+      "0x172e1ec: andi     a2, a4, 3",
+      "0x172e1f0: bne      a2, a3, 8",
+      "0x172e1f4: j        0x19de"
+     ]
+    }
+   ],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RmLpwrCtrlGrRgParameters2",
+   "va_runtime": "0x1e87d30",
+   "va_campaign": "0x1e87cf8",
+   "pic_xrefs": 2,
+   "xref_detail": [
+    {
+     "class": "PASS-TO-CALL (ABI arg)",
+     "at": "0x172eebe",
+     "rd": "a1",
+     "window": [
+      "0x172eeb4: addi     a1, a1, -0x1b8",
+      "0x172eeb8: c.mv     a0, s2",
+      "0x172eeba: auipc    ra, 0xff90d",
+      "0x172eebe: jalr     ra, ra, 0x1d2",
+      "0x172eec2: sext.w   a3, a0",
+      "0x172eec6: beqz     a3, -0xee6",
+      "0x172eeca: c.lui    s5, 1",
+      "0x172eecc: c.add    s5, s1",
+      "0x172eece: lw       a3, 0x5d0(s5)",
+      "0x172eed2: lui      a2, 0x2da56",
+      "0x172eed6: addi     a2, a2, 0x7e0",
+      "0x172eeda: c.and    a3, a2"
+     ]
+    },
+    {
+     "class": "PASS-TO-CALL (ABI arg)",
+     "at": "0x172dfd4",
+     "rd": "a1",
+     "window": [
+      "0x172dfca: addi     a1, a1, -0x2ce",
+      "0x172dfce: c.mv     a0, s2",
+      "0x172dfd0: auipc    ra, 0xff90e",
+      "0x172dfd4: jalr     ra, ra, 0xbc",
+      "0x172dfd8: c.addiw  a0, 0",
+      "0x172dfda: c.beqz   a0, 6",
+      "0x172dfdc: j        0x1c92",
+      "0x172dfe0: lw       a4, -0x7c(s0)",
+      "0x172dfe4: c.li     a3, 1",
+      "0x172dfe6: andi     a2, a4, 3",
+      "0x172dfea: bne      a2, a3, 8",
+      "0x172dfee: j        0x1b5e"
+     ]
+    }
+   ],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RmLpwrCtrlVidNvdecRpgParameters",
+   "va_runtime": "0x1e87d68",
+   "va_campaign": "0x1e87d30",
+   "pic_xrefs": 1,
+   "xref_detail": [
+    {
+     "class": "PASS-TO-CALL (ABI arg)",
+     "at": "0x172f412",
+     "rd": "a1",
+     "window": [
+      "0x172f404: addi     a1, a1, -0x6d0",
+      "0x172f408: c.mv     a0, s2",
+      "0x172f40a: sd       a3, -0x90(s0)",
+      "0x172f40e: auipc    ra, 0xff90d",
+      "0x172f412: jalr     ra, ra, -0x382",
+      "0x172f416: c.addiw  a0, 0",
+      "0x172f418: ld       a3, -0x90(s0)",
+      "0x172f41c: c.beqz   a0, 0x3c",
+      "0x172f41e: lw       a2, 0x130(s1)",
+      "0x172f422: slli     s5, s11, 0x20",
+      "0x172f426: srli     s5, s5, 0x20",
+      "0x172f42a: c.and    a3, a2"
+     ]
+    }
+   ],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RmLpwrCtrlVidNvencRpgParameters",
+   "va_runtime": "0x1e87d88",
+   "va_campaign": "0x1e87d50",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RmLpwrCtrlVidOfaRpgParameters",
+   "va_runtime": "0x1e87da8",
+   "va_campaign": "0x1e87d70",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RmLpwrCtrlVidNvjpgRpgParameters",
+   "va_runtime": "0x1e87dc8",
+   "va_campaign": "0x1e87d90",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RmLpwrCtrlVidNvdecPgParameters",
+   "va_runtime": "0x1e87de8",
+   "va_campaign": "0x1e87db0",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RmLpwrCtrlVidNvencPgParameters",
+   "va_runtime": "0x1e87e08",
+   "va_campaign": "0x1e87dd0",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RmLpwrCtrlVidOfaPgParameters",
+   "va_runtime": "0x1e87e28",
+   "va_campaign": "0x1e87df0",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RMI2cPmgrMutexTimeoutus",
+   "va_runtime": "0x1e87e48",
+   "va_campaign": "0x1e87e10",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RMI2cClockStretchTimeoutMs",
+   "va_runtime": "0x1e87e60",
+   "va_campaign": "0x1e87e28",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RmPmgrOverride",
+   "va_runtime": "0x1e87e98",
+   "va_campaign": "0x1e87e60",
+   "pic_xrefs": 1,
+   "xref_detail": [
+    {
+     "class": "PASS-TO-CALL (ABI arg)",
+     "at": "0x172e8de",
+     "rd": "a1",
+     "window": [
+      "0x172e8d4: addi     a1, a1, 0x590",
+      "0x172e8d8: c.mv     a0, s2",
+      "0x172e8da: auipc    ra, 0xff90d",
+      "0x172e8de: jalr     ra, ra, 0x7b2",
+      "0x172e8e2: sext.w   a4, a0",
+      "0x172e8e6: c.beqz   a4, 6",
+      "0x172e8e8: j        0x104e",
+      "0x172e8ec: lw       a4, -0x7c(s0)",
+      "0x172e8f0: c.li     a3, 1",
+      "0x172e8f2: andi     a2, a4, 3",
+      "0x172e8f6: bne      a2, a3, 8",
+      "0x172e8fa: j        0x12ac"
+     ]
+    }
+   ],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RmPmgrPmuOverride",
+   "va_runtime": "0x1e87ec0",
+   "va_campaign": "0x1e87e88",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "(PMGR_PWR_MONITOR_PWR_CHANNEL_IS_VALID(pGpu, pPmgr, pPolicy->chIdx))",
+   "va_runtime": "0x1e87f10",
+   "va_campaign": "0x1e87ed8",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "(PMGR_PWR_MONITOR_PWR_CHRELATIONSHIP_IS_VALID(pGpu, pPmgr, pPstateEstLUT->lutEntry[i].data.dynChRelIdx))",
+   "va_runtime": "0x1e88030",
+   "va_campaign": "0x1e87ff8",
+   "pic_xrefs": 1,
+   "xref_detail": [
+    {
+     "class": "REG-READ",
+     "at": "0x177d5a0",
+     "rd": "a5",
+     "window": [
+      "0x177d59c: addi     a5, a5, -0x5a0",
+      "0x177d5a0: sd       a5, -0x168(s0)",
+      "0x177d5a4: c.j      -0x38e",
+      "0x177d5a6: lui      a4, 0x111",
+      "0x177d5aa: auipc    a5, 0x2a13",
+      "0x177d5ae: ld       a5, -0x92(a5)",
+      "0x177d5b2: addi     a3, a4, 0x52c",
+      "0x177d5b6: c.add    a3, a5",
+      "0x177d5b8: c.lw     a1, 0(a3)",
+      "0x177d5ba: lui      a0, 0x400",
+      "0x177d5be: addi     a2, a4, 0x520",
+      "0x177d5c2: c.or     a1, a0"
+     ]
+    }
+   ],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "(pOutputVoltage1x->voltMode < NV2080_CTRL_PMGR_PWR_CHANNEL_OUTPUT_VOLTAGE_1X_VOLT_MODE_NUM)",
+   "va_runtime": "0x1e880a0",
+   "va_campaign": "0x1e88068",
+   "pic_xrefs": 1,
+   "xref_detail": [
+    {
+     "class": "PASS-TO-CALL (ABI arg)",
+     "at": "0x1782316",
+     "rd": "a2",
+     "window": [
+      "0x17822f8: addi     a2, a2, -0x28c",
+      "0x17822fc: c.li     a0, 3",
+      "0x17822fe: c.add    a5, s5",
+      "0x1782300: c.beqz   a4, 0x4c",
+      "0x1782302: lbu      a4, 3(s2)",
+      "0x1782306: lhu      a1, 0x260(a5)",
+      "0x178230a: bltu     a4, a1, 0xe2",
+      "0x178230e: lhu      a1, 2(s1)",
+      "0x1782312: auipc    ra, 0x31c",
+      "0x1782316: jalr     ra, ra, 0x312",
+      "0x178231a: c.li     a0, 1",
+      "0x178231c: auipc    a1, 0x1ebd4"
+     ]
+    }
+   ],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "(PMGR_PWR_DEVICE_IDX_IS_VALID(pPmgr, pSensor->pwrDevIdx))",
+   "va_runtime": "0x1e88100",
+   "va_campaign": "0x1e880c8",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "(PMGR_PWR_MONITOR_PWR_CHRELATIONSHIP_IS_VALID(pGpu, pPmgr, i))",
+   "va_runtime": "0x1e881b8",
+   "va_campaign": "0x1e88180",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "(PMGR_PWR_POLICY_RELATIONSHIP_IS_VALID(pGpu, pPmgr, pTgpIface->fbPolicyRelIdx))",
+   "va_runtime": "0x1e88238",
+   "va_campaign": "0x1e88200",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "(PMGR_PWR_POLICY_RELATIONSHIP_IS_VALID(pGpu, pPmgr, pTgpIface->corePolicyRelIdx))",
+   "va_runtime": "0x1e882d0",
+   "va_campaign": "0x1e88298",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "(BOARDOBJ_GET_TYPE(pDie2xPolicy) == NV2080_CTRL_PMGR_PWR_POLICY_TYPE_WORKLOAD_DIE_2X)",
+   "va_runtime": "0x1e886a0",
+   "va_campaign": "0x1e88668",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "(PMGR_PWR_MONITOR_PWR_CHANNEL_IS_VALID(pGpu, pPmgr, pInfo->rosPwrChIdx))",
+   "va_runtime": "0x1e888b8",
+   "va_campaign": "0x1e88880",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "(PMGR_PWR_POLICY_RELATIONSHIP_IS_VALID(pGpu, pPmgr, pInfo->tgtPwrPolicyRelIdx))",
+   "va_runtime": "0x1e88908",
+   "va_campaign": "0x1e888d0",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "(PMGR_PWR_POLICY_RELATIONSHIP_IS_VALID(pGpu, pPmgr, pInfo->floorPolicyRelIdx))",
+   "va_runtime": "0x1e889a0",
+   "va_campaign": "0x1e88968",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "(PMGR_PWR_POLICY_RELATIONSHIP_IS_VALID(pGpu, pPmgr, pInfo->ceilingPolicyRelIdx))",
+   "va_runtime": "0x1e889f0",
+   "va_campaign": "0x1e889b8",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "(PMGR_PWR_MONITOR_PWR_CHRELATIONSHIP_IS_VALID(pGpu, pPmgr, pEfficiencyUpdate1x->chRelIdx))",
+   "va_runtime": "0x1e88a48",
+   "va_campaign": "0x1e88a10",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "(numPhysicalSingles <= NV2080_CTRL_PMGR_PWR_POLICY_WORKLOAD_PHYSICAL_SINGLE_2X_MAX)",
+   "va_runtime": "0x1e88af0",
+   "va_campaign": "0x1e88ab8",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "(BOARDOBJ_GET_TYPE(pPhysicalSingle2xPolicy) == NV2080_CTRL_PMGR_PWR_POLICY_TYPE_WORKLOAD_PHYSICAL_SINGLE_2X)",
+   "va_runtime": "0x1e88b48",
+   "va_campaign": "0x1e88b10",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RMI2cSpeed",
+   "va_runtime": "0x1e88c20",
+   "va_campaign": "0x1e88be8",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RMI2cValidatedPortMask",
+   "va_runtime": "0x1e88c98",
+   "va_campaign": "0x1e88c60",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RMI2cRevalidateDdcPortWAR",
+   "va_runtime": "0x1e88cb0",
+   "va_campaign": "0x1e88c78",
+   "pic_xrefs": 1,
+   "xref_detail": [
+    {
+     "class": "PASS-TO-CALL (ABI arg)",
+     "at": "0x17b6614",
+     "rd": "a1",
+     "window": [
+      "0x17b660a: addi     a1, a1, 0x672",
+      "0x17b660e: c.mv     a0, s5",
+      "0x17b6610: auipc    ra, 0xff886",
+      "0x17b6614: jalr     ra, ra, -0x584",
+      "0x17b6618: sext.w   a5, a0",
+      "0x17b661c: beqz     a5, 0x12a",
+      "0x17b6620: sw       zero, -0x4c(s0)",
+      "0x17b6624: lbu      a5, 0x2f7(s2)",
+      "0x17b6628: bnez     a5, 0x166",
+      "0x17b662c: c.lui    s1, 1",
+      "0x17b662e: c.add    s1, s2",
+      "0x17b6630: sw       zero, -0x50(s1)"
+     ]
+    }
+   ],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RMDisableSpi",
+   "va_runtime": "0x1e88e28",
+   "va_campaign": "0x1e88df0",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RmPmgrSpeedoCoefficient",
+   "va_runtime": "0x1e88ed8",
+   "va_campaign": "0x1e88ea0",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RmPmgrSpeedoOffset",
+   "va_runtime": "0x1e88ef0",
+   "va_campaign": "0x1e88eb8",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "vbios000",
+   "va_runtime": "0x1e8bc18",
+   "va_campaign": "0x1e8bbe0",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RmPerfCfControllersOverrides",
+   "va_runtime": "0x1e8c310",
+   "va_campaign": "0x1e8c2d8",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "BOOST_LOW",
+   "va_runtime": "0x1e8c490",
+   "va_campaign": "0x1e8c458",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [
+    {
+     "foff": "0xe14c38",
+     "va": "0x1e14c38"
+    },
+    {
+     "foff": "0xe16838",
+     "va": "0x1e16838"
+    },
+    {
+     "foff": "0xe21d48",
+     "va": "0x1e21d48"
+    },
+    {
+     "foff": "0xe23ce8",
+     "va": "0x1e23ce8"
+    }
+   ],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "TURBO_BOOST_MAX",
+   "va_runtime": "0x1e8cf28",
+   "va_campaign": "0x1e8cef0",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [
+    {
+     "foff": "0xe15ad8",
+     "va": "0x1e15ad8"
+    },
+    {
+     "foff": "0xe176d8",
+     "va": "0x1e176d8"
+    },
+    {
+     "foff": "0xe1e228",
+     "va": "0x1e1e228"
+    },
+    {
+     "foff": "0xe21248",
+     "va": "0x1e21248"
+    },
+    {
+     "foff": "0xe22c28",
+     "va": "0x1e22c28"
+    },
+    {
+     "foff": "0xe24bc8",
+     "va": "0x1e24bc8"
+    }
+   ],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "TURBO_BOOST_MIN",
+   "va_runtime": "0x1e8cf38",
+   "va_campaign": "0x1e8cf00",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [
+    {
+     "foff": "0xe15af8",
+     "va": "0x1e15af8"
+    },
+    {
+     "foff": "0xe176f8",
+     "va": "0x1e176f8"
+    },
+    {
+     "foff": "0xe1e248",
+     "va": "0x1e1e248"
+    },
+    {
+     "foff": "0xe21268",
+     "va": "0x1e21268"
+    },
+    {
+     "foff": "0xe22c48",
+     "va": "0x1e22c48"
+    },
+    {
+     "foff": "0xe24be8",
+     "va": "0x1e24be8"
+    }
+   ],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "CUSTOMER_BOOST_MAX",
+   "va_runtime": "0x1e8cfd0",
+   "va_campaign": "0x1e8cf98",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [
+    {
+     "foff": "0xe15bd8",
+     "va": "0x1e15bd8"
+    },
+    {
+     "foff": "0xe17878",
+     "va": "0x1e17878"
+    },
+    {
+     "foff": "0xe1e328",
+     "va": "0x1e1e328"
+    },
+    {
+     "foff": "0xe1fac8",
+     "va": "0x1e1fac8"
+    },
+    {
+     "foff": "0xe21348",
+     "va": "0x1e21348"
+    },
+    {
+     "foff": "0xe22de8",
+     "va": "0x1e22de8"
+    },
+    {
+     "foff": "0xe24d68",
+     "va": "0x1e24d68"
+    }
+   ],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "THERM_POLICY_DRAM",
+   "va_runtime": "0x1e8d0b0",
+   "va_campaign": "0x1e8d078",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [
+    {
+     "foff": "0xe15d18",
+     "va": "0x1e15d18"
+    },
+    {
+     "foff": "0xe17938",
+     "va": "0x1e17938"
+    },
+    {
+     "foff": "0xe22ea8",
+     "va": "0x1e22ea8"
+    },
+    {
+     "foff": "0xe24e28",
+     "va": "0x1e24e28"
+    }
+   ],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "THERM_POLICY_GPC",
+   "va_runtime": "0x1e8d0c8",
+   "va_campaign": "0x1e8d090",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [
+    {
+     "foff": "0xe15d38",
+     "va": "0x1e15d38"
+    },
+    {
+     "foff": "0xe17958",
+     "va": "0x1e17958"
+    },
+    {
+     "foff": "0xe22ec8",
+     "va": "0x1e22ec8"
+    },
+    {
+     "foff": "0xe24e48",
+     "va": "0x1e24e48"
+    }
+   ],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "THERM_POLICY_XBAR",
+   "va_runtime": "0x1e8d0e0",
+   "va_campaign": "0x1e8d0a8",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [
+    {
+     "foff": "0xe15d58",
+     "va": "0x1e15d58"
+    },
+    {
+     "foff": "0xe17978",
+     "va": "0x1e17978"
+    },
+    {
+     "foff": "0xe22ee8",
+     "va": "0x1e22ee8"
+    },
+    {
+     "foff": "0xe24e68",
+     "va": "0x1e24e68"
+    }
+   ],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "THERM_POLICY_NVVDD",
+   "va_runtime": "0x1e8d0f8",
+   "va_campaign": "0x1e8d0c0",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [
+    {
+     "foff": "0xe15d78",
+     "va": "0x1e15d78"
+    },
+    {
+     "foff": "0xe17998",
+     "va": "0x1e17998"
+    },
+    {
+     "foff": "0xe1e408",
+     "va": "0x1e1e408"
+    },
+    {
+     "foff": "0xe1fbe8",
+     "va": "0x1e1fbe8"
+    },
+    {
+     "foff": "0xe21428",
+     "va": "0x1e21428"
+    },
+    {
+     "foff": "0xe22f68",
+     "va": "0x1e22f68"
+    },
+    {
+     "foff": "0xe24ee8",
+     "va": "0x1e24ee8"
+    }
+   ],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "SLI_GPU_BOOST_DRAM",
+   "va_runtime": "0x1e8d278",
+   "va_campaign": "0x1e8d240",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [
+    {
+     "foff": "0xe15ff8",
+     "va": "0x1e15ff8"
+    },
+    {
+     "foff": "0xe17cd8",
+     "va": "0x1e17cd8"
+    },
+    {
+     "foff": "0xe23368",
+     "va": "0x1e23368"
+    },
+    {
+     "foff": "0xe25288",
+     "va": "0x1e25288"
+    }
+   ],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "SLI_GPU_BOOST_GPC",
+   "va_runtime": "0x1e8d290",
+   "va_campaign": "0x1e8d258",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [
+    {
+     "foff": "0xe16018",
+     "va": "0x1e16018"
+    },
+    {
+     "foff": "0xe17cf8",
+     "va": "0x1e17cf8"
+    },
+    {
+     "foff": "0xe23388",
+     "va": "0x1e23388"
+    },
+    {
+     "foff": "0xe252a8",
+     "va": "0x1e252a8"
+    }
+   ],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "SLI_GPU_BOOST_XBAR",
+   "va_runtime": "0x1e8d2a8",
+   "va_campaign": "0x1e8d270",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [
+    {
+     "foff": "0xe16038",
+     "va": "0x1e16038"
+    },
+    {
+     "foff": "0xe17d18",
+     "va": "0x1e17d18"
+    },
+    {
+     "foff": "0xe233a8",
+     "va": "0x1e233a8"
+    },
+    {
+     "foff": "0xe252c8",
+     "va": "0x1e252c8"
+    }
+   ],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RmPmgrIsenseC2cCl4SsgWarOverride",
+   "va_runtime": "0x1e8dbf0",
+   "va_campaign": "0x1e8dbb8",
+   "pic_xrefs": 1,
+   "xref_detail": [
+    {
+     "class": "PTR-CLOBBERED",
+     "at": "0x1ae5746",
+     "rd": "a1",
+     "window": [
+      "0x1ae5740: addi     a1, a1, 0x47c",
+      "0x1ae5744: c.j      -0xe0",
+      "0x1ae5746: auipc    a1, 0x3a8",
+      "0x1ae574a: addi     a1, a1, 0x492",
+      "0x1ae574e: c.j      -0xea",
+      "0x1ae5750: auipc    a1, 0x3a8",
+      "0x1ae5754: addi     a1, a1, 0x478",
+      "0x1ae5758: c.j      -0xf4",
+      "0x1ae575a: auipc    a1, 0x3a8",
+      "0x1ae575e: addi     a1, a1, 0x446",
+      "0x1ae5762: c.j      -0xfe",
+      "0x1ae5764: c.li     a0, 1"
+     ]
+    }
+   ],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RMEdpPowerOnToMLTimeMs",
+   "va_runtime": "0x1e8e3d8",
+   "va_campaign": "0x1e8e3a0",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "RMEdpPowerOffToOnTimeMs",
+   "va_runtime": "0x1e8e3f0",
+   "va_campaign": "0x1e8e3b8",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "THERM_POLICY_DOM_GRP_0",
+   "va_runtime": "0x1e8e548",
+   "va_campaign": "0x1e8e510",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [
+    {
+     "foff": "0xe1e3c8",
+     "va": "0x1e1e3c8"
+    },
+    {
+     "foff": "0xe1fba8",
+     "va": "0x1e1fba8"
+    },
+    {
+     "foff": "0xe213e8",
+     "va": "0x1e213e8"
+    }
+   ],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "THERM_POLICY_DOM_GRP_1",
+   "va_runtime": "0x1e8e560",
+   "va_campaign": "0x1e8e528",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [
+    {
+     "foff": "0xe1e3e8",
+     "va": "0x1e1e3e8"
+    },
+    {
+     "foff": "0xe1fbc8",
+     "va": "0x1e1fbc8"
+    },
+    {
+     "foff": "0xe21408",
+     "va": "0x1e21408"
+    }
+   ],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "SLI_GPU_BOOST_DOM_GRP_0",
+   "va_runtime": "0x1e8e628",
+   "va_campaign": "0x1e8e5f0",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [
+    {
+     "foff": "0xe1e608",
+     "va": "0x1e1e608"
+    },
+    {
+     "foff": "0xe1fe28",
+     "va": "0x1e1fe28"
+    },
+    {
+     "foff": "0xe21628",
+     "va": "0x1e21628"
+    }
+   ],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "SLI_GPU_BOOST_DOM_GRP_1",
+   "va_runtime": "0x1e8e640",
+   "va_campaign": "0x1e8e608",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [
+    {
+     "foff": "0xe1e628",
+     "va": "0x1e1e628"
+    },
+    {
+     "foff": "0xe1fe48",
+     "va": "0x1e1fe48"
+    },
+    {
+     "foff": "0xe21648",
+     "va": "0x1e21648"
+    }
+   ],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "THERM_POLICY_DRAM_LOW",
+   "va_runtime": "0x1e8e700",
+   "va_campaign": "0x1e8e6c8",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [
+    {
+     "foff": "0xe22608",
+     "va": "0x1e22608"
+    },
+    {
+     "foff": "0xe245a8",
+     "va": "0x1e245a8"
+    }
+   ],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "THERM_POLICY_DRAM_DUMMY",
+   "va_runtime": "0x1e8e738",
+   "va_campaign": "0x1e8e700",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [
+    {
+     "foff": "0xe22f08",
+     "va": "0x1e22f08"
+    },
+    {
+     "foff": "0xe24e88",
+     "va": "0x1e24e88"
+    }
+   ],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "THERM_POLICY_GPC_DUMMY",
+   "va_runtime": "0x1e8e750",
+   "va_campaign": "0x1e8e718",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [
+    {
+     "foff": "0xe22f28",
+     "va": "0x1e22f28"
+    },
+    {
+     "foff": "0xe24ea8",
+     "va": "0x1e24ea8"
+    }
+   ],
+   "neighborhood_ptrs": []
+  },
+  {
+   "name": "THERM_POLICY_XBAR_DUMMY",
+   "va_runtime": "0x1e8e768",
+   "va_campaign": "0x1e8e730",
+   "pic_xrefs": 0,
+   "xref_detail": [],
+   "ptr_table_refs": [
+    {
+     "foff": "0xe22f48",
+     "va": "0x1e22f48"
+    },
+    {
+     "foff": "0xe24ec8",
+     "va": "0x1e24ec8"
+    }
+   ],
+   "neighborhood_ptrs": []
+  }
+ ],
+ "spi_opcode_clusters": [
+  {
+   "window_a": "0x615000",
+   "distinct_ops": [
+    "0x2",
+    "0x3",
+    "0x5",
+    "0x6"
+   ],
+   "n_sites": 33,
+   "covered": true,
+   "sample": [
+    "0x61503c: c.li a0, 6",
+    "0x615074: c.li a0, 6",
+    "0x6150d0: c.li a1, 6",
+    "0x61520c: c.li a5, 3",
+    "0x615270: c.li a0, 6",
+    "0x615278: c.li a6, 3"
+   ]
+  },
+  {
+   "window_a": "0x51a400",
+   "distinct_ops": [
+    "0x2",
+    "0x3",
+    "0x5",
+    "0x6"
+   ],
+   "n_sites": 32,
+   "covered": true,
+   "sample": [
+    "0x51a410: c.li a2, 3",
+    "0x51a412: c.li a7, 3",
+    "0x51a41c: c.li s10, 5",
+    "0x51a424: andi s3, s3, 3",
+    "0x51a442: c.li a2, 3",
+    "0x51a4d4: c.li s10, 6"
+   ]
+  },
+  {
+   "window_a": "0x831400",
+   "distinct_ops": [
+    "0x2",
+    "0x3",
+    "0x6",
+    "0xb"
+   ],
+   "n_sites": 30,
+   "covered": true,
+   "sample": [
+    "0x831462: c.li a0, 3",
+    "0x8314ba: c.li a0, 3",
+    "0x831518: c.li a0, 2",
+    "0x831538: c.li a0, 2",
+    "0x831556: c.li a0, 2",
+    "0x831572: c.li a2, 0xb"
+   ]
+  },
+  {
+   "window_a": "0x1cf800",
+   "distinct_ops": [
+    "0x2",
+    "0x3",
+    "0x5",
+    "0x6"
+   ],
+   "n_sites": 29,
+   "covered": true,
+   "sample": [
+    "0x1cf83e: c.li a0, 2",
+    "0x1cf85c: c.li a0, 3",
+    "0x1cf8a8: c.li a1, 2",
+    "0x1cf8aa: c.li a0, 3",
+    "0x1cf8c6: c.li a1, 3",
+    "0x1cf8c8: c.li a0, 3"
+   ]
+  },
+  {
+   "window_a": "0x4e3400",
+   "distinct_ops": [
+    "0x2",
+    "0x3",
+    "0x5",
+    "0x6"
+   ],
+   "n_sites": 26,
+   "covered": true,
+   "sample": [
+    "0x4e3406: c.li s2, 3",
+    "0x4e3432: c.li a5, 3",
+    "0x4e3440: c.li a5, 3",
+    "0x4e3480: c.li a1, 6",
+    "0x4e3482: c.li a0, 6",
+    "0x4e3486: c.li a1, 5"
+   ]
+  },
+  {
+   "window_a": "0x6e2800",
+   "distinct_ops": [
+    "0x2",
+    "0x3",
+    "0x5",
+    "0x6",
+    "0xb"
+   ],
+   "n_sites": 25,
+   "covered": true,
+   "sample": [
+    "0x6e2820: c.li a0, 2",
+    "0x6e28a0: c.li a6, 3",
+    "0x6e28c6: c.li a0, 2",
+    "0x6e28da: c.li a0, 2",
+    "0x6e2974: c.li a0, 3",
+    "0x6e2a1a: c.li a5, 5"
+   ]
+  },
+  {
+   "window_a": "0xb10c00",
+   "distinct_ops": [
+    "0x2",
+    "0x3",
+    "0x5",
+    "0x6",
+    "0x6b",
+    "0xb"
+   ],
+   "n_sites": 24,
+   "covered": true,
+   "sample": [
+    "0xb10c82: c.li a3, 3",
+    "0xb10c90: c.li a4, 5",
+    "0xb10ca2: c.li t2, 0xb",
+    "0xb10cfa: c.li s8, 2",
+    "0xb10cfe: addi s5, s5, 0x6b",
+    "0xb10e12: c.li a4, 3"
+   ]
+  },
+  {
+   "window_a": "0xb1e800",
+   "distinct_ops": [
+    "0x2",
+    "0x3",
+    "0x5",
+    "0x6",
+    "0xb"
+   ],
+   "n_sites": 23,
+   "covered": true,
+   "sample": [
+    "0xb1e802: c.li a5, 2",
+    "0xb1e80e: c.li a4, 3",
+    "0xb1e824: c.li a4, 2",
+    "0xb1e838: c.li a3, 2",
+    "0xb1e840: c.li a3, 2",
+    "0xb1e85e: andi a2, a5, 3"
+   ]
+  },
+  {
+   "window_a": "0x2d5000",
+   "distinct_ops": [
+    "0x2",
+    "0x3",
+    "0x5",
+    "0x6"
+   ],
+   "n_sites": 22,
+   "covered": true,
+   "sample": [
+    "0x2d5124: c.li a5, 2",
+    "0x2d512a: c.li a5, 3",
+    "0x2d5174: c.li a4, 5",
+    "0x2d519a: c.li a0, 3",
+    "0x2d51b4: c.li a0, 2",
+    "0x2d51cc: c.li a0, 3"
+   ]
+  },
+  {
+   "window_a": "0xa60800",
+   "distinct_ops": [
+    "0x2",
+    "0x3",
+    "0x5",
+    "0x6",
+    "0xb"
+   ],
+   "n_sites": 22,
+   "covered": true,
+   "sample": [
+    "0xa60856: c.addi a5, 0xb",
+    "0xa60858: c.addi s9, 2",
+    "0xa608e6: c.li a1, 0xb",
+    "0xa608f4: c.li a7, 5",
+    "0xa60964: c.addi a3, 3",
+    "0xa60976: c.addi a4, 2"
+   ]
+  },
+  {
+   "window_a": "0xb0b000",
+   "distinct_ops": [
+    "0x2",
+    "0x3",
+    "0x5",
+    "0x6",
+    "0xb"
+   ],
+   "n_sites": 22,
+   "covered": true,
+   "sample": [
+    "0xb0b0d8: c.li a7, 3",
+    "0xb0b0e2: c.li s8, 5",
+    "0xb0b0f2: c.li t1, 0xb",
+    "0xb0b114: addi s7, t4, 0xb",
+    "0xb0b126: addi t2, a2, 6",
+    "0xb0b12a: addi t0, t5, 3"
+   ]
+  },
+  {
+   "window_a": "0x4c4000",
+   "distinct_ops": [
+    "0x2",
+    "0x3",
+    "0x5",
+    "0x6"
+   ],
+   "n_sites": 21,
+   "covered": true,
+   "sample": [
+    "0x4c4092: c.li a0, 2",
+    "0x4c4182: c.li a4, 2",
+    "0x4c4194: c.li a4, 3",
+    "0x4c419a: c.li a4, 5",
+    "0x4c41a0: c.li a4, 6",
+    "0x4c41d8: andi t3, t3, 3"
+   ]
+  },
+  {
+   "window_a": "0xb15400",
+   "distinct_ops": [
+    "0x2",
+    "0x3",
+    "0x5",
+    "0x6",
+    "0xb"
+   ],
+   "n_sites": 21,
+   "covered": true,
+   "sample": [
+    "0xb155a0: c.li a2, 3",
+    "0xb155a4: c.li a1, 5",
+    "0xb155c0: addi s7, a3, 3",
+    "0xb155c4: addi s6, a4, 5",
+    "0xb155cc: addi s8, a6, 5",
+    "0xb155d2: addi s4, a3, 6"
+   ]
+  },
+  {
+   "window_a": "0xb19800",
+   "distinct_ops": [
+    "0x2",
+    "0x3",
+    "0x5",
+    "0x6",
+    "0xb"
+   ],
+   "n_sites": 21,
+   "covered": true,
+   "sample": [
+    "0xb1987c: c.li a2, 3",
+    "0xb19880: c.li a1, 5",
+    "0xb1989c: addi s7, a3, 3",
+    "0xb198a0: addi s6, a4, 5",
+    "0xb198a8: addi s8, a6, 5",
+    "0xb198ae: addi s4, a3, 6"
+   ]
+  },
+  {
+   "window_a": "0x76c00",
+   "distinct_ops": [
+    "0x2",
+    "0x3",
+    "0x5",
+    "0x6"
+   ],
+   "n_sites": 20,
+   "covered": true,
+   "sample": [
+    "0x76ca6: c.li a5, 3",
+    "0x76d4e: andi a4, a5, 3",
+    "0x76d56: c.li a3, 2",
+    "0x76d6a: c.li a3, 2",
+    "0x76d7e: c.li a3, 2",
+    "0x76d92: c.li a3, 2"
+   ]
+  },
+  {
+   "window_a": "0x6f7000",
+   "distinct_ops": [
+    "0x2",
+    "0x3",
+    "0x5",
+    "0x6"
+   ],
+   "n_sites": 20,
+   "covered": true,
+   "sample": [
+    "0x6f70cc: c.li a5, 5",
+    "0x6f70e0: c.addi a5, 2",
+    "0x6f70f0: c.li s5, 2",
+    "0x6f7120: c.li a5, 3",
+    "0x6f71a2: c.li a5, 2",
+    "0x6f71b2: c.addi a5, 2"
+   ]
+  },
+  {
+   "window_a": "0xb0ac00",
+   "distinct_ops": [
+    "0x2",
+    "0x3",
+    "0x5",
+    "0x6",
+    "0xb"
+   ],
+   "n_sites": 20,
+   "covered": true,
+   "sample": [
+    "0xb0acfa: c.li t1, 5",
+    "0xb0ad02: c.li a3, 0xb",
+    "0xb0ad1c: addi t5, a5, 3",
+    "0xb0ad32: addi a1, a3, 6",
+    "0xb0ad36: addi t0, a6, 3",
+    "0xb0ad3e: c.addi a6, 6"
+   ]
+  },
+  {
+   "window_a": "0x284400",
+   "distinct_ops": [
+    "0x2",
+    "0x3",
+    "0x5",
+    "0x6"
+   ],
+   "n_sites": 19,
+   "covered": true,
+   "sample": [
+    "0x284410: c.li a3, 5",
+    "0x2844ba: c.li a5, 2",
+    "0x2844c2: c.li a4, 2",
+    "0x2844c4: c.li a5, 2",
+    "0x2844d8: c.li a5, 2",
+    "0x2844da: c.li a3, 3"
+   ]
+  },
+  {
+   "window_a": "0x2d6c00",
+   "distinct_ops": [
+    "0x2",
+    "0x3",
+    "0x5",
+    "0x6"
+   ],
+   "n_sites": 19,
+   "covered": true,
+   "sample": [
+    "0x2d6c3a: ori a5, a5, 3",
+    "0x2d6c70: ori a5, a5, 2",
+    "0x2d6c94: c.li a0, 3",
+    "0x2d6cae: c.li a0, 2",
+    "0x2d6cc6: c.li a0, 3",
+    "0x2d6d4e: c.li a4, 6"
+   ]
+  },
+  {
+   "window_a": "0x603c00",
+   "distinct_ops": [
+    "0x2",
+    "0x3",
+    "0x5",
+    "0xb"
+   ],
+   "n_sites": 19,
+   "covered": true,
+   "sample": [
+    "0x603c30: c.li a5, 3",
+    "0x603c68: c.li a5, 5",
+    "0x603c86: c.li a5, 2",
+    "0x603c8c: c.li a5, 3",
+    "0x603ca0: c.li a5, 2",
+    "0x603ca6: c.li a5, 3"
+   ]
+  },
+  {
+   "window_a": "0x610c00",
+   "distinct_ops": [
+    "0x2",
+    "0x3",
+    "0x5",
+    "0x6",
+    "0xd8"
+   ],
+   "n_sites": 19,
+   "covered": true,
+   "sample": [
+    "0x610c28: c.li a0, 2",
+    "0x610c3e: c.li a0, 2",
+    "0x610d20: addi s8, zero, 0xd8",
+    "0x610d28: c.li a3, 2",
+    "0x610d2e: c.li a1, 2",
+    "0x610d98: addi a5, zero, 0xd8"
+   ]
+  },
+  {
+   "window_a": "0x6f6c00",
+   "distinct_ops": [
+    "0x2",
+    "0x3",
+    "0x5",
+    "0x6"
+   ],
+   "n_sites": 19,
+   "covered": true,
+   "sample": [
+    "0x6f6c30: c.li a1, 2",
+    "0x6f6c32: c.li a0, 3",
+    "0x6f6c5e: c.li a1, 2",
+    "0x6f6c60: c.li a0, 3",
+    "0x6f6cce: c.li a2, 2",
+    "0x6f6d0c: c.li a1, 2"
+   ]
+  },
+  {
+   "window_a": "0x849c00",
+   "distinct_ops": [
+    "0x2",
+    "0x3",
+    "0x6",
+    "0xb"
+   ],
+   "n_sites": 19,
+   "covered": true,
+   "sample": [
+    "0x849cf2: c.li a0, 2",
+    "0x849d58: c.li a0, 3",
+    "0x849dea: c.li a0, 3",
+    "0x849e42: c.li a0, 3",
+    "0x849ea0: c.li a0, 2",
+    "0x849ec0: c.li a0, 2"
+   ]
+  },
+  {
+   "window_a": "0xaed800",
+   "distinct_ops": [
+    "0x2",
+    "0x3",
+    "0x5",
+    "0x6"
+   ],
+   "n_sites": 19,
+   "covered": true,
+   "sample": [
+    "0xaed89a: c.li a0, 2",
+    "0xaed96a: c.li a5, 3",
+    "0xaeda54: c.li a0, 2",
+    "0xaeda72: c.li a0, 2",
+    "0xaedae6: c.li a5, 3",
+    "0xaedb0e: c.li a4, 2"
+   ]
+  }
+ ],
+ "spi_decoded_insns": 3400949
+}

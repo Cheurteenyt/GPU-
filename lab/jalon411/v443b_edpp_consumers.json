@@ -1,0 +1,827 @@
+{
+ "law_fails": 0,
+ "census_reproduction": {
+  "v420_count": 17,
+  "this_count": 17,
+  "missing": [],
+  "extra": []
+ },
+ "traces": [
+  {
+   "va": "0x143fde2",
+   "insn": "ld s1, -0x168(a5)",
+   "region": [
+    "0x143f4f8",
+    "0x1446e60"
+   ],
+   "uses": [
+    {
+     "va": "0x143fe3e",
+     "m": "sw",
+     "o": "a5, 0x65c(s1)",
+     "class": "WRITE-FIELD",
+     "field": 1628,
+     "via": "direct",
+     "value_reg": "a5"
+    },
+    {
+     "va": "0x143fe68",
+     "m": "lw",
+     "o": "a3, 0x65c(s1)",
+     "class": "READ-FIELD",
+     "field": 1628,
+     "via": "direct"
+    },
+    {
+     "va": "0x143feb2",
+     "m": "lw",
+     "o": "t1, 0x65c(s1)",
+     "class": "READ-FIELD",
+     "field": 1628,
+     "via": "direct"
+    },
+    {
+     "va": "0x143ff1a",
+     "m": "c.sw",
+     "o": "a3, 8(s1)",
+     "class": "WRITE-FIELD",
+     "field": 8,
+     "via": "direct",
+     "value_reg": "a3"
+    },
+    {
+     "va": "0x143ff70",
+     "m": "lw",
+     "o": "a5, 0x6c8(s1)",
+     "class": "READ-FIELD",
+     "field": 1736,
+     "via": "direct"
+    },
+    {
+     "va": "0x143ff78",
+     "m": "sw",
+     "o": "a5, 0x6c8(s1)",
+     "class": "WRITE-FIELD",
+     "field": 1736,
+     "via": "direct",
+     "value_reg": "a5"
+    }
+   ]
+  },
+  {
+   "va": "0x14400c6",
+   "insn": "ld s6, -0x168(a5)",
+   "region": [
+    "0x143f4f8",
+    "0x1446e60"
+   ],
+   "uses": [
+    {
+     "va": "0x144011c",
+     "m": "sw",
+     "o": "a5, 0x660(s6)",
+     "class": "WRITE-FIELD",
+     "field": 1632,
+     "via": "direct",
+     "value_reg": "a5"
+    },
+    {
+     "va": "0x1440148",
+     "m": "lw",
+     "o": "a5, 0x6c8(s6)",
+     "class": "READ-FIELD",
+     "field": 1736,
+     "via": "direct"
+    },
+    {
+     "va": "0x1440150",
+     "m": "sw",
+     "o": "a5, 0x6c8(s6)",
+     "class": "WRITE-FIELD",
+     "field": 1736,
+     "via": "direct",
+     "value_reg": "a5"
+    }
+   ]
+  },
+  {
+   "va": "0x14405f0",
+   "insn": "ld s3, -0x168(a5)",
+   "region": [
+    "0x143f4f8",
+    "0x1446e60"
+   ],
+   "uses": [
+    {
+     "va": "0x1440616",
+     "m": "sb",
+     "o": "zero, 0x6c0(s3)",
+     "class": "WRITE-FIELD",
+     "field": 1728,
+     "via": "direct",
+     "value_reg": "zero"
+    },
+    {
+     "va": "0x144067e",
+     "m": "sb",
+     "o": "a5, 0x6c0(s3)",
+     "class": "WRITE-FIELD",
+     "field": 1728,
+     "via": "direct",
+     "value_reg": "a5"
+    },
+    {
+     "va": "0x1440682",
+     "m": "lw",
+     "o": "a5, 0x6c8(s3)",
+     "class": "READ-FIELD",
+     "field": 1736,
+     "via": "direct"
+    },
+    {
+     "va": "0x144068a",
+     "m": "sw",
+     "o": "a5, 0x6c8(s3)",
+     "class": "WRITE-FIELD",
+     "field": 1736,
+     "via": "direct",
+     "value_reg": "a5"
+    }
+   ]
+  },
+  {
+   "va": "0x1440a22",
+   "insn": "ld s3, -0x168(a5)",
+   "region": [
+    "0x143f4f8",
+    "0x1446e60"
+   ],
+   "uses": [
+    {
+     "va": "0x1440a76",
+     "m": "sw",
+     "o": "a5, 0x6b0(s3)",
+     "class": "WRITE-FIELD",
+     "field": 1712,
+     "via": "direct",
+     "value_reg": "a5"
+    },
+    {
+     "va": "0x1440a7a",
+     "m": "sw",
+     "o": "a5, 0x6b4(s3)",
+     "class": "WRITE-FIELD",
+     "field": 1716,
+     "via": "direct",
+     "value_reg": "a5"
+    },
+    {
+     "va": "0x1440a7e",
+     "m": "sh",
+     "o": "a5, 0x6b8(s3)",
+     "class": "WRITE-FIELD",
+     "field": 1720,
+     "via": "direct",
+     "value_reg": "a5"
+    },
+    {
+     "va": "0x1440b28",
+     "m": "sh",
+     "o": "a5, 0x6b0(s3)",
+     "class": "WRITE-FIELD",
+     "field": 1712,
+     "via": "direct",
+     "value_reg": "a5"
+    },
+    {
+     "va": "0x1440ba4",
+     "m": "sh",
+     "o": "a5, 0x6b2(s3)",
+     "class": "WRITE-FIELD",
+     "field": 1714,
+     "via": "direct",
+     "value_reg": "a5"
+    },
+    {
+     "va": "0x1440bc4",
+     "m": "sb",
+     "o": "a2, 0x68d(s3)",
+     "class": "WRITE-FIELD",
+     "field": 1677,
+     "via": "direct",
+     "value_reg": "a2"
+    },
+    {
+     "va": "0x1440bd6",
+     "m": "lw",
+     "o": "a5, 0x6c8(s3)",
+     "class": "READ-FIELD",
+     "field": 1736,
+     "via": "direct"
+    },
+    {
+     "va": "0x1440bde",
+     "m": "sw",
+     "o": "a5, 0x6c8(s3)",
+     "class": "WRITE-FIELD",
+     "field": 1736,
+     "via": "direct",
+     "value_reg": "a5"
+    }
+   ]
+  },
+  {
+   "va": "0x1440dbc",
+   "insn": "ld s3, -0x168(a5)",
+   "region": [
+    "0x143f4f8",
+    "0x1446e60"
+   ],
+   "uses": [
+    {
+     "va": "0x1440de6",
+     "m": "sw",
+     "o": "zero, 0x6bc(s3)",
+     "class": "WRITE-FIELD",
+     "field": 1724,
+     "via": "direct",
+     "value_reg": "zero"
+    },
+    {
+     "va": "0x1440e26",
+     "m": "sw",
+     "o": "a5, 0x6bc(s3)",
+     "class": "WRITE-FIELD",
+     "field": 1724,
+     "via": "direct",
+     "value_reg": "a5"
+    },
+    {
+     "va": "0x1440e34",
+     "m": "lw",
+     "o": "a5, 0x6c8(s3)",
+     "class": "READ-FIELD",
+     "field": 1736,
+     "via": "direct"
+    },
+    {
+     "va": "0x1440e3c",
+     "m": "sw",
+     "o": "a5, 0x6c8(s3)",
+     "class": "WRITE-FIELD",
+     "field": 1736,
+     "via": "direct",
+     "value_reg": "a5"
+    }
+   ]
+  },
+  {
+   "va": "0x1446dba",
+   "insn": "ld s5, -0x168(a5)",
+   "region": [
+    "0x143f4f8",
+    "0x1446e60"
+   ],
+   "uses": [
+    {
+     "va": "0x1446ddc",
+     "m": "lbu",
+     "o": "a4, 0(s5)",
+     "class": "READ-FIELD",
+     "field": 0,
+     "via": "direct"
+    },
+    {
+     "va": "0x1446dfa",
+     "m": "lw",
+     "o": "a4, 0x6c8(s5)",
+     "class": "READ-FIELD",
+     "field": 1736,
+     "via": "direct"
+    },
+    {
+     "va": "0x1446e06",
+     "m": "lw",
+     "o": "a3, 0x65c(s5)",
+     "class": "READ-FIELD",
+     "field": 1628,
+     "via": "direct"
+    }
+   ]
+  },
+  {
+   "va": "0x145841c",
+   "insn": "ld a4, -0x168(a5)",
+   "region": [
+    "0x145419c",
+    "0x145ec6a"
+   ],
+   "uses": [
+    {
+     "va": "0x145842c",
+     "m": "lbu",
+     "o": "a5, 0(a4)",
+     "class": "READ-FIELD",
+     "field": 0,
+     "via": "direct"
+    }
+   ]
+  },
+  {
+   "va": "0x145848e",
+   "insn": "ld a0, -0x168(s1)",
+   "region": [
+    "0x145419c",
+    "0x145ec6a"
+   ],
+   "uses": []
+  },
+  {
+   "va": "0x14584a0",
+   "insn": "ld a5, -0x168(s1)",
+   "region": [
+    "0x145419c",
+    "0x145ec6a"
+   ],
+   "uses": [
+    {
+     "va": "0x14584a4",
+     "m": "sb",
+     "o": "zero, 0(a5)",
+     "class": "WRITE-FIELD",
+     "field": 0,
+     "via": "direct",
+     "value_reg": "zero"
+    }
+   ]
+  },
+  {
+   "va": "0x14584d8",
+   "insn": "ld s2, -0x168(a5)",
+   "region": [
+    "0x145419c",
+    "0x145ec6a"
+   ],
+   "uses": [
+    {
+     "va": "0x1458502",
+     "m": "sb",
+     "o": "a5, 0x664(s2)",
+     "class": "WRITE-FIELD",
+     "field": 1636,
+     "via": "direct",
+     "value_reg": "a5"
+    },
+    {
+     "va": "0x145857a",
+     "m": "sw",
+     "o": "a3, 0x67c(s2)",
+     "class": "WRITE-FIELD",
+     "field": 1660,
+     "via": "direct",
+     "value_reg": "a3"
+    },
+    {
+     "va": "0x145857e",
+     "m": "sw",
+     "o": "a4, 0x680(s2)",
+     "class": "WRITE-FIELD",
+     "field": 1664,
+     "via": "direct",
+     "value_reg": "a4"
+    },
+    {
+     "va": "0x1458582",
+     "m": "sw",
+     "o": "a7, 0x668(s2)",
+     "class": "WRITE-FIELD",
+     "field": 1640,
+     "via": "direct",
+     "value_reg": "a7"
+    },
+    {
+     "va": "0x1458586",
+     "m": "sw",
+     "o": "a6, 0x66c(s2)",
+     "class": "WRITE-FIELD",
+     "field": 1644,
+     "via": "direct",
+     "value_reg": "a6"
+    },
+    {
+     "va": "0x145858a",
+     "m": "sw",
+     "o": "a0, 0x670(s2)",
+     "class": "WRITE-FIELD",
+     "field": 1648,
+     "via": "direct",
+     "value_reg": "a0"
+    },
+    {
+     "va": "0x145858e",
+     "m": "sw",
+     "o": "a1, 0x674(s2)",
+     "class": "WRITE-FIELD",
+     "field": 1652,
+     "via": "direct",
+     "value_reg": "a1"
+    },
+    {
+     "va": "0x1458592",
+     "m": "sw",
+     "o": "a2, 0x678(s2)",
+     "class": "WRITE-FIELD",
+     "field": 1656,
+     "via": "direct",
+     "value_reg": "a2"
+    },
+    {
+     "va": "0x1458596",
+     "m": "sw",
+     "o": "a5, 0x684(s2)",
+     "class": "WRITE-FIELD",
+     "field": 1668,
+     "via": "direct",
+     "value_reg": "a5"
+    },
+    {
+     "va": "0x14585b0",
+     "m": "sh",
+     "o": "a5, 0x664(s2)",
+     "class": "WRITE-FIELD",
+     "field": 1636,
+     "via": "direct",
+     "value_reg": "a5"
+    },
+    {
+     "va": "0x14585c4",
+     "m": "lw",
+     "o": "a5, 0x6c8(s2)",
+     "class": "READ-FIELD",
+     "field": 1736,
+     "via": "direct"
+    },
+    {
+     "va": "0x14585d6",
+     "m": "sw",
+     "o": "a5, 0x6c8(s2)",
+     "class": "WRITE-FIELD",
+     "field": 1736,
+     "via": "direct",
+     "value_reg": "a5"
+    },
+    {
+     "va": "0x145868e",
+     "m": "lbu",
+     "o": "a5, 0(s2)",
+     "class": "READ-FIELD",
+     "field": 0,
+     "via": "direct"
+    },
+    {
+     "va": "0x1458696",
+     "m": "lbu",
+     "o": "a3, 0x10(s2)",
+     "class": "READ-FIELD",
+     "field": 16,
+     "via": "direct"
+    },
+    {
+     "va": "0x14586a4",
+     "m": "lbu",
+     "o": "a2, 0x14(s2)",
+     "class": "READ-FIELD",
+     "field": 20,
+     "via": "direct"
+    },
+    {
+     "va": "0x14586b2",
+     "m": "lbu",
+     "o": "a2, 0x12(s2)",
+     "class": "READ-FIELD",
+     "field": 18,
+     "via": "direct"
+    },
+    {
+     "va": "0x14586ba",
+     "m": "lbu",
+     "o": "a2, 0x13(s2)",
+     "class": "READ-FIELD",
+     "field": 19,
+     "via": "direct"
+    }
+   ]
+  },
+  {
+   "va": "0x145884e",
+   "insn": "ld s2, -0x168(a4)",
+   "region": [
+    "0x145419c",
+    "0x145ec6a"
+   ],
+   "uses": [
+    {
+     "va": "0x1458876",
+     "m": "lw",
+     "o": "a5, 0x6c4(s2)",
+     "class": "READ-FIELD",
+     "field": 1732,
+     "via": "direct"
+    },
+    {
+     "va": "0x145887e",
+     "m": "sw",
+     "o": "a5, 0x6c4(s2)",
+     "class": "WRITE-FIELD",
+     "field": 1732,
+     "via": "direct",
+     "value_reg": "a5"
+    }
+   ]
+  },
+  {
+   "va": "0x1458892",
+   "insn": "ld s2, -0x168(a5)",
+   "region": [
+    "0x145419c",
+    "0x145ec6a"
+   ],
+   "uses": [
+    {
+     "va": "0x1458898",
+     "m": "sb",
+     "o": "a5, 0(s2)",
+     "class": "WRITE-FIELD",
+     "field": 0,
+     "via": "direct",
+     "value_reg": "a5"
+    }
+   ]
+  },
+  {
+   "va": "0x1458bfc",
+   "insn": "ld a0, -0x168(s1)",
+   "region": [
+    "0x145419c",
+    "0x145ec6a"
+   ],
+   "uses": [
+    {
+     "va": "0x1458c3a",
+     "m": "ld",
+     "o": "a4, 0x158(a0)",
+     "class": "READ-FIELD",
+     "field": 344,
+     "via": "direct"
+    },
+    {
+     "va": "0x1458ccc",
+     "m": "sd",
+     "o": "a0, 0x218(s5)",
+     "class": "WRITE-FIELD",
+     "field": 536,
+     "via": "direct",
+     "value_reg": "a0"
+    }
+   ]
+  },
+  {
+   "va": "0x1458c0e",
+   "insn": "ld a5, -0x168(s1)",
+   "region": [
+    "0x145419c",
+    "0x145ec6a"
+   ],
+   "uses": [
+    {
+     "va": "0x1458c12",
+     "m": "sb",
+     "o": "zero, 0(a5)",
+     "class": "WRITE-FIELD",
+     "field": 0,
+     "via": "direct",
+     "value_reg": "zero"
+    }
+   ]
+  },
+  {
+   "va": "0x1458cdc",
+   "insn": "ld a5, -0x168(s1)",
+   "region": [
+    "0x145419c",
+    "0x145ec6a"
+   ],
+   "uses": []
+  },
+  {
+   "va": "0x145901a",
+   "insn": "ld a1, -0x168(s1)",
+   "region": [
+    "0x145419c",
+    "0x145ec6a"
+   ],
+   "uses": [
+    {
+     "va": "0x1459020",
+     "m": "lbu",
+     "o": "a5, 0(a1)",
+     "class": "READ-FIELD",
+     "field": 0,
+     "via": "direct"
+    }
+   ]
+  },
+  {
+   "va": "0x15fbad6",
+   "insn": "lw a5, -0x168(s10)",
+   "region": [
+    "0x15fab38",
+    "0x15fc42e"
+   ],
+   "uses": []
+  }
+ ],
+ "outlier_15fbad6": {
+  "window_before": [
+   "0x15fba76: addi     a1, a1, 0x7e6",
+   "0x15fba7a: sw       a5, -0x88(s0)",
+   "0x15fba7e: c.mv     a0, s1",
+   "0x15fba80: auipc    ra, 0xffa57",
+   "0x15fba84: jalr     ra, ra, 0x518",
+   "0x15fba88: lw       a5, 0x3e8(s2)",
+   "0x15fba8c: addi     a2, s0, -0x88",
+   "0x15fba90: auipc    a1, 0x617",
+   "0x15fba94: addi     a1, a1, 0x7e0",
+   "0x15fba98: sw       a5, -0x88(s0)",
+   "0x15fba9c: c.mv     a0, s1",
+   "0x15fba9e: auipc    ra, 0xffa57",
+   "0x15fbaa2: jalr     ra, ra, 0x4fa",
+   "0x15fbaa6: c.mv     a0, s1",
+   "0x15fbaa8: auipc    ra, 0xffa58",
+   "0x15fbaac: jalr     ra, ra, -0x508",
+   "0x15fbab0: c.addiw  a0, 0",
+   "0x15fbab2: bnez     a0, 0xa04",
+   "0x15fbab6: c.mv     a0, s1",
+   "0x15fbab8: auipc    ra, 0xffa58",
+   "0x15fbabc: jalr     ra, ra, -0x518",
+   "0x15fbac0: c.addiw  a0, 0",
+   "0x15fbac2: bnez     a0, 0xa06",
+   "0x15fbac6: ld       a5, 0x760(s5)"
+  ],
+  "window_after": [
+   "0x15fbad6: lw       a5, -0x168(s10)",
+   "0x15fbada: c.mv     s7, a0",
+   "0x15fbadc: beqz     a5, 0x9c2",
+   "0x15fbae0: c.lui    s2, 3",
+   "0x15fbae2: addi     s2, s2, 0x6e4",
+   "0x15fbae6: c.add    s2, a0",
+   "0x15fbae8: c.li     s3, 0",
+   "0x15fbaea: auipc    s11, 0x617",
+   "0x15fbaee: addi     s11, s11, 0x7e6",
+   "0x15fbaf2: auipc    a1, 0x618",
+   "0x15fbaf6: addi     a1, a1, 0x55e",
+   "0x15fbafa: c.mv     a0, s1",
+   "0x15fbafc: auipc    ra, 0xffa57",
+   "0x15fbb00: jalr     ra, ra, 0x32c",
+   "0x15fbb04: c.addiw  a0, 0",
+   "0x15fbb06: bnez     a0, 0x1c6",
+   "0x15fbb0a: lw       a5, -0xc(s2)",
+   "0x15fbb0e: addi     a2, s0, -0x88",
+   "0x15fbb12: auipc    a1, 0x617",
+   "0x15fbb16: addi     a1, a1, 0x78e",
+   "0x15fbb1a: sw       a5, -0x88(s0)",
+   "0x15fbb1e: c.mv     a0, s1",
+   "0x15fbb20: auipc    ra, 0xffa57",
+   "0x15fbb24: jalr     ra, ra, 0x478",
+   "0x15fbb28: lw       a5, -8(s2)",
+   "0x15fbb2c: addi     a2, s0, -0x88",
+   "0x15fbb30: auipc    a1, 0x617",
+   "0x15fbb34: addi     a1, a1, 0x788",
+   "0x15fbb38: sw       a5, -0x88(s0)",
+   "0x15fbb3c: c.mv     a0, s1",
+   "0x15fbb3e: auipc    ra, 0xffa57",
+   "0x15fbb42: jalr     ra, ra, 0x45a",
+   "0x15fbb46: lw       a5, -4(s2)",
+   "0x15fbb4a: addi     a2, s0, -0x88",
+   "0x15fbb4e: c.mv     a1, s11",
+   "0x15fbb50: sw       a5, -0x80(s0)",
+   "0x15fbb54: c.mv     a0, s1",
+   "0x15fbb56: sd       s2, -0x88(s0)",
+   "0x15fbb5a: auipc    ra, 0xffa57",
+   "0x15fbb5e: jalr     ra, ra, 0x43e"
+  ]
+ },
+ "creation_window_1458cf8": [
+  "0x1458cb8: auipc    ra, 0xfffb5",
+  "0x1458cbc: jalr     ra, ra, -0x580",
+  "0x1458cc0: c.mv     a1, s3",
+  "0x1458cc2: c.mv     a0, s2",
+  "0x1458cc4: auipc    ra, 0x709",
+  "0x1458cc8: jalr     ra, ra, -0x60",
+  "0x1458ccc: sd       a0, 0x218(s5)",
+  "0x1458cd0: beqz     a0, 0x1ec",
+  "0x1458cd4: c.lui    s1, 5",
+  "0x1458cd6: sd       s3, 0x210(s5)",
+  "0x1458cda: c.add    s1, s2",
+  "0x1458cdc: ld       a5, -0x168(s1)",
+  "0x1458ce0: bnez     a5, 0x18c",
+  "0x1458ce4: ld       a5, -0x160(s1)",
+  "0x1458ce8: bnez     a5, 0x1f0",
+  "0x1458cec: addi     a1, zero, 0x6d0",
+  "0x1458cf0: auipc    a0, 0x2d38",
+  "0x1458cf4: addi     a0, a0, 0xf8",
+  "0x1458cf8: auipc    ra, 0x46b",
+  "0x1458cfc: jalr     ra, ra, -0x5bc",
+  "0x1458d00: sd       a0, -0x168(s1)",
+  "0x1458d04: beqz     a0, 0x1e0",
+  "0x1458d08: addi     a2, zero, 0x6d0",
+  "0x1458d0c: c.li     a1, 0",
+  "0x1458d0e: auipc    ra, 0x78b",
+  "0x1458d12: jalr     ra, ra, 0x516",
+  "0x1458d16: c.li     a1, 8",
+  "0x1458d18: auipc    a0, 0x2d38",
+  "0x1458d1c: addi     a0, a0, 0xd0",
+  "0x1458d20: auipc    ra, 0x46b",
+  "0x1458d24: jalr     ra, ra, -0x5e4",
+  "0x1458d28: sd       a0, -0x160(s1)"
+ ],
+ "worker_tail_14400c6": [
+  "0x1440180: c.ldsp   s5, 0x18(sp)",
+  "0x1440182: c.ldsp   s6, 0x10(sp)",
+  "0x1440184: c.addi16sp sp, 0x50",
+  "0x1440186: c.jr     ra",
+  "0x1440188: c.ld     a4, 8(a0)",
+  "0x144018a: slli     a3, a1, 3",
+  "0x144018e: c.add    a4, a3",
+  "0x1440190: c.ld     a4, 0(a4)",
+  "0x1440192: c.beqz   a4, -0x4a",
+  "0x1440194: c.ld     a5, 0x38(a0)",
+  "0x1440196: c.jalr   a5",
+  "0x1440198: c.beqz   a0, -0x50",
+  "0x144019a: c.ld     a5, 0(s1)",
+  "0x144019c: c.mv     a0, s1",
+  "0x144019e: ld       a5, 0x420(a5)",
+  "0x14401a2: c.jalr   a5",
+  "0x14401a4: c.beqz   a0, 0x58",
+  "0x14401a6: lhu      a1, 0x178(a0)",
+  "0x14401aa: lhu      a5, 0x18(a0)",
+  "0x14401ae: bgeu     a1, a5, 0x4e",
+  "0x14401b2: c.ld     a5, 8(a0)",
+  "0x14401b4: slli     a4, a1, 3",
+  "0x14401b8: c.add    a5, a4",
+  "0x14401ba: c.ld     a5, 0(a5)",
+  "0x14401bc: c.beqz   a5, 0x40",
+  "0x14401be: c.ld     a5, 0x38(a0)",
+  "0x14401c0: c.jalr   a5",
+  "0x14401c2: c.ld     a5, 0x40(a0)",
+  "0x14401c4: c.beqz   a5, -0x7c",
+  "0x14401c6: lbu      a5, 0x7be(s1)",
+  "0x14401ca: c.beqz   a5, -0x82",
+  "0x14401cc: lw       a5, 4(s5)",
+  "0x14401d0: ori      a5, a5, 2",
+  "0x14401d4: sw       a5, 4(s5)",
+  "0x14401d8: c.j      -0x90",
+  "0x14401da: slli     a1, s2, 0x20",
+  "0x14401de: auipc    a2, 0x1ee9c",
+  "0x14401e2: addi     a2, a2, 0x4f2",
+  "0x14401e6: c.srli   a1, 0x20",
+  "0x14401e8: c.li     a0, 2",
+  "0x14401ea: auipc    ra, 0x65e",
+  "0x14401ee: jalr     ra, ra, 0x43a",
+  "0x14401f2: c.j      -0x92",
+  "0x14401f4: auipc    ra, 0x663",
+  "0x14401f8: jalr     ra, ra, 0x250",
+  "0x14401fc: ld       a5, 0x40(zero)",
+  "0x1440200: c.ebreak ",
+  "0x1440202: c.nop    "
+ ],
+ "assert_idiom_xrefs": {
+  "PstateEstLUT_assert": [
+   {
+    "auipc_va": "0x177d598",
+    "use_va": "0x177d59c",
+    "rd": "a5",
+    "use": "addi a5, a5, -0x5a0"
+   }
+  ],
+  "OutputVoltage1x_assert": [
+   {
+    "auipc_va": "0x17822f4",
+    "use_va": "0x17822f8",
+    "rd": "a2",
+    "use": "addi a2, a2, -0x28c"
+   }
+  ],
+  "PwrChannelPolicy_assert": [],
+  "PwrDevIdx_assert": [],
+  "TgpIface_fb_assert": [],
+  "TgpIface_core_assert": [],
+  "Die2x_assert": [],
+  "tgtPwrPolicy_assert": [],
+  "floorPolicy_assert": [],
+  "ceilingPolicy_assert": [],
+  "RMDisableSpi": [],
+  "RMLpwrVbiosSwTable": [],
+  "RMI2cPmgrMutexTimeoutus": []
+ }
+}
