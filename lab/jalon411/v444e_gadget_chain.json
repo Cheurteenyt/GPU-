@@ -1,0 +1,349 @@
+{
+ "bootloader_asm_counts": {
+  "auipc": 515,
+  "ret": 0
+ },
+ "counts": {
+  "ret4": 0,
+  "c_ret2": 84,
+  "rets_total": 84,
+  "auipc_parity0": 275,
+  "auipc_parity2": 282,
+  "auipc_both": 557
+ },
+ "linear_insn_count": 220572,
+ "chainable_count": 24,
+ "chainable": [
+  {
+   "ret_va": "0x10023a",
+   "ra_load": "c.ldsp ra, 0x38(sp)",
+   "sp_step": 64,
+   "window": [
+    "0x10022a: c.ldsp ra, 0x38(sp)",
+    "0x10022c: c.ldsp s0, 0x30(sp)",
+    "0x10022e: c.ldsp s1, 0x28(sp)",
+    "0x100230: c.ldsp s2, 0x20(sp)",
+    "0x100232: c.ldsp s3, 0x18(sp)",
+    "0x100234: c.ldsp s4, 0x10(sp)",
+    "0x100236: c.ldsp s5, 8(sp)",
+    "0x100238: c.addi16sp sp, 0x40"
+   ]
+  },
+  {
+   "ret_va": "0x100358",
+   "ra_load": "c.ldsp ra, 8(sp)",
+   "sp_step": null,
+   "window": [
+    "0x100348: c.addi4spn s1, sp, 0x268",
+    "0x10034a: snez a0, a0",
+    "0x10034e: c.ldsp ra, 8(sp)",
+    "0x100350: sw a0, 0x160(s0)",
+    "0x100354: c.ldsp s0, 0(sp)",
+    "0x100356: c.addi sp, 0x10"
+   ]
+  },
+  {
+   "ret_va": "0x10035a",
+   "ra_load": "c.ldsp ra, 8(sp)",
+   "sp_step": null,
+   "window": [
+    "0x10034a: snez a0, a0",
+    "0x10034e: c.ldsp ra, 8(sp)",
+    "0x100350: sw a0, 0x160(s0)",
+    "0x100354: c.ldsp s0, 0(sp)",
+    "0x100356: c.addi sp, 0x10",
+    "0x100358: c.jr ra"
+   ]
+  },
+  {
+   "ret_va": "0x10053e",
+   "ra_load": "c.ldsp ra, 0x18(sp)",
+   "sp_step": 32,
+   "window": [
+    "0x10052e: c.sd a2, 0x10(s0)",
+    "0x100530: c.sd a3, 0x18(s0)",
+    "0x100532: c.sd a4, 0x20(s0)",
+    "0x100534: c.li a0, 0",
+    "0x100536: c.ldsp ra, 0x18(sp)",
+    "0x100538: c.ldsp s0, 0x10(sp)",
+    "0x10053a: c.ldsp s1, 8(sp)",
+    "0x10053c: c.addi16sp sp, 0x20"
+   ]
+  },
+  {
+   "ret_va": "0x100576",
+   "ra_load": "c.ldsp ra, 0x38(sp)",
+   "sp_step": 64,
+   "window": [
+    "0x100566: c.unimp ",
+    "0x100568: jalr ra, ra, -0x106",
+    "0x10056c: c.bnez a0, 6",
+    "0x10056e: lbu a0, 0x10(sp)",
+    "0x100572: c.ldsp ra, 0x38(sp)",
+    "0x100574: c.addi16sp sp, 0x40"
+   ]
+  },
+  {
+   "ret_va": "0x1005aa",
+   "ra_load": "c.ldsp ra, 0x38(sp)",
+   "sp_step": 64,
+   "window": [
+    "0x10059a: c.unimp ",
+    "0x10059c: jalr ra, ra, -0x13a",
+    "0x1005a0: c.bnez a0, 6",
+    "0x1005a2: lbu a0, 0x10(sp)",
+    "0x1005a6: c.ldsp ra, 0x38(sp)",
+    "0x1005a8: c.addi16sp sp, 0x40"
+   ]
+  },
+  {
+   "ret_va": "0x1007d2",
+   "ra_load": "c.ldsp ra, 0x18(sp)",
+   "sp_step": 32,
+   "window": [
+    "0x1007c2: c.addi ra, 0x11",
+    "0x1007c4: bne s0, s2, 0x10",
+    "0x1007c8: c.ldsp ra, 0x18(sp)",
+    "0x1007ca: c.ldsp s0, 0x10(sp)",
+    "0x1007cc: c.ldsp s1, 8(sp)",
+    "0x1007ce: c.ldsp s2, 0(sp)",
+    "0x1007d0: c.addi16sp sp, 0x20"
+   ]
+  },
+  {
+   "ret_va": "0x10080a",
+   "ra_load": "c.ldsp ra, 0x28(sp)",
+   "sp_step": 48,
+   "window": [
+    "0x1007fa: blt s0, s2, 0x12",
+    "0x1007fe: c.ldsp ra, 0x28(sp)",
+    "0x100800: c.ldsp s0, 0x20(sp)",
+    "0x100802: c.ldsp s1, 0x18(sp)",
+    "0x100804: c.ldsp s2, 0x10(sp)",
+    "0x100806: c.ldsp s3, 8(sp)",
+    "0x100808: c.addi16sp sp, 0x30"
+   ]
+  },
+  {
+   "ret_va": "0x100aea",
+   "ra_load": "c.ldsp ra, 0x38(sp)",
+   "sp_step": 64,
+   "window": [
+    "0x100ada: c.sdsp a2, 0x20(sp)",
+    "0x100adc: c.sdsp zero, 0x28(sp)",
+    "0x100ade: auipc ra, 0",
+    "0x100ae2: jalr ra, ra, -0x680",
+    "0x100ae6: c.ldsp ra, 0x38(sp)",
+    "0x100ae8: c.addi16sp sp, 0x40"
+   ]
+  },
+  {
+   "ret_va": "0x101216",
+   "ra_load": "c.ldsp ra, 0x1a8(sp)",
+   "sp_step": 496,
+   "window": [
+    "0x101206: c.li a2, 0",
+    "0x101208: auipc ra, 0",
+    "0x10120c: jalr ra, ra, -0x5f4",
+    "0x101210: c.ldsp ra, 0x1a8(sp)",
+    "0x101212: c.ldsp s0, 0x1a0(sp)",
+    "0x101214: c.addi16sp sp, 0x1f0"
+   ]
+  },
+  {
+   "ret_va": "0x10127e",
+   "ra_load": "c.ldsp ra, 0x38(sp)",
+   "sp_step": 64,
+   "window": [
+    "0x10126e: c.sd a5, 0xb8(s0)",
+    "0x101270: c.ld a5, 0xc0(s0)",
+    "0x101272: c.sub a5, a0",
+    "0x101274: c.sd a5, 0xc0(s0)",
+    "0x101276: c.ldsp ra, 0x38(sp)",
+    "0x101278: c.ldsp s0, 0x30(sp)",
+    "0x10127a: c.ldsp s1, 0x28(sp)",
+    "0x10127c: c.addi16sp sp, 0x40"
+   ]
+  },
+  {
+   "ret_va": "0x1012d8",
+   "ra_load": "c.ldsp ra, 0x28(sp)",
+   "sp_step": 48,
+   "window": [
+    "0x1012c8: jalr ra, ra, -0x29c",
+    "0x1012cc: c.bnez a0, -0x18",
+    "0x1012ce: c.ldsp ra, 0x28(sp)",
+    "0x1012d0: c.mv a0, s0",
+    "0x1012d2: c.ldsp s0, 0x20(sp)",
+    "0x1012d4: c.ldsp s1, 0x18(sp)",
+    "0x1012d6: c.addi16sp sp, 0x30"
+   ]
+  },
+  {
+   "ret_va": "0x101340",
+   "ra_load": "c.ldsp ra, 0x18(sp)",
+   "sp_step": 32,
+   "window": [
+    "0x101330: jalr ra, ra, -0xac",
+    "0x101334: c.sd a0, 0x28(s0)",
+    "0x101336: c.sd s1, 0x20(s0)",
+    "0x101338: c.ldsp ra, 0x18(sp)",
+    "0x10133a: c.ldsp s0, 0x10(sp)",
+    "0x10133c: c.ldsp s1, 8(sp)",
+    "0x10133e: c.addi16sp sp, 0x20"
+   ]
+  },
+  {
+   "ret_va": "0x101580",
+   "ra_load": "c.ldsp ra, 0x18(sp)",
+   "sp_step": 32,
+   "window": [
+    "0x101570: c.sd a0, 0x28(s1)",
+    "0x101572: sd s2, 0x20(s1)",
+    "0x101576: c.ldsp ra, 0x18(sp)",
+    "0x101578: c.ldsp s0, 0x10(sp)",
+    "0x10157a: c.ldsp s1, 8(sp)",
+    "0x10157c: c.ldsp s2, 0(sp)",
+    "0x10157e: c.addi16sp sp, 0x20"
+   ]
+  },
+  {
+   "ret_va": "0x101630",
+   "ra_load": "c.ldsp ra, 8(sp)",
+   "sp_step": null,
+   "window": [
+    "0x101620: auipc ra, 0xfffff",
+    "0x101624: jalr ra, ra, -0xdc",
+    "0x101628: c.bnez a0, -0x64",
+    "0x10162a: c.ldsp ra, 8(sp)",
+    "0x10162c: c.ldsp s0, 0(sp)",
+    "0x10162e: c.addi sp, 0x10"
+   ]
+  },
+  {
+   "ret_va": "0x101700",
+   "ra_load": "c.ldsp ra, 0x28(sp)",
+   "sp_step": 48,
+   "window": [
+    "0x1016f0: c.ldsp ra, 0x28(sp)",
+    "0x1016f2: sd a4, 0x110(s0)",
+    "0x1016f6: c.ld a5, 8(a5)",
+    "0x1016f8: sd a5, 0x118(s0)",
+    "0x1016fc: c.ldsp s0, 0x20(sp)",
+    "0x1016fe: c.addi16sp sp, 0x30"
+   ]
+  },
+  {
+   "ret_va": "0x10184a",
+   "ra_load": "c.ldsp ra, 8(sp)",
+   "sp_step": null,
+   "window": [
+    "0x10183a: jalr ra, ra, -0x9e",
+    "0x10183e: lui a5, 0x10000",
+    "0x101842: c.ldsp ra, 8(sp)",
+    "0x101844: c.sd a5, 0xa8(s0)",
+    "0x101846: c.ldsp s0, 0(sp)",
+    "0x101848: c.addi sp, 0x10"
+   ]
+  },
+  {
+   "ret_va": "0x101870",
+   "ra_load": "c.ldsp ra, 8(sp)",
+   "sp_step": null,
+   "window": [
+    "0x101860: c.addi4spn a3, sp, 0x7c",
+    "0x101862: c.ldsp ra, 8(sp)",
+    "0x101864: sd zero, 0x48(s0)",
+    "0x101868: sd zero, 0x50(s0)",
+    "0x10186c: c.ldsp s0, 0(sp)",
+    "0x10186e: c.addi sp, 0x10"
+   ]
+  },
+  {
+   "ret_va": "0x1018a2",
+   "ra_load": "c.ldsp ra, 8(sp)",
+   "sp_step": null,
+   "window": [
+    "0x101892: jalr ra, ra, -0x532",
+    "0x101896: c.addi a0, 1",
+    "0x101898: c.ldsp ra, 8(sp)",
+    "0x10189a: sd a0, 0x190(s0)",
+    "0x10189e: c.ldsp s0, 0(sp)",
+    "0x1018a0: c.addi sp, 0x10"
+   ]
+  },
+  {
+   "ret_va": "0x1018c0",
+   "ra_load": "c.ldsp ra, 8(sp)",
+   "sp_step": null,
+   "window": [
+    "0x1018b0: jalr ra, ra, -0x114",
+    "0x1018b4: lui a5, 0x4000",
+    "0x1018b8: c.ldsp ra, 8(sp)",
+    "0x1018ba: c.sd a5, 0xa8(s0)",
+    "0x1018bc: c.ldsp s0, 0(sp)",
+    "0x1018be: c.addi sp, 0x10"
+   ]
+  },
+  {
+   "ret_va": "0x101d72",
+   "ra_load": "c.ldsp ra, 0x38(sp)",
+   "sp_step": 64,
+   "window": [
+    "0x101d62: c.sw s0, 0x34(a1)",
+    "0x101d64: c.li a0, 0",
+    "0x101d66: c.ldsp ra, 0x38(sp)",
+    "0x101d68: c.ldsp s0, 0x30(sp)",
+    "0x101d6a: c.ldsp s1, 0x28(sp)",
+    "0x101d6c: c.ldsp s2, 0x20(sp)",
+    "0x101d6e: c.ldsp s3, 0x18(sp)",
+    "0x101d70: c.addi16sp sp, 0x40"
+   ]
+  },
+  {
+   "ret_va": "0x103aba",
+   "ra_load": "c.ldsp ra, 8(sp)",
+   "sp_step": null,
+   "window": [
+    "0x103aaa: jalr ra, ra, 0x714",
+    "0x103aae: auipc ra, 0xffffe",
+    "0x103ab2: jalr ra, ra, 0xd8",
+    "0x103ab6: c.ldsp ra, 8(sp)",
+    "0x103ab8: c.addi sp, 0x10"
+   ]
+  },
+  {
+   "ret_va": "0x103af6",
+   "ra_load": "c.ldsp ra, 8(sp)",
+   "sp_step": null,
+   "window": [
+    "0x103ae6: jalr ra, ra, 0x6d8",
+    "0x103aea: auipc ra, 0xffffe",
+    "0x103aee: jalr ra, ra, 0x9c",
+    "0x103af2: c.ldsp ra, 8(sp)",
+    "0x103af4: c.addi sp, 0x10"
+   ]
+  },
+  {
+   "ret_va": "0x103b32",
+   "ra_load": "c.ldsp ra, 8(sp)",
+   "sp_step": null,
+   "window": [
+    "0x103b22: jalr ra, ra, 0x69c",
+    "0x103b26: auipc ra, 0xffffe",
+    "0x103b2a: jalr ra, ra, 0x60",
+    "0x103b2e: c.ldsp ra, 8(sp)",
+    "0x103b30: c.addi sp, 0x10"
+   ]
+  }
+ ],
+ "terminal_count": 60,
+ "work_gadgets": {
+  "ld_a1": [],
+  "ld_a0": [],
+  "addi_a1": [],
+  "mv_a1": [],
+  "li_a1": [],
+  "add_a1": []
+ }
+}

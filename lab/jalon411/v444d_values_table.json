@@ -1,0 +1,231 @@
+{
+ "payload_nonzero_u32": [
+  {
+   "off": 0,
+   "val": 3251634252
+  },
+  {
+   "off": 4,
+   "val": 2774138928
+  },
+  {
+   "off": 8,
+   "val": 545312817
+  },
+  {
+   "off": 16,
+   "val": 1544
+  },
+  {
+   "off": 40,
+   "val": 255
+  },
+  {
+   "off": 44,
+   "val": 3
+  },
+  {
+   "off": 48,
+   "val": 257
+  },
+  {
+   "off": 96,
+   "val": 257
+  },
+  {
+   "off": 104,
+   "val": 250000
+  }
+ ],
+ "payload_pair_solves": [],
+ "payload_unit_hits": {
+  "250000": [
+   26
+  ],
+  "240000": [],
+  "100000": [],
+  "250000000": [],
+  "240000000": [],
+  "100000000": []
+ },
+ "rmelf_unit_hits": {
+  "250000": {
+   "count": 0,
+   "first": []
+  },
+  "240000": {
+   "count": 0,
+   "first": []
+  },
+  "100000": {
+   "count": 5,
+   "first": [
+    1220344,
+    2028280,
+    2910968,
+    2936568,
+    3002104
+   ]
+  },
+  "250000000": {
+   "count": 0,
+   "first": []
+  },
+  "240000000": {
+   "count": 0,
+   "first": []
+  },
+  "100000000": {
+   "count": 0,
+   "first": []
+  }
+ },
+ "container_unit_hits": {
+  "250000": {
+   "count": 0,
+   "first": []
+  },
+  "240000": {
+   "count": 0,
+   "first": []
+  },
+  "100000": {
+   "count": 5,
+   "first": [
+    1220330,
+    2028266,
+    2910954,
+    2936554,
+    3002090
+   ]
+  },
+  "250000000": {
+   "count": 0,
+   "first": []
+  },
+  "240000000": {
+   "count": 0,
+   "first": []
+  },
+  "100000000": {
+   "count": 0,
+   "first": []
+  }
+ },
+ "recv_capture_files": [],
+ "recv_capture_exists": false,
+ "value_table": [
+  {
+   "reading": "percent (base=uW, f18=%)",
+   "unit_note": "/100 = the percent scale, /1000 = uW->mW \u2014 coherent",
+   "stock": {
+    "f18": 100,
+    "base": 250000000,
+    "limit_check": 250000
+   },
+   "f18_route": {
+    "f18_new": 112,
+    "exact": true,
+    "limit_check": 280000,
+    "u64_value": "0x0000000000000070",
+    "target": "obj+0x18+idx*0x30 (u64, aligned)",
+    "collateral": "record+0x1c = the field the recompute ZEROES every pass (0x143ff04) \u2014 self-healing",
+    "persistence": "the recompute write set EXCLUDES record f14/f18 (v444c PROVEN)"
+   },
+   "base_route": {
+    "base_new": 280000000,
+    "exact": true,
+    "limit_check": 280000,
+    "u64_value": "0x0000000010b07600",
+    "target": "obj+0x618+idx*0x10 (u64, aligned)",
+    "collateral": "the neighbor u32 (A[k+1]/mirror[3]) = recompute-owned",
+    "persistence": "VOLATILE \u2014 the recompute rewrites the base array"
+   }
+  },
+  {
+   "reading": "permille (f18=1/1000)",
+   "unit_note": "the arithmetic alternative \u2014 the base unit scale unknown",
+   "stock": {
+    "f18": 1000,
+    "base": 25000000,
+    "limit_check": 250000
+   },
+   "f18_route": {
+    "f18_new": 1120,
+    "exact": true,
+    "limit_check": 280000,
+    "u64_value": "0x0000000000000460",
+    "target": "obj+0x18+idx*0x30 (u64, aligned)",
+    "collateral": "record+0x1c = the field the recompute ZEROES every pass (0x143ff04) \u2014 self-healing",
+    "persistence": "the recompute write set EXCLUDES record f14/f18 (v444c PROVEN)"
+   },
+   "base_route": {
+    "base_new": 28000000,
+    "exact": true,
+    "limit_check": 280000,
+    "u64_value": "0x0000000001ab3f00",
+    "target": "obj+0x618+idx*0x10 (u64, aligned)",
+    "collateral": "the neighbor u32 (A[k+1]/mirror[3]) = recompute-owned",
+    "persistence": "VOLATILE \u2014 the recompute rewrites the base array"
+   }
+  }
+ ],
+ "payload_entries": [
+  {
+   "id": "R0",
+   "target": "obj+0x18",
+   "u64_percent": "0x0000000000000070",
+   "u64_permille": "0x0000000000000460",
+   "note": "record[idx].f18 <- 112 (the percent reading) \u2014 the persistent route; the +0x1c half = 0 = the recompute-zeroed field"
+  },
+  {
+   "id": "R1",
+   "target": "obj+0x48",
+   "u64_percent": "0x0000000000000070",
+   "u64_permille": "0x0000000000000460",
+   "note": "record[idx].f18 <- 112 (the percent reading) \u2014 the persistent route; the +0x1c half = 0 = the recompute-zeroed field"
+  },
+  {
+   "id": "R2",
+   "target": "obj+0x78",
+   "u64_percent": "0x0000000000000070",
+   "u64_permille": "0x0000000000000460",
+   "note": "record[idx].f18 <- 112 (the percent reading) \u2014 the persistent route; the +0x1c half = 0 = the recompute-zeroed field"
+  },
+  {
+   "id": "R3",
+   "target": "obj+0xa8",
+   "u64_percent": "0x0000000000000070",
+   "u64_permille": "0x0000000000000460",
+   "note": "record[idx].f18 <- 112 (the percent reading) \u2014 the persistent route; the +0x1c half = 0 = the recompute-zeroed field"
+  },
+  {
+   "id": "B0",
+   "target": "obj+0x618",
+   "u64_percent": "0x0000000010b07600",
+   "u64_permille": "0x00000000000445c0",
+   "note": "base[idx].D <- 280000-equivalent \u2014 the timing-window route (volatile)"
+  },
+  {
+   "id": "B1",
+   "target": "obj+0x628",
+   "u64_percent": "0x0000000010b07600",
+   "u64_permille": "0x00000000000445c0",
+   "note": "base[idx].D <- 280000-equivalent \u2014 the timing-window route (volatile)"
+  },
+  {
+   "id": "B2",
+   "target": "obj+0x638",
+   "u64_percent": "0x0000000010b07600",
+   "u64_permille": "0x00000000000445c0",
+   "note": "base[idx].D <- 280000-equivalent \u2014 the timing-window route (volatile)"
+  },
+  {
+   "id": "B3",
+   "target": "obj+0x648",
+   "u64_percent": "0x0000000010b07600",
+   "u64_permille": "0x00000000000445c0",
+   "note": "base[idx].D <- 280000-equivalent \u2014 the timing-window route (volatile)"
+  }
+ ]
+}

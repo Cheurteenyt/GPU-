@@ -1,0 +1,71 @@
+{
+  "memdesc_size": 4096,
+  "stride": 8,
+  "payload_sha256": "85d771149f5812251337a3acaad3bfa32ee73d557c282f6c668292c020838505",
+  "plan": {
+    "reading": "percent",
+    "values": {
+      "D_new": 280000000,
+      "f18_new": 112,
+      "note": "base in uW, f18 in % \u2014 the coherent reading"
+    },
+    "ctx": {
+      "slot0": 0,
+      "capacity": 1024,
+      "dest": "0x0000000000000000 (PLACEHOLDER \u2014 the runtime param obj+0x610)",
+      "magic": 8
+    },
+    "d_list_offset": 1280,
+    "d_list": [
+      "0x0000000010b07600",
+      "0x0000000010b07600",
+      "0x0000000000000000",
+      "0x0000000010b07600",
+      "0x0000000000000000",
+      "0x0000000010b07600",
+      "0x0000000000000000",
+      "0x0000000010b07600"
+    ],
+    "d_scatter_contract": {
+      "entry": "0x100b3e (the gadget mode)",
+      "a0": "~0 (the RAW path forever)",
+      "a3": 8,
+      "a7": 0,
+      "a1": "dest+8 = obj+0x618 (D0 \u2014 write #1, the register)",
+      "a4": "the payload base (the ctx at +0x488)",
+      "sp+8": "&d_list[0] (the walk cell)",
+      "writes": "D0@dest+8(x2), P@dest+0x10, D1@dest+0x18, P@dest+0x20, D2@dest+0x28, P@dest+0x30, D3@dest+0x38 \u2014 the slots 1..7 consecutive",
+      "counter": "[dest] += 8 (the slot-0 cell = {B[0],C[0]} \u2014 the named corruption)"
+    },
+    "f18_list_offset": 1344,
+    "f18_list": [
+      "0x0000000000000070",
+      "0x0000000000000070",
+      "0x0000000000000070",
+      "0x0000000000000070"
+    ],
+    "f18_chain_contract": {
+      "invocations": 4,
+      "per_invocation": "a3=1, a1=obj+0x18+idx*0x30 (the runtime param), the walk cell -> f18_list[idx]",
+      "a1_refresh": "NOT constructible from the booter insns (v444e: 0 work gadgets) -> 4 hijack cycles (the re-entry = UNPROVEN)",
+      "collateral": "record+0x1c (the u64 high half) = the field the recompute ZEROes (0x143ff04) \u2014 clean",
+      "persistence": "the recompute write set EXCLUDES f14/f18 (v444c PROVEN) \u2014 the persistent route"
+    },
+    "runtime_parameters": {
+      "obj": "*(state+0x4E98) \u2014 the heap address of the 0x6d0 object; the capture-day input",
+      "note": "the payload placeholders (dest=0) must be patched with the resolved values BEFORE the boot"
+    }
+  },
+  "gadget_addresses": {
+    "write_primitive_entry": "0x100b3e",
+    "full_loop_entry": "0x100aec",
+    "write_insn": "0x100b48 (sd a5, 0x0(a1))"
+  },
+  "source_instruments": [
+    "v444a_evaluator_full",
+    "v444b_descriptors",
+    "v444c_recompute",
+    "v444d_values_table",
+    "v444e_gadget_chain"
+  ]
+}
