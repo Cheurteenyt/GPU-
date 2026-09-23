@@ -1,6 +1,6 @@
 # lab/jalon411 — the RM cartography & the power-enforcement hunt (the master index)
 
-The wave of passes 4.14 → 4.29: from the rm.elf dispatch cartography to
+The wave of passes 4.14 → 4.34: from the rm.elf dispatch cartography to
 the EDPp enforcement hunt. Every pass = one findings file + the
 instruments (the `v4xx_*.py` scripts + their JSONs). **The entry point
 for the next session = pass 4.26 (the recv capture, armed).**

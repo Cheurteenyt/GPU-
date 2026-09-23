@@ -17,42 +17,42 @@
 | **II. The write campaign** (15 VM flash runs) | the full EEPROM write path walked inside a QEMU/VFIO VM; every failure named and fixed; **the CERT20 wall proven**: Falcon VV (`SIG_INVALID`) + PMU EWR (`OK_TO_FLASH_CHECK_FAILED`) refuse any modified image | `day0/vfio-flash-*/`, `tools/vfio-flash-session.sh`, the `CHANGELOG` CERT20 entry |
 | **III. The published break** | the community exploit (the unbounded signature DMA in the SEC2 booter → the canary defeated by uniformity → the PC hijack → the PLM opening) — **validated in emulation on OUR firmware, then proven executing on the real GA104**: the hardware runs show the SEC2 Falcon spinning at V=0x4a7, the IMEM self-loop gadget — the canary defeat and the PC hijack confirmed in silicon | `tools/cert20-plm-feat-test.py`, `lab/findings-cert20-e2e-pass.md`, `day0/cert20-plm-feat-test.log`, the cmp170hx wiki |
 | **IV. The GSP-RM cartography** (now) | the rm.elf reverse-engineered at scale: 66 % of the image boundary-verified (recursive descent), 221,201 verified indirect transfers, the state-pointer derivation graph measured end to end — and the honest revision: **the power limit is the EDPp runtime policy of the GSP-RM, not a fuse shadow** — the FEAT_OVR lane does not reach it; the next lane = the static RPC-table anchors (ID→handler) inside the runtime-bound dispatch graph | `lab/jalon411/findings-4.14→4.19.md`, `tools/analysis/gsp-extract/` |
+| **V. The transport & the falsification wave** (the passes 4.20→4.34) | the RPC dispatch table found (1156 entries, ID→handler named); the transport instrumented end to end (the send + the recv small/large); **the falsifications banked**: the power limit value NEVER travels fn=76 (the 250000s captured = the LACT clock offsets — the issuer = NVML userspace, proven), the 1616-B request = rejected unread, the seven rm.elf 250000 constants = the TIME hysteresis (µs), NOT power; the closed x86 RM acquired (19 MB + 121 MB, provenance) and the plaintext booter emulated (the risk-free patch validation) | `lab/jalon411/findings-4.20→4.34.md`, `lab/jalon411/INDEX.md`, `tools/edpp/`, `tools/gsp-lz/`, `tools/gsp-container/`, `tools/analysis/x86-rm/`, `tools/booter-patch/` |
 
-## The current phase: from the cartography to the EDPp handlers
+## The current phase: every transport lane falsified — the observation instruments are the deliverable
 
-Phase III is proven in silicon, not just emulation — and the hardware
-runs taught the two facts that define phase IV:
+The wave 4.20→4.34 closed every transport lane to the power limit:
 
-1. **The anti-tamper lock is real and persistent.** After a ROP fire the
-   secure domain reads DENIED across the registers and the FEAT region,
-   surviving warm reboots (the always-on island). Recovery = a full
-   power cycle. **One fire per power cycle — never more.**
-2. **The honest 280 W map.** The exploit opens *fuse shadows* (the
-   FEAT_OVR space). Our 250 W ceiling is the **EDPp table applied by
-   the GSP-RM at runtime** — a policy, not a fuse. Opening the PLMs
-   does not touch it. The reachable lane is the GSP-RM's own RPC
-   dispatch tables — static ID→handler anchors that survive the
-   runtime-bound dispatch graph — leading to the `NV2080_CTRL_CMD_PWR_*`
-   handlers and the EDPp enforcement code.
+1. **The RPC dispatch table = found** (1156 entries, ID→handler named —
+   pass 4.20), and the transport instrumented end to end (the send +
+   the recv small/large paths, the sequence-tagged dumps).
+2. **The power limit value NEVER travels it.** Every "250000" captured
+   was falsified in turn: the LACT clock offsets (the issuer = NVML
+   userspace, proven against both x86 cores), an unconsumed rejected
+   request (the handler returns INVALID_STATE — confirmed live by the
+   surgical rewrite), and in the firmware itself the seven 250000
+   constants = the TIME hysteresis in µs ([250000, 500000]), not power.
+3. **The enforcement = the GSP-RM's EDPp policy object**, fed by a
+   mechanism still unobserved — the recv large-path hook (the pass
+   4.26-ready) and the force-get = the armed observation instruments.
+4. **The anti-tamper lock** stands (the pass III lesson): one fire per
+   power cycle, the restoration = the full cycle.
 
-The active gains meanwhile, on the machine now: the core offset **+225 →
-2325 MHz** (above the 2200 MHz cap target), the undervolt 1995 MHz @
-987 mV (the effective 280 W perf/watt), 250 W stock power. The memory OC
-(via LACT) is the last unapplied immediate lever.
-
-Everything is volatile (lost at power cycle, reapplied per run) — the
-worst case is a failed module load and a clean reboot. The dual-BIOS
-switch (pos 2) is the last-resort net; it has never been needed.
+The active gains on the machine: the core offset +225 → 2325 MHz, the
+undervolt 1995 @ 987 mV, 250 W stock, the memory OC +500 validated
+(+6 % Solar Bay official, +25 % the 1 % low in Q2RTX).
 
 ## The data catalog
 
-**[lab/DATA-INDEX.md](lab/DATA-INDEX.md)** — the master index (in
-reconstruction): the decoded structures, the artifacts, the instruments.
-The lab findings: **`lab/findings-gx1.md` → `gx41.md`** (the read-only
-era), `lab/findings-cert20-e2e-pass.md` (the break validation), and
-**`lab/jalon411/`** (the GSP-RM cartography, passes 4.14→4.19: the
-boundary-verified map, the dispatch census, the derivation graph). The
-authoritative campaign state: **[STATE.md](STATE.md)**.
+**[lab/jalon411/INDEX.md](lab/jalon411/INDEX.md)** — the master index
+of the wave 4.14→4.34: each pass, its findings, its verdict, its
+instruments. The tool domains: **tools/edpp/** (the power-limit
+instruments, the runbook), **tools/gsp-lz/** + **tools/gsp-container/**
+(the verified gsp.bin rebuild pipeline), **tools/analysis/x86-rm/**
+(the closed x86 cores with provenance), **tools/booter-patch/** (the
+plaintext-booter patch tooling), **tools/analysis/gsp-extract/** (the
+rm.elf disassembly and the extraction). The authoritative campaign
+state: **[STATE.md](STATE.md)**.
 
 ## The doctrine (how the rules evolved)
 
