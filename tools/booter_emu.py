@@ -380,6 +380,140 @@ SIG_BASE     = 0x16D000   # le soustracteur t3 de la signature
 MAGIC_BYTE   = 0x08       # li a2,0x8 @0x1022c8 (le setup 4.42)
 
 
+def test_444():
+    """4.44 TÂCHE C2 — la chaîne complète du payload v444 sur l'image
+    RÉELLE du booter.
+
+    Le modèle (les paramètres du jour capture = injectés par le test —
+    la résolution de l'adresse obj n'est PAS constructible en gadgets
+    du booter, v444e — le mur honnête) :
+      - l'objet policy 0x6d0 NÉ ZÉRO (la preuve v444b : le memset de la
+        création 0x1458d08) modelé @OBJ ;
+      - le pointeur *(state+0x4E98) = OBJ posé dans la RAM (la
+        résolution du paramètre) ;
+      - le PAYLOAD v444 (le layout C/v444_transfer_list_build.py, le
+        ctx @+0x488, la liste D @+0x500, la liste f18 @+0x540) ;
+      - UNE invocation gadget (0x100b3e, a3=8) = le scatter D complet ;
+      - UNE invocation gadget (0x100b3e, a3=1) = le 1er f18.
+    PASS = les u64 D aux CHAMPS exacts obj+0x618+idx*0x10, le f18 =
+    112 à obj+0x18, la formule re-vérifiée : base x f18/100000 =
+    280000.
+    """
+    import hashlib
+    img = load_image()
+    results = []
+
+    def check(name, cond, detail=""):
+        results.append((name, bool(cond), detail))
+        print(f"[{ 'PASS' if cond else 'FAIL' }] {name} {detail}")
+
+    # -- le payload v444 COMMIS (le builder python = le C, v444f)
+    repo_pay = (Path(__file__).resolve().parent.parent /
+                "lab/jalon411/v444_payload.bin").read_bytes()
+    assert len(repo_pay) == 0x1000
+
+    OBJ = 0x120000          # l'objet policy (0x6d0, né zéro)
+    STATE_SLOT = 0x114E98   # state+0x4E98 (le model, state @0x110000)
+    DEST = OBJ + 0x610      # la dest du scatter = obj+0x610
+    PAY = 0x165000          # le payload (le ctx @+0x488, D @+0x500)
+    D0 = 0x0000000010B07600   # 280,000,000 µW (la lecture percent)
+    F18 = 0x0000000000000070  # 112
+
+    # -- TF-A : le scatter D E2E (UNE invocation a3=8)
+    e = Emu(img)
+    for i, b in enumerate(repo_pay):
+        e.mem[PAY - 0x100000 + i] = b
+    # le paramètre runtime : le dest résolu DANS le payload (le jour
+    # capture, le builder patche ce champ — ici le test le pose)
+    e.mem[PAY - 0x100000 + 0x498:PAY - 0x100000 + 0x4A0] = \
+        DEST.to_bytes(8, "little")
+    # l'objet né ZÉRO + le pointeur *(state+0x4E98)
+    e.mem[OBJ - 0x100000:OBJ - 0x100000 + 0x6d0] = bytes(0x6d0)
+    e.wmem(STATE_SLOT, 8, OBJ)
+    sp = 0x16E000
+    e.wmem(sp + 8, 8, PAY + 0x500)      # la cellule de marche -> &D[0]
+    e.wmem(sp + 0x50, 8, 0xDEADC0DE)    # le lien terminal de la chaîne
+    e.pc = GADGET_ENTRY
+    r = e.regs
+    r[REG_NAMES.index("a0")] = M - 1    # le chemin RAW pour toujours
+    r[REG_NAMES.index("a3")] = 8        # n = 8 itérations
+    r[REG_NAMES.index("a7")] = 0
+    r[REG_NAMES.index("a1")] = DEST + 8  # la 1re cible = obj+0x618 (D0)
+    r[REG_NAMES.index("a4")] = PAY      # le ctx = le payload lui-même
+    r[2] = sp
+    r[1] = 0xDEADC0DE
+    e.stop_at = {0xDEADC0DE}
+    e.run(budget=800)
+
+    check("TF-A le scatter D : les 4 D u64 aux champs exacts",
+          e.rmem(OBJ + 0x618, 8) == D0 and
+          e.rmem(OBJ + 0x628, 8) == D0 and
+          e.rmem(OBJ + 0x638, 8) == D0 and
+          e.rmem(OBJ + 0x648, 8) == D0,
+          f"D0={e.rmem(OBJ+0x618,8):x} D1={e.rmem(OBJ+0x628,8):x} "
+          f"D2={e.rmem(OBJ+0x638,8):x} D3={e.rmem(OBJ+0x648,8):x}")
+    check("TF-A les clobbers {B,C} = 0 (le placeholder nommé)",
+          e.rmem(OBJ + 0x620, 8) == 0 and e.rmem(OBJ + 0x630, 8) == 0
+          and e.rmem(OBJ + 0x640, 8) == 0,
+          f"BC1={e.rmem(OBJ+0x620,8):x} BC2={e.rmem(OBJ+0x630,8):x} "
+          f"BC3={e.rmem(OBJ+0x640,8):x}")
+    check("TF-A le compteur slot-0 [dest] += 8",
+          e.rmem(DEST, 8) == 8, f"[dest]={e.rmem(DEST,8)}")
+    check("TF-A le slot ctx = 8 et ret propre",
+          e.rmem(PAY + 0x488, 8) == 8 and e.pc == 0xDEADC0DE
+          and not e.fail, f"pc={e.pc:#x} fail={e.fail}")
+
+    # -- TF-B : le 1er f18 (l'invocation a3=1 — la route persistante)
+    e2 = Emu(img)
+    for i, b in enumerate(repo_pay):
+        e2.mem[PAY - 0x100000 + i] = b
+    e2.mem[PAY - 0x100000 + 0x498:PAY - 0x100000 + 0x4A0] = \
+        DEST.to_bytes(8, "little")
+    e2.mem[OBJ - 0x100000:OBJ - 0x100000 + 0x6d0] = bytes(0x6d0)
+    e2.wmem(STATE_SLOT, 8, OBJ)
+    sp2 = 0x16E000
+    e2.wmem(sp2 + 8, 8, PAY + 0x540)    # la marche -> &f18_list[0]
+    e2.wmem(sp2 + 0x50, 8, 0xDEADC0DE)
+    e2.pc = GADGET_ENTRY
+    r = e2.regs
+    r[REG_NAMES.index("a0")] = M - 1
+    r[REG_NAMES.index("a3")] = 1
+    r[REG_NAMES.index("a7")] = 0
+    r[REG_NAMES.index("a1")] = OBJ + 0x18   # record[0].f18
+    r[REG_NAMES.index("a4")] = PAY
+    r[2] = sp2
+    r[1] = 0xDEADC0DE
+    e2.stop_at = {0xDEADC0DE}
+    e2.run(budget=400)
+    check("TF-B le f18 = 112 à obj+0x18 (le u64 = {112, 0})",
+          e2.rmem(OBJ + 0x18, 8) == F18,
+          f"[obj+0x18]={e2.rmem(OBJ+0x18,8):x}")
+    check("TF-B ret propre", e2.pc == 0xDEADC0DE and not e2.fail,
+          f"pc={e2.pc:#x} fail={e2.fail}")
+
+    # -- TF-C : la formule re-vérifiée sur les valeurs posées — les
+    #    DEUX ROUTES = EXCLUSIVES (l'application des DEUX = l'overshoot
+    #    313.6 W — le piège opérationnel que CE test documente)
+    base = e.rmem(OBJ + 0x618, 8) & 0xFFFFFFFF
+    f18 = e2.rmem(OBJ + 0x18, 8) & 0xFFFFFFFF
+    lim_stock = 250000000 * 100 // 100000          # le stock = 250000
+    lim_f18_route = 250000000 * f18 // 100000      # la route f18 SEULE
+    lim_base_route = base * 100 // 100000          # la route base SEULE
+    lim_both = base * f18 // 100000                # les DEUX = l'erreur
+    check("TF-C la route f18 SEULE : 250000000 x 112 / 100000 = 280000",
+          lim_f18_route == 280000, f"= {lim_f18_route}")
+    check("TF-C la route base SEULE : 280000000 x 100 / 100000 = 280000",
+          lim_base_route == 280000, f"= {lim_base_route}")
+    check("TF-C les DEUX routes ENSEMBLE = l'overshoot 313600 "
+          "(l'exclusivité des routes — le runbook n'en applique QU'UNE)",
+          lim_both == 313600 and lim_stock == 250000,
+          f"both={lim_both} stock={lim_stock}")
+
+    n_pass = sum(1 for _, ok, _ in results if ok)
+    print(f"test-444: {n_pass}/{len(results)} PASS")
+    return 0 if n_pass == len(results) else 1
+
+
 def test_transfer():
     """4.42 TÂCHE 4 — la validation émulateur de la transfer-list.
 
@@ -607,8 +741,12 @@ def main():
     ap.add_argument("--patch-bounds", action="store_true", help="NOP du bgeu @0x1014f4 avant run")
     ap.add_argument("--test-transfer", action="store_true",
                     help="4.42: la validation de la transfer-list (TT-A..D)")
+    ap.add_argument("--test-444", action="store_true",
+                    help="4.44: la chaîne v444 sur l'image réelle (TF-A..C)")
     ap.add_argument("--selftest", action="store_true")
     a = ap.parse_args()
+    if a.test_444:
+        return test_444()
     if a.test_transfer:
         return test_transfer()
     if a.selftest:
