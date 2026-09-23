@@ -1,0 +1,1316 @@
+{
+ "substrate": {
+  "path": "/home/z/my-project/artifacts/pkg/kernel/nvidia/nv-kernel.o_binary",
+  "size": 120980872,
+  "sha256": "c90f58d59e8fef44fa07d057bd9ffb1e1b5ee38d3c51b35df71e05e0ad268cbf",
+  "package_sha256": "b2e935c66b83bb00c0c857bc8e0ee0fd52de9286b40c9cc1eec29a7ce7eb116d"
+ },
+ "text_imm_hits": [
+  {
+   "section": ".text",
+   "addr": 198498,
+   "fn": "_nv059112rm",
+   "insn": "imul   $0x186a0,%rax,%rax",
+   "value": "100000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 198526,
+   "fn": "_nv059112rm",
+   "insn": "imul   $0x186a0,%rax,%rax",
+   "value": "100000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 198548,
+   "fn": "_nv059112rm",
+   "insn": "imul   $0x186a0,%esi,%eax",
+   "value": "100000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 198581,
+   "fn": "_nv059112rm",
+   "insn": "imul   $0x186a0,%rcx,%rax",
+   "value": "100000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 198642,
+   "fn": "_nv059112rm",
+   "insn": "imul   $0x186a0,%rax,%rax",
+   "value": "100000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 203570,
+   "fn": "_nv059111rm",
+   "insn": "sub    $0x3d090,%rax",
+   "value": "250000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 203740,
+   "fn": "_nv059111rm",
+   "insn": "mov    $0x3d090,%r15d",
+   "value": "250000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 205364,
+   "fn": "_nv059099rm",
+   "insn": "cmp    $0x3d090,%rdi",
+   "value": "250000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 206655,
+   "fn": "_nv059110rm",
+   "insn": "cmp    $0x7a120,%rax",
+   "value": "500000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 206661,
+   "fn": "_nv059110rm",
+   "insn": "mov    $0x7a120,%r10d",
+   "value": "500000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 206694,
+   "fn": "_nv059110rm",
+   "insn": "mov    $0x3d090,%r12d",
+   "value": "250000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 206711,
+   "fn": "_nv059110rm",
+   "insn": "cmp    $0x3d090,%rcx",
+   "value": "250000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 206718,
+   "fn": "_nv059110rm",
+   "insn": "mov    $0x3d090,%ecx",
+   "value": "250000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 207443,
+   "fn": "_nv059110rm",
+   "insn": "cmp    $0x7a120,%rax",
+   "value": "500000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 207449,
+   "fn": "_nv059110rm",
+   "insn": "mov    $0x7a120,%r10d",
+   "value": "500000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 207567,
+   "fn": "_nv059110rm",
+   "insn": "mov    $0x3d090,%r12d",
+   "value": "250000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 208968,
+   "fn": "_nv059108rm",
+   "insn": "mov    $0x3d090,%edx",
+   "value": "250000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 216183,
+   "fn": "_nv059107rm",
+   "insn": "movq   $0x7a120,0x4f78(%r15)",
+   "value": "500000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 1031148,
+   "fn": "_nv017500rm",
+   "insn": "mov    $0x30d40,%edx",
+   "value": "200000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 1203672,
+   "fn": "_nv037657rm",
+   "insn": "mov    $0x186a0,%edi",
+   "value": "100000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 1207417,
+   "fn": "_nv037655rm",
+   "insn": "mov    $0x186a0,%edi",
+   "value": "100000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 1226316,
+   "fn": "_nv037747rm",
+   "insn": "imul   $0x7a120,0x2018(%rdi),%edx",
+   "value": "500000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 1294588,
+   "fn": "_nv018462rm",
+   "insn": "mov    $0x960,%esi",
+   "value": "2400",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 1307860,
+   "fn": "_nv018458rm",
+   "insn": "mov    $0x960,%esi",
+   "value": "2400",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 1315900,
+   "fn": "_nv018460rm",
+   "insn": "mov    $0x960,%esi",
+   "value": "2400",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 1595864,
+   "fn": "_nv020279rm",
+   "insn": "movl   $0x7a120,0x11c0(%rbx)",
+   "value": "500000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 2062550,
+   "fn": "_nv019961rm",
+   "insn": "movl   $0x186a0,0x1ce8(%rbx)",
+   "value": "100000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 2062619,
+   "fn": "_nv019961rm",
+   "insn": "movl   $0x7a120,0x1e08(%rbx)",
+   "value": "500000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 2062910,
+   "fn": "_nv019961rm",
+   "insn": "movl   $0x186a0,0x4a78(%rbx)",
+   "value": "100000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 2062975,
+   "fn": "_nv019961rm",
+   "insn": "movl   $0x7a120,0x4bc8(%rbx)",
+   "value": "500000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 2084997,
+   "fn": "_nv019961rm",
+   "insn": "movl   $0x186a0,0x1ce8(%rbx)",
+   "value": "100000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 2085099,
+   "fn": "_nv019961rm",
+   "insn": "movl   $0x7a120,0x1e08(%rbx)",
+   "value": "500000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 2085330,
+   "fn": "_nv019961rm",
+   "insn": "movl   $0x186a0,0x4a78(%rbx)",
+   "value": "100000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 2085428,
+   "fn": "_nv019961rm",
+   "insn": "movl   $0x7a120,0x4bc8(%rbx)",
+   "value": "500000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 2144512,
+   "fn": "_nv020232rm",
+   "insn": "cmp    $0x7a120,%eax",
+   "value": "500000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 2144544,
+   "fn": "_nv020232rm",
+   "insn": "cmp    $0x7a120,%eax",
+   "value": "500000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 2151271,
+   "fn": "_nv020275rm",
+   "insn": "mov    $0x7a120,%ecx",
+   "value": "500000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 2151306,
+   "fn": "_nv020275rm",
+   "insn": "mov    $0x7a120,%ecx",
+   "value": "500000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 2151715,
+   "fn": "_nv020275rm",
+   "insn": "mov    $0x7a120,%ecx",
+   "value": "500000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 2155532,
+   "fn": "_nv020594rm",
+   "insn": "movl   $0x186a0,(%rcx)",
+   "value": "100000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 2166104,
+   "fn": "_nv020266rm",
+   "insn": "mov    $0x186a0,%eax",
+   "value": "100000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 2279082,
+   "fn": "_nv058200rm",
+   "insn": "mov    $0x186a0,%edx",
+   "value": "100000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 2768194,
+   "fn": "_nv038597rm",
+   "insn": "imul   $0x186a0,%rax,%rax",
+   "value": "100000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 2768221,
+   "fn": "_nv038597rm",
+   "insn": "cmp    $0x186a0,%rax",
+   "value": "100000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 2768243,
+   "fn": "_nv038597rm",
+   "insn": "imul   $0x186a0,%rcx,%rcx",
+   "value": "100000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 2768273,
+   "fn": "_nv038597rm",
+   "insn": "mov    $0x186a0,%edx",
+   "value": "100000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 2768810,
+   "fn": "_nv038597rm",
+   "insn": "imul   $0x186a0,%rax,%rax",
+   "value": "100000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 2816674,
+   "fn": "_nv022155rm",
+   "insn": "movl   $0x186a0,0x8(%rbp)",
+   "value": "100000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 2816759,
+   "fn": "_nv022155rm",
+   "insn": "mov    $0x186a0,%eax",
+   "value": "100000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 2816952,
+   "fn": "_nv022155rm",
+   "insn": "mov    $0x186a0,%eax",
+   "value": "100000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 2816976,
+   "fn": "_nv022155rm",
+   "insn": "movl   $0x186a0,0xc(%rbp)",
+   "value": "100000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 2882410,
+   "fn": "_nv033520rm",
+   "insn": "mov    $0x186a0,%edx",
+   "value": "100000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 2885769,
+   "fn": "_nv033521rm",
+   "insn": "mov    $0x186a0,%edx",
+   "value": "100000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 2931056,
+   "fn": "_nv022207rm",
+   "insn": "mov    $0x186a0,%edx",
+   "value": "100000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 2981271,
+   "fn": "_nv024912rm",
+   "insn": "imul   $0x186a0,%rax,%rax",
+   "value": "100000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 3048182,
+   "fn": "_nv025746rm",
+   "insn": "mov    $0x30d40,%edi",
+   "value": "200000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 3076718,
+   "fn": "_nv022174rm",
+   "insn": "mov    $0x186a0,%edx",
+   "value": "100000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 3091935,
+   "fn": "_nv022137rm",
+   "insn": "mov    $0x186a0,%edx",
+   "value": "100000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 3198167,
+   "fn": "_nv022235rm",
+   "insn": "mov    $0x186a0,%edx",
+   "value": "100000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 3198483,
+   "fn": "_nv022235rm",
+   "insn": "mov    $0x186a0,%edx",
+   "value": "100000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 3213202,
+   "fn": "_nv022313rm",
+   "insn": "mov    $0x186a0,%edx",
+   "value": "100000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 3334503,
+   "fn": "_nv033593rm",
+   "insn": "mov    $0x186a0,%edx",
+   "value": "100000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 3335596,
+   "fn": "_nv033494rm",
+   "insn": "mov    $0x186a0,%edx",
+   "value": "100000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 3336530,
+   "fn": "_nv033611rm",
+   "insn": "mov    $0x186a0,%edx",
+   "value": "100000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 3711247,
+   "fn": "_nv025055rm",
+   "insn": "mov    $0x186a0,%esi",
+   "value": "100000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 3747631,
+   "fn": "_nv025057rm",
+   "insn": "mov    $0x186a0,%esi",
+   "value": "100000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 3892313,
+   "fn": "_nv025059rm",
+   "insn": "mov    $0x186a0,%esi",
+   "value": "100000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 3913417,
+   "fn": "_nv025061rm",
+   "insn": "mov    $0x186a0,%esi",
+   "value": "100000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 3990107,
+   "fn": "_nv025306rm",
+   "insn": "mov    $0x30d40,%esi",
+   "value": "200000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 3993231,
+   "fn": "_nv013027rm",
+   "insn": "mov    $0x30d40,%esi",
+   "value": "200000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 3993752,
+   "fn": "_nv013027rm",
+   "insn": "mov    $0x30d40,%esi",
+   "value": "200000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 3995440,
+   "fn": "_nv025110rm",
+   "insn": "mov    $0x30d40,%esi",
+   "value": "200000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 3999132,
+   "fn": "_nv025217rm",
+   "insn": "mov    $0x30d40,%esi",
+   "value": "200000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 4199565,
+   "fn": "_nv026312rm",
+   "insn": "movabs $0x570000000960,%rdx",
+   "value": "2400",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 4278760,
+   "fn": "_nv043870rm",
+   "insn": "cmp    $0x186a0,%ebx",
+   "value": "100000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 4278766,
+   "fn": "_nv043870rm",
+   "insn": "mov    $0x186a0,%edx",
+   "value": "100000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 4393870,
+   "fn": "_nv043151rm",
+   "insn": "cmp    $0x7a120,%eax",
+   "value": "500000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 4393899,
+   "fn": "_nv043151rm",
+   "insn": "sub    $0x7a120,%eax",
+   "value": "500000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 4393994,
+   "fn": "_nv043151rm",
+   "insn": "imul   $0x7a120,0x2018(%r13),%edx",
+   "value": "500000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 4394265,
+   "fn": "_nv043151rm",
+   "insn": "cmp    $0x7a120,%eax",
+   "value": "500000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 4394283,
+   "fn": "_nv043151rm",
+   "insn": "sub    $0x7a120,%edx",
+   "value": "500000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 4470786,
+   "fn": "_nv043150rm",
+   "insn": "cmp    $0x7a120,%eax",
+   "value": "500000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 4470815,
+   "fn": "_nv043150rm",
+   "insn": "sub    $0x7a120,%eax",
+   "value": "500000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 4471064,
+   "fn": "_nv043150rm",
+   "insn": "imul   $0x7a120,0x2018(%r13),%edx",
+   "value": "500000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 4471177,
+   "fn": "_nv043150rm",
+   "insn": "cmp    $0x7a120,%eax",
+   "value": "500000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 4471195,
+   "fn": "_nv043150rm",
+   "insn": "sub    $0x7a120,%edx",
+   "value": "500000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 4948524,
+   "fn": "_nv026850rm",
+   "insn": "addl   $0x186a0,0xa0(%rbp)",
+   "value": "100000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 4948553,
+   "fn": "_nv026850rm",
+   "insn": "mov    $0x186a0,%edi",
+   "value": "100000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 4948598,
+   "fn": "_nv026850rm",
+   "insn": "movl   $0x186a0,0xa4(%rbp)",
+   "value": "100000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 5227073,
+   "fn": "_nv027550rm",
+   "insn": "mov    $0x960,%esi",
+   "value": "2400",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 5626031,
+   "fn": "_nv012125rm",
+   "insn": "cmp    $0x186a0,%rax",
+   "value": "100000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 5626037,
+   "fn": "_nv012125rm",
+   "insn": "mov    $0x186a0,%edx",
+   "value": "100000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 5700587,
+   "fn": "_nv029720rm",
+   "insn": "mov    $0xaf0,%eax",
+   "value": "2800",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 5788680,
+   "fn": "_nv053777rm",
+   "insn": "movl   $0x186a0,0x84(%rbp)",
+   "value": "100000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 5788690,
+   "fn": "_nv053777rm",
+   "insn": "movl   $0x186a0,0x8c(%rbp)",
+   "value": "100000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 5788700,
+   "fn": "_nv053777rm",
+   "insn": "movl   $0x186a0,0x94(%rbp)",
+   "value": "100000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 5788710,
+   "fn": "_nv053777rm",
+   "insn": "movl   $0x186a0,0x9c(%rbp)",
+   "value": "100000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 5814294,
+   "fn": "_nv030032rm",
+   "insn": "mov    $0x960,%esi",
+   "value": "2400",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 5833711,
+   "fn": "_nv030035rm",
+   "insn": "mov    $0x960,%esi",
+   "value": "2400",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 5861304,
+   "fn": "_nv053811rm",
+   "insn": "imul   $0x7a120,%edx,%edx",
+   "value": "500000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 6040816,
+   "fn": "_nv032153rm",
+   "insn": "imul   $0x7a120,0x2018(%r13),%edx",
+   "value": "500000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 6776561,
+   "fn": "_nv044430rm",
+   "insn": "mov    $0x186a0,%edx",
+   "value": "100000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 6860385,
+   "fn": "_nv013844rm",
+   "insn": "mov    $0x30d40,%r13d",
+   "value": "200000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 7362290,
+   "fn": "_nv035679rm",
+   "insn": "mov    $0x186a0,%esi",
+   "value": "100000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 7388157,
+   "fn": "_nv035678rm",
+   "insn": "mov    $0x186a0,%esi",
+   "value": "100000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 7800086,
+   "fn": "_nv037072rm",
+   "insn": "mov    $0x7a120,%r10d",
+   "value": "500000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 7800577,
+   "fn": "_nv037072rm",
+   "insn": "add    $0x7a120,%r10d",
+   "value": "500000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 7800744,
+   "fn": "_nv037068rm",
+   "insn": "mov    $0x7a120,%r12d",
+   "value": "500000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 7801434,
+   "fn": "_nv037068rm",
+   "insn": "add    $0x7a120,%r12d",
+   "value": "500000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 7854134,
+   "fn": "_nv037071rm",
+   "insn": "mov    $0x7a120,%r10d",
+   "value": "500000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 7854625,
+   "fn": "_nv037071rm",
+   "insn": "add    $0x7a120,%r10d",
+   "value": "500000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 7854792,
+   "fn": "_nv037067rm",
+   "insn": "mov    $0x7a120,%r12d",
+   "value": "500000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 7855482,
+   "fn": "_nv037067rm",
+   "insn": "add    $0x7a120,%r12d",
+   "value": "500000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 7883991,
+   "fn": "_nv037086rm",
+   "insn": "mov    $0x7a120,%edx",
+   "value": "500000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 7898336,
+   "fn": "_nv037174rm",
+   "insn": "imul   $0x186a0,0x2018(%r15),%edx",
+   "value": "100000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 7935934,
+   "fn": "_nv036624rm",
+   "insn": "imul   $0x186a0,0x2018(%r14),%edx",
+   "value": "100000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 8076893,
+   "fn": "_nv045883rm",
+   "insn": "mov    $0x186a0,%edx",
+   "value": "100000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 8245916,
+   "fn": "_nv052564rm",
+   "insn": "mov    $0x7a120,%edi",
+   "value": "500000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 8252210,
+   "fn": "_nv052564rm",
+   "insn": "mov    $0x7a120,%edi",
+   "value": "500000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 8914938,
+   "fn": "_nv014718rm",
+   "insn": "imul   $0x186a0,%rax,%rax",
+   "value": "100000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 9783026,
+   "fn": "_nv035567rm",
+   "insn": "cmpl   $0x186a0,0x0(%rip)        # 9546fc <_nv035567rm+0x2c>",
+   "value": "100000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 9787468,
+   "fn": "_nv035529rm",
+   "insn": "mov    $0x3d090,%eax",
+   "value": "250000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 9843966,
+   "fn": "_nv035480rm",
+   "insn": "mov    $0x30d40,%ecx",
+   "value": "200000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 9844179,
+   "fn": "_nv035559rm",
+   "insn": "mov    $0x30d40,%ecx",
+   "value": "200000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 9845360,
+   "fn": "_nv035478rm",
+   "insn": "mov    $0x30d40,%ecx",
+   "value": "200000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 9845517,
+   "fn": "_nv035557rm",
+   "insn": "mov    $0x30d40,%ecx",
+   "value": "200000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 9845734,
+   "fn": "_nv035482rm",
+   "insn": "mov    $0x30d40,%ecx",
+   "value": "200000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 9845801,
+   "fn": "_nv035482rm",
+   "insn": "mov    $0x30d40,%ecx",
+   "value": "200000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 9846029,
+   "fn": "_nv035534rm",
+   "insn": "mov    $0x30d40,%ecx",
+   "value": "200000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 9846218,
+   "fn": "_nv035536rm",
+   "insn": "mov    $0x30d40,%ecx",
+   "value": "200000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 9886542,
+   "fn": "_nv015176rm",
+   "insn": "mov    $0x7a120,%edx",
+   "value": "500000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 10249124,
+   "fn": "_nv051039rm",
+   "insn": "mov    $0x30d40,%edx",
+   "value": "200000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 10466840,
+   "fn": "_nv054288rm",
+   "insn": "mov    $0x186a0,%edx",
+   "value": "100000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 10514929,
+   "fn": "_nv055440rm",
+   "insn": "add    $0x7a120,%rdx",
+   "value": "500000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 10693144,
+   "fn": "_nv057631rm",
+   "insn": "cmp    $0x186a0,%r12d",
+   "value": "100000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 10693502,
+   "fn": "_nv057631rm",
+   "insn": "mov    $0x186a0,%r12d",
+   "value": "100000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 10872647,
+   "fn": "_nv014019rm",
+   "insn": "mov    $0x186a0,%esi",
+   "value": "100000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 10973536,
+   "fn": "_nv041081rm",
+   "insn": "movl   $0x186a0,0x108(%rbx)",
+   "value": "100000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 11903909,
+   "fn": "_nv006382rm",
+   "insn": "mov    $0x960,%esi",
+   "value": "2400",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 13726219,
+   "fn": "_nv014343rm",
+   "insn": "push   $0xaf0",
+   "value": "2800",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 13726257,
+   "fn": "_nv014343rm",
+   "insn": "mov    $0xaf0,%r8d",
+   "value": "2800",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 13726287,
+   "fn": "_nv014343rm",
+   "insn": "mov    $0xaf0,%r8d",
+   "value": "2800",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 13726353,
+   "fn": "_nv014343rm",
+   "insn": "push   $0xaf0",
+   "value": "2800",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 13790324,
+   "fn": "_nv047359rm",
+   "insn": "movabs $0x5000186a0,%r12",
+   "value": "100000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 14031364,
+   "fn": "_nv047357rm",
+   "insn": "movabs $0x5000186a0,%r12",
+   "value": "100000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 14081391,
+   "fn": "_nv046677rm",
+   "insn": "mov    $0x30d40,%edi",
+   "value": "200000",
+   "kind": "imm"
+  },
+  {
+   "section": ".text",
+   "addr": 14349028,
+   "fn": "_nv047358rm",
+   "insn": "movabs $0x3000186a0,%r14",
+   "value": "100000",
+   "kind": "imm"
+  }
+ ],
+ "data_hits_count": {
+  "2500|u32": 3,
+  "2800|u32": 1,
+  "200000|u32": 2,
+  "240.0|f32": 1,
+  "250.0|f32": 1,
+  "280.0|f32": 1
+ },
+ "data_hits_sample": [
+  {
+   "section": ".rodata",
+   "off": 91391352,
+   "value": "2500",
+   "kind": "u32",
+   "symbol": {
+    "name": "_nv028068rm",
+    "value": 16331264,
+    "size": 49464,
+    "type": "r",
+    "match": "nearest"
+   }
+  },
+  {
+   "section": ".rodata",
+   "off": 91413968,
+   "value": "2500",
+   "kind": "u32",
+   "symbol": {
+    "name": "_nv028068rm",
+    "value": 16331264,
+    "size": 49464,
+    "type": "r",
+    "match": "nearest"
+   }
+  },
+  {
+   "section": ".rodata",
+   "off": 91682128,
+   "value": "2500",
+   "kind": "u32",
+   "symbol": {
+    "name": "_nv028068rm",
+    "value": 16331264,
+    "size": 49464,
+    "type": "r",
+    "match": "nearest"
+   }
+  },
+  {
+   "section": ".rodata",
+   "off": 89773792,
+   "value": "2800",
+   "kind": "u32",
+   "symbol": {
+    "name": "_nv028068rm",
+    "value": 16331264,
+    "size": 49464,
+    "type": "r",
+    "match": "nearest"
+   }
+  },
+  {
+   "section": ".rodata",
+   "off": 91553523,
+   "value": "200000",
+   "kind": "u32",
+   "symbol": {
+    "name": "_nv028068rm",
+    "value": 16331264,
+    "size": 49464,
+    "type": "r",
+    "match": "nearest"
+   }
+  },
+  {
+   "section": ".rodata",
+   "off": 91626099,
+   "value": "200000",
+   "kind": "u32",
+   "symbol": {
+    "name": "_nv028068rm",
+    "value": 16331264,
+    "size": 49464,
+    "type": "r",
+    "match": "nearest"
+   }
+  },
+  {
+   "section": ".rodata",
+   "off": 180538,
+   "value": "240.0",
+   "kind": "f32",
+   "symbol": {
+    "name": "_nv000407rm",
+    "value": 180432,
+    "size": 175,
+    "type": "t",
+    "match": "exact"
+   }
+  },
+  {
+   "section": ".rodata",
+   "off": 16222,
+   "value": "250.0",
+   "kind": "f32",
+   "symbol": {
+    "name": "_nv053555rm",
+    "value": 8320,
+    "size": 13926,
+    "type": "t",
+    "match": "exact"
+   }
+  },
+  {
+   "section": ".rodata",
+   "off": 180586,
+   "value": "280.0",
+   "kind": "f32",
+   "symbol": {
+    "name": "_nv000407rm",
+    "value": 180432,
+    "size": 175,
+    "type": "t",
+    "match": "exact"
+   }
+  }
+ ],
+ "triple_hits": [],
+ "power_fn_count": 20,
+ "power_fn_imm_hits": []
+}
