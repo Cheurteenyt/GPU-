@@ -69,6 +69,31 @@ tools/edpp/.
   emulator on OUR image, 5/5 — directed patch demo: 0x1014DC bounds check original→FAIL
   oracle vs NOP'd→clean ret, exactly 4 bytes differ).
 
+### 4.32 (2026-09-23) — the EDPp provenance: the six 250000 sites are TIME logic, not power
+
+- The decisive prerequisite PROVEN first: rm-full.elf and gsp-rm-17MB.bin are byte-identical
+  code images under `B_file = A_img − 0x38` (v432_coord_check, 3,739/3,739 windows, the six
+  4.30 patch sites and the 17 v420 census sites re-verified) — all campaign coordinates
+  transfer losslessly.
+- T1: every one of the six 250000 sites has a cited mechanical role, none power:
+  s0 = threshold vs a 0x4f0-stride record field (+0x4a8), s1 = call argument consumed as a
+  TIMEOUT by the shared callee 0x188EF44 which reads `rdtime` and adds the value to the tick
+  to form a deadline, s2 = a deadline/deadband pair on the same record field (+0x470, the
+  −250000 arm 96 B away), s3 = the dividend of a packed {divisor, quotient} rate pair
+  (0xc0-stride records), s4/s5 = clamp-to-500000 + threshold in one function.
+- T2: 100000 and 240000 = ZERO lui+addi sites in the whole code image (7,434 pairs, all
+  legal decompositions) — the power trio {100/240/250} does NOT exist in the RM. The
+  co-occurring family {±250000, ±500000, 1000000, 4000000, 100000000} is scale-coherent only
+  as µs (the tick unit stays HYPOTHÈSE). The 0x441F0 near s4/s5 = an ADDRESS offset, excluded.
+- T3: the 0x6d0 policy object is re-derived from RM-internal runtime state: the v420 census
+  reproduced 17/17, the writers mapped (memset reset, the 0x2080A080 worker refresh at +0x660,
+  an 8-dword block copy from a descriptor-looked-up runtime object via 0x2080A618, flag
+  immediates) — NO static-constant fill, NO request-buffer fill; the six sites' regions are
+  disjoint from the object's regions.
+- CONCLUSION: the rm.elf patch 250000→280000 does NOT modify the power policy (NON, proven
+  level) — it would change timer durations. The 280 W lane stays host-side (the VBIOS-parse
+  feed / the HS-execution rewrite of the policy object). Do NOT boot the 4.30 patched
+  container expecting watts.
 
 **Phase III is proven in silicon.** The hardware campaign (7+ runs,
 `day0/cert20-plm-feat-test.log`) fired the published ROP chain on our
