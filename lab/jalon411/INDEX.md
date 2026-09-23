@@ -30,28 +30,17 @@ for the next session = pass 4.26 (the recv capture, armed).**
 | 4.29 | lz-real-roundtrip | **the pair premise falsified at phdr level (comp-725KB = vgpu.elf, flat); no NVIDIA LZ4 stream in 1.81 GB scanned** | codec unchanged, T6 = the real-bytes round-trip, permanent; recv76_analyze delivered |
 | 4.30 | gspbin-pipeline | **the GFW directory grammar decoded (13 records, the +0x6d000 bias law, 5/5 byte-exact containments); the u32 patch premise falsified — the six 250000 = lui+addi pairs; the patch landed (18 B differ / 48 rewritten); the load path source-proven (GA104 = gsp_ga10x.bin)** | gspbuild patchrm + R14-R17; the signature coverage = UNDECIDABLE-BY-BYTES |
 | 4.31 | booter-verify-hunt | **the LS-signature verify is NOT in our booter libos ELF (proven: no crypto CSRs 0x7d5-9, no SBI crypto ecall, no SHA/RSA constants, no 0xc0deca7e; the paper's 0x29C4/0x4d4/0x2e80/0x7dd9 are all < 0x8000 = BROM addresses); our secure interface = SBI ecalls (a7=0x900001EB, a6∈{0,7,8,9,0xa}, fail=a7=8) + the nvriscv region CSRs 0x5ca-0x5d1/0x8d0; TWO booters separated: the .ko BooterLoad is ENCRYPTED (IMAGE_PROD 0x87d7, NUM_SIGS=2, BROM-RSA-covered — patch refused by construction) while our plaintext libos booter = the gsp_ga10x.bin first section @container 0x40 (the container = a RISC-V ELF, new proof); booter_emu.py runs the real image (5/5) and the directed patch demo works: the 0x1014DC bounds check original→FAIL-oracle vs NOP'd→clean ret, exactly 4 bytes differ** | v431_booter_hunt 17/17; patch_booter locate-ko/locate-gsp/patch-gsp 5/5; tools/booter_emu.py 5/5 |
-| 4.32 | edpp-provenance | **the six 250000 sites are TIME logic, not power (PROVEN per site with cited asm): s1's shared callee 0x188EF44 reads `rdtime` and adds 250000 to the tick = a TIMEOUT; s2 = a ±250000 deadband on a 0x4f0-stride record deadline; s3 = the dividend of a packed {divisor, quotient} pair; s4/s5 = clamp-to-500000 + threshold; 100000/240000 = ZERO lui+addi sites in 7,434 pairs — the power trio does NOT exist in the RM; the co-occurring family is scale-coherent only as µs; the 0x6d0 policy object is filled from RM-internal runtime state (0x2080A080/0x2080A618 vtable events + field copies), never static constants, never the request buffer; the coordinate law B_file = A_img − 0x38 PROVEN image-wide (3,739/3,739)** | **the rm.elf 250000→280000 patch does NOT touch the power policy (NON); the 280 W lane = the host/VBIOS feed or the HS rewrite of the policy object** |
-| 4.32e | reconciliation | **the independent draft pass arbitrated on the bytes (v432e_reconcile): a SEVENTH 250000 site proven REAL @A 0xb99c82 (gap-8 split, no clobber — the clamp of the difference s10−s2 to 250000 = the hysteresis partner of s4/s5's 500000 clamp → the TIME verdict REINFORCED, and the 4.30 patch = 6/7 INCOMPLETE regardless of semantics); 100000 = 36 REAL c.lui+addi sites (the allpairs docstring promised c.lui, the code never scanned it — "absent from the firmware" corrected, the trio premise still falsified: 240000 = 0 under EVERY form, the family is NOT c.lui-encodable); 3 of the 36 c.lui-100000 sites co-occur region-level inside s2's/s3's regions (0.1 s next to the 0.25/0.5 s band); the draft's "real UPDATE function" = the NEXT function's prologue at +0x38 (the no-law coordinate error; the c.jr ra stub confirmed); the draft's "57 materializations" = its own worklog misreading (32 c.lui + the 500000 count)** | **global verdict UNCHANGED and stress-tested: NON (time, now 7 sites + 36 c.lui-100000); the scan pattern v432e (full+compressed, gaps {2,4,6,8}, clobber-checked, seen-validated) = the reference constant census** |
+| 4.33 | firmware-optimization | **the four-lane optimization map of the closed RM: A = the 60-knob policy table (60 round values classified per first-consumer; the µs ladder re-confirmed; the 36 c.lui-100000 attributed to 34 ret-bounded bodies, 3 in s2/s3 — the 4.32e queue paid; the 4.30 patched container = 6/7 INCOHERENT, complete-or-revert registered); B = 145,117 exact duplicate families / 918,518 windows = 27% of instruction starts, shareable ≥ 12.2 MB, the #1 idiom present 26,060× (the patch-coherence tax, quantified); C = the call census follows the bytes — this firmware calls in auipc+jalr PIC pairs (300,245/148,314; only 600 jal) = 148,848 sites / 7,084 targets, top fan-in 52,114 and 31,329, the ecall-0x25 gate 7,284, the PIC targets 100% seen; D = layout CLOSED (0 file gaps, 3.8% inter-region zeros, the booter's 96.3% zeros = STRUCTURAL per the GFW bias law)** | v433c_knobs + v433b_callfanin + v433a_dupcode + v433d_layout, all selftested; 6 instrument lessons banked |
 
-## The current state of the 280 W question (after 4.32)
+## The current state of the 280 W question (after 4.28)
 
 - The power limit value **never travels** the fn=76 transport (the
   250000 = the LACT clock offset, the falsification).
-- The seven 250000 sites in rm.elf (the six full pairs + the gap-8
-  hysteresis clamp @A 0xb99c82, 4.32e) = **timer/threshold logic,
-  PROVEN** (4.32/4.32e) — the rm.elf constant patch does NOT reach the
-  power policy, and the 4.30 patched container is INCOMPLETE (6/7: the
-  seventh site survives it).
 - The enforcement = **the GSP-RM's EDPp policy object** (the 0x6d0
-  object, the 4.20/4.21 passes), filled from RM-internal runtime
-  state via the 0x2080Axxx internal events (4.32: the writer map —
-  no static constants, no request buffer). The values' upstream
-  origin = the VBIOS-parse chain (the 4.21 host-lane queue item).
-- **The only roads to 280 W: the host feed (the open-source
-  kernel_gsp.c / perf construct path) or the HS-execution rewrite of
-  the policy object** (the campaign's proven driver-patch bypass).
-  The boot test of the 4.30 patched container = NOT a 280 W
-  experiment (keep it only for the signature-coverage question).
+  object, the 4.20/4.21 passes), fed by mechanisms still to observe.
+- **The only road to the real data = pass 4.26: the recv-hook capture**
+  (the response-path instrument = merged and armed; the boot = the
+  capture).
 
 ## The instruments (the naming convention)
 

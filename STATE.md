@@ -1,8 +1,26 @@
-# gpu-lab — state of the campaign (2026-09-22)
+# gpu-lab — state of the campaign (2026-09-23)
 
 One page to answer: where the campaign stands, what is proven, what is
 open, what is next. The historical snapshots (2026-09-17, 2026-09-20)
 are at the bottom.
+
+## The 4.33 addition: the firmware optimization map is banked
+
+The pass 4.33 (`lab/jalon411/findings-4.33-firmware-optimization.md`)
+answered "where can the closed firmware be optimized" with four
+measured lanes: (A) the 60-value policy-knob table with per-site use
+classes — the only behavior-relevant surface, gated by per-knob
+semantics (the µs ladder = the only scale-proven family); (B) the
+duplicate-code census — 145,117 exact families, 27% of instruction
+starts inside a clone, shareable ≥ 12.2 MB, the #1 idiom ×26,060 —
+the quantified patch-coherence tax (the 4.32 7th-site lesson); (C)
+the call census — the firmware calls in auipc+jalr PIC pairs (only
+600 direct jal), 148,848 sites / 7,084 targets, top fan-in 52,114
+and 31,329, the ecall-0x25 gate 7,284 callers, PIC targets 100%
+seen-validated; (D) layout CLOSED — 0 file gaps, the booter's 96.3%
+zeros are structural (the GFW boot-area bias law). The 4.30 patched
+container is registered 6/7 INCOHERENT (the 7th split site keeps
+250000): complete it to 7/7 or revert before any boot experiment.
 
 ## The 4.30 addition: the gsp.bin pipeline is packaged end to end
 

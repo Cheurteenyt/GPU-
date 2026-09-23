@@ -1,0 +1,1106 @@
+{
+ "law": "B_file = A_img - 0x38; VA_A = A_img + 0x1000000",
+ "law_recheck": {
+  "fails": 0,
+  "map_base": "A_img (opcode)"
+ },
+ "seen_starts": 3400949,
+ "windows_hashed": 3400942,
+ "windows_total": 3400942,
+ "families_ge2": 145119,
+ "filler": {
+  "windows": 3572,
+  "physical_runs": 18,
+  "run_bytes_estimate": 7396
+ },
+ "families_verified_exact": 145117,
+ "sites_in_duplicate_windows": 918518,
+ "top_families": [
+  {
+   "copies": 26060,
+   "raw_windows": 26060,
+   "common_prefix_bytes": 16,
+   "shareable_bytes": 416944,
+   "cross_region": true,
+   "regions_sample": [
+    "0x100ccbc",
+    "0x1011114",
+    "0x101568c",
+    "0x1019c28"
+   ],
+   "sites_VA": [
+    "0x100d28e",
+    "0x100d2d0",
+    "0x100d3b0",
+    "0x100dbe6",
+    "0x100ddf0",
+    "0x100df16",
+    "0x100dff6",
+    "0x100ee40",
+    "0x100eef0",
+    "0x100f002",
+    "0x100f0b4",
+    "0x10116de"
+   ]
+  },
+  {
+   "copies": 26060,
+   "raw_windows": 26060,
+   "common_prefix_bytes": 16,
+   "shareable_bytes": 416944,
+   "cross_region": true,
+   "regions_sample": [
+    "0x100ccbc",
+    "0x1011114",
+    "0x101568c",
+    "0x1019c28"
+   ],
+   "sites_VA": [
+    "0x100d292",
+    "0x100d2d4",
+    "0x100d3b4",
+    "0x100dbea",
+    "0x100ddf4",
+    "0x100df1a",
+    "0x100dffa",
+    "0x100ee44",
+    "0x100eef4",
+    "0x100f006",
+    "0x100f0b8",
+    "0x10116e2"
+   ]
+  },
+  {
+   "copies": 26055,
+   "raw_windows": 26055,
+   "common_prefix_bytes": 16,
+   "shareable_bytes": 416864,
+   "cross_region": true,
+   "regions_sample": [
+    "0x100ccbc",
+    "0x1011114",
+    "0x101568c",
+    "0x1019c28"
+   ],
+   "sites_VA": [
+    "0x100d28c",
+    "0x100d2ce",
+    "0x100d3ae",
+    "0x100dbe4",
+    "0x100ddee",
+    "0x100df14",
+    "0x100dff4",
+    "0x100ee3e",
+    "0x100eeee",
+    "0x100f000",
+    "0x100f0b2",
+    "0x10116dc"
+   ]
+  },
+  {
+   "copies": 26043,
+   "raw_windows": 26043,
+   "common_prefix_bytes": 16,
+   "shareable_bytes": 416672,
+   "cross_region": true,
+   "regions_sample": [
+    "0x100ccbc",
+    "0x1011114",
+    "0x101568c",
+    "0x1019c28"
+   ],
+   "sites_VA": [
+    "0x100d27a",
+    "0x100d2bc",
+    "0x100d39c",
+    "0x100dbd2",
+    "0x100dddc",
+    "0x100df02",
+    "0x100dfe2",
+    "0x100ee2c",
+    "0x100eedc",
+    "0x100efee",
+    "0x100f0a0",
+    "0x10116ca"
+   ]
+  },
+  {
+   "copies": 26043,
+   "raw_windows": 26043,
+   "common_prefix_bytes": 16,
+   "shareable_bytes": 416672,
+   "cross_region": true,
+   "regions_sample": [
+    "0x100ccbc",
+    "0x1011114",
+    "0x101568c",
+    "0x1019c28"
+   ],
+   "sites_VA": [
+    "0x100d27e",
+    "0x100d2c0",
+    "0x100d3a0",
+    "0x100dbd6",
+    "0x100dde0",
+    "0x100df06",
+    "0x100dfe6",
+    "0x100ee30",
+    "0x100eee0",
+    "0x100eff2",
+    "0x100f0a4",
+    "0x10116ce"
+   ]
+  },
+  {
+   "copies": 26039,
+   "raw_windows": 26039,
+   "common_prefix_bytes": 16,
+   "shareable_bytes": 416608,
+   "cross_region": true,
+   "regions_sample": [
+    "0x100ccbc",
+    "0x1011114",
+    "0x101568c",
+    "0x1019c28"
+   ],
+   "sites_VA": [
+    "0x100d280",
+    "0x100d2c2",
+    "0x100d3a2",
+    "0x100dbd8",
+    "0x100dde2",
+    "0x100df08",
+    "0x100dfe8",
+    "0x100ee32",
+    "0x100eee2",
+    "0x100eff4",
+    "0x100f0a6",
+    "0x10116d0"
+   ]
+  },
+  {
+   "copies": 26039,
+   "raw_windows": 26039,
+   "common_prefix_bytes": 16,
+   "shareable_bytes": 416608,
+   "cross_region": true,
+   "regions_sample": [
+    "0x100ccbc",
+    "0x1011114",
+    "0x101568c",
+    "0x1019c28"
+   ],
+   "sites_VA": [
+    "0x100d286",
+    "0x100d2c8",
+    "0x100d3a8",
+    "0x100dbde",
+    "0x100dde8",
+    "0x100df0e",
+    "0x100dfee",
+    "0x100ee38",
+    "0x100eee8",
+    "0x100effa",
+    "0x100f0ac",
+    "0x10116d6"
+   ]
+  },
+  {
+   "copies": 26038,
+   "raw_windows": 26038,
+   "common_prefix_bytes": 16,
+   "shareable_bytes": 416592,
+   "cross_region": true,
+   "regions_sample": [
+    "0x100ccbc",
+    "0x1011114",
+    "0x101568c",
+    "0x1019c28"
+   ],
+   "sites_VA": [
+    "0x100d282",
+    "0x100d2c4",
+    "0x100d3a4",
+    "0x100dbda",
+    "0x100dde4",
+    "0x100df0a",
+    "0x100dfea",
+    "0x100ee34",
+    "0x100eee4",
+    "0x100eff6",
+    "0x100f0a8",
+    "0x10116d2"
+   ]
+  },
+  {
+   "copies": 26034,
+   "raw_windows": 26034,
+   "common_prefix_bytes": 16,
+   "shareable_bytes": 416528,
+   "cross_region": true,
+   "regions_sample": [
+    "0x100ccbc",
+    "0x1011114",
+    "0x101568c",
+    "0x1019c28"
+   ],
+   "sites_VA": [
+    "0x100d28a",
+    "0x100d2cc",
+    "0x100d3ac",
+    "0x100dbe2",
+    "0x100ddec",
+    "0x100df12",
+    "0x100dff2",
+    "0x100ee3c",
+    "0x100eeec",
+    "0x100effe",
+    "0x100f0b0",
+    "0x10116da"
+   ]
+  },
+  {
+   "copies": 2530,
+   "raw_windows": 2530,
+   "common_prefix_bytes": 16,
+   "shareable_bytes": 40464,
+   "cross_region": true,
+   "regions_sample": [
+    "0x1019c28",
+    "0x1030358",
+    "0x1042ca0",
+    "0x105a38a"
+   ],
+   "sites_VA": [
+    "0x101a2e2",
+    "0x101a2f2",
+    "0x101a302",
+    "0x101a312",
+    "0x101a3c6",
+    "0x101dbb2",
+    "0x1030682",
+    "0x1030692",
+    "0x103074a",
+    "0x1030776",
+    "0x1030786",
+    "0x1030796"
+   ]
+  },
+  {
+   "copies": 2390,
+   "raw_windows": 2390,
+   "common_prefix_bytes": 16,
+   "shareable_bytes": 38224,
+   "cross_region": true,
+   "regions_sample": [
+    "0x1019c28",
+    "0x1030358",
+    "0x1042ca0",
+    "0x105a38a"
+   ],
+   "sites_VA": [
+    "0x101a2dc",
+    "0x101a2ec",
+    "0x101a2fc",
+    "0x101a30c",
+    "0x101a3c0",
+    "0x103067c",
+    "0x103068c",
+    "0x1030770",
+    "0x1030780",
+    "0x1030790",
+    "0x10307a0",
+    "0x10307b0"
+   ]
+  },
+  {
+   "copies": 2320,
+   "raw_windows": 2320,
+   "common_prefix_bytes": 16,
+   "shareable_bytes": 37104,
+   "cross_region": true,
+   "regions_sample": [
+    "0x1019c28",
+    "0x1030358",
+    "0x1042ca0",
+    "0x105a38a"
+   ],
+   "sites_VA": [
+    "0x101a2de",
+    "0x101a2ee",
+    "0x101a2fe",
+    "0x101a30e",
+    "0x101a3c2",
+    "0x103067e",
+    "0x103068e",
+    "0x1030772",
+    "0x1030782",
+    "0x1030792",
+    "0x10307a2",
+    "0x10307b2"
+   ]
+  },
+  {
+   "copies": 2314,
+   "raw_windows": 2314,
+   "common_prefix_bytes": 16,
+   "shareable_bytes": 37008,
+   "cross_region": true,
+   "regions_sample": [
+    "0x1019c28",
+    "0x1030358",
+    "0x1042ca0",
+    "0x105a38a"
+   ],
+   "sites_VA": [
+    "0x101a2e0",
+    "0x101a2f0",
+    "0x101a300",
+    "0x101a310",
+    "0x101a3c4",
+    "0x1030680",
+    "0x1030690",
+    "0x1030774",
+    "0x1030784",
+    "0x1030794",
+    "0x10307a4",
+    "0x10307b4"
+   ]
+  },
+  {
+   "copies": 2272,
+   "raw_windows": 2272,
+   "common_prefix_bytes": 16,
+   "shareable_bytes": 36336,
+   "cross_region": true,
+   "regions_sample": [
+    "0x1019c28",
+    "0x1030358",
+    "0x1042ca0",
+    "0x105a38a"
+   ],
+   "sites_VA": [
+    "0x101a2e4",
+    "0x101a2f4",
+    "0x101a304",
+    "0x101a314",
+    "0x101a3c8",
+    "0x101a3dc",
+    "0x1030684",
+    "0x1030778",
+    "0x1030788",
+    "0x1030798",
+    "0x10307a8",
+    "0x10307b8"
+   ]
+  },
+  {
+   "copies": 1583,
+   "raw_windows": 1583,
+   "common_prefix_bytes": 16,
+   "shareable_bytes": 25312,
+   "cross_region": true,
+   "regions_sample": [
+    "0x1030358",
+    "0x1042ca0",
+    "0x105a38a",
+    "0x106ea28"
+   ],
+   "sites_VA": [
+    "0x1030d16",
+    "0x1030f06",
+    "0x1031066",
+    "0x1031076",
+    "0x1031086",
+    "0x1031182",
+    "0x1031192",
+    "0x10311a2",
+    "0x10311b2",
+    "0x10311c2",
+    "0x10311d2",
+    "0x10311e2"
+   ]
+  },
+  {
+   "copies": 1582,
+   "raw_windows": 1582,
+   "common_prefix_bytes": 16,
+   "shareable_bytes": 25296,
+   "cross_region": true,
+   "regions_sample": [
+    "0x1030358",
+    "0x1042ca0",
+    "0x105a38a",
+    "0x106ea28"
+   ],
+   "sites_VA": [
+    "0x1030f00",
+    "0x1031060",
+    "0x1031070",
+    "0x1031080",
+    "0x103117c",
+    "0x103118c",
+    "0x103119c",
+    "0x10311ac",
+    "0x10311bc",
+    "0x10311cc",
+    "0x10311dc",
+    "0x1031254"
+   ]
+  },
+  {
+   "copies": 1564,
+   "raw_windows": 1564,
+   "common_prefix_bytes": 16,
+   "shareable_bytes": 25008,
+   "cross_region": true,
+   "regions_sample": [
+    "0x1030358",
+    "0x1042ca0",
+    "0x105a38a",
+    "0x106ea28"
+   ],
+   "sites_VA": [
+    "0x1030f02",
+    "0x1031062",
+    "0x1031072",
+    "0x1031082",
+    "0x103117e",
+    "0x103118e",
+    "0x103119e",
+    "0x10311ae",
+    "0x10311be",
+    "0x10311ce",
+    "0x10311de",
+    "0x1031256"
+   ]
+  },
+  {
+   "copies": 1563,
+   "raw_windows": 1563,
+   "common_prefix_bytes": 16,
+   "shareable_bytes": 24992,
+   "cross_region": true,
+   "regions_sample": [
+    "0x1019c28",
+    "0x1030358",
+    "0x1042ca0",
+    "0x105a38a"
+   ],
+   "sites_VA": [
+    "0x101a2da",
+    "0x101a2ea",
+    "0x101a2fa",
+    "0x101a30a",
+    "0x101a3be",
+    "0x103068a",
+    "0x103077e",
+    "0x103078e",
+    "0x103079e",
+    "0x10307ae",
+    "0x10307be",
+    "0x10307ce"
+   ]
+  },
+  {
+   "copies": 1562,
+   "raw_windows": 1562,
+   "common_prefix_bytes": 16,
+   "shareable_bytes": 24976,
+   "cross_region": true,
+   "regions_sample": [
+    "0x1030358",
+    "0x1042ca0",
+    "0x105a38a",
+    "0x106ea28"
+   ],
+   "sites_VA": [
+    "0x1030f04",
+    "0x1031064",
+    "0x1031074",
+    "0x1031084",
+    "0x1031180",
+    "0x1031190",
+    "0x10311a0",
+    "0x10311b0",
+    "0x10311c0",
+    "0x10311d0",
+    "0x10311e0",
+    "0x10313cc"
+   ]
+  },
+  {
+   "copies": 1527,
+   "raw_windows": 1527,
+   "common_prefix_bytes": 16,
+   "shareable_bytes": 24416,
+   "cross_region": true,
+   "regions_sample": [
+    "0x1030358",
+    "0x1042ca0",
+    "0x105a38a",
+    "0x106ea28"
+   ],
+   "sites_VA": [
+    "0x1031068",
+    "0x1031078",
+    "0x1031184",
+    "0x1031194",
+    "0x10311a4",
+    "0x10311b4",
+    "0x10311c4",
+    "0x10311d4",
+    "0x10313d0",
+    "0x10313e0",
+    "0x10313f0",
+    "0x1031568"
+   ]
+  },
+  {
+   "copies": 1486,
+   "raw_windows": 1486,
+   "common_prefix_bytes": 16,
+   "shareable_bytes": 23760,
+   "cross_region": true,
+   "regions_sample": [
+    "0x1019c28",
+    "0x1030358",
+    "0x1042ca0",
+    "0x105a38a"
+   ],
+   "sites_VA": [
+    "0x101a2d8",
+    "0x101a2e8",
+    "0x101a2f8",
+    "0x101a308",
+    "0x101a3bc",
+    "0x1030688",
+    "0x103077c",
+    "0x103078c",
+    "0x103079c",
+    "0x10307ac",
+    "0x10307bc",
+    "0x10307cc"
+   ]
+  },
+  {
+   "copies": 1478,
+   "raw_windows": 1478,
+   "common_prefix_bytes": 16,
+   "shareable_bytes": 23632,
+   "cross_region": true,
+   "regions_sample": [
+    "0x1019c28",
+    "0x1030358",
+    "0x1042ca0",
+    "0x105a38a"
+   ],
+   "sites_VA": [
+    "0x101a2e6",
+    "0x101a2f6",
+    "0x101a306",
+    "0x101a3ba",
+    "0x1030686",
+    "0x103077a",
+    "0x103078a",
+    "0x103079a",
+    "0x10307aa",
+    "0x10307ba",
+    "0x10307ca",
+    "0x10307da"
+   ]
+  },
+  {
+   "copies": 703,
+   "raw_windows": 1310,
+   "common_prefix_bytes": 16,
+   "shareable_bytes": 11232,
+   "cross_region": true,
+   "regions_sample": [
+    "0x106ea28",
+    "0x1137c5c",
+    "0x11d28a8",
+    "0x122d0d0"
+   ],
+   "sites_VA": [
+    "0x10718f8",
+    "0x114be04",
+    "0x114bf08",
+    "0x11d4918",
+    "0x11d4c18",
+    "0x122e924",
+    "0x12e0310",
+    "0x132be44",
+    "0x1343214",
+    "0x13e8230",
+    "0x13e823c",
+    "0x13e8248"
+   ]
+  },
+  {
+   "copies": 699,
+   "raw_windows": 1306,
+   "common_prefix_bytes": 16,
+   "shareable_bytes": 11168,
+   "cross_region": true,
+   "regions_sample": [
+    "0x106ea28",
+    "0x1137c5c",
+    "0x11d28a8",
+    "0x12dc0cc"
+   ],
+   "sites_VA": [
+    "0x10718fa",
+    "0x114be06",
+    "0x114bf0a",
+    "0x11d491a",
+    "0x11d4c1a",
+    "0x12e0312",
+    "0x132be46",
+    "0x1343216",
+    "0x13e8232",
+    "0x13e823e",
+    "0x13e824a",
+    "0x13e8256"
+   ]
+  },
+  {
+   "copies": 667,
+   "raw_windows": 1256,
+   "common_prefix_bytes": 16,
+   "shareable_bytes": 10656,
+   "cross_region": true,
+   "regions_sample": [
+    "0x106ea28",
+    "0x1137c5c",
+    "0x11d28a8",
+    "0x12dc0cc"
+   ],
+   "sites_VA": [
+    "0x10718fc",
+    "0x114bf0c",
+    "0x11d4c1c",
+    "0x12e0314",
+    "0x132be48",
+    "0x13e8234",
+    "0x13e8240",
+    "0x13e824c",
+    "0x14df2e0",
+    "0x15284b4",
+    "0x1584ba8",
+    "0x1584c3c"
+   ]
+  },
+  {
+   "copies": 1186,
+   "raw_windows": 1186,
+   "common_prefix_bytes": 16,
+   "shareable_bytes": 18960,
+   "cross_region": true,
+   "regions_sample": [
+    "0x1030358",
+    "0x1042ca0",
+    "0x105a38a",
+    "0x10844a4"
+   ],
+   "sites_VA": [
+    "0x103106e",
+    "0x103107e",
+    "0x103118a",
+    "0x103119a",
+    "0x10311aa",
+    "0x10311ba",
+    "0x10311ca",
+    "0x10311da",
+    "0x10313d6",
+    "0x10313e6",
+    "0x10313f6",
+    "0x103155e"
+   ]
+  },
+  {
+   "copies": 1182,
+   "raw_windows": 1182,
+   "common_prefix_bytes": 16,
+   "shareable_bytes": 18896,
+   "cross_region": true,
+   "regions_sample": [
+    "0x1030358",
+    "0x1042ca0",
+    "0x105a38a",
+    "0x10844a4"
+   ],
+   "sites_VA": [
+    "0x103106c",
+    "0x103107c",
+    "0x1031188",
+    "0x1031198",
+    "0x10311a8",
+    "0x10311b8",
+    "0x10311c8",
+    "0x10311d8",
+    "0x10313d4",
+    "0x10313e4",
+    "0x10313f4",
+    "0x103155c"
+   ]
+  },
+  {
+   "copies": 404,
+   "raw_windows": 837,
+   "common_prefix_bytes": 16,
+   "shareable_bytes": 6448,
+   "cross_region": true,
+   "regions_sample": [
+    "0x1030358",
+    "0x11d28a8",
+    "0x125ac80",
+    "0x13e5c38"
+   ],
+   "sites_VA": [
+    "0x103156c",
+    "0x11d4c20",
+    "0x125b704",
+    "0x13e8238",
+    "0x13e8244",
+    "0x13e8250",
+    "0x14df2d8",
+    "0x15284b8",
+    "0x15ca9f8",
+    "0x17aa5ac",
+    "0x17aa5e4",
+    "0x1848f78"
+   ]
+  },
+  {
+   "copies": 402,
+   "raw_windows": 835,
+   "common_prefix_bytes": 16,
+   "shareable_bytes": 6416,
+   "cross_region": true,
+   "regions_sample": [
+    "0x1137c5c",
+    "0x12dc0cc",
+    "0x13e5c38",
+    "0x14da514"
+   ],
+   "sites_VA": [
+    "0x114bf06",
+    "0x12e030e",
+    "0x13e823a",
+    "0x13e8246",
+    "0x13e8252",
+    "0x14df2da",
+    "0x15284ba",
+    "0x17aa5ae",
+    "0x17aa5e6",
+    "0x1848f7a",
+    "0x1848fe6",
+    "0x1848ff2"
+   ]
+  },
+  {
+   "copies": 775,
+   "raw_windows": 775,
+   "common_prefix_bytes": 16,
+   "shareable_bytes": 12384,
+   "cross_region": true,
+   "regions_sample": [
+    "0x1030358",
+    "0x1042ca0",
+    "0x105a38a",
+    "0x106ea28"
+   ],
+   "sites_VA": [
+    "0x103067a",
+    "0x103076e",
+    "0x1030aaa",
+    "0x1030b4e",
+    "0x1030f2a",
+    "0x1044bba",
+    "0x1044bde",
+    "0x1044c26",
+    "0x105c3f6",
+    "0x10711a6",
+    "0x1071902",
+    "0x10b4f5a"
+   ]
+  },
+  {
+   "copies": 765,
+   "raw_windows": 765,
+   "common_prefix_bytes": 16,
+   "shareable_bytes": 12224,
+   "cross_region": true,
+   "regions_sample": [
+    "0x1030358",
+    "0x1042ca0",
+    "0x105a38a",
+    "0x106ea28"
+   ],
+   "sites_VA": [
+    "0x1030678",
+    "0x103076c",
+    "0x1030aa8",
+    "0x1030b4c",
+    "0x1030f28",
+    "0x1044bb8",
+    "0x1044bdc",
+    "0x1044c24",
+    "0x105c3f4",
+    "0x10711a4",
+    "0x1071900",
+    "0x10b4f58"
+   ]
+  },
+  {
+   "copies": 674,
+   "raw_windows": 674,
+   "common_prefix_bytes": 16,
+   "shareable_bytes": 10768,
+   "cross_region": true,
+   "regions_sample": [
+    "0x1019c28",
+    "0x1030358",
+    "0x105df5c",
+    "0x106ea28"
+   ],
+   "sites_VA": [
+    "0x101a548",
+    "0x10326e2",
+    "0x1032fcc",
+    "0x103569e",
+    "0x10613b0",
+    "0x107a452",
+    "0x107a546",
+    "0x107a630",
+    "0x107a71c",
+    "0x10a1c7c",
+    "0x10c448e",
+    "0x10cab1a"
+   ]
+  },
+  {
+   "copies": 654,
+   "raw_windows": 654,
+   "common_prefix_bytes": 16,
+   "shareable_bytes": 10448,
+   "cross_region": true,
+   "regions_sample": [
+    "0x18b3768",
+    "0x18e75e0",
+    "0x1951164",
+    "0x19751d4"
+   ],
+   "sites_VA": [
+    "0x18c951c",
+    "0x18c9530",
+    "0x18c9544",
+    "0x18c9558",
+    "0x18c956c",
+    "0x18c9580",
+    "0x18c9594",
+    "0x18ca36c",
+    "0x18ca380",
+    "0x18ca394",
+    "0x18ca3a8",
+    "0x18ca3bc"
+   ]
+  },
+  {
+   "copies": 654,
+   "raw_windows": 654,
+   "common_prefix_bytes": 16,
+   "shareable_bytes": 10448,
+   "cross_region": true,
+   "regions_sample": [
+    "0x18b3768",
+    "0x18e75e0",
+    "0x1951164",
+    "0x19751d4"
+   ],
+   "sites_VA": [
+    "0x18c951a",
+    "0x18c952e",
+    "0x18c9542",
+    "0x18c9556",
+    "0x18c956a",
+    "0x18c957e",
+    "0x18c9592",
+    "0x18ca36a",
+    "0x18ca37e",
+    "0x18ca392",
+    "0x18ca3a6",
+    "0x18ca3ba"
+   ]
+  },
+  {
+   "copies": 649,
+   "raw_windows": 649,
+   "common_prefix_bytes": 16,
+   "shareable_bytes": 10368,
+   "cross_region": true,
+   "regions_sample": [
+    "0x1019c28",
+    "0x1030358",
+    "0x105df5c",
+    "0x106ea28"
+   ],
+   "sites_VA": [
+    "0x101a54c",
+    "0x10326e6",
+    "0x1032fd0",
+    "0x10356a2",
+    "0x10613b4",
+    "0x107a456",
+    "0x107a54a",
+    "0x107a634",
+    "0x107a720",
+    "0x10a1c80",
+    "0x10c4492",
+    "0x10cab1e"
+   ]
+  },
+  {
+   "copies": 263,
+   "raw_windows": 609,
+   "common_prefix_bytes": 16,
+   "shareable_bytes": 4192,
+   "cross_region": true,
+   "regions_sample": [
+    "0x11d28a8",
+    "0x13e5c38",
+    "0x151d8d8",
+    "0x15c253c"
+   ],
+   "sites_VA": [
+    "0x11d4c1e",
+    "0x13e8236",
+    "0x13e8242",
+    "0x13e824e",
+    "0x15284b6",
+    "0x15ca9f6",
+    "0x17aa5aa",
+    "0x17aa5e2",
+    "0x1848fe2",
+    "0x1848fee",
+    "0x18490d2",
+    "0x184911a"
+   ]
+  },
+  {
+   "copies": 587,
+   "raw_windows": 587,
+   "common_prefix_bytes": 16,
+   "shareable_bytes": 9376,
+   "cross_region": true,
+   "regions_sample": [
+    "0x1019c28",
+    "0x1042ca0",
+    "0x10567e8",
+    "0x10661dc"
+   ],
+   "sites_VA": [
+    "0x101c428",
+    "0x1047ccc",
+    "0x1057aea",
+    "0x106bcf2",
+    "0x1091052",
+    "0x1097c60",
+    "0x1097d58",
+    "0x1097e7c",
+    "0x1097fa0",
+    "0x10c2340",
+    "0x10c2464",
+    "0x1170294"
+   ]
+  },
+  {
+   "copies": 583,
+   "raw_windows": 583,
+   "common_prefix_bytes": 16,
+   "shareable_bytes": 9312,
+   "cross_region": true,
+   "regions_sample": [
+    "0x10217ec",
+    "0x10258b4",
+    "0x102be10",
+    "0x1030358"
+   ],
+   "sites_VA": [
+    "0x1023362",
+    "0x1023602",
+    "0x102a658",
+    "0x102bff8",
+    "0x102cc06",
+    "0x1033792",
+    "0x103b0da",
+    "0x103e078",
+    "0x1049168",
+    "0x104d87c",
+    "0x104f332",
+    "0x1063952"
+   ]
+  },
+  {
+   "copies": 582,
+   "raw_windows": 582,
+   "common_prefix_bytes": 16,
+   "shareable_bytes": 9296,
+   "cross_region": true,
+   "regions_sample": [
+    "0x1019c28",
+    "0x1030358",
+    "0x10a18e0",
+    "0x10b39f0"
+   ],
+   "sites_VA": [
+    "0x101a510",
+    "0x101a554",
+    "0x1032f94",
+    "0x1032fd8",
+    "0x1035666",
+    "0x10356aa",
+    "0x10a1c44",
+    "0x10a1c88",
+    "0x10caae2",
+    "0x10cab26",
+    "0x10dead6",
+    "0x10deb1a"
+   ]
+  },
+  {
+   "copies": 582,
+   "raw_windows": 582,
+   "common_prefix_bytes": 16,
+   "shareable_bytes": 9296,
+   "cross_region": true,
+   "regions_sample": [
+    "0x10217ec",
+    "0x10258b4",
+    "0x102be10",
+    "0x1030358"
+   ],
+   "sites_VA": [
+    "0x1023364",
+    "0x1023604",
+    "0x102a65a",
+    "0x102bffa",
+    "0x102cc08",
+    "0x1033794",
+    "0x103b0dc",
+    "0x103e07a",
+    "0x104916a",
+    "0x104d87e",
+    "0x104f334",
+    "0x1063954"
+   ]
+  }
+ ],
+ "shareable_bytes_lower_bound_16B": 12202400,
+ "shareable_bytes_top40_extended": 4328848,
+ "negative_control": {
+  "probes": 512,
+  "avalanche_ok": 512
+ }
+}
