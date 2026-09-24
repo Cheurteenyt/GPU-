@@ -1,0 +1,1611 @@
+[
+ {
+  "addr": 1049960,
+  "kind": "sbi",
+  "window": [
+   "10051e: 0006c817     \tauipc\ta6, 0x6c",
+   "100522: b6080123     \tsb\tzero, -0x49e(a6)",
+   "100526: 00979d63     \tbne\ta5, s1, 0x100540 <PT_LOAD#0+0x540>",
+   "10052a: e008         \tsd\ta0, 0x0(s0)",
+   "10052c: e40c         \tsd\ta1, 0x8(s0)",
+   "10052e: e810         \tsd\ta2, 0x10(s0)",
+   "100530: ec14         \tsd\ta3, 0x18(s0)",
+   "100532: f018         \tsd\ta4, 0x20(s0)",
+   "100534: 4501         \tli\ta0, 0x0",
+   "100536: 60e2         \tld\tra, 0x18(sp)",
+   "100538: 6442         \tld\ts0, 0x10(sp)",
+   "10053a: 64a2         \tld\ts1, 0x8(sp)",
+   "10053c: 6105         \taddi\tsp, sp, 0x20",
+   "10053e: 8082         \tret",
+   "100540: 451d         \tli\ta0, 0x7",
+   "100542: bfd5         \tj\t0x100536 <PT_LOAD#0+0x536>",
+   "100544: 7139         \taddi\tsp, sp, -0x40",
+   "100546: 1682         \tslli\ta3, a3, 0x20",
+   "100548: 02100793     \tli\ta5, 0x21",
+   "10054c: e82a         \tsd\ta0, 0x10(sp)",
+   "10054e: ec2e         \tsd\ta1, 0x18(sp)",
+   "100550: 9281         \tsrli\ta3, a3, 0x20",
+   "100552: 002c         \taddi\ta1, sp, 0x8",
+   "100554: 0006c517     \tauipc\ta0, 0x6c",
+   "100558: b2e54503     \tlbu\ta0, -0x4d2(a0)",
+   "10055c: fc06         \tsd\tra, 0x38(sp)",
+   "10055e: e43e         \tsd\ta5, 0x8(sp)",
+   "100560: f032         \tsd\ta2, 0x20(sp)",
+   "100562: f436         \tsd\ta3, 0x28(sp)",
+   "100564: 00000097     \tauipc\tra, 0x0",
+   "100568: efa080e7     \tjalr\t-0x106(ra) <PT_LOAD#0+0x45e>",
+   "10056c: e119         \tbnez\ta0, 0x100572 <PT_LOAD#0+0x572>",
+   "10056e: 01014503     \tlbu\ta0, 0x10(sp)"
+  ],
+  "block": {
+   "base_reg": "a1",
+   "off": 8,
+   "words": {
+    "0x20": {
+     "class": "SHIFT",
+     "val": [
+      "a3",
+      32
+     ],
+     "def": "100550: 9281         \tsrli\ta3, a3, 0x20",
+     "subs": [
+      {
+       "class": "SHIFT",
+       "val": [
+        "a3",
+        32
+       ],
+       "def": "100546: 1682         \tslli\ta3, a3, 0x20"
+      }
+     ]
+    },
+    "0x18": {
+     "class": "LOAD",
+     "val": [
+      "s0",
+      16
+     ],
+     "def": "100470: 6810         \tld\ta2, 0x10(s0)",
+     "subs": [
+      {
+       "class": "COPY",
+       "val": "a1",
+       "def": "100464: 842e         \tmv\ts0, a1"
+      }
+     ]
+    },
+    "0x0": {
+     "class": "LIT",
+     "val": "0x21",
+     "def": "100548: 02100793     \tli\ta5, 0x21",
+     "subs": []
+    },
+    "0x10": {
+     "class": "LOAD",
+     "val": [
+      "a1",
+      8
+     ],
+     "def": "100472: 658c         \tld\ta1, 0x8(a1)",
+     "subs": [
+      {
+       "class": "LOAD",
+       "val": [
+        "s2",
+        1
+       ],
+       "def": "10020a: 00194583     \tlbu\ta1, 0x1(s2)"
+      }
+     ]
+    },
+    "0x8": {
+     "class": "LIT",
+     "val": "0x7",
+     "def": "100540: 451d         \tli\ta0, 0x7",
+     "subs": []
+    }
+   }
+  }
+ },
+ {
+  "addr": 1050012,
+  "kind": "sbi",
+  "window": [
+   "10054e: ec2e         \tsd\ta1, 0x18(sp)",
+   "100550: 9281         \tsrli\ta3, a3, 0x20",
+   "100552: 002c         \taddi\ta1, sp, 0x8",
+   "100554: 0006c517     \tauipc\ta0, 0x6c",
+   "100558: b2e54503     \tlbu\ta0, -0x4d2(a0)",
+   "10055c: fc06         \tsd\tra, 0x38(sp)",
+   "10055e: e43e         \tsd\ta5, 0x8(sp)",
+   "100560: f032         \tsd\ta2, 0x20(sp)",
+   "100562: f436         \tsd\ta3, 0x28(sp)",
+   "100564: 00000097     \tauipc\tra, 0x0",
+   "100568: efa080e7     \tjalr\t-0x106(ra) <PT_LOAD#0+0x45e>",
+   "10056c: e119         \tbnez\ta0, 0x100572 <PT_LOAD#0+0x572>",
+   "10056e: 01014503     \tlbu\ta0, 0x10(sp)",
+   "100572: 70e2         \tld\tra, 0x38(sp)",
+   "100574: 6121         \taddi\tsp, sp, 0x40",
+   "100576: 8082         \tret",
+   "100578: 7139         \taddi\tsp, sp, -0x40",
+   "10057a: 1682         \tslli\ta3, a3, 0x20",
+   "10057c: 02400793     \tli\ta5, 0x24",
+   "100580: e82a         \tsd\ta0, 0x10(sp)",
+   "100582: ec2e         \tsd\ta1, 0x18(sp)",
+   "100584: 9281         \tsrli\ta3, a3, 0x20",
+   "100586: 002c         \taddi\ta1, sp, 0x8",
+   "100588: 0006c517     \tauipc\ta0, 0x6c",
+   "10058c: afa54503     \tlbu\ta0, -0x506(a0)",
+   "100590: fc06         \tsd\tra, 0x38(sp)",
+   "100592: e43e         \tsd\ta5, 0x8(sp)",
+   "100594: f032         \tsd\ta2, 0x20(sp)",
+   "100596: f436         \tsd\ta3, 0x28(sp)",
+   "100598: 00000097     \tauipc\tra, 0x0",
+   "10059c: ec6080e7     \tjalr\t-0x13a(ra) <PT_LOAD#0+0x45e>",
+   "1005a0: e119         \tbnez\ta0, 0x1005a6 <PT_LOAD#0+0x5a6>",
+   "1005a2: 01014503     \tlbu\ta0, 0x10(sp)"
+  ],
+  "block": {
+   "base_reg": "a1",
+   "off": 8,
+   "words": {
+    "0x20": {
+     "class": "SHIFT",
+     "val": [
+      "a3",
+      32
+     ],
+     "def": "100550: 9281         \tsrli\ta3, a3, 0x20",
+     "subs": [
+      {
+       "class": "SHIFT",
+       "val": [
+        "a3",
+        32
+       ],
+       "def": "100546: 1682         \tslli\ta3, a3, 0x20"
+      }
+     ]
+    },
+    "0x18": {
+     "class": "LOAD",
+     "val": [
+      "s0",
+      16
+     ],
+     "def": "100470: 6810         \tld\ta2, 0x10(s0)",
+     "subs": [
+      {
+       "class": "COPY",
+       "val": "a1",
+       "def": "100464: 842e         \tmv\ts0, a1"
+      }
+     ]
+    },
+    "0x0": {
+     "class": "LIT",
+     "val": "0x21",
+     "def": "100548: 02100793     \tli\ta5, 0x21",
+     "subs": []
+    },
+    "0x10": {
+     "class": "LOAD",
+     "val": [
+      "a1",
+      8
+     ],
+     "def": "100472: 658c         \tld\ta1, 0x8(a1)",
+     "subs": [
+      {
+       "class": "LOAD",
+       "val": [
+        "s2",
+        1
+       ],
+       "def": "10020a: 00194583     \tlbu\ta1, 0x1(s2)"
+      }
+     ]
+    },
+    "0x8": {
+     "class": "LIT",
+     "val": "0x7",
+     "def": "100540: 451d         \tli\ta0, 0x7",
+     "subs": []
+    }
+   }
+  }
+ },
+ {
+  "addr": 1051362,
+  "kind": "sbi",
+  "window": [
+   "100a92: 17f2         \tslli\ta5, a5, 0x3c",
+   "100a94: 18079073     \tcsrw\tsatp, a5",
+   "100a98: 12000073     \tsfence.vma",
+   "100a9c: 0000100f     \tfence.i",
+   "100aa0: 4781         \tli\ta5, 0x0",
+   "100aa2: 8d079073     \tcsrw\t0x8d0, a5",
+   "100aa6: 8082         \tret",
+   "100aa8: 87aa         \tmv\ta5, a0",
+   "100aaa: c991         \tbeqz\ta1, 0x100abe <PT_LOAD#0+0xabe>",
+   "100aac: 00b78533     \tadd\ta0, a5, a1",
+   "100ab0: e111         \tbnez\ta0, 0x100ab4 <PT_LOAD#0+0xab4>",
+   "100ab2: 8082         \tret",
+   "100ab4: 7518         \tld\ta4, 0x28(a0)",
+   "100ab6: 00c70563     \tbeq\ta4, a2, 0x100ac0 <PT_LOAD#0+0xac0>",
+   "100aba: 790c         \tld\ta1, 0x30(a0)",
+   "100abc: b7fd         \tj\t0x100aaa <PT_LOAD#0+0xaaa>",
+   "100abe: 4501         \tli\ta0, 0x0",
+   "100ac0: 8082         \tret",
+   "100ac2: 7139         \taddi\tsp, sp, -0x40",
+   "100ac4: e82a         \tsd\ta0, 0x10(sp)",
+   "100ac6: ec2e         \tsd\ta1, 0x18(sp)",
+   "100ac8: 02d00793     \tli\ta5, 0x2d",
+   "100acc: 002c         \taddi\ta1, sp, 0x8",
+   "100ace: 0006b517     \tauipc\ta0, 0x6b",
+   "100ad2: 5b454503     \tlbu\ta0, 0x5b4(a0)",
+   "100ad6: fc06         \tsd\tra, 0x38(sp)",
+   "100ad8: e43e         \tsd\ta5, 0x8(sp)",
+   "100ada: f032         \tsd\ta2, 0x20(sp)",
+   "100adc: f402         \tsd\tzero, 0x28(sp)",
+   "100ade: 00000097     \tauipc\tra, 0x0",
+   "100ae2: 980080e7     \tjalr\t-0x680(ra) <PT_LOAD#0+0x45e>",
+   "100ae6: 70e2         \tld\tra, 0x38(sp)",
+   "100ae8: 6121         \taddi\tsp, sp, 0x40"
+  ],
+  "block": {
+   "base_reg": "a1",
+   "off": 8,
+   "words": {
+    "0x20": {
+     "class": "NONE",
+     "val": null,
+     "def": null,
+     "subs": []
+    },
+    "0x18": {
+     "class": "DERIV",
+     "val": [
+      "a2",
+      63
+     ],
+     "def": "100a44: 03f60613     \taddi\ta2, a2, 0x3f",
+     "subs": [
+      {
+       "class": "LIT",
+       "val": "0x80000",
+       "def": "100a32: 00080637     \tlui\ta2, 0x80"
+      }
+     ]
+    },
+    "0x0": {
+     "class": "LIT",
+     "val": "0x2d",
+     "def": "100ac8: 02d00793     \tli\ta5, 0x2d",
+     "subs": []
+    },
+    "0x10": {
+     "class": "LOAD",
+     "val": [
+      "a0",
+      48
+     ],
+     "def": "100aba: 790c         \tld\ta1, 0x30(a0)",
+     "subs": [
+      {
+       "class": "DERIV",
+       "val": [
+        "a5",
+        161
+       ],
+       "def": "100aac: 00b78533     \tadd\ta0, a5, a1"
+      }
+     ]
+    },
+    "0x8": {
+     "class": "LIT",
+     "val": "0x0",
+     "def": "100abe: 4501         \tli\ta0, 0x0",
+     "subs": []
+    }
+   }
+  }
+ },
+ {
+  "addr": 1057676,
+  "kind": "sbi",
+  "window": [
+   "102322: b8ec81e3     \tbeq\ts9, a4, 0x101ea4 <PT_LOAD#0+0x1ea4>",
+   "102326: b6ed0fe3     \tbeq\ts10, a4, 0x101ea4 <PT_LOAD#0+0x1ea4>",
+   "10232a: 0737c483     \tlbu\ts1, 0x73(a5)",
+   "10232e: 00e49463     \tbne\ts1, a4, 0x102336 <PT_LOAD#0+0x2336>",
+   "102332: 54fd         \tli\ts1, -0x1",
+   "102334: 9081         \tsrli\ts1, s1, 0x20",
+   "102336: ea91         \tbnez\ta3, 0x10234a <PT_LOAD#0+0x234a>",
+   "102338: ffffe597     \tauipc\ta1, 0xffffe",
+   "10233c: cc858593     \taddi\ta1, a1, -0x338",
+   "102340: 4501         \tli\ta0, 0x0",
+   "102342: 00001097     \tauipc\tra, 0x1",
+   "102346: 744080e7     \tjalr\t0x744(ra) <PT_LOAD#0+0x3a86>",
+   "10234a: 00001597     \tauipc\ta1, 0x1",
+   "10234e: 6de58593     \taddi\ta1, a1, 0x6de",
+   "102352: 8566         \tmv\ta0, s9",
+   "102354: 00001097     \tauipc\tra, 0x1",
+   "102358: 732080e7     \tjalr\t0x732(ra) <PT_LOAD#0+0x3a86>",
+   "10235c: 000bc783     \tlbu\ta5, 0x0(s7)",
+   "102360: 0006a917     \tauipc\ts2, 0x6a",
+   "102364: d2290913     \taddi\ts2, s2, -0x2de",
+   "102368: efa9         \tbnez\ta5, 0x1023c2 <PT_LOAD#0+0x23c2>",
+   "10236a: 00094503     \tlbu\ta0, 0x0(s2)",
+   "10236e: 02b00793     \tli\ta5, 0x2b",
+   "102372: 85e2         \tmv\ta1, s8",
+   "102374: 2ef13823     \tsd\ta5, 0x2f0(sp)",
+   "102378: 2e013c23     \tsd\tzero, 0x2f8(sp)",
+   "10237c: 30013023     \tsd\tzero, 0x300(sp)",
+   "102380: 30013423     \tsd\tzero, 0x308(sp)",
+   "102384: 30013823     \tsd\tzero, 0x310(sp)",
+   "102388: ffffe097     \tauipc\tra, 0xffffe",
+   "10238c: 0d6080e7     \tjalr\t0xd6(ra) <PT_LOAD#0+0x45e>",
+   "102390: 87ea         \tmv\ta5, s10",
+   "102392: 4701         \tli\ta4, 0x0"
+  ],
+  "block": null
+ },
+ {
+  "addr": 1057834,
+  "kind": "memcpy",
+  "window": [
+   "1023d8: 0285b803     \tld\ta6, 0x28(a1)",
+   "1023dc: 963e         \tadd\ta2, a2, a5",
+   "1023de: 96be         \tadd\ta3, a3, a5",
+   "1023e0: 973e         \tadd\ta4, a4, a5",
+   "1023e2: 00a78d33     \tadd\ts10, a5, a0",
+   "1023e6: 9dbe         \tadd\ts11, s11, a5",
+   "1023e8: 719c         \tld\ta5, 0x20(a1)",
+   "1023ea: 10a8         \taddi\ta0, sp, 0x68",
+   "1023ec: f432         \tsd\ta2, 0x28(sp)",
+   "1023ee: f036         \tsd\ta3, 0x20(sp)",
+   "1023f0: ec3a         \tsd\ta4, 0x18(sp)",
+   "1023f2: e842         \tsd\ta6, 0x10(sp)",
+   "1023f4: e43e         \tsd\ta5, 0x8(sp)",
+   "1023f6: 9882         \tjalr\ta7",
+   "1023f8: 7622         \tld\ta2, 0x28(sp)",
+   "1023fa: 67a2         \tld\ta5, 0x8(sp)",
+   "1023fc: 6842         \tld\ta6, 0x10(sp)",
+   "1023fe: 7682         \tld\ta3, 0x20(sp)",
+   "102400: 6762         \tld\ta4, 0x18(sp)",
+   "102402: 30c13023     \tsd\ta2, 0x300(sp)",
+   "102406: 10ac         \taddi\ta1, sp, 0x68",
+   "102408: 28800613     \tli\ta2, 0x288",
+   "10240c: 1628         \taddi\ta0, sp, 0x328",
+   "10240e: 2ef13c23     \tsd\ta5, 0x2f8(sp)",
+   "102412: 2f013823     \tsd\ta6, 0x2f0(sp)",
+   "102416: 30d13423     \tsd\ta3, 0x308(sp)",
+   "10241a: 30e13823     \tsd\ta4, 0x310(sp)",
+   "10241e: 31b13c23     \tsd\ts11, 0x318(sp)",
+   "102422: 33a13023     \tsd\ts10, 0x320(sp)",
+   "102426: 00000097     \tauipc\tra, 0x0",
+   "10242a: 5d0080e7     \tjalr\t0x5d0(ra) <PT_LOAD#0+0x29f6>",
+   "10242e: 02000793     \tli\ta5, 0x20",
+   "102432: 008c         \taddi\ta1, sp, 0x40"
+  ],
+  "args": {
+   "a0": {
+    "class": "SP",
+    "val": "0x328",
+    "def": "10240c: 1628         \taddi\ta0, sp, 0x328",
+    "subs": []
+   },
+   "a1": {
+    "class": "SP",
+    "val": "0x68",
+    "def": "102406: 10ac         \taddi\ta1, sp, 0x68",
+    "subs": []
+   },
+   "a2": {
+    "class": "LIT",
+    "val": "0x288",
+    "def": "102408: 28800613     \tli\ta2, 0x288",
+    "subs": []
+   }
+  }
+ },
+ {
+  "addr": 1057860,
+  "kind": "sbi",
+  "window": [
+   "1023f0: ec3a         \tsd\ta4, 0x18(sp)",
+   "1023f2: e842         \tsd\ta6, 0x10(sp)",
+   "1023f4: e43e         \tsd\ta5, 0x8(sp)",
+   "1023f6: 9882         \tjalr\ta7",
+   "1023f8: 7622         \tld\ta2, 0x28(sp)",
+   "1023fa: 67a2         \tld\ta5, 0x8(sp)",
+   "1023fc: 6842         \tld\ta6, 0x10(sp)",
+   "1023fe: 7682         \tld\ta3, 0x20(sp)",
+   "102400: 6762         \tld\ta4, 0x18(sp)",
+   "102402: 30c13023     \tsd\ta2, 0x300(sp)",
+   "102406: 10ac         \taddi\ta1, sp, 0x68",
+   "102408: 28800613     \tli\ta2, 0x288",
+   "10240c: 1628         \taddi\ta0, sp, 0x328",
+   "10240e: 2ef13c23     \tsd\ta5, 0x2f8(sp)",
+   "102412: 2f013823     \tsd\ta6, 0x2f0(sp)",
+   "102416: 30d13423     \tsd\ta3, 0x308(sp)",
+   "10241a: 30e13823     \tsd\ta4, 0x310(sp)",
+   "10241e: 31b13c23     \tsd\ts11, 0x318(sp)",
+   "102422: 33a13023     \tsd\ts10, 0x320(sp)",
+   "102426: 00000097     \tauipc\tra, 0x0",
+   "10242a: 5d0080e7     \tjalr\t0x5d0(ra) <PT_LOAD#0+0x29f6>",
+   "10242e: 02000793     \tli\ta5, 0x20",
+   "102432: 008c         \taddi\ta1, sp, 0x40",
+   "102434: 8566         \tmv\ta0, s9",
+   "102436: e0be         \tsd\ta5, 0x40(sp)",
+   "102438: e4a6         \tsd\ts1, 0x48(sp)",
+   "10243a: e8e2         \tsd\ts8, 0x50(sp)",
+   "10243c: ec82         \tsd\tzero, 0x58(sp)",
+   "10243e: f082         \tsd\tzero, 0x60(sp)",
+   "102440: ffffe097     \tauipc\tra, 0xffffe",
+   "102444: 01e080e7     \tjalr\t0x1e(ra) <PT_LOAD#0+0x45e>",
+   "102448: e119         \tbnez\ta0, 0x10244e <PT_LOAD#0+0x244e>",
+   "10244a: 01990023     \tsb\ts9, 0x0(s2)"
+  ],
+  "block": {
+   "base_reg": "a1",
+   "off": 64,
+   "words": {
+    "0x20": {
+     "class": "NONE",
+     "val": null,
+     "def": null,
+     "subs": []
+    },
+    "0x18": {
+     "class": "NONE",
+     "val": null,
+     "def": null,
+     "subs": []
+    },
+    "0x10": {
+     "class": "NONE",
+     "val": null,
+     "def": null,
+     "subs": []
+    },
+    "0x8": {
+     "class": "SHIFT",
+     "val": [
+      "s1",
+      32
+     ],
+     "def": "102334: 9081         \tsrli\ts1, s1, 0x20",
+     "subs": [
+      {
+       "class": "LIT",
+       "val": "-0x1",
+       "def": "102332: 54fd         \tli\ts1, -0x1"
+      }
+     ]
+    },
+    "0x0": {
+     "class": "LIT",
+     "val": "0x20",
+     "def": "10242e: 02000793     \tli\ta5, 0x20",
+     "subs": []
+    }
+   }
+  }
+ },
+ {
+  "addr": 1058016,
+  "kind": "sbi",
+  "window": [
+   "102488: 15f007b7     \tlui\ta5, 0x15f00",
+   "10248c: a4e9         \tj\t0x102756 <PT_LOAD#0+0x2756>",
+   "10248e: 558007b7     \tlui\ta5, 0x55800",
+   "102492: 10b00713     \tli\ta4, 0x10b",
+   "102496: 8f95         \tsub\ta5, a5, a3",
+   "102498: 075e         \tslli\ta4, a4, 0x17",
+   "10249a: 1984c583     \tlbu\ta1, 0x198(s1)",
+   "10249e: 64b0         \tld\ta2, 0x48(s1)",
+   "1024a0: 8f15         \tsub\ta4, a4, a3",
+   "1024a2: c191         \tbeqz\ta1, 0x1024a6 <PT_LOAD#0+0x24a6>",
+   "1024a4: 6cb0         \tld\ta2, 0x58(s1)",
+   "1024a6: 52043583     \tld\ta1, 0x520(s0)",
+   "1024aa: 16b4bc23     \tsd\ta1, 0x178(s1)",
+   "1024ae: 52843583     \tld\ta1, 0x528(s0)",
+   "1024b2: 18b4b023     \tsd\ta1, 0x180(s1)",
+   "1024b6: 9ef5e7e3     \tbltu\ta1, a5, 0x101ea4 <PT_LOAD#0+0x1ea4>",
+   "1024ba: 9eb765e3     \tbltu\ta4, a1, 0x101ea4 <PT_LOAD#0+0x1ea4>",
+   "1024be: 51043783     \tld\ta5, 0x510(s0)",
+   "1024c2: 00094c03     \tlbu\ts8, 0x0(s2)",
+   "1024c6: 008c         \taddi\ta1, sp, 0x40",
+   "1024c8: 963e         \tadd\ta2, a2, a5",
+   "1024ca: 02200793     \tli\ta5, 0x22",
+   "1024ce: e0be         \tsd\ta5, 0x40(sp)",
+   "1024d0: 8562         \tmv\ta0, s8",
+   "1024d2: 57fd         \tli\ta5, -0x1",
+   "1024d4: e482         \tsd\tzero, 0x48(sp)",
+   "1024d6: e8b2         \tsd\ta2, 0x50(sp)",
+   "1024d8: ecb6         \tsd\ta3, 0x58(sp)",
+   "1024da: f0be         \tsd\ta5, 0x60(sp)",
+   "1024dc: ffffe097     \tauipc\tra, 0xffffe",
+   "1024e0: f82080e7     \tjalr\t-0x7e(ra) <PT_LOAD#0+0x45e>",
+   "1024e4: 9c0510e3     \tbnez\ta0, 0x101ea4 <PT_LOAD#0+0x1ea4>",
+   "1024e8: 04814783     \tlbu\ta5, 0x48(sp)"
+  ],
+  "block": {
+   "base_reg": "a1",
+   "off": 64,
+   "words": {
+    "0x20": {
+     "class": "LIT",
+     "val": "-0x1",
+     "def": "1024d2: 57fd         \tli\ta5, -0x1",
+     "subs": []
+    },
+    "0x18": {
+     "class": "LOAD",
+     "val": [
+      "s0",
+      1304
+     ],
+     "def": "10246e: 51843683     \tld\ta3, 0x518(s0)",
+     "subs": []
+    },
+    "0x10": {
+     "class": "DERIV",
+     "val": [
+      "a2",
+      165
+     ],
+     "def": "1024c8: 963e         \tadd\ta2, a2, a5",
+     "subs": [
+      {
+       "class": "LOAD",
+       "val": [
+        "s1",
+        88
+       ],
+       "def": "1024a4: 6cb0         \tld\ta2, 0x58(s1)"
+      }
+     ]
+    },
+    "0x8": {
+     "class": "NONE",
+     "val": null,
+     "def": null,
+     "subs": []
+    },
+    "0x0": {
+     "class": "LIT",
+     "val": "0x22",
+     "def": "1024ca: 02200793     \tli\ta5, 0x22",
+     "subs": []
+    }
+   }
+  }
+ },
+ {
+  "addr": 1058130,
+  "kind": "sbi",
+  "window": [
+   "1024f4: c789         \tbeqz\ta5, 0x1024fe <PT_LOAD#0+0x24fe>",
+   "1024f6: 0001f797     \tauipc\ta5, 0x1f",
+   "1024fa: b0078f23     \tsb\tzero, -0x4e2(a5)",
+   "1024fe: 1484b783     \tld\ta5, 0x148(s1)",
+   "102502: 1284b603     \tld\ta2, 0x128(s1)",
+   "102506: 0724ca83     \tlbu\ts5, 0x72(s1)",
+   "10250a: 963e         \tadd\ta2, a2, a5",
+   "10250c: 24078f63     \tbeqz\ta5, 0x10276a <PT_LOAD#0+0x276a>",
+   "102510: 1404b583     \tld\ta1, 0x140(s1)",
+   "102514: ca09         \tbeqz\ta2, 0x102526 <PT_LOAD#0+0x2526>",
+   "102516: 468d         \tli\ta3, 0x3",
+   "102518: 8556         \tmv\ta0, s5",
+   "10251a: ffffe097     \tauipc\tra, 0xffffe",
+   "10251e: 05e080e7     \tjalr\t0x5e(ra) <PT_LOAD#0+0x578>",
+   "102522: 980511e3     \tbnez\ta0, 0x101ea4 <PT_LOAD#0+0x1ea4>",
+   "102526: 1484b703     \tld\ta4, 0x148(s1)",
+   "10252a: 1084b783     \tld\ta5, 0x108(s1)",
+   "10252e: 00f766b3     \tor\ta3, a4, a5",
+   "102532: ca85         \tbeqz\ta3, 0x102562 <PT_LOAD#0+0x2562>",
+   "102534: 1404b603     \tld\ta2, 0x140(s1)",
+   "102538: 1004b683     \tld\ta3, 0x100(s1)",
+   "10253c: 02a00593     \tli\ta1, 0x2a",
+   "102540: e0ae         \tsd\ta1, 0x40(sp)",
+   "102542: 8562         \tmv\ta0, s8",
+   "102544: 008c         \taddi\ta1, sp, 0x40",
+   "102546: e4b2         \tsd\ta2, 0x48(sp)",
+   "102548: e8ba         \tsd\ta4, 0x50(sp)",
+   "10254a: ecb6         \tsd\ta3, 0x58(sp)",
+   "10254c: f0be         \tsd\ta5, 0x60(sp)",
+   "10254e: ffffe097     \tauipc\tra, 0xffffe",
+   "102552: f10080e7     \tjalr\t-0xf0(ra) <PT_LOAD#0+0x45e>",
+   "102556: 940517e3     \tbnez\ta0, 0x101ea4 <PT_LOAD#0+0x1ea4>",
+   "10255a: 04814783     \tlbu\ta5, 0x48(sp)"
+  ],
+  "block": {
+   "base_reg": "a1",
+   "off": 64,
+   "words": {
+    "0x20": {
+     "class": "LIT",
+     "val": "-0x1",
+     "def": "1024d2: 57fd         \tli\ta5, -0x1",
+     "subs": []
+    },
+    "0x18": {
+     "class": "LOAD",
+     "val": [
+      "s0",
+      1304
+     ],
+     "def": "10246e: 51843683     \tld\ta3, 0x518(s0)",
+     "subs": []
+    },
+    "0x10": {
+     "class": "DERIV",
+     "val": [
+      "a2",
+      165
+     ],
+     "def": "1024c8: 963e         \tadd\ta2, a2, a5",
+     "subs": [
+      {
+       "class": "LOAD",
+       "val": [
+        "s1",
+        88
+       ],
+       "def": "1024a4: 6cb0         \tld\ta2, 0x58(s1)"
+      }
+     ]
+    },
+    "0x8": {
+     "class": "NONE",
+     "val": null,
+     "def": null,
+     "subs": []
+    },
+    "0x0": {
+     "class": "LIT",
+     "val": "0x22",
+     "def": "1024ca: 02200793     \tli\ta5, 0x22",
+     "subs": []
+    }
+   }
+  }
+ },
+ {
+  "addr": 1058438,
+  "kind": "sbi",
+  "window": [
+   "10262e: 1838         \taddi\ta4, sp, 0x38",
+   "102630: 4681         \tli\ta3, 0x0",
+   "102632: 4601         \tli\ta2, 0x0",
+   "102634: 00001597     \tauipc\ta1, 0x1",
+   "102638: 65458593     \taddi\ta1, a1, 0x654",
+   "10263c: 8552         \tmv\ta0, s4",
+   "10263e: ffffe097     \tauipc\tra, 0xffffe",
+   "102642: a30080e7     \tjalr\t-0x5d0(ra) <PT_LOAD#0+0x6e>",
+   "102646: 84050fe3     \tbeqz\ta0, 0x101ea4 <PT_LOAD#0+0x1ea4>",
+   "10264a: 77e2         \tld\ta5, 0x38(sp)",
+   "10264c: 4619         \tli\ta2, 0x6",
+   "10264e: 8552         \tmv\ta0, s4",
+   "102650: 678c         \tld\ta1, 0x8(a5)",
+   "102652: ffffe097     \tauipc\tra, 0xffffe",
+   "102656: 456080e7     \tjalr\t0x456(ra) <PT_LOAD#0+0xaa8>",
+   "10265a: 840505e3     \tbeqz\ta0, 0x101ea4 <PT_LOAD#0+0x1ea4>",
+   "10265e: 7118         \tld\ta4, 0x20(a0)",
+   "102660: 004007b7     \tlui\ta5, 0x400",
+   "102664: 84e7e0e3     \tbltu\ta5, a4, 0x101ea4 <PT_LOAD#0+0x1ea4>",
+   "102668: 02300793     \tli\ta5, 0x23",
+   "10266c: 00094503     \tlbu\ta0, 0x0(s2)",
+   "102670: e0be         \tsd\ta5, 0x40(sp)",
+   "102672: 002007b7     \tlui\ta5, 0x200",
+   "102676: ecbe         \tsd\ta5, 0x58(sp)",
+   "102678: 008c         \taddi\ta1, sp, 0x40",
+   "10267a: 478d         \tli\ta5, 0x3",
+   "10267c: e4d6         \tsd\ts5, 0x48(sp)",
+   "10267e: e8da         \tsd\ts6, 0x50(sp)",
+   "102680: f0be         \tsd\ta5, 0x60(sp)",
+   "102682: ffffe097     \tauipc\tra, 0xffffe",
+   "102686: ddc080e7     \tjalr\t-0x224(ra) <PT_LOAD#0+0x45e>",
+   "10268a: 80051de3     \tbnez\ta0, 0x101ea4 <PT_LOAD#0+0x1ea4>",
+   "10268e: 04814783     \tlbu\ta5, 0x48(sp)"
+  ],
+  "block": {
+   "base_reg": "a1",
+   "off": 64,
+   "words": {
+    "0x20": {
+     "class": "LIT",
+     "val": "0x3",
+     "def": "10267a: 478d         \tli\ta5, 0x3",
+     "subs": []
+    },
+    "0x10": {
+     "class": "LIT",
+     "val": "0x1000000",
+     "def": "1025ea: 01000b37     \tlui\ts6, 0x1000",
+     "subs": []
+    },
+    "0x8": {
+     "class": "LOAD",
+     "val": [
+      "s1",
+      114
+     ],
+     "def": "1025f2: 0724ca83     \tlbu\ts5, 0x72(s1)",
+     "subs": [
+      {
+       "class": "LOAD",
+       "val": [
+        "s3",
+        0
+       ],
+       "def": "102462: 0009b483     \tld\ts1, 0x0(s3)"
+      }
+     ]
+    },
+    "0x18": {
+     "class": "LIT",
+     "val": "0x200000",
+     "def": "102672: 002007b7     \tlui\ta5, 0x200",
+     "subs": []
+    },
+    "0x0": {
+     "class": "LIT",
+     "val": "0x23",
+     "def": "102668: 02300793     \tli\ta5, 0x23",
+     "subs": []
+    }
+   }
+  }
+ },
+ {
+  "addr": 1058524,
+  "kind": "sbi",
+  "window": [
+   "102686: ddc080e7     \tjalr\t-0x224(ra) <PT_LOAD#0+0x45e>",
+   "10268a: 80051de3     \tbnez\ta0, 0x101ea4 <PT_LOAD#0+0x1ea4>",
+   "10268e: 04814783     \tlbu\ta5, 0x48(sp)",
+   "102692: 6bc6         \tld\ts7, 0x50(sp)",
+   "102694: 800798e3     \tbnez\ta5, 0x101ea4 <PT_LOAD#0+0x1ea4>",
+   "102698: 020c3783     \tld\ta5, 0x20(s8)",
+   "10269c: 8b85         \tandi\ta5, a5, 0x1",
+   "10269e: e3a9         \tbnez\ta5, 0x1026e0 <PT_LOAD#0+0x26e0>",
+   "1026a0: 0e09bc83     \tld\ts9, 0xe0(s3)",
+   "1026a4: 0c0c8663     \tbeqz\ts9, 0x102770 <PT_LOAD#0+0x2770>",
+   "1026a8: 0e89a403     \tlw\ts0, 0xe8(s3)",
+   "1026ac: c071         \tbeqz\ts0, 0x102770 <PT_LOAD#0+0x2770>",
+   "1026ae: 1402         \tslli\ts0, s0, 0x20",
+   "1026b0: 9001         \tsrli\ts0, s0, 0x20",
+   "1026b2: 00022797     \tauipc\ta5, 0x22",
+   "1026b6: e267b783     \tld\ta5, -0x1da(a5)",
+   "1026ba: 8626         \tmv\ta2, s1",
+   "1026bc: 85a2         \tmv\ta1, s0",
+   "1026be: 8566         \tmv\ta0, s9",
+   "1026c0: 9782         \tjalr\ta5",
+   "1026c2: 4781         \tli\ta5, 0x0",
+   "1026c4: f0aa         \tsd\ta0, 0x60(sp)",
+   "1026c6: 00094503     \tlbu\ta0, 0x0(s2)",
+   "1026ca: 02e00713     \tli\ta4, 0x2e",
+   "1026ce: 008c         \taddi\ta1, sp, 0x40",
+   "1026d0: e0ba         \tsd\ta4, 0x40(sp)",
+   "1026d2: e4be         \tsd\ta5, 0x48(sp)",
+   "1026d4: e8e6         \tsd\ts9, 0x50(sp)",
+   "1026d6: eca2         \tsd\ts0, 0x58(sp)",
+   "1026d8: ffffe097     \tauipc\tra, 0xffffe",
+   "1026dc: d86080e7     \tjalr\t-0x27a(ra) <PT_LOAD#0+0x45e>",
+   "1026e0: 74b4         \tld\ta3, 0x68(s1)",
+   "1026e2: 020c3703     \tld\ta4, 0x20(s8)"
+  ],
+  "block": {
+   "base_reg": "a1",
+   "off": 64,
+   "words": {
+    "0x18": {
+     "class": "LIT",
+     "val": "0x200000",
+     "def": "102672: 002007b7     \tlui\ta5, 0x200",
+     "subs": []
+    },
+    "0x10": {
+     "class": "LIT",
+     "val": "0x1000000",
+     "def": "1025ea: 01000b37     \tlui\ts6, 0x1000",
+     "subs": []
+    },
+    "0x8": {
+     "class": "LOAD",
+     "val": [
+      "s1",
+      114
+     ],
+     "def": "1025f2: 0724ca83     \tlbu\ts5, 0x72(s1)",
+     "subs": [
+      {
+       "class": "LOAD",
+       "val": [
+        "s3",
+        0
+       ],
+       "def": "102462: 0009b483     \tld\ts1, 0x0(s3)"
+      }
+     ]
+    },
+    "0x0": {
+     "class": "LIT",
+     "val": "0x23",
+     "def": "102668: 02300793     \tli\ta5, 0x23",
+     "subs": []
+    },
+    "0x20": {
+     "class": "LIT",
+     "val": "0x3",
+     "def": "10267a: 478d         \tli\ta5, 0x3",
+     "subs": []
+    }
+   }
+  }
+ },
+ {
+  "addr": 1058622,
+  "kind": "sbi",
+  "window": [
+   "1026e0: 74b4         \tld\ta3, 0x68(s1)",
+   "1026e2: 020c3703     \tld\ta4, 0x20(s8)",
+   "1026e6: 02500793     \tli\ta5, 0x25",
+   "1026ea: 567d         \tli\ta2, -0x1",
+   "1026ec: e0be         \tsd\ta5, 0x40(sp)",
+   "1026ee: 00066797     \tauipc\ta5, 0x66",
+   "1026f2: 91278793     \taddi\ta5, a5, -0x6ee",
+   "1026f6: 46c7b023     \tsd\ta2, 0x460(a5)",
+   "1026fa: 00094503     \tlbu\ta0, 0x0(s2)",
+   "1026fe: 7642         \tld\ta2, 0x30(sp)",
+   "102700: 830d         \tsrli\ta4, a4, 0x3",
+   "102702: 48d7b423     \tsd\ta3, 0x488(a5)",
+   "102706: 46bd         \tli\ta3, 0xf",
+   "102708: 8b05         \tandi\ta4, a4, 0x1",
+   "10270a: 4ad7a023     \tsw\ta3, 0x4a0(a5)",
+   "10270e: 008c         \taddi\ta1, sp, 0x40",
+   "102710: 4685         \tli\ta3, 0x1",
+   "102712: 46c7b423     \tsd\ta2, 0x468(a5)",
+   "102716: e4d6         \tsd\ts5, 0x48(sp)",
+   "102718: e8d2         \tsd\ts4, 0x50(sp)",
+   "10271a: ecde         \tsd\ts7, 0x58(sp)",
+   "10271c: f0da         \tsd\ts6, 0x60(sp)",
+   "10271e: 00066617     \tauipc\ta2, 0x66",
+   "102722: d4063d23     \tsd\tzero, -0x2a6(a2)",
+   "102726: 00066617     \tauipc\ta2, 0x66",
+   "10272a: d0063d23     \tsd\tzero, -0x2e6(a2)",
+   "10272e: 4497b423     \tsd\ts1, 0x448(a5)",
+   "102732: 4ad78223     \tsb\ta3, 0x4a4(a5)",
+   "102736: 4ae782a3     \tsb\ta4, 0x4a5(a5)",
+   "10273a: ffffe097     \tauipc\tra, 0xffffe",
+   "10273e: d24080e7     \tjalr\t-0x2dc(ra) <PT_LOAD#0+0x45e>",
+   "102742: f6051163     \tbnez\ta0, 0x101ea4 <PT_LOAD#0+0x1ea4>",
+   "102746: 04814783     \tlbu\ta5, 0x48(sp)"
+  ],
+  "block": {
+   "base_reg": "a1",
+   "off": 64,
+   "words": {
+    "0x20": {
+     "class": "COPY",
+     "val": "s9",
+     "def": "1026be: 8566         \tmv\ta0, s9",
+     "subs": [
+      {
+       "class": "LOAD",
+       "val": [
+        "s3",
+        224
+       ],
+       "def": "1026a0: 0e09bc83     \tld\ts9, 0xe0(s3)"
+      }
+     ]
+    },
+    "0x18": {
+     "class": "SHIFT",
+     "val": [
+      "s0",
+      32
+     ],
+     "def": "1026b0: 9001         \tsrli\ts0, s0, 0x20",
+     "subs": [
+      {
+       "class": "SHIFT",
+       "val": [
+        "s0",
+        32
+       ],
+       "def": "1026ae: 1402         \tslli\ts0, s0, 0x20"
+      }
+     ]
+    },
+    "0x10": {
+     "class": "LOAD",
+     "val": [
+      "s3",
+      224
+     ],
+     "def": "1026a0: 0e09bc83     \tld\ts9, 0xe0(s3)",
+     "subs": [
+      {
+       "class": "LOAD",
+       "val": [
+        "s5",
+        0
+       ],
+       "def": "102466: 000ab983     \tld\ts3, 0x0(s5)"
+      }
+     ]
+    },
+    "0x8": {
+     "class": "LIT",
+     "val": "0x0",
+     "def": "1026c2: 4781         \tli\ta5, 0x0",
+     "subs": []
+    },
+    "0x0": {
+     "class": "LIT",
+     "val": "0x2e",
+     "def": "1026ca: 02e00713     \tli\ta4, 0x2e",
+     "subs": []
+    }
+   }
+  }
+ },
+ {
+  "addr": 1060030,
+  "kind": "memcpy",
+  "window": [
+   "102c58: ead78793     \taddi\ta5, a5, -0x153",
+   "102c5c: c31c         \tsw\ta5, 0x0(a4)",
+   "102c5e: 015a2023     \tsw\ts5, 0x0(s4)",
+   "102c62: 431c         \tlw\ta5, 0x0(a4)",
+   "102c64: 0147d79b     \tsrliw\ta5, a5, 0x14",
+   "102c68: 8b9d         \tandi\ta5, a5, 0x7",
+   "102c6a: ffe5         \tbnez\ta5, 0x102c62 <PT_LOAD#0+0x2c62>",
+   "102c6c: 4785         \tli\ta5, 0x1",
+   "102c6e: 00fc0023     \tsb\ta5, 0x0(s8)",
+   "102c72: 00069b97     \tauipc\ts7, 0x69",
+   "102c76: 3deb8b93     \taddi\ts7, s7, 0x3de",
+   "102c7a: 000bb503     \tld\ta0, 0x0(s7)",
+   "102c7e: 0005071b     \tsext.w\ta4, a0",
+   "102c82: 0009a603     \tlw\ta2, 0x0(s3)",
+   "102c86: 40e607bb     \tsubw\ta5, a2, a4",
+   "102c8a: 00c76463     \tbltu\ta4, a2, 0x102c92 <PT_LOAD#0+0x2c92>",
+   "102c8e: 016787bb     \taddw\ta5, a5, s6",
+   "102c92: 1782         \tslli\ta5, a5, 0x20",
+   "102c94: 9381         \tsrli\ta5, a5, 0x20",
+   "102c96: fe87e6e3     \tbltu\ta5, s0, 0x102c82 <PT_LOAD#0+0x2c82>",
+   "102c9a: 008507b3     \tadd\ta5, a0, s0",
+   "102c9e: 00069c17     \tauipc\ts8, 0x69",
+   "102ca2: 3aac3c03     \tld\ts8, 0x3aa(s8)",
+   "102ca6: 0367f4b3     \t<unknown>",
+   "102caa: 9562         \tadd\ta0, a0, s8",
+   "102cac: 02fb7a63     \tbgeu\ts6, a5, 0x102ce0 <PT_LOAD#0+0x2ce0>",
+   "102cb0: 40940633     \tsub\ta2, s0, s1",
+   "102cb4: 85ca         \tmv\ta1, s2",
+   "102cb6: 01260433     \tadd\ts0, a2, s2",
+   "102cba: 00000097     \tauipc\tra, 0x0",
+   "102cbe: d3c080e7     \tjalr\t-0x2c4(ra) <PT_LOAD#0+0x29f6>",
+   "102cc2: 8626         \tmv\ta2, s1",
+   "102cc4: 85a2         \tmv\ta1, s0"
+  ],
+  "args": {
+   "a0": {
+    "class": "DERIV",
+    "val": [
+     "a0",
+     0
+    ],
+    "def": "102caa: 9562         \tadd\ta0, a0, s8",
+    "subs": [
+     {
+      "class": "LOAD",
+      "val": [
+       "s7",
+       0
+      ],
+      "def": "102c7a: 000bb503     \tld\ta0, 0x0(s7)"
+     }
+    ]
+   },
+   "a1": {
+    "class": "COPY",
+    "val": "s2",
+    "def": "102cb4: 85ca         \tmv\ta1, s2",
+    "subs": [
+     {
+      "class": "LOAD",
+      "val": [
+       "sp",
+       80
+      ],
+      "def": "102b10: 6946         \tld\ts2, 0x50(sp)"
+     }
+    ]
+   },
+   "a2": {
+    "class": "OTHER",
+    "val": "a2, s0, s1",
+    "def": "102cb0: 40940633     \tsub\ta2, s0, s1",
+    "subs": []
+   }
+  }
+ },
+ {
+  "addr": 1060044,
+  "kind": "memcpy",
+  "window": [
+   "102c68: 8b9d         \tandi\ta5, a5, 0x7",
+   "102c6a: ffe5         \tbnez\ta5, 0x102c62 <PT_LOAD#0+0x2c62>",
+   "102c6c: 4785         \tli\ta5, 0x1",
+   "102c6e: 00fc0023     \tsb\ta5, 0x0(s8)",
+   "102c72: 00069b97     \tauipc\ts7, 0x69",
+   "102c76: 3deb8b93     \taddi\ts7, s7, 0x3de",
+   "102c7a: 000bb503     \tld\ta0, 0x0(s7)",
+   "102c7e: 0005071b     \tsext.w\ta4, a0",
+   "102c82: 0009a603     \tlw\ta2, 0x0(s3)",
+   "102c86: 40e607bb     \tsubw\ta5, a2, a4",
+   "102c8a: 00c76463     \tbltu\ta4, a2, 0x102c92 <PT_LOAD#0+0x2c92>",
+   "102c8e: 016787bb     \taddw\ta5, a5, s6",
+   "102c92: 1782         \tslli\ta5, a5, 0x20",
+   "102c94: 9381         \tsrli\ta5, a5, 0x20",
+   "102c96: fe87e6e3     \tbltu\ta5, s0, 0x102c82 <PT_LOAD#0+0x2c82>",
+   "102c9a: 008507b3     \tadd\ta5, a0, s0",
+   "102c9e: 00069c17     \tauipc\ts8, 0x69",
+   "102ca2: 3aac3c03     \tld\ts8, 0x3aa(s8)",
+   "102ca6: 0367f4b3     \t<unknown>",
+   "102caa: 9562         \tadd\ta0, a0, s8",
+   "102cac: 02fb7a63     \tbgeu\ts6, a5, 0x102ce0 <PT_LOAD#0+0x2ce0>",
+   "102cb0: 40940633     \tsub\ta2, s0, s1",
+   "102cb4: 85ca         \tmv\ta1, s2",
+   "102cb6: 01260433     \tadd\ts0, a2, s2",
+   "102cba: 00000097     \tauipc\tra, 0x0",
+   "102cbe: d3c080e7     \tjalr\t-0x2c4(ra) <PT_LOAD#0+0x29f6>",
+   "102cc2: 8626         \tmv\ta2, s1",
+   "102cc4: 85a2         \tmv\ta1, s0",
+   "102cc6: 8562         \tmv\ta0, s8",
+   "102cc8: 00000097     \tauipc\tra, 0x0",
+   "102ccc: d2e080e7     \tjalr\t-0x2d2(ra) <PT_LOAD#0+0x29f6>",
+   "102cd0: 009bb023     \tsd\ts1, 0x0(s7)",
+   "102cd4: 2481         \tsext.w\ts1, s1"
+  ],
+  "args": {
+   "a0": {
+    "class": "COPY",
+    "val": "s8",
+    "def": "102cc6: 8562         \tmv\ta0, s8",
+    "subs": [
+     {
+      "class": "LOAD",
+      "val": [
+       "s8",
+       938
+      ],
+      "def": "102ca2: 3aac3c03     \tld\ts8, 0x3aa(s8)"
+     }
+    ]
+   },
+   "a1": {
+    "class": "COPY",
+    "val": "s0",
+    "def": "102cc4: 85a2         \tmv\ta1, s0",
+    "subs": [
+     {
+      "class": "DERIV",
+      "val": [
+       "a2",
+       0
+      ],
+      "def": "102cb6: 01260433     \tadd\ts0, a2, s2"
+     }
+    ]
+   },
+   "a2": {
+    "class": "COPY",
+    "val": "s1",
+    "def": "102cc2: 8626         \tmv\ta2, s1",
+    "subs": [
+     {
+      "class": "SHIFT",
+      "val": [
+       "s1",
+       32
+      ],
+      "def": "102c50: 9481         \tsrai\ts1, s1, 0x20"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "addr": 1060230,
+  "kind": "memcpy",
+  "window": [
+   "102d1e: cfa080e7     \tjalr\t-0x306(ra) <PT_LOAD#0+0xa14>",
+   "102d22: 000da703     \tlw\ta4, 0x0(s11)",
+   "102d26: 4791         \tli\ta5, 0x4",
+   "102d28: 4ee7e7e3     \tbltu\ta5, a4, 0x103a16 <PT_LOAD#0+0x3a16>",
+   "102d2c: 000de783     \tlwu\ta5, 0x0(s11)",
+   "102d30: 00001717     \tauipc\ta4, 0x1",
+   "102d34: 00870713     \taddi\ta4, a4, 0x8",
+   "102d38: 00069b17     \tauipc\ts6, 0x69",
+   "102d3c: 340b0b13     \taddi\ts6, s6, 0x340",
+   "102d40: 078a         \tslli\ta5, a5, 0x2",
+   "102d42: 97ba         \tadd\ta5, a5, a4",
+   "102d44: 439c         \tlw\ta5, 0x0(a5)",
+   "102d46: 97ba         \tadd\ta5, a5, a4",
+   "102d48: 8782         \tjr\ta5",
+   "102d4a: 02000793     \tli\ta5, 0x20",
+   "102d4e: 00fb8e63     \tbeq\ts7, a5, 0x102d6a <PT_LOAD#0+0x2d6a>",
+   "102d52: 0006b617     \tauipc\ta2, 0x6b",
+   "102d56: 31e60613     \taddi\ta2, a2, 0x31e",
+   "102d5a: 65e00593     \tli\ta1, 0x65e",
+   "102d5e: 4509         \tli\ta0, 0x2",
+   "102d60: ffffe097     \tauipc\tra, 0xffffe",
+   "102d64: d8c080e7     \tjalr\t-0x274(ra) <PT_LOAD#0+0xaec>",
+   "102d68: a499         \tj\t0x102fae <PT_LOAD#0+0x2fae>",
+   "102d6a: 02800613     \tli\ta2, 0x28",
+   "102d6e: 01090593     \taddi\ta1, s2, 0x10",
+   "102d72: 00021517     \tauipc\ta0, 0x21",
+   "102d76: 77650513     \taddi\ta0, a0, 0x776",
+   "102d7a: 0001e797     \tauipc\ta5, 0x1e",
+   "102d7e: 2897b323     \tsd\ts1, 0x286(a5)",
+   "102d82: 00000097     \tauipc\tra, 0x0",
+   "102d86: c74080e7     \tjalr\t-0x38c(ra) <PT_LOAD#0+0x29f6>",
+   "102d8a: 28800613     \tli\ta2, 0x288",
+   "102d8e: 03890593     \taddi\ta1, s2, 0x38"
+  ],
+  "args": {
+   "a0": {
+    "class": "DERIV",
+    "val": [
+     "a0",
+     1910
+    ],
+    "def": "102d76: 77650513     \taddi\ta0, a0, 0x776",
+    "subs": [
+     {
+      "class": "LIT",
+      "val": "0x123d72",
+      "def": "102d72: 00021517     \tauipc\ta0, 0x21"
+     }
+    ]
+   },
+   "a1": {
+    "class": "DERIV",
+    "val": [
+     "s2",
+     16
+    ],
+    "def": "102d6e: 01090593     \taddi\ta1, s2, 0x10",
+    "subs": [
+     {
+      "class": "COPY",
+      "val": "a2",
+      "def": "102d0a: 8932         \tmv\ts2, a2"
+     }
+    ]
+   },
+   "a2": {
+    "class": "LIT",
+    "val": "0x28",
+    "def": "102d6a: 02800613     \tli\ta2, 0x28",
+    "subs": []
+   }
+  }
+ },
+ {
+  "addr": 1060254,
+  "kind": "memcpy",
+  "window": [
+   "102d34: 00870713     \taddi\ta4, a4, 0x8",
+   "102d38: 00069b17     \tauipc\ts6, 0x69",
+   "102d3c: 340b0b13     \taddi\ts6, s6, 0x340",
+   "102d40: 078a         \tslli\ta5, a5, 0x2",
+   "102d42: 97ba         \tadd\ta5, a5, a4",
+   "102d44: 439c         \tlw\ta5, 0x0(a5)",
+   "102d46: 97ba         \tadd\ta5, a5, a4",
+   "102d48: 8782         \tjr\ta5",
+   "102d4a: 02000793     \tli\ta5, 0x20",
+   "102d4e: 00fb8e63     \tbeq\ts7, a5, 0x102d6a <PT_LOAD#0+0x2d6a>",
+   "102d52: 0006b617     \tauipc\ta2, 0x6b",
+   "102d56: 31e60613     \taddi\ta2, a2, 0x31e",
+   "102d5a: 65e00593     \tli\ta1, 0x65e",
+   "102d5e: 4509         \tli\ta0, 0x2",
+   "102d60: ffffe097     \tauipc\tra, 0xffffe",
+   "102d64: d8c080e7     \tjalr\t-0x274(ra) <PT_LOAD#0+0xaec>",
+   "102d68: a499         \tj\t0x102fae <PT_LOAD#0+0x2fae>",
+   "102d6a: 02800613     \tli\ta2, 0x28",
+   "102d6e: 01090593     \taddi\ta1, s2, 0x10",
+   "102d72: 00021517     \tauipc\ta0, 0x21",
+   "102d76: 77650513     \taddi\ta0, a0, 0x776",
+   "102d7a: 0001e797     \tauipc\ta5, 0x1e",
+   "102d7e: 2897b323     \tsd\ts1, 0x286(a5)",
+   "102d82: 00000097     \tauipc\tra, 0x0",
+   "102d86: c74080e7     \tjalr\t-0x38c(ra) <PT_LOAD#0+0x29f6>",
+   "102d8a: 28800613     \tli\ta2, 0x288",
+   "102d8e: 03890593     \taddi\ta1, s2, 0x38",
+   "102d92: 00021517     \tauipc\ta0, 0x21",
+   "102d96: 46e50513     \taddi\ta0, a0, 0x46e",
+   "102d9a: 00000097     \tauipc\tra, 0x0",
+   "102d9e: c5c080e7     \tjalr\t-0x3a4(ra) <PT_LOAD#0+0x29f6>",
+   "102da2: ffffe097     \tauipc\tra, 0xffffe",
+   "102da6: c72080e7     \tjalr\t-0x38e(ra) <PT_LOAD#0+0xa14>"
+  ],
+  "args": {
+   "a0": {
+    "class": "DERIV",
+    "val": [
+     "a0",
+     1134
+    ],
+    "def": "102d96: 46e50513     \taddi\ta0, a0, 0x46e",
+    "subs": [
+     {
+      "class": "LIT",
+      "val": "0x123d92",
+      "def": "102d92: 00021517     \tauipc\ta0, 0x21"
+     }
+    ]
+   },
+   "a1": {
+    "class": "DERIV",
+    "val": [
+     "s2",
+     56
+    ],
+    "def": "102d8e: 03890593     \taddi\ta1, s2, 0x38",
+    "subs": [
+     {
+      "class": "COPY",
+      "val": "a2",
+      "def": "102d0a: 8932         \tmv\ts2, a2"
+     }
+    ]
+   },
+   "a2": {
+    "class": "LIT",
+    "val": "0x288",
+    "def": "102d8a: 28800613     \tli\ta2, 0x288",
+    "subs": []
+   }
+  }
+ },
+ {
+  "addr": 1062660,
+  "kind": "memcpy",
+  "window": [
+   "10369e: b9e60613     \taddi\ta2, a2, -0x462",
+   "1036a2: 38f00593     \tli\ta1, 0x38f",
+   "1036a6: eb8ff06f     \tj\t0x102d5e <PT_LOAD#0+0x2d5e>",
+   "1036aa: 0109b983     \tld\ts3, 0x10(s3)",
+   "1036ae: 0b85         \taddi\ts7, s7, 0x1",
+   "1036b0: fc0994e3     \tbnez\ts3, 0x103678 <PT_LOAD#0+0x3678>",
+   "1036b4: 01771a63     \tbne\ta4, s7, 0x1036c8 <PT_LOAD#0+0x36c8>",
+   "1036b8: 0006b617     \tauipc\ta2, 0x6b",
+   "1036bc: b6860613     \taddi\ta2, a2, -0x498",
+   "1036c0: 38c00593     \tli\ta1, 0x38c",
+   "1036c4: e9aff06f     \tj\t0x102d5e <PT_LOAD#0+0x2d5e>",
+   "1036c8: 0006b617     \tauipc\ta2, 0x6b",
+   "1036cc: b4060613     \taddi\ta2, a2, -0x4c0",
+   "1036d0: 38b00593     \tli\ta1, 0x38b",
+   "1036d4: e8aff06f     \tj\t0x102d5e <PT_LOAD#0+0x2d5e>",
+   "1036d8: 4619         \tli\ta2, 0x6",
+   "1036da: 854a         \tmv\ta0, s2",
+   "1036dc: ffffd097     \tauipc\tra, 0xffffd",
+   "1036e0: 3cc080e7     \tjalr\t0x3cc(ra) <PT_LOAD#0+0xaa8>",
+   "1036e4: 8baa         \tmv\ts7, a0",
+   "1036e6: e909         \tbnez\ta0, 0x1036f8 <PT_LOAD#0+0x36f8>",
+   "1036e8: 0006b617     \tauipc\ta2, 0x6b",
+   "1036ec: b6860613     \taddi\ta2, a2, -0x498",
+   "1036f0: 39100593     \tli\ta1, 0x391",
+   "1036f4: e6aff06f     \tj\t0x102d5e <PT_LOAD#0+0x2d5e>",
+   "1036f8: 6d0c         \tld\ta1, 0x18(a0)",
+   "1036fa: 7110         \tld\ta2, 0x20(a0)",
+   "1036fc: 8556         \tmv\ta0, s5",
+   "1036fe: 95ca         \tadd\ta1, a1, s2",
+   "103700: fffff097     \tauipc\tra, 0xfffff",
+   "103704: 2f6080e7     \tjalr\t0x2f6(ra) <PT_LOAD#0+0x29f6>",
+   "103708: 0089b583     \tld\ta1, 0x8(s3)",
+   "10370c: 4615         \tli\ta2, 0x5"
+  ],
+  "args": {
+   "a0": {
+    "class": "COPY",
+    "val": "s5",
+    "def": "1036fc: 8556         \tmv\ta0, s5",
+    "subs": [
+     {
+      "class": "DERIV",
+      "val": [
+       "s5",
+       0
+      ],
+      "def": "103668: 9ace         \tadd\ts5, s5, s3"
+     }
+    ]
+   },
+   "a1": {
+    "class": "DERIV",
+    "val": [
+     "a1",
+     0
+    ],
+    "def": "1036fe: 95ca         \tadd\ta1, a1, s2",
+    "subs": [
+     {
+      "class": "LOAD",
+      "val": [
+       "a0",
+       24
+      ],
+      "def": "1036f8: 6d0c         \tld\ta1, 0x18(a0)"
+     }
+    ]
+   },
+   "a2": {
+    "class": "LOAD",
+    "val": [
+     "a0",
+     32
+    ],
+    "def": "1036fa: 7110         \tld\ta2, 0x20(a0)",
+    "subs": [
+     {
+      "class": "COPY",
+      "val": "s2",
+      "def": "1036da: 854a         \tmv\ta0, s2"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "addr": 1062796,
+  "kind": "memcpy",
+  "window": [
+   "103724: 57f68693     \taddi\ta3, a3, 0x57f",
+   "103728: 974a         \tadd\ta4, a4, s2",
+   "10372a: 00076603     \tlwu\ta2, 0x0(a4)",
+   "10372e: 0cd61e63     \tbne\ta2, a3, 0x10380a <PT_LOAD#0+0x380a>",
+   "103732: 7110         \tld\ta2, 0x20(a0)",
+   "103734: 03f00693     \tli\ta3, 0x3f",
+   "103738: 0cc6f963     \tbgeu\ta3, a2, 0x10380a <PT_LOAD#0+0x380a>",
+   "10373c: 018db983     \tld\ts3, 0x18(s11)",
+   "103740: 000db683     \tld\ta3, 0x0(s11)",
+   "103744: 6f18         \tld\ta4, 0x18(a4)",
+   "103746: 99ca         \tadd\ts3, s3, s2",
+   "103748: 40d989b3     \tsub\ts3, s3, a3",
+   "10374c: 99ba         \tadd\ts3, s3, a4",
+   "10374e: ffffd597     \tauipc\ta1, 0xffffd",
+   "103752: f3a58593     \taddi\ta1, a1, -0xc6",
+   "103756: ffffd717     \tauipc\ta4, 0xffffd",
+   "10375a: f7a70713     \taddi\ta4, a4, -0x86",
+   "10375e: 449d0c23     \tsb\ts1, 0x458(s10)",
+   "103762: 448d0ca3     \tsb\ts0, 0x459(s10)",
+   "103766: 452d3823     \tsd\ts2, 0x450(s10)",
+   "10376a: 473d3823     \tsd\ts3, 0x470(s10)",
+   "10376e: 8f0d         \tsub\ta4, a4, a1",
+   "103770: 08000693     \tli\ta3, 0x80",
+   "103774: 0ae6e363     \tbltu\ta3, a4, 0x10381a <PT_LOAD#0+0x381a>",
+   "103778: ffffd617     \tauipc\ta2, 0xffffd",
+   "10377c: f3060613     \taddi\ta2, a2, -0xd0",
+   "103780: 40b60433     \tsub\ts0, a2, a1",
+   "103784: 8622         \tmv\ta2, s0",
+   "103786: 8566         \tmv\ta0, s9",
+   "103788: fffff097     \tauipc\tra, 0xfffff",
+   "10378c: 26e080e7     \tjalr\t0x26e(ra) <PT_LOAD#0+0x29f6>",
+   "103790: 480b0913     \taddi\ts2, s6, 0x480",
+   "103794: 9962         \tadd\ts2, s2, s8"
+  ],
+  "args": {
+   "a0": {
+    "class": "COPY",
+    "val": "s9",
+    "def": "103786: 8566         \tmv\ta0, s9",
+    "subs": [
+     {
+      "class": "DERIV",
+      "val": [
+       "s9",
+       0
+      ],
+      "def": "1035a4: 9ce2         \tadd\ts9, s9, s8"
+     }
+    ]
+   },
+   "a1": {
+    "class": "DERIV",
+    "val": [
+     "a1",
+     -198
+    ],
+    "def": "103752: f3a58593     \taddi\ta1, a1, -0xc6",
+    "subs": [
+     {
+      "class": "LIT",
+      "val": "0x10074e",
+      "def": "10374e: ffffd597     \tauipc\ta1, 0xffffd"
+     }
+    ]
+   },
+   "a2": {
+    "class": "COPY",
+    "val": "s0",
+    "def": "103784: 8622         \tmv\ta2, s0",
+    "subs": [
+     {
+      "class": "OTHER",
+      "val": "s0, a2, a1",
+      "def": "103780: 40b60433     \tsub\ts0, a2, a1"
+     }
+    ]
+   }
+  }
+ },
+ {
+  "addr": 1062822,
+  "kind": "memcpy",
+  "window": [
+   "103740: 000db683     \tld\ta3, 0x0(s11)",
+   "103744: 6f18         \tld\ta4, 0x18(a4)",
+   "103746: 99ca         \tadd\ts3, s3, s2",
+   "103748: 40d989b3     \tsub\ts3, s3, a3",
+   "10374c: 99ba         \tadd\ts3, s3, a4",
+   "10374e: ffffd597     \tauipc\ta1, 0xffffd",
+   "103752: f3a58593     \taddi\ta1, a1, -0xc6",
+   "103756: ffffd717     \tauipc\ta4, 0xffffd",
+   "10375a: f7a70713     \taddi\ta4, a4, -0x86",
+   "10375e: 449d0c23     \tsb\ts1, 0x458(s10)",
+   "103762: 448d0ca3     \tsb\ts0, 0x459(s10)",
+   "103766: 452d3823     \tsd\ts2, 0x450(s10)",
+   "10376a: 473d3823     \tsd\ts3, 0x470(s10)",
+   "10376e: 8f0d         \tsub\ta4, a4, a1",
+   "103770: 08000693     \tli\ta3, 0x80",
+   "103774: 0ae6e363     \tbltu\ta3, a4, 0x10381a <PT_LOAD#0+0x381a>",
+   "103778: ffffd617     \tauipc\ta2, 0xffffd",
+   "10377c: f3060613     \taddi\ta2, a2, -0xd0",
+   "103780: 40b60433     \tsub\ts0, a2, a1",
+   "103784: 8622         \tmv\ta2, s0",
+   "103786: 8566         \tmv\ta0, s9",
+   "103788: fffff097     \tauipc\tra, 0xfffff",
+   "10378c: 26e080e7     \tjalr\t0x26e(ra) <PT_LOAD#0+0x29f6>",
+   "103790: 480b0913     \taddi\ts2, s6, 0x480",
+   "103794: 9962         \tadd\ts2, s2, s8",
+   "103796: 018b0593     \taddi\ta1, s6, 0x18",
+   "10379a: 20000613     \tli\ta2, 0x200",
+   "10379e: 95e2         \tadd\ta1, a1, s8",
+   "1037a0: 854a         \tmv\ta0, s2",
+   "1037a2: fffff097     \tauipc\tra, 0xfffff",
+   "1037a6: 254080e7     \tjalr\t0x254(ra) <PT_LOAD#0+0x29f6>",
+   "1037aa: 680b0513     \taddi\ta0, s6, 0x680",
+   "1037ae: 18000613     \tli\ta2, 0x180"
+  ],
+  "args": {
+   "a0": {
+    "class": "COPY",
+    "val": "s2",
+    "def": "1037a0: 854a         \tmv\ta0, s2",
+    "subs": [
+     {
+      "class": "DERIV",
+      "val": [
+       "s2",
+       0
+      ],
+      "def": "103794: 9962         \tadd\ts2, s2, s8"
+     }
+    ]
+   },
+   "a1": {
+    "class": "DERIV",
+    "val": [
+     "a1",
+     0
+    ],
+    "def": "10379e: 95e2         \tadd\ta1, a1, s8",
+    "subs": [
+     {
+      "class": "DERIV",
+      "val": [
+       "s6",
+       24
+      ],
+      "def": "103796: 018b0593     \taddi\ta1, s6, 0x18"
+     }
+    ]
+   },
+   "a2": {
+    "class": "LIT",
+    "val": "0x200",
+    "def": "10379a: 20000613     \tli\ta2, 0x200",
+    "subs": []
+   }
+  }
+ },
+ {
+  "addr": 1062848,
+  "kind": "memcpy",
+  "window": [
+   "103756: ffffd717     \tauipc\ta4, 0xffffd",
+   "10375a: f7a70713     \taddi\ta4, a4, -0x86",
+   "10375e: 449d0c23     \tsb\ts1, 0x458(s10)",
+   "103762: 448d0ca3     \tsb\ts0, 0x459(s10)",
+   "103766: 452d3823     \tsd\ts2, 0x450(s10)",
+   "10376a: 473d3823     \tsd\ts3, 0x470(s10)",
+   "10376e: 8f0d         \tsub\ta4, a4, a1",
+   "103770: 08000693     \tli\ta3, 0x80",
+   "103774: 0ae6e363     \tbltu\ta3, a4, 0x10381a <PT_LOAD#0+0x381a>",
+   "103778: ffffd617     \tauipc\ta2, 0xffffd",
+   "10377c: f3060613     \taddi\ta2, a2, -0xd0",
+   "103780: 40b60433     \tsub\ts0, a2, a1",
+   "103784: 8622         \tmv\ta2, s0",
+   "103786: 8566         \tmv\ta0, s9",
+   "103788: fffff097     \tauipc\tra, 0xfffff",
+   "10378c: 26e080e7     \tjalr\t0x26e(ra) <PT_LOAD#0+0x29f6>",
+   "103790: 480b0913     \taddi\ts2, s6, 0x480",
+   "103794: 9962         \tadd\ts2, s2, s8",
+   "103796: 018b0593     \taddi\ta1, s6, 0x18",
+   "10379a: 20000613     \tli\ta2, 0x200",
+   "10379e: 95e2         \tadd\ta1, a1, s8",
+   "1037a0: 854a         \tmv\ta0, s2",
+   "1037a2: fffff097     \tauipc\tra, 0xfffff",
+   "1037a6: 254080e7     \tjalr\t0x254(ra) <PT_LOAD#0+0x29f6>",
+   "1037aa: 680b0513     \taddi\ta0, s6, 0x680",
+   "1037ae: 18000613     \tli\ta2, 0x180",
+   "1037b2: 00021597     \tauipc\ta1, 0x21",
+   "1037b6: d7e58593     \taddi\ta1, a1, -0x282",
+   "1037ba: 9562         \tadd\ta0, a0, s8",
+   "1037bc: fffff097     \tauipc\tra, 0xfffff",
+   "1037c0: 23a080e7     \tjalr\t0x23a(ra) <PT_LOAD#0+0x29f6>",
+   "1037c4: 6782         \tld\ta5, 0x0(sp)",
+   "1037c6: 208d3703     \tld\ta4, 0x208(s10)"
+  ],
+  "args": {
+   "a0": {
+    "class": "DERIV",
+    "val": [
+     "a0",
+     0
+    ],
+    "def": "1037ba: 9562         \tadd\ta0, a0, s8",
+    "subs": [
+     {
+      "class": "DERIV",
+      "val": [
+       "s6",
+       1664
+      ],
+      "def": "1037aa: 680b0513     \taddi\ta0, s6, 0x680"
+     }
+    ]
+   },
+   "a1": {
+    "class": "DERIV",
+    "val": [
+     "a1",
+     -642
+    ],
+    "def": "1037b6: d7e58593     \taddi\ta1, a1, -0x282",
+    "subs": [
+     {
+      "class": "LIT",
+      "val": "0x1247b2",
+      "def": "1037b2: 00021597     \tauipc\ta1, 0x21"
+     }
+    ]
+   },
+   "a2": {
+    "class": "LIT",
+    "val": "0x180",
+    "def": "1037ae: 18000613     \tli\ta2, 0x180",
+    "subs": []
+   }
+  }
+ }
+]
