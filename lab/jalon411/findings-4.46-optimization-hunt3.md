@@ -1,6 +1,6 @@
-# 4.46 — la chasse d'optimisation, ronde 3 : qui nourrit la formule,
-# les récepteurs d'événements, la région opaque 0x20000000, et la
-# surface booter
+# 4.46 — the optimization hunt, round 3: who feeds the formula,
+# the event receivers, the opaque 0x20000000 region, and the
+# booter surface
 
 Mission : le brief « on va chercher des pistes d'optimisation firmware
 du code — tu me diras ce que tu as trouvé de nouveau ». Les rondes 1-2
@@ -23,7 +23,7 @@ surface.py` (les knobs du booter + le SBI + la cellule desc), leurs
 JSONs. PR-only, no merge, branche `pass/4.46-optimization-hunt3`
 (stackée sur `pass/4.45-rop-runtime`, PR #34 ouverte).
 
-## La reproduction des comptes bankés (avant de produire)
+## The banked counts reproduction (before producing)
 
 | compte | bancé | reproduit ce pass |
 |---|---|---|
@@ -48,7 +48,7 @@ JSONs. PR-only, no merge, branche `pass/4.46-optimization-hunt3`
 | les knobs du booter ? | le census round-values (la règle 4.33 lane A) sur le booter complet : **0 valeurs** — le booter ne porte AUCUNE constante de politique (le µs-ladder = RM-only) | **PROUVÉ (négatif quantitatif, première mesure)** |
 | la cellule desc 0x16C088 : qui l'arme ? | **aucun compositeur statique de 0x16C088 dans le booter** (les 6 compositions 0x16C = les cellules voisines : le tableau logger 0x16C230-0x16C268 écrit par le setup `sd a0, 0(s6)` @0x101E0C, 0x16C340, 0x16CF88) — le setup lit desc+0x20/+0x28 mais personne n'écrit | **INDECIDABLE-BY-BYTES** (l'écrivain = driver ou ROM) — **la lane « DMEM-tail » nommée** : si la queue DMEM (0x16C000+) échappe à la couverture de la signature (le UNDECIDABLE 4.30), le driver arme le ring SANS ROP — l'expérience qui décide = le dump post-boot stock de la cellule (le runbook 4.44-machine) |
 
-## 1. TÂCHE A — les récepteurs des événements : la source des bases
+## 1. TASK A — the event receivers: the source of the bases
 
 ### 1.1 L'espace d'événements (v446a)
 
@@ -110,7 +110,7 @@ remplissage = par bloc (memcpy/create-payload) — la lane RPC
 object-create (le modèle banké 4.37/4.38 pour B+0x8D9DC) = la lecture
 cohérente, HYPOTHÈSE pour CETTE table.
 
-## 2. TÂCHE B — l'écrivain des records f14/f18 : la couture statique est morte
+## 2. TASK B — the f14/f18 record writer: the static seam is dead
 
 ### 2.1 Le template statique : 0 hit
 
@@ -151,7 +151,7 @@ helper de clear-bit, faux positif inspecté). **L'init ne touche jamais
 les records.** Le graphe boardobj = construit par événements — le
 remplissage des records = la lane runtime, cohérente avec 4.37/4.38.
 
-## 3. TÂCHE C — la région 0x20000000 : quantifiée, et le mur du backing
+## 3. TASK C — the 0x20000000 region: quantified, and the backing wall
 
 ### 3.1 Le census (v446c) : 71,541 références
 
@@ -195,7 +195,7 @@ file-backed, (ii) pas décidable dans le rodata opaque.** Les knobs
 grande, mais murée par la compression — la route = le dump runtime (la
 lane 4.26) ou l'émulateur, pas les octets.
 
-## 4. TÂCHE D — la surface booter : 0 knobs, la cellule desc orpheline
+## 4. TASK D — the booter surface: 0 knobs, the orphaned desc cell
 
 ### 4.1 Le census des knobs du booter (première mesure)
 
@@ -238,7 +238,7 @@ mort dans notre flux — cohérent avec « inerte sans setup » (4.42).
 n'est pas couverte ET la cellule reste zéro : le driver-DMEM-patch = la
 lane candidate au jour suivant, ACK-gatée.
 
-## 5. La réconciliation avec les passes précédentes
+## 5. The reconciliation with the previous passes
 
 - **4.43** : sa queue #2 (le backing 0x20000000) = payée — la région
   quantifiée (71,541 refs), le backing = muré (compressé) ; sa queue #3
@@ -257,7 +257,7 @@ lane candidate au jour suivant, ACK-gatée.
 - **4.30** : le record `rm.bindata.bin` = le seul blob avec la place du
   backing — la grammaire GFW ressort comme l'inventaire des blobs.
 
-## 6. Les leçons d'instrument
+## 6. The instrument lessons
 
 1. **AUIPC = 0x17, LUI = 0x37** — le census avec le mauvais opcode
    donnait 3 hits au lieu de 71,541 ; l'assert sur le site cité 4.43
@@ -279,7 +279,7 @@ lane candidate au jour suivant, ACK-gatée.
    −16 ; le census des encodages du pas ×0x30 = li/addi + les marches
    `addi rd, rd, 0x30` (528 sites — la forme invisible du multiplicateur).
 
-## 7. La queue
+## 7. The queue
 
 1. Le dump runtime de la cellule desc {0x16C088, +0x20, +0x28} + le
    test de couverture signature de la queue DMEM (le jour machine, le
