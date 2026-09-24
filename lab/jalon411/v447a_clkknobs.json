@@ -1,0 +1,619 @@
+{
+ "pass": "4.47",
+ "task": "A",
+ "instrument": "v447a_clkknobs",
+ "law_fails": 0,
+ "strings_total": 5269,
+ "anchor_va": "0x1e27b20",
+ "auipc_all_offsets": 416206,
+ "cards": [
+  {
+   "name": "SlideMCLK",
+   "occurrences": 1,
+   "sites": [
+    {
+     "foff": "0xe29da8",
+     "va": "0x1e29da8",
+     "pic_xrefs": 0,
+     "xref_sites": [],
+     "ptr_table_refs": 0
+    }
+   ],
+   "pic_xrefs_total": 0,
+   "verdict": "UNREFERENCED in image"
+  },
+  {
+   "name": "EnableMClkSlowdown",
+   "occurrences": 1,
+   "sites": [
+    {
+     "foff": "0xe29db8",
+     "va": "0x1e29db8",
+     "pic_xrefs": 0,
+     "xref_sites": [],
+     "ptr_table_refs": 0
+    }
+   ],
+   "pic_xrefs_total": 0,
+   "verdict": "UNREFERENCED in image"
+  },
+  {
+   "name": "RMMaxMclkFbstopTime",
+   "occurrences": 1,
+   "sites": [
+    {
+     "foff": "0xe29dd0",
+     "va": "0x1e29dd0",
+     "pic_xrefs": 0,
+     "xref_sites": [],
+     "ptr_table_refs": 0
+    }
+   ],
+   "pic_xrefs_total": 0,
+   "verdict": "UNREFERENCED in image"
+  },
+  {
+   "name": "RmClkPowerOffDramPllWhenUnused",
+   "occurrences": 1,
+   "sites": [
+    {
+     "foff": "0xe29de8",
+     "va": "0x1e29de8",
+     "pic_xrefs": 0,
+     "xref_sites": [],
+     "ptr_table_refs": 0
+    }
+   ],
+   "pic_xrefs_total": 0,
+   "verdict": "UNREFERENCED in image"
+  },
+  {
+   "name": "RMReportMclkSwitchFbStopTime",
+   "occurrences": 1,
+   "sites": [
+    {
+     "foff": "0xe29e08",
+     "va": "0x1e29e08",
+     "pic_xrefs": 1,
+     "xref_sites": [
+      {
+       "auipc_va": "0x10d86b8",
+       "rd": "a1"
+      }
+     ],
+     "first_consumer": "PASS-TO-CALL (ABI arg)",
+     "consumer_at": "0x10d86d4",
+     "ptr_table_refs": 0
+    }
+   ],
+   "pic_xrefs_total": 1,
+   "verdict": "REGKEY-CANDIDATE (lookup-by-name)"
+  },
+  {
+   "name": "RMClkSwitchWithinMargin",
+   "occurrences": 1,
+   "sites": [
+    {
+     "foff": "0xe29e28",
+     "va": "0x1e29e28",
+     "pic_xrefs": 1,
+     "xref_sites": [
+      {
+       "auipc_va": "0x10d871c",
+       "rd": "a1"
+      }
+     ],
+     "first_consumer": "PASS-TO-CALL (ABI arg)",
+     "consumer_at": "0x10d872a",
+     "ptr_table_refs": 0
+    }
+   ],
+   "pic_xrefs_total": 1,
+   "verdict": "REGKEY-CANDIDATE (lookup-by-name)"
+  },
+  {
+   "name": "RmMClkP5LinkTrainingWckStopClks",
+   "occurrences": 1,
+   "sites": [
+    {
+     "foff": "0xe29e40",
+     "va": "0x1e29e40",
+     "pic_xrefs": 1,
+     "xref_sites": [
+      {
+       "auipc_va": "0x10d8738",
+       "rd": "a1"
+      }
+     ],
+     "first_consumer": "PASS-TO-CALL (ABI arg)",
+     "consumer_at": "0x10d8746",
+     "ptr_table_refs": 0
+    }
+   ],
+   "pic_xrefs_total": 1,
+   "verdict": "REGKEY-CANDIDATE (lookup-by-name)"
+  },
+  {
+   "name": "RMClkVfOverride",
+   "occurrences": 1,
+   "sites": [
+    {
+     "foff": "0xe29f00",
+     "va": "0x1e29f00",
+     "pic_xrefs": 1,
+     "xref_sites": [
+      {
+       "auipc_va": "0x10dac84",
+       "rd": "a1"
+      }
+     ],
+     "first_consumer": "PASS-TO-CALL (ABI arg)",
+     "consumer_at": "0x10daca2",
+     "ptr_table_refs": 0
+    }
+   ],
+   "pic_xrefs_total": 1,
+   "verdict": "REGKEY-CANDIDATE (lookup-by-name)"
+  },
+  {
+   "name": "RmClkMclkProg",
+   "occurrences": 1,
+   "sites": [
+    {
+     "foff": "0xe29f10",
+     "va": "0x1e29f10",
+     "pic_xrefs": 1,
+     "xref_sites": [
+      {
+       "auipc_va": "0x10e8f7e",
+       "rd": "a1"
+      }
+     ],
+     "first_consumer": "PASS-TO-CALL (ABI arg)",
+     "consumer_at": "0x10e8f92",
+     "ptr_table_refs": 0
+    }
+   ],
+   "pic_xrefs_total": 1,
+   "verdict": "REGKEY-CANDIDATE (lookup-by-name)"
+  },
+  {
+   "name": "RmIsoHubMCLKSwitch",
+   "occurrences": 1,
+   "sites": [
+    {
+     "foff": "0xe29f70",
+     "va": "0x1e29f70",
+     "pic_xrefs": 2,
+     "xref_sites": [
+      {
+       "auipc_va": "0x10ecf18",
+       "rd": "a1"
+      },
+      {
+       "auipc_va": "0x180afce",
+       "rd": "a1"
+      }
+     ],
+     "first_consumer": "PASS-TO-CALL (ABI arg)",
+     "consumer_at": "0x10ecf26",
+     "ptr_table_refs": 0
+    }
+   ],
+   "pic_xrefs_total": 2,
+   "verdict": "REGKEY-CANDIDATE (lookup-by-name)"
+  },
+  {
+   "name": "RmClkControllersOverride",
+   "occurrences": 1,
+   "sites": [
+    {
+     "foff": "0xe29fb0",
+     "va": "0x1e29fb0",
+     "pic_xrefs": 0,
+     "xref_sites": [],
+     "ptr_table_refs": 0
+    }
+   ],
+   "pic_xrefs_total": 0,
+   "verdict": "UNREFERENCED in image"
+  },
+  {
+   "name": "RmInternalVrrMclkOn2h1or",
+   "occurrences": 1,
+   "sites": [
+    {
+     "foff": "0xe33890",
+     "va": "0x1e33890",
+     "pic_xrefs": 0,
+     "xref_sites": [],
+     "ptr_table_refs": 0
+    }
+   ],
+   "pic_xrefs_total": 0,
+   "verdict": "UNREFERENCED in image"
+  },
+  {
+   "name": "RmOptp2LowerMclk",
+   "occurrences": 1,
+   "sites": [
+    {
+     "foff": "0xe870c0",
+     "va": "0x1e870c0",
+     "pic_xrefs": 1,
+     "xref_sites": [
+      {
+       "auipc_va": "0x164d6ca",
+       "rd": "a1"
+      }
+     ],
+     "first_consumer": "PASS-TO-CALL (ABI arg)",
+     "consumer_at": "0x164d6d8",
+     "ptr_table_refs": 0
+    }
+   ],
+   "pic_xrefs_total": 1,
+   "verdict": "REGKEY-CANDIDATE (lookup-by-name)"
+  },
+  {
+   "name": "RmMClkSwitchOnFbflcn",
+   "occurrences": 1,
+   "sites": [
+    {
+     "foff": "0xe8bc00",
+     "va": "0x1e8bc00",
+     "pic_xrefs": 0,
+     "xref_sites": [],
+     "ptr_table_refs": 0
+    }
+   ],
+   "pic_xrefs_total": 0,
+   "verdict": "UNREFERENCED in image"
+  },
+  {
+   "name": "RMClkSlowDown",
+   "occurrences": 1,
+   "sites": [
+    {
+     "foff": "0xe8be80",
+     "va": "0x1e8be80",
+     "pic_xrefs": 2,
+     "xref_sites": [
+      {
+       "auipc_va": "0x1b717a0",
+       "rd": "a2"
+      },
+      {
+       "auipc_va": "0x1aae42e",
+       "rd": "a1"
+      }
+     ],
+     "first_consumer": "PASS-TO-CALL (ABI arg)",
+     "consumer_at": "0x1b717b6",
+     "ptr_table_refs": 0
+    }
+   ],
+   "pic_xrefs_total": 2,
+   "verdict": "REGKEY-CANDIDATE (lookup-by-name)"
+  },
+  {
+   "name": "RMEnableClk",
+   "occurrences": 1,
+   "sites": [
+    {
+     "foff": "0xe29ed8",
+     "va": "0x1e29ed8",
+     "pic_xrefs": 0,
+     "xref_sites": [],
+     "ptr_table_refs": 0
+    }
+   ],
+   "pic_xrefs_total": 0,
+   "verdict": "UNREFERENCED in image"
+  },
+  {
+   "name": "RMProgrammableClkMask",
+   "occurrences": 1,
+   "sites": [
+    {
+     "foff": "0xe29ee8",
+     "va": "0x1e29ee8",
+     "pic_xrefs": 0,
+     "xref_sites": [],
+     "ptr_table_refs": 0
+    }
+   ],
+   "pic_xrefs_total": 0,
+   "verdict": "UNREFERENCED in image"
+  },
+  {
+   "name": "RmLpwrSysClkSd",
+   "occurrences": 1,
+   "sites": [
+    {
+     "foff": "0xe87790",
+     "va": "0x1e87790",
+     "pic_xrefs": 1,
+     "xref_sites": [
+      {
+       "auipc_va": "0x170e260",
+       "rd": "a1"
+      }
+     ],
+     "first_consumer": "PASS-TO-CALL (ABI arg)",
+     "consumer_at": "0x170e26e",
+     "ptr_table_refs": 0
+    }
+   ],
+   "pic_xrefs_total": 1,
+   "verdict": "REGKEY-CANDIDATE (lookup-by-name)"
+  },
+  {
+   "name": "RML2MaxWaysSysmem",
+   "occurrences": 1,
+   "sites": [
+    {
+     "foff": "0xe343f8",
+     "va": "0x1e343f8",
+     "pic_xrefs": 4,
+     "xref_sites": [
+      {
+       "auipc_va": "0x130697e",
+       "rd": "a5"
+      },
+      {
+       "auipc_va": "0x1306ab0",
+       "rd": "a4"
+      },
+      {
+       "auipc_va": "0x1306ad0",
+       "rd": "a5"
+      },
+      {
+       "auipc_va": "0x1306aec",
+       "rd": "a4"
+      }
+     ],
+     "first_consumer": "REG-READ",
+     "consumer_at": "0x1306986",
+     "ptr_table_refs": 0
+    }
+   ],
+   "pic_xrefs_total": 4,
+   "verdict": "CITED (REG-READ)"
+  },
+  {
+   "name": "RMUseTc0NonCoherent",
+   "occurrences": 1,
+   "sites": [
+    {
+     "foff": "0xe28d88",
+     "va": "0x1e28d88",
+     "pic_xrefs": 7,
+     "xref_sites": [
+      {
+       "auipc_va": "0x10637b8",
+       "rd": "a2"
+      },
+      {
+       "auipc_va": "0x10637e4",
+       "rd": "a2"
+      },
+      {
+       "auipc_va": "0x106381c",
+       "rd": "a2"
+      },
+      {
+       "auipc_va": "0x1063854",
+       "rd": "a2"
+      },
+      {
+       "auipc_va": "0x106388c",
+       "rd": "a2"
+      },
+      {
+       "auipc_va": "0x10638c4",
+       "rd": "a2"
+      },
+      {
+       "auipc_va": "0x10638f0",
+       "rd": "a2"
+      }
+     ],
+     "first_consumer": "PASS-TO-CALL (ABI arg)",
+     "consumer_at": "0x10637ca",
+     "ptr_table_refs": 0
+    }
+   ],
+   "pic_xrefs_total": 7,
+   "verdict": "REGKEY-CANDIDATE (lookup-by-name)"
+  },
+  {
+   "name": "RmDisableDecompOnlyLce",
+   "occurrences": 1,
+   "sites": [
+    {
+     "foff": "0xe29798",
+     "va": "0x1e29798",
+     "pic_xrefs": 9,
+     "xref_sites": [
+      {
+       "auipc_va": "0x10c8318",
+       "rd": "a1"
+      },
+      {
+       "auipc_va": "0x10b875a",
+       "rd": "a1"
+      },
+      {
+       "auipc_va": "0x10c6778",
+       "rd": "a1"
+      },
+      {
+       "auipc_va": "0x10c778c",
+       "rd": "a1"
+      },
+      {
+       "auipc_va": "0x10c590e",
+       "rd": "a1"
+      },
+      {
+       "auipc_va": "0x10c7b28",
+       "rd": "a1"
+      },
+      {
+       "auipc_va": "0x10c8cca",
+       "rd": "a1"
+      },
+      {
+       "auipc_va": "0x10b8d3c",
+       "rd": "a1"
+      }
+     ],
+     "first_consumer": "PASS-TO-CALL (ABI arg)",
+     "consumer_at": "0x10c832e",
+     "ptr_table_refs": 0
+    }
+   ],
+   "pic_xrefs_total": 9,
+   "verdict": "REGKEY-CANDIDATE (lookup-by-name)"
+  },
+  {
+   "name": "RmPerfCfOverride",
+   "occurrences": 1,
+   "sites": [
+    {
+     "foff": "0xe872a8",
+     "va": "0x1e872a8",
+     "pic_xrefs": 0,
+     "xref_sites": [],
+     "ptr_table_refs": 0
+    }
+   ],
+   "pic_xrefs_total": 0,
+   "verdict": "UNREFERENCED in image"
+  },
+  {
+   "name": "RmPerfCfPmSensorOverrides",
+   "occurrences": 1,
+   "sites": [
+    {
+     "foff": "0xe872c0",
+     "va": "0x1e872c0",
+     "pic_xrefs": 1,
+     "xref_sites": [
+      {
+       "auipc_va": "0x16b9aac",
+       "rd": "a1"
+      }
+     ],
+     "first_consumer": "PASS-TO-CALL (ABI arg)",
+     "consumer_at": "0x16b9abe",
+     "ptr_table_refs": 0
+    }
+   ],
+   "pic_xrefs_total": 1,
+   "verdict": "REGKEY-CANDIDATE (lookup-by-name)"
+  },
+  {
+   "name": "RmPerfCfPolicyOverrides",
+   "occurrences": 1,
+   "sites": [
+    {
+     "foff": "0xe872e0",
+     "va": "0x1e872e0",
+     "pic_xrefs": 0,
+     "xref_sites": [],
+     "ptr_table_refs": 0
+    }
+   ],
+   "pic_xrefs_total": 0,
+   "verdict": "UNREFERENCED in image"
+  },
+  {
+   "name": "RmPerfCfControllersOverrides",
+   "occurrences": 1,
+   "sites": [
+    {
+     "foff": "0xe8c310",
+     "va": "0x1e8c310",
+     "pic_xrefs": 0,
+     "xref_sites": [],
+     "ptr_table_refs": 0
+    }
+   ],
+   "pic_xrefs_total": 0,
+   "verdict": "UNREFERENCED in image"
+  },
+  {
+   "name": "MCLK_LIMIT",
+   "occurrences": 1,
+   "sites": [
+    {
+     "foff": "0xe8d030",
+     "va": "0x1e8d030",
+     "pic_xrefs": 0,
+     "xref_sites": [],
+     "ptr_table_refs": 4
+    }
+   ],
+   "pic_xrefs_total": 0,
+   "verdict": "DATA-CITED (pointer table)"
+  },
+  {
+   "name": "DRAMCLK",
+   "occurrences": 0,
+   "sites": [],
+   "pic_xrefs_total": 0,
+   "verdict": "UNREFERENCED in image"
+  },
+  {
+   "name": "(pSingle1x->clkDomainIdx != pSingle1x->ignoreClkDomainIdx)",
+   "occurrences": 1,
+   "sites": [
+    {
+     "foff": "0xe88460",
+     "va": "0x1e88460",
+     "pic_xrefs": 0,
+     "xref_sites": []
+    }
+   ],
+   "pic_xrefs_total": 0,
+   "verdict": "UNREFERENCED in image"
+  },
+  {
+   "name": "(pSingle1x->softFloor.clkPropTopIdx != NV2080_CTRL_CLK_CLK_P",
+   "occurrences": 1,
+   "sites": [
+    {
+     "foff": "0xe884a0",
+     "va": "0x1e884a0",
+     "pic_xrefs": 0,
+     "xref_sites": []
+    }
+   ],
+   "pic_xrefs_total": 0,
+   "verdict": "UNREFERENCED in image"
+  },
+  {
+   "name": "(pSingle1x->softFloor.perfCfControllerClkIdx != NV2080_CTRL_",
+   "occurrences": 1,
+   "sites": [
+    {
+     "foff": "0xe884f0",
+     "va": "0x1e884f0",
+     "pic_xrefs": 0,
+     "xref_sites": []
+    }
+   ],
+   "pic_xrefs_total": 0,
+   "verdict": "UNREFERENCED in image"
+  }
+ ],
+ "selftests": {
+  "law_512": "PASS",
+  "e_machine_0xf3": "PASS",
+  "anchor_present": true,
+  "pic_composition": "exact by construction"
+ }
+}
