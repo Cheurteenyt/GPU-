@@ -138,7 +138,7 @@ if [ "${OFFSETS_APPLIED_MANUALLY:-0}" != "1" ]; then
 fi
 
 # §3 — the regkey pack (one key, one boot, one counter) ---------------
-say "§3 regkey pack — CLEAR: RmClk2Enable=1 (the v447a card, lookup-by-name xref @0x10dac84-family); REFUSED: RMClkVfOverride (the 4.23 clock-table corruption precedent), RMUseTc0NonCoherent (consistency-correctness risk), RML2MaxWaysSysmem (semantics not yet named — observe-only until TÂCHE C names the store target)"
+say "§3 regkey pack — CLEAR: RmClk2Enable=1 (the v447a card, lookup-by-name xref @0x10dac84-family); REFUSED: RMClkVfOverride (the 4.23 clock-table corruption precedent), RMUseTc0NonCoherent (consistency-correctness risk), RML2MaxWaysSysmem (4.49: the store IS named — u32 -> fb config+0x3D84, flag bit0 @+0x3D68, consumed @0x1318d4a which programs the L2 partition reg offset 0x2AC ways<<8; value domain {0} U {7}, 1-6 clamped to 7; still observe-only on THIS day — the sysmem-coherency surface is not a stock-day experiment; the named future experiment = RML2MaxWaysSysmem=0 judged by the §1 battery on its OWN day)"
 cat <<'EOF'
   The cleared-key procedure (manual, one boot):
     1. sudo editor /etc/modprobe.d/nvidia-447.conf
