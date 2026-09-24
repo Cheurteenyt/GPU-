@@ -1,0 +1,1057 @@
+{
+ "pass": "4.48",
+ "task": "C",
+ "instrument": "v448c_stride_timing",
+ "baseline": {
+  "auipc": 416206
+ },
+ "stride76": {
+  "addi_0x4c_total": 349,
+  "addi_0x4c_list": [
+   {
+    "va": "0x10055cc",
+    "insn": "addi a3, a3, 0x4c",
+    "rd": "a3",
+    "rs1": "a3"
+   },
+   {
+    "va": "0x100b474",
+    "insn": "addi a0, a0, 0x4c",
+    "rd": "a0",
+    "rs1": "a0"
+   },
+   {
+    "va": "0x100ecf0",
+    "insn": "addi a0, zero, 0x4c",
+    "rd": "a0",
+    "rs1": "zero"
+   },
+   {
+    "va": "0x1012f60",
+    "insn": "addi s2, s2, 0x4c",
+    "rd": "s2",
+    "rs1": "s2"
+   },
+   {
+    "va": "0x1016032",
+    "insn": "addi s2, s2, 0x4c",
+    "rd": "s2",
+    "rs1": "s2"
+   },
+   {
+    "va": "0x103a360",
+    "insn": "addi a1, a1, 0x4c",
+    "rd": "a1",
+    "rs1": "a1"
+   },
+   {
+    "va": "0x1063a08",
+    "insn": "addi a2, zero, 0x4c",
+    "rd": "a2",
+    "rs1": "zero"
+   },
+   {
+    "va": "0x106772c",
+    "insn": "addi a2, zero, 0x4c",
+    "rd": "a2",
+    "rs1": "zero"
+   },
+   {
+    "va": "0x106f5e0",
+    "insn": "addi a2, a2, 0x4c",
+    "rd": "a2",
+    "rs1": "a2"
+   },
+   {
+    "va": "0x1076bc6",
+    "insn": "addi a1, zero, 0x4c",
+    "rd": "a1",
+    "rs1": "zero"
+   },
+   {
+    "va": "0x107c200",
+    "insn": "addi a3, a3, 0x4c",
+    "rd": "a3",
+    "rs1": "a3"
+   },
+   {
+    "va": "0x108c688",
+    "insn": "addi a5, zero, 0x4c",
+    "rd": "a5",
+    "rs1": "zero"
+   },
+   {
+    "va": "0x10b48be",
+    "insn": "addi a1, zero, 0x4c",
+    "rd": "a1",
+    "rs1": "zero"
+   },
+   {
+    "va": "0x10b9184",
+    "insn": "addi a1, zero, 0x4c",
+    "rd": "a1",
+    "rs1": "zero"
+   },
+   {
+    "va": "0x10cc914",
+    "insn": "addi a2, zero, 0x4c",
+    "rd": "a2",
+    "rs1": "zero"
+   },
+   {
+    "va": "0x10ccbac",
+    "insn": "addi a2, zero, 0x4c",
+    "rd": "a2",
+    "rs1": "zero"
+   },
+   {
+    "va": "0x10ea810",
+    "insn": "addi a3, a3, 0x4c",
+    "rd": "a3",
+    "rs1": "a3"
+   },
+   {
+    "va": "0x10ea828",
+    "insn": "addi a1, a1, 0x4c",
+    "rd": "a1",
+    "rs1": "a1"
+   },
+   {
+    "va": "0x10f4b94",
+    "insn": "addi a4, zero, 0x4c",
+    "rd": "a4",
+    "rs1": "zero"
+   },
+   {
+    "va": "0x10f90c4",
+    "insn": "addi a0, zero, 0x4c",
+    "rd": "a0",
+    "rs1": "zero"
+   },
+   {
+    "va": "0x110be80",
+    "insn": "addi a1, a1, 0x4c",
+    "rd": "a1",
+    "rs1": "a1"
+   },
+   {
+    "va": "0x110df92",
+    "insn": "addi a1, s3, 0x4c",
+    "rd": "a1",
+    "rs1": "s3"
+   },
+   {
+    "va": "0x110e296",
+    "insn": "addi a1, s3, 0x4c",
+    "rd": "a1",
+    "rs1": "s3"
+   },
+   {
+    "va": "0x1116460",
+    "insn": "addi a5, zero, 0x4c",
+    "rd": "a5",
+    "rs1": "zero"
+   },
+   {
+    "va": "0x1119850",
+    "insn": "addi a2, a2, 0x4c",
+    "rd": "a2",
+    "rs1": "a2"
+   },
+   {
+    "va": "0x112167a",
+    "insn": "addi t3, t3, 0x4c",
+    "rd": "t3",
+    "rs1": "t3"
+   },
+   {
+    "va": "0x11300b0",
+    "insn": "addi a2, a2, 0x4c",
+    "rd": "a2",
+    "rs1": "a2"
+   },
+   {
+    "va": "0x1135790",
+    "insn": "addi a1, a1, 0x4c",
+    "rd": "a1",
+    "rs1": "a1"
+   },
+   {
+    "va": "0x113af40",
+    "insn": "addi s3, s3, 0x4c",
+    "rd": "s3",
+    "rs1": "s3"
+   },
+   {
+    "va": "0x1142d38",
+    "insn": "addi a5, zero, 0x4c",
+    "rd": "a5",
+    "rs1": "zero"
+   },
+   {
+    "va": "0x1148c70",
+    "insn": "addi a2, a2, 0x4c",
+    "rd": "a2",
+    "rs1": "a2"
+   },
+   {
+    "va": "0x115d980",
+    "insn": "addi a2, a2, 0x4c",
+    "rd": "a2",
+    "rs1": "a2"
+   },
+   {
+    "va": "0x1161ae8",
+    "insn": "addi a1, a1, 0x4c",
+    "rd": "a1",
+    "rs1": "a1"
+   },
+   {
+    "va": "0x1168036",
+    "insn": "addi s4, s4, 0x4c",
+    "rd": "s4",
+    "rs1": "s4"
+   },
+   {
+    "va": "0x1168d8e",
+    "insn": "addi s3, s3, 0x4c",
+    "rd": "s3",
+    "rs1": "s3"
+   },
+   {
+    "va": "0x11697fe",
+    "insn": "addi s4, s4, 0x4c",
+    "rd": "s4",
+    "rs1": "s4"
+   },
+   {
+    "va": "0x116a28e",
+    "insn": "addi s3, s3, 0x4c",
+    "rd": "s3",
+    "rs1": "s3"
+   },
+   {
+    "va": "0x116aeee",
+    "insn": "addi s3, s3, 0x4c",
+    "rd": "s3",
+    "rs1": "s3"
+   },
+   {
+    "va": "0x11970c0",
+    "insn": "addi a1, a1, 0x4c",
+    "rd": "a1",
+    "rs1": "a1"
+   },
+   {
+    "va": "0x119c800",
+    "insn": "addi a1, a1, 0x4c",
+    "rd": "a1",
+    "rs1": "a1"
+   },
+   {
+    "va": "0x119dc02",
+    "insn": "addi a2, zero, 0x4c",
+    "rd": "a2",
+    "rs1": "zero"
+   },
+   {
+    "va": "0x11a0c7a",
+    "insn": "addi a5, zero, 0x4c",
+    "rd": "a5",
+    "rs1": "zero"
+   },
+   {
+    "va": "0x11a1482",
+    "insn": "addi a4, zero, 0x4c",
+    "rd": "a4",
+    "rs1": "zero"
+   },
+   {
+    "va": "0x11b1d60",
+    "insn": "addi a5, zero, 0x4c",
+    "rd": "a5",
+    "rs1": "zero"
+   },
+   {
+    "va": "0x11bea08",
+    "insn": "addi a2, a2, 0x4c",
+    "rd": "a2",
+    "rs1": "a2"
+   },
+   {
+    "va": "0x11c00a2",
+    "insn": "addi a1, zero, 0x4c",
+    "rd": "a1",
+    "rs1": "zero"
+   },
+   {
+    "va": "0x11c1868",
+    "insn": "addi a1, a1, 0x4c",
+    "rd": "a1",
+    "rs1": "a1"
+   },
+   {
+    "va": "0x11cf3a0",
+    "insn": "addi a3, zero, 0x4c",
+    "rd": "a3",
+    "rs1": "zero"
+   },
+   {
+    "va": "0x11cfd2c",
+    "insn": "addi a2, zero, 0x4c",
+    "rd": "a2",
+    "rs1": "zero"
+   },
+   {
+    "va": "0x11e380c",
+    "insn": "addi a4, zero, 0x4c",
+    "rd": "a4",
+    "rs1": "zero"
+   },
+   {
+    "va": "0x11e3b96",
+    "insn": "addi a4, zero, 0x4c",
+    "rd": "a4",
+    "rs1": "zero"
+   },
+   {
+    "va": "0x11e4048",
+    "insn": "addi a4, zero, 0x4c",
+    "rd": "a4",
+    "rs1": "zero"
+   },
+   {
+    "va": "0x11e40bc",
+    "insn": "addi a4, zero, 0x4c",
+    "rd": "a4",
+    "rs1": "zero"
+   },
+   {
+    "va": "0x121ffa0",
+    "insn": "addi a5, a5, 0x4c",
+    "rd": "a5",
+    "rs1": "a5"
+   },
+   {
+    "va": "0x121ffce",
+    "insn": "addi a5, a5, 0x4c",
+    "rd": "a5",
+    "rs1": "a5"
+   },
+   {
+    "va": "0x121ffee",
+    "insn": "addi a1, a1, 0x4c",
+    "rd": "a1",
+    "rs1": "a1"
+   },
+   {
+    "va": "0x1220018",
+    "insn": "addi a4, zero, 0x4c",
+    "rd": "a4",
+    "rs1": "zero"
+   },
+   {
+    "va": "0x1220042",
+    "insn": "addi a5, a5, 0x4c",
+    "rd": "a5",
+    "rs1": "a5"
+   },
+   {
+    "va": "0x122005e",
+    "insn": "addi a1, a1, 0x4c",
+    "rd": "a1",
+    "rs1": "a1"
+   },
+   {
+    "va": "0x1220070",
+    "insn": "addi a3, zero, 0x4c",
+    "rd": "a3",
+    "rs1": "zero"
+   }
+  ],
+  "li76_constants": 185,
+  "mul_by_76": [
+   {
+    "li": "0x10f4b94",
+    "mul": "0x10f4b98",
+    "insn": "mul with a4"
+   },
+   {
+    "li": "0x1116460",
+    "mul": "0x1116464",
+    "insn": "mul with a5"
+   },
+   {
+    "li": "0x1220018",
+    "mul": "0x122001c",
+    "insn": "mul with a4"
+   },
+   {
+    "li": "0x1220070",
+    "mul": "0x1220076",
+    "insn": "mul with a3"
+   },
+   {
+    "li": "0x12200da",
+    "mul": "0x12200de",
+    "insn": "mul with a4"
+   },
+   {
+    "li": "0x12200fc",
+    "mul": "0x1220100",
+    "insn": "mul with a4"
+   },
+   {
+    "li": "0x1220162",
+    "mul": "0x1220166",
+    "insn": "mul with a4"
+   },
+   {
+    "li": "0x1220186",
+    "mul": "0x122018a",
+    "insn": "mul with a4"
+   },
+   {
+    "li": "0x1220198",
+    "mul": "0x122019c",
+    "insn": "mul with a4"
+   },
+   {
+    "li": "0x13adfc6",
+    "mul": "0x13adfcc",
+    "insn": "mul with a3"
+   },
+   {
+    "li": "0x1409504",
+    "mul": "0x1409508",
+    "insn": "mul with a5"
+   },
+   {
+    "li": "0x157838e",
+    "mul": "0x1578392",
+    "insn": "mul with a4"
+   },
+   {
+    "li": "0x17ccbda",
+    "mul": "0x17ccbde",
+    "insn": "mul with a4"
+   },
+   {
+    "li": "0x1bd7c82",
+    "mul": "0x1bd7c86",
+    "insn": "mul with s1"
+   },
+   {
+    "li": "0x1bd7d38",
+    "mul": "0x1bd7d3c",
+    "insn": "mul with a4"
+   }
+  ]
+ },
+ "stride76_neighborhoods": [
+  {
+   "va": "0x10055cc",
+   "ctx": [
+    "lui      a3, 0x1a0e0   -> 0x101f6a0",
+    "bgeu     a4, a3, -0x404   -> 0x10051c0",
+    "auipc    a3, 0x88f   -> 0x1005e57",
+    "addi     a3, a3, 0x4c   -> 0x1005618",
+    "sd       a3, 0x130(a5)",
+    "lui      a3, 0x2e010   -> 0x10335e4",
+    "bgeu     a4, a3, 8   -> 0x10055e0"
+   ]
+  },
+  {
+   "va": "0x100b474",
+   "ctx": [
+    "bltu     a0, s3, 8   -> 0x100b470",
+    "j        -0x1006   -> 0x100a466",
+    "auipc    a0, 0x3a   -> 0x100b4aa",
+    "addi     a0, a0, 0x4c   -> 0x100b4c0",
+    "c.sd     a0, 0x58(a4)   -> 0x100b4d0",
+    "lui      a0, 0xe1fe0   -> 0x10ed45a",
+    "c.addw   a0, a5",
+    "lui      s3, 0x2ff0   -> 0x100e470"
+   ]
+  },
+  {
+   "va": "0x100ecf0",
+   "ctx": [
+    "c.sd     a3, 0xf8(s1)   -> 0x100eddc",
+    "c.li     a5, 0   -> 0x100ece6",
+    "addi     a2, s0, -0x2c   -> 0x100ecbc",
+    "addi     a1, s0, -0x30   -> 0x100ecbc",
+    "addi     a0, zero, 0x4c   -> 0x100ed3c",
+    "auipc    ra, 0x413   -> 0x100f107",
+    "jalr     ra, ra, -0x608   -> 0x100e6f0",
+    "c.lui    a5, 1   -> 0x100ecfd",
+    "c.add    a5, s1"
+   ]
+  },
+  {
+   "va": "0x1012f60",
+   "ctx": [
+    "sd       zero, 0x18(s2)",
+    "c.li     a0, 0   -> 0x1012f58",
+    "c.j      -0x6be   -> 0x101289c",
+    "addi     s3, s2, 0x2c   -> 0x1012f88",
+    "addi     s2, s2, 0x4c   -> 0x1012fac",
+    "c.j      0x18   -> 0x1012f7c",
+    "c.li     a1, 8   -> 0x1012f6e",
+    "c.mv     a0, s1",
+    "auipc    ra, 0xfffff   -> 0x1112f69",
+    "jalr     ra, ra, 0x722   -> 0x1013690"
+   ]
+  },
+  {
+   "va": "0x1016032",
+   "ctx": [
+    "jalr     ra, ra, -0xa2   -> 0x1015f84",
+    "c.li     a0, 0   -> 0x101602a",
+    "c.j      -0x6b4   -> 0x1015978",
+    "addi     s3, s2, 0x2c   -> 0x101605a",
+    "addi     s2, s2, 0x4c   -> 0x101607e",
+    "c.j      0x1c   -> 0x1016052",
+    "lbu      a1, 0(s3)",
+    "c.li     a2, 8   -> 0x1016044",
+    "c.mv     a0, s1",
+    "auipc    ra, 0xffffd   -> 0x111603d"
+   ]
+  },
+  {
+   "va": "0x103a360",
+   "ctx": [
+    "c.nop    ",
+    "jalr     ra, ra, -0x12   -> 0x103a344",
+    "c.li     a0, 1   -> 0x103a35b",
+    "auipc    a1, 0x1f217   -> 0x1059573",
+    "addi     a1, a1, 0x4c   -> 0x103a3ac",
+    "auipc    ra, 0xa64   -> 0x103adc8",
+    "jalr     ra, ra, 0x2c0   -> 0x103a628",
+    "c.mv     a1, s4",
+    "c.li     a0, 0   -> 0x103a36e"
+   ]
+  },
+  {
+   "va": "0x1063a08",
+   "ctx": [
+    "auipc    t1, 0x3f6   -> 0x1063df2",
+    "jalr     zero, t1, -0x3a4   -> 0x106365c",
+    "addi     a3, s0, -0x38   -> 0x10639cc",
+    "addi     a2, zero, 0x4c   -> 0x1063a54",
+    "sd       zero, -0x38(s0)",
+    "sw       zero, -0x30(s0)",
+    "auipc    ra, 0x6c9   -> 0x10640dd"
+   ]
+  },
+  {
+   "va": "0x106772c",
+   "ctx": [
+    "c.bnez   a5, 0xd2   -> 0x10677f4",
+    "lbu      a5, 0x274(s9)",
+    "beqz     a5, 0x2a0   -> 0x10679c8",
+    "addi     a2, zero, 0x4c   -> 0x1067778",
+    "c.li     a1, 0   -> 0x1067730",
+    "addi     a0, s0, -0xc8   -> 0x106766a",
+    "auipc    ra, 0xb7d   -> 0x10682b3",
+    "jalr     ra, ra, -0x512   -> 0x1067228"
+   ]
+  },
+  {
+   "va": "0x106f5e0",
+   "ctx": [
+    "c.addi4spn s0, sp, 0x28c   -> 0x106f860",
+    "c.j      -0x1e   -> 0x106f5b8",
+    "slli     a1, s3, 0x20   -> 0x106f5f8",
+    "auipc    a2, 0x1f1e7   -> 0x108e7c3",
+    "addi     a2, a2, 0x4c   -> 0x106f62c",
+    "c.srli   a1, 0x20   -> 0x106f604",
+    "c.li     a0, 2   -> 0x106f5e8",
+    "auipc    ra, 0xa2f   -> 0x1070017",
+    "jalr     ra, ra, 0x3c   -> 0x106f628"
+   ]
+  },
+  {
+   "va": "0x1076bc6",
+   "ctx": [
+    "auipc    s1, 0x3119   -> 0x1079cd3",
+    "addi     s1, s1, 0x3e6   -> 0x1076fa4",
+    "addi     a2, s0, -0x2c   -> 0x1076b96",
+    "addi     a1, zero, 0x4c   -> 0x1076c12",
+    "c.ld     a4, 0(s1)   -> 0x1076bca",
+    "sd       a4, -0x28(s0)",
+    "c.li     a4, 0   -> 0x1076bd0",
+    "c.jalr   a5",
+    "c.addiw  a0, 0   -> 0x1076bd4"
+   ]
+  },
+  {
+   "va": "0x107c200",
+   "ctx": [
+    "sb       zero, -0x614(a5)",
+    "c.li     s2, 0   -> 0x107c1f8",
+    "c.j      -0x10a   -> 0x107c0f0",
+    "auipc    a3, 0x1f1dc   -> 0x109b3d8",
+    "addi     a3, a3, 0x4c   -> 0x107c24c",
+    "addi     a2, zero, 0x88   -> 0x107c28c",
+    "auipc    a1, 0xdad   -> 0x107cfb5",
+    "addi     a1, a1, 0x78   -> 0x107c284"
+   ]
+  },
+  {
+   "va": "0x108c688",
+   "ctx": [
+    "c.jr     ra",
+    "addi     a5, zero, 0x48   -> 0x108c6c6",
+    "c.sw     a5, 0(a3)   -> 0x108c682",
+    "c.li     a0, 0   -> 0x108c684",
+    "c.jr     ra",
+    "addi     a5, zero, 0x4c   -> 0x108c6d4",
+    "c.j      -0x14   -> 0x108c678",
+    "addi     a5, zero, 0x348   -> 0x108c9d6",
+    "c.j      -0x1a   -> 0x108c678",
+    "addi     a5, zero, 0x50   -> 0x108c6e4"
+   ]
+  },
+  {
+   "va": "0x10b48be",
+   "ctx": [
+    "c.ld     a5, 0x28(a5)   -> 0x10b48da",
+    "c.jalr   a5",
+    "ld       a5, 0x5f0(s1)",
+    "sext.w   s1, a0",
+    "addi     a1, zero, 0x4c   -> 0x10b490a",
+    "c.ld     a4, 0(a5)   -> 0x10b48c2",
+    "c.mv     a0, a5",
+    "c.ld     a5, 0x28(a4)   -> 0x10b48ee",
+    "c.jalr   a5",
+    "c.ldsp   ra, 0x18(sp)   -> 0x10b48e2",
+    "c.ldsp   s0, 0x10(sp)   -> 0x10b48dc"
+   ]
+  },
+  {
+   "va": "0x10b9184",
+   "ctx": [
+    "c.ld     a5, 0x28(a5)   -> 0x10b91a0",
+    "c.jalr   a5",
+    "ld       a5, 0x5f0(s6)",
+    "sext.w   s5, a0",
+    "addi     a1, zero, 0x4c   -> 0x10b91d0",
+    "c.ld     a4, 0(a5)   -> 0x10b9188",
+    "c.mv     a0, a5",
+    "c.ld     a5, 0x28(a4)   -> 0x10b91b4",
+    "c.jalr   a5",
+    "c.addiw  a0, 0   -> 0x10b9190",
+    "beqz     s4, 0xb2   -> 0x10b9244"
+   ]
+  },
+  {
+   "va": "0x10cc914",
+   "ctx": [
+    "c.ld     a5, 0(a5)   -> 0x10cc908",
+    "c.li     a1, 1   -> 0x10cc90b",
+    "c.jalr   a5",
+    "c.mv     s1, a0",
+    "beqz     a0, 0x230   -> 0x10ccb40",
+    "addi     a2, zero, 0x4c   -> 0x10cc960",
+    "c.li     a1, 0   -> 0x10cc918",
+    "addi     a0, s0, -0x98   -> 0x10cc882",
+    "auipc    ra, 0xb18   -> 0x10cd436",
+    "jalr     ra, ra, -0x6fa   -> 0x10cc228"
+   ]
+  },
+  {
+   "va": "0x10ccbac",
+   "ctx": [
+    "c.addi4spn a2, sp, 0x180   -> 0x10ccd20",
+    "addi     s1, s1, 0x3ea   -> 0x10ccf8c",
+    "c.jalr   a5",
+    "c.mv     s2, a0",
+    "c.beqz   a0, 0xa4   -> 0x10ccc4e",
+    "addi     a2, zero, 0x4c   -> 0x10ccbf8",
+    "c.li     a1, 0   -> 0x10ccbb0",
+    "addi     a0, s0, -0x98   -> 0x10ccb1a",
+    "auipc    ra, 0xb17   -> 0x10cd6cd",
+    "jalr     ra, ra, 0x66e   -> 0x10cd228"
+   ]
+  },
+  {
+   "va": "0x10ea810",
+   "ctx": [
+    "c.addi16sp sp, 0x40   -> 0x10ea844",
+    "c.jr     ra",
+    "slli     a2, a0, 0x20   -> 0x10ea828",
+    "auipc    a3, 0x1f17d   -> 0x1109989",
+    "addi     a3, a3, 0x4c   -> 0x10ea85c",
+    "c.srli   a2, 0x20   -> 0x10ea834",
+    "c.mv     a1, s1",
+    "c.li     a0, 3   -> 0x10ea81b",
+    "auipc    ra, 0x9b4   -> 0x10eb1ce",
+    "jalr     ra, ra, -0x1f6   -> 0x10ea628"
+   ]
+  },
+  {
+   "va": "0x10ea828",
+   "ctx": [
+    "addiw    ra, a4, -0x7f2   -> 0x10ea02a",
+    "c.sd     s0, 0x40(s1)   -> 0x10ea860",
+    "c.li     a0, 1   -> 0x10ea823",
+    "auipc    a1, 0x1f17d   -> 0x11099a1",
+    "addi     a1, a1, 0x4c   -> 0x10ea874",
+    "auipc    ra, 0x9b4   -> 0x10eb1e0",
+    "jalr     ra, ra, -0x208   -> 0x10ea628",
+    "c.mv     a1, s4",
+    "c.li     a0, 0   -> 0x10ea836"
+   ]
+  },
+  {
+   "va": "0x10f4b94",
+   "ctx": [
+    "c.j      -0x44   -> 0x10f4b46",
+    "addi     a4, zero, 0xfe   -> 0x10f4c8a",
+    "bltu     a4, a2, 0x1a   -> 0x10f4baa",
+    "addi     a4, zero, 0x4c   -> 0x10f4be0",
+    "mul      a2, a2, a4",
+    "c.mv     a5, a0",
+    "c.li     a0, 0   -> 0x10f4b9e",
+    "addi     a2, a2, 0x24   -> 0x10f4bc4"
+   ]
+  },
+  {
+   "va": "0x10f90c4",
+   "ctx": [
+    "beq      a3, a4, 0x184   -> 0x10f923c",
+    "addi     a2, s0, -0x10c   -> 0x10f8fb0",
+    "addi     a1, s0, -0x110   -> 0x10f8fb0",
+    "addi     a0, zero, 0x4c   -> 0x10f9110",
+    "auipc    ra, 0x328   -> 0x10f93f0",
+    "jalr     ra, ra, 0x624   -> 0x10f96f0",
+    "c.lui    a5, 1   -> 0x10f90d1",
+    "c.add    a5, s4"
+   ]
+  },
+  {
+   "va": "0x110be80",
+   "ctx": [
+    "c.addi   ra, 6   -> 0x110be7a",
+    "jalr     ra, ra, 0x7b2   -> 0x110c628",
+    "c.li     a0, 1   -> 0x110be7b",
+    "auipc    a1, 0x1f164   -> 0x112afe0",
+    "addi     a1, a1, 0x4c   -> 0x110becc",
+    "auipc    ra, 0x992   -> 0x110c816",
+    "jalr     ra, ra, 0x7a0   -> 0x110c628",
+    "c.mv     a1, s4",
+    "c.li     a0, 0   -> 0x110be8e"
+   ]
+  },
+  {
+   "va": "0x110df92",
+   "ctx": [
+    "c.nop    ",
+    "c.bnez   s1, 0x4a   -> 0x110dfd2",
+    "lbu      a5, 0x20(s3)",
+    "addi     a2, zero, 0x2d2   -> 0x110e260",
+    "addi     a1, s3, 0x4c   -> 0x110dfde",
+    "sb       a5, 4(s2)",
+    "addi     a0, s2, 0x28   -> 0x110dfc2",
+    "auipc    ra, 0x990   -> 0x110e92e"
+   ]
+  },
+  {
+   "va": "0x110e296",
+   "ctx": [
+    "c.nop    ",
+    "c.bnez   s1, 0x4a   -> 0x110e2d6",
+    "lbu      a5, 0x20(s3)",
+    "addi     a2, zero, 0x2d2   -> 0x110e564",
+    "addi     a1, s3, 0x4c   -> 0x110e2e2",
+    "sb       a5, 1(s2)",
+    "addi     a0, s2, 0x24   -> 0x110e2c2",
+    "auipc    ra, 0x990   -> 0x110ec32"
+   ]
+  },
+  {
+   "va": "0x1116460",
+   "ctx": [
+    "c.addi4spn s0, sp, 0x10   -> 0x1116464",
+    "c.ldsp   s0, 8(sp)   -> 0x111645e",
+    "c.li     a0, 0   -> 0x1116458",
+    "c.addi   sp, 0x10   -> 0x111646a",
+    "c.jr     ra",
+    "c.nop    ",
+    "addi     a5, zero, 0x4c   -> 0x11164ac",
+    "mul      a2, a2, a5",
+    "c.addi   sp, -0x10   -> 0x1116458",
+    "c.sdsp   s0, 8(sp)   -> 0x1116472",
+    "c.addi4spn s0, sp, 0x10   -> 0x111647c",
+    "c.ldsp   s0, 8(sp)   -> 0x1116476"
+   ]
+  },
+  {
+   "va": "0x1119850",
+   "ctx": [
+    "bnez     a5, 0x13c   -> 0x1119982",
+    "c.ebreak ",
+    "auipc    a2, 0x1f159   -> 0x11389a5",
+    "addi     a2, a2, 0x4c   -> 0x111989c",
+    "c.li     a0, 2   -> 0x1119856",
+    "addi     a1, zero, 0x40   -> 0x1119896",
+    "auipc    ra, 0x985   -> 0x111a1df",
+    "jalr     ra, ra, -0x236   -> 0x1119628"
+   ]
+  },
+  {
+   "va": "0x112167a",
+   "ctx": [
+    "addi     t4, t4, 0x50   -> 0x11216be",
+    "c.slli   t3, 0x24   -> 0x1121696",
+    "c.slli   t1, 0x20   -> 0x1121694",
+    "sd       t4, -0xe8(s0)",
+    "addi     t3, t3, 0x4c   -> 0x11216c6",
+    "c.li     t4, 3   -> 0x1121681",
+    "c.addi   t1, 4   -> 0x1121684",
+    "sd       t1, -0x90(s0)",
+    "sw       t4, -0xe0(s0)"
+   ]
+  },
+  {
+   "va": "0x11300b0",
+   "ctx": [
+    "slli     a1, s5, 0x20   -> 0x11300c4",
+    "c.srli   a1, 0x20   -> 0x11300c8",
+    "c.li     a0, 2   -> 0x11300ac",
+    "auipc    a2, 0x1f147   -> 0x114f1f3",
+    "addi     a2, a2, 0x4c   -> 0x11300fc",
+    "auipc    ra, 0x96e   -> 0x1130a22",
+    "jalr     ra, ra, 0x570   -> 0x1130628",
+    "c.li     a0, 1   -> 0x11300bd",
+    "auipc    a1, 0x1f147   -> 0x114f205"
+   ]
+  },
+  {
+   "va": "0x1135790",
+   "ctx": [
+    "c.slli   ra, 5   -> 0x1135789",
+    "jalr     ra, ra, -0x15e   -> 0x1135628",
+    "c.li     a0, 1   -> 0x113578b",
+    "auipc    a1, 0x1f143   -> 0x11548cf",
+    "addi     a1, a1, 0x4c   -> 0x11357dc",
+    "auipc    ra, 0x969   -> 0x11360fd",
+    "jalr     ra, ra, -0x170   -> 0x1135628",
+    "c.mv     a1, s3",
+    "c.li     a0, 0   -> 0x113579e"
+   ]
+  },
+  {
+   "va": "0x113af40",
+   "ctx": [
+    "c.j      -0x110   -> 0x113ae24",
+    "slli     a1, s1, 0x20   -> 0x113af56",
+    "c.srli   a1, 0x20   -> 0x113af5a",
+    "auipc    s3, 0x3099   -> 0x113dfd5",
+    "addi     s3, s3, 0x4c   -> 0x113af8c",
+    "c.j      -0xda   -> 0x113ae6a",
+    "c.nop    ",
+    "c.addi16sp sp, -0x30   -> 0x113af18",
+    "c.sdsp   s0, 0x20(sp)   -> 0x113af6a",
+    "c.sdsp   s2, 0x10(sp)   -> 0x113af5c",
+    "c.sdsp   ra, 0x28(sp)   -> 0x113af76"
+   ]
+  },
+  {
+   "va": "0x1142d38",
+   "ctx": [
+    "c.sdsp   s1, 8(sp)   -> 0x1142d34",
+    "c.sdsp   ra, 0x18(sp)   -> 0x1142d46",
+    "c.addi4spn s0, sp, 0x20   -> 0x1142d50",
+    "c.mv     s1, ra",
+    "c.beqz   a0, 0x16   -> 0x1142d4a",
+    "c.beqz   a1, 0x14   -> 0x1142d4a",
+    "addi     a5, zero, 0x4c   -> 0x1142d84",
+    "c.sd     a5, 0(a1)   -> 0x1142d3c",
+    "c.ldsp   ra, 0x18(sp)   -> 0x1142d56",
+    "c.ldsp   s0, 0x10(sp)   -> 0x1142d50",
+    "c.ldsp   s1, 8(sp)   -> 0x1142d4a",
+    "c.li     a0, 0   -> 0x1142d44",
+    "c.addi16sp sp, 0x20   -> 0x1142d66"
+   ]
+  },
+  {
+   "va": "0x1148c70",
+   "ctx": [
+    "c.add    a5, a4",
+    "sw       zero, 0(a5)",
+    "c.j      -0x9c   -> 0x1148bce",
+    "auipc    a2, 0x1f133   -> 0x1167d9f",
+    "addi     a2, a2, 0x4c   -> 0x1148cbc",
+    "slli     a1, s1, 0x20   -> 0x1148c94",
+    "c.srli   a1, 0x20   -> 0x1148c98",
+    "c.li     a0, 2   -> 0x1148c7c",
+    "auipc    ra, 0x956   -> 0x11495d2"
+   ]
+  },
+  {
+   "va": "0x115d980",
+   "ctx": [
+    "c.li     s4, 3   -> 0x115d977",
+    "c.beqz   a5, 6   -> 0x115d97c",
+    "j        -0x39cc   -> 0x1159fac",
+    "auipc    a2, 0x1f108   -> 0x117ca84",
+    "addi     a2, a2, 0x4c   -> 0x115d9cc",
+    "c.li     a1, 0x11   -> 0x115d995",
+    "c.li     a0, 2   -> 0x115d988",
+    "auipc    ra, 0x941   -> 0x115e2c9",
+    "jalr     ra, ra, -0x364   -> 0x115d628"
+   ]
+  },
+  {
+   "va": "0x1161ae8",
+   "ctx": [
+    "j        -0x8e2   -> 0x11611fc",
+    "c.li     a0, 1   -> 0x1161ae3",
+    "auipc    a1, 0x1f11c   -> 0x1180c00",
+    "addi     a1, a1, 0x4c   -> 0x1161b34",
+    "auipc    ra, 0x93d   -> 0x1162429",
+    "jalr     ra, ra, -0x4c8   -> 0x1161628",
+    "ld       a1, -0x530(s0)"
+   ]
+  },
+  {
+   "va": "0x1168036",
+   "ctx": [
+    "lui      s4, 0xff000   -> 0x126702a",
+    "addi     s8, s4, 0x78   -> 0x11680a6",
+    "addi     s7, s4, 0x66   -> 0x1168098",
+    "addi     s4, s4, 0x4c   -> 0x1168082",
+    "c.j      -0x100   -> 0x1167f3a",
+    "lui      s4, 0xff000   -> 0x126703c",
+    "addi     s8, s4, 0x79   -> 0x11680b9",
+    "addi     s7, s4, 0x67   -> 0x11680ab"
+   ]
+  },
+  {
+   "va": "0x1168d8e",
+   "ctx": [
+    "lui      s3, 0xff000   -> 0x1267d82",
+    "addi     s7, s3, 0x78   -> 0x1168dfe",
+    "addi     s6, s3, 0x66   -> 0x1168df0",
+    "addi     s3, s3, 0x4c   -> 0x1168dda",
+    "c.j      -0x1bc   -> 0x1168bd6",
+    "lui      s3, 0xff000   -> 0x1267d94",
+    "addi     s7, s3, 0x79   -> 0x1168e11",
+    "addi     s6, s3, 0x67   -> 0x1168e03"
+   ]
+  },
+  {
+   "va": "0x11697fe",
+   "ctx": [
+    "lui      s4, 0xff000   -> 0x12687f2",
+    "addi     s8, s4, 0x78   -> 0x116986e",
+    "addi     s7, s4, 0x66   -> 0x1169860",
+    "addi     s4, s4, 0x4c   -> 0x116984a",
+    "c.j      -0x110   -> 0x11696f2",
+    "lui      s4, 0xff000   -> 0x1268804",
+    "addi     s8, s4, 0x79   -> 0x1169881",
+    "addi     s7, s4, 0x67   -> 0x1169873"
+   ]
+  },
+  {
+   "va": "0x116a28e",
+   "ctx": [
+    "lui      s3, 0xff000   -> 0x1269282",
+    "addi     s7, s3, 0x78   -> 0x116a2fe",
+    "addi     s6, s3, 0x66   -> 0x116a2f0",
+    "addi     s3, s3, 0x4c   -> 0x116a2da",
+    "c.j      -0x204   -> 0x116a08e",
+    "lui      s3, 0xff000   -> 0x1269294",
+    "addi     s7, s3, 0x79   -> 0x116a311",
+    "addi     s6, s3, 0x67   -> 0x116a303"
+   ]
+  },
+  {
+   "va": "0x116aeee",
+   "ctx": [
+    "lui      s3, 0xff000   -> 0x1269ee2",
+    "addi     s7, s3, 0x78   -> 0x116af5e",
+    "addi     s6, s3, 0x66   -> 0x116af50",
+    "addi     s3, s3, 0x4c   -> 0x116af3a",
+    "c.j      -0x1fc   -> 0x116acf6",
+    "lui      s3, 0xff000   -> 0x1269ef4",
+    "addi     s7, s3, 0x75   -> 0x116af6d",
+    "addi     s6, s3, 0x63   -> 0x116af5f"
+   ]
+  },
+  {
+   "va": "0x11970c0",
+   "ctx": [
+    "c.add    a5, a3",
+    "sw       zero, 0(a5)",
+    "c.j      -0x204   -> 0x1196eb6",
+    "auipc    a1, 0x1f0ba   -> 0x11b6176",
+    "addi     a1, a1, 0x4c   -> 0x119710c",
+    "c.li     a0, 1   -> 0x11970c5",
+    "auipc    ra, 0x907   -> 0x11979cd",
+    "jalr     ra, ra, 0x55e   -> 0x1197628",
+    "addi     a5, zero, 0x6d   -> 0x119713b"
+   ]
+  },
+  {
+   "va": "0x119c800",
+   "ctx": [
+    "c.fld    fs0, 0x40(a5)   -> 0x119c834",
+    "c.li     a4, 0   -> 0x119c7f6",
+    "addi     a3, s0, -0x598   -> 0x119c260",
+    "auipc    a1, 0xc8e   -> 0x119d48a",
+    "addi     a1, a1, 0x4c   -> 0x119c84c",
+    "auipc    ra, 0xfffd9   -> 0x129c7dd",
+    "jalr     ra, ra, 0x39c   -> 0x119cba4",
+    "c.addiw  a0, 0   -> 0x119c80c",
+    "c.beqz   a0, 6   -> 0x119c814"
+   ]
+  }
+ ],
+ "dmem_fingerprints": {
+  "note": "the post-boot GSP DMEM dump is searched for these byte patterns (all representations, both LHR-era and launch-era top-bin records); a hit = the parsed record lives in RM-reachable state (the f18-analog lane opens); no hit anywhere in DMEM + no FB-Falcon consumer found = the lane closes honestly",
+  "record_id6_launch": {
+   "vector": {
+    "id": 6,
+    "fields": {
+     "rc": 78,
+     "rfc": 210,
+     "ras": 52,
+     "rp": 26,
+     "cl": 24
+    }
+   },
+   "patterns": {
+    "u8": "4ed2341a18",
+    "u16le": "4e00d20034001a001800",
+    "u32le": "4e000000d2000000340000001a00000018000000",
+    "pair_u8_rc_rfc": "4ed2"
+   }
+  },
+  "record_id26_lhr": {
+   "vector": {
+    "id": 26,
+    "fields": {
+     "rc": 70,
+     "rfc": 175,
+     "ras": 44,
+     "faw": 20,
+     "rrd": 5
+    }
+   },
+   "patterns": {
+    "u8": "46af2c1405",
+    "u16le": "4600af002c0014000500",
+    "u32le": "46000000af0000002c0000001400000005000000",
+    "pair_u8_rc_rfc": "46af"
+   }
+  },
+  "caveat": "the gx5 grammar (six u32 -> 18 fields) is NOT in the repo (the instrument ran pre-repo on the founder's machine) \u2014 the fingerprints use the five banked field values in record order; a bit-packed layout needs the u8 pattern or a fieldwise search, both listed"
+ },
+ "selftests": {
+  "auipc_416206": true,
+  "fingerprint_roundtrip": true
+ }
+}
