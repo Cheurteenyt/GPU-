@@ -1,0 +1,48 @@
+{
+ "lane_verdict": {
+  "W1_registers": "0 work-gadgets (v444e re-run) \u2014 a1/a4 = the ROM residue at the gadget entry",
+  "W2_wild_write": "the body writes [a1] first \u2014 a1 = the residue = the wild write inherent",
+  "W3_spin": "the primitive's ret returns INTO the primitive (ra = the last pop) = the re-entry walk = the spin \u2014 the paper's observed end state (0x4a7)",
+  "lane_G": "the ROM gadgets @0xf754/0xf76c = the paper's silicon-proven lane ON THIS CARD (cited)"
+ },
+ "assumptions": {
+  "A1_fill_len": "INDECIDABLE-BY-BYTES (the ROM closed) \u2014 the runbook R1 ladder sweeps it",
+  "A2_fill_value": "the zero-canary hypothesis (the freestanding ROM = no RNG at boot); the paper's constant = the alternative \u2014 ACK-gated",
+  "A3_register_block": "a0=~0, a3=N, a7=0, a1=the scratch, a4=the payload base \u2014 MODELED in the emulator; the day-J discovery = R0",
+  "A4_base_addr": "the ROM's DMA-dst layout = the paper's parameter; the placeholder here"
+ },
+ "parameters": {
+  "fill_len": 64,
+  "hops": 3,
+  "fill_value": 0,
+  "G40": "0x10022a",
+  "terminal": "0x100b3e",
+  "slot0": 1,
+  "cap": 64,
+  "dest": "0x161000",
+  "magic": 8,
+  "base_addr": "0x16a000",
+  "valeurs": [
+   "0x112 (the f18-percent candidate, the placeholder)"
+  ]
+ },
+ "meta": {
+  "hijack_slot": 64,
+  "spine_slots": [
+   72,
+   80
+  ],
+  "terminal_slot": 88,
+  "walk_cell": 90,
+  "ctx_off": 145,
+  "list_off": 160,
+  "slot0": 1,
+  "dest": 1445888,
+  "base_addr": 1482752,
+  "valeurs": [
+   274
+  ]
+ },
+ "sha256": "4ee1f9737004f5cd56914fa5e547636c7db1d9085dd2c0df4413cc0ec4e78896",
+ "size": 4096
+}
