@@ -83,6 +83,10 @@ def _timed(fn, reps=3):
 
 
 def main():
+    global torch   # the module-level binding — _timed references torch; the
+                   # function-local import alone = NameError on the torch path
+                   # (the review fix: the agent only ever tested the no-torch
+                   # fallback, this path = never executed before the merge)
     try:
         import torch
     except ImportError:

@@ -37,8 +37,10 @@
 //       export host-side. The regkey boot = the runbook B-day.)
 //   S7 logs0..7.bin     pKernelGsp->rmLibosLogMem[i].pTaskLogBuffer mapped CERTAIN
 //      (the 8 Libos task-log partitions, pointers already mapped)
-//   S8 wpr2meta.bin     pKernelGsp->pWprMeta (GspFwWprMeta)   mapped       CERTAIN
-//      (the WPR2 layout: gspFwWprStart, gspFwHeapOffset, gspFwHeapSize,
+//   S8 wpr2meta.bin     pKernelGsp->pWprMetaV1 / pWprMetaHopper  mapped  CERTAIN
+//      (THE REVIEW FIX: the exact-tree members = the V1/Hopper pair,
+//       g_kernel_gsp_nvoc.h 543-548 — there is NO pWprMeta. Ampere = V1.
+//       the WPR2 layout: gspFwWprStart, gspFwHeapOffset, gspFwHeapSize,
 //       gspFwOffset, bootBinOffset, frtsOffset, gspFwWprEnd — the WPR2
 //       map, zero-read risk)
 //
@@ -116,6 +118,10 @@ static DECLARE_DELAYED_WORK(_gspDmemDumpWork, _gsp_dmem_dump_work);
 // ---- the debugfs publication (zero-copy blobs into the live memory) ----
 
 static struct dentry *_gspDmemDebugfsDir = NULL;
+// THE REVIEW FIX: the debugfs = ONE component per create — a '/' in the
+// name = the VFS rejects it, the one-shot "gsp_dmem/gpuN" dir = never
+// appears. The parent then the child:
+static struct dentry *_gspDmemDebugfsParent = NULL;
 
 struct _gsp_dmem_blob_rec
 {
@@ -169,8 +175,16 @@ gsp_dmem_debugfs_publish(void)
     if (_gspDmemDebugfsDir != NULL)
         return; // already published
 
-    snprintf(dirName, sizeof(dirName), "gsp_dmem/gpu%u", _gspDmemDumpState.gpuId);
-    _gspDmemDebugfsDir = debugfs_create_dir(dirName, NULL);
+    if (_gspDmemDebugfsParent == NULL || IS_ERR(_gspDmemDebugfsParent))
+        _gspDmemDebugfsParent = debugfs_create_dir("gsp_dmem", NULL);
+    if (IS_ERR_OR_NULL(_gspDmemDebugfsParent))
+    {
+        NV_PRINTF(LEVEL_ERROR, "NVRM-451: the debugfs parent create failed\n");
+        _gspDmemDebugfsParent = NULL;
+        return;
+    }
+    snprintf(dirName, sizeof(dirName), "gpu%u", _gspDmemDumpState.gpuId);
+    _gspDmemDebugfsDir = debugfs_create_dir(dirName, _gspDmemDebugfsParent);
     if (IS_ERR_OR_NULL(_gspDmemDebugfsDir))
     {
         NV_PRINTF(LEVEL_ERROR, "NVRM-451: debugfs_create_dir(%s) failed\n", dirName);
@@ -331,10 +345,18 @@ gsp_dmem_dump_schedule(OBJGPU *pGpu, KernelGsp *pKernelGsp, GSP_FIRMWARE *pGspFw
         _gspDmemDumpState.pStateMon    = pKernelGsp->pRmStateMonitorBuffer;
         _gspDmemDumpState.stateMonSize = pKernelGsp->pRmStateMonitorBufferMD->Size;
     }
-    if (pKernelGsp->pWprMetaDescriptor != NULL)
+    if (pKernelGsp->pWprMetaV1Descriptor != NULL)
     {
-        _gspDmemDumpState.pWprMeta    = pKernelGsp->pWprMeta;
-        _gspDmemDumpState.wprMetaSize = pKernelGsp->pWprMetaDescriptor->Size;
+        // THE REVIEW FIX: the 610.57.04 KernelGsp has NO pWprMeta /
+        // pWprMetaDescriptor — the real members = the V1/Hopper pair
+        // (g_kernel_gsp_nvoc.h 543-548). GA104 = Ampere = the V1 variant.
+        _gspDmemDumpState.pWprMeta    = pKernelGsp->pWprMetaV1;
+        _gspDmemDumpState.wprMetaSize = pKernelGsp->pWprMetaV1Descriptor->Size;
+    }
+    if (pKernelGsp->pWprMetaHopperDescriptor != NULL)
+    {
+        _gspDmemDumpState.pWprMeta    = pKernelGsp->pWprMetaHopper;
+        _gspDmemDumpState.wprMetaSize = pKernelGsp->pWprMetaHopperDescriptor->Size;
     }
     for (i = 0; i < 8; i++)
     {
