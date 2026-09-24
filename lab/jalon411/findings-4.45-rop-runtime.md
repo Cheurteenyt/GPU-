@@ -1,5 +1,5 @@
-# 4.45 — la lane ROP runtime : le débordement du memdesc vers le contrôle
-# du booter — la chaîne conçue, les murs nommés, la validation émulateur
+# 4.45 — the ROP runtime lane: the memdesc overflow to the booter control
+# — the chain built, the walls named, the emulator validation
 
 Mission : prouver CHEZ NOUS le mécanisme du paper (Zenodo 20916112,
 prouvé en silicium sur CETTE carte, le spin 0x4a7) — le memdesc copié
@@ -15,7 +15,7 @@ ctx), `findings-4.43/4.44` (les cibles runtime), `findings-444machine`
 re-commis (les gadgets), v445_rop_payload_build (le builder), --test-rop
 (TR 18/18), runbook-445.sh.
 
-## La reproduction des comptes bankés (avant de produire)
+## The banked counts reproduction (before producing)
 
 | compte | bancé | reproduit ce pass |
 |---|---|---|
@@ -39,7 +39,7 @@ re-commis (les gadgets), v445_rop_payload_build (le builder), --test-rop
 | la cible f18 ? | le mur du timing : l'objet 0x6d0 = alloué PAR LE RM après le boot ; au stade ROM la f18 = inexistante ; 5 options analysées (§2.3) — 4 mortes, 1 survivante (les registres MMIO, la route du paper) | **PROUVÉ (l'analyse)** : la lane ROP au stade ROM = n'atteint PAS la f18 — la cible survivante = la classe MMIO |
 | le payload + la validation ? | le builder v445 (le layout calculé : la fill uniforme + l'épine à pas 0x40 + la walk-cell à l'index EXACT calculé + le ctx clone 0x488 + la liste 0x500) ; **--test-rop = 18/18 PASS sur l'image réelle** (la fill avale le canari, l'épine marche, les writes atterrissent, W3 démontré par le test lui-même) ; selftest 5/5 + TT 11/11 + TF 9/9 intacts | **PROUVÉ dans l'émulateur** — le jour machine = le runbook gaté |
 
-## 1. TÂCHE A — le chemin de copie : le négatif borné et le consommateur
+## 1. TASK A — the copy path: the bounded negative and the consumer
 
 ### 1.1 Le scan quantitatif (v445a)
 
@@ -115,7 +115,7 @@ si le mode de panne ≠ 0x1d, le verify = contourné = le hijack
 confirmé ; si = 0x1d, **la lane = morte avant de coder** (le verdict
 honnête de r0, la lane ne coûte qu'un boot).
 
-## 2. TÂCHE B — la chaîne ROP, maillon par maillon, et les murs
+## 2. TASK B — the ROP chain, link by link, and the walls
 
 ### 2.1 L'épine (byte-proven, émulateur-proven)
 
@@ -187,7 +187,7 @@ ré-entrée ROP = non prouvée. Les {valeur, cible} du payload v445 = les
 placeholders (l'héritage 4.44 : la config = résolue au jour capture),
 la mécanique = validée indépendamment des valeurs.
 
-## 3. TÂCHE C — le payload et la validation émulateur
+## 3. TASK C — the payload and the emulator validation
 
 ### 3.1 Le layout du payload débordant (v445_rop_payload_build.py)
 
@@ -243,7 +243,7 @@ automatique), r2 exige la distance r1 ; les observables = nvidia-smi
 réécrit stock par le driver au boot suivant — le cycle ~10 min
 prouvé 4.44-machine).
 
-## 4. La réconciliation avec les passes précédentes
+## 4. The reconciliation with the previous passes
 
 - **4.40** : l'inventaire = confirmé (84/24/0 re-commits) ; le
   write-primitive = le terminal de la chaîne ; la leçon d'EXÉCUTION
@@ -262,7 +262,7 @@ prouvé 4.44-machine).
   bloc de boot (ROM + libos). La lane falsifiée (le remplacement) et la
   lane ouverte (le débordement) = cohérentes avec CE consommateur.
 
-## 5. Les leçons d'instrument
+## 5. The instrument lessons
 
 1. **Le scan banque les rets, la chaîne consomme les entrées** — les
    inventaires de gadgets = par VA de ret ; l'assemblage = par VA
@@ -284,7 +284,7 @@ prouvé 4.44-machine).
    dans l'émulateur et nommés dans le JSON : la validation = de la
    mécanique, jamais de l'innamé.
 
-## 6. La queue
+## 6. The queue
 
 1. r0/r1/r2 (le runbook, le jour machine) : le mode de panne, la
    distance, les writes — les trois INDECIDABLE-BY-BYTES de ce pass.
