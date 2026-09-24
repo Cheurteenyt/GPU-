@@ -1,0 +1,68 @@
+{
+  "pass": "4.51",
+  "instrument": "v451b_timing_targets",
+  "gate": "PENDING-THE-451-DUMP — this template assembles ONLY on a v451a HIT; do not run on a MISS",
+  "provenance": {
+    "values": "the LHR tightened records (the vendor's own headroom proof, banked 4.47 gx5): rc 76->70, rfc 210->175, ras 49->44, faw 28->20, rrd 7->5; the launch-era record 6 = the A-side reference",
+    "targets": "the v451a scan offsets (v451a-A.json / v451a-B.json) — the dump supplies the REAL addresses; every target below is a PLACEHOLDER until then",
+    "fingerprints": "lab/jalon411/v448c_stride_timing.json dmem_fingerprints (8/8 reproduced this pass)",
+    "builder": "tools/edpp/build_timing_payload.py --emit-c (8/8 fingerprints + the TT-T 5/5 transfer-list validation)"
+  },
+  "the_route_decision_table": {
+    "purpose": "4.51 TÂCHE B2 — name THE payload route coherent with the hit location; the 4.44-machine lesson: any surface the booter VERIFIES = dead; any surface the GSP consumes AFTER the verify = alive",
+    "routes": {
+      "H": {
+        "hit_location": "S5 sysmemheap.bin / S6 statemonitor.bin (the host-mapped RM state)",
+        "route_name": "the heap-poke (the host-side write through the same kernel_gsp.c hook)",
+        "machinery": "the dump instrument generalized: a write regkey (RmGspDmemPoke) applying the {value,target} pairs CPU-side BEFORE/WHILE GSP-RM runs",
+        "precedent": "none needed — the surface is host-writable RAM by construction",
+        "risks": "the RM recompute may overwrite (the 4.44 f18/base lesson: recompute never rewrites f14/f18 — the analog question: does the clk recompute rewrite the parsed timings?); the byte-lane layout INDECIDABLE until the hit context is decoded",
+        "verdict": "PREFERRED — the least machinery, post-verify by construction"
+      },
+      "W": {
+        "hit_location": "the WPR2 FB heap (the v2 probe surface — read first, write second)",
+        "route_name": "the WPR2 poke v2 (CPU-side FB write if the seal allows writes)",
+        "machinery": "the v2 probe extended from read to write; the seal's CPU-WRITE behavior is INDECIDABLE until the read probe succeeds",
+        "precedent": "the ReBAR 8192 MiB standing (the BAR1 covers all FB)",
+        "risks": "the seal may block CPU writes even if reads pass; a rejected write = silent (log-first design)",
+        "verdict": "SECOND — gated on the v2 read probe"
+      },
+      "ROP": {
+        "hit_location": "falcon-internal DMEM only (no host mapping anywhere)",
+        "route_name": "the 4.45 ROP runtime (the memdesc OVERFLOW — the memdesc lane is DEAD for replacement, the 0x1d falsification)",
+        "machinery": "the proven in-silicium chain (the spin 0x4a7, the write primitive 0x100b3e/0x100b48) retargeted at the DMEM addresses",
+        "precedent": "4.45 (18/18 emulator battery, banked)",
+        "risks": "the boot-vehicle risk class (the 4.44-machine 0x1d day); the DMEM addresses need the booter-side view, not the host dump",
+        "verdict": "LAST RESORT — the machine-day cost class of 4.44 applies"
+      },
+      "IMG": {
+        "hit_location": "S1 image.bin (the static host copy) — a hit HERE ALONE proves nothing about runtime",
+        "route_name": "the image-in-RAM patch (the 4.38 Lane V)",
+        "machinery": "patch pImageData before the boot",
+        "verdict": "REFUSED-BY-CARD — the booter VERIFIES the image (the signature memdesc, the 0x1d family); this surface = dead by the 4.44-machine falsification",
+        "note": "a v451a hit in image.bin only = the static reference matched, NOT a runtime parse found"
+      }
+    }
+  },
+  "table_lhr": {
+    "record": "id 26 (the LHR-era top-bin, the TIGHTENED values — the retarget target state)",
+    "fields": [
+      {"field": "rc",  "launch": 76, "lhr": 70,  "target": null},
+      {"field": "rfc", "launch": 210, "lhr": 175, "target": null},
+      {"field": "ras", "launch": 49, "lhr": 44,  "target": null},
+      {"field": "faw", "launch": 28, "lhr": 20,  "target": null},
+      {"field": "rrd", "launch": 7,  "lhr": 5,   "target": null}
+    ],
+    "note": "the two-column provenance: launch->lhr = THE VENDOR'S OWN retightening within the same bins (the headroom proof); the runtime experiment retargets the parsed launch values TO the lhr values, one field per boot (the TIER 2 doctrine)"
+  },
+  "table_launch_reference": {
+    "record": "id 6 (the launch-era top-bin: rc=78, rfc=210, ras=52, rp=26, cl=24)",
+    "note": "the A-side of every A/B; the searched-for static reference in the dumps"
+  },
+  "the_experiments": {
+    "judge": "the 4.47 §1 battery (d2d/read/write, 2 GiB, medians, % of the ceiling) + the nvcc pillarB (the 0xSero method) — the delta = the verdict",
+    "protocol": "ONE field per boot; the quad gate applies from the first write (battery x3 + memtest 10 min + zero Xid + confirmed rollback = reboot)",
+    "expectation": "HONEST: the timing retightening moves the DRAM efficiency envelope by single-digit % at best (the vendor chose the LHR values for yield/power, not for sandbagging); the M2 OC lane likely dominates — this lane proves the MECHANISM, the OC lane banks the GB/s",
+    "landmine": "record id 19 = ALL-ZERO, referenced by bin 6 x strap 7 (the gx5 landmine) — NEVER retarget a record that resolves to id 19"
+  }
+}
