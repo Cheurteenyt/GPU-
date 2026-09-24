@@ -36,6 +36,8 @@ typedef struct {
     NvBool        captured;
     NvU32         gpuId;
     GSP_DMEM_BLOB_REC_NV blobs[GSP_DMEM_BLOBS_MAX_NV];
+    NvU64         heapPhys;   /* v3: the heap = the phys capture, the nv side = phys_to_virt */
+    NvU64         heapSize;
 } GSP_DMEM_DUMP_STATE_NV;   /* the layout MIRROR of the RM-side GSP_DMEM_DUMP_STATE */
 
 extern GSP_DMEM_DUMP_STATE_NV gspDmemDumpState;   /* the RM side = non-static */
@@ -96,6 +98,12 @@ static void gsp_dmem_publisher(struct work_struct *w)
     {
         if (!gspDmemDumpState.blobs[i].valid)
             continue;
+        if (gspDmemDumpState.blobs[i].size > (32u << 20))
+        {
+            printk(KERN_ERR "NVRM-451: surface %-16s SKIPPED (size 0x%llx > 32 MB, the static equivalent = on disk)\\n",
+                   gspDmemDumpState.blobs[i].name, gspDmemDumpState.blobs[i].size);
+            continue;   /* v3: the big blobs (the 84 MB image) = the debugfs read = 0 B — the disk copy = the reference */
+        }
         wrappers[i].data = gspDmemDumpState.blobs[i].data;
         wrappers[i].size = (size_t)gspDmemDumpState.blobs[i].size;
         debugfs_create_blob(gspDmemDumpState.blobs[i].name, 0400, child, &wrappers[i]);
@@ -104,6 +112,23 @@ static void gsp_dmem_publisher(struct work_struct *w)
                (NvU64)(NvUPtr)gspDmemDumpState.blobs[i].data,
                gspDmemDumpState.blobs[i].size);
         published++;
+    }
+    /* v3: the sysmem heap = the direct map of the captured phys (the v9 trick) */
+    if (gspDmemDumpState.heapPhys && gspDmemDumpState.heapSize &&
+        gspDmemDumpState.heapSize <= (64u << 20))
+    {
+        static struct debugfs_blob_wrapper heapwrap;
+        heapwrap.data = phys_to_virt(gspDmemDumpState.heapPhys);
+        heapwrap.size = (size_t)gspDmemDumpState.heapSize;
+        debugfs_create_blob("sysmemheap.bin", 0400, child, &heapwrap);
+        printk(KERN_ERR "NVRM-451: surface %-16s phys=0x%llx size=0x%llx (the direct map)\\n",
+               "sysmemheap.bin", gspDmemDumpState.heapPhys, gspDmemDumpState.heapSize);
+        published++;
+    }
+    else
+    {
+        printk(KERN_ERR "NVRM-451: the sysmem heap NOT captured (phys=0x%llx size=0x%llx — the descriptor was NULL at the hook?)\\n",
+               gspDmemDumpState.heapPhys, gspDmemDumpState.heapSize);
     }
     printk(KERN_ERR "NVRM-451: the dump ready at /sys/kernel/debug/gsp_dmem/%s/ (%d surfaces)\\n",
            dir, published);
