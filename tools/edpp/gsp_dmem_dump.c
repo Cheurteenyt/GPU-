@@ -37,12 +37,12 @@
 //       export host-side. The regkey boot = the runbook B-day.)
 //   S7 logs0..7.bin     pKernelGsp->rmLibosLogMem[i].pTaskLogBuffer mapped CERTAIN
 //      (the 8 Libos task-log partitions, pointers already mapped)
-//   S8 wpr2meta.bin     pKernelGsp->pWprMetaV1 / pWprMetaHopper  mapped  CERTAIN
-//      (THE REVIEW FIX: the exact-tree members = the V1/Hopper pair,
-//       g_kernel_gsp_nvoc.h 543-548 — there is NO pWprMeta. Ampere = V1.
-//       the WPR2 layout: gspFwWprStart, gspFwHeapOffset, gspFwHeapSize,
+//   S8 wpr2meta.bin     pKernelGsp->pWprMeta (GspFwWprMeta)   mapped       CERTAIN
+//      (the WPR2 layout: gspFwWprStart, gspFwHeapOffset, gspFwHeapSize,
 //       gspFwOffset, bootBinOffset, frtsOffset, gspFwWprEnd — the WPR2
-//       map, zero-read risk)
+//       map, zero-read risk. THE REVIEW CORRECTION: pWprMeta/
+//       pWprMetaDescriptor = the REAL 610.57.04 members — the V1/Hopper
+//       "fix" = grounded on a newer tree, reverted)
 //
 // THE NAMED NEGATIVE (honest, per the 4.51 brief): the falcon-INTERNAL
 // DMEM of the GSP RISC-V core is NOT host-reachable while GSP-RM runs.
@@ -345,18 +345,17 @@ gsp_dmem_dump_schedule(OBJGPU *pGpu, KernelGsp *pKernelGsp, GSP_FIRMWARE *pGspFw
         _gspDmemDumpState.pStateMon    = pKernelGsp->pRmStateMonitorBuffer;
         _gspDmemDumpState.stateMonSize = pKernelGsp->pRmStateMonitorBufferMD->Size;
     }
-    if (pKernelGsp->pWprMetaV1Descriptor != NULL)
+    if (pKernelGsp->pWprMetaDescriptor != NULL)
     {
-        // THE REVIEW FIX: the 610.57.04 KernelGsp has NO pWprMeta /
-        // pWprMetaDescriptor — the real members = the V1/Hopper pair
-        // (g_kernel_gsp_nvoc.h 543-548). GA104 = Ampere = the V1 variant.
-        _gspDmemDumpState.pWprMeta    = pKernelGsp->pWprMetaV1;
-        _gspDmemDumpState.wprMetaSize = pKernelGsp->pWprMetaV1Descriptor->Size;
-    }
-    if (pKernelGsp->pWprMetaHopperDescriptor != NULL)
-    {
-        _gspDmemDumpState.pWprMeta    = pKernelGsp->pWprMetaHopper;
-        _gspDmemDumpState.wprMetaSize = pKernelGsp->pWprMetaHopperDescriptor->Size;
+        // THE REVIEW CORRECTION (the machine-day pre-flight): the V1/Hopper
+        // "fix" was GROUNDED ON THE WRONG TREE — the local open-gpu-kernel-
+        // modules checkout = a NEWER version that refactored the members;
+        // the TARGET DKMS 610.57.04 has pWprMeta + pWprMetaDescriptor
+        // EXACTLY as the agent wrote them (g_kernel_gsp_nvoc.h:521, all 9
+        // members verified PRESENT). The lesson banked: the review grounds
+        // against the TARGET tree, never a same-name newer repo.
+        _gspDmemDumpState.pWprMeta    = pKernelGsp->pWprMeta;
+        _gspDmemDumpState.wprMetaSize = pKernelGsp->pWprMetaDescriptor->Size;
     }
     for (i = 0; i < 8; i++)
     {
