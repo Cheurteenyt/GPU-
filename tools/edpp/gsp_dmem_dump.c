@@ -51,6 +51,11 @@ typedef struct {
     NvBool        captured;
     NvU32         gpuId;
     GSP_DMEM_BLOB_REC blobs[GSP_DMEM_BLOBS_MAX];
+    // v3: the sysmem heap = the PHYS capture (no memdescMap, no RM locks —
+    // the nv.c side does phys_to_virt, the v9-scanner trick). The RM-side
+    // NV_PRINTF = level-gated (the lesson): the nv.c printk = the ledger.
+    NvU64         heapPhys;
+    NvU64         heapSize;
 } GSP_DMEM_DUMP_STATE;
 
 // non-static: the nv.c (kernel-open) side reads this for the debugfs publish
@@ -119,28 +124,14 @@ gsp_dmem_dump_schedule(OBJGPU *pGpu, KernelGsp *pKernelGsp, GSP_FIRMWARE *pGspFw
                                pLog->pTaskLogDescriptor->Size);
     }
 
-    // ---- S5: the Libos sysmem heap — the map NOW (the RM context = the
-    // kgspCreateRadix3 pattern ~6032-6040), held for the blob lifetime ----
+    // ---- S5: the Libos sysmem heap — the PHYS capture (v3: NO memdescMap —
+    // the map failed silently in the boot-A run and the RM prints = level-
+    // gated; the nv.c side maps via phys_to_virt, the v9-scanner pattern) ----
     if (pKernelGsp->pSysmemHeapDescriptor != NULL)
     {
-        void      *pVa   = NULL;
-        NvP64      pPriv = NvP64_NULL;
-        NvU64      sz    = pKernelGsp->pSysmemHeapDescriptor->Size;
-        NV_STATUS  st;
-
-        st = memdescMap(pKernelGsp->pSysmemHeapDescriptor, 0, sz,
-                        NV_TRUE, NV_PROTECT_WRITEABLE,
-                        (NvP64 *)&pVa, &pPriv);
-        if ((st == NV_OK) && (pVa != NULL))
-        {
-            _gsp_dmem_blob_set("sysmemheap.bin", pVa, sz);
-            NV_PRINTF(LEVEL_INFO, "NVRM-451: the sysmem heap mapped va=0x%llx size=0x%llx\n",
-                      (NvU64)(NvUPtr)pVa, sz);
-        }
-        else
-        {
-            NV_PRINTF(LEVEL_ERROR, "NVRM-451: the sysmem heap map FAILED st=0x%x (the verdict = named)\n", st);
-        }
+        gspDmemDumpState.heapPhys = memdescGetPhysAddr(pKernelGsp->pSysmemHeapDescriptor, AT_CPU, 0);
+        gspDmemDumpState.heapSize = pKernelGsp->pSysmemHeapDescriptor->Size;
+        // (the silent on the RM side — the nv.c ledger reports)
     }
 
     NV_PRINTF(LEVEL_INFO, "NVRM-451: the surfaces captured — the nv.c side publishes in 8 s\n");
