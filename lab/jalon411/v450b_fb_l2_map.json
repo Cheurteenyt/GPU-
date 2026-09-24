@@ -1,0 +1,2372 @@
+{
+ "pass": "4.50",
+ "task": "B",
+ "instrument": "v450b_fb_l2_map",
+ "version": 2,
+ "baseline": {
+  "auipc": 416206,
+  "law": "512/512"
+ },
+ "keys": [
+  {
+   "site": "0x1307b3e",
+   "name": "RMAssertOnEccErrors",
+   "name_va": 31671248,
+   "name_site": "0x1307b24",
+   "_branches": [],
+   "inline_stores": [
+    {
+     "site": "0x1307b52",
+     "insn": "a4, 0x6b4(a5)",
+     "width": "sb",
+     "config_off": 34484
+    }
+   ],
+   "inline_flag_ops": [],
+   "apply_block": {
+    "window": [
+     "0x1307b42",
+     "0x1307b92"
+    ],
+    "stores": [
+     {
+      "site": "0x1307b52",
+      "insn": "a4, 0x6b4(a5)",
+      "width": "sb",
+      "config_off": 34484
+     }
+    ],
+    "flag_ops": [],
+    "body": [
+     "0x1307b42: c.addiw  a0, 0",
+     "0x1307b44: c.bnez   a0, 0x12",
+     "0x1307b46: lw       a4, -0x70(s0)",
+     "0x1307b4a: c.lui    a5, 8",
+     "0x1307b4c: c.add    a5, s3",
+     "0x1307b4e: snez     a4, a4",
+     "0x1307b52: sb       a4, 0x6b4(a5)",
+     "0x1307b56: addi     a2, s0, -0x70",
+     "0x1307b5a: auipc    a1, 0xb2d",
+     "0x1307b5e: addi     a1, a1, -0x772",
+     "0x1307b62: c.mv     a0, s2",
+     "0x1307b64: auipc    ra, 0xffd34",
+     "0x1307b68: jalr     ra, ra, 0x528",
+     "0x1307b6c: c.addiw  a0, 0",
+     "0x1307b6e: c.bnez   a0, 0xa",
+     "0x1307b70: lw       a5, -0x70(s0)",
+     "0x1307b74: bnez     a5, 0x612",
+     "0x1307b78: addi     a2, s0, -0x70",
+     "0x1307b7c: auipc    a1, 0xb2d",
+     "0x1307b80: addi     a1, a1, -0x784",
+     "0x1307b84: c.mv     a0, s2",
+     "0x1307b86: auipc    ra, 0xffd34",
+     "0x1307b8a: jalr     ra, ra, 0x506",
+     "0x1307b8e: c.addiw  a0, 0",
+     "0x1307b90: bnez     a0, 0x5f2"
+    ]
+   },
+   "handler_targets": [],
+   "handlers": []
+  },
+  {
+   "site": "0x1307b68",
+   "name": "RmOrigFbReqSize",
+   "name_va": 31671272,
+   "name_site": "0x1307b5e",
+   "_branches": [
+    {
+     "site": "0x1307b74",
+     "insn": "a5, 0x612",
+     "target": 19956102
+    }
+   ],
+   "inline_stores": [],
+   "inline_flag_ops": [],
+   "apply_block": {
+    "window": [
+     "0x1307b6c",
+     "0x1307bbc"
+    ],
+    "stores": [
+     {
+      "site": "0x1307ba0",
+      "insn": "a5, 0x679(s4)",
+      "width": "sb",
+      "config_off": 34425
+     }
+    ],
+    "flag_ops": [],
+    "body": [
+     "0x1307b6c: c.addiw  a0, 0",
+     "0x1307b6e: c.bnez   a0, 0xa",
+     "0x1307b70: lw       a5, -0x70(s0)",
+     "0x1307b74: bnez     a5, 0x612",
+     "0x1307b78: addi     a2, s0, -0x70",
+     "0x1307b7c: auipc    a1, 0xb2d",
+     "0x1307b80: addi     a1, a1, -0x784",
+     "0x1307b84: c.mv     a0, s2",
+     "0x1307b86: auipc    ra, 0xffd34",
+     "0x1307b8a: jalr     ra, ra, 0x506",
+     "0x1307b8e: c.addiw  a0, 0",
+     "0x1307b90: bnez     a0, 0x5f2",
+     "0x1307b94: lw       a5, -0x70(s0)",
+     "0x1307b98: snez     a5, a5",
+     "0x1307b9c: c.lui    s4, 8",
+     "0x1307b9e: c.add    s4, s3",
+     "0x1307ba0: sb       a5, 0x679(s4)",
+     "0x1307ba4: addi     a2, s0, -0x70",
+     "0x1307ba8: auipc    a1, 0xb2d",
+     "0x1307bac: addi     a1, a1, -0x798",
+     "0x1307bb0: c.mv     a0, s2",
+     "0x1307bb2: auipc    ra, 0xffd34",
+     "0x1307bb6: jalr     ra, ra, 0x4da",
+     "0x1307bba: c.addiw  a0, 0"
+    ]
+   },
+   "handler_targets": [
+    "0x1308186"
+   ],
+   "handlers": [
+    {
+     "target": "0x1308186",
+     "end": "0x1308192",
+     "stores": [
+      {
+       "site": "0x130818c",
+       "insn": "a4, 0x678(a5)",
+       "width": "sb",
+       "config_off": 34424
+      }
+     ],
+     "flag_ops": [],
+     "body": [
+      "0x1308186: c.lui    a5, 8",
+      "0x1308188: c.add    a5, s3",
+      "0x130818a: c.li     a4, 1",
+      "0x130818c: sb       a4, 0x678(a5)",
+      "0x1308190: c.j      -0x618"
+     ]
+    }
+   ]
+  },
+  {
+   "site": "0x1307b8a",
+   "name": "RMDisableZBCDefaultLoad",
+   "name_va": 31671288,
+   "name_site": "0x1307b80",
+   "_branches": [
+    {
+     "site": "0x1307b90",
+     "insn": "a0, 0x5f2",
+     "target": 19956098
+    }
+   ],
+   "inline_stores": [],
+   "inline_flag_ops": [],
+   "apply_block": {
+    "window": [
+     "0x1307b8e",
+     "0x1307bde"
+    ],
+    "stores": [
+     {
+      "site": "0x1307ba0",
+      "insn": "a5, 0x679(s4)",
+      "width": "sb",
+      "config_off": 34425
+     }
+    ],
+    "flag_ops": [],
+    "body": [
+     "0x1307b8e: c.addiw  a0, 0",
+     "0x1307b90: bnez     a0, 0x5f2",
+     "0x1307b94: lw       a5, -0x70(s0)",
+     "0x1307b98: snez     a5, a5",
+     "0x1307b9c: c.lui    s4, 8",
+     "0x1307b9e: c.add    s4, s3",
+     "0x1307ba0: sb       a5, 0x679(s4)",
+     "0x1307ba4: addi     a2, s0, -0x70",
+     "0x1307ba8: auipc    a1, 0xb2d",
+     "0x1307bac: addi     a1, a1, -0x798",
+     "0x1307bb0: c.mv     a0, s2",
+     "0x1307bb2: auipc    ra, 0xffd34",
+     "0x1307bb6: jalr     ra, ra, 0x4da",
+     "0x1307bba: c.addiw  a0, 0",
+     "0x1307bbc: beqz     a0, 0x5ec",
+     "0x1307bc0: c.li     a1, 2",
+     "0x1307bc2: c.mv     a0, s2",
+     "0x1307bc4: auipc    ra, 0x138",
+     "0x1307bc8: jalr     ra, ra, -0x6cc",
+     "0x1307bcc: c.addiw  a0, 0",
+     "0x1307bce: c.li     a5, 3",
+     "0x1307bd0: beq      a0, a5, 0x5cc",
+     "0x1307bd4: c.li     a5, 1",
+     "0x1307bd6: beq      a0, a5, 0x5bc",
+     "0x1307bda: addi     a2, s0, -0x70"
+    ]
+   },
+   "handler_targets": [
+    "0x1308182"
+   ],
+   "handlers": [
+    {
+     "target": "0x1308182",
+     "end": "0x1308186",
+     "stores": [],
+     "flag_ops": [],
+     "body": [
+      "0x1308182: c.li     a5, 0",
+      "0x1308184: c.j      -0x5e8"
+     ]
+    }
+   ]
+  },
+  {
+   "site": "0x1307bb6",
+   "name": "RMAsrEnable",
+   "name_va": 31671312,
+   "name_site": "0x1307bac",
+   "_branches": [
+    {
+     "site": "0x1307bbc",
+     "insn": "a0, 0x5ec",
+     "target": 19956136
+    },
+    {
+     "site": "0x1307bd0",
+     "insn": "a0, a5, 0x5cc",
+     "target": 19956124
+    },
+    {
+     "site": "0x1307bd6",
+     "insn": "a0, a5, 0x5bc",
+     "target": 19956114
+    }
+   ],
+   "inline_stores": [],
+   "inline_flag_ops": [],
+   "apply_block": {
+    "window": [
+     "0x1307bba",
+     "0x1307c0a"
+    ],
+    "stores": [
+     {
+      "site": "0x1307c04",
+      "insn": "a4, 0x67d(a5)",
+      "width": "sb",
+      "config_off": 34429
+     }
+    ],
+    "flag_ops": [],
+    "body": [
+     "0x1307bba: c.addiw  a0, 0",
+     "0x1307bbc: beqz     a0, 0x5ec",
+     "0x1307bc0: c.li     a1, 2",
+     "0x1307bc2: c.mv     a0, s2",
+     "0x1307bc4: auipc    ra, 0x138",
+     "0x1307bc8: jalr     ra, ra, -0x6cc",
+     "0x1307bcc: c.addiw  a0, 0",
+     "0x1307bce: c.li     a5, 3",
+     "0x1307bd0: beq      a0, a5, 0x5cc",
+     "0x1307bd4: c.li     a5, 1",
+     "0x1307bd6: beq      a0, a5, 0x5bc",
+     "0x1307bda: addi     a2, s0, -0x70",
+     "0x1307bde: auipc    a1, 0xb2d",
+     "0x1307be2: addi     a1, a1, -0x7be",
+     "0x1307be6: c.mv     a0, s2",
+     "0x1307be8: auipc    ra, 0xffd34",
+     "0x1307bec: jalr     ra, ra, 0x4a4",
+     "0x1307bf0: c.addiw  a0, 0",
+     "0x1307bf2: bnez     a0, 0x586",
+     "0x1307bf6: lw       a4, -0x70(s0)",
+     "0x1307bfa: c.addi   a4, -1",
+     "0x1307bfc: seqz     a4, a4",
+     "0x1307c00: c.lui    a5, 8",
+     "0x1307c02: c.add    a5, s3",
+     "0x1307c04: sb       a4, 0x67d(a5)",
+     "0x1307c08: addi     a2, s0, -0x70"
+    ]
+   },
+   "handler_targets": [
+    "0x1308192",
+    "0x130819c",
+    "0x13081a8"
+   ],
+   "handlers": [
+    {
+     "target": "0x1308192",
+     "end": "0x130819c",
+     "stores": [
+      {
+       "site": "0x1308196",
+       "insn": "zero, 0x67b(a5)",
+       "width": "sb",
+       "config_off": 34427
+      }
+     ],
+     "flag_ops": [],
+     "body": [
+      "0x1308192: c.lui    a5, 8",
+      "0x1308194: c.add    a5, s3",
+      "0x1308196: sb       zero, 0x67b(a5)",
+      "0x130819a: c.j      -0x5c0"
+     ]
+    },
+    {
+     "target": "0x130819c",
+     "end": "0x13081a8",
+     "stores": [
+      {
+       "site": "0x13081a2",
+       "insn": "a4, 0x67b(a5)",
+       "width": "sb",
+       "config_off": 34427
+      }
+     ],
+     "flag_ops": [],
+     "body": [
+      "0x130819c: c.lui    a5, 8",
+      "0x130819e: c.add    a5, s3",
+      "0x13081a0: c.li     a4, 1",
+      "0x13081a2: sb       a4, 0x67b(a5)",
+      "0x13081a6: c.j      -0x5cc"
+     ]
+    },
+    {
+     "target": "0x13081a8",
+     "end": "0x13081fc",
+     "stores": [],
+     "flag_ops": [],
+     "body": [
+      "0x13081a8: auipc    a2, 0x1efac",
+      "0x13081ac: addi     a2, a2, 0x340",
+      "0x13081b0: auipc    a1, 0xb2c",
+      "0x13081b4: addi     a1, a1, 0x260",
+      "0x13081b8: c.li     a0, 2",
+      "0x13081ba: auipc    ra, 0x796",
+      "0x13081be: jalr     ra, ra, 0x46a",
+      "0x13081c2: lw       a5, -0x70(s0)",
+      "0x13081c6: c.li     a0, 1",
+      "0x13081c8: auipc    a1, 0x1efac",
+      "0x13081cc: addi     a1, a1, 0x338",
+      "0x13081d0: snez     a5, a5",
+      "0x13081d4: sb       a5, 0x67b(s4)",
+      "0x13081d8: auipc    ra, 0x796",
+      "0x13081dc: jalr     ra, ra, 0x44c",
+      "0x13081e0: c.mv     a1, s1",
+      "0x13081e2: c.li     a0, 0",
+      "0x13081e4: auipc    ra, 0x846",
+      "0x13081e8: jalr     ra, ra, -0x798",
+      "0x13081ec: auipc    a5, 0x2ecc",
+      "0x13081f0: lbu      a5, -0x264(a5)",
+      "0x13081f4: bnez     a5, 0x104",
+      "0x13081f8: c.ebreak ",
+      "0x13081fa: c.j      -0x63a"
+     ]
+    }
+   ]
+  },
+  {
+   "site": "0x1307bec",
+   "name": "RMAsrWakeup",
+   "name_va": 31671328,
+   "name_site": "0x1307be2",
+   "_branches": [
+    {
+     "site": "0x1307bf2",
+     "insn": "a0, 0x586",
+     "target": 19956088
+    }
+   ],
+   "inline_stores": [],
+   "inline_flag_ops": [],
+   "apply_block": {
+    "window": [
+     "0x1307bf0",
+     "0x1307c40"
+    ],
+    "stores": [
+     {
+      "site": "0x1307c04",
+      "insn": "a4, 0x67d(a5)",
+      "width": "sb",
+      "config_off": 34429
+     }
+    ],
+    "flag_ops": [],
+    "body": [
+     "0x1307bf0: c.addiw  a0, 0",
+     "0x1307bf2: bnez     a0, 0x586",
+     "0x1307bf6: lw       a4, -0x70(s0)",
+     "0x1307bfa: c.addi   a4, -1",
+     "0x1307bfc: seqz     a4, a4",
+     "0x1307c00: c.lui    a5, 8",
+     "0x1307c02: c.add    a5, s3",
+     "0x1307c04: sb       a4, 0x67d(a5)",
+     "0x1307c08: addi     a2, s0, -0x70",
+     "0x1307c0c: auipc    a1, 0xb2d",
+     "0x1307c10: addi     a1, a1, -0x7dc",
+     "0x1307c14: c.mv     a0, s2",
+     "0x1307c16: auipc    ra, 0xffd34",
+     "0x1307c1a: jalr     ra, ra, 0x476",
+     "0x1307c1e: c.addiw  a0, 0",
+     "0x1307c20: beqz     a0, 0x60c",
+     "0x1307c24: addi     a2, s0, -0x70",
+     "0x1307c28: auipc    a1, 0xb2d",
+     "0x1307c2c: addi     a1, a1, -0x7e0",
+     "0x1307c30: c.mv     a0, s2",
+     "0x1307c32: auipc    ra, 0xffd34",
+     "0x1307c36: jalr     ra, ra, 0x45a",
+     "0x1307c3a: c.addiw  a0, 0",
+     "0x1307c3c: c.bnez   a0, 0xa",
+     "0x1307c3e: lw       a5, -0x70(s0)"
+    ]
+   },
+   "handler_targets": [
+    "0x1308178"
+   ],
+   "handlers": [
+    {
+     "target": "0x1308178",
+     "end": "0x1308182",
+     "stores": [],
+     "flag_ops": [],
+     "body": [
+      "0x1308178: c.li     a5, 1",
+      "0x130817a: sw       a5, -0x70(s0)",
+      "0x130817e: c.li     a4, 1",
+      "0x1308180: c.j      -0x580"
+     ]
+    }
+   ]
+  },
+  {
+   "site": "0x1307c1a",
+   "name": "RML2MaxWaysSysmem",
+   "name_va": 31671344,
+   "name_site": "0x1307c10",
+   "_branches": [
+    {
+     "site": "0x1307c20",
+     "insn": "a0, 0x60c",
+     "target": 19956268
+    }
+   ],
+   "inline_stores": [],
+   "inline_flag_ops": [],
+   "apply_block": {
+    "window": [
+     "0x1307c1e",
+     "0x1307c6e"
+    ],
+    "stores": [],
+    "flag_ops": [],
+    "body": [
+     "0x1307c1e: c.addiw  a0, 0",
+     "0x1307c20: beqz     a0, 0x60c",
+     "0x1307c24: addi     a2, s0, -0x70",
+     "0x1307c28: auipc    a1, 0xb2d",
+     "0x1307c2c: addi     a1, a1, -0x7e0",
+     "0x1307c30: c.mv     a0, s2",
+     "0x1307c32: auipc    ra, 0xffd34",
+     "0x1307c36: jalr     ra, ra, 0x45a",
+     "0x1307c3a: c.addiw  a0, 0",
+     "0x1307c3c: c.bnez   a0, 0xa",
+     "0x1307c3e: lw       a5, -0x70(s0)",
+     "0x1307c42: bnez     a5, 0x698",
+     "0x1307c46: addi     a2, s0, -0x70",
+     "0x1307c4a: auipc    a1, 0xb2d",
+     "0x1307c4e: addi     a1, a1, -0x7f2",
+     "0x1307c52: c.mv     a0, s2",
+     "0x1307c54: auipc    ra, 0xffd34",
+     "0x1307c58: jalr     ra, ra, 0x438",
+     "0x1307c5c: c.addiw  a0, 0",
+     "0x1307c5e: c.bnez   a0, 0xc",
+     "0x1307c60: lw       a4, -0x70(s0)",
+     "0x1307c64: c.li     a5, 1",
+     "0x1307c66: beq      a4, a5, 0x638",
+     "0x1307c6a: addi     a2, s0, -0x70"
+    ]
+   },
+   "handler_targets": [
+    "0x130822c"
+   ],
+   "handlers": [
+    {
+     "target": "0x130822c",
+     "end": "0x1308276",
+     "stores": [
+      {
+       "site": "0x1308240",
+       "insn": "a1, -0x27c(a5)",
+       "width": "sw",
+       "config_off": 15748
+      },
+      {
+       "site": "0x130824a",
+       "insn": "a4, -0x298(a5)",
+       "width": "sw",
+       "config_off": 15720
+      }
+     ],
+     "flag_ops": [
+      {
+       "site": "0x1308244",
+       "insn": "a4, a4, 1",
+       "imm": 1
+      }
+     ],
+     "body": [
+      "0x130822c: c.lui    a5, 4",
+      "0x130822e: c.add    a5, s3",
+      "0x1308230: lw       a1, -0x70(s0)",
+      "0x1308234: lw       a4, -0x298(a5)",
+      "0x1308238: auipc    a2, 0x1efac",
+      "0x130823c: addi     a2, a2, 0x2e0",
+      "0x1308240: sw       a1, -0x27c(a5)",
+      "0x1308244: ori      a4, a4, 1",
+      "0x1308248: c.slli   a1, 0x20",
+      "0x130824a: sw       a4, -0x298(a5)",
+      "0x130824e: c.srli   a1, 0x20",
+      "0x1308250: c.li     a0, 2",
+      "0x1308252: auipc    ra, 0x796",
+      "0x1308256: jalr     ra, ra, 0x3d2",
+      "0x130825a: c.j      -0x636",
+      "0x130825c: ld       a5, 0x738(s2)",
+      "0x1308260: lbu      a5, 0x78(a5)",
+      "0x1308264: beqz     a5, -0x14e",
+      "0x1308268: c.j      -0x15c",
+      "0x130826a: ld       a5, 0x1b8(s4)",
+      "0x130826e: c.mv     a1, s4",
+      "0x1308270: c.mv     a0, s2",
+      "0x1308272: c.jalr   a5",
+      "0x1308274: c.j      -0x2a6"
+     ]
+    }
+   ]
+  },
+  {
+   "site": "0x1307c36",
+   "name": "RML2PreFill",
+   "name_va": 31671368,
+   "name_site": "0x1307c2c",
+   "_branches": [
+    {
+     "site": "0x1307c42",
+     "insn": "a5, 0x698",
+     "target": 19956442
+    }
+   ],
+   "inline_stores": [],
+   "inline_flag_ops": [],
+   "apply_block": {
+    "window": [
+     "0x1307c3a",
+     "0x1307c8a"
+    ],
+    "stores": [],
+    "flag_ops": [],
+    "body": [
+     "0x1307c3a: c.addiw  a0, 0",
+     "0x1307c3c: c.bnez   a0, 0xa",
+     "0x1307c3e: lw       a5, -0x70(s0)",
+     "0x1307c42: bnez     a5, 0x698",
+     "0x1307c46: addi     a2, s0, -0x70",
+     "0x1307c4a: auipc    a1, 0xb2d",
+     "0x1307c4e: addi     a1, a1, -0x7f2",
+     "0x1307c52: c.mv     a0, s2",
+     "0x1307c54: auipc    ra, 0xffd34",
+     "0x1307c58: jalr     ra, ra, 0x438",
+     "0x1307c5c: c.addiw  a0, 0",
+     "0x1307c5e: c.bnez   a0, 0xc",
+     "0x1307c60: lw       a4, -0x70(s0)",
+     "0x1307c64: c.li     a5, 1",
+     "0x1307c66: beq      a4, a5, 0x638",
+     "0x1307c6a: addi     a2, s0, -0x70",
+     "0x1307c6e: auipc    a1, 0xb2d",
+     "0x1307c72: addi     a1, a1, -0x7fe",
+     "0x1307c76: c.mv     a0, s2",
+     "0x1307c78: auipc    ra, 0xffd34",
+     "0x1307c7c: jalr     ra, ra, 0x414",
+     "0x1307c80: c.addiw  a0, 0",
+     "0x1307c82: beqz     a0, 0x57a",
+     "0x1307c86: addi     a2, s0, -0x70"
+    ]
+   },
+   "handler_targets": [
+    "0x13082da"
+   ],
+   "handlers": [
+    {
+     "target": "0x13082da",
+     "end": "0x1308800",
+     "stores": [],
+     "flag_ops": [],
+     "body": [
+      "0x13082da: auipc    a1, 0x1efac",
+      "0x13082de: addi     a1, a1, 0x256",
+      "0x13082e2: c.li     a0, 1",
+      "0x13082e4: auipc    ra, 0x796",
+      "0x13082e8: jalr     ra, ra, 0x340",
+      "0x13082ec: c.lui    a5, 8",
+      "0x13082ee: c.add    a5, s3",
+      "0x13082f0: c.li     a4, 1",
+      "0x13082f2: sb       a4, 0x6b6(a5)",
+      "0x13082f6: c.j      -0x6b0",
+      "0x13082f8: lui      a4, 0x111",
+      "0x13082fc: auipc    a5, 0x2e88",
+      "0x1308300: ld       a5, 0x21c(a5)",
+      "0x1308304: addi     a3, a4, 0x52c",
+      "0x1308308: c.add    a3, a5",
+      "0x130830a: c.lw     a1, 0(a3)",
+      "0x130830c: lui      a0, 0x400",
+      "0x1308310: addi     a2, a4, 0x520",
+      "0x1308314: c.or     a1, a0",
+      "0x1308316: c.sw     a1, 0(a3)",
+      "0x1308318: addi     a4, a4, 0x3d0",
+      "0x130831c: add      a3, a5, a2",
+      "0x1308320: lui      a2, 0x400",
+      "0x1308324: c.sw     a2, 0(a3)",
+      "0x1308326: c.add    a5, a4",
+      "0x1308328: sw       zero, 0(a5)",
+      "0x130832c: c.ebreak ",
+      "0x130832e: c.j      -0x76e",
+      "0x1308330: slli     a1, s5, 0x20",
+      "0x1308334: auipc    a2, 0x1efac",
+      "0x1308338: addi     a2, a2, 0x22c",
+      "0x130833c: c.srli   a1, 0x20",
+      "0x130833e: c.li     a0, 2",
+      "0x1308340: auipc    ra, 0x796",
+      "0x1308344: jalr     ra, ra, 0x2e4",
+      "0x1308348: c.mv     a1, s1",
+      "0x130834a: c.mv     a0, s5",
+      "0x130834c: auipc    ra, 0x845",
+      "0x1308350: jalr     ra, ra, 0x700",
+      "0x1308354: auipc    a5, 0x2ecc",
+      "0x1308358: lbu      a5, -0x3cc(a5)",
+      "0x130835c: c.bnez   a5, 6",
+      "0x130835e: c.ebreak ",
+      "0x1308360: c.j      -0x304",
+      "0x1308362: lui      a4, 0x111",
+      "0x1308366: auipc    a5, 0x2e88",
+      "0x130836a: ld       a5, 0x1b2(a5)",
+      "0x130836e: addi     a3, a4, 0x52c",
+      "0x1308372: c.add    a3, a5",
+      "0x1308374: c.lw     a1, 0(a3)",
+      "0x1308376: lui      a0, 0x400",
+      "0x130837a: addi     a2, a4, 0x520",
+      "0x130837e: c.or     a1, a0",
+      "0x1308380: c.sw     a1, 0(a3)",
+      "0x1308382: addi     a4, a4, 0x3d0",
+      "0x1308386: add      a3, a5, a2",
+      "0x130838a: lui      a2, 0x400",
+      "0x130838e: c.sw     a2, 0(a3)",
+      "0x1308390: c.add    a5, a4",
+      "0x1308392: sw       zero, 0(a5)",
+      "0x1308396: c.ebreak ",
+      "0x1308398: c.j      -0x33c",
+      "0x130839a: auipc    ra, 0x79b",
+      "0x130839e: jalr     ra, ra, 0xaa",
+      "0x13083a2: c.nop    ",
+      "0x13083a4: addi     sp, sp, -0x260",
+      "0x13083a8: sd       s0, 0x250(sp)",
+      "0x13083ac: sd       s1, 0x248(sp)",
+      "0x13083b0: sd       ra, 0x258(sp)",
+      "0x13083b4: sd       s2, 0x240(sp)",
+      "0x13083b8: sd       s3, 0x238(sp)",
+      "0x13083bc: sd       s4, 0x230(sp)",
+      "0x13083c0: sd       s5, 0x228(sp)",
+      "0x13083c4: sd       s6, 0x220(sp)",
+      "0x13083c8: sd       s7, 0x218(sp)",
+      "0x13083cc: sd       s8, 0x210(sp)",
+      "0x13083d0: sd       s9, 0x208(sp)",
+      "0x13083d4: sd       s10, 0x200(sp)",
+      "0x13083d8: c.sdsp   s11, 0x1f8(sp)",
+      "0x13083da: c.addi4spn s0, sp, 0x260",
+      "0x13083dc: ld       a5, 0x738(a0)",
+      "0x13083e0: auipc    a3, 0x2e88",
+      "0x13083e4: addi     a3, a3, -0x440",
+      "0x13083e8: c.ld     a4, 0(a3)",
+      "0x13083ea: sd       a4, -0x78(s0)",
+      "0x13083ee: c.li     a4, 0",
+      "0x13083f0: lbu      a5, 0x78(a5)",
+      "0x13083f4: sd       ra, -0x248(s0)",
+      "0x13083f8: c.mv     s1, a1",
+      "0x13083fa: c.beqz   a5, 0x78",
+      "0x13083fc: c.lui    a5, 4",
+      "0x13083fe: c.add    a5, s1",
+      "0x1308400: lw       a5, -0x274(a5)",
+      "0x1308404: c.li     a4, 1",
+      "0x1308406: addiw    a3, a5, -0xe",
+      "0x130840a: bgeu     a4, a3, 0x5e",
+      "0x130840e: c.andi   a5, -3",
+      "0x1308410: c.li     a4, 0x14",
+      "0x1308412: beq      a5, a4, 0x56",
+      "0x1308416: auipc    a5, 0x2e88",
+      "0x130841a: addi     a5, a5, -0x476",
+      "0x130841e: ld       a4, -0x78(s0)",
+      "0x1308422: c.ld     a5, 0(a5)",
+      "0x1308424: c.xor    a5, a4",
+      "0x1308426: c.li     a4, 0",
+      "0x1308428: c.beqz   a5, 6",
+      "0x130842a: j        0x26b6",
+      "0x130842e: ld       ra, 0x258(sp)",
+      "0x1308432: ld       s0, 0x250(sp)",
+      "0x1308436: ld       s1, 0x248(sp)",
+      "0x130843a: ld       s2, 0x240(sp)",
+      "0x130843e: ld       s3, 0x238(sp)",
+      "0x1308442: ld       s4, 0x230(sp)",
+      "0x1308446: ld       s5, 0x228(sp)",
+      "0x130844a: ld       s6, 0x220(sp)",
+      "0x130844e: ld       s7, 0x218(sp)",
+      "0x1308452: ld       s8, 0x210(sp)",
+      "0x1308456: ld       s9, 0x208(sp)",
+      "0x130845a: ld       s10, 0x200(sp)",
+      "0x130845e: c.ldsp   s11, 0x1f8(sp)",
+      "0x1308460: c.li     a0, 0",
+      "0x1308462: addi     sp, sp, 0x260",
+      "0x1308466: c.jr     ra",
+      "0x1308468: c.lui    a5, 8",
+      "0x130846a: c.add    s1, a5",
+      "0x130846c: sb       zero, 0x6b7(s1)",
+      "0x1308470: c.j      -0x5a",
+      "0x1308472: c.lui    a5, 2",
+      "0x1308474: c.add    a5, a0",
+      "0x1308476: sd       a0, -0x218(s0)",
+      "0x130847a: ld       a0, -8(a5)",
+      "0x130847e: c.li     a2, 0",
+      "0x1308480: addi     a1, s0, -0x188",
+      "0x1308484: auipc    ra, 0x7cd",
+      "0x1308488: jalr     ra, ra, 0x118",
+      "0x130848c: c.addiw  a0, 0",
+      "0x130848e: ld       t2, -0x218(s0)",
+      "0x1308492: c.beqz   a0, 6",
+      "0x1308494: j        0x1c22",
+      "0x1308498: lw       a4, -0x168(s0)",
+      "0x130849c: c.lui    a5, 8",
+      "0x130849e: c.add    a5, s1",
+      "0x13084a0: sw       a4, 0x4cc(a5)",
+      "0x13084a4: c.lui    a5, 2",
+      "0x13084a6: c.add    a5, t2",
+      "0x13084a8: ld       a4, -0x1e8(a5)",
+      "0x13084ac: lbu      a4, 0x238(a4)",
+      "0x13084b0: c.bnez   a4, 6",
+      "0x13084b2: j        0x1ae8",
+      "0x13084b6: ld       a5, -0x1f8(a5)",
+      "0x13084ba: c.lui    a4, 8",
+      "0x13084bc: c.add    a5, a4",
+      "0x13084be: lw       s10, 0x488(a5)",
+      "0x13084c2: c.lui    a3, 2",
+      "0x13084c4: c.lui    a5, 4",
+      "0x13084c6: add      s9, t2, a3",
+      "0x13084ca: lui      a3, 0x2001",
+      "0x13084ce: c.li     t5, 0",
+      "0x13084d0: addi     s7, a5, -0x258",
+      "0x13084d4: addi     a5, a3, -0xd9",
+      "0x13084d8: c.li     a4, 0",
+      "0x13084da: sd       zero, -0x218(s0)",
+      "0x13084de: sd       a5, -0x220(s0)",
+      "0x13084e2: c.mv     s8, t5",
+      "0x13084e4: sd       t2, -0x240(s0)",
+      "0x13084e8: beqz     s10, 0xf46",
+      "0x13084ec: slli     s2, s8, 0x20",
+      "0x13084f0: addi     a5, zero, 0xe0",
+      "0x13084f4: srli     s2, s2, 0x20",
+      "0x13084f8: mul      s2, s2, a5",
+      "0x13084fc: ld       s4, -8(s9)",
+      "0x1308500: lui      a5, 0x50",
+      "0x1308504: addi     a2, s0, -0x20c",
+      "0x1308508: addi     a1, s0, -0x1c8",
+      "0x130850c: c.mv     a0, s4",
+      "0x130850e: addi     s11, a5, 0x14",
+      "0x1308512: sd       s8, -0x238(s0)",
+      "0x1308516: auipc    ra, 0x7cd",
+      "0x130851a: jalr     ra, ra, 0x86",
+      "0x130851e: c.addiw  a0, 0",
+      "0x1308520: c.add    s2, s7",
+      "0x1308522: c.mv     s5, s8",
+      "0x1308524: c.li     s3, 0",
+      "0x1308526: c.add    s2, s1",
+      "0x1308528: c.beqz   a0, 0x46",
+      "0x130852a: addi     a5, zero, 0x56",
+      "0x130852e: beq      a0, a5, -0x132",
+      "0x1308532: c.li     a4, 0",
+      "0x1308534: addiw    s2, s5, 0x10",
+      "0x1308538: c.addiw  s3, 1",
+      "0x130853a: sext.w   s5, s2",
+      "0x130853e: beq      s3, s10, 0xeec",
+      "0x1308542: c.slli   s2, 0x20",
+      "0x1308544: addi     a5, zero, 0xe0",
+      "0x1308548: srli     s2, s2, 0x20",
+      "0x130854c: mul      s2, s2, a5",
+      "0x1308550: ld       s4, -8(s9)",
+      "0x1308554: addi     a2, s0, -0x20c",
+      "0x1308558: addi     a1, s0, -0x1c8",
+      "0x130855c: c.mv     a0, s4",
+      "0x130855e: auipc    ra, 0x7cd",
+      "0x1308562: jalr     ra, ra, 0x3e",
+      "0x1308566: c.addiw  a0, 0",
+      "0x1308568: c.add    s2, s7",
+      "0x130856a: c.add    s2, s1",
+      "0x130856c: c.bnez   a0, -0x42",
+      "0x130856e: addi     a2, zero, 0xe0",
+      "0x1308572: c.li     a1, 0",
+      "0x1308574: c.mv     a0, s2",
+      "0x1308576: auipc    ra, 0x8dc",
+      "0x130857a: jalr     ra, ra, -0x352",
+      "0x130857e: slli     s6, s5, 0x20",
+      "0x1308582: srli     s6, s6, 0x20",
+      "0x1308586: addi     t1, zero, 0xe0",
+      "0x130858a: mul      t1, s6, t1",
+      "0x130858e: c.lui    a4, 4",
+      "0x1308590: lw       a5, -0x1b4(s0)",
+      "0x1308594: c.add    t1, s1",
+      "0x1308596: add      s8, a4, t1",
+      "0x130859a: ld       a4, -0x220(s0)",
+      "0x130859e: sd       s11, -0x250(s8)",
+      "0x13085a2: sw       zero, -0x1f8(s8)",
+      "0x13085a6: sw       a4, -0x254(s8)",
+      "0x13085aa: ld       a4, -0x218(s0)",
+      "0x13085ae: bgeu     a4, a5, -0x7c",
+      "0x13085b2: lw       a5, -0x1c8(s0)",
+      "0x13085b6: c.li     t3, 0x10",
+      "0x13085b8: beq      a5, t3, 0x896",
+      "0x13085bc: c.li     a4, 0x11",
+      "0x13085be: bne      a5, a4, -0x1c2",
+      "0x13085c2: lw       a4, -0x20c(s0)",
+      "0x13085c6: addi     a5, s0, -0x1f0",
+      "0x13085ca: c.mv     a0, a5",
+      "0x13085cc: addi     a2, zero, 0x24",
+      "0x13085d0: c.li     a1, 0",
+      "0x13085d2: sd       zero, -0x1f0(s0)",
+      "0x13085d6: sd       zero, -0x1e8(s0)",
+      "0x13085da: sd       zero, -0x1e0(s0)",
+      "0x13085de: sd       zero, -0x1d8(s0)",
+      "0x13085e2: sw       zero, -0x1d0(s0)",
+      "0x13085e6: sd       a4, -0x230(s0)",
+      "0x13085ea: sd       a5, -0x228(s0)",
+      "0x13085ee: auipc    ra, 0x8dc",
+      "0x13085f2: jalr     ra, ra, -0x3ca",
+      "0x13085f6: addi     a5, s0, -0x188",
+      "0x13085fa: c.mv     a0, a5",
+      "0x13085fc: addi     a2, zero, 0x68",
+      "0x1308600: c.li     a1, 0",
+      "0x1308602: auipc    ra, 0x8dc",
+      "0x1308606: jalr     ra, ra, -0x3de",
+      "0x130860a: ld       a4, -0x228(s0)",
+      "0x130860e: ld       a3, -0x230(s0)",
+      "0x1308612: ld       a2, -0x218(s0)",
+      "0x1308616: addi     a1, s0, -0x1c8",
+      "0x130861a: c.mv     a0, s4",
+      "0x130861c: auipc    ra, 0x7dd",
+      "0x1308620: jalr     ra, ra, -0x30",
+      "0x1308624: c.addiw  a0, 0",
+      "0x1308626: c.bnez   a0, -0xf4",
+      "0x1308628: lw       a5, -0x1ec(s0)",
+      "0x130862c: c.bnez   a5, 6",
+      "0x130862e: j        0x193a",
+      "0x1308632: ld       a5, -0x230(s0)",
+      "0x1308636: ld       a3, -0x218(s0)",
+      "0x130863a: ld       a0, -0x240(s0)",
+      "0x130863e: addi     a6, s0, -0x188",
+      "0x1308642: c.mv     a4, s3",
+      "0x1308644: addi     a2, s0, -0x1c8",
+      "0x1308648: c.mv     a1, s4",
+      "0x130864a: auipc    ra, 0xffe8d",
+      "0x130864e: jalr     ra, ra, -0x1f2",
+      "0x1308652: c.addiw  a0, 0",
+      "0x1308654: bnez     a0, -0x122",
+      "0x1308658: lw       a5, -0x1ec(s0)",
+      "0x130865c: addi     a4, zero, 0x3e8",
+      "0x1308660: lw       a3, -0x1c4(s0)",
+      "0x1308664: mulw     a4, a4, a5",
+      "0x1308668: c.li     t3, 0x10",
+      "0x130866a: lw       a5, -0x1d8(s0)",
+      "0x130866e: sw       a4, -0x258(s8)",
+      "0x1308672: bgeu     t3, a3, 8",
+      "0x1308676: j        0x1944",
+      "0x130867a: lw       a4, -0x1e8(s0)",
+      "0x130867e: sw       a4, -0x204(s8)",
+      "0x1308682: lw       a1, -0x1e4(s0)",
+      "0x1308686: andi     a4, a1, 1",
+      "0x130868a: c.beqz   a4, 0x1e",
+      "0x130868c: addi     a4, zero, 0xe0",
+      "0x1308690: mul      a4, s6, a4",
+      "0x1308694: c.lui    a3, 4",
+      "0x1308696: lui      a2, 0x200",
+      "0x130869a: c.add    a4, s1",
+      "0x130869c: c.add    a4, a3",
+      "0x130869e: lw       a3, -0x254(a4)",
+      "0x13086a2: c.or     a3, a2",
+      "0x13086a4: sw       a3, -0x254(a4)",
+      "0x13086a8: andi     a4, a1, 2",
+      "0x13086ac: c.beqz   a4, 0x1e",
+      "0x13086ae: addi     a4, zero, 0xe0",
+      "0x13086b2: mul      a4, s6, a4",
+      "0x13086b6: c.lui    a3, 4",
+      "0x13086b8: lui      a2, 0x10000",
+      "0x13086bc: c.add    a4, s1",
+      "0x13086be: c.add    a4, a3",
+      "0x13086c0: lw       a3, -0x254(a4)",
+      "0x13086c4: c.or     a3, a2",
+      "0x13086c6: sw       a3, -0x254(a4)",
+      "0x13086ca: srliw    a4, a1, 2",
+      "0x13086ce: c.andi   a4, 3",
+      "0x13086d0: c.li     a3, 2",
+      "0x13086d2: beq      a4, a3, 0x10",
+      "0x13086d6: c.li     a3, 3",
+      "0x13086d8: beq      a4, a3, 0xa",
+      "0x13086dc: c.addi   a4, -1",
+      "0x13086de: seqz     a4, a4",
+      "0x13086e2: addi     a3, zero, 0xe0",
+      "0x13086e6: mul      a3, s6, a3",
+      "0x13086ea: c.lui    a2, 4",
+      "0x13086ec: andi     a0, a1, 0x80",
+      "0x13086f0: c.add    a3, s1",
+      "0x13086f2: c.add    a3, a2",
+      "0x13086f4: sw       a4, -0x214(a3)",
+      "0x13086f8: lw       a3, -0x254(a3)",
+      "0x13086fc: c.bnez   a0, 6",
+      "0x13086fe: j        0x1c84",
+      "0x1308702: lui      a4, 0x1000",
+      "0x1308706: c.or     a3, a4",
+      "0x1308708: addi     a2, zero, 0xe0",
+      "0x130870c: mul      a2, s6, a2",
+      "0x1308710: c.lui    a4, 4",
+      "0x1308712: andi     a0, a1, 0x10",
+      "0x1308716: c.add    a2, s1",
+      "0x1308718: c.add    a4, a2",
+      "0x130871a: sw       a3, -0x254(a4)",
+      "0x130871e: c.beqz   a0, 0x10",
+      "0x1308720: lw       a2, -0x250(a4)",
+      "0x1308724: c.lui    a0, 0xffff0",
+      "0x1308726: c.addi   a0, -1",
+      "0x1308728: c.and    a2, a0",
+      "0x130872a: sw       a2, -0x250(a4)",
+      "0x130872e: andi     a4, a1, 0x40",
+      "0x1308732: andi     a2, a5, 1",
+      "0x1308736: c.bnez   a4, 6",
+      "0x1308738: j        0x1c56",
+      "0x130873c: addi     a4, zero, 0xe0",
+      "0x1308740: mul      a4, s6, a4",
+      "0x1308744: c.lui    a1, 4",
+      "0x1308746: c.add    a4, s1",
+      "0x1308748: c.add    a4, a1",
+      "0x130874a: lw       a4, -0x250(a4)",
+      "0x130874e: lui      a1, 0x400",
+      "0x1308752: c.or     a4, a1",
+      "0x1308754: c.beqz   a2, 8",
+      "0x1308756: lui      a2, 0x800",
+      "0x130875a: c.or     a4, a2",
+      "0x130875c: andi     a2, a5, 0x80",
+      "0x1308760: c.beqz   a2, 6",
+      "0x1308762: j        0x1c44",
+      "0x1308766: c.slli   a4, 0x21",
+      "0x1308768: andi     a2, a5, 0x10",
+      "0x130876c: c.srli   a4, 0x21",
+      "0x130876e: c.beqz   a2, 6",
+      "0x1308770: j        0x1c46",
+      "0x1308774: lui      a2, 0xf0000",
+      "0x1308778: c.addi   a2, -1",
+      "0x130877a: c.and    a4, a2",
+      "0x130877c: andi     a2, a5, 0x20",
+      "0x1308780: c.beqz   a2, 6",
+      "0x1308782: j        0x1c44",
+      "0x1308786: lui      a2, 0xe0000",
+      "0x130878a: c.addi   a2, -1",
+      "0x130878c: and      a0, a4, a2",
+      "0x1308790: andi     a4, a5, 0x40",
+      "0x1308794: c.beqz   a4, 8",
+      "0x1308796: lui      a4, 0x40000",
+      "0x130879a: c.or     a0, a4",
+      "0x130879c: addi     a2, zero, 0xe0",
+      "0x13087a0: mul      a2, s6, a2",
+      "0x13087a4: lw       a1, -0x1e0(s0)",
+      "0x13087a8: c.lui    t1, 4",
+      "0x13087aa: lbu      t3, -0x1d4(s0)",
+      "0x13087ae: srliw    a6, a1, 9",
+      "0x13087b2: srliw    a4, a5, 1",
+      "0x13087b6: addi     t4, t1, -0x1b0",
+      "0x13087ba: andi     a5, a6, 0x1ff",
+      "0x13087be: c.andi   a4, 1",
+      "0x13087c0: slliw    a5, a5, 0x10",
+      "0x13087c4: add      a6, s1, a2",
+      "0x13087c8: c.add    t1, a6",
+      "0x13087ca: c.add    a2, t4",
+      "0x13087cc: andi     a6, a1, 0x1ff",
+      "0x13087d0: sw       a4, -0x190(t1)",
+      "0x13087d4: sw       a0, -0x250(t1)",
+      "0x13087d8: add      a4, s1, a2",
+      "0x13087dc: sw       t3, -0x194(t1)",
+      "0x13087e0: or       a2, a6, a5",
+      "0x13087e4: srli     a5, a1, 0x12",
+      "0x13087e8: c.sw     a2, 8(a4)",
+      "0x13087ea: c.andi   a5, 1",
+      "0x13087ec: c.beqz   a5, 0xe",
+      "0x13087ee: lw       a5, -0x250(t1)",
+      "0x13087f2: ori      a5, a5, 1",
+      "0x13087f6: sw       a5, -0x250(t1)",
+      "0x13087fa: srli     a5, a1, 0x13",
+      "0x13087fe: c.andi   a5, 1"
+     ]
+    }
+   ]
+  },
+  {
+   "site": "0x1307c58",
+   "name": "RMFermiL2CacheBypass",
+   "name_va": 31671384,
+   "name_site": "0x1307c4e",
+   "_branches": [
+    {
+     "site": "0x1307c66",
+     "insn": "a4, a5, 0x638",
+     "target": 19956382
+    }
+   ],
+   "inline_stores": [],
+   "inline_flag_ops": [],
+   "apply_block": {
+    "window": [
+     "0x1307c5c",
+     "0x1307cac"
+    ],
+    "stores": [],
+    "flag_ops": [],
+    "body": [
+     "0x1307c5c: c.addiw  a0, 0",
+     "0x1307c5e: c.bnez   a0, 0xc",
+     "0x1307c60: lw       a4, -0x70(s0)",
+     "0x1307c64: c.li     a5, 1",
+     "0x1307c66: beq      a4, a5, 0x638",
+     "0x1307c6a: addi     a2, s0, -0x70",
+     "0x1307c6e: auipc    a1, 0xb2d",
+     "0x1307c72: addi     a1, a1, -0x7fe",
+     "0x1307c76: c.mv     a0, s2",
+     "0x1307c78: auipc    ra, 0xffd34",
+     "0x1307c7c: jalr     ra, ra, 0x414",
+     "0x1307c80: c.addiw  a0, 0",
+     "0x1307c82: beqz     a0, 0x57a",
+     "0x1307c86: addi     a2, s0, -0x70",
+     "0x1307c8a: auipc    a1, 0xb2c",
+     "0x1307c8e: addi     a1, a1, 0x7f6",
+     "0x1307c92: c.mv     a0, s2",
+     "0x1307c94: auipc    ra, 0xffd34",
+     "0x1307c98: jalr     ra, ra, 0x3f8",
+     "0x1307c9c: c.addiw  a0, 0",
+     "0x1307c9e: c.bnez   a0, 0x12",
+     "0x1307ca0: lw       a4, -0x70(s0)",
+     "0x1307ca4: c.lui    a5, 8",
+     "0x1307ca6: c.add    a5, s3",
+     "0x1307ca8: snez     a4, a4"
+    ]
+   },
+   "handler_targets": [
+    "0x130829e"
+   ],
+   "handlers": [
+    {
+     "target": "0x130829e",
+     "end": "0x13082b0",
+     "stores": [
+      {
+       "site": "0x13082aa",
+       "insn": "a4, -0x298(a5)",
+       "width": "sw",
+       "config_off": 15720
+      }
+     ],
+     "flag_ops": [
+      {
+       "site": "0x13082a6",
+       "insn": "a4, a4, 2",
+       "imm": 2
+      }
+     ],
+     "body": [
+      "0x130829e: c.lui    a5, 4",
+      "0x13082a0: c.add    a5, s3",
+      "0x13082a2: lw       a4, -0x298(a5)",
+      "0x13082a6: ori      a4, a4, 2",
+      "0x13082aa: sw       a4, -0x298(a5)",
+      "0x13082ae: c.j      -0x644"
+     ]
+    }
+   ]
+  },
+  {
+   "site": "0x1307c7c",
+   "name": "RMAltL2ArbCYA",
+   "name_va": 31671408,
+   "name_site": "0x1307c72",
+   "_branches": [
+    {
+     "site": "0x1307c82",
+     "insn": "a0, 0x57a",
+     "target": 19956220
+    }
+   ],
+   "inline_stores": [],
+   "inline_flag_ops": [],
+   "apply_block": {
+    "window": [
+     "0x1307c80",
+     "0x1307cd0"
+    ],
+    "stores": [
+     {
+      "site": "0x1307cac",
+      "insn": "a4, 0x6b3(a5)",
+      "width": "sb",
+      "config_off": 34483
+     }
+    ],
+    "flag_ops": [],
+    "body": [
+     "0x1307c80: c.addiw  a0, 0",
+     "0x1307c82: beqz     a0, 0x57a",
+     "0x1307c86: addi     a2, s0, -0x70",
+     "0x1307c8a: auipc    a1, 0xb2c",
+     "0x1307c8e: addi     a1, a1, 0x7f6",
+     "0x1307c92: c.mv     a0, s2",
+     "0x1307c94: auipc    ra, 0xffd34",
+     "0x1307c98: jalr     ra, ra, 0x3f8",
+     "0x1307c9c: c.addiw  a0, 0",
+     "0x1307c9e: c.bnez   a0, 0x12",
+     "0x1307ca0: lw       a4, -0x70(s0)",
+     "0x1307ca4: c.lui    a5, 8",
+     "0x1307ca6: c.add    a5, s3",
+     "0x1307ca8: snez     a4, a4",
+     "0x1307cac: sb       a4, 0x6b3(a5)",
+     "0x1307cb0: addi     a2, s0, -0x70",
+     "0x1307cb4: auipc    a1, 0xb2c",
+     "0x1307cb8: addi     a1, a1, 0x7e4",
+     "0x1307cbc: c.mv     a0, s2",
+     "0x1307cbe: auipc    ra, 0xffd34",
+     "0x1307cc2: jalr     ra, ra, 0x3ce",
+     "0x1307cc6: c.addiw  a0, 0",
+     "0x1307cc8: bnez     a0, 0x4ac",
+     "0x1307ccc: lw       a4, -0x70(s0)"
+    ]
+   },
+   "handler_targets": [
+    "0x13081fc"
+   ],
+   "handlers": [
+    {
+     "target": "0x13081fc",
+     "end": "0x130822c",
+     "stores": [],
+     "flag_ops": [],
+     "body": [
+      "0x13081fc: lwu      a1, -0x70(s0)",
+      "0x1308200: auipc    a3, 0x1efac",
+      "0x1308204: addi     a3, a3, 0x348",
+      "0x1308208: auipc    a2, 0xb2c",
+      "0x130820c: addi     a2, a2, 0x268",
+      "0x1308210: c.li     a0, 3",
+      "0x1308212: auipc    ra, 0x796",
+      "0x1308216: jalr     ra, ra, 0x412",
+      "0x130821a: lw       a4, -0x70(s0)",
+      "0x130821e: c.lui    a5, 8",
+      "0x1308220: c.add    a5, s3",
+      "0x1308222: snez     a4, a4",
+      "0x1308226: sb       a4, 0x6a5(a5)",
+      "0x130822a: c.j      -0x5a4"
+     ]
+    }
+   ]
+  },
+  {
+   "site": "0x1307c98",
+   "name": "RMDisableRCOnDBE",
+   "name_va": 31671424,
+   "name_site": "0x1307c8e",
+   "_branches": [],
+   "inline_stores": [
+    {
+     "site": "0x1307cac",
+     "insn": "a4, 0x6b3(a5)",
+     "width": "sb",
+     "config_off": 34483
+    }
+   ],
+   "inline_flag_ops": [],
+   "apply_block": {
+    "window": [
+     "0x1307c9c",
+     "0x1307cec"
+    ],
+    "stores": [
+     {
+      "site": "0x1307cac",
+      "insn": "a4, 0x6b3(a5)",
+      "width": "sb",
+      "config_off": 34483
+     },
+     {
+      "site": "0x1307cd4",
+      "insn": "a4, -0x280(a5)",
+      "width": "sw",
+      "config_off": 15744
+     }
+    ],
+    "flag_ops": [],
+    "body": [
+     "0x1307c9c: c.addiw  a0, 0",
+     "0x1307c9e: c.bnez   a0, 0x12",
+     "0x1307ca0: lw       a4, -0x70(s0)",
+     "0x1307ca4: c.lui    a5, 8",
+     "0x1307ca6: c.add    a5, s3",
+     "0x1307ca8: snez     a4, a4",
+     "0x1307cac: sb       a4, 0x6b3(a5)",
+     "0x1307cb0: addi     a2, s0, -0x70",
+     "0x1307cb4: auipc    a1, 0xb2c",
+     "0x1307cb8: addi     a1, a1, 0x7e4",
+     "0x1307cbc: c.mv     a0, s2",
+     "0x1307cbe: auipc    ra, 0xffd34",
+     "0x1307cc2: jalr     ra, ra, 0x3ce",
+     "0x1307cc6: c.addiw  a0, 0",
+     "0x1307cc8: bnez     a0, 0x4ac",
+     "0x1307ccc: lw       a4, -0x70(s0)",
+     "0x1307cd0: c.lui    a5, 4",
+     "0x1307cd2: c.add    a5, s3",
+     "0x1307cd4: sw       a4, -0x280(a5)",
+     "0x1307cd8: c.li     a3, 1",
+     "0x1307cda: c.lui    a4, 4",
+     "0x1307cdc: c.add    a4, s3",
+     "0x1307cde: lw       a5, -0x298(a4)",
+     "0x1307ce2: slliw    a3, a3, 2",
+     "0x1307ce6: addi     a2, s0, -0x70",
+     "0x1307cea: c.andi   a5, -5"
+    ]
+   },
+   "handler_targets": [],
+   "handlers": []
+  },
+  {
+   "site": "0x1307cc2",
+   "name": "RMROPL2FuseMaskForFModel",
+   "name_va": 31671448,
+   "name_site": "0x1307cb8",
+   "_branches": [
+    {
+     "site": "0x1307cc8",
+     "insn": "a0, 0x4ac",
+     "target": 19956084
+    }
+   ],
+   "inline_stores": [],
+   "inline_flag_ops": [],
+   "apply_block": {
+    "window": [
+     "0x1307cc6",
+     "0x1307d16"
+    ],
+    "stores": [
+     {
+      "site": "0x1307cd4",
+      "insn": "a4, -0x280(a5)",
+      "width": "sw",
+      "config_off": 15744
+     },
+     {
+      "site": "0x1307cee",
+      "insn": "a5, -0x298(a4)",
+      "width": "sw",
+      "config_off": 15720
+     }
+    ],
+    "flag_ops": [],
+    "body": [
+     "0x1307cc6: c.addiw  a0, 0",
+     "0x1307cc8: bnez     a0, 0x4ac",
+     "0x1307ccc: lw       a4, -0x70(s0)",
+     "0x1307cd0: c.lui    a5, 4",
+     "0x1307cd2: c.add    a5, s3",
+     "0x1307cd4: sw       a4, -0x280(a5)",
+     "0x1307cd8: c.li     a3, 1",
+     "0x1307cda: c.lui    a4, 4",
+     "0x1307cdc: c.add    a4, s3",
+     "0x1307cde: lw       a5, -0x298(a4)",
+     "0x1307ce2: slliw    a3, a3, 2",
+     "0x1307ce6: addi     a2, s0, -0x70",
+     "0x1307cea: c.andi   a5, -5",
+     "0x1307cec: c.or     a5, a3",
+     "0x1307cee: sw       a5, -0x298(a4)",
+     "0x1307cf2: auipc    a1, 0xb2c",
+     "0x1307cf6: addi     a1, a1, 0x7c6",
+     "0x1307cfa: c.mv     a0, s2",
+     "0x1307cfc: auipc    ra, 0xffd34",
+     "0x1307d00: jalr     ra, ra, 0x390",
+     "0x1307d04: c.addiw  a0, 0",
+     "0x1307d06: c.bnez   a0, 0xc",
+     "0x1307d08: lw       a5, -0x70(s0)",
+     "0x1307d0c: c.li     a4, 1",
+     "0x1307d0e: beq      a5, a4, 0x5ac",
+     "0x1307d12: addi     a2, s0, -0x70"
+    ]
+   },
+   "handler_targets": [
+    "0x1308174"
+   ],
+   "handlers": [
+    {
+     "target": "0x1308174",
+     "end": "0x1308178",
+     "stores": [],
+     "flag_ops": [],
+     "body": [
+      "0x1308174: c.li     a3, 0",
+      "0x1308176: c.j      -0x49c"
+     ]
+    }
+   ]
+  },
+  {
+   "site": "0x1307d00",
+   "name": "RmAllowComptagZero",
+   "name_va": 31671480,
+   "name_site": "0x1307cf6",
+   "_branches": [
+    {
+     "site": "0x1307d0e",
+     "insn": "a5, a4, 0x5ac",
+     "target": 19956410
+    }
+   ],
+   "inline_stores": [],
+   "inline_flag_ops": [],
+   "apply_block": {
+    "window": [
+     "0x1307d04",
+     "0x1307d54"
+    ],
+    "stores": [
+     {
+      "site": "0x1307d3a",
+      "insn": "a5, 0x6ad(a4)",
+      "width": "sb",
+      "config_off": 34477
+     }
+    ],
+    "flag_ops": [],
+    "body": [
+     "0x1307d04: c.addiw  a0, 0",
+     "0x1307d06: c.bnez   a0, 0xc",
+     "0x1307d08: lw       a5, -0x70(s0)",
+     "0x1307d0c: c.li     a4, 1",
+     "0x1307d0e: beq      a5, a4, 0x5ac",
+     "0x1307d12: addi     a2, s0, -0x70",
+     "0x1307d16: auipc    a1, 0xb2c",
+     "0x1307d1a: addi     a1, a1, 0x7ba",
+     "0x1307d1e: c.mv     a0, s2",
+     "0x1307d20: auipc    ra, 0xffd34",
+     "0x1307d24: jalr     ra, ra, 0x36c",
+     "0x1307d28: c.addiw  a0, 0",
+     "0x1307d2a: c.bnez   a0, 0x14",
+     "0x1307d2c: lw       a5, -0x70(s0)",
+     "0x1307d30: c.lui    a4, 8",
+     "0x1307d32: c.add    a4, s3",
+     "0x1307d34: c.addi   a5, -1",
+     "0x1307d36: seqz     a5, a5",
+     "0x1307d3a: sb       a5, 0x6ad(a4)",
+     "0x1307d3e: addi     a2, s0, -0x70",
+     "0x1307d42: auipc    a1, 0xb2c",
+     "0x1307d46: addi     a1, a1, 0x7a6",
+     "0x1307d4a: c.mv     a0, s2",
+     "0x1307d4c: auipc    ra, 0xffd34",
+     "0x1307d50: jalr     ra, ra, 0x340"
+    ]
+   },
+   "handler_targets": [
+    "0x13082ba"
+   ],
+   "handlers": [
+    {
+     "target": "0x13082ba",
+     "end": "0x13082c4",
+     "stores": [
+      {
+       "site": "0x13082be",
+       "insn": "a5, 0x6aa(a4)",
+       "width": "sb",
+       "config_off": 34474
+      }
+     ],
+     "flag_ops": [],
+     "body": [
+      "0x13082ba: c.lui    a4, 8",
+      "0x13082bc: c.add    a4, s3",
+      "0x13082be: sb       a5, 0x6aa(a4)",
+      "0x13082c2: c.j      -0x5b0"
+     ]
+    }
+   ]
+  },
+  {
+   "site": "0x1307d24",
+   "name": "RMAERRForceDisable",
+   "name_va": 31671504,
+   "name_site": "0x1307d1a",
+   "_branches": [],
+   "inline_stores": [
+    {
+     "site": "0x1307d3a",
+     "insn": "a5, 0x6ad(a4)",
+     "width": "sb",
+     "config_off": 34477
+    }
+   ],
+   "inline_flag_ops": [],
+   "apply_block": {
+    "window": [
+     "0x1307d28",
+     "0x1307d78"
+    ],
+    "stores": [
+     {
+      "site": "0x1307d3a",
+      "insn": "a5, 0x6ad(a4)",
+      "width": "sb",
+      "config_off": 34477
+     },
+     {
+      "site": "0x1307d68",
+      "insn": "zero, 0x6b0(a5)",
+      "width": "sb",
+      "config_off": 34480
+     }
+    ],
+    "flag_ops": [],
+    "body": [
+     "0x1307d28: c.addiw  a0, 0",
+     "0x1307d2a: c.bnez   a0, 0x14",
+     "0x1307d2c: lw       a5, -0x70(s0)",
+     "0x1307d30: c.lui    a4, 8",
+     "0x1307d32: c.add    a4, s3",
+     "0x1307d34: c.addi   a5, -1",
+     "0x1307d36: seqz     a5, a5",
+     "0x1307d3a: sb       a5, 0x6ad(a4)",
+     "0x1307d3e: addi     a2, s0, -0x70",
+     "0x1307d42: auipc    a1, 0xb2c",
+     "0x1307d46: addi     a1, a1, 0x7a6",
+     "0x1307d4a: c.mv     a0, s2",
+     "0x1307d4c: auipc    ra, 0xffd34",
+     "0x1307d50: jalr     ra, ra, 0x340",
+     "0x1307d54: c.addiw  a0, 0",
+     "0x1307d56: c.bnez   a0, 0x16",
+     "0x1307d58: lw       a4, -0x70(s0)",
+     "0x1307d5c: addi     a5, zero, 0xff",
+     "0x1307d60: beq      a4, a5, 0x564",
+     "0x1307d64: c.lui    a5, 8",
+     "0x1307d66: c.add    a5, s3",
+     "0x1307d68: sb       zero, 0x6b0(a5)",
+     "0x1307d6c: addi     a2, s0, -0x70",
+     "0x1307d70: auipc    a1, 0xb2c",
+     "0x1307d74: addi     a1, a1, 0x790"
+    ]
+   },
+   "handler_targets": [],
+   "handlers": []
+  },
+  {
+   "site": "0x1307d50",
+   "name": "RMIsoCommitUnallocate",
+   "name_va": 31671528,
+   "name_site": "0x1307d46",
+   "_branches": [
+    {
+     "site": "0x1307d60",
+     "insn": "a4, a5, 0x564",
+     "target": 19956420
+    }
+   ],
+   "inline_stores": [],
+   "inline_flag_ops": [],
+   "apply_block": {
+    "window": [
+     "0x1307d54",
+     "0x1307da4"
+    ],
+    "stores": [
+     {
+      "site": "0x1307d68",
+      "insn": "zero, 0x6b0(a5)",
+      "width": "sb",
+      "config_off": 34480
+     },
+     {
+      "site": "0x1307d90",
+      "insn": "a5, 0x5c4(s4)",
+      "width": "sw",
+      "config_off": 34244
+     }
+    ],
+    "flag_ops": [],
+    "body": [
+     "0x1307d54: c.addiw  a0, 0",
+     "0x1307d56: c.bnez   a0, 0x16",
+     "0x1307d58: lw       a4, -0x70(s0)",
+     "0x1307d5c: addi     a5, zero, 0xff",
+     "0x1307d60: beq      a4, a5, 0x564",
+     "0x1307d64: c.lui    a5, 8",
+     "0x1307d66: c.add    a5, s3",
+     "0x1307d68: sb       zero, 0x6b0(a5)",
+     "0x1307d6c: addi     a2, s0, -0x70",
+     "0x1307d70: auipc    a1, 0xb2c",
+     "0x1307d74: addi     a1, a1, 0x790",
+     "0x1307d78: c.mv     a0, s2",
+     "0x1307d7a: auipc    ra, 0xffd34",
+     "0x1307d7e: jalr     ra, ra, 0x312",
+     "0x1307d82: c.addiw  a0, 0",
+     "0x1307d84: bnez     a0, 0x3e6",
+     "0x1307d88: lw       a5, -0x70(s0)",
+     "0x1307d8c: c.lui    s4, 8",
+     "0x1307d8e: c.add    s4, s3",
+     "0x1307d90: sw       a5, 0x5c4(s4)",
+     "0x1307d94: addi     a2, s0, -0x70",
+     "0x1307d98: auipc    a1, 0xb2c",
+     "0x1307d9c: addi     a1, a1, 0x780",
+     "0x1307da0: c.mv     a0, s2",
+     "0x1307da2: auipc    ra, 0xffd34"
+    ]
+   },
+   "handler_targets": [
+    "0x13082c4"
+   ],
+   "handlers": [
+    {
+     "target": "0x13082c4",
+     "end": "0x13082d0",
+     "stores": [
+      {
+       "site": "0x13082ca",
+       "insn": "a4, 0x6b0(a5)",
+       "width": "sb",
+       "config_off": 34480
+      }
+     ],
+     "flag_ops": [],
+     "body": [
+      "0x13082c4: c.lui    a5, 8",
+      "0x13082c6: c.add    a5, s3",
+      "0x13082c8: c.li     a4, 1",
+      "0x13082ca: sb       a4, 0x6b0(a5)",
+      "0x13082ce: c.j      -0x562"
+     ]
+    }
+   ]
+  },
+  {
+   "site": "0x1307d7e",
+   "name": "RMG5xL2VidmemPromote",
+   "name_va": 31671552,
+   "name_site": "0x1307d74",
+   "_branches": [
+    {
+     "site": "0x1307d84",
+     "insn": "a0, 0x3e6",
+     "target": 19956074
+    }
+   ],
+   "inline_stores": [],
+   "inline_flag_ops": [],
+   "apply_block": {
+    "window": [
+     "0x1307d82",
+     "0x1307dd2"
+    ],
+    "stores": [
+     {
+      "site": "0x1307d90",
+      "insn": "a5, 0x5c4(s4)",
+      "width": "sw",
+      "config_off": 34244
+     },
+     {
+      "site": "0x1307db2",
+      "insn": "a5, 0x5e4(s4)",
+      "width": "sw",
+      "config_off": 34276
+     }
+    ],
+    "flag_ops": [],
+    "body": [
+     "0x1307d82: c.addiw  a0, 0",
+     "0x1307d84: bnez     a0, 0x3e6",
+     "0x1307d88: lw       a5, -0x70(s0)",
+     "0x1307d8c: c.lui    s4, 8",
+     "0x1307d8e: c.add    s4, s3",
+     "0x1307d90: sw       a5, 0x5c4(s4)",
+     "0x1307d94: addi     a2, s0, -0x70",
+     "0x1307d98: auipc    a1, 0xb2c",
+     "0x1307d9c: addi     a1, a1, 0x780",
+     "0x1307da0: c.mv     a0, s2",
+     "0x1307da2: auipc    ra, 0xffd34",
+     "0x1307da6: jalr     ra, ra, 0x2ea",
+     "0x1307daa: c.addiw  a0, 0",
+     "0x1307dac: c.bnez   a0, 0xa",
+     "0x1307dae: lw       a5, -0x70(s0)",
+     "0x1307db2: sw       a5, 0x5e4(s4)",
+     "0x1307db6: addi     a2, s0, -0x70",
+     "0x1307dba: auipc    a1, 0xb2c",
+     "0x1307dbe: addi     a1, a1, 0x776",
+     "0x1307dc2: c.mv     a0, s2",
+     "0x1307dc4: auipc    ra, 0xffd34",
+     "0x1307dc8: jalr     ra, ra, 0x2c8",
+     "0x1307dcc: c.addiw  a0, 0",
+     "0x1307dce: c.bnez   a0, 0xc",
+     "0x1307dd0: lw       a4, -0x70(s0)"
+    ]
+   },
+   "handler_targets": [
+    "0x130816a"
+   ],
+   "handlers": [
+    {
+     "target": "0x130816a",
+     "end": "0x1308174",
+     "stores": [],
+     "flag_ops": [],
+     "body": [
+      "0x130816a: lui      a5, 0x15511",
+      "0x130816e: addi     a5, a5, 0x554",
+      "0x1308172: c.j      -0x3e6"
+     ]
+    }
+   ]
+  },
+  {
+   "site": "0x1307da6",
+   "name": "NvLinkPeerThroughL2",
+   "name_va": 31671576,
+   "name_site": "0x1307d9c",
+   "_branches": [],
+   "inline_stores": [],
+   "inline_flag_ops": [],
+   "apply_block": {
+    "window": [
+     "0x1307daa",
+     "0x1307dfa"
+    ],
+    "stores": [],
+    "flag_ops": [],
+    "body": [
+     "0x1307daa: c.addiw  a0, 0",
+     "0x1307dac: c.bnez   a0, 0xa",
+     "0x1307dae: lw       a5, -0x70(s0)",
+     "0x1307db2: sw       a5, 0x5e4(s4)",
+     "0x1307db6: addi     a2, s0, -0x70",
+     "0x1307dba: auipc    a1, 0xb2c",
+     "0x1307dbe: addi     a1, a1, 0x776",
+     "0x1307dc2: c.mv     a0, s2",
+     "0x1307dc4: auipc    ra, 0xffd34",
+     "0x1307dc8: jalr     ra, ra, 0x2c8",
+     "0x1307dcc: c.addiw  a0, 0",
+     "0x1307dce: c.bnez   a0, 0xc",
+     "0x1307dd0: lw       a4, -0x70(s0)",
+     "0x1307dd4: c.li     a5, 1",
+     "0x1307dd6: beq      a4, a5, 0x4fa",
+     "0x1307dda: addi     a2, s0, -0x70",
+     "0x1307dde: auipc    a1, 0xb21",
+     "0x1307de2: addi     a1, a1, 0x20a",
+     "0x1307de6: c.mv     a0, s2",
+     "0x1307de8: auipc    ra, 0xffd34",
+     "0x1307dec: jalr     ra, ra, 0x2a4",
+     "0x1307df0: c.addiw  a0, 0",
+     "0x1307df2: bnez     a0, 0x372",
+     "0x1307df6: lw       a4, -0x70(s0)"
+    ]
+   },
+   "handler_targets": [],
+   "handlers": []
+  },
+  {
+   "site": "0x1307dc8",
+   "name": "RMDisableWarBug1761410",
+   "name_va": 31671600,
+   "name_site": "0x1307dbe",
+   "_branches": [
+    {
+     "site": "0x1307dd6",
+     "insn": "a4, a5, 0x4fa",
+     "target": 19956432
+    },
+    {
+     "site": "0x1307df2",
+     "insn": "a0, 0x372",
+     "target": 19956068
+    }
+   ],
+   "inline_stores": [],
+   "inline_flag_ops": [],
+   "apply_block": {
+    "window": [
+     "0x1307dcc",
+     "0x1307e1c"
+    ],
+    "stores": [
+     {
+      "site": "0x1307dfe",
+      "insn": "a4, 0x5d8(a5)",
+      "width": "sw",
+      "config_off": 34264
+     }
+    ],
+    "flag_ops": [],
+    "body": [
+     "0x1307dcc: c.addiw  a0, 0",
+     "0x1307dce: c.bnez   a0, 0xc",
+     "0x1307dd0: lw       a4, -0x70(s0)",
+     "0x1307dd4: c.li     a5, 1",
+     "0x1307dd6: beq      a4, a5, 0x4fa",
+     "0x1307dda: addi     a2, s0, -0x70",
+     "0x1307dde: auipc    a1, 0xb21",
+     "0x1307de2: addi     a1, a1, 0x20a",
+     "0x1307de6: c.mv     a0, s2",
+     "0x1307de8: auipc    ra, 0xffd34",
+     "0x1307dec: jalr     ra, ra, 0x2a4",
+     "0x1307df0: c.addiw  a0, 0",
+     "0x1307df2: bnez     a0, 0x372",
+     "0x1307df6: lw       a4, -0x70(s0)",
+     "0x1307dfa: c.lui    a5, 8",
+     "0x1307dfc: c.add    a5, s3",
+     "0x1307dfe: sw       a4, 0x5d8(a5)",
+     "0x1307e02: addi     a2, s0, -0x70",
+     "0x1307e06: auipc    a1, 0xb2c",
+     "0x1307e0a: addi     a1, a1, 0x742",
+     "0x1307e0e: c.mv     a0, s2",
+     "0x1307e10: auipc    ra, 0xffd34",
+     "0x1307e14: jalr     ra, ra, 0x27c",
+     "0x1307e18: c.addiw  a0, 0",
+     "0x1307e1a: bnez     a0, 0x344"
+    ]
+   },
+   "handler_targets": [
+    "0x1308164",
+    "0x13082d0"
+   ],
+   "handlers": [
+    {
+     "target": "0x1308164",
+     "end": "0x130816a",
+     "stores": [],
+     "flag_ops": [],
+     "body": [
+      "0x1308164: addi     a4, zero, 0x100",
+      "0x1308168: c.j      -0x36e"
+     ]
+    },
+    {
+     "target": "0x13082d0",
+     "end": "0x13082da",
+     "stores": [
+      {
+       "site": "0x13082d4",
+       "insn": "zero, 0x686(a5)",
+       "width": "sb",
+       "config_off": 34438
+      }
+     ],
+     "flag_ops": [],
+     "body": [
+      "0x13082d0: c.lui    a5, 8",
+      "0x13082d2: c.add    a5, s3",
+      "0x13082d4: sb       zero, 0x686(a5)",
+      "0x13082d8: c.j      -0x4fe"
+     ]
+    }
+   ]
+  },
+  {
+   "site": "0x1307e14",
+   "name": "RMSysmemSelectAtomicsConfigNcoh",
+   "name_va": 31671624,
+   "name_site": "0x1307e0a",
+   "_branches": [
+    {
+     "site": "0x1307e1a",
+     "insn": "a0, 0x344",
+     "target": 19956062
+    }
+   ],
+   "inline_stores": [],
+   "inline_flag_ops": [],
+   "apply_block": {
+    "window": [
+     "0x1307e18",
+     "0x1307e68"
+    ],
+    "stores": [
+     {
+      "site": "0x1307e26",
+      "insn": "a4, 0x5dc(a5)",
+      "width": "sw",
+      "config_off": 34268
+     },
+     {
+      "site": "0x1307e58",
+      "insn": "a5, -0x47(a4)",
+      "width": "sb",
+      "config_off": 4025
+     }
+    ],
+    "flag_ops": [],
+    "body": [
+     "0x1307e18: c.addiw  a0, 0",
+     "0x1307e1a: bnez     a0, 0x344",
+     "0x1307e1e: lw       a4, -0x70(s0)",
+     "0x1307e22: c.lui    a5, 8",
+     "0x1307e24: c.add    a5, s3",
+     "0x1307e26: sw       a4, 0x5dc(a5)",
+     "0x1307e2a: addi     a2, s0, -0x70",
+     "0x1307e2e: auipc    a1, 0xb21",
+     "0x1307e32: addi     a1, a1, 0x5e2",
+     "0x1307e36: c.mv     a0, s2",
+     "0x1307e38: auipc    ra, 0xffd34",
+     "0x1307e3c: jalr     ra, ra, 0x254",
+     "0x1307e40: c.addiw  a0, 0",
+     "0x1307e42: c.bnez   a0, 0x1a",
+     "0x1307e44: lw       a5, -0x70(s0)",
+     "0x1307e48: c.lui    a4, 1",
+     "0x1307e4a: c.add    a4, s3",
+     "0x1307e4c: srliw    a5, a5, 8",
+     "0x1307e50: c.andi   a5, 3",
+     "0x1307e52: c.addi   a5, -1",
+     "0x1307e54: seqz     a5, a5",
+     "0x1307e58: sb       a5, -0x47(a4)",
+     "0x1307e5c: addi     a2, s0, -0x70",
+     "0x1307e60: auipc    a1, 0xb2c",
+     "0x1307e64: addi     a1, a1, 0x708"
+    ]
+   },
+   "handler_targets": [
+    "0x130815e"
+   ],
+   "handlers": [
+    {
+     "target": "0x130815e",
+     "end": "0x1308164",
+     "stores": [],
+     "flag_ops": [],
+     "body": [
+      "0x130815e: addi     a4, zero, 0x100",
+      "0x1308162: c.j      -0x340"
+     ]
+    }
+   ]
+  },
+  {
+   "site": "0x1307e6e",
+   "name": "RMDisableFbAddressRetraining",
+   "name_va": 31671656,
+   "name_site": "0x1307e64",
+   "_branches": [],
+   "inline_stores": [
+    {
+     "site": "0x1307e82",
+     "insn": "a4, 0x69b(a5)",
+     "width": "sb",
+     "config_off": 34459
+    }
+   ],
+   "inline_flag_ops": [],
+   "apply_block": {
+    "window": [
+     "0x1307e72",
+     "0x1307ec2"
+    ],
+    "stores": [
+     {
+      "site": "0x1307e82",
+      "insn": "a4, 0x69b(a5)",
+      "width": "sb",
+      "config_off": 34459
+     }
+    ],
+    "flag_ops": [],
+    "body": [
+     "0x1307e72: c.addiw  a0, 0",
+     "0x1307e74: c.bnez   a0, 0x12",
+     "0x1307e76: lw       a4, -0x70(s0)",
+     "0x1307e7a: c.lui    a5, 8",
+     "0x1307e7c: c.add    a5, s3",
+     "0x1307e7e: snez     a4, a4",
+     "0x1307e82: sb       a4, 0x69b(a5)",
+     "0x1307e86: addi     a2, s0, -0x70",
+     "0x1307e8a: auipc    a1, 0xb2c",
+     "0x1307e8e: addi     a1, a1, 0x6fe",
+     "0x1307e92: c.mv     a0, s2",
+     "0x1307e94: auipc    ra, 0xffd34",
+     "0x1307e98: jalr     ra, ra, 0x1f8",
+     "0x1307e9c: c.addiw  a0, 0",
+     "0x1307e9e: c.bnez   a0, 0xc",
+     "0x1307ea0: lw       a5, -0x70(s0)",
+     "0x1307ea4: c.li     a4, 1",
+     "0x1307ea6: beq      a5, a4, 0x3d0",
+     "0x1307eaa: addi     a2, s0, -0x70",
+     "0x1307eae: auipc    a1, 0xb2c",
+     "0x1307eb2: addi     a1, a1, 0x702",
+     "0x1307eb6: c.mv     a0, s2",
+     "0x1307eb8: auipc    ra, 0xffd34",
+     "0x1307ebc: jalr     ra, ra, 0x1d4",
+     "0x1307ec0: c.addiw  a0, 0"
+    ]
+   },
+   "handler_targets": [],
+   "handlers": []
+  },
+  {
+   "site": "0x1307e98",
+   "name": "RMDisableIntrIllegalCompstatAccess",
+   "name_va": 31671688,
+   "name_site": "0x1307e8e",
+   "_branches": [
+    {
+     "site": "0x1307ea6",
+     "insn": "a5, a4, 0x3d0",
+     "target": 19956342
+    }
+   ],
+   "inline_stores": [],
+   "inline_flag_ops": [],
+   "apply_block": {
+    "window": [
+     "0x1307e9c",
+     "0x1307eec"
+    ],
+    "stores": [],
+    "flag_ops": [],
+    "body": [
+     "0x1307e9c: c.addiw  a0, 0",
+     "0x1307e9e: c.bnez   a0, 0xc",
+     "0x1307ea0: lw       a5, -0x70(s0)",
+     "0x1307ea4: c.li     a4, 1",
+     "0x1307ea6: beq      a5, a4, 0x3d0",
+     "0x1307eaa: addi     a2, s0, -0x70",
+     "0x1307eae: auipc    a1, 0xb2c",
+     "0x1307eb2: addi     a1, a1, 0x702",
+     "0x1307eb6: c.mv     a0, s2",
+     "0x1307eb8: auipc    ra, 0xffd34",
+     "0x1307ebc: jalr     ra, ra, 0x1d4",
+     "0x1307ec0: c.addiw  a0, 0",
+     "0x1307ec2: c.bnez   a0, 0xc",
+     "0x1307ec4: lw       a5, -0x70(s0)",
+     "0x1307ec8: c.li     a4, 1",
+     "0x1307eca: beq      a5, a4, 0x3b6",
+     "0x1307ece: addi     a2, s0, -0x70",
+     "0x1307ed2: auipc    a1, 0xb2c",
+     "0x1307ed6: addi     a1, a1, 0x6ee",
+     "0x1307eda: c.mv     a0, s2",
+     "0x1307edc: auipc    ra, 0xffd34",
+     "0x1307ee0: jalr     ra, ra, 0x1b0",
+     "0x1307ee4: c.addiw  a0, 0",
+     "0x1307ee6: c.bnez   a0, 0xc",
+     "0x1307ee8: lw       a5, -0x70(s0)"
+    ]
+   },
+   "handler_targets": [
+    "0x1308276"
+   ],
+   "handlers": [
+    {
+     "target": "0x1308276",
+     "end": "0x1308280",
+     "stores": [
+      {
+       "site": "0x130827a",
+       "insn": "a5, 0x687(a4)",
+       "width": "sb",
+       "config_off": 34439
+      }
+     ],
+     "flag_ops": [],
+     "body": [
+      "0x1308276: c.lui    a4, 8",
+      "0x1308278: c.add    a4, s3",
+      "0x130827a: sb       a5, 0x687(a4)",
+      "0x130827e: c.j      -0x3d4"
+     ]
+    }
+   ]
+  },
+  {
+   "site": "0x1307ebc",
+   "name": "RMBug1790718War",
+   "name_va": 31671728,
+   "name_site": "0x1307eb2",
+   "_branches": [
+    {
+     "site": "0x1307eca",
+     "insn": "a5, a4, 0x3b6",
+     "target": 19956352
+    }
+   ],
+   "inline_stores": [],
+   "inline_flag_ops": [],
+   "apply_block": {
+    "window": [
+     "0x1307ec0",
+     "0x1307f10"
+    ],
+    "stores": [],
+    "flag_ops": [],
+    "body": [
+     "0x1307ec0: c.addiw  a0, 0",
+     "0x1307ec2: c.bnez   a0, 0xc",
+     "0x1307ec4: lw       a5, -0x70(s0)",
+     "0x1307ec8: c.li     a4, 1",
+     "0x1307eca: beq      a5, a4, 0x3b6",
+     "0x1307ece: addi     a2, s0, -0x70",
+     "0x1307ed2: auipc    a1, 0xb2c",
+     "0x1307ed6: addi     a1, a1, 0x6ee",
+     "0x1307eda: c.mv     a0, s2",
+     "0x1307edc: auipc    ra, 0xffd34",
+     "0x1307ee0: jalr     ra, ra, 0x1b0",
+     "0x1307ee4: c.addiw  a0, 0",
+     "0x1307ee6: c.bnez   a0, 0xc",
+     "0x1307ee8: lw       a5, -0x70(s0)",
+     "0x1307eec: c.li     a4, 1",
+     "0x1307eee: beq      a5, a4, 0x39c",
+     "0x1307ef2: addi     a2, s0, -0x70",
+     "0x1307ef6: auipc    a1, 0xb2c",
+     "0x1307efa: addi     a1, a1, 0x6ea",
+     "0x1307efe: c.mv     a0, s2",
+     "0x1307f00: auipc    ra, 0xffd34",
+     "0x1307f04: jalr     ra, ra, 0x18c",
+     "0x1307f08: c.addiw  a0, 0",
+     "0x1307f0a: c.bnez   a0, 0xc",
+     "0x1307f0c: lw       a5, -0x70(s0)"
+    ]
+   },
+   "handler_targets": [
+    "0x1308280"
+   ],
+   "handlers": [
+    {
+     "target": "0x1308280",
+     "end": "0x130828a",
+     "stores": [
+      {
+       "site": "0x1308284",
+       "insn": "a5, 0x688(a4)",
+       "width": "sb",
+       "config_off": 34440
+      }
+     ],
+     "flag_ops": [],
+     "body": [
+      "0x1308280: c.lui    a4, 8",
+      "0x1308282: c.add    a4, s3",
+      "0x1308284: sb       a5, 0x688(a4)",
+      "0x1308288: c.j      -0x3ba"
+     ]
+    }
+   ]
+  },
+  {
+   "site": "0x1307ee0",
+   "name": "RMDisablePostL2Compression",
+   "name_va": 31671744,
+   "name_site": "0x1307ed6",
+   "_branches": [
+    {
+     "site": "0x1307eee",
+     "insn": "a5, a4, 0x39c",
+     "target": 19956362
+    }
+   ],
+   "inline_stores": [],
+   "inline_flag_ops": [],
+   "apply_block": {
+    "window": [
+     "0x1307ee4",
+     "0x1307f34"
+    ],
+    "stores": [],
+    "flag_ops": [],
+    "body": [
+     "0x1307ee4: c.addiw  a0, 0",
+     "0x1307ee6: c.bnez   a0, 0xc",
+     "0x1307ee8: lw       a5, -0x70(s0)",
+     "0x1307eec: c.li     a4, 1",
+     "0x1307eee: beq      a5, a4, 0x39c",
+     "0x1307ef2: addi     a2, s0, -0x70",
+     "0x1307ef6: auipc    a1, 0xb2c",
+     "0x1307efa: addi     a1, a1, 0x6ea",
+     "0x1307efe: c.mv     a0, s2",
+     "0x1307f00: auipc    ra, 0xffd34",
+     "0x1307f04: jalr     ra, ra, 0x18c",
+     "0x1307f08: c.addiw  a0, 0",
+     "0x1307f0a: c.bnez   a0, 0xc",
+     "0x1307f0c: lw       a5, -0x70(s0)",
+     "0x1307f10: c.li     a4, 1",
+     "0x1307f12: beq      a5, a4, 0x382",
+     "0x1307f16: addi     a2, s0, -0x70",
+     "0x1307f1a: auipc    a1, 0xb2c",
+     "0x1307f1e: addi     a1, a1, 0x6de",
+     "0x1307f22: c.mv     a0, s2",
+     "0x1307f24: auipc    ra, 0xffd34",
+     "0x1307f28: jalr     ra, ra, 0x168",
+     "0x1307f2c: c.addiw  a0, 0",
+     "0x1307f2e: c.bnez   a0, 0xc",
+     "0x1307f30: lw       a5, -0x70(s0)"
+    ]
+   },
+   "handler_targets": [
+    "0x130828a"
+   ],
+   "handlers": [
+    {
+     "target": "0x130828a",
+     "end": "0x1308294",
+     "stores": [
+      {
+       "site": "0x130828e",
+       "insn": "a5, 0x6b9(a4)",
+       "width": "sb",
+       "config_off": 34489
+      }
+     ],
+     "flag_ops": [],
+     "body": [
+      "0x130828a: c.lui    a4, 8",
+      "0x130828c: c.add    a4, s3",
+      "0x130828e: sb       a5, 0x6b9(a4)",
+      "0x1308292: c.j      -0x3a0"
+     ]
+    }
+   ]
+  },
+  {
+   "site": "0x1307f04",
+   "name": "RMDisableLRCCoalescing",
+   "name_va": 31671776,
+   "name_site": "0x1307efa",
+   "_branches": [
+    {
+     "site": "0x1307f12",
+     "insn": "a5, a4, 0x382",
+     "target": 19956372
+    }
+   ],
+   "inline_stores": [],
+   "inline_flag_ops": [],
+   "apply_block": {
+    "window": [
+     "0x1307f08",
+     "0x1307f58"
+    ],
+    "stores": [],
+    "flag_ops": [],
+    "body": [
+     "0x1307f08: c.addiw  a0, 0",
+     "0x1307f0a: c.bnez   a0, 0xc",
+     "0x1307f0c: lw       a5, -0x70(s0)",
+     "0x1307f10: c.li     a4, 1",
+     "0x1307f12: beq      a5, a4, 0x382",
+     "0x1307f16: addi     a2, s0, -0x70",
+     "0x1307f1a: auipc    a1, 0xb2c",
+     "0x1307f1e: addi     a1, a1, 0x6de",
+     "0x1307f22: c.mv     a0, s2",
+     "0x1307f24: auipc    ra, 0xffd34",
+     "0x1307f28: jalr     ra, ra, 0x168",
+     "0x1307f2c: c.addiw  a0, 0",
+     "0x1307f2e: c.bnez   a0, 0xc",
+     "0x1307f30: lw       a5, -0x70(s0)",
+     "0x1307f34: c.li     a4, 1",
+     "0x1307f36: beq      a5, a4, 0x37a",
+     "0x1307f3a: lbu      a5, 0x678(s2)",
+     "0x1307f3e: bnez     a5, 0x20a",
+     "0x1307f42: c.lui    a5, 5",
+     "0x1307f44: c.add    a5, s2",
+     "0x1307f46: lbu      a5, -0x14a(a5)",
+     "0x1307f4a: bnez     a5, 0x1fe",
+     "0x1307f4e: c.lui    s5, 8",
+     "0x1307f50: addi     a1, s5, 0x480",
+     "0x1307f54: c.add    a1, s3",
+     "0x1307f56: c.mv     a0, s2"
+    ]
+   },
+   "handler_targets": [
+    "0x1308294"
+   ],
+   "handlers": [
+    {
+     "target": "0x1308294",
+     "end": "0x130829e",
+     "stores": [
+      {
+       "site": "0x1308298",
+       "insn": "a5, 0x6ba(a4)",
+       "width": "sb",
+       "config_off": 34490
+      }
+     ],
+     "flag_ops": [],
+     "body": [
+      "0x1308294: c.lui    a4, 8",
+      "0x1308296: c.add    a4, s3",
+      "0x1308298: sb       a5, 0x6ba(a4)",
+      "0x130829c: c.j      -0x386"
+     ]
+    }
+   ]
+  },
+  {
+   "site": "0x1307f28",
+   "name": "RmEnableL2CohErrorIntr",
+   "name_va": 31671800,
+   "name_site": "0x1307f1e",
+   "_branches": [
+    {
+     "site": "0x1307f36",
+     "insn": "a5, a4, 0x37a",
+     "target": 19956400
+    },
+    {
+     "site": "0x1307f3e",
+     "insn": "a5, 0x20a",
+     "target": 19956040
+    },
+    {
+     "site": "0x1307f4a",
+     "insn": "a5, 0x1fe",
+     "target": 19956040
+    },
+    {
+     "site": "0x1307f78",
+     "insn": "a5, 0x1a8",
+     "target": 19956000
+    },
+    {
+     "site": "0x1307f82",
+     "insn": "s4, 0x19e",
+     "target": 19956000
+    }
+   ],
+   "inline_stores": [],
+   "inline_flag_ops": [],
+   "apply_block": {
+    "window": [
+     "0x1307f2c",
+     "0x1307f7c"
+    ],
+    "stores": [],
+    "flag_ops": [],
+    "body": [
+     "0x1307f2c: c.addiw  a0, 0",
+     "0x1307f2e: c.bnez   a0, 0xc",
+     "0x1307f30: lw       a5, -0x70(s0)",
+     "0x1307f34: c.li     a4, 1",
+     "0x1307f36: beq      a5, a4, 0x37a",
+     "0x1307f3a: lbu      a5, 0x678(s2)",
+     "0x1307f3e: bnez     a5, 0x20a",
+     "0x1307f42: c.lui    a5, 5",
+     "0x1307f44: c.add    a5, s2",
+     "0x1307f46: lbu      a5, -0x14a(a5)",
+     "0x1307f4a: bnez     a5, 0x1fe",
+     "0x1307f4e: c.lui    s5, 8",
+     "0x1307f50: addi     a1, s5, 0x480",
+     "0x1307f54: c.add    a1, s3",
+     "0x1307f56: c.mv     a0, s2",
+     "0x1307f58: auipc    ra, 0x8df",
+     "0x1307f5c: jalr     ra, ra, -0xf4",
+     "0x1307f60: c.lui    s4, 1",
+     "0x1307f62: add      a5, s3, s4",
+     "0x1307f66: ld       a5, -0x2e8(a5)",
+     "0x1307f6a: c.mv     a1, s3",
+     "0x1307f6c: c.mv     a0, s2",
+     "0x1307f6e: c.jalr   a5",
+     "0x1307f70: c.lui    a5, 2",
+     "0x1307f72: c.add    a5, s2",
+     "0x1307f74: ld       a5, 0x148(a5)",
+     "0x1307f78: beqz     a5, 0x1a8"
+    ]
+   },
+   "handler_targets": [
+    "0x1308120",
+    "0x1308148",
+    "0x13082b0"
+   ],
+   "handlers": [
+    {
+     "target": "0x1308120",
+     "end": "0x1308148",
+     "stores": [],
+     "flag_ops": [],
+     "body": [
+      "0x1308120: ld       a4, -0x58(s0)",
+      "0x1308124: ld       a5, 0(s6)",
+      "0x1308128: c.xor    a5, a4",
+      "0x130812a: c.li     a4, 0",
+      "0x130812c: bnez     a5, 0x26e",
+      "0x1308130: c.ldsp   ra, 0x78(sp)",
+      "0x1308132: c.ldsp   s0, 0x70(sp)",
+      "0x1308134: c.ldsp   s1, 0x68(sp)",
+      "0x1308136: c.ldsp   s2, 0x60(sp)",
+      "0x1308138: c.ldsp   s3, 0x58(sp)",
+      "0x130813a: c.ldsp   s4, 0x50(sp)",
+      "0x130813c: c.ldsp   s5, 0x48(sp)",
+      "0x130813e: c.ldsp   s6, 0x40(sp)",
+      "0x1308140: c.ldsp   s7, 0x38(sp)",
+      "0x1308142: c.li     a0, 0",
+      "0x1308144: c.addi16sp sp, 0x80",
+      "0x1308146: c.jr     ra"
+     ]
+    },
+    {
+     "target": "0x1308148",
+     "end": "0x130815e",
+     "stores": [
+      {
+       "site": "0x1308158",
+       "insn": "zero, -0x42(a5)",
+       "width": "sb",
+       "config_off": 4030
+      }
+     ],
+     "flag_ops": [],
+     "body": [
+      "0x1308148: ld       a5, 0x738(s2)",
+      "0x130814c: lbu      a5, 0x78(a5)",
+      "0x1308150: bnez     a5, -0x202",
+      "0x1308154: c.lui    a5, 1",
+      "0x1308156: c.add    a5, s3",
+      "0x1308158: sb       zero, -0x42(a5)",
+      "0x130815c: c.j      -0x20e"
+     ]
+    },
+    {
+     "target": "0x13082b0",
+     "end": "0x13082ba",
+     "stores": [
+      {
+       "site": "0x13082b4",
+       "insn": "a5, 0x5e8(a4)",
+       "width": "sb",
+       "config_off": 34280
+      }
+     ],
+     "flag_ops": [],
+     "body": [
+      "0x13082b0: c.lui    a4, 8",
+      "0x13082b2: c.add    a4, s3",
+      "0x13082b4: sb       a5, 0x5e8(a4)",
+      "0x13082b8: c.j      -0x37e"
+     ]
+    }
+   ]
+  }
+ ],
+ "selftests": {
+  "auipc_416206": true,
+  "law_512": "PASS",
+  "fetches_named": 24,
+  "ways_store_0x3d84": true,
+  "g5x_bit1": false,
+  "fermi_l2_bit2": true
+ }
+}
