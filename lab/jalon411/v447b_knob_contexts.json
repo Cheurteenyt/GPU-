@@ -1,0 +1,302 @@
+{
+ "pass": "4.47",
+ "task": "B",
+ "instrument": "v447b_knob_contexts",
+ "xref_windows": [
+  {
+   "name": "RMClkVfOverride",
+   "auipc_va": "0x10dac84",
+   "rd": "a1",
+   "window": [
+    "0x10dac84: auipc    a1, 0xd4f",
+    "0x10dac88: addi     a1, a1, 0x244",
+    "0x10dac8c: ld       a5, 0(s5)",
+    "0x10dac90: sd       a5, -0x68(s0)",
+    "0x10dac94: c.li     a5, 0",
+    "0x10dac96: sw       zero, -0x88(s0)",
+    "0x10dac9a: c.mv     s3, a0",
+    "0x10dac9c: c.mv     s4, ra",
+    "0x10dac9e: auipc    ra, 0xfff61",
+    "0x10daca2: jalr     ra, ra, 0x3ee"
+   ]
+  },
+  {
+   "name": "RmClkMclkProg",
+   "auipc_va": "0x10e8f7e",
+   "rd": "a1",
+   "window": [
+    "0x10e8f7e: auipc    a1, 0xd41",
+    "0x10e8f82: addi     a1, a1, -0xa6",
+    "0x10e8f86: lbu      a2, 0x34(s8)",
+    "0x10e8f8a: c.mv     a3, s7",
+    "0x10e8f8c: c.li     a0, 3",
+    "0x10e8f8e: auipc    ra, 0x9b5",
+    "0x10e8f92: jalr     ra, ra, 0x696",
+    "0x10e8f96: sb       zero, 0x38(s8)",
+    "0x10e8f9a: lbu      a5, 0x170(s1)",
+    "0x10e8f9e: c.addiw  s9, 1"
+   ]
+  },
+  {
+   "name": "RmOptp2LowerMclk",
+   "auipc_va": "0x164d6ca",
+   "rd": "a1",
+   "window": [
+    "0x164d6ca: auipc    a1, 0x83a",
+    "0x164d6ce: addi     a1, a1, -0x642",
+    "0x164d6d2: c.mv     a0, s2",
+    "0x164d6d4: auipc    ra, 0xff9ef",
+    "0x164d6d8: jalr     ra, ra, -0x648",
+    "0x164d6dc: sext.w   a5, a0",
+    "0x164d6e0: c.bnez   a5, 0xe",
+    "0x164d6e2: lw       a5, -0xec(s0)",
+    "0x164d6e6: snez     a5, a5",
+    "0x164d6ea: sw       a5, 0x80(s3)"
+   ]
+  },
+  {
+   "name": "RML2MaxWaysSysmem",
+   "auipc_va": "0x130697e",
+   "rd": "a5",
+   "window": [
+    "0x130697e: auipc    a5, 0xb2e",
+    "0x1306982: addi     a5, a5, -0x5be",
+    "0x1306986: bgeu     s5, a5, 0x118",
+    "0x130698a: addi     a2, s0, -0x64",
+    "0x130698e: bgeu     a5, a2, 0x15c",
+    "0x1306992: auipc    a2, 0xb2e",
+    "0x1306996: addi     a2, a2, -0x5c6",
+    "0x130699a: bltu     s5, a5, 0x134",
+    "0x130699e: bgeu     s5, a2, 0x130",
+    "0x13069a2: addi     a5, s0, -0x64"
+   ]
+  },
+  {
+   "name": "RML2MaxWaysSysmem",
+   "auipc_va": "0x1306ab0",
+   "rd": "a4",
+   "window": [
+    "0x1306ab0: auipc    a4, 0xb2e",
+    "0x1306ab4: addi     a4, a4, -0x6f0",
+    "0x1306ab8: addi     a2, s0, -0x64",
+    "0x1306abc: lbu      a3, 0(a4)",
+    "0x1306ac0: c.addi   a5, 1",
+    "0x1306ac2: c.addi   a4, 1",
+    "0x1306ac4: sb       a3, -1(a5)",
+    "0x1306ac8: bne      a5, a2, -0xc",
+    "0x1306acc: c.j      -0x10e",
+    "0x1306ace: c.mv     a4, s5"
+   ]
+  },
+  {
+   "name": "RML2MaxWaysSysmem",
+   "auipc_va": "0x1306ad0",
+   "rd": "a5",
+   "window": [
+    "0x1306ad0: auipc    a5, 0xb2e",
+    "0x1306ad4: addi     a5, a5, -0x710",
+    "0x1306ad8: lbu      a3, 0(a5)",
+    "0x1306adc: c.addi   a5, 1",
+    "0x1306ade: c.addi   a4, 1",
+    "0x1306ae0: sb       a3, -1(a4)",
+    "0x1306ae4: bne      a5, a2, -0xc",
+    "0x1306ae8: c.j      -0x12a",
+    "0x1306aea: c.mv     a5, s5",
+    "0x1306aec: auipc    a4, 0xb2e"
+   ]
+  },
+  {
+   "name": "RML2MaxWaysSysmem",
+   "auipc_va": "0x1306aec",
+   "rd": "a4",
+   "window": [
+    "0x1306aec: auipc    a4, 0xb2e",
+    "0x1306af0: addi     a4, a4, -0x72c",
+    "0x1306af4: c.j      -0x38",
+    "0x1306af6: c.li     a0, 1",
+    "0x1306af8: auipc    a1, 0x1efad",
+    "0x1306afc: addi     a1, a1, 0x7f8",
+    "0x1306b00: auipc    ra, 0x798",
+    "0x1306b04: jalr     ra, ra, -0x4dc",
+    "0x1306b08: c.mv     a1, s4",
+    "0x1306b0a: c.li     a0, 0"
+   ]
+  },
+  {
+   "name": "RMUseTc0NonCoherent",
+   "auipc_va": "0x10637b8",
+   "rd": "a2",
+   "window": [
+    "0x10637b8: auipc    a2, 0xdc5",
+    "0x10637bc: addi     a2, a2, 0x598",
+    "0x10637c0: addi     a1, zero, 0xb0",
+    "0x10637c4: c.mv     a0, s1",
+    "0x10637c6: auipc    ra, 0xfffd8",
+    "0x10637ca: jalr     ra, ra, -0x6c2",
+    "0x10637ce: lw       a5, -0x294(s0)",
+    "0x10637d2: or       a5, a5, s2",
+    "0x10637d6: sw       a5, -0x294(s0)",
+    "0x10637da: c.j      -0x128"
+   ]
+  },
+  {
+   "name": "RMUseTc0NonCoherent",
+   "auipc_va": "0x10637e4",
+   "rd": "a2",
+   "window": [
+    "0x10637e4: auipc    a2, 0xdc5",
+    "0x10637e8: addi     a2, a2, 0x56c",
+    "0x10637ec: addi     a1, zero, 0xb0",
+    "0x10637f0: c.mv     a0, s1",
+    "0x10637f2: auipc    ra, 0xfffd8",
+    "0x10637f6: jalr     ra, ra, -0x6ee",
+    "0x10637fa: lw       a5, -0x294(s0)",
+    "0x10637fe: or       a5, a5, s2",
+    "0x1063802: lui      s2, 0x200",
+    "0x1063806: sw       a5, -0x294(s0)"
+   ]
+  },
+  {
+   "name": "RmDisableDecompOnlyLce",
+   "auipc_va": "0x10c8318",
+   "rd": "a1",
+   "window": [
+    "0x10c8318: auipc    a1, 0xd61",
+    "0x10c831c: addi     a1, a1, 0x448",
+    "0x10c8320: auipc    a2, 0x1f19b",
+    "0x10c8324: addi     a2, a2, -0x520",
+    "0x10c8328: c.li     a0, 2",
+    "0x10c832a: auipc    ra, 0x9d6",
+    "0x10c832e: jalr     ra, ra, 0x2fa",
+    "0x10c8332: c.li     a0, 1",
+    "0x10c8334: auipc    a1, 0x1f19b",
+    "0x10c8338: addi     a1, a1, -0x51c"
+   ]
+  },
+  {
+   "name": "RmDisableDecompOnlyLce",
+   "auipc_va": "0x10b875a",
+   "rd": "a1",
+   "window": [
+    "0x10b875a: auipc    a1, 0xd71",
+    "0x10b875e: addi     a1, a1, 6",
+    "0x10b8762: auipc    a2, 0x1f1a8",
+    "0x10b8766: addi     a2, a2, 0x6d6",
+    "0x10b876a: c.li     a0, 2",
+    "0x10b876c: auipc    ra, 0x9e6",
+    "0x10b8770: jalr     ra, ra, -0x148",
+    "0x10b8774: c.li     a0, 1",
+    "0x10b8776: auipc    a1, 0x1f1a8",
+    "0x10b877a: addi     a1, a1, 0x6da"
+   ]
+  }
+ ],
+ "mclk_limit_ptr_hoods": [
+  {
+   "ptr_foff": "0xe15c78",
+   "va": "0x1e8d030",
+   "neighbors_u64": [
+    "0x1e8d018",
+    "0xff02",
+    "0x5400000090",
+    "0x116",
+    "0x1e8d020",
+    "0xff02",
+    "0xfb00000091",
+    "0x117",
+    "0x1e8d030",
+    "0xff02",
+    "0x9800000092",
+    "0x113",
+    "0x1e8d040",
+    "0xff01",
+    "0x9900000093",
+    "0x113",
+    "0x1e8d058"
+   ],
+   "ascii": "....................T........... ...............................0...............................@...............................X......."
+  },
+  {
+   "ptr_foff": "0xe17918",
+   "va": "0x1e8d030",
+   "neighbors_u64": [
+    "0x1e8d018",
+    "0xff02",
+    "0x5400000090",
+    "0x116",
+    "0x1e8d020",
+    "0xff02",
+    "0xfb00000091",
+    "0x117",
+    "0x1e8d030",
+    "0xff04",
+    "0x4800000099",
+    "0x122",
+    "0x1e8d0b0",
+    "0x102",
+    "0x460000009a",
+    "0x122",
+    "0x1e8d0c8"
+   ],
+   "ascii": "....................T........... ...............................0...................H...\"...........................F...\"..............."
+  },
+  {
+   "ptr_foff": "0xe22e88",
+   "va": "0x1e8d030",
+   "neighbors_u64": [
+    "0x1e8d018",
+    "0xff02",
+    "0x5400000090",
+    "0x116",
+    "0x1e8d020",
+    "0xff02",
+    "0xfb00000091",
+    "0x117",
+    "0x1e8d030",
+    "0xff04",
+    "0x4800000099",
+    "0x122",
+    "0x1e8d0b0",
+    "0x102",
+    "0x460000009a",
+    "0x122",
+    "0x1e8d0c8"
+   ],
+   "ascii": "....................T........... ...............................0...................H...\"...........................F...\"..............."
+  },
+  {
+   "ptr_foff": "0xe24e08",
+   "va": "0x1e8d030",
+   "neighbors_u64": [
+    "0x1e8d018",
+    "0xff02",
+    "0x5400000090",
+    "0x116",
+    "0x1e8d020",
+    "0xff02",
+    "0xfb00000091",
+    "0x117",
+    "0x1e8d030",
+    "0xff04",
+    "0x4800000099",
+    "0x122",
+    "0x1e8d0b0",
+    "0x102",
+    "0x460000009a",
+    "0x122",
+    "0x1e8d0c8"
+   ],
+   "ascii": "....................T........... ...............................0...................H...\"...........................F...\"..............."
+  }
+ ],
+ "dramclk_probe": [
+  {
+   "foff": "0xe34b20",
+   "run": "DRAMCLK"
+  }
+ ],
+ "selftests": {
+  "law_512": "PASS",
+  "v447a_cards_present": true
+ }
+}
