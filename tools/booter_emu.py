@@ -872,6 +872,96 @@ def test_transfer():
     return 0 if n_pass == len(results) else 1
 
 
+def test_timings():
+    """4.50 — la validation émulateur du scénario TIMING (TT-T).
+
+    La machinerie = la transfer-list PROUVÉE 4.42 (TT-A..E); le scénario
+    nouveau = les TABLES DE TIMINGS LHR/launch (les vecteurs gx5 bankés,
+    v448c_stride_timing.json -> dmem_fingerprints):
+      - LHR (record 26):    rc=70, rfc=175, ras=44, faw=20, rrd=5
+      - launch (record 6):  rc=78, rfc=210, ras=52, rp=26, cl=24
+    Le LAYOUT byte-lane des records parsés = INDECIDABLE-BY-BYTES
+    jusqu'au dump §5 (runbook-447); le test valide donc la MACHINERIE
+    du scénario (le tableau u64 plat, l'ordre, le swap A/B, le
+    rollback), PAS le layout final. Chaque entrée = le u64 portant la
+    valeur du champ (le {value,target} réel viendra du dump).
+
+    TT-T1: la table LHR 5 champs -> byte-exact au dest (le retighten).
+    TT-T2: le swap A/B: launch PUIS LHR -> le dest tient LHR.
+    TT-T3: le rollback: LHR PUIS launch -> le dest revient au stock.
+    TT-T4: les gardes: a3=5, slot 2->7, ret propre, zéro déviation.
+    """
+    img = load_image()
+    results = []
+
+    def check(name, cond, detail=""):
+        results.append((name, bool(cond), detail))
+        print(f"[{'PASS' if cond else 'FAIL'}] {name} {detail}")
+
+    LHR = [70, 175, 44, 20, 5]        # rc, rfc, ras, faw, rrd (record 26)
+    LAUNCH = [78, 210, 52, 26, 24]    # rc, rfc, ras, rp, cl (record 6)
+
+    def run_table(vals):
+        """Le flux TT-E: le payload (ctx + liste plate) pilote la boucle."""
+        e = Emu(img)
+        PAY, DEST = 0x165000, 0x166000
+        payload = bytearray(b"\xFF" * 0x1000)
+        payload[0x488:0x490] = (2).to_bytes(8, "little")
+        payload[0x490:0x498] = (0x400).to_bytes(8, "little")
+        payload[0x498:0x4A0] = DEST.to_bytes(8, "little")
+        payload[0x4A0] = 0x08
+        for k, v in enumerate(vals):
+            payload[0x500 + 8 * k:0x508 + 8 * k] = v.to_bytes(8, "little")
+        for i, b in enumerate(payload):
+            e.mem[PAY - 0x100000 + i] = b
+        e.pc = GADGET_ENTRY
+        e.regs[REG_NAMES.index("a0")] = (M - 1)
+        e.regs[REG_NAMES.index("a3")] = len(vals)
+        e.regs[REG_NAMES.index("a7")] = 0
+        e.regs[REG_NAMES.index("a1")] = DEST + 2 * 8
+        e.regs[REG_NAMES.index("a4")] = PAY
+        e.regs[2] = 0x167000
+        e.wmem(0x167000 + 8, 8, PAY + 0x500)
+        e.regs[1] = 0xDEADC0DE
+        e.stop_at = {0xDEADC0DE}
+        e.run(budget=400)
+        got = [e.rmem(DEST + 8 * (2 + k), 8) for k in range(len(vals))]
+        return e, got
+
+    # TT-T1: le retighten LHR
+    e, got = run_table(LHR)
+    check("TT-T1 la table LHR (5 champs) byte-exact au dest",
+          e.pc == 0xDEADC0DE and got == LHR and not e.fail,
+          f"got={got}")
+    lhr_dest = [e.rmem(0x166000 + 8 * (2 + k), 8) for k in range(5)]
+
+    # TT-T2: le swap A/B — launch puis LHR (le dest doit tenir LHR)
+    e2, got2 = run_table(LAUNCH)
+    # même ctx/dest: le second run écrase les 5 slots du premier
+    check("TT-T2 la table launch (5 champs) byte-exact",
+          e2.pc == 0xDEADC0DE and got2 == LAUNCH and not e2.fail,
+          f"got={got2}")
+    e3, got3 = run_table(LHR)
+    check("TT-T2 le swap launch->LHR: le dest tient LHR",
+          got3 == LHR and got3 != LAUNCH,
+          f"got={got3}")
+    # TT-T3: le rollback — launch (le stock) après LHR
+    e4, got4 = run_table(LAUNCH)
+    check("TT-T3 le rollback LHR->launch: le dest revient au stock",
+          got4 == LAUNCH,
+          f"got={got4}")
+    # TT-T4: les gardes — le slot avance 2->2+5=7, ret propre
+    e5, got5 = run_table(LHR)
+    check("TT-T4 le slot avance 2->7, ret propre, zéro déviation",
+          e5.rmem(0x165000 + 0x488, 8) == 7 and e5.pc == 0xDEADC0DE
+          and not e5.fail,
+          f"slot_fin={e5.rmem(0x165000 + 0x488, 8)}")
+
+    n_pass = sum(1 for _, ok, _ in results if ok)
+    print(f"test-timings: {n_pass}/{len(results)} PASS")
+    return 0 if n_pass == len(results) else 1
+
+
 def selftest():
     img = load_image()
     fails = []
@@ -941,6 +1031,8 @@ def main():
                     help="4.44: la chaîne v444 sur l'image réelle (TF-A..C)")
     ap.add_argument("--test-rop", action="store_true",
                     help="4.45: la chaîne ROP débordante sur l'image réelle (TR-A..E)")
+    ap.add_argument("--test-timings", action="store_true",
+                    help="4.50: le scénario timing LHR/launch sur la transfer-list (TT-T1..T4)")
     ap.add_argument("--selftest", action="store_true")
     a = ap.parse_args()
     if a.test_rop:
@@ -949,6 +1041,8 @@ def main():
         return test_444()
     if a.test_transfer:
         return test_transfer()
+    if a.test_timings:
+        return test_timings()
     if a.selftest:
         return selftest()
     img = load_image(a.image)

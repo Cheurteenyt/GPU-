@@ -183,3 +183,40 @@ cat <<'EOF'
   is the decisive, cheap test.
 EOF
 say "5 armed — the fingerprints are in lab/jalon411/v448c_stride_timing.json (dmem_fingerprints)"
+
+# §6 — the TIER-1 pack (pass 4.50): the nvcc battery, the thermal probe,
+#      the ncu probe ------------------------------------------------------
+# (a) the nvcc Pillar B battery (the 0xSero method) — the judge upgrade
+say "§6a the nvcc battery (pillarB-driver.sh) — CEILING must match the applied mclk offset (448 stock, 531 at +1500...)"
+if [ -f "$(dirname "$0")/pillarB-driver.sh" ]; then
+  bash "$(dirname "$0")/pillarB-driver.sh" "${CEILING:-448}"
+  json S6a "{\"pillarB_driver\":\"run\"}"
+else
+  say "  pillarB-driver.sh ABSENT — skip"
+fi
+# (b) the thermal/refresh probe: §1 cold vs hot — the GDDR6 refresh
+#     doubling above the thermal threshold shows as an effective-BW drop
+say "§6b the thermal probe: the battery at VRAM <45C vs >80C (loop fill to heat, then re-run)"
+TEMPC="$(nvidia-smi --query-gpu=temperature.memory --format=csv,noheader 2>/dev/null | head -1 | tr -d ' C')"
+say "  VRAM temp now = ${TEMPC}C (record it with every verdict)"
+if [ -f "$LOG/pillarB.py" ]; then
+  B6="$(python3 "$BENCH" 2>&1 | tail -1)"
+  echo "{\"vram_temp_c\": \"$TEMPC\", \"bench\": $B6}" > "$LOG/pillarB-temp-$TEMPC.json"
+  json S6b "{\"vram_temp_c\":\"$TEMPC\",\"bench\":$B6}"
+  say "  verdict written: $LOG/pillarB-temp-$TEMPC.json (re-run this §6b when the card is HOT — the cold-vs-hot delta = the refresh cost)"
+fi
+# (c) the ncu probe: dram__throughput.avg.pct_of_peak_sustained_elapsed
+#     = the % of ceiling DIRECTLY per kernel (no battery hypothesis)
+say "§6c the ncu probe (if installed)"
+if command -v ncu >/dev/null 2>&1; then
+  say "  ncu present — run on the battery kernel (manual, the machine-day step):"
+  cat <<'EOF'
+    ncu --metrics dram__throughput.avg.pct_of_peak_sustained_elapsed \
+        --kernel-name regex:copy python3 ~/bandwidth-447/pillarB.py
+    (or on the nvcc battery: ncu --metrics ... ~/bandwidth-447/pillarB-smXX copy)
+EOF
+  json S6c "{\"ncu\":\"present\"}"
+else
+  say "  ncu ABSENT (apt install nsight-compute is the day-2 option) — INDECIDABLE logged"
+  json S6c "{\"ncu\":\"absent\"}"
+fi
