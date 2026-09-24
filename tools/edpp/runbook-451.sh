@@ -55,6 +55,8 @@ prereq)
   say "  [2/5] the DKMS tree present: $SRC"
 
   # the anchor greps — the 610.57.04 members the instrument uses
+  # (pWprMetaDescriptor = CONFIRMED in the TARGET DKMS 610.57.04 header
+  #  :521 — the earlier "missing" verdict = grounded on a newer tree)
   n=0
   for sym in "_kgspPrepareGspRmBinaryImage" "pSysmemHeapDescriptor" \
              "pRmStateMonitorBuffer" "pWprMetaDescriptor" \
