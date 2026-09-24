@@ -1,4 +1,4 @@
-# ROADMAP 600 GB/s — la grosse tâche post-4.49 (le plan d'escalade complet)
+# ROADMAP 600 GB/s — the post-4.49 grosse tâche (the full escalation plan)
 
 Pass: 4.50-planning (branché sur 4.49 `39c7881`). Date: 2026-09-24.
 Trigger: « je me lance pas tout de suite — prévoie une grosse tâche sur ce
@@ -12,7 +12,7 @@ gate go/no-go chiffré.
 
 ---
 
-## §0 La cible, décodée honnêtement — les QUATRE sens de « 600 GB/s »
+## §0 The target, decoded honestly — the FOUR meanings of « 600 GB/s »
 
 La carte: RTX 3070, GA104, GDDR6 Hynix 256-bit, 14 Gbps stock =
 **448 GB/s théorique**. L'escalier (256-bit → GB/s = Gbps × 32; l'effectif
@@ -53,7 +53,7 @@ Les quatre jalons, du plus atteignable au plus dur:
 **La ligne directrice: grimper M1 → M2 → M3 en logiciel, mesurer le mur
 M4 avec précision, et ne jamais confondre les quatre dans un verdict.**
 
-## §1 L'actif en main (l'inventaire des leviers déjà PROUVÉS)
+## §1 The assets in hand (the inventory of the already-PROVEN levers)
 
 | Actif | État | Où |
 |---|---|---|
@@ -71,7 +71,7 @@ M4 avec précision, et ne jamais confondre les quatre dans un verdict.**
 | ReBAR 8192 MiB + undervolt 1995@987 mV + core +225 MHz | actifs | le socle perf déjà en place |
 | Le chemin hardware CH341A | documenté, NON choisi (décision 2026-09-21) | docs/hardware-path-ch341a.md |
 
-## §2 TIER 0 — LA MESURE (le jour machine, TÂCHE A du runbook-447)
+## §2 TIER 0 — THE MEASUREMENT (the machine day, TÂCHE A of runbook-447)
 
 Objectif unique: transformer les INDECIDABLE en nombres. Aucun changement
 de comportement ce jour-là, le firmware ne touche à rien.
@@ -97,7 +97,7 @@ de comportement ce jour-là, le firmware ne touche à rien.
 Gate de sortie du Tier 0: le % stock est CONNU (M1 a sa ligne de départ),
 le delta thermique est chiffré, le verdict §5 est rendu.
 
-## §3 TIER 1 — les gains 100 % logiciels (aucun firmware, réversible par reboot)
+## §3 TIER 1 — the 100 % software gains (no firmware, reboot-reversible)
 
 ### 1a. Le sweep MCLK jusqu'au plafond stable (M2, premier étage)
 
@@ -162,7 +162,7 @@ de la carte 4.47 prouvent que la machinerie existe côté RM).
 la montée P-state pendant les reps courtes. Zéro risque, testable en
 deux minutes, à intégrer au protocole de mesure si delta mesurable.
 
-## §4 TIER 2 — le retarget runtime des TIMINGS (le f18-analog, TÂCHE B→D)
+## §4 TIER 2 — the runtime TIMINGS retarget (the f18-analog, TÂCHE B→D)
 
 Le produit du constructeur lui-même (les records LHR resserrés) prouve
 que le silicium Hynix tourne plus serré que le stock de la 3070. La voie:
@@ -193,7 +193,7 @@ que le silicium Hynix tourne plus serré que le stock de la 3070. La voie:
    ou régression — dans les deux cas la carte 4.49 se complète par une
    mesure, pas une hypothèse.
 
-## §5 TIER 3 — pousser le PLAFOND (14 → 16+ Gbps, la question RM)
+## §5 TIER 3 — pushing the CEILING (14 → 16+ Gbps, the RM question)
 
 LACT plafonne à +1500 offset. Au-delà, la question = qui tient le plafond:
 
@@ -222,7 +222,7 @@ Attendu honnête: 15.6-16.6 Gbps (M2 complet, ~440-485 effectif) est le
 domaine typique du Hynix GDDR6 en air; 17+ = la zone des bons bins,
 palier par palier, sans promesse.
 
-## §6 TIER 4 — le mur du 600 streaming (ROUGE, hors périmètre actuel)
+## §6 TIER 4 — the 600 streaming wall (RED, outside the current scope)
 
 Le calcul est sans appel: 600 GB/s effectif en streaming = ~20.5-21.5
 Gbps/pin = +47-54 % sur le stock. Le Hynix GDDR6 8 Gb n'y arrive pas en
@@ -234,7 +234,7 @@ ce tier ne s'ouvre que sur une décision contraire explicite du founder.**
 En attendant, le « 600+ » honnête de cette carte = M3 (la voie L2-résidente,
 §3-1d) — et le plan le livre dès le Tier 1.
 
-## §7 Le parking lot ingénieux (idées non assignées, taggées)
+## §7 The ingenious parking lot (unassigned ideas, tagged)
 
 | Idée | Ce que ça pourrait donner | Tag |
 |---|---|---|
@@ -248,7 +248,7 @@ En attendant, le « 600+ » honnête de cette carte = M3 (la voie L2-résidente,
 | RmIsoHubMCLKSwitch / RmOptp2LowerMclk (×2/×1) | la politique de switch MCLK (maintenir le P0 mémoire sous charge mixte) | CARTE 4.47, sémantique à éclaircir |
 | Le harness nvbandwidth (au lieu de torch) | le harness professionnel de NVIDIA (CE/SM/DP4A) — la probe order du runbook §1 le liste déjà | trivial si installable |
 
-## §8 La gouvernance (les règles qui ne bougent pas)
+## §8 The governance (the rules that do not move)
 
 - **Une clé, un boot, un delta, un mécanisme nommé** — sinon NO-EFFECT ou
   UNPROVEN (la règle 4.35-4.47, inchangée).
@@ -263,7 +263,7 @@ En attendant, le « 600+ » honnête de cette carte = M3 (la voie L2-résidente,
 - **Le journal Xid systématique** (`journalctl -k | grep -iE 'NVRM|Xid'`)
   après chaque étape — le compteur de la maison.
 
-## §9 Le calendrier des jours machine (la séquence recommandée)
+## §9 The machine-day calendar (the recommended sequence)
 
 | Jour | Contenu | Produit | Gate |
 |---|---|---|---|
@@ -278,7 +278,7 @@ Le travail sans machine (entre les jours): écrire les noyaux nvcc du
 et la famille FB/L2, prolonger le runbook (§6: la sonde thermique/ncu
 formalisée, §7: le protocole L2 persisting).
 
-## §10 Le ledger d'honnêteté
+## §10 The honesty ledger
 
 - PROUVÉ: la référence (91.3 % par des noyaux, pas un hack); la chaîne
   L2 ways bout-en-bout; les timings LHR (la marge constructeur); le
