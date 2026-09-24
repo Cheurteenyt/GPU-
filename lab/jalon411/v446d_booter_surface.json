@@ -1,0 +1,79 @@
+{
+ "image": {
+  "size": 446464,
+  "sha256": "ab90560bad520e65..."
+ },
+ "selfchecks": {
+  "auipc": 557,
+  "banked_auipc": 515,
+  "cret": 84,
+  "banked_cret": 84
+ },
+ "knob_census": {
+  "rule": "|v| >= 1000 and v % 1000 == 0 (the 4.33 lane-A rule)",
+  "distinct_values": 0,
+  "table": {}
+ },
+ "sbi_wrapper_callers": {
+  "count": 0,
+  "sites": []
+ },
+ "sbi_caller_windows": [],
+ "sbi_stubs": [],
+ "dmem_0x16C_compositions": [
+  {
+   "va": "0x100AAC",
+   "val": "0x16CF88",
+   "op": "auipc",
+   "next": [
+    "addi t3, t3, 0x4dc",
+    "c.srli a2, 0x10"
+   ]
+  },
+  {
+   "va": "0x101DD8",
+   "val": "0x16C020",
+   "op": "auipc",
+   "next": [
+    "addi s6, s6, 0x248",
+    "auipc s0, 0x22"
+   ]
+  },
+  {
+   "va": "0x101DE8",
+   "val": "0x16C018",
+   "op": "auipc",
+   "next": [
+    "addi s5, s5, 0x230",
+    "auipc s3, 0x6a"
+   ]
+  },
+  {
+   "va": "0x101DF0",
+   "val": "0x16C010",
+   "op": "auipc",
+   "next": [
+    "addi s3, s3, 0x220",
+    "addi s8, sp, 0x2f0"
+   ]
+  },
+  {
+   "va": "0x1022E8",
+   "val": "0x16C00A",
+   "op": "auipc",
+   "next": [
+    "addi s2, s2, -0x2de",
+    "c.bnez a5, 0x5a"
+   ]
+  },
+  {
+   "va": "0x102CC0",
+   "val": "0x16C000",
+   "op": "auipc",
+   "next": [
+    "addi s6, s6, 0x340",
+    "c.slli a5, 2"
+   ]
+  }
+ ]
+}
