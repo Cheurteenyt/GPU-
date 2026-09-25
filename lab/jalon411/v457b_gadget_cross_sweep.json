@@ -1,0 +1,160 @@
+{
+  "cross_table": [
+    {
+      "gadget_ga100": "0x0cbd",
+      "slot_in_tail": "0xf75c",
+      "role": "load link (after {writeValue, canari}, before writeAddr) — HYPOTHESIS, positional",
+      "byte_status_ga104": "BROM-relative (sub-0x10000) — OUR booter VMA base = 0x100000; the value maps to NO our-image site; the GA104 BROM = different silicon, NOT extracted",
+      "our_equivalent": "no strict equivalent (the v444e strict work-gadgets = 0); the nearest = the pair's load side @0x100b3e (c.ld a5, 0x8(sp))",
+      "confidence": "INDECIDABLE-BY-BYTES"
+    },
+    {
+      "gadget_ga100": "0x1fbd",
+      "slot_in_tail": "0xf774",
+      "role": "repeated spine x3 (0xf774/0xf7a4/0xf7e0) — HYPOTHESIS, positional",
+      "byte_status_ga104": "BROM-relative (sub-0x10000) — OUR booter VMA base = 0x100000; the value maps to NO our-image site; the GA104 BROM = different silicon, NOT extracted",
+      "our_equivalent": "OUR G40 epilogue (the REAL bytes, PROVEN in TR/TR2/TR3 walks; the v444e chainable = 24 sites)",
+      "confidence": "INDECIDABLE-BY-BYTES"
+    },
+    {
+      "gadget_ga100": "0x0ccb",
+      "slot_in_tail": "0xf7f4",
+      "role": "terminal pair (low) — HYPOTHESIS, positional",
+      "byte_status_ga104": "BROM-relative (sub-0x10000) — OUR booter VMA base = 0x100000; the value maps to NO our-image site; the GA104 BROM = different silicon, NOT extracted",
+      "our_equivalent": "OUR TERMINAL (the v445/447 builder's clean exit, PROVEN)",
+      "confidence": "INDECIDABLE-BY-BYTES"
+    },
+    {
+      "gadget_ga100": "0x7f2f",
+      "slot_in_tail": "0xf7f8",
+      "role": "terminal pair (high) — HYPOTHESIS, positional",
+      "byte_status_ga104": "BROM-relative (sub-0x10000) — OUR booter VMA base = 0x100000; the value maps to NO our-image site; the GA104 BROM = different silicon, NOT extracted",
+      "our_equivalent": "same as above — the pair's second half",
+      "confidence": "INDECIDABLE-BY-BYTES"
+    }
+  ],
+  "cross_status": "ALL INDECIDABLE-BY-BYTES — the tail layout stays byte-exact (the reference structure = the emulator's model); the SLOT VALUES on the machine day = the sweep's subject",
+  "sweep_matrix": [
+    {
+      "id": "P0-identity",
+      "fill_len": null,
+      "gadget_set": "reference",
+      "shape": "the byte-exact reference tail (v457a)",
+      "hypothesis": "the GA100 offsets work as-is (the long shot — the offsets are comparable by accident)",
+      "ack": "RUNBOOK_457_ACK=1;RUNBOOK_457_POINT=P0-identity",
+      "boots": 1,
+      "judge": "pgc6-traj.service + tools/edpp/pgc6_probe.py (the machine-day's committed automatic trajectory unit — the PGC6 progress pair read LIVE, 60 x 5 s, the JSON per snapshot) + the dmesg SEC2_DEBUG PLM ledger",
+      "verdicts": [
+        "OPENED",
+        "NO-EFFECT",
+        "SPIN",
+        "HANG",
+        "FAULT"
+      ],
+      "rollback": "driver-only (~10 min, proven x4)"
+    },
+    {
+      "id": "P1-fill64",
+      "fill_len": 64,
+      "gadget_set": "reference",
+      "shape": "the reference tail, the fill_len = 64",
+      "hypothesis": "the r1's copy-return-address region starts earlier — NAMED CAVEAT: the fill_len axis was EXHAUSTED in the OLD lane (the machine-day negative); here it re-runs in the NEW execution context only",
+      "ack": "RUNBOOK_457_ACK=1;RUNBOOK_457_POINT=P1-fill64",
+      "boots": 1,
+      "judge": "pgc6-traj.service + tools/edpp/pgc6_probe.py (the machine-day's committed automatic trajectory unit — the PGC6 progress pair read LIVE, 60 x 5 s, the JSON per snapshot) + the dmesg SEC2_DEBUG PLM ledger",
+      "verdicts": [
+        "OPENED",
+        "NO-EFFECT",
+        "SPIN",
+        "HANG",
+        "FAULT"
+      ],
+      "rollback": "driver-only (~10 min, proven x4)"
+    },
+    {
+      "id": "P2-fill96",
+      "fill_len": 96,
+      "gadget_set": "reference",
+      "shape": "the reference tail, the fill_len = 96",
+      "hypothesis": "the middle point of the r1's matrix",
+      "ack": "RUNBOOK_457_ACK=1;RUNBOOK_457_POINT=P2-fill96",
+      "boots": 1,
+      "judge": "pgc6-traj.service + tools/edpp/pgc6_probe.py (the machine-day's committed automatic trajectory unit — the PGC6 progress pair read LIVE, 60 x 5 s, the JSON per snapshot) + the dmesg SEC2_DEBUG PLM ledger",
+      "verdicts": [
+        "OPENED",
+        "NO-EFFECT",
+        "SPIN",
+        "HANG",
+        "FAULT"
+      ],
+      "rollback": "driver-only (~10 min, proven x4)"
+    },
+    {
+      "id": "P3-fill112",
+      "fill_len": 112,
+      "gadget_set": "reference",
+      "shape": "the reference tail, the fill_len = 112 (the v446/v447 proven length)",
+      "hypothesis": "the OUR-proven geometry with THEIR gadgets",
+      "ack": "RUNBOOK_457_ACK=1;RUNBOOK_457_POINT=P3-fill112",
+      "boots": 1,
+      "judge": "pgc6-traj.service + tools/edpp/pgc6_probe.py (the machine-day's committed automatic trajectory unit — the PGC6 progress pair read LIVE, 60 x 5 s, the JSON per snapshot) + the dmesg SEC2_DEBUG PLM ledger",
+      "verdicts": [
+        "OPENED",
+        "NO-EFFECT",
+        "SPIN",
+        "HANG",
+        "FAULT"
+      ],
+      "rollback": "driver-only (~10 min, proven x4)"
+    },
+    {
+      "id": "P4-our-tail",
+      "fill_len": 112,
+      "gadget_set": "ours",
+      "shape": "the OUR chain (the v447 surgical, the tail at 0xf754) in the 0xf800 buffer",
+      "hypothesis": "the POSTBL can reach the booter's own code (the booter = EXECUTING when the verify runs) — our PROVEN gadgets do the write",
+      "ack": "RUNBOOK_457_ACK=1;RUNBOOK_457_POINT=P4-our-tail",
+      "boots": 1,
+      "judge": "pgc6-traj.service + tools/edpp/pgc6_probe.py (the machine-day's committed automatic trajectory unit — the PGC6 progress pair read LIVE, 60 x 5 s, the JSON per snapshot) + the dmesg SEC2_DEBUG PLM ledger",
+      "verdicts": [
+        "OPENED",
+        "NO-EFFECT",
+        "SPIN",
+        "HANG",
+        "FAULT"
+      ],
+      "rollback": "driver-only (~10 min, proven x4)"
+    },
+    {
+      "id": "P5-control",
+      "fill_len": 112,
+      "gadget_set": "none",
+      "shape": "the pure 0x4a7 field, NO tail (the r0 uniform spin)",
+      "hypothesis": "the NULL control: the spin reproduces, the judge = SPIN, zero opens — the matrix's baseline",
+      "ack": "RUNBOOK_457_ACK=1;RUNBOOK_457_POINT=P5-control",
+      "boots": 1,
+      "judge": "pgc6-traj.service + tools/edpp/pgc6_probe.py (the machine-day's committed automatic trajectory unit — the PGC6 progress pair read LIVE, 60 x 5 s, the JSON per snapshot) + the dmesg SEC2_DEBUG PLM ledger",
+      "verdicts": [
+        "OPENED",
+        "NO-EFFECT",
+        "SPIN",
+        "HANG",
+        "FAULT"
+      ],
+      "rollback": "driver-only (~10 min, proven x4)"
+    }
+  ],
+  "laws": {
+    "no_payload_bytes_emitted": "zero .bin committed — the fill = the C code (v457a) + the builder; the sweep points = the PARAMETERS, not blobs",
+    "firmware_never_touched": "the GSP firmware blob = untouched; the signature memdesc = the driver's allocation, refilled at runtime",
+    "emulator_before_boot": "the TR-4 15/15 = the precondition; every sweep point re-runs it",
+    "ack_per_boot": "RUNBOOK_457_ACK=1;RUNBOOK_457_POINT=<id>",
+    "rollback": "driver-only"
+  },
+  "conclusion": [
+    "The 4 GA100 gadget slots = INDECIDABLE-BY-BYTES for the GA104 (the byte status, B6).",
+    "The tail layout stays byte-exact (the reference structure = the model); the slot VALUES = the sweep's subject.",
+    "The OUR-side equivalents exist and are PROVEN in our image (the pair @0x100b3e/0x100b48, the G40 spine, the TERMINAL) — P4 = the variant that uses them.",
+    "The selftest C byte-exact vs the python builder = BANKED in v457a (V5, 71 checks) + TR4-A/B — the 4.44 law, already paid."
+  ]
+}
