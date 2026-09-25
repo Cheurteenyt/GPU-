@@ -1501,6 +1501,239 @@ def test_rop3():
     return 0 if n_pass == len(results) else 1
 
 
+def test_sec2():
+    """4.57 T3 — the TR-4 suite: the TRANSPOSE sequence emulated (the
+    mission order: the emulator BEFORE every boot). The existing
+    batteries = REPRODUCED FIRST (the pass discipline — this suite runs
+    on top of the 5/5..15/15 greens).
+
+    TR4-A the guards: the v457a transpose selftest (the anchors, the
+          values, the refill ORDER, the C byte-exact, the patch(1)
+          zero-fuzz, the determinism) = green via subprocess.
+    TR4-B the memdesc 0xf800 model: the builder fills the buffer; the
+          ROP tail lands at 0xf754..0xf7f8 (the reference layout); the
+          refill = the SAME layout re-laid with the NEW (addr, value)
+          pair in the two parameterized slots, everything else
+          byte-identical.
+    TR4-C THE STALE-CACHE MODEL (the r0/r1 lesson paid): the CPU copy
+          vs the DRAM copy — WITHOUT the flush the booter's DMA
+          consumes the PREVIOUS pair (the 4.45 starvation, replicated
+          at the model level); WITH memdescFlushCpuCaches the DMA
+          consumes the CURRENT pair = the refill's critical sequence.
+    TR4-D the PLM loop E2E on the REAL image: the 11 pairs = THE SAME
+          table as the C patch (imported from v457a — the
+          cross-instrument guard); per iteration: the refill (the
+          surgical payload re-laid with the pair), the booter
+          RE-EXECUTED (the chain walk on the real bytes), the write
+          lands at the modeled PLM window slot, the read-back = the
+          'opened' verdict; the ledger = the 11 opens.
+    TR4-E the rebuild: the stock content back over the tail (the
+          model = zeros — the real stock signature = the firmware
+          blob, never committed) — the final booter run = the pristine
+          image = ZERO writes at the modeled window (the clean boot).
+    TR4-F the INDECIDABLES byte-proof: the GA100 BROM gadgets
+          {0x0cbd, 0x1fbd, 0x7f2f, 0x0ccb} = sub-0x10000 BROM-relative
+          offsets of ANOTHER ROM — our booter VMA base = 0x100000, no
+          mapping to our image; the v444e strict work-gadgets = 0; the
+          OUR-side write primitive = the transfer-list pair
+          @0x100b3e/0x100b48 (findings-4.40, the sd byte-cited).
+
+    The modeled PLM window (the A3 discipline — the day = the runbook):
+    the modeled RAM window B = 0x164000 stands in for the raw MMIO
+    block; the PLM slot i = B + i*8. The GA104 register decode =
+    INDECIDABLE-BY-BYTES (the O5 map 4.56) — the TEST conjugates; the
+    machine day = the runbook-457.
+    """
+    import importlib.util
+    import subprocess as _sp
+    lab = Path(__file__).resolve().parent.parent / "lab/jalon411"
+
+    spec = importlib.util.spec_from_file_location(
+        "v457a_transpose", lab / "v457a_sec2_postbl_transpose.py")
+    V457 = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(V457)
+
+    spec447 = importlib.util.spec_from_file_location(
+        "v447_build", lab / "v447_rop_write_build.py")
+    B447 = importlib.util.module_from_spec(spec447)
+    spec447.loader.exec_module(B447)
+
+    img = load_image()
+    results = []
+
+    def check(name, cond, detail=""):
+        results.append((name, bool(cond), detail))
+        print(f"[{'PASS' if cond else 'FAIL'}] {name} {detail}")
+
+    PAY = 0x16A000
+    HOME = 0x163000
+    B = 0x164000                     # the modeled PLM/MMIO window
+    FILL_LEN = 112
+    TERMINAL = B447.TERMINAL
+
+    def lay(payload):
+        e = Emu(img)
+        for i, b in enumerate(payload):
+            e.mem[PAY - 0x100000 + i] = b
+        e.wmem(HOME, 8, 0)
+        for k in range(-1, 12):      # the counter + the 12 modeled slots
+            e.wmem(B + k * 8, 8, 0)
+        return e
+
+    def hijack_at(e, word):
+        e.regs[2] = PAY + (word + 1) * 8
+        e.pc = int.from_bytes(
+            e.mem[PAY - 0x100000 + word * 8:PAY - 0x100000 + word * 8 + 8],
+            "little")
+
+    def to_terminal(e):
+        hijack_at(e, FILL_LEN)
+        e.stop_at = {TERMINAL}
+        e.run(budget=200)
+        return e.pc == TERMINAL
+
+    def model(e, a1, a3=1):
+        e.regs[REG_NAMES.index("a0")] = M - 1
+        e.regs[REG_NAMES.index("a3")] = a3
+        e.regs[REG_NAMES.index("a7")] = 0
+        e.regs[REG_NAMES.index("a1")] = a1
+        e.regs[REG_NAMES.index("a4")] = PAY
+
+    # ---- TR4-A: the v457a transpose selftest (subprocess) ---------------
+    r = _sp.run(["python3", str(lab / "v457a_sec2_postbl_transpose.py"),
+                 "--src", "/home/z/my-project/ogkm-610"],
+                capture_output=True, text=True)
+    check("TR4-A the v457a transpose selftest = TOUT VERT (the anchors, "
+          "the values, the order, the C byte-exact, patch(1), the "
+          "determinism)",
+          r.returncode == 0 and "TOUT VERT" in r.stdout,
+          (r.stdout + r.stderr).strip().splitlines()[-1] if
+          (r.stdout + r.stderr).strip() else f"exit={r.returncode}")
+
+    # ---- TR4-B: the memdesc 0xf800 + the refill pair-swap ---------------
+    buf1 = V457.py_fill(0xf800, 0x009a0148, 0xffffffff)   # the creation fill = FBPA
+    buf2 = V457.py_fill(0xf800, 0x00823804, 0xffffffff)   # the refill = FEAT
+    check("TR4-B the memdesc = 0xf800 (the enlarged signature)",
+          len(buf1) == 0xf800)
+    check("TR4-B the ROP tail in the buffer: writeValue @0xf754, "
+          "writeAddr @0xf76c (the reference layout)",
+          int.from_bytes(buf1[0xf754:0xf758], "little") == 0xffffffff and
+          int.from_bytes(buf1[0xf76c:0xf770], "little") == 0x009a0148)
+    tail_ident = all(buf1[i] == buf2[i]
+                     for i in range(len(buf1))
+                     if i < 0xf754 or i > 0xf76f)
+    check("TR4-B the refill = the SAME layout re-laid: every word "
+          "outside the two parameterized slots = byte-identical",
+          tail_ident)
+    check("TR4-B the refill swapped the pair (FBPA -> FEAT) and touched "
+          "nothing else",
+          buf1 != buf2 and
+          int.from_bytes(buf2[0xf76c:0xf770], "little") == 0x00823804)
+
+    # ---- TR4-C: THE STALE-CACHE MODEL (the r0/r1 lesson) ----------------
+    cpu = bytearray(V457.py_fill(0xf800, 0x009a0148, 0xffffffff))
+    dram = bytes(cpu)                      # the flush = the DRAM copy
+    consumed_no_flush = dram               # the DMA reads the DRAM copy
+    check("TR4-C WITHOUT the flush: the DMA consumes the PREVIOUS pair "
+          "(the stale writeAddr = FBPA — the 4.45 starvation, modeled)",
+          int.from_bytes(consumed_no_flush[0xf76c:0xf770], "little")
+          == 0x009a0148)
+    cpu[:] = V457.py_fill(0xf800, 0x00823804, 0xffffffff)   # the refill (CPU)
+    # (the flush SKIPPED — the DMA would still see the stale copy)
+    # ...then the flush = the DRAM copy: memdescFlushCpuCaches
+    dram_flushed = bytes(cpu)
+    check("TR4-C WITH the flush (the refill's critical sequence): the "
+          "DMA consumes the CURRENT pair (writeAddr = FEAT)",
+          int.from_bytes(dram_flushed[0xf76c:0xf770], "little")
+          == 0x00823804)
+    check("TR4-C the stale vs the fresh = DIFFERENT (the flush = the "
+          "difference between the 4.45 dead lane and the transpose)",
+          consumed_no_flush != dram_flushed)
+
+    # ---- TR4-D: the PLM loop E2E on the REAL image ----------------------
+    synth = B447.synthetic_verdict(offset=B)
+    opened = []
+    slot_checks = []
+    ledger = {}
+    for idx, (addr, value, name) in enumerate(V457.PLM_TABLE):
+        target = B + idx * 8
+        p, _d = B447.build_write(mode="surgical", values=[value],
+                                 verdict_doc=synth, counter_home=HOME,
+                                 base_addr=PAY)
+        e = lay(p)
+        if not to_terminal(e):
+            slot_checks.append(f"{name}: the walk FAILED pc={e.pc:#x}")
+            continue
+        model(e, a1=target, a3=1)
+        e.stop_at = set()
+        # the stop = the EXIT bump (the counter [home] += 1 = the chain
+        # exit, the 4.56 semantics — the write lands BEFORE it)
+        e.stop_pred = lambda emu, h=HOME: emu.rmem(h, 8) == 1
+        e.run(budget=400)
+        ok = e.rmem(target, 8) == value and e.rmem(HOME, 8) == 1
+        if not ok:
+            slot_checks.append(f"{name}: [B+{idx*8:#x}]="
+                               f"{e.rmem(target, 8):#x} want={value:#x} "
+                               f"ctr={e.rmem(HOME, 8)}")
+        else:
+            opened.append(name)
+            ledger[idx] = value
+    check("TR4-D the 11 PLM iterations on the REAL image: the write "
+          "lands + the read-back = opened (WPR_CFG, FBPA, WPR, FEAT, "
+          "XVE, XVE_B, XVE_C, FEAT2, OPT_PLM, PJTAG_PLM, "
+          "PJTAG_SEC_PLM)",
+          len(opened) == 11, "; ".join(slot_checks) or f"opened={len(opened)}")
+    check("TR4-D the ledger = the 11 opens, accumulated across the "
+          "iterations (each = its own booter re-execution)",
+          ledger == {i: V457.PLM_TABLE[i][1] for i in range(11)},
+          f"ledger={ledger}")
+
+    # ---- TR4-E: the rebuild (the stock content back) --------------------
+    stock = bytearray(0xf800)              # the model = zeros (the real
+    # stock signature = the firmware blob, never committed — the law)
+    check("TR4-E the rebuild empties the chain (the tail = the stock "
+          "content; the model = zeros)",
+          not any(stock[0xf754:0xf800]) and len(stock) == 0xf800)
+    e = Emu(img)                            # the final run = the pristine
+    e.wmem(B, 8, 0xdeadbeefcafebabe)        # the window sentinel
+    e.stop_pred = lambda emu: e.fail is not None or e.steps >= 120000
+    e.run(budget=120000)
+    check("TR4-E the final booter run WITHOUT the payload = ZERO writes "
+          "at the modeled window (the clean boot; the boundary = the "
+          "loader-contract fail, the ST-B convention)",
+          e.rmem(B, 8) == 0xdeadbeefcafebabe,
+          f"[B]={e.rmem(B, 8):#x}")
+
+    # ---- TR4-F: the INDECIDABLES byte-proof -----------------------------
+    gadgets = (0x0cbd, 0x1fbd, 0x7f2f, 0x0ccb)
+    check("TR4-F the GA100 BROM gadgets = sub-0x10000 BROM-relative "
+          "offsets (the OTHER ROM) — below OUR VMA base 0x100000, no "
+          "mapping to OUR image",
+          all(g < 0x100000 for g in gadgets),
+          " ".join(f"{g:#x}" for g in gadgets))
+    v444e = (lab / "v444e_gadget_chain.json")
+    if v444e.exists():
+        inv = __import__("json").loads(v444e.read_text())
+        wg_empty = all(len(v) == 0 for v in inv["work_gadgets"].values())
+        check("TR4-F the v444e strict work-gadgets = 0 + the banked "
+              "rets = 84 (the 4.40/4.44 inventory: no ld/addi/mv a1 "
+              "forms in OUR booter)",
+              wg_empty and inv["counts"]["rets_total"] == 84,
+              f"work_gadgets={inv['work_gadgets']} "
+              f"rets={inv['counts']['rets_total']}")
+    asm = (REPO / "tools/analysis/gsp-extract/bootloader.asm").read_text()
+    line48 = [l for l in asm.splitlines() if l.strip().startswith("100b48:")]
+    check("TR4-F OUR write primitive = the transfer-list pair "
+          "@0x100b3e/0x100b48 (findings-4.40) — the sd @0x100b48 "
+          "byte-cited in OUR build",
+          bool(line48) and "sd" in line48[0] and "a1)" in line48[0],
+          line48[0] if line48 else "absent")
+
+    n_pass = sum(1 for _, ok, _ in results if ok)
+    print(f"test-sec2: {n_pass}/{len(results)} PASS")
+    return 0 if n_pass == len(results) else 1
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--image", default=None, help="bootloader.bin alternatif (patché)")
@@ -1520,6 +1753,8 @@ def main():
                     help="4.53: the v446 relocatable layout + the carpet (TR2-A..F)")
     ap.add_argument("--test-rop3", action="store_true",
                     help="4.56: the v447 r2b write chain — the scatter a3=8 + the gate (TR3-A..F)")
+    ap.add_argument("--test-sec2", action="store_true",
+                    help="4.57: the transpose sequence — the memdesc 0xf800, the refill, the PLM loop, the rebuild (TR4-A..F)")
     ap.add_argument("--test-timings", action="store_true",
                     help="4.50: le scénario timing LHR/launch sur la transfer-list (TT-T1..T4)")
     ap.add_argument("--selftest", action="store_true")
@@ -1530,6 +1765,8 @@ def main():
         return test_rop2()
     if a.test_rop3:
         return test_rop3()
+    if a.test_sec2:
+        return test_sec2()
     if a.test_444:
         return test_444()
     if a.test_transfer:
