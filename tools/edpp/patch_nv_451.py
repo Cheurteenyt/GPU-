@@ -38,6 +38,9 @@ typedef struct {
     GSP_DMEM_BLOB_REC_NV blobs[GSP_DMEM_BLOBS_MAX_NV];
     NvU64         heapPhys;   /* v3: the heap = the phys capture, the nv side = phys_to_virt */
     NvU64         heapSize;
+    void         *pGpuSaved;      /* v4 */
+    void         *pKernelGspSaved;
+    void         (*pLateFn)(void);   /* v4: the late capture, called BY POINTER (the gc-sections law) */
 } GSP_DMEM_DUMP_STATE_NV;   /* the layout MIRROR of the RM-side GSP_DMEM_DUMP_STATE */
 
 extern GSP_DMEM_DUMP_STATE_NV gspDmemDumpState;   /* the RM side = non-static */
@@ -69,12 +72,21 @@ s = s.replace(anchor2, '''    nv_memdbg_init();
 # ---- 3. the publisher (AFTER the declarations, BEFORE the init function —
 # the first occurrence of the anchor = the decl block's trailing line) ----
 worker = '''
+static void gsp_dmem_dump_late_by_pointer(void)
+{
+    void (*latefn)(void) = gspDmemDumpState.pLateFn;
+    if (latefn)
+        latefn();
+}
+
 static void gsp_dmem_publisher(struct work_struct *w)
 {
     static struct debugfs_blob_wrapper wrappers[GSP_DMEM_BLOBS_MAX_NV];
     struct dentry *parent, *child;
     char dir[24];
     int i, published = 0;
+
+    gsp_dmem_dump_late_by_pointer();   /* v4: the late heap capture via the state's fn pointer */
 
     if (!gspDmemDumpState.captured)
     {
