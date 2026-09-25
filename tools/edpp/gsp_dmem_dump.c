@@ -56,10 +56,20 @@ typedef struct {
     // NV_PRINTF = level-gated (the lesson): the nv.c printk = the ledger.
     NvU64         heapPhys;
     NvU64         heapSize;
+    // v4: the descriptor = NULL AT THE HOOK (the boot-B proof) — the object
+    // pointers = stable, the LATE read = via pLateFn (the FUNCTION POINTER
+    // in the shared state: the gc-sections strips the unreferenced globals —
+    // the modpost caught it — the live schedule stores the pointer, the nv.c
+    // publisher calls through it; NO cross-TU symbol at all)
+    void         *pGpuSaved;
+    void         *pKernelGspSaved;
+    void         (*pLateFn)(void);
 } GSP_DMEM_DUMP_STATE;
 
 // non-static: the nv.c (kernel-open) side reads this for the debugfs publish
 GSP_DMEM_DUMP_STATE gspDmemDumpState = { 0 };
+
+void gsp_dmem_dump_late(void);   // the forward decl: the schedule stores the pointer below
 
 static void _gsp_dmem_blob_set(const char *name, const void *data, NvU64 size)
 {
@@ -94,6 +104,9 @@ gsp_dmem_dump_schedule(OBJGPU *pGpu, KernelGsp *pKernelGsp, GSP_FIRMWARE *pGspFw
         return;
     gspDmemDumpState.captured = NV_TRUE;
     gspDmemDumpState.gpuId    = gpuGetDeviceInstance(pGpu);
+    gspDmemDumpState.pGpuSaved        = (void *)pGpu;
+    gspDmemDumpState.pKernelGspSaved  = (void *)pKernelGsp;
+    gspDmemDumpState.pLateFn          = gsp_dmem_dump_late;
 
     // ---- the surface capture (pointer + size copies; no deref here) ----
     if (pGspFw != NULL)
@@ -124,15 +137,29 @@ gsp_dmem_dump_schedule(OBJGPU *pGpu, KernelGsp *pKernelGsp, GSP_FIRMWARE *pGspFw
                                pLog->pTaskLogDescriptor->Size);
     }
 
-    // ---- S5: the Libos sysmem heap — the PHYS capture (v3: NO memdescMap —
-    // the map failed silently in the boot-A run and the RM prints = level-
-    // gated; the nv.c side maps via phys_to_virt, the v9-scanner pattern) ----
-    if (pKernelGsp->pSysmemHeapDescriptor != NULL)
-    {
-        gspDmemDumpState.heapPhys = memdescGetPhysAddr(pKernelGsp->pSysmemHeapDescriptor, AT_CPU, 0);
-        gspDmemDumpState.heapSize = pKernelGsp->pSysmemHeapDescriptor->Size;
-        // (the silent on the RM side — the nv.c ledger reports)
-    }
+    // ---- S5: the sysmem heap — v4: the descriptor = NULL at this point
+    // (the boot-B proof: phys=0x0). The LATE read = gsp_dmem_dump_late()
+    // below, called by the nv.c publisher at +8 s (everything = allocated).
+    // This early block = kept for the record of the v3 attempt.
 
     NV_PRINTF(LEVEL_INFO, "NVRM-451: the surfaces captured — the nv.c side publishes in 8 s\n");
 }
+
+// THE LATE CAPTURE (the v4): called BY POINTER (the state's pLateFn) from
+// the nv.c publisher at +8 s — the descriptor = allocated by then. The pure
+// field reads, no locks. (The gc-sections = cannot strip it: the live
+// schedule stores this function's pointer into the shared state.)
+void
+gsp_dmem_dump_late(void)
+{
+    KernelGsp *pKernelGsp;
+
+    if (!gspDmemDumpState.captured || gspDmemDumpState.heapPhys != 0)
+        return; // the not-captured (the regkey off) or the already-late-captured
+    pKernelGsp = (KernelGsp *)gspDmemDumpState.pKernelGspSaved;
+    if ((pKernelGsp == NULL) || (pKernelGsp->pSysmemHeapDescriptor == NULL))
+        return;
+    gspDmemDumpState.heapPhys = memdescGetPhysAddr(pKernelGsp->pSysmemHeapDescriptor, AT_CPU, 0);
+    gspDmemDumpState.heapSize = pKernelGsp->pSysmemHeapDescriptor->Size;
+}
+
