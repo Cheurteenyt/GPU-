@@ -33,6 +33,7 @@ toute cible future prouvée.
 """
 import argparse
 import collections
+import os
 import sys
 from pathlib import Path
 
@@ -1600,8 +1601,17 @@ def test_sec2():
         e.regs[REG_NAMES.index("a4")] = PAY
 
     # ---- TR4-A: the v457a transpose selftest (subprocess) ---------------
+    # (the review fix: the source tree = the CANDIDATE list — the agent's
+    #  container path hardcoded = the FAIL on any other machine; the env
+    #  OGKM_SRC = the override, the /usr/src = the founder's DKMS tree)
+    ogkm_src = os.environ.get("OGKM_SRC") or next(
+        (p for p in ("/usr/src/nvidia-610.57.04",
+                     "/home/z/my-project/ogkm-610")
+         if os.path.isfile(os.path.join(
+             p, "src/nvidia/src/kernel/gpu/gsp/kernel_gsp.c"))),
+        "/usr/src/nvidia-610.57.04")
     r = _sp.run(["python3", str(lab / "v457a_sec2_postbl_transpose.py"),
-                 "--src", "/home/z/my-project/ogkm-610"],
+                 "--src", ogkm_src],
                 capture_output=True, text=True)
     check("TR4-A the v457a transpose selftest = TOUT VERT (the anchors, "
           "the values, the order, the C byte-exact, patch(1), the "
