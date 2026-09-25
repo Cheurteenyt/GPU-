@@ -371,3 +371,17 @@ zero-Xid, the rollbacks clean, the firmware untouched (c0156954):
 
 **The current phase: the hijack is confirmed — the control lane
 (builder v446, the carpet, the MMIO scatter) is the deliverable.**
+
+## The machine day 4.58 (2026-09-26) — the frame math closes the tail-chain guesswork
+
+The synthesis (the stock signature INTACT + the enlarged memdesc + the
+cmpunlocker chain in the tail + the flush x2 + the WPR_META re-point):
+**the write did not fire — and the MATH explains it: the copy's stack
+frame = <= 0x620 (the word 196) while our chain was at the word 790.**
+The return = lands on the fill = the trap = the spin. The
+cmpunlocker's 0xf754 = THEIR frame. **The gift: the PLM post-mortem
+probe = the CLEAN BINARY OBSERVABLE for the sweep** (the falcon =
+PLM-sealed, unobservable; the PLM registers = post-boot readable). The
+next wave = the chain position sweep {0x300-0x580}, one boot per
+position, the binary verdict per boot. The rollback = clean (0 v448
+strings, the firmware c0156954).
