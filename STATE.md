@@ -351,3 +351,23 @@ the foundation everything above was built on.
   of the campaign — the TDR recovered, the system unharmed; the
   stock-driver baseline is pending to attribute it. Every read was
   passive; the EEPROM write attempts never reached a partial state.
+
+## The machine days 4.51 + 4.45 (2026-09-25) — the phase change
+
+The DMEM verdict day (4 boots) + the ROP overflow day (6 boots), all
+zero-Xid, the rollbacks clean, the firmware untouched (c0156954):
+
+1. **The sysmem heap does not exist on this config** (sysmemHeapArgs =
+   {0,0} decoded in args.bin) — ROUTE H closed; the timing records =
+   the FB/WPR2 heap → ROUTE W (the read probe) = the next instrument.
+2. **The ways knob = NO-EFFECT** (the warm:cold ratio = 0.95-0.97 both
+   states, x2 each — closed honestly).
+3. **THE HIJACK CONFIRMED IN SILICON**: the v445 overflow payload in the
+   signature memdesc → the booter copied BEFORE the verify (no 0x1d) and
+   spun (GFW_BOOT progress 0xff = the paper's predicted state). The r1
+   map = the uniform spin → the return address = beyond the ctx block →
+   the pass 4.53 = the ctx relocation + the carpet probe + the MMIO
+   scatter chain.
+
+**The current phase: the hijack is confirmed — the control lane
+(builder v446, the carpet, the MMIO scatter) is the deliverable.**
