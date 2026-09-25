@@ -19,15 +19,28 @@
  * THE FLUSH ×2 = the r0/r1 lesson paid (the DMA reads the RAM, not the
  * caches — the refill's critical sequence).
  */
+
+#ifdef GSP_FW_WPR_META_V1_H_
+#define V448_WPR_META(pKernelGsp)      ((pKernelGsp)->pWprMetaV1)
+#define V448_WPR_META_DESC(pKernelGsp) ((pKernelGsp)->pWprMetaV1Descriptor)
+#else
+#define V448_WPR_META(pKernelGsp)      ((pKernelGsp)->pWprMeta)
+#define V448_WPR_META_DESC(pKernelGsp) ((pKernelGsp)->pWprMetaDescriptor)
+#endif
+
 void
 v448_patch_signature_tail(OBJGPU *pGpu, KernelGsp *pKernelGsp, void *pSignatureVa, MEMORY_DESCRIPTOR *pMemdesc)
 {
     unsigned char *p = (unsigned char *)pSignatureVa;
     NvU32 i;
 
+    // Refuse to touch memory unless the v448 0xf800-byte contract is real.
+    if (pSignatureVa == NULL || pMemdesc == NULL || memdescGetSize(pMemdesc) < 0xf800u)
+        return;
+
     // THE FILL 0x4a7 = from 0x1000 (the past the real signature = the stock
     // INTACT) to 0xf754 — the uniform canary-defeat (the paper).
-    for (i = 0x1000u; i + 4u <= 0xf754u; i += 4u)
+    for (i = 0x1000u; i + 4u <= 0xf800u; i += 4u)
     {
         p[i + 0] = 0xa7; p[i + 1] = 0x04; p[i + 2] = 0x00; p[i + 3] = 0x00;
     }
@@ -86,10 +99,18 @@ v448_patch_signature_tail(OBJGPU *pGpu, KernelGsp *pKernelGsp, void *pSignatureV
     // reads sysmemAddrOfSignature + sizeOfSignature FROM THE WPR META:
     // without this the DMA copies ONLY 0x1000 = the tail = NEVER copied
     // — the v448a miss, the cmpunlocker lines decoded 2026-09-25):
-    if (pKernelGsp != NULL && pKernelGsp->pWprMeta != NULL)
+    if (pKernelGsp != NULL && V448_WPR_META(pKernelGsp) != NULL)
     {
-        pKernelGsp->pWprMeta->sysmemAddrOfSignature =
+        V448_WPR_META(pKernelGsp)->sysmemAddrOfSignature =
             memdescGetPhysAddr(pMemdesc, AT_GPU, 0);
-        pKernelGsp->pWprMeta->sizeOfSignature = memdescGetSize(pMemdesc);
+        V448_WPR_META(pKernelGsp)->sizeOfSignature = memdescGetSize(pMemdesc);
+
+        // The DMA consumes the WPR_META descriptor from memory; flush it after
+        // the re-point, matching the 4.57/reference refill sequence.
+        if (V448_WPR_META_DESC(pKernelGsp) != NULL)
+            memdescFlushCpuCaches(pGpu, V448_WPR_META_DESC(pKernelGsp));
     }
 }
+
+#undef V448_WPR_META_DESC
+#undef V448_WPR_META

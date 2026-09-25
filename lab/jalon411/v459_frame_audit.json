@@ -1,0 +1,124 @@
+{
+ "instrument": "v459_frame_audit",
+ "basis": {
+  "frame_function": "0x101e0a",
+  "frame_size": 1568,
+  "frame_size_hex": "0x0620",
+  "ra_slot": 1560,
+  "ra_slot_hex": "0x0618",
+  "chain_start": 63316,
+  "chain_start_hex": "0xf754",
+  "chain_end": 63480,
+  "chain_end_hex": "0xf7f8",
+  "chain_len": 168,
+  "chain_len_hex": "0xa8"
+ },
+ "proposed_4_58": [
+  {
+   "start": 768,
+   "start_hex": "0x0300",
+   "end_exclusive": 936,
+   "end_exclusive_hex": "0x03a8",
+   "chain_len": 168,
+   "fits_full_chain_in_frame": true,
+   "ra_slot": 1560,
+   "ra_slot_hex": "0x0618",
+   "ra_overwritten": false,
+   "ra_word_source": null,
+   "ra_word_value": null,
+   "ra_kind": "NOT_OVERWRITTEN"
+  },
+  {
+   "start": 1024,
+   "start_hex": "0x0400",
+   "end_exclusive": 1192,
+   "end_exclusive_hex": "0x04a8",
+   "chain_len": 168,
+   "fits_full_chain_in_frame": true,
+   "ra_slot": 1560,
+   "ra_slot_hex": "0x0618",
+   "ra_overwritten": false,
+   "ra_word_source": null,
+   "ra_word_value": null,
+   "ra_kind": "NOT_OVERWRITTEN"
+  },
+  {
+   "start": 1152,
+   "start_hex": "0x0480",
+   "end_exclusive": 1320,
+   "end_exclusive_hex": "0x0528",
+   "chain_len": 168,
+   "fits_full_chain_in_frame": true,
+   "ra_slot": 1560,
+   "ra_slot_hex": "0x0618",
+   "ra_overwritten": false,
+   "ra_word_source": null,
+   "ra_word_value": null,
+   "ra_kind": "NOT_OVERWRITTEN"
+  },
+  {
+   "start": 1280,
+   "start_hex": "0x0500",
+   "end_exclusive": 1448,
+   "end_exclusive_hex": "0x05a8",
+   "chain_len": 168,
+   "fits_full_chain_in_frame": true,
+   "ra_slot": 1560,
+   "ra_slot_hex": "0x0618",
+   "ra_overwritten": false,
+   "ra_word_source": null,
+   "ra_word_value": null,
+   "ra_kind": "NOT_OVERWRITTEN"
+  },
+  {
+   "start": 1408,
+   "start_hex": "0x0580",
+   "end_exclusive": 1576,
+   "end_exclusive_hex": "0x0628",
+   "chain_len": 168,
+   "fits_full_chain_in_frame": false,
+   "ra_slot": 1560,
+   "ra_slot_hex": "0x0618",
+   "ra_overwritten": true,
+   "ra_word_source": "0xf7ec",
+   "ra_word_value": "0x00000000",
+   "ra_kind": "ZERO"
+  }
+ ],
+ "focused_known_gadget_starts": [
+  {
+   "start": 1552,
+   "start_hex": "0x0610",
+   "ra_word_source": "0xf75c",
+   "ra_word_value": "0x00000cbd",
+   "fits_full_chain_in_frame": false
+  },
+  {
+   "start": 1528,
+   "start_hex": "0x05f8",
+   "ra_word_source": "0xf774",
+   "ra_word_value": "0x00001fbd",
+   "fits_full_chain_in_frame": false
+  },
+  {
+   "start": 1480,
+   "start_hex": "0x05c8",
+   "ra_word_source": "0xf7a4",
+   "ra_word_value": "0x00001fbd",
+   "fits_full_chain_in_frame": false
+  },
+  {
+   "start": 1400,
+   "start_hex": "0x0578",
+   "ra_word_source": "0xf7f4",
+   "ra_word_value": "0x00000ccb",
+   "fits_full_chain_in_frame": true
+  }
+ ],
+ "interpretation": {
+  "direct_offset_model": "payload_offset == stack_offset",
+  "status": "MODEL_ONLY \u2014 copy destination bias is still unproven",
+  "notable_candidate": "0x578 starts the chain at an 8-byte-aligned offset, places 0x00000ccb at the saved-RA slot 0x618, and the 0xa8-byte chain ends exactly at 0x620",
+  "next_needed_proof": "establish the copy-destination stack bias before treating any start offset as the machine-day target"
+ }
+}
