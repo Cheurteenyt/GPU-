@@ -385,3 +385,31 @@ PLM-sealed, unobservable; the PLM registers = post-boot readable). The
 next wave = the chain position sweep {0x300-0x580}, one boot per
 position, the binary verdict per boot. The rollback = clean (0 v448
 strings, the firmware c0156954).
+
+## The machine test 4.60 (2026-09-26) — the NVML bypass executed live, the wall advanced and named
+
+The zero-boot zero-patch hot test, executed the same session as the
+merge:
+
+1. **The capture shim worked live**: the LD_PRELOAD capture of the
+   real `-pl 250` = 47 ioctls, the payloads dumped (the ledger = 64
+   lines, saved outside /tmp per the law).
+2. **THE DISCOVERY: the -pl value travels in the 0xFE01 payload**
+   (cmd 0x2080e61e, the mW @offset 4 = 250000 = the 4.23
+   differential confirmed by our own capture; the 0xFE01 = the
+   mapper/clock channel = the 4.22 lesson re-confirmed — the mW
+   = the numeric coincidence).
+3. **THE GET = READ THE POWER LIVE WITHOUT NVML**: the ctypes bypass
+   (the full alloc chain via /dev/nvidiactl) returned
+   [65025, 250000] — the first direct power read of the campaign.
+4. **THE SET 280000 = REJECTED with the progression named**:
+   the stale handle = 0x57 (the invalid object), the fresh subdevice =
+   **0x1F INVALID_ARGUMENT = the value validation kernel-side** — the
+   wall = advanced from "unknown" to "named: the kernel validates the
+   value BEFORE the GSP".
+5. The cmd 0xe61e = FINN closed-only (absent from the entire public
+   source) — the semantics = INDECIDABLE-BY-BYTES.
+
+**The current phase: the kernel-side validation (0x1F) = the wall to
+study — the NVPCF headers (the kernel-side power framework, the open
+source) = the next dig; the RM-side power table = the DC lane.**
