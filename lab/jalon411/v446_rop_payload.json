@@ -1,0 +1,42 @@
+{
+ "what": "4.53 the control lane \u2014 the v446 builder: the fully relocatable layout + the carpet (the machine-day levers)",
+ "mandate": "the r0 hijack = CONFIRMED in silicon; the r1 map = the RA beyond the ctx block (the word >145); the levers = the relocation (L1) + the carpet (L2); the closed ROM = not derivable by bytes \u2014 the try-pattern method",
+ "default_build": {
+  "mode": "carpet/pair",
+  "fill_len": 112,
+  "why_112": "the max r1-swept fill \u2014 the canary zone covered; the carpet = [112, 512) = 400 live entries",
+  "zone": {
+   "spine_entries": 200,
+   "terminals": 200
+  }
+ },
+ "modes": {
+  "chain": "the v445 layout fully relocatable: the ctx/list at ANY word, the chain across the whole window 0-511 (the tail > 145 = the r1 zone), the collisions REFUSED",
+  "carpet/pair": "the spec's cell {spine-entry, terminal} repeated zone-relative \u2014 the odd class = the immediate terminal, the even class = the G40 walk (+8 = the same parity \u2014 measured TR-2)",
+  "carpet/aligned": "the pop-aligned variant: the G40 every 9th word, the +8 pop ALWAYS a terminal \u2014 the one-step capture BOTH classes (the property self-asserted at build time)"
+ },
+ "constants_imported": {
+  "G40": "0x10022a",
+  "TERMINAL": "0x100b3e",
+  "SIZE": "0x1000",
+  "source": "v445_rop_payload_build.py \u2014 zero re-transcription"
+ },
+ "assumptions": {
+  "A5_ra_position": "HYPOTHESE (the r1 map): the copy's RA = a FIXED word > 145, independent of the fill \u2014 the r2a boot = the probe that decides",
+  "A6_residue": "a1/a4/a3 at the carpet capture = the ROM residue \u2014 INDECIDABLE-BY-BYTES; the TR-2 tests model the FAVORABLE block (the A3 discipline), the wild write = named (W2)",
+  "A2_fill": "the zero-canary (the freestanding ROM, no RNG) \u2014 the 0x4a7 alternative = the r1-swept, both spin"
+ },
+ "meta": {
+  "mode": "carpet",
+  "carpet_mode": "pair",
+  "fill_len": 112,
+  "fill_value": 0,
+  "carpet_start": 112,
+  "zone_words": 400,
+  "spine_entries": 200,
+  "terminals": 200,
+  "named_negative": "the walk cell + the ctx = NOT placed: the primitive's operands at the carpet stage = the ROM residue (a1 wild, a4 INDECIDABLE) \u2014 the r2a outcome = the MAP, not the writes"
+ },
+ "sha256": "e9f3c23388d5c474b8c594bb88c9b27673716d0c4ad250ab684a921486c60638",
+ "size": 4096
+}
