@@ -160,6 +160,24 @@ patch)
     || { say "  REFUSÉ: the copy failed"; exit 1; }
   cp "$LOG/gsp_hpoke_plan.h" "$SRC/src/nvidia/src/kernel/gpu/gsp/" \
     || { say "  REFUSÉ: the plan copy failed"; exit 1; }
+  # ---- the 4.55 addition: the nv.c side (the two-sided conversion) ----
+  # the RM TU = clean since 4.55 (zero linux headers); the delayed work
+  # + the dmesg ledger live in kernel-open/nvidia/nv.c. WITHOUT this
+  # patch the dkms build STILL PASSES but the late fn is never called
+  # (the silent no-op — worse than a build fail), so the marker = a
+  # HARD REFUSAL below.
+  NVC="$SRC/kernel-open/nvidia/nv.c"
+  [ -f "$NVC" ] || { say "  REFUSÉ: $NVC absent"; exit 1; }
+  if grep -q "HpokeMarker" "$NVC"; then
+    say "  the nv.c side ALREADY patched (idempotent re-run)"
+  else
+    say "  applying patch_nv_452.py (the HpokeMarker — coexists with the"
+    say "  4.51 DmemDumpMarker, either order):"
+    sudo python3 "$REPO/tools/edpp/patch_nv_452.py" \
+      || { say "  REFUSÉ: the nv.c patch failed"; exit 1; }
+  fi
+  grep -q "HpokeMarker" "$NVC" \
+    || { say "  REFUSÉ: the HpokeMarker ABSENT from nv.c — the poke would be a"; say "         silent no-op; apply patch_nv_452.py before the dkms"; exit 1; }
   if grep -q "gsp_hpoke_schedule" "$KGSP"; then
     say "  the hook line ALREADY present (idempotent re-run)"
   else
@@ -226,6 +244,7 @@ verify-revert)
 verdict|rollback)
   say "§6 the rollback checklist (the DRIVER ONLY)"
   say "  git -C $SRC checkout -- src/nvidia/src/kernel/gpu/gsp/kernel_gsp.c"
+  say "  git -C $SRC checkout -- kernel-open/nvidia/nv.c   # the 4.55 HpokeMarker (and the 4.51 DmemDumpMarker) leave together"
   say "  rm -f $SRC/src/nvidia/src/kernel/gpu/gsp/gsp_hpoke.c"
   say "  rm -f $SRC/src/nvidia/src/kernel/gpu/gsp/gsp_hpoke_plan.h"
   say "  rm -f $SRC/src/nvidia/src/kernel/gpu/gsp/gsp_dmem_dump.c   # if 4.51 also reverts"
