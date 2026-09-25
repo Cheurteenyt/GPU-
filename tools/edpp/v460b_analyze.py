@@ -124,9 +124,12 @@ def main():
             alloc_chain.append(h)
             nm = {0x0: "NV01_ROOT", 0x80: "NV01_DEVICE_0",
                   0x2080: "NV20_SUBDEVICE_0"}.get(c.get("hClass"), "?")
+            hnew = h.get("hNew")
+            stat = h.get("status")
             print(f"[alloc]   {nm} hClass=0x{c.get('hClass', 0):x} "
-                  f"hNew=0x{h['hNew']:08x} status=0x{h['status']:08x} "
-                  f"({NVSTATUS.get(h['status'], '?')})")
+                  f"hNew={('0x%08x' % hnew) if hnew is not None else 'None'} "
+                  f"status={('0x%08x' % stat) if stat is not None else 'None'} "
+                  f"({NVSTATUS.get(stat, '?') if stat is not None else '?'})")
             if c.get("hClass") == 0x80:
                 handles["hDevice"] = h["hNew"]
             elif c.get("hClass") == 0x2080:

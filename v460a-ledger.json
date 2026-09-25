@@ -1,0 +1,169 @@
+[
+ {
+  "step": "open",
+  "path": "/dev/nvidiactl",
+  "fd": 3,
+  "t": "2026-09-26T00:50:27+0200"
+ },
+ {
+  "step": "open",
+  "path": "/dev/nvidia0",
+  "fd": 4,
+  "t": "2026-09-26T00:50:27+0200"
+ },
+ {
+  "step": "register_fd",
+  "ctl_fd": 3,
+  "rc": 0,
+  "errno": 0,
+  "t": "2026-09-26T00:50:27+0200"
+ },
+ {
+  "step": "version_check",
+  "mode": "STRICT",
+  "want": "610.57.04",
+  "reply": 1,
+  "rc": 0,
+  "errno": 0,
+  "t": "2026-09-26T00:50:27+0200"
+ },
+ {
+  "step": "alloc",
+  "name": "NV01_ROOT",
+  "hClass": 0,
+  "hParent": 0,
+  "paramsSize": 120,
+  "params_hex": "a801d0c125d8010076343630610000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "hObjectNew": 3251634600,
+  "status": 0,
+  "rc": 0,
+  "errno": 0,
+  "t": "2026-09-26T00:50:27+0200",
+  "handle": 3251634600
+ },
+ {
+  "step": "alloc",
+  "name": "NV01_DEVICE_0",
+  "hClass": 128,
+  "hParent": 3251634600,
+  "paramsSize": 56,
+  "params_hex": "00000000a801d0c1a801d0c10000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "hObjectNew": 3404726272,
+  "status": 0,
+  "rc": 0,
+  "errno": 0,
+  "t": "2026-09-26T00:50:27+0200",
+  "handle": 3404726272
+ },
+ {
+  "step": "alloc",
+  "name": "NV20_SUBDEVICE_0",
+  "hClass": 8320,
+  "hParent": 3404726272,
+  "paramsSize": 4,
+  "params_hex": "01000000",
+  "hObjectNew": 3404726273,
+  "status": 0,
+  "rc": 0,
+  "errno": 0,
+  "t": "2026-09-26T00:50:27+0200",
+  "handle": 3404726273
+ },
+ {
+  "step": "control",
+  "cmd": 545318430,
+  "hObject": 3404726272,
+  "flags": 0,
+  "paramsSize": 12,
+  "params_after": "01fe000090d0030000000000",
+  "status": 86,
+  "rc": 0,
+  "errno": 0,
+  "t": "2026-09-26T00:50:27+0200"
+ },
+ {
+  "step": "get_before",
+  "cmd": 545318430,
+  "status": 86,
+  "mw_class": [
+   65025,
+   250000
+  ],
+  "t": "2026-09-26T00:50:27+0200"
+ },
+ {
+  "step": "control",
+  "cmd": 545318430,
+  "hObject": 3404726273,
+  "flags": 0,
+  "paramsSize": 12,
+  "params_after": "01fe0000c045040000000000",
+  "status": 31,
+  "rc": 0,
+  "errno": 0,
+  "t": "2026-09-26T00:50:27+0200"
+ },
+ {
+  "step": "set",
+  "mode": "table",
+  "cmd": 545318430,
+  "mw": 280000,
+  "offsets": [
+   4
+  ],
+  "status": 31,
+  "status_name": "NV_ERR_INVALID_ARGUMENT",
+  "t": "2026-09-26T00:50:27+0200"
+ },
+ {
+  "step": "control",
+  "cmd": 545318430,
+  "hObject": 3404726272,
+  "flags": 0,
+  "paramsSize": 12,
+  "params_after": "01fe000090d0030000000000",
+  "status": 86,
+  "rc": 0,
+  "errno": 0,
+  "t": "2026-09-26T00:50:27+0200"
+ },
+ {
+  "step": "get_after",
+  "cmd": 545318430,
+  "status": 86,
+  "mw_class": [
+   65025,
+   250000
+  ],
+  "t": "2026-09-26T00:50:27+0200"
+ },
+ {
+  "step": "verdict",
+  "verdict": "MUR_KERNEL/X86-RM : le SET rejeté par le kernel (NV_ERR_INVALID_ARGUMENT (0x0000001F)) — le mur = AVANT le GSP, nommé",
+  "t": "2026-09-26T00:50:27+0200"
+ },
+ {
+  "step": "free",
+  "name": "SUBDEVICE",
+  "hObjectOld": 3404726273,
+  "status": 0,
+  "rc": -1,
+  "t": "2026-09-26T00:50:27+0200"
+ },
+ {
+  "step": "free",
+  "name": "DEVICE",
+  "hObjectOld": 3404726272,
+  "status": 0,
+  "rc": -1,
+  "t": "2026-09-26T00:50:27+0200"
+ },
+ {
+  "step": "free",
+  "name": "ROOT",
+  "hObjectOld": 3251634600,
+  "status": 0,
+  "rc": -1,
+  "t": "2026-09-26T00:50:27+0200"
+ }
+]
