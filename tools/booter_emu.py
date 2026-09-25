@@ -710,6 +710,307 @@ def test_rop():
     return 0 if n_pass == len(results) else 1
 
 
+def test_rop2():
+    """4.53 TÂCHE 4 — the TR-2 suite: the v446 RELOCATABLE layout + the
+    CARPET, on the REAL booter image. The existing batteries (5/5,
+    TT 11/11, TR 18/18, TF 9/9, TT-T 5/5) = REPRODUCED FIRST (the pass
+    discipline) — this suite = the NEW green on top.
+
+    TR2-A the reproduction guard: the committed v445 payload = the
+          banked sha (4ee1f973…) — the substrate unchanged.
+    TR2-B the RELOCATION: the ctx @word 0x100 + the list @word 0x110
+          (the words the v445 layout could NOT use) — the chain walks,
+          the primitive reads the ctx AT THE NEW ADDRESS (the slot
+          increments there), the walk cell = &list[0] @0x110 — the
+          relocation = TRANSPARENT to the bytes' semantics.
+    TR2-C the TAIL CHAIN: the chain slot @word 200 (the r1 zone, the
+          word > 145 the v445 could never reach) — the spine marches
+          200→208→216→224, the primitive fires — the tail = alive.
+    TR2-D the PAIR carpet: the RA sweep over the carpet zone — the
+          odd class = the IMMEDIATE capture (the terminal fires, the
+          counter bumps), the even class = the G40 walk (+8 = the same
+          parity — the march measured, write-free), the window-end
+          even = the NAMED zone-exit (the march pops beyond the 4 KB
+          = the ROM garbage) — every RA word = a live entry or the
+          named exit, ZERO strays (the map = the classes).
+    TR2-E the ALIGNED carpet: the same sweep — EVERY word = the
+          one-step capture (the G40's +8 pop = ALWAYS a terminal, the
+          property the builder self-asserts) — [dest] = 1 for ALL.
+    TR2-F the committed v446 .bin = the builder re-run (the freshness;
+          the byte-exact C = the builder selftest, 3/3 plans).
+
+    The modeled residue block (the A3 discipline — the day = R0/R2):
+    a1 = the scratch (the wild W2), a4 = the modeled ctx block OUTSIDE
+    the payload (the carpet = no ctx — the named negative), a3 = 1,
+    a0 = the RAW path, a7 = 0.
+    """
+    import hashlib
+    import importlib.util
+    lab = Path(__file__).resolve().parent.parent / "lab/jalon411"
+
+    spec = importlib.util.spec_from_file_location(
+        "v446_build", lab / "v446_rop_payload_build.py")
+    B = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(B)
+
+    img = load_image()
+    results = []
+
+    def check(name, cond, detail=""):
+        results.append((name, bool(cond), detail))
+        print(f"[{'PASS' if cond else 'FAIL'}] {name} {detail}")
+
+    PAY = 0x16A000
+    SCRATCH = 0x168000
+    DEST = 0x161000
+    CTX2 = 0x162000          # the modeled ctx OUTSIDE the payload
+    TERMINAL, G40 = B.TERMINAL, B.G40
+    G40_RET = 0x10023A       # the ret INSIDE the G40 epilogue (4.45)
+
+    def lay(payload):
+        e = Emu(img)
+        for i, b in enumerate(payload):
+            e.mem[PAY - 0x100000 + i] = b
+        return e
+
+    def model_ctx(a4_base, slot0=1, cap=0x40, dest=DEST, magic=0x08):
+        # THE TR-2 DISCOVERY (the bytes, not the TT-A comment alone):
+        # the primitive's ctx = a4-RELATIVE with the BYTE-FIXED offsets
+        # (the slot @a4+0x488, the dest @a4+0x498) — the v445's ctx
+        # @the word 0x91 = the byte 0x488 = the CONJUGATION a4 = PAY.
+        # The ctx relocation = the (ctx_off, a4) PAIR: the builder
+        # places the words, the consumer conjugates a4 = PAY +
+        # ctx_off*8 - 0x488. The walk cell + the list = FREE (sp+8).
+        e.mem[a4_base + 0x488 - 0x100000: a4_base + 0x4A8 - 0x100000] = \
+            b"".join(x.to_bytes(8, "little")
+                     for x in (slot0, cap, dest, magic))
+
+    def hijack_at(e, word):
+        # the modeled return: pc = the payload word[w] (the popped ra),
+        # sp = the slot AFTER (the bare-ret model, the 4.45 discipline)
+        e.regs[2] = PAY + (word + 1) * 8
+        e.pc = int.from_bytes(
+            e.mem[PAY - 0x100000 + word * 8:PAY - 0x100000 + word * 8 + 8],
+            "little")
+
+    def model(e, a3=1):
+        e.regs[REG_NAMES.index("a0")] = M - 1
+        e.regs[REG_NAMES.index("a3")] = a3
+        e.regs[REG_NAMES.index("a7")] = 0
+        e.regs[REG_NAMES.index("a1")] = SCRATCH
+        e.regs[REG_NAMES.index("a4")] = CTX2
+
+    # ---- TR2-A: the v445 substrate = the banked sha ----
+    v445 = (lab / "v445_rop_payload.bin").read_bytes()
+    check("TR2-A the committed v445 = the banked sha 4ee1f973…",
+          hashlib.sha256(v445).hexdigest()[:16] == "4ee1f9737004f5cd",
+          hashlib.sha256(v445).hexdigest()[:16])
+
+    # ---- TR2-B: the RELOCATED chain (the ctx @0x100, the list @0x110) --
+    p, m = B.build_chain(fill_len=64, hops=3, dest=DEST, base_addr=PAY,
+                         valeurs=(0x112, 0x113), ctx_off=0x100,
+                         list_off=0x110)
+    e = lay(p)
+    hijack_at(e, 64)
+    e.stop_at = {TERMINAL}
+    e.run(budget=200)
+    spine_ok = e.pc == TERMINAL and e.regs[2] == PAY + 65 * 8 + 0x40 * 3
+    walk_cell_addr = PAY + 65 * 8 + 0x40 * 3 + 8
+    walk0 = e.rmem(walk_cell_addr, 8)      # BEFORE the primitive
+    A4 = PAY + 0x100 * 8 - 0x488     # the CONJUGATED a4 (the discovery)
+    e.regs[REG_NAMES.index("a0")] = M - 1
+    e.regs[REG_NAMES.index("a3")] = 2
+    e.regs[REG_NAMES.index("a7")] = 0
+    e.regs[REG_NAMES.index("a1")] = SCRATCH
+    e.regs[REG_NAMES.index("a4")] = A4
+    e.stop_at = set()
+    e.stop_pred = lambda emu: emu.rmem(DEST, 8) == 2
+    e.run(budget=400)
+    check("TR2-B the spine -> the terminal (the relocated layout)",
+          spine_ok, f"pc={e.pc:#x}")
+    check("TR2-B the walk cell (pre) = &list[0] @word 0x110 (FREE)",
+          walk0 == PAY + 0x110 * 8, f"{walk0:#x}")
+    check("TR2-B the walk cell (post) = advanced 2 loads = &list[2]",
+          e.rmem(walk_cell_addr, 8) == PAY + 0x110 * 8 + 16,
+          f"{e.rmem(walk_cell_addr, 8):#x}")
+    check("TR2-B the ctx = a4-RELATIVE: the slot @A4+0x488 = the word "
+          "0x100 = slot0+2",
+          e.rmem(PAY + 0x100 * 8, 8) == 3,
+          f"slot={e.rmem(PAY + 0x800, 8)}")
+    check("TR2-B the counter [dest] = 2", e.rmem(DEST, 8) == 2)
+    check("TR2-B the scatter #2 = [dest+(slot0+1)*8] = v2",
+          e.rmem(DEST + (1 + 1) * 8, 8) == 0x113,
+          f"{e.rmem(DEST + 16, 8):#x}")
+
+    # ---- TR2-C: the TAIL chain @word 200 (the r1 zone) ----
+    pt, mt = B.build_chain(fill_len=200, hops=3, dest=DEST, base_addr=PAY)
+    e = lay(pt)
+    hijack_at(e, 200)
+    e.stop_at = {TERMINAL}
+    e.run(budget=200)
+    tail_ok = e.pc == TERMINAL and e.regs[2] == PAY + 201 * 8 + 0x40 * 3
+    # the ctx @the default 0x91 = the conjugation a4 = PAY (the byte
+    # 0x488 = the word 0x91) — the heritage alignment, intact
+    e.regs[REG_NAMES.index("a0")] = M - 1
+    e.regs[REG_NAMES.index("a3")] = 1
+    e.regs[REG_NAMES.index("a7")] = 0
+    e.regs[REG_NAMES.index("a1")] = SCRATCH
+    e.regs[REG_NAMES.index("a4")] = PAY
+    e.stop_at = set()
+    e.stop_pred = lambda emu: emu.rmem(DEST, 8) == 1
+    e.run(budget=400)
+    check("TR2-C the tail chain @200 marches to the terminal",
+          tail_ok, f"pc={e.pc:#x} sp={e.regs[2]:#x}")
+    check("TR2-C the tail primitive fires (the counter [dest] = 1)",
+          e.rmem(DEST, 8) == 1 and not e.fail, f"fail={e.fail}")
+
+    # ---- TR2-D: the PAIR carpet — the RA sweep, the classes ----
+    pcp, mcp = B.build_carpet(fill_len=112, mode="pair")
+    # the modeled ctx OUTSIDE the payload (the carpet places none — the
+    # named negative); the fields = @CTX2+0x488 (the a4-RELATIVE law)
+    def model(e, a3=1):
+        model_ctx(CTX2)
+        e.regs[REG_NAMES.index("a0")] = M - 1
+        e.regs[REG_NAMES.index("a3")] = a3
+        e.regs[REG_NAMES.index("a7")] = 0
+        e.regs[REG_NAMES.index("a1")] = SCRATCH
+        e.regs[REG_NAMES.index("a4")] = CTX2
+    sweep = sorted(set(range(112, 512, 17)) | {112, 113, 508, 509, 510, 511})
+    captured, walked, exited, strays = 0, 0, 0, []
+    tail = [wpos for wpos in sweep if wpos + 2 > 511]   # {510, 511}:
+    tail_named = 0                   # the walk cell [sp+8] = BEYOND
+    inwin = [wpos for wpos in sweep if wpos + 2 <= 511]
+    n_odd = sum(1 for wpos in inwin if wpos % 2 == 1)
+    n_even = len(inwin) - n_odd
+    for wpos in sweep:
+        e = lay(pcp)
+        hijack_at(e, wpos)
+        model(e)
+        sp0 = e.regs[2]
+        is_term = e.pc == TERMINAL
+        e.stop_at = set()
+        e.stop_pred = (lambda emu: emu.rmem(DEST, 8) == 1) if is_term else (
+            lambda emu: (emu.regs[2] - sp0) >= 0x40 * 5)
+        try:
+            e.run(budget=500)
+        except MemoryError:
+            if wpos in tail:
+                tail_named += 1     # the named tail (the walk cell beyond)
+            else:
+                exited += 1         # the march popped beyond mid-walk
+            continue
+        if e.fail:
+            if wpos in tail:
+                tail_named += 1     # the load fault = the same tail class
+            else:
+                strays.append((wpos, f"fail={e.fail}"))
+        elif e.rmem(DEST, 8) == 1:
+            captured += 1
+        elif (e.regs[2] - sp0) == 0x40 * 5 and \
+                e.pc in (G40, G40_RET):
+            # the march: 5 full 0x40 hops; the stop pc = the epilogue's
+            # ENTRY or its ret (0x10023a — the 4.45 banked "the slots =
+            # the ENTRIES" lesson: the walk = INSIDE the epilogue)
+            walked += 1
+        else:
+            strays.append((wpos, f"pc={e.pc:#x} dest={e.rmem(DEST, 8)}"))
+    check("TR2-D the odd class = 100% the IMMEDIATE capture (the "
+          "terminal fires, the counter bumps)",
+          captured == n_odd, f"captured={captured}/{n_odd} odd")
+    check("TR2-D the even class = the G40 march or the named zone-exit",
+          walked + exited == n_even, f"walked={walked} exited={exited} "
+          f"/{n_even} even")
+    check("TR2-D the interior march = live (the spine walks in-zone)",
+          walked >= 8, f"walked={walked}")
+    check("TR2-D the zone-exit = the boundary reality (named, bounded)",
+          1 <= exited <= 4, f"exited={exited}")
+    check("TR2-D the tail 2 = the NAMED class (the walk cell beyond the "
+          "window)", tail_named == 2, f"named={tail_named}")
+    check("TR2-D ZERO strays (every RA word = a live entry or a named "
+          "class)", not strays, f"{strays[:3]}")
+    # the capture MECHANICS: the walk cell = [sp+8] = the word w+2 —
+    # the carpet word there = a LIVE entry value (an address in the
+    # booter image) -> the wild write = the 8 bytes AT that address
+    e = lay(pcp)
+    wpos = 113                       # the zone-odd = the terminal first
+    hijack_at(e, wpos)
+    model(e)
+    e.stop_at = set()
+    e.stop_pred = lambda emu: emu.rmem(DEST, 8) == 1
+    e.run(budget=500)
+    walkptr = int.from_bytes(
+        pcp[(wpos + 2) * 8:(wpos + 2) * 8 + 8], "little")
+    img_val = int.from_bytes(
+        img[walkptr - 0x100000: walkptr - 0x100000 + 8], "little")
+    check("TR2-D the capture mechanics: the walk cell = the word w+2 "
+          "(a live entry), the wild write = the image bytes at it",
+          e.rmem(SCRATCH, 8) == img_val,
+          f"[scratch]={e.rmem(SCRATCH, 8):#x} img@{walkptr:#x}={img_val:#x}")
+
+    # ---- TR2-E: the ALIGNED carpet — the one-step capture, ALL ----
+    pca, mca = B.build_carpet(fill_len=112, mode="aligned")
+    cap_all, bad_all = 0, []
+    tail_named = 0                   # the T @509..511: the walk cell
+    for wpos in sweep:               # w+2 = BEYOND the window (named)
+        e = lay(pca)
+        hijack_at(e, wpos)
+        model(e)
+        if wpos + 2 > 511:
+            # the aligned carpet's LAST TWO terminals: the walk cell
+            # [sp+8] = beyond the 4 KB = the ROM garbage -> the load
+            # faults — the named boundary class (the builder's pop
+            # property covers the G40s; the tail T's walk cell = the
+            # window edge — the honest limit, never hidden)
+            e.stop_at = set()
+            e.stop_pred = lambda emu: False
+            try:
+                e.run(budget=200)
+            except MemoryError:
+                tail_named += 1
+                continue
+            if e.fail:
+                tail_named += 1
+                continue
+            bad_all.append((wpos, "tail silent"))
+            continue
+        e.stop_at = set()
+        e.stop_pred = lambda emu: emu.rmem(DEST, 8) == 1
+        try:
+            e.run(budget=500)
+        except MemoryError:
+            bad_all.append((wpos, "MemoryError"))
+            continue
+        if e.fail:
+            bad_all.append((wpos, f"fail={e.fail}"))
+        elif e.rmem(DEST, 8) == 1:
+            cap_all += 1
+        else:
+            bad_all.append((wpos, f"pc={e.pc:#x}"))
+    check("TR2-E the aligned carpet: 100% of the in-window sweep = the "
+          "one-step capture",
+          cap_all == len(sweep) - 2, f"{cap_all}/{len(sweep) - 2}")
+    check("TR2-E the tail 2 = the NAMED boundary class (the walk cell "
+          "beyond the window)", tail_named == 2, f"named={tail_named}")
+    check("TR2-E ZERO strays", not bad_all, f"{bad_all[:3]}")
+
+    # ---- TR2-F: the committed v446 .bin = the builder re-run ----
+    import subprocess as _sp
+    v446_bin = (lab / "v446_rop_payload.bin").read_bytes()
+    regen, _m = B.build_carpet(fill_len=112, mode="pair")
+    check("TR2-F the committed v446 = the builder re-run (the freshness)",
+          v446_bin == regen, f"{len(v446_bin)} B")
+    r = _sp.run(["python3", str(lab / "v446_rop_payload_build.py"),
+                 "--selftest"], capture_output=True, text=True)
+    last = [l for l in r.stdout.strip().splitlines() if l][-1]
+    check("TR2-F the v446 selftest = 28/28 (the invariants + the tree "
+          "guard + the byte-exact C)", r.returncode == 0 and "28/28" in last,
+          last)
+
+    n_pass = sum(1 for _, ok, _ in results if ok)
+    print(f"test-rop2: {n_pass}/{len(results)} PASS")
+    return 0 if n_pass == len(results) else 1
+
+
 def test_transfer():
     """4.42 TÂCHE 4 — la validation émulateur de la transfer-list.
 
@@ -1031,12 +1332,16 @@ def main():
                     help="4.44: la chaîne v444 sur l'image réelle (TF-A..C)")
     ap.add_argument("--test-rop", action="store_true",
                     help="4.45: la chaîne ROP débordante sur l'image réelle (TR-A..E)")
+    ap.add_argument("--test-rop2", action="store_true",
+                    help="4.53: the v446 relocatable layout + the carpet (TR2-A..F)")
     ap.add_argument("--test-timings", action="store_true",
                     help="4.50: le scénario timing LHR/launch sur la transfer-list (TT-T1..T4)")
     ap.add_argument("--selftest", action="store_true")
     a = ap.parse_args()
     if a.test_rop:
         return test_rop()
+    if a.test_rop2:
+        return test_rop2()
     if a.test_444:
         return test_444()
     if a.test_transfer:
