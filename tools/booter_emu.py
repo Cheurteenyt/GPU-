@@ -1317,6 +1317,190 @@ def selftest():
     return 1 if fails else 0
 
 
+def test_rop3():
+    """4.56 TÂCHE T2 — the TR-3 suite: the v447 r2b WRITE chain on the
+    REAL booter image. The existing batteries REPRODUCED FIRST (the pass
+    discipline — runbook-456 gates on them); this suite = the NEW green
+    on top.
+
+    TR3-A the guards: the v447 selftest (the gate in code, the geometry,
+          the C byte-exact) = 17/17 via subprocess.
+    TR3-B the SCATTER E2E (a3=8, the modeled residue a1 = the scratch):
+          the spine -> the terminal, the primitive fires 8 writes:
+          the wild [scratch] <- V0; the ring [B+8..B+56] <- V1..V7 (the
+          slots 2..8 — the REAL loop semantics, the a1 recomputed from
+          the ctx at EVERY iteration: 100b2e ld a6,0x488(a4) / 100b32 ld
+          a1,0x498(a4) / 100b36 slli 3 / 100b38 add / 100b48 sd);
+          the counter [B-8] += 8 (the 100b6e-76 exit bump); [B] = the
+          slot 1 = SKIPPED (the named hole — the pre-existing image
+          value must SURVIVE).
+    TR3-C the A3-FAVORABLE variant: a1 = B (the residue = the block
+          base, the 4.44 a1 = dest+8 conjugation): [B] <- V0 — the FULL
+          block V0..V7 lands, the ring completes it.
+    TR3-D the SURGICAL E2E (a3=1): [scratch] <- V; the counter
+          [home] += 1; the slot advanced.
+    TR3-E the GATE refusal at the battery level: the v447 CLI without
+          the verdict = exit 2 (the mission's guard, demonstrated).
+    TR3-F the freshness: the committed v446 .bin = the builder re-run
+          (the TR2-F guard intact).
+
+    The modeled MMIO window (the A3 discipline — the day = the runbook):
+    B = 0x164000 (the modeled RAM window standing in for the raw MMIO
+    block — the GSP data-space decode = INDECIDABLE, the builder is
+    address-agnostic, the TEST conjugates); the counter cell and the
+    block pre-zeroed by the test (the image bytes there = non-zero —
+    the oracles need the known base).
+    """
+    import importlib.util
+    import subprocess as _sp
+    lab = Path(__file__).resolve().parent.parent / "lab/jalon411"
+
+    spec = importlib.util.spec_from_file_location(
+        "v447_build", lab / "v447_rop_write_build.py")
+    B447 = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(B447)
+
+    img = load_image()
+    results = []
+
+    def check(name, cond, detail=""):
+        results.append((name, bool(cond), detail))
+        print(f"[{'PASS' if cond else 'FAIL'}] {name} {detail}")
+
+    PAY = 0x16A000
+    SCRATCH = 0x168000
+    TERMINAL = B447.TERMINAL
+    B = 0x164000                     # the modeled MMIO block base
+    HOME = 0x163000                  # the surgical counter home
+    FILL_LEN = 112
+    V = [0x10B07600 + k for k in range(8)]   # V0..V7 (the 280 W family)
+
+    synth = B447.synthetic_verdict(offset=B)
+
+    def lay(payload, zero_block=True):
+        e = Emu(img)
+        for i, b in enumerate(payload):
+            e.mem[PAY - 0x100000 + i] = b
+        if zero_block:
+            e.wmem(B - 8, 8, 0)      # the counter cell = 0
+            for k in range(8):
+                e.wmem(B + k * 8, 8, 0)   # the block = 0 (the oracles)
+        e.wmem(HOME, 8, 0)
+        return e
+
+    def hijack_at(e, word):
+        e.regs[2] = PAY + (word + 1) * 8
+        e.pc = int.from_bytes(
+            e.mem[PAY - 0x100000 + word * 8:PAY - 0x100000 + word * 8 + 8],
+            "little")
+
+    def to_terminal(e):
+        hijack_at(e, FILL_LEN)
+        e.stop_at = {TERMINAL}
+        e.run(budget=200)
+        return e.pc == TERMINAL and e.regs[2] == PAY + (FILL_LEN + 1) * 8 \
+            + 0x40 * 3
+
+    def model(e, a3, a1, a4=PAY):
+        e.regs[REG_NAMES.index("a0")] = M - 1
+        e.regs[REG_NAMES.index("a3")] = a3
+        e.regs[REG_NAMES.index("a7")] = 0
+        e.regs[REG_NAMES.index("a1")] = a1
+        e.regs[REG_NAMES.index("a4")] = a4
+
+    # ---- TR3-A: the v447 selftest (the gate + the geometry + the C) ----
+    r = _sp.run(["python3", str(lab / "v447_rop_write_build.py"),
+                 "--selftest"], capture_output=True, text=True)
+    last = [l for l in r.stdout.strip().splitlines() if l][-1]
+    check("TR3-A the v447 selftest = 17/17 (the gate in code, the "
+          "geometry, the C byte-exact)",
+          r.returncode == 0 and "17/17" in last, last)
+
+    # ---- TR3-B: the SCATTER E2E (the modeled residue = the scratch) ----
+    p, d = B447.build_write(mode="scatter", block_base=B, values=V,
+                            verdict_doc=synth, base_addr=PAY)
+    e = lay(p)
+    term_ok = to_terminal(e)
+    check("TR3-B the spine -> the terminal (the v447 layout @112)",
+          term_ok, f"pc={e.pc:#x}")
+    model(e, a3=8, a1=SCRATCH, a4=PAY)
+    e.stop_at = set()
+    e.stop_pred = lambda emu: emu.rmem(B - 8, 8) == 8
+    e.run(budget=600)
+    check("TR3-B the wild #1 = [scratch] <- V0 (the residue = the "
+          "scratch, W2 modeled)",
+          e.rmem(SCRATCH, 8) == V[0], f"{e.rmem(SCRATCH, 8):#x}")
+    check("TR3-B the ring [B+8] = V1 (the slot 2 — the a1 recomputed "
+          "from the ctx)",
+          e.rmem(B + 8, 8) == V[1], f"{e.rmem(B + 8, 8):#x}")
+    check("TR3-B the ring [B+0x38] = V7 (the slot 8)",
+          e.rmem(B + 0x38, 8) == V[7], f"{e.rmem(B + 0x38, 8):#x}")
+    check("TR3-B the SLOT 1 hole: [B] = 0 (the pre-existing value "
+          "SURVIVES — the named hole)",
+          e.rmem(B, 8) == 0, f"[B]={e.rmem(B, 8):#x}")
+    check("TR3-B the counter [B-8] = 8 (the exit bump, the stop "
+          "predicate)",
+          e.rmem(B - 8, 8) == 8, f"{e.rmem(B - 8, 8)}")
+    check("TR3-B the ctx slot advanced to 9 (the @0x91 word, the "
+          "a4 = PAY conjugation)",
+          e.rmem(PAY + 0x488, 8) == 9, f"{e.rmem(PAY + 0x488, 8)}")
+    check("TR3-B the walk cell advanced 8 loads = &list[8]",
+          e.rmem(PAY + (FILL_LEN + 1) * 8 + 0x40 * 3 + 8, 8)
+          == PAY + 0xA0 * 8 + 8 * 8)
+
+    # ---- TR3-C: the A3-FAVORABLE variant (the residue = B) --------------
+    e = lay(p)
+    to_terminal(e)
+    model(e, a3=8, a1=B, a4=PAY)     # the residue = the block base
+    e.stop_at = set()
+    e.stop_pred = lambda emu: emu.rmem(B - 8, 8) == 8
+    e.run(budget=600)
+    full_ok = all(e.rmem(B + k * 8, 8) == V[k] for k in range(8))
+    check("TR3-C the FULL block V0..V7 lands ([B] via the wild, "
+          "[B+8..B+56] via the ring)",
+          full_ok, " ".join(f"{e.rmem(B + k * 8, 8):#x}"
+                            for k in range(8)))
+    check("TR3-C the counter = 8, no double bump",
+          e.rmem(B - 8, 8) == 8)
+
+    # ---- TR3-D: the SURGICAL E2E (a3=1, the v454d continuity) -----------
+    p2, d2 = B447.build_write(mode="surgical", values=[V[0]],
+                              verdict_doc=synth, counter_home=HOME,
+                              base_addr=PAY)
+    e = lay(p2)
+    to_terminal(e)
+    model(e, a3=1, a1=SCRATCH, a4=PAY)
+    e.stop_at = set()
+    e.stop_pred = lambda emu: emu.rmem(HOME, 8) == 1
+    e.run(budget=300)
+    check("TR3-D the surgical [scratch] = V (the single write)",
+          e.rmem(SCRATCH, 8) == V[0], f"{e.rmem(SCRATCH, 8):#x}")
+    check("TR3-D the counter [home] = 1", e.rmem(HOME, 8) == 1)
+
+    # ---- TR3-E: the GATE refusal at the battery level -------------------
+    r = _sp.run(["python3", str(lab / "v447_rop_write_build.py"),
+                 "--mode", "scatter", "--block", f"{B:#x}",
+                 "--values"] + [str(v) for v in V],
+                capture_output=True, text=True)
+    check("TR3-E the v447 CLI without the verdict = exit 2 (the "
+          "mission's guard demonstrated)",
+          r.returncode == 2 and "REFUS" in r.stdout, f"exit={r.returncode}")
+
+    # ---- TR3-F: the freshness (the TR2-F guard intact) ------------------
+    v446_bin = (lab / "v446_rop_payload.bin").read_bytes()
+    spec446 = importlib.util.spec_from_file_location(
+        "v446_build", lab / "v446_rop_payload_build.py")
+    B446 = importlib.util.module_from_spec(spec446)
+    spec446.loader.exec_module(B446)
+    regen, _m = B446.build_carpet(fill_len=112, mode="pair")
+    check("TR3-F the committed v446 = the builder re-run (the "
+          "freshness)", v446_bin == regen, f"{len(v446_bin)} B")
+
+    n_pass = sum(1 for _, ok, _ in results if ok)
+    print(f"test-rop3: {n_pass}/{len(results)} PASS")
+    return 0 if n_pass == len(results) else 1
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--image", default=None, help="bootloader.bin alternatif (patché)")
@@ -1334,6 +1518,8 @@ def main():
                     help="4.45: la chaîne ROP débordante sur l'image réelle (TR-A..E)")
     ap.add_argument("--test-rop2", action="store_true",
                     help="4.53: the v446 relocatable layout + the carpet (TR2-A..F)")
+    ap.add_argument("--test-rop3", action="store_true",
+                    help="4.56: the v447 r2b write chain — the scatter a3=8 + the gate (TR3-A..F)")
     ap.add_argument("--test-timings", action="store_true",
                     help="4.50: le scénario timing LHR/launch sur la transfer-list (TT-T1..T4)")
     ap.add_argument("--selftest", action="store_true")
@@ -1342,6 +1528,8 @@ def main():
         return test_rop()
     if a.test_rop2:
         return test_rop2()
+    if a.test_rop3:
+        return test_rop3()
     if a.test_444:
         return test_444()
     if a.test_transfer:
