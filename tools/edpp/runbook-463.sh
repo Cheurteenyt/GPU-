@@ -25,6 +25,15 @@
 #     mW (cap entry 2) — 250000 mW lives @0x8FC0C in the verified
 #     sibling (sha256_16 41a0860f8abfcfa7). The grammar is re-derived
 #     per-ROM by v463a (the LHR seam moved rlen 67→71 — never hardcode).
+#   - 4.63a (the founder admission day): TPU serves the .rom wrapped in
+#     NVIDIA's NVGI container — v463a splits it (the image @0x9200 for
+#     the .E5), the hash admission = the file as downloaded, THE FLASH
+#     FILE = THE RAW written next to it. The .E5's P table = v0x4D: the
+#     cluster grammar decoded {100000, 280000, 300000} @0x86A04 = the
+#     cap 280 W, GATE PASSED on the real file. AND the zeroed subsystem
+#     (0000:0300) = THE MSI FAMILY NORM — our own chip's .EB reads the
+#     same; the day-0 trap = the zeroed DEVICE, the subsystem = the
+#     strap region, not the image (v463a verdicts OK with the note).
 #   - the community precedent (r/overclocking kuiwbg): the SAME cross-
 #     flash (Gaming X Trio → the 280 W Suprim vBIOS) = a working daily
 #     driver. No dual-BIOS switch on this board family: THE ROLLBACK =
@@ -48,7 +57,7 @@
 # your browser — the pages are bot-checked for us, not for you).
 set -uo pipefail
 
-REPO="${REPO:-/home/z/my-project/gpu-repo}"
+REPO="${REPO:-$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)}"
 OUT="${OUT:-$HOME/vbios-463}"            # the copy-out law: NOT /tmp
 WORK="${WORK:-/tmp/runbook-463}"         # VOLATILE — the scratch only
 FW_SHA_STOCK="c0156954"                  # the banked stock GSP firmware sha
