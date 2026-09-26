@@ -61,7 +61,9 @@ REPO="${REPO:-$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)}"
 OUT="${OUT:-$HOME/vbios-463}"            # the copy-out law: NOT /tmp
 WORK="${WORK:-/tmp/runbook-463}"         # VOLATILE — the scratch only
 FW_SHA_STOCK="c0156954"                  # the banked stock GSP firmware sha
-DEV_ID="0x2488"                          # GA104
+DEV_ID="2488"                            # GA104 (PCI id sans le préfixe 0x —
+                                         # la leçon 4.62: lspci -n affiche
+                                         # "10de:2488", le grep 0x = le faux FAIL)
 SUBSYS_OURS="1462:3904"                  # the founder's card (day-0)
 BOARD_OURS="02DA"                        # nvflash's own words, day-0
 TARGET_DEFAULT_TPU="https://www.techpowerup.com/vgabios/277875/msi-rtx3070-8192-210519"
