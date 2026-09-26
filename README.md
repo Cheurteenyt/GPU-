@@ -19,25 +19,36 @@
 | **IV. The GSP-RM cartography** (now) | the rm.elf reverse-engineered at scale: 66 % of the image boundary-verified (recursive descent), 221,201 verified indirect transfers, the state-pointer derivation graph measured end to end — and the honest revision: **the power limit is the EDPp runtime policy of the GSP-RM, not a fuse shadow** — the FEAT_OVR lane does not reach it; the next lane = the static RPC-table anchors (ID→handler) inside the runtime-bound dispatch graph | `lab/jalon411/findings-4.14→4.19.md`, `tools/analysis/gsp-extract/` |
 | **V. The transport & the falsification wave** (the passes 4.20→4.34) | the RPC dispatch table found (1156 entries, ID→handler named); the transport instrumented end to end (the send + the recv small/large); **the falsifications banked**: the power limit value NEVER travels fn=76 (the 250000s captured = the LACT clock offsets — the issuer = NVML userspace, proven), the 1616-B request = rejected unread, the seven rm.elf 250000 constants = the TIME hysteresis (µs), NOT power; the closed x86 RM acquired (19 MB + 121 MB, provenance) and the plaintext booter emulated (the risk-free patch validation) | `lab/jalon411/findings-4.20→4.34.md`, `lab/jalon411/INDEX.md`, `tools/edpp/`, `tools/gsp-lz/`, `tools/gsp-container/`, `tools/analysis/x86-rm/`, `tools/booter-patch/` |
 | **V+. The transfer-list & the booter bypass** (the passes 4.35→4.42) | the SAFE LANE proven (the 864 RM regkeys, 251 with xrefs); the ROP gadget hunt in OUR bootloader (the write-primitive found); **the transfer-list BUILT and PROVEN end-to-end** (the C patch, the emulator 11/11); the patched gsp.bin **booted WITHOUT signature rejection** — the rm.elf modification accepted by the silicon; the x86 closed core acquired (19 MB + 121 MB) with provenance | `tools/booter-patch/`, `tools/edpp/`, `tools/gsp-lz/`, `tools/gsp-container/`, `tools/analysis/x86-rm/`, `lab/jalon411/findings-4.35→4.42.md` |
+| **VI. The closure & the hardware route** (the passes 4.43→4.64) | every soft lane falsified to its named wall: the kernel validates the SET value before the GSP (0x1F — named live by the NVML bypass, which READ the power directly `[65025, 250000]` and SET 240 W end-to-end); **the boot lane closed BY DESIGN** (the 4.59 machine day: the discriminant 0x578 falsified, the post-mortem WPR = the stock — **the RSA wall** (any modified memdesc = the cryptographic failure) + **the falcon wall** (the GA104 handler = the no-return loop; the exploitable one = the GA100/CMP 170HX)); **the pivot = the vBIOS cross-flash** (4.63/4.63a: the Suprim X .E5 = the only MSI 3070 at 280 W, admitted — the NVGI law, the flash file = the raw, the 280 W gate PASSED on the real file) and **the flash transport executed v1→v6 with ZERO EEPROM writes** (the card intact, the transport fail-safe proven in real conditions; the lesson: the isolation lives at the kernel cmdline); v7 (the single-use Limine entry) = written, pending install | `lab/jalon411/INDEX.md` (the rows 4.43→4.64), `lab/jalon411/findings-4.59-machine-day.md`, `lab/jalon411/findings-4.64-flash-day.md`, `tools/edpp/runbook-463.sh`, `tools/flash/v463a_vbios_decode.py` |
 
-## The current phase: THE NVML BYPASS READ THE POWER DIRECTLY — the 280 W wall = the kernel value-validation (0x1F), the next dig = the NVPCF kernel-side framework and the 0xFE01 channel
+## The current phase: THE BOOT LANE CLOSED BY DESIGN — the vBIOS cross-flash = the remaining route, the transport executed fail-safe, v7 pending install
 
-The wave 4.20→4.34 closed every transport lane to the power limit:
+The 2026-09-26 arc closed the question and opened the last road:
 
-1. **The RPC dispatch table = found** (1156 entries, ID→handler named —
-   pass 4.20), and the transport instrumented end to end (the send +
-   the recv small/large paths, the sequence-tagged dumps).
-2. **The power limit value NEVER travels it.** Every "250000" captured
-   was falsified in turn: the LACT clock offsets (the issuer = NVML
-   userspace, proven against both x86 cores), an unconsumed rejected
-   request (the handler returns INVALID_STATE — confirmed live by the
-   surgical rewrite), and in the firmware itself the seven 250000
-   constants = the TIME hysteresis in µs ([250000, 500000]), not power.
-3. **The enforcement = the GSP-RM's EDPp policy object**, fed by a
-   mechanism still unobserved — the recv large-path hook (the pass
-   4.26-ready) and the force-get = the armed observation instruments.
-4. **The anti-tamper lock** stands (the pass III lesson): one fire per
-   power cycle, the restoration = the full cycle.
+1. **Every soft transport is falsified to its wall** (the passes
+   4.20→4.62): the power value never travels fn=76, the seven rm.elf
+   250000s = the TIME hysteresis, the NVML bypass named the kernel
+   0x1F value-validation live (and proved the channel itself
+   end-to-end: the GET without NVML, the SET 240 W applied).
+2. **The boot lane = CLOSED BY DESIGN** (the 4.59 machine day): the
+   geometric discriminant 0x578 executed at the exact position — the
+   write never fired (the post-mortem WPR = the stock). The RSA wall
+   (any modified memdesc = the cryptographic failure) + the falcon wall
+   (the GA104 error handler = the secure no-return loop; the
+   exploitable handler = the GA100/CMP 170HX difference). 8 variants,
+   15+ boots — the answer = structural.
+3. **The pivot = the vBIOS cross-flash** (4.63/4.63a): the Suprim X
+   .E5 = the only MSI 3070 at 280 W, ADMITTED by the decoder v463a
+   (selftest 29/29) — the NVGI container law (the flash file = the raw
+   @0x9200), the zeroed subsystem = the MSI family norm, the budget
+   cluster {100000, 280000, 300000} = THE 280 W GATE PASSED on the real
+   file.
+4. **The flash transport executed v1→v6 with ZERO EEPROM writes** — the
+   card intact after every attempt (the transport fail-safe proven in
+   real conditions); the structural lesson: the GPU isolation must live
+   at the kernel cmdline (`module_blacklist`). **v7 = the founder
+   architecture (the single-use Limine entry "Flash463", the service,
+   the arming flag, the 3 anti-loop locks) — WRITTEN, NOT INSTALLED.**
 
 The active gains on the machine: the core offset +225 → 2325 MHz, the
 undervolt 1995 @ 987 mV, 250 W stock, the memory OC +500 validated
@@ -46,7 +57,7 @@ undervolt 1995 @ 987 mV, 250 W stock, the memory OC +500 validated
 ## The data catalog
 
 **[lab/jalon411/INDEX.md](lab/jalon411/INDEX.md)** — the master index
-of the wave 4.14→4.34: each pass, its findings, its verdict, its
+of the wave 4.14→4.64: each pass, its findings, its verdict, its
 instruments. The tool domains: **tools/edpp/** (the power-limit
 instruments, the runbook), **tools/gsp-lz/** + **tools/gsp-container/**
 (the verified gsp.bin rebuild pipeline), **tools/analysis/x86-rm/**
