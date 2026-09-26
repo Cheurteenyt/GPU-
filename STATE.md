@@ -410,6 +410,60 @@ merge:
 5. The cmd 0xe61e = FINN closed-only (absent from the entire public
    source) — the semantics = INDECIDABLE-BY-BYTES.
 
-**The current phase: the kernel-side validation (0x1F) = the wall to
-study — the NVPCF headers (the kernel-side power framework, the open
-source) = the next dig; the RM-side power table = the DC lane.**
+**The 4.60-era phase pointer (the kernel-side 0x1F study) = SUPERSEDED
+the same day by the arc below — the closure verdict moved the campaign
+to the hardware route.**
+
+## The 2026-09-26 arc: 4.61→4.62, the boot-lane closure, the 4.63a admission, and the flash day
+
+1. **4.61 (the DMEM tail-write)**: the two-sided writer ported to the
+   real target — the base uW at obj+0x618+k*0x10, the 0x0EE6B280 marker
+   read BEFORE any write, the plan gate = REFUSED without the dump scan,
+   the 11 verdict codes. The f18 lane proven persistent = the route 4.62.
+2. **4.62 (ROUTE W)**: the FB/WPR2 read lane executed as designed — the
+   BAR1/ReBAR probe PROT_READ zero-patch, the memdesc-over-phys
+   two-sided, the window math double-emitted honest, the seal guards
+   verbatim in C, the decision table coded. The write-free law in code.
+3. **THE BOOT-LANE CLOSURE (the 4.59 machine day)**: the audit's plan
+   executed — the v448b flush + the geometric sweep, the first
+   discriminant 0x578 (the chain fits the frame exactly, the ra @0x618
+   receives OUR gadget 0x0ccb, byte-verified). **THE WRITE DID NOT FIRE**
+   (the post-mortem WPR = 0x4cb8f = the stock). The direct model
+   falsified by its own discriminant. **THE STRUCTURAL VERDICT: the RSA
+   wall (any modified memdesc = the cryptographic failure) + the falcon
+   wall (the GA104 error handler = the secure no-return loop; the
+   exploitable handler = the GA100/CMP 170HX difference). The boot lane
+   280 W = CLOSED BY DESIGN on this card — 8 variants, 15+ boots.** The
+   rollbacks definitive (0 strings, the firmware c0156954, zero Xid).
+4. **4.63/4.63a — the pivot to the only remaining route (the vBIOS
+   cross-flash)**: the TPU census (the Suprim X .E5 = the only MSI 3070
+   at 280 W), the in-repo patched nvflash named to the byte (2 bytes
+   @0x18460B, JNE→NOP×2), the day-0 autopsy (the 35 VFIO sessions died
+   on the zeroed Device ID — the transport fail-safe, the image the
+   cause), the decoder v463a (selftest 29/29), the real-ROM admission
+   (the NVGI container law — the flash file = the raw @0x9200; the
+   zeroed subsystem = the MSI family norm; the budget cluster
+   {100000, 280000, 300000} @0x86A04 = THE 280 W GATE PASSED on the real
+   file), the DEV_ID fix landed in the runbooks 462 AND 463 (#66).
+5. **THE FLASH DAY (the evening — the runbook-463 §2 transport)**: the
+   guest built (vmlinuz extracted from the UKI, the initramfs
+   busybox+nvflash 5.867+the raw ROM, the no-GPU rehearsal = the clean
+   ABORT), six attempts v1→v6 = **ZERO EEPROM writes, the card intact
+   after every one** (.EB re-verified each time; v4 = the rmmod fbcon
+   hang, v5 = the vtcon freeze, v6 = nvidia loaded from the initramfs →
+   ten clean abort loops 19h02–19h13 → the snapshot restored). THE
+   STRUCTURAL LESSON: the GPU isolation must live at the kernel cmdline
+   (module_blacklist) — the file-level blacklists arrive too late. The
+   ROM artifacts classified honestly (the flash file = the raw
+   ccabe841 55AA; the TPU container = the NVGI 54968a59; the 118041-B
+   file = the bot-check HTML; the existing vbios-stock.rom = PARTIAL
+   157696 B — the full chip read ×2 stays the first gesture of the §2).
+   **v7 = the founder architecture (the single-use Limine entry
+   "Flash463" + module_blacklist, the service, the arming flag, the 3
+   anti-loop locks) — WRITTEN, NOT INSTALLED.**
+
+**The current phase: the flash transport = the only road, proven
+fail-safe in real conditions; the next gesture = the v7 install (the
+syntax check, the one-sudo install, the boot on Flash463, the ~3-min
+write, the verdict .E5/280 W or .EB/rollback) — with the full chip read
+×2 BEFORE any write (the runbook-463 rollback law).**
