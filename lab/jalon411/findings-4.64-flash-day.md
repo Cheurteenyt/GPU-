@@ -22,12 +22,14 @@ prochain geste.
 | le noyau guest | `vmlinuz-guest` (17277440 B, md5 `2534dc1c…`) — 7.2.5-3-omarchy extrait de l'UKI |
 | l'initramfs guest | `initramfs.img` (9891987 B, md5 `c46614f4…`) — busybox + nvflash 5.867 patché + le raw ROM ; la répétition SANS GPU = l'ABORT propre |
 | les scripts | `build-guest.sh`, `flash-day.sh` v1→v7, `session-VtFFDY/` (host.log, v6.log) |
-| le dump stock existant | `~/dmem-451/vbios-stock.rom` = PARTIEL (157696 B sur ~962048 attendus, `55AA`, md5 `38782a40…`) — un pré-check d'identité, PAS le rollback |
+| le dump stock existant | `~/dmem-451/vbios-stock.rom` (157696 B, sha256 `135b2153…`) = **la chaîne complète auto-cohérente de notre puce** (le dump double-lecture du 2026-09-17 : 65 024 B x86 + 92 672 B EFI ; CORRECTION 4.65 : ce n'était pas « partiel » — mais ce n'est pas non plus le SPI intégral, voir 4.65) |
 
-**Le chip read ×2 COMPLET (l'image entière, le chip-before.rom) = le
-PREMIER geste du jour §2, avant toute écriture** — la loi runbook-463 (le
-999424 B = le conteneur .E5, PAS un backup stock ; le partiel 157696 B ne
-suffit pas au rollback).
+**Le chip read ×2 COMPLET (l'image SPI entière ~1 Mo, le chip-before.rom)
+= le PREMIER geste du jour §2, avant toute écriture** — la loi
+runbook-463 (le 999424 B = le conteneur .E5, PAS un backup stock ; la
+chaîne 157 696 B = l'identité, pas l'image de rollback complète : la
+lecture in-session du SPI intégral = fermée par mesure — le BAR ne sert
+pas le SPI à l'hôte, le registre day-0).
 
 ## Les six tentatives — chaque échec nommé
 
