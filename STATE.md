@@ -456,8 +456,9 @@ to the hardware route.**
    (module_blacklist) — the file-level blacklists arrive too late. The
    ROM artifacts classified honestly (the flash file = the raw
    ccabe841 55AA; the TPU container = the NVGI 54968a59; the 118041-B
-   file = the bot-check HTML; the existing vbios-stock.rom = PARTIAL
-   157696 B — the full chip read ×2 stays the first gesture of the §2).
+   file = the bot-check HTML; the existing vbios-stock.rom = the
+   complete legacy chain 135b2153 — the full SPI read stays the first
+   gesture of the §2, in the guest).
    **v7 = the founder architecture (the single-use Limine entry
    "Flash463" + module_blacklist, the service, the arming flag, the 3
    anti-loop locks) — WRITTEN, NOT INSTALLED.**
@@ -467,3 +468,20 @@ fail-safe in real conditions; the next gesture = the v7 install (the
 syntax check, the one-sudo install, the boot on Flash463, the ~3-min
 write, the verdict .E5/280 W or .EB/rollback) — with the full chip read
 ×2 BEFORE any write (the runbook-463 rollback law).**
+
+## The pass 4.65 (2026-09-27) — the EB↔E5 comparison executed offline, the gate filled
+
+The external audit's Phase 2 executed with ZERO boots: the sibling-_1
+raw (the same MSINV390MH board as our chip) ↔ the .E5 raw = **455 bytes
+of diff over 962,048 = 0.047 %** — the same size, the same tables at the
+same offsets, the board marker IDENTICAL, the memory SAMSUNG both sides,
+the power deltas IN-PLACE ({100000,240000,250000} → {100000,280000,300000}
+at the same 0x86a04), the clock bins = the Suprim class (WARN), **one
+UNKNOWN (the 326-B region @0xe8e12)**. The gate: ZERO INCOMPATIBLE
+known; the cross-flash admissible pending (a) the full chip read ×2 in
+the guest (the true ~1-MB SPI chip-before — the in-session read was
+closed by measurement) and (b) the 0xe8e12 classification. The
+provenance corrections banked: vbios-stock.rom = the complete
+self-consistent legacy chain (135b2153, the Sep-17 double read), not
+"partial", but not the full SPI either; the day-0 "BAR window" dumps =
+failed reads (v1 = another device's RAM). findings-4.65-eb-e5-comparison.md
