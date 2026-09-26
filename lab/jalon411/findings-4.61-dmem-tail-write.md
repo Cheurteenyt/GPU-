@@ -1,0 +1,211 @@
+# findings-4.61 — THE DMEM TAIL-WRITE: the µW-base targeting, the
+# two-sided writer port, and the recompute math (the honesty first)
+
+**Branch**: `pass/4.61-dmem-tail-write` (stacked on
+`pass/4.60-nvml-bypass`, 3ba232a). Nothing ran on the GPU — the
+instrument = files-and-tables only, the day = runbook-461.sh
+(ACK-gated, the plan gate BEFORE the patch). The battery =
+**v461a 17/17 + v461b 55/55, host-only**.
+
+## §0 The mission and the lane
+
+The 4.60 lane = the USERSPACE door (the NVML bypass). The 4.57/4.58
+lane = the Booter ROP door (the sweep pending). **The 4.61 lane = the
+DRIVER door**: the two-sided instrument pattern (machine-proven: the
+4.51 dump twin, 4 boots 0 Xid; the 4.55 writer conversion, the
+battery-proven port) retargeted from the sysmem heap (dead on this
+card, the 4.51 verdict 1) to THE POWER OBJECT ITSELF — the µW base
+quad at obj+0x618+k*0x10, the value 280000000 µW, THE MARKER CHECK
+before any write.
+
+The rule unchanged: the bytes decide. The v461a scan of the EXISTING
+dumps = the targeting instrument; the GATED NULL plan = the honest
+close when the dumps are silent; the day never boots on a guessed
+address.
+
+## §1 T1 — the targeting: the object model and the target map
+
+**The object model (all banked — the constants cited, zero invention):**
+
+| élément | valeur | la source |
+|---|---|---|
+| l'objet | 0x6d0 B, l'allocateur 0x18C373C, le descripteur 0x4190DE8, memset-zéro | 4.43 §2.2 (la fenêtre 0x1458cf8 citée) |
+| la base | obj+0x618+k*0x10, k=0..3 (lwu zéro-signé @0x1446f0c) | 4.43 §2.4, 4.44 §1 (la table des champs) |
+| les groupes | les clés {1,4,8,2} @0x1C7B320 | 4.44 §1, 4.46 §1.3 |
+| le remplissage | l'event 0x20809009 (le masque → obj+0x65c) puis 0x20809064 (le lookup clé→ligne, la table source à (a0)+0x32BC8) | 4.43 §2.3, 4.46 §1.3 |
+| les records | obj+0x18+k*0x30, f18 @+0x18 (c.lw SIGNÉ, −1 = la sentinelle), f14 @+0x14 | 4.44 §1 |
+| LA FORMULE | limite_mW = base_µW × f18 / 100 / 1000 | 4.43 §2.4 (mul/divu/divuw @0x1446f14-f1c) |
+| le payload | le u64 {base, 0} — la moitié zéro = le side effect DOCUMENTÉ | 4.44 (le payload TF 9/9), 4.54 (le u64 ZÉRO-extension) |
+
+**The marker family (imported from v454a — zero re-transcription):**
+0x0EE6B280 = 250 W stock, 0x0E4E1C00 = 240 W sibling, 0x10B07600 =
+280 W target. A 0x10B07600 hit in a base slot = ALREADY-280 = the
+no-op refusal (never a write target).
+
+**The instrument (`v461a_target_map.py`, 17/17):**
+- the scan per dump surface: the base-form u32le hits + the u64-pair
+  law ({base, 0}) + THE OBJECT FINGERPRINT: the 0x10-stride
+  co-location (the quad) + the f18 quad shape ({100, 112, 0xffffffff}
+  at obj+0x18+k*0x30);
+- the object-base inference: obj_base = hit_off − 0x618 − k*0x10, the
+  consistency gate (ALL co-located hits infer the SAME base — a lone
+  hit = LEAD, never plan-eligible: the k ambiguity);
+- the target map = the mission's table: {adresse absolue (the
+  surface-relative offset the dump proves), offset objet
+  (obj+0x618+k*0x10), rôle (base[k], the group key), valeur actuelle
+  attendue (the shape)};
+- the plan (the v452c law): sel = k+1, ONE entry per sel, old = THE
+  BYTES FOUND, new = the u64 pair {0x10B07600, 0}, verify_after on
+  EVERY entry, plan_sha16 = sha256(canonical)[:16], the GATED NULL
+  plan;
+- the selftest (the v451a pattern): the full-object fixture (both
+  quads), the partial fixture (LEAD, no plan), the control (MISS),
+  the already-280 fixture (the no-ops named), **the tree guard (the
+  COMMITTED gsp_init_args.h @610.57.04 re-asserted through gcc
+  offsetof — the args offsets {88, 104, 120, 136} = the model, the
+  4.51 machine decode coherence)**, the C emission byte-exact (gcc,
+  the 4.44 law);
+- the args decode (--decode-args): the S3 per the committed header.
+
+## §2 T2 — the writer: the two-sided port (the 4.55 pattern)
+
+**`tools/edpp/gsp_dmem_write.c`** (the RM TU, ZERO linux headers):
+the regkey gate `RmGspDMemWrite` (sel = the group k+1, {1..4}), the
+selector filter, the plan table (`gsp_dmem_write_plan.h` — the v461a
+emission), **the surface resolver** (the plan's surface id → the
+KernelGsp member the 4.51 dump instrument itself read: 1=args,
+2=libosinit, 3=statemonitor, 4=wprmeta, 5=sysmemheap(map) — the
+sizes = memdescGetSize(the descriptor)), the bounds, **THE PRE-VERIFY
+= THE MARKER CHECK** (the mission law: read the current base, verify
+the old bytes, THEN write — the STALE-PLAN abort records
+0x0EE6B280's failure by name), the u64-pair write, the post-verify,
+the unmap, the 11 verdict codes, the state = the pLateFn carrier.
+
+**`tools/edpp/patch_nv_461.py`** (the nv.c side): the delayed work
+(8 s), the call through pLateFn, the NVRM-461 printk ledger
+(sel/surf/group/off/len/verdict/verify/seen/want/new/sha16 — one
+line, dmesg-persistent), the DmemWriteMarker, idempotent, coexists
+with the 4.51 DmemDumpMarker AND the 4.52 HpokeMarker.
+
+**The battery (`v461b_dmem_write_two_sided.py`, 55/55)** — the v455a
+pattern ported; the plan variants GENERATED BY v461a ITSELF (the
+cross-instrument guard): G1 the RM hygiene (zero linux headers, the
+defense branches), G2 the mirror text (the codes x11 identical, the
+names table), G3 the logic battery (the off gate, the bad selector,
+the happy path + the OTHER-entry check, the STALE abort with NOTHING
+written, the bounds, the resolver refusal, the no-KernelGsp, the
+one-shot, the NULL_PLAN, the map path with the map/unmap pair), G4
+the layout mirror (gcc, every member), G5 the patcher dry-run (the
+marker, the order, the idempotency, gcc -fsyntax-only), G6 the
+cross-side link (the patcher's mirror reads the RM TU's state at the
+linker level).
+
+**8 bugs caught by the battery BEFORE the founder** (the discipline
+pays again): (1) the NvP64 stub model (the struct vs the LP64 void*
+form — the gsp_hpoke.c machine-proven model wins); (2) the NULL
+absent from the stub env; (3) the patcher-anchor check counted the
+patcher's own text; (4) **the worker-pos = the forward declaration,
+not the body — the 4.55 bug #4 REPEATED and caught by the battery**
+(the lesson banked twice now); (5) the NV_TRUE gap in the fixture;
+(6-7) the SURF_SIZE/SURF_ID substitutions; (8) the heap-memory
+planting for the map path (the pre-verify reads the MAPPED memory,
+not the direct surface).
+
+## §3 T3 — THE RECOMPUTE MATH: the honest option table
+
+The question (the mission, verbatim): the GSP recompute-t-il AFTER
+our write, or must the recompute be triggered?
+
+**The banked chain (4.43 §2.3, 4.44)**: the recompute 0x143FDBC
+(1) calls the INTERNAL event 0x20809009 → the mask → obj+0x65c;
+(2) matches the mask against {1,4} @0x1C7B320; (3) calls the INTERNAL
+event 0x20809064 with the list → the handler 0x18ABCCA's lookup
+clé→ligne copies the rows → **D (w3) lands at obj+0x618+k*0x10**.
+The evaluator 0x1446D98 then multiplies: limite = base × f18/100/1000.
+
+| option | le mécanisme | le statut honnête |
+|---|---|---|
+| (a) l'écriture = persistante, le recompute = naturel au prochain event perf | notre base à obj+0x618 reste jusqu'à la PROCHAINE passe de la recompute; l'évaluateur la lit à la fenêtre | **la classe VOLATILE (4.44, banked)** : la recompute réécrit A/B/C/D depuis les events à CHAQUE passe — l'écriture survit entre le 0x20809064 et l'évaluateur, PAS au-delà. Le jour DÉCIDE : si nvidia-smi voit 280 après le boot (sans re-trigger), la fréquence réelle de la recompute = plus lente que le modèle — la découverte. Le statut = HYPOTHÈSE CONTRARIÉE par les octets, l'expérience = le juge |
+| (b) le trigger explicite = le control ioctl qui force le recompute | un control cmd ferait courir 0x143FDBC sur demande | **INDECIDABLE-BY-BYTES ici** : l'event 0x20809064 = un RÉCEPTEUR interne (la recompute l'appelle par la vmethod *(state+0x138) — 4.43 §2.3), pas une API de control; aucun cmd public ne force la recompute (la 4.60 : les cmds power NV0080 = closed-only FINN; le grep zéro sur 610.57.04 ET 550.54.14). Les candidats à tester sur la machine = le GET RatedTdp 0x2080206e (la sonde lisible qui touche la même famille d'objet — la résolution 4.21) et le cycle P-state; chaque tentative = le ledger |
+| (c) la lane f18 = LA PERSISTANCE (le déjà-bancé) | f18 = la classe PERSISTANTE (4.44 : la recompute ne réécrit JAMAIS f14/f18) : base 250M × 112 = 280 W sans toucher la base | **PROUVÉ par les octets (4.44 §payload)** — la route de la persistance NOMMÉE pour la 4.62 si (a) échoue; le même instrument, le plan reverté vers obj+0x18+k*0x30 ← u64 {112, 0} (le voisin +0x1c = le champ que la recompute ZÉRO à chaque passe = le u64 auto-réparé, 4.44) |
+
+**La lecture honnête de la mission** : la mission ORDRE la base
+(la valeur 280000000 µW à obj+0x618) — le marqueur 0x0EE6B280 = la
+preuve de ciblage UNIQUEMENT là. La tension VOLATILE-vs-PERSISTANT =
+exactement ce que le jour décide (la T5 route A = la capture du
+re-écrasement → la 4.62 = la f18 route ou la route de l'écrivain).
+
+## §4 T4 — the day (runbook-461.sh, bash -n clean)
+
+§0 the guards (the ACK, the device 0x2488, **the firmware sha guard
+c0156954 = NEVER touched**, the batteries re-run, **THE PLAN GATE**:
+the v461a scan on ~/dmem-451/ — 0 entries = the REFUSAL before any
+patch, the T5 routes printed, NOTHING boots) → §1 the patch (the 8
+anchors ≥7, the drop-in + the plan header + the ONE hook line next
+to the 4.52's, patch_nv_461.py + the marker refusal, **dkms remove +
+install --force**, limine-mkinitcpio, **THE VERIFICATION LAW: nm the
+.ko = the DATA SYMBOL gspDmemWriteState + the NVRM-461 bytes**) →
+§2 the boot (the ACK per boot, RUNBOOK_461_SEL={1..4}, the conf =
+the SEMICOLON law, the ledger pre/post) → §3 THE READING
+(nvidia-smi -q -d POWER: 280 → §4; the write verified + the limit
+stayed = the T5 route A; the 0x0 = the PLM artifact → the PGC6 bis)
+→ §4 nvidia-smi -pl 280 (the 4.60 bypass = the double-cover on the
+NVML refusal) → §5 THE LOAD (pillarB, the telemetry, the tenue à
+280 W = **THE BREAK**) → §6 the rollback (**DRIVER ONLY**, the
+~10-min ritual, the old bytes = in the plan — the restore = the same
+instrument with the reverted plan).
+
+## §5 T5 — the contingencies (named, in code)
+
+1. **the base re-crushed** (the write verified OK, the limit back at
+   250): the ledger = WHO/WHEN (the NVRM-461 line + the pgc6-traj
+   snapshots) → **the 4.62 pass = the persistence route** (the f18
+   lane (c) PROUVÉ-class, or the writer-of-the-base hunt — the
+   0x32BC8 source table's filler, the 4.46 §1.4 lane).
+2. **the read = 0x0** (the PLM artifact): the probe bis with the
+   PGC6 pair = the 4.51 pattern (tools/edpp/pgc6_probe.py) — the
+   seal's read-behavior named before any conclusion.
+3. **the GATED NULL plan** (the dumps silent): the honest close —
+   the re-dump day (the SEMICOLON multi-key: RmGspDmemDump=1 AND
+   RmGspDMemWrite in ONE boot is REFUSED by design — the dump boot
+   and the write boot stay SEPARATE, one variable per transition),
+   the route-W read probe (the 4.52 §5 design), the falcon-internal
+   named negative.
+
+## §6 The honesty ledger
+
+- **PROUVÉ** (the tree, cited): the object model (the 4.43/4.44/4.46
+  windows re-cited); the args layout (the COMMITTED
+  gsp_init_args.h @610.57.04, gcc-offsetex re-asserted 17/17); the
+  surface members (the 4.51 §1 banked list); the map/unmap/regkey
+  patterns (the 4.52 grounding, unchanged).
+- **PROUVÉ** (the batteries, every path executed): v461a 17/17 (the
+  tree guard + the C byte-exact included), v461b 55/55, runbook-461
+  bash -n clean + the ACK refusal tested.
+- **PROUVÉ** (the arithmetic): 280000000 = 0x10B07600, 250000000 =
+  0x0EE6B280 (the v454a shapes imported, the asserts re-armed).
+- **HYPOTHÈSE**: option (a) (the write survives the recompute —
+  CONTRARIED by the 4.44 VOLATILE class; the day decides); the
+  bases echoed in ANY host-reachable surface (the scan decides).
+- **INDECIDABLE-BY-BYTES**: option (b) (the recompute trigger cmd —
+  the internal event, no public cmd; the machine probes decide);
+  the object's absolute runtime address (heap-allocated — the dumps
+  decide per surface); the seal's CPU-write behavior on the FB/WPR2
+  heap (the route-W question, unchanged).
+- **REFUSÉ**: the machine execution (nothing ran — this pass armed
+  the day); any write without the marker pre-verify (the STALE-PLAN
+  abort, in code); a plan from anything but the dump bytes (the GATED
+  NULL); the image patch (the v451b IMG refusal stands); the
+  firmware file (the §0 sha guard).
+
+## §7 The queue (what the day decides)
+
+1. **the J-461 day** (runbook-461 §0-§6): the plan gate → the write
+   boot → THE READING — the option (a) verdict = the campaign's
+   280 W answer or the honest close.
+2. the 4.62 = the persistence route (the f18 lane = the
+   PROUVÉ-class candidate; the writer-of-the-base hunt = the
+   second).
+3. the 4.57 sweep = unchanged (the PLM route); the 4.60 bypass =
+   the userspace double-cover on the SAME day (the §4 refusal
+   branch).
