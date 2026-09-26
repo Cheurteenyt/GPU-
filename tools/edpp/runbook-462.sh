@@ -38,7 +38,9 @@ DMEM_DIR="${DMEM_DIR:-$HOME/dmem-451}"
 OUT="${OUT:-$HOME/route-w-462}"          # the copy-out law: NOT /tmp
 WORK="${WORK:-/tmp/runbook-462}"        # VOLATILE — the scratch only
 FW_SHA_STOCK="c0156954"                  # the banked stock GSP firmware sha
-DEV_ID="0x2488"                          # GA104
+DEV_ID="2488"                           # GA104 (PCI id sans 0x —
+                                        # la leçon 4.62: lspci -n =
+                                        # "10de:2488", pas 0x)
 
 g_ok=0; g_tot=0
 chk() { g_tot=$((g_tot+1)); if "$@" >/dev/null 2>&1; then g_ok=$((g_ok+1));
