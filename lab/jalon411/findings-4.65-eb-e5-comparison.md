@@ -97,3 +97,25 @@ empirique convergente.
 3. la classification de la région 0xe8e12 (offline, sur les raws) ;
 4. SEULEMENT ENSUITE : l'écriture .E5 ou l'arrêt honnête — le verdict
    appartient au gate, pas à l'élan.
+
+## Addendum (le même jour) — la région 0xe8e12 CLASSIFIÉE : le bloc BIT compressé
+
+L'UNKNOWN du gate est levée offline : le contexte avant la région =
+`42 49 00 10 00 00 01 01 78 da` = **le token BIT (id 0x4942, taille
+0x1000) portant un flux ZLIB** (`78 da`). Décompression des deux côtés :
+
+- les deux flux décompressent en **4 080 B, structure identique** (l'en-tête
+  `ROM\x01\x02\x70…`, les tokens `IMGD/BOBD/…`) ;
+- la diff décompressée = **169 octets**, trois familles : (1) la tête
+  power/clock (@0x000a), (2) **les chaînes OEM/mémoire** (les mêmes
+  SAMSUNG-SNTBVV-11 vs SAMSUNG-SA1KY4-24 que la copie non-compressée
+  @0xb8219 — le bloc = la copie compressée des mêmes données), (3)
+  **une table à stride 8 remplie dans l'E5 et à ZÉRO dans l'EB**
+  (@0x0560+, la classe fan/thermique — le radiateur Suprim ≠ le Trio).
+
+**La classification : tables périphériques par-board compressées — PAS
+des signatures, PAS du cryptographique. WARN (le flash = adopter la
+politique fan/thermique Suprim sur notre radiateur Trio — le tradeoff
+connu du précédent kuiwbg), NON bloquant.** Le gate final : ZÉRO
+INCOMPATIBLE, ZÉRO UNKNOWN bloquant — reste uniquement le chip read ×2
+guest (le rollback physique).
