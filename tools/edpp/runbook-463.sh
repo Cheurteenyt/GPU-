@@ -73,6 +73,7 @@ chk() { g_tot=$((g_tot+1)); if "$@" >/dev/null 2>&1; then g_ok=$((g_ok+1));
         echo "  [PASS] $*"; else echo "  [FAIL] $*"; fi; }
 die() { echo "REFUSÉ: $*" >&2; exit 2; }
 section() { echo; echo "== $* =="; }
+cd "$REPO" || die "REPO introuvable: $REPO"   # les chemins tools/flash/... sont relatifs
 
 # ───────────────────────────────────────────────── §0 — LES GUARDS ──
 section "§0 LES GUARDS (zéro boot: l'acquisition, l'identité, la grammaire)"
@@ -90,7 +91,8 @@ if [ -n "$FW" ]; then
   [ "$S" = "$FW_SHA_STOCK" ] || die "gsp.bin sha $S != $FW_SHA_STOCK — le fichier firmware a bougé, le jour s'arrête"
   echo "  gsp.bin $S = le stock (intact)"
 else
-  echo "  (pas de fichier gsp.bin sur cette machine — le guard passe)"
+  g_tot=$((g_tot+1))   # compté comme NON réussi: le guard n'a rien vérifié
+  echo "  [WARN] gsp.bin introuvable sous /lib/firmware/nvidia — guard firmware NON vérifié"
 fi
 
 echo "-- les instruments --"
@@ -171,12 +173,13 @@ echo "-- le ROM lu dans la puce se décode en 280 W --"
 [ -f "$SESSION/chip-after.rom" ] && \
   python3 tools/flash/v463a_vbios_decode.py "$SESSION/chip-after.rom" | sed 's/^/  /'
 echo "-- la machine vivante --"
-chk bash -c "nvidia-smi -q -d POWER | grep -q 'Power Limit'"
+EXPECT_W="${EXPECT_W:-280}"   # 280 après flash E5; EXPECT_W=250 pour le verdict du rollback
+chk bash -c "nvidia-smi --query-gpu=power.max_limit --format=csv,noheader,nounits | grep -q '^${EXPECT_W}\\.'"
 nvidia-smi -q -d POWER | grep -A 1 "Power Limit" | sed 's/^/  /' || true
 echo "  LE VERDICT T1-T3: 'Power Limit' doit nommer 280000 mW (280 W).
   Les valeurs vivantes {min,default,max} = le budget décodé — la chaîne
   VBIOS→driver→runtime re-fermée au niveau octet (la loi ring-3)."
-chk bash -c "journalctl -k --since '-1 hour' | ! grep -q Xid" || \
+chk bash -c "! journalctl -k --since '-1 hour' | grep -q Xid" || \
   echo "  !! des Xid dans le journal — le §5 dit quoi"
 
 # ─────────────────────────────────────────── §4 — LE ROLLBACK ──
