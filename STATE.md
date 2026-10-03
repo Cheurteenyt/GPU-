@@ -485,3 +485,19 @@ provenance corrections banked: vbios-stock.rom = the complete
 self-consistent legacy chain (135b2153, the Sep-17 double read), not
 "partial", but not the full SPI either; the day-0 "BAR window" dumps =
 failed reads (v1 = another device's RAM). findings-4.65-eb-e5-comparison.md
+
+## The flash transport v7 (2026-09-26 → 10-03) — the 15-attempt ledger and the proven keyboard root cause
+
+The cross-flash of the genuine Suprim X .E5 container = armed and executed
+15 times, **the card intact every single time** (the gate = before, always;
+the rollback artifact = chip-before.rom, verified). The keyboard blocking =
+**PROVEN by observation** (the LD_PRELOAD spy): nvflash opens `/dev/tty`
+(the CONTROLLING TERMINAL, O_RDWR) — the minimal busybox init never claims
+one → ENXIO → read(−1) = EBADF, the exact logged error. The fix chain: the
+container NVGI (proven by the chip itself), the hash-only gate (858094b3 ×3
+boots), `-6` (the proven write path; the -4/-5/-6 lore = false for 5.867),
+`--overridesysid` (the official flag), **cttyhack** + the bidirectional
+serial feeder (y\n every 3 s) + sendkey, the atomic swarm lock, the
+flash→verdict→copy-out order. **The only link never tested with its fixes =
+the ctty initramfs f4daf8d9** (the attempt 15 = booted 4 minutes BEFORE the
+rebuild). findings-4.67-flash-15-attempts.md
